@@ -202,10 +202,15 @@ on_message (PhonemgrListener *listener, gchar *sender,
 	msg->sender = g_strdup (sender);
 	msg->timestamp = timestamp;
 	msg->message = g_strdup (message);
+
 	g_mutex_lock (app->message_mutex);
+	if (app->messages == NULL)
+		enable_flasher (app);
 	app->messages = g_list_append (app->messages, (gpointer) msg);
 	g_mutex_unlock (app->message_mutex);
+
 	set_icon_state (app);
+	play_alert (app);
 }
 
 void
@@ -245,6 +250,15 @@ disconnect_signal_handlers (MyApp *app)
 			app->message_cb);
 }
 
+static gboolean
+send_test_message (MyApp *app)
+{
+	g_message ("Sending test message");
+	on_message (app->listener, "1234567", 0, "test message", app);
+	on_message (app->listener, "1234567", 0, "test message 2", app);
+	return FALSE;
+}
+
 void
 initialise_connection (MyApp *app)
 {
@@ -257,4 +271,5 @@ initialise_connection (MyApp *app)
 	gdk_threads_init ();
 	app->connecting_mutex = g_mutex_new ();
 	app->message_mutex = g_mutex_new ();
+	g_timeout_add (1000*15, (GSourceFunc) send_test_message, (gpointer) app);
 }

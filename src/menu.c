@@ -61,7 +61,7 @@ send_activated (GtkMenuItem *item, gpointer data)
 {
 	MyApp *app = (MyApp *)data;
 
-	create_send_dialog (app, NULL);
+	create_send_dialog (app, NULL, NULL);
 	return TRUE;
 }
 

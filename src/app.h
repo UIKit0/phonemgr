@@ -22,9 +22,9 @@ typedef struct _appinfo {
 	GtkMenu *menu;
     GladeXML    *ui;
     gint    iconstate;
-    gboolean showing_message;
     gint    chars;
     GtkWidget *send_item;
+    gboolean flashon;
 
     /* auxilliary controllers */
     GConfClient *client;
@@ -48,8 +48,10 @@ typedef struct _appinfo {
     /* signal handlers and timeouts */
     gulong  status_cb;
     gulong  message_cb;
-    gulong   pollsource;
-    gulong   reconnector;
+    gulong  pollsource;
+    gulong  reconnector;
+    gulong  flasher_cb;
+    gulong  popup_cb;
 } MyApp;
 
 typedef struct _message {
@@ -65,7 +67,9 @@ void construct_menu (MyApp *app);
 void ui_init (MyApp *app);
 void show_prefs_window (MyApp *app);
 gboolean dequeue_message (MyApp *app);
-void create_send_dialog (MyApp *app, const gchar *recip);
+void create_send_dialog (MyApp *app, GtkDialog *parent, const gchar *recip);
+void enable_flasher (MyApp *app);
+void play_alert (MyApp *app);
 
 /* connection functions */
 void free_connection (MyApp *app);

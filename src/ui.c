@@ -1,6 +1,7 @@
 
 #include <stdlib.h>
 #include <glade/glade.h>
+#include <libgnome/gnome-sound.h>
 #include <time.h>
 #include <string.h>
 
@@ -12,6 +13,68 @@
 
 static gint conn_port=0;
 static gchar *bdaddr=NULL;
+
+static
+GladeXML *get_ui (MyApp *app, gchar *widget)
+{
+	gchar *fname;
+	GladeXML *ui;
+
+	if (g_file_test ("../ui/phonemgr.glade", G_FILE_TEST_EXISTS))
+		fname = g_strdup ("../ui/phonemgr.glade");
+	else
+		fname = gnome_program_locate_file (app->program,
+					GNOME_FILE_DOMAIN_APP_DATADIR,
+					"phonemgr.glade", FALSE, NULL);
+	ui = glade_xml_new (fname, widget, NULL);
+	g_free (fname);
+
+	return ui;
+}
+
+static
+gchar *get_resource (MyApp *app, gchar *uiresname)
+{
+	gchar *fname;
+
+	fname = gnome_program_locate_file (app->program,
+				GNOME_FILE_DOMAIN_APP_DATADIR,
+				uiresname,
+				TRUE, NULL);
+
+	if (fname == NULL)
+		fname = g_strdup_printf ("../ui/%s", uiresname);
+
+	if (! g_file_test (fname, G_FILE_TEST_EXISTS)) {
+		fname = NULL;
+		g_free (fname);
+	}
+
+	return fname;
+}
+
+static gboolean
+idle_play_alert (MyApp *app)
+{
+	gchar *fname;
+
+	if (gconf_client_get_bool (app->client, CONFBASE"/sound_alert", NULL)) {
+		fname = get_resource (app, "alert.wav");
+		if (fname) {
+			gnome_sound_play (fname);
+			g_free (fname);
+		} else {
+			g_warning ("Couldn't find sound file %s", fname);
+		}
+	}
+	return FALSE;
+}
+
+void
+play_alert (MyApp *app)
+{
+	g_idle_add ((GSourceFunc) idle_play_alert, (gpointer) app);
+}
 
 static gchar *
 get_current_btname (MyApp *app)
@@ -60,23 +123,18 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 }
 
 static gboolean
-message_dialog_close (MyApp *app)
+message_dialog_reply (GladeXML *ui)
 {
-	GtkWidget *dialog = GTK_WIDGET (
-			glade_xml_get_widget (app->ui, "sms_dialog"));
-	app->showing_message = FALSE;
-	gtk_widget_hide (dialog);
-	set_icon_state (app);
-	return TRUE;
-}
-
-static gboolean
-message_dialog_reply (MyApp *app)
-{
+	MyApp *app;
+	GtkWidget *dialog = glade_xml_get_widget (ui, "sms_dialog");
 	GtkLabel *sender = GTK_LABEL (
-			glade_xml_get_widget (app->ui, "senderlabel"));
+			glade_xml_get_widget (ui, "senderlabel"));
+	
+	app = (MyApp *) g_object_get_data (G_OBJECT (dialog),
+			"app");
 
-	create_send_dialog (app, gtk_label_get_text (sender));
+	create_send_dialog (app, GTK_DIALOG (dialog),
+			gtk_label_get_text (sender));
 
 	return TRUE;
 }
@@ -130,6 +188,16 @@ populate_prefs (MyApp *app)
 			gconf_client_get_bool (app->client,
 				CONFBASE"/auto_retry", NULL));
 
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_popup"));
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w),
+			gconf_client_get_bool (app->client,
+				CONFBASE"/popup_messages", NULL));
+
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_sound"));
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w),
+			gconf_client_get_bool (app->client,
+				CONFBASE"/sound_alert", NULL));
+
 	/* TODO: if Bluetooth isn't available, disable the bluetooth radio */
 
 	S_ACTIVE("btdevice",  CONNECTION_BLUETOOTH);
@@ -171,6 +239,16 @@ apply_prefs (MyApp *app, gpointer data)
 	gconf_client_set_int (app->client,
 			CONFBASE"/connection_type",
 			conn_port, NULL);
+
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_popup"));
+	gconf_client_set_bool (app->client,
+			CONFBASE"/popup_messages",
+			gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w)), NULL);
+
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_sound"));
+	gconf_client_set_bool (app->client,
+			CONFBASE"/sound_alert",
+			gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w)), NULL);
 
 	if (bdaddr != NULL)
 		gconf_client_set_string (app->client,
@@ -275,26 +353,24 @@ send_message (GtkWidget *w, GladeXML *ui)
 }
 
 void
-create_send_dialog (MyApp *app, const gchar *recip)
+create_send_dialog (MyApp *app, GtkDialog *parent, const gchar *recip)
 {
 	GtkTextBuffer *buf;
 	GtkTextView *view;
 	GtkEntry *entry;
 	GtkDialog *dialog;
 	GladeXML *ui;
-	gchar *fname;
 	GtkWidget *w;
 
-	if (g_file_test ("../ui/phonemgr.glade", G_FILE_TEST_EXISTS))
-		fname = g_strdup ("../ui/phonemgr.glade");
-	else
-		fname = gnome_program_locate_file (app->program,
-					GNOME_FILE_DOMAIN_APP_DATADIR,
-					"phonemgr.glade", FALSE, NULL);
-	ui = glade_xml_new (fname, "send_dialog", NULL);
-	g_free (fname);
+	ui = get_ui (app, "send_dialog");
 	
 	dialog = GTK_DIALOG (glade_xml_get_widget (ui, "send_dialog"));
+
+	if (parent) {
+		gtk_window_set_transient_for (GTK_WINDOW (dialog),
+			GTK_WINDOW (parent));
+	}
+	
 	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
 	gtk_text_buffer_set_text (buf, "", 0);
@@ -332,20 +408,26 @@ create_send_dialog (MyApp *app, const gchar *recip)
 	gtk_widget_show_all (GTK_WIDGET (dialog));
 }
 
+static void
+initialise_dequeuer (GConfClient *client, guint cnxn_id,
+		GConfEntry *entry, MyApp *app)
+{
+	if (gconf_client_get_bool (app->client,
+				CONFBASE"/popup_messages", NULL)) {
+		app->popup_cb = g_timeout_add (250,
+				(GSourceFunc) dequeue_message, (gpointer) app);
+	} else if (app->popup_cb) {
+			g_source_remove (app->popup_cb);
+			app->popup_cb = 0;
+	}
+}
+
 void
 ui_init (MyApp *app)
 {
-	gchar *fname;
 	GtkWidget *w;
 
-	if (g_file_test ("../ui/phonemgr.glade", G_FILE_TEST_EXISTS))
-		fname = g_strdup ("../ui/phonemgr.glade");
-	else
-		fname = gnome_program_locate_file (app->program,
-					GNOME_FILE_DOMAIN_APP_DATADIR,
-					"phonemgr.glade", FALSE, NULL);
-	app->ui = glade_xml_new (fname, NULL, NULL);
-	g_free (fname);
+	app->ui = get_ui (app, NULL);
 
 	if (!app->ui)
 		g_error ("Couldn't load user interface.");
@@ -385,21 +467,13 @@ ui_init (MyApp *app)
 
 	app->tooltip = gtk_tooltips_new ();
 
-	/* sms dialog stuff. every quarter second, check if there's a
-	   message */
-	g_timeout_add (250, (GSourceFunc) dequeue_message, (gpointer) app);
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "sms_dialog"));
-	g_signal_connect_swapped (G_OBJECT (w), "delete-event",
-			G_CALLBACK (message_dialog_close), (gpointer) app);
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "okbutton"));
-	g_signal_connect_swapped(G_OBJECT (w), "clicked",
-			G_CALLBACK (message_dialog_close), (gpointer) app);
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "replybutton"));
-	g_signal_connect_swapped (G_OBJECT (w), "clicked",
-			G_CALLBACK (message_dialog_reply), (gpointer) app);
+	/* set up popup on message */
+	initialise_dequeuer (NULL, 0, NULL, app);
+	gconf_client_notify_add (app->client,
+			CONFBASE"/popup_messages",
+			(GConfClientNotifyFunc) initialise_dequeuer,
+			(gpointer) app,
+			NULL, NULL);
 }
 
 void
@@ -428,10 +502,8 @@ dequeue_message (MyApp *app)
 	GtkTextBuffer *buf;
 	gchar work[64];
 	struct tm *time_tm;
-
-	/* only show one message at a time */
-	if (app->showing_message)
-		return TRUE;
+	GladeXML *ui;
+	GtkWidget *w;
 
 	g_mutex_lock (app->message_mutex);
 	ptr = g_list_first (app->messages);
@@ -447,10 +519,28 @@ dequeue_message (MyApp *app)
 	/* time to get on with displaying it */
 	msg = (Message *) ptr->data;
 
-	dialog = GTK_DIALOG (glade_xml_get_widget (app->ui, "sms_dialog"));
-	l_sender = GTK_LABEL (glade_xml_get_widget (app->ui, "senderlabel"));
-	l_sent = GTK_LABEL (glade_xml_get_widget (app->ui, "datelabel"));
-	textview = GTK_TEXT_VIEW (glade_xml_get_widget (app->ui, "messagecontents"));
+	ui = get_ui (app, "sms_dialog");
+
+	w = GTK_WIDGET (glade_xml_get_widget (ui, "sms_dialog"));
+	g_signal_connect_swapped (G_OBJECT (w), "delete-event",
+			G_CALLBACK (gtk_widget_destroy), (gpointer) w);
+	
+	g_object_set_data (G_OBJECT (w), "app", (gpointer) app);
+
+	dialog = GTK_DIALOG (w);
+
+	w = GTK_WIDGET (glade_xml_get_widget (ui, "okbutton"));
+	g_signal_connect_swapped(G_OBJECT (w), "clicked",
+			G_CALLBACK (gtk_widget_destroy), (gpointer) dialog);
+
+	w = GTK_WIDGET (glade_xml_get_widget (ui, "replybutton"));
+	g_signal_connect_swapped (G_OBJECT (w), "clicked",
+			G_CALLBACK (message_dialog_reply), (gpointer) ui);
+
+	l_sender = GTK_LABEL (glade_xml_get_widget (ui, "senderlabel"));
+	l_sent = GTK_LABEL (glade_xml_get_widget (ui, "datelabel"));
+	textview = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagecontents"));
+
 	buf = gtk_text_view_get_buffer (textview);
 	gtk_text_buffer_set_text (buf, msg->message, strlen (msg->message));
 	gtk_label_set_text (l_sender, msg->sender);
@@ -460,13 +550,13 @@ dequeue_message (MyApp *app)
 	gtk_label_set_text (l_sent, work);
 
 	gtk_widget_show_all (GTK_WIDGET (dialog));
-	app->showing_message = TRUE;
 
 	g_free (msg->sender);
 	g_free (msg->message);
 	g_free (msg);
 	g_list_free_1 (ptr);
 
+	set_icon_state (app);
 	
 	return TRUE;
 }

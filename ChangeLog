@@ -1,9 +1,22 @@
 2004-06-23  Edd Dumbill <edd@usefulinc.com>
 
-	* libgsm/phonemgr-listener.cc (on_phone_message()): convert message
+	* libgsm/phonemgr-listener.cc (on_phone_message): convert message
 	to utf-8 from iso-8859-1.
-	* libgsm/phonemgr-listener.cc (phonemgr_listener_queue_message()): 
+	* libgsm/phonemgr-listener.cc (phonemgr_listener_queue_message): 
 	convert outgoing message from utf-8 to iso-8859-1.
+	* configure.in: added the openobex check, as we need to link
+	with that, and removed obsolete orbit check.
+	* src/icon.c: add timeout to flash message icon, single-click
+	on icon dequeues a message
+	* src/ui.c: add popup_messages pref to control whether popup
+	dialogs appear or not.  make dequeue_messages() open a new window
+	for each message.
+	* configure.in: bump version to 0.4
+	* ui/phonemgr.glade: add "Interface" tab to prefs.
+	* src/ui.c (apply_prefs, populate_prefs): wire up new
+	prefs to UI
+	* ui/alert.wav: sound file for audible alert
+	* src/ui.c (play_alert): add method to play bell if enabled
 
 2004-06-21  Edd Dumbill <edd@usefulinc.com>
 

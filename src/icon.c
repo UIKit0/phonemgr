@@ -11,11 +11,16 @@ static GdkPixbuf *pb_idle, *pb_connecting, *pb_error, *pb_message, *pb_program;
 static gboolean
 tray_icon_press (GtkWidget *widget, GdkEventButton *event, MyApp *app)
 {
-	if (event->button == 3)
-	{
+	if (event->button == 3) {
 		gtk_menu_popup (GTK_MENU (app->menu), NULL, NULL, NULL,
 						NULL, event->button, event->time);
 		return TRUE;
+	} else if (event->button == 1) {
+		/* if not popping up messages automatically, popup a
+		 message on button 1 click */
+		if (app->messages && (! app->popup_cb)) {
+			dequeue_message (app);
+		}
 	}
 	return FALSE;
 }
@@ -98,6 +103,31 @@ icon_init (MyApp *app)
 	pb_message = load_icon (app, "cellphone-message.png", 24);
 	pb_error = load_icon (app, "cellphone-error.png", 24);
 	pb_program = load_icon (app, "cellphone.png", 48);
+}
+
+static gboolean
+flash_icon (MyApp *app)
+{
+	if (app->listener && phonemgr_listener_connected (app->listener)
+			&& app->messages)
+	{
+		if (app->flashon)
+			gtk_image_set_from_pixbuf (app->image_icon, pb_message);
+		else
+			gtk_image_set_from_pixbuf (app->image_icon, pb_idle);
+		app->flashon = ! app->flashon;
+		return TRUE;
+	} else {
+		/* disable flasher if we disconnect or have no messages left */
+		return FALSE;
+	}
+}
+
+void
+enable_flasher (MyApp *app)
+{
+	app->flasher_cb = g_timeout_add (500, (GSourceFunc) flash_icon,
+			(gpointer) app);
 }
 
 void
