@@ -1,5 +1,9 @@
 2004-06-23  Edd Dumbill <edd@usefulinc.com>
 
+	* libgsm/gsm.{cc,h} compile fixes from Richard Torkar.
+
+2004-06-23  Edd Dumbill <edd@usefulinc.com>
+
 	* libgsm/phonemgr-listener.cc (on_phone_message): convert message
 	to utf-8 from iso-8859-1.
 	* libgsm/phonemgr-listener.cc (phonemgr_listener_queue_message): 

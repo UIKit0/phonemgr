@@ -137,7 +137,7 @@ PhoneListener::connect(std::string device)
 	e->setMessageQueue(&newMessages);
 	mt->setEventHandler(e);
 	} catch (gsmlib::GsmException &ge) {
-        cerr << ("[ERROR]: ") << ge.what() << endl;
+	std::cerr << ("[ERROR]: ") << ge.what() << std::endl;
         m_signal_status.emit (PHONELISTENER_ERROR);
         // signify exit by error
         return false;
@@ -204,7 +204,7 @@ PhoneListener::polled_loop ()
         mt->waitEvent(&timeoutVal);
         sms_loop_once ();
 	} catch (gsmlib::GsmException &ge) {
-        cerr << ("[ERROR]: ") << ge.what() << endl;
+	std::cerr << ("[ERROR]: ") << ge.what() << std::endl;
         disconnect ();
         delete mt;
         m_signal_status.emit (PHONELISTENER_ERROR);
@@ -280,7 +280,7 @@ PhoneListener::sms_loop_once ()
 			sendQueue.erase (sendQueue.begin());
 		}
 	} catch (gsmlib::GsmException &ge) {
-        cerr << ("[ERROR]: ") << ge.what() << endl;
+	std::cerr << ("[ERROR]: ") << ge.what() << std::endl;
         disconnect ();
         delete mt;
         m_signal_status.emit(PHONELISTENER_ERROR);

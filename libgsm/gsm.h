@@ -8,6 +8,12 @@
 #include <sigc++/sigc++.h>
 
 #include <time.h>
+#include <vector>
+#include <string>
+
+
+using std::vector;
+using std::string;
 
 // local class to handle SMS events
 
