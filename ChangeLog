@@ -18,6 +18,13 @@
 	* ui/alert.wav: sound file for audible alert
 	* src/ui.c (play_alert): add method to play bell if enabled
 	* src/connection.c: ifdef out testing code.
+	* Makefile.am: install wav file
+	* ui/phonemgr.glade: remove dummy content from widgets so
+	translators don't translate it. apply some polish.
+	* src/icon.c: detect whether Notification Area is running or
+	not, and if not, put up a dialog telling the user how to
+	add one.
+	* Release 0.4.
 
 2004-06-21  Edd Dumbill <edd@usefulinc.com>
 

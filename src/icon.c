@@ -2,11 +2,32 @@
 
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
+#include <gdk/gdkx.h>
 #include <gnome.h>
 
 #include "app.h"
 
 static GdkPixbuf *pb_idle, *pb_connecting, *pb_error, *pb_message, *pb_program;
+
+static gboolean
+have_tray (void)
+{
+    Screen *xscreen = DefaultScreenOfDisplay (gdk_display);
+    Atom    selection_atom;
+    char   *selection_atom_name;
+
+    selection_atom_name = g_strdup_printf ("_NET_SYSTEM_TRAY_S%d",
+                           XScreenNumberOfScreen (xscreen));
+    selection_atom = XInternAtom (DisplayOfScreen (xscreen),
+			selection_atom_name, False);
+    g_free (selection_atom_name);
+
+    if (XGetSelectionOwner (DisplayOfScreen (xscreen), selection_atom)) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
 
 static gboolean
 tray_icon_press (GtkWidget *widget, GdkEventButton *event, MyApp *app)
@@ -36,7 +57,7 @@ tray_icon_release (GtkWidget *widget, GdkEventButton *event, MyApp *app)
 	return TRUE;
 }
 
-gboolean
+static gboolean
 tray_destroy_cb (GtkObject *obj, MyApp *app)
 {
 	/* When try icon is destroyed, recreate it.  This happens
@@ -161,4 +182,27 @@ GdkPixbuf *
 program_icon ()
 {
 	return pb_program;
+}
+
+void
+tray_icon_init (MyApp  *app)
+{
+	if (! have_tray ()) {
+		GtkWidget *dialog;
+
+		dialog = gtk_message_dialog_new_with_markup (NULL, 0,
+				GTK_MESSAGE_INFO,
+				GTK_BUTTONS_CLOSE,
+				_("<span weight=\"bold\" size=\"larger\">Couldn't find notification area</span>\n\n"
+				"Phone Manager uses the notification area to display "
+			   "information and provide access to message sending and "
+			   "preferences. "
+			   "You can add it by right-clicking on your "
+			   "panel and choosing <i>Add to Panel -> Utility -> Notification Area</i>."));
+		g_signal_connect_swapped (G_OBJECT (dialog), "response",
+				G_CALLBACK (gtk_widget_destroy), (gpointer) dialog);
+		
+		gtk_widget_show_all (GTK_WIDGET (dialog));
+	}
+	tray_destroy_cb (NULL, app);
 }

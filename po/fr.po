@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phonemgr 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-18 22:08+0100\n"
+"POT-Creation-Date: 2004-06-23 14:31+0100\n"
 "PO-Revision-Date: 2003-03-02 02:19+0000\n"
 "Last-Translator: Gaël Chamoulaud (strider) <strider@freespiders.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -22,7 +22,8 @@ msgstr ""
 #. * DO NOT compile it as part of your application.
 #.
 #: ui/strings.c:7
-msgid "Message received"
+#, fuzzy
+msgid "Message Received"
 msgstr "Message reçu"
 
 #: ui/strings.c:8
@@ -30,49 +31,51 @@ msgid "_Reply"
 msgstr "_Répondre"
 
 #: ui/strings.c:9
+#, fuzzy
 msgid ""
-"<span weight=\"bold\" size=\"larger\">Your mobile phone has received a "
-"message.</span>"
+"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
 msgstr ""
 "<span weight=\"bold\" size=\"larger\">Votre téléphone portable a reçu un "
 "message. </span>"
 
 #: ui/strings.c:10
-msgid "date and time of message"
-msgstr "Date et Heure du message"
+#, fuzzy
+msgid "Sender:"
+msgstr "_Envoyer"
 
 #: ui/strings.c:11
-msgid "sender name and number"
-msgstr "Nom et numéro de l'expéditeur"
+msgid "Date:"
+msgstr ""
 
 #: ui/strings.c:12
-msgid "<span weight=\"bold\">Sender</span>"
-msgstr "<span weight=\"bold\">Expéditeur</span>"
-
-#: ui/strings.c:13
-msgid "message contents"
-msgstr "Corps du message"
-
-#: ui/strings.c:14
-msgid "<span weight=\"bold\">Date</span>"
-msgstr "<span weight=\"bold\">Date</span>"
-
-#: ui/strings.c:15
 msgid "Phone Manager Preferences"
 msgstr "Préférences de Phone Manager"
 
+#: ui/strings.c:13
+msgid "_Pop-up window for new messages"
+msgstr ""
+
+#: ui/strings.c:14
+msgid "Play _sound when messages arrive"
+msgstr ""
+
+#: ui/strings.c:15
+msgid "<b>Alerting</b>"
+msgstr ""
+
 #: ui/strings.c:16
+msgid "Interface"
+msgstr ""
+
+#: ui/strings.c:17
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr ""
 "Utiliser la communication Bluetooth pour se connecter à votre téléphone"
 
-#: ui/strings.c:17
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
 #: ui/strings.c:18
-msgid "btdevname"
-msgstr ""
+#, fuzzy
+msgid "_Bluetooth"
+msgstr "Bluetooth"
 
 #: ui/strings.c:19
 #, fuzzy
@@ -80,7 +83,7 @@ msgid "Choose a Bluetooth-enabled mobile phone to connect to."
 msgstr "Mettre à jour la liste des téléphones portables compatibles Bluetooth"
 
 #: ui/strings.c:20
-msgid "Choose"
+msgid "Choo_se"
 msgstr ""
 
 #: ui/strings.c:21
@@ -88,7 +91,8 @@ msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr "Se connecter au port série 1, aussi appelé COM1 ou /dev/ttyS0"
 
 #: ui/strings.c:22
-msgid "Serial port 1 (/dev/ttyS0)"
+#, fuzzy
+msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Port série 1 (/dev/ttyS0)"
 
 #: ui/strings.c:23
@@ -96,7 +100,8 @@ msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr "Se connecter au port série 2, aussi appelé COM2 ou /dev/ttyS1"
 
 #: ui/strings.c:24
-msgid "Serial port 2 (/dev/ttyS1)"
+#, fuzzy
+msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Port série 2 (/dev/ttyS1)"
 
 #: ui/strings.c:25
@@ -104,7 +109,8 @@ msgid "Connect using infrared communication"
 msgstr "Se connecter par communication infrarouge"
 
 #: ui/strings.c:26
-msgid "Infra red (/dev/ircomm)"
+#, fuzzy
+msgid "_Infra red (/dev/ircomm)"
 msgstr "Infrarouge (/dev/ircomm)"
 
 #: ui/strings.c:27
@@ -112,7 +118,8 @@ msgid "Connect using an alternative serial device"
 msgstr "Se connecter par un autre périphérique"
 
 #: ui/strings.c:28
-msgid "Other port"
+#, fuzzy
+msgid "Other _port"
 msgstr "Autre port"
 
 #: ui/strings.c:29
@@ -123,13 +130,14 @@ msgstr "Autre périphérique, par exemple /dev/ttyS3"
 msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
-#: ui/strings.c:31 ui/strings.c:43
+#: ui/strings.c:31 ui/strings.c:44
 msgid "*"
 msgstr "*"
 
 #: ui/strings.c:32
-msgid "Phone connection"
-msgstr ""
+#, fuzzy
+msgid "<b>Phone Connection</b>"
+msgstr "Connexion"
 
 #: ui/strings.c:33
 msgid ""
@@ -139,39 +147,60 @@ msgid ""
 msgstr ""
 
 #: ui/strings.c:34
-msgid "Automatically retry connections"
+#, fuzzy
+msgid "Automatically _retry connections"
 msgstr "Tentatives de reconnexion automatique"
 
 #: ui/strings.c:35
+msgid "<b>Error Handling</b>"
+msgstr ""
+
+#: ui/strings.c:36
 msgid "Connection"
 msgstr "Connexion"
 
-#: ui/strings.c:36
-msgid "Send message"
+#: ui/strings.c:37
+#, fuzzy
+msgid "Send Message"
 msgstr "Envoyer le message"
 
-#: ui/strings.c:37
+#: ui/strings.c:38
 msgid "_Send"
 msgstr "_Envoyer"
 
-#: ui/strings.c:38
-msgid "<span weight=\"bold\" size=\"larger\">Send a text message.</span>"
+#: ui/strings.c:39
+#, fuzzy
+msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Envoyer le message. </span>"
 
-#: ui/strings.c:39
-msgid "160"
-msgstr "160"
-
 #: ui/strings.c:40
-msgid "<span weight=\"bold\">Characters left</span>"
-msgstr "<span weight=\"bold\">Characters left</span>"
+msgid "Characters left:"
+msgstr ""
 
 #: ui/strings.c:41
-msgid "<span weight=\"bold\">Recipient</span>"
-msgstr "<span weight=\"bold\">Destinataire</span>"
+msgid "Number of characters left in the message"
+msgstr ""
 
 #: ui/strings.c:42
-msgid "message content"
+msgid "_Recipient:"
+msgstr ""
+
+#: ui/strings.c:43
+msgid "Enter the number you wish to send a message to."
+msgstr ""
+
+#: ui/strings.c:45
+#, fuzzy
+msgid "_Message:"
+msgstr "Envoyer le message"
+
+#: ui/strings.c:46
+msgid "Enter the text message you want to send."
+msgstr ""
+
+#: ui/strings.c:47
+#, fuzzy
+msgid "message body"
 msgstr "Corps du message"
 
 #: src/connection.c:38
@@ -193,30 +222,41 @@ msgstr ""
 
 #. When try icon is destroyed, recreate it.  This happens
 #. when the notification area is removed.
-#: src/icon.c:40 src/menu.c:30 src/gnome-phone-manager.desktop.in.h:1
+#: src/icon.c:66 src/menu.c:30 src/gnome-phone-manager.desktop.in.h:1
 msgid "Phone Manager"
 msgstr "Phone Manager"
 
-#: src/icon.c:111
+#: src/icon.c:162
 #, fuzzy
 msgid "Message arrived"
 msgstr "Message reçu"
 
-#: src/icon.c:115
+#: src/icon.c:166
 #, fuzzy
 msgid "Connected"
 msgstr "Connexion"
 
-#: src/icon.c:120
+#: src/icon.c:171
 #, fuzzy
 msgid "Connecting to phone"
 msgstr "Connexion"
 
-#: src/icon.c:125
+#: src/icon.c:176
 msgid "Not connected"
 msgstr ""
 
-#: src/main.c:33
+#: src/icon.c:196
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+"span>\n"
+"\n"
+"Phone Manager uses the notification area to display information and provide "
+"access to message sending and preferences. You can add it by right-clicking "
+"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
+"i>."
+msgstr ""
+
+#: src/main.c:36
 msgid "Couldn't create phone listener."
 msgstr ""
 
@@ -234,11 +274,11 @@ msgstr "Envoyer et recevoir des messages de votre téléphone portable"
 msgid "_Send Message"
 msgstr "Envoyer le message"
 
-#: src/ui.c:25
+#: src/ui.c:88
 msgid "No Bluetooth device chosen."
 msgstr ""
 
-#: src/ui.c:243
+#: src/ui.c:321
 msgid "Message too long!"
 msgstr "Message trop long! "
 
@@ -246,6 +286,33 @@ msgstr "Message trop long! "
 #, fuzzy
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Envoyer et recevoir vos SMS avec votre téléphone portable. "
+
+#~ msgid "date and time of message"
+#~ msgstr "Date et Heure du message"
+
+#~ msgid "sender name and number"
+#~ msgstr "Nom et numéro de l'expéditeur"
+
+#~ msgid "<span weight=\"bold\">Sender</span>"
+#~ msgstr "<span weight=\"bold\">Expéditeur</span>"
+
+#~ msgid "message contents"
+#~ msgstr "Corps du message"
+
+#~ msgid "<span weight=\"bold\">Date</span>"
+#~ msgstr "<span weight=\"bold\">Date</span>"
+
+#~ msgid "Send message"
+#~ msgstr "Envoyer le message"
+
+#~ msgid "160"
+#~ msgstr "160"
+
+#~ msgid "<span weight=\"bold\">Characters left</span>"
+#~ msgstr "<span weight=\"bold\">Characters left</span>"
+
+#~ msgid "<span weight=\"bold\">Recipient</span>"
+#~ msgstr "<span weight=\"bold\">Destinataire</span>"
 
 #, fuzzy
 #~ msgid "Mobile Phone Manager"

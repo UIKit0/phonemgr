@@ -80,8 +80,7 @@ void reconnect_phone (MyApp *app);
 /* icon functions */
 void icon_init (MyApp *app);
 void set_icon_state (MyApp *app);
-gboolean tray_destroy_cb (GtkObject *obj, MyApp *app);
-#define tray_icon_init(x) tray_destroy_cb (NULL, x)
+void tray_icon_init (MyApp *app);
 GdkPixbuf *program_icon (void);
 
 enum {

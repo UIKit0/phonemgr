@@ -10,7 +10,7 @@ install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d $(srcdir)/ui; then \
 	  $(mkinstalldirs) $(DESTDIR)$(datadir)/$(PACKAGE); \
-	  for uifile in $(srcdir)/ui/*.glade $(srcdir)/ui/*.png; do \
+	  for uifile in $(srcdir)/ui/*.glade $(srcdir)/ui/*.png $(srcdir)/ui/*.wav; do \
 	    if test -f $$uifile; then \
 	      $(INSTALL_DATA) $$uifile $(DESTDIR)$(datadir)/$(PACKAGE)/; \
 	    fi \
@@ -20,7 +20,7 @@ install-data-local:
 dist-hook:
 	if test -d ui; then \
 	  mkdir $(distdir)/ui; \
-	  for uifile in ui/*.glade ui/*.png; do \
+	  for uifile in ui/*.glade ui/*.png ui/*.wav; do \
 	    if test -f $$uifile; then \
 	      cp -p $$uifile $(distdir)/ui/; \
 	    fi \

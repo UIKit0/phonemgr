@@ -1,7 +1,7 @@
 SHORT TERM
 
-* fix translation to/from Unicode for sending and receiving messages, to
-  correspond with the phone's native character set.
+* distinguish between fatal phone errors and recoverable errors,
+  and don't force reconnect if they're recoverable
 
 * get localization working properly
 
@@ -10,6 +10,7 @@ SHORT TERM
 
 * add preference for
 	- erase messages from phone
+	- store sent messages on phone
 
 * write help documentation
 

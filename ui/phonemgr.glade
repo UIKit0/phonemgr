@@ -197,61 +197,11 @@
 		  <property name="column_spacing">6</property>
 
 		  <child>
-		    <widget class="GtkLabel" id="datelabel">
-		      <property name="visible">True</property>
-		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">date and time of message</property>
-		      <property name="use_underline">False</property>
-		      <property name="use_markup">False</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">True</property>
-		      <property name="xalign">0</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">1</property>
-		      <property name="right_attach">2</property>
-		      <property name="top_attach">1</property>
-		      <property name="bottom_attach">2</property>
-		      <property name="x_options">fill</property>
-		      <property name="y_options"></property>
-		    </packing>
-		  </child>
-
-		  <child>
-		    <widget class="GtkLabel" id="senderlabel">
-		      <property name="visible">True</property>
-		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">sender name and number</property>
-		      <property name="use_underline">False</property>
-		      <property name="use_markup">False</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">True</property>
-		      <property name="xalign">0</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">1</property>
-		      <property name="right_attach">2</property>
-		      <property name="top_attach">0</property>
-		      <property name="bottom_attach">1</property>
-		      <property name="x_options">fill</property>
-		      <property name="y_options"></property>
-		    </packing>
-		  </child>
-
-		  <child>
 		    <widget class="GtkLabel" id="label3">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span weight=&quot;bold&quot;&gt;Sender&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">Sender:</property>
 		      <property name="use_underline">False</property>
-		      <property name="use_markup">True</property>
+		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
 		      <property name="wrap">False</property>
 		      <property name="selectable">False</property>
@@ -273,9 +223,9 @@
 		  <child>
 		    <widget class="GtkLabel" id="label4">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;span weight=&quot;bold&quot;&gt;Date&lt;/span&gt;</property>
+		      <property name="label" translatable="yes">Date:</property>
 		      <property name="use_underline">False</property>
-		      <property name="use_markup">True</property>
+		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
 		      <property name="wrap">False</property>
 		      <property name="selectable">False</property>
@@ -320,7 +270,7 @@
 			  <property name="left_margin">2</property>
 			  <property name="right_margin">2</property>
 			  <property name="indent">0</property>
-			  <property name="text" translatable="yes">message contents</property>
+			  <property name="text" translatable="yes"></property>
 			</widget>
 		      </child>
 		    </widget>
@@ -329,6 +279,54 @@
 		      <property name="right_attach">2</property>
 		      <property name="top_attach">2</property>
 		      <property name="bottom_attach">3</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkLabel" id="senderlabel">
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="label" translatable="yes"></property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">True</property>
+		      <property name="xalign">0</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">1</property>
+		      <property name="right_attach">2</property>
+		      <property name="top_attach">0</property>
+		      <property name="bottom_attach">1</property>
+		      <property name="y_options"></property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkLabel" id="datelabel">
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="label" translatable="yes"></property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">True</property>
+		      <property name="xalign">0</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">1</property>
+		      <property name="right_attach">2</property>
+		      <property name="top_attach">1</property>
+		      <property name="bottom_attach">2</property>
+		      <property name="y_options"></property>
 		    </packing>
 		  </child>
 		</widget>
@@ -389,14 +387,14 @@
 	  <property name="enable_popup">False</property>
 
 	  <child>
-	    <widget class="GtkVBox" id="vbox14">
+	    <widget class="GtkVBox" id="interfacebox">
 	      <property name="border_width">6</property>
 	      <property name="visible">True</property>
 	      <property name="homogeneous">False</property>
 	      <property name="spacing">6</property>
 
 	      <child>
-		<widget class="GtkFrame" id="frame4">
+		<widget class="GtkFrame" id="alertingframe">
 		  <property name="visible">True</property>
 		  <property name="label_xalign">0</property>
 		  <property name="label_yalign">0.5</property>
@@ -411,7 +409,7 @@
 		      <property name="yscale">1</property>
 		      <property name="top_padding">6</property>
 		      <property name="bottom_padding">0</property>
-		      <property name="left_padding">12</property>
+		      <property name="left_padding">16</property>
 		      <property name="right_padding">0</property>
 
 		      <child>
@@ -528,14 +526,14 @@
 	  </child>
 
 	  <child>
-	    <widget class="GtkVBox" id="vbox3">
+	    <widget class="GtkVBox" id="connectionbox">
 	      <property name="border_width">6</property>
 	      <property name="visible">True</property>
 	      <property name="homogeneous">False</property>
 	      <property name="spacing">6</property>
 
 	      <child>
-		<widget class="GtkFrame" id="frame3">
+		<widget class="GtkFrame" id="phoneframe">
 		  <property name="visible">True</property>
 		  <property name="label_xalign">0</property>
 		  <property name="label_yalign">0.5</property>
@@ -550,7 +548,7 @@
 		      <property name="yscale">1</property>
 		      <property name="top_padding">0</property>
 		      <property name="bottom_padding">0</property>
-		      <property name="left_padding">12</property>
+		      <property name="left_padding">10</property>
 		      <property name="right_padding">0</property>
 
 		      <child>
@@ -815,7 +813,7 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkFrame" id="frame2">
+		<widget class="GtkFrame" id="errorframe">
 		  <property name="visible">True</property>
 		  <property name="label_xalign">0</property>
 		  <property name="label_yalign">0.5</property>
@@ -1172,7 +1170,7 @@
 		    <widget class="GtkLabel" id="charsleft">
 		      <property name="visible">True</property>
 		      <property name="can_focus">True</property>
-		      <property name="label" translatable="yes">160</property>
+		      <property name="label" translatable="yes"></property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1333,7 +1331,7 @@
 			  <property name="left_margin">2</property>
 			  <property name="right_margin">2</property>
 			  <property name="indent">0</property>
-			  <property name="text" translatable="yes">message content</property>
+			  <property name="text" translatable="yes"></property>
 			  <accessibility>
 			    <atkproperty name="AtkObject::accessible_name" translatable="yes">message body</atkproperty>
 			    <atkrelation target="label23" type="labelled-by"/>
