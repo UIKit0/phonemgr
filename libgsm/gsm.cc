@@ -56,13 +56,12 @@ PhoneListener::queue_outgoing_message(std::string num, std::string msg)
 void
 PhoneListener::send_message (OutgoingMessage *m)
 {
-	gsmlib::Ref<gsmlib::SMSSubmitMessage> submitSMS =
-	new gsmlib::SMSSubmitMessage();
-	gsmlib::Address destAddr(m->number);
+	gsmlib::Ref<gsmlib::SMSSubmitMessage> submitSMS = new gsmlib::SMSSubmitMessage();
+	gsmlib::Address destAddr (m->number);
 	submitSMS->setDestinationAddress(destAddr);
-	g_message("Sending message to %s", m->number.c_str());
+	g_message("Sending message to '%s'", m->number.c_str());
 	mt->sendSMSs(submitSMS, m->message, true);
-	g_message("Message sent");
+	g_message("Message sent to '%s'", m->number.c_str());
 }
 
 PhoneListener::notify_sig_t
@@ -104,19 +103,23 @@ PhoneListener::send_message_notification(gsmlib::SMSMessageRef msg)
 bool
 PhoneListener::connect(std::string device)
 {
-    m_signal_status.emit(PHONELISTENER_CONNECTING);
+	m_signal_status.emit(PHONELISTENER_CONNECTING);
+
+	// empty send queue; this avoids repeated
+	// re-sending of messages that for some reason cause
+	// timeouts on the connection.
+	while (sendQueue.size () > 0)
+		sendQueue.erase (sendQueue.begin());
 
 	try {
 	// open GSM device
-    port = new gsmlib::UnixSerialPort(device,
-									gsmlib::DEFAULT_BAUD_RATE,
-									gsmlib::DEFAULT_INIT_STRING,
-									false);
+	port = new gsmlib::UnixSerialPort(device, gsmlib::DEFAULT_BAUD_RATE,
+		gsmlib::DEFAULT_INIT_STRING, false);
 
 	// note the MeTa deletes the port in its deconstructor.
 
-	// set 5 second timeout on serial port
-	port->setTimeOut(5);
+	// set 30 second timeout on serial port
+	port->setTimeOut (30);
 	mt = new gsmlib::MeTa(port);
 
 	std::string dummy1, dummy2, receiveStoreName;
@@ -124,8 +127,8 @@ PhoneListener::connect(std::string device)
 	mt->setMessageService(1);
 
 	// switch on SMS routing
-	mt->setSMSRoutingToTA(true, false, false,
-						true); // only Receiption indication
+	mt->setSMSRoutingToTA(true, false, false, true);
+		// only reception indication
 
 
 	// register event handler
@@ -141,7 +144,7 @@ PhoneListener::connect(std::string device)
 	}
 
 	m_signal_status.emit (PHONELISTENER_CONNECTED);
-    return true;
+	return true;
 }
 
 void
@@ -308,13 +311,14 @@ EventHandler::setStoreName(std::string rs)
 }
 
 void
-EventHandler::setMessageQueue(vector<IncomingMessage> *nm)
+EventHandler::setMessageQueue (vector<IncomingMessage> *nm)
 {
 	newMessages=nm;
 }
 
-void EventHandler::SMSReception(gsmlib::SMSMessageRef newMessage,
-				gsmlib::GsmEvent::SMSMessageType messageType)
+void
+EventHandler::SMSReception (gsmlib::SMSMessageRef newMessage,
+	gsmlib::GsmEvent::SMSMessageType messageType)
 {
 	IncomingMessage m;
 	m._messageType = messageType;
@@ -322,7 +326,8 @@ void EventHandler::SMSReception(gsmlib::SMSMessageRef newMessage,
 	newMessages->push_back(m);
 }
 
-void EventHandler::CBReception(gsmlib::CBMessageRef newMessage)
+void
+EventHandler::CBReception (gsmlib::CBMessageRef newMessage)
 {
 	IncomingMessage m;
 	m._messageType = gsmlib::GsmEvent::CellBroadcastSMS;
@@ -330,9 +335,8 @@ void EventHandler::CBReception(gsmlib::CBMessageRef newMessage)
 	newMessages->push_back(m);
 }
 
-void EventHandler::SMSReceptionIndication(std::string storeName, 
-											unsigned int index,
-								gsmlib::GsmEvent::SMSMessageType messageType)
+void
+EventHandler::SMSReceptionIndication (std::string storeName, unsigned int index, gsmlib::GsmEvent::SMSMessageType messageType)
 {
 	IncomingMessage m;
 	m._index = index;
