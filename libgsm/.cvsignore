@@ -1,0 +1,6 @@
+Makefile
+Makefile.in
+glibgsmtest
+gsmtest
+phonemgr-marshal.c
+phonemgr-marshal.h

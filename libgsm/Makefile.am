@@ -5,7 +5,7 @@ AM_CPPFLAGS = \
 EXTRA_DIST = \
 	phonemgr-marshal.list
 
-noinst_PROGRAMS = gsmtest
+noinst_PROGRAMS = gsmtest glibgsmtest
 
 noinst_LTLIBRARIES = libgsmwrap.la
 
@@ -18,6 +18,12 @@ gsmtest_SOURCES = \
 	main.cc
 
 gsmtest_LDADD = $(LIBGSM_LIBS) -lgsmme \
+	libgsmwrap.la
+
+glibgsmtest_SOURCES = \
+	glibgsmtest.c
+
+glibgsmtest_LDADD = $(LIBGSM_LIBS) -lgsmme \
 	libgsmwrap.la
 
 GENMARSHAL_GENERATED = phonemgr-marshal.c phonemgr-marshal.h

@@ -157,6 +157,17 @@ PhoneListener::disconnect ()
 }
 
 void
+PhoneListener::request_disconnect ()
+{
+    m_signal_status.emit(PHONELISTENER_DISCONNECTING);
+    disconnect ();
+    // the AT sequences involved in switching of SMS routing
+    // may yield more SMS events, so go round the loop one more time
+    sms_loop_once ();
+    m_signal_status.emit(PHONELISTENER_IDLE);
+}
+
+void
 PhoneListener::sms_loop ()
 {
 	while (1) {
@@ -169,15 +180,20 @@ PhoneListener::sms_loop ()
 
 		// handle terminate signal
 		if (terminateSent ()) {
-			m_signal_status.emit(PHONELISTENER_DISCONNECTING);
-			disconnect ();
-			// the AT sequences involved in switching of SMS routing
-			// may yield more SMS events, so go round the loop one more time
-			sms_loop_once ();
-		m_signal_status.emit(PHONELISTENER_IDLE);
-				return;
+            request_disconnect ();
+            return;
 		}
 	}
+}
+
+void
+PhoneListener::polled_loop ()
+{
+    struct timeval timeoutVal;
+    timeoutVal.tv_sec = 0;
+    timeoutVal.tv_usec = 0;
+    mt->waitEvent(&timeoutVal);
+    sms_loop_once ();
 }
 
 void
@@ -242,12 +258,18 @@ PhoneListener::sms_loop_once ()
 
 		// see if there's anything to send, if so send one
 
-		if (sendQueue.size() > 0) {
+		if (send_waiting ()) {
 			send_message (&(*sendQueue.begin()));
 			sendQueue.erase (sendQueue.begin());
 		}
 
     return;
+}
+
+bool
+PhoneListener::send_waiting ()
+{
+    return (sendQueue.size() > 0);
 }
 
 void

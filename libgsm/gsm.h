@@ -66,14 +66,15 @@ class PhoneListener : public SigC::Object
   PhoneListener();
 
   void sms_loop ();
+  void polled_loop ();
   void sms_loop_once ();
   void disconnect ();
+  void request_disconnect ();
   bool connect (std::string device);
   void queue_outgoing_message (std::string num, std::string msg);
   void stop ();
-
-  // thread creator
-  // Glib::Thread *sms_loop_thread(std::string device, Glib::Dispatcher *disp);
+  bool send_waiting ();
+  bool mt_event_waiting ();
 
   // signals
   typedef SigC::Signal3<void, std::string, time_t, std::string> notify_sig_t;
@@ -88,7 +89,7 @@ class PhoneListener : public SigC::Object
   notify_sig_t m_signal_notify;
   status_sig_t m_signal_status;
   bool terminateSent();
- 
+
  private:
   bool m_terminateSent;
   bool m_erase_mode;

@@ -186,3 +186,22 @@ phonemgr_listener_connect (PhonemgrListener *listener, gchar *device)
     g_warning ("Unable to connect to device %s", device);
     return FALSE;
 }
+
+void
+phonemgr_listener_disconnect (PhonemgrListener *listener)
+{
+    listener->listener->request_disconnect ();
+}
+
+void
+phonemgr_listener_queue_message (PhonemgrListener *listener,
+        const gchar *number, const gchar *message)
+{
+    listener->listener->queue_outgoing_message (number, message);
+}
+
+void
+phonemgr_listener_poll (PhonemgrListener *listener)
+{
+    listener->listener->polled_loop ();
+}

@@ -49,8 +49,22 @@ PhonemgrListener* phonemgr_listener_new	(void);
 
 /* public methods */
 
-gboolean phonemgr_listener_connect (PhonemgrListener *bo, gchar *device);
-void phonemgr_listener_disconnect (PhonemgrListener *bo);
+gboolean phonemgr_listener_connect (PhonemgrListener *listener, gchar *device);
+void phonemgr_listener_disconnect (PhonemgrListener *listener);
+void phonemgr_listener_queue_message (PhonemgrListener *listener,
+        const gchar *number, const gchar *message);
+void phonemgr_listener_poll (PhonemgrListener *listener);
+gboolean phonemgr_data_waiting (PhonemgrListener *listener);
+
+/* status codes */
+
+enum {
+  PHONEMGR_LISTENER_IDLE,
+  PHONEMGR_LISTENER_CONNECTING,
+  PHONEMGR_LISTENER_CONNECTED,
+  PHONEMGR_LISTENER_DISCONNECTING,
+  PHONEMGR_LISTENER_ERROR
+};
 
 G_END_DECLS
 
