@@ -47,7 +47,7 @@ static gint phonemgr_listener_signals[LAST_SIGNAL] = { 0 } ;
 /* PhonemgrListener functions */
 
 GType
-phonemgr_listener_get_type()
+phonemgr_listener_get_type(void)
 {
 	static GType model_type = 0;
 	if (!model_type) {
@@ -126,39 +126,48 @@ phonemgr_listener_emit_status (PhonemgrListener *bo, gint status)
 
 static void
 on_phone_message (std::string sender,
-        time_t sent, std::string msg, PhonemgrListener *listener)
+		time_t sent, std::string msg, PhonemgrListener *listener)
 {
-    phonemgr_listener_emit_message (listener, sender.c_str (),
-            (GTime)sent, msg.c_str());
+	gchar *mstr;
+	gsize r, w;
+
+	mstr = g_convert ((const gchar *)msg.c_str(),
+				msg.length (), "utf-8", "iso-8859-1",
+				&r, &w, NULL);
+
+	phonemgr_listener_emit_message (listener, sender.c_str (),
+			(GTime)sent, mstr);
+
+	g_free (mstr);
 }
 
 static void
 on_status_change (int status, PhonemgrListener *listener)
 {
-    /* an error causes a disconnect */
-    if (status == PHONELISTENER_ERROR ||
-            status == PHONELISTENER_IDLE)
-        listener->connected = FALSE;
+	/* an error causes a disconnect */
+	if (status == PHONELISTENER_ERROR ||
+			status == PHONELISTENER_IDLE)
+		listener->connected = FALSE;
 
-    phonemgr_listener_emit_status (listener, status);
+	phonemgr_listener_emit_status (listener, status);
 }
 
 static void
 phonemgr_listener_init (PhonemgrListener *l)
 {
-    l->listener = new PhoneListener ();
-    l->listener->signal_notify().connect (SigC::bind<PhonemgrListener*>
-            (SigC::slot(&on_phone_message), l));
-    l->listener->signal_status().connect (SigC::bind<PhonemgrListener*>
-            (SigC::slot(&on_status_change), l));
+	l->listener = new PhoneListener ();
+	l->listener->signal_notify().connect (SigC::bind<PhonemgrListener*>
+			(SigC::slot(&on_phone_message), l));
+	l->listener->signal_status().connect (SigC::bind<PhonemgrListener*>
+			(SigC::slot(&on_status_change), l));
 }
 
 PhonemgrListener *
 phonemgr_listener_new ()
 {
-    PhonemgrListener *l = PHONEMGR_LISTENER (
-            g_object_new (phonemgr_listener_get_type(), NULL));
-    return l;
+	PhonemgrListener *l = PHONEMGR_LISTENER (
+			g_object_new (phonemgr_listener_get_type(), NULL));
+	return l;
 }
 
 static void
@@ -167,13 +176,13 @@ phonemgr_listener_finalize(GObject *obj)
 	PhonemgrListener *listener;
 
 	listener = PHONEMGR_LISTENER (obj);
-    if (listener) {
-        if (listener->connected)
-            listener->listener->disconnect ();
-        listener->messagecon.disconnect ();
-        listener->statuscon.disconnect ();
-        delete listener->listener;
-    }
+	if (listener) {
+		if (listener->connected)
+			listener->listener->disconnect ();
+		listener->messagecon.disconnect ();
+		listener->statuscon.disconnect ();
+		delete listener->listener;
+	}
 
 	G_OBJECT_CLASS (parent_class)->finalize(obj);
 }
@@ -182,46 +191,65 @@ phonemgr_listener_finalize(GObject *obj)
 gboolean
 phonemgr_listener_connect (PhonemgrListener *listener, gchar *device)
 {
-    if (listener->listener->connect (device)) {
-        listener->connected = TRUE;
-    } else {
-        listener->connected = FALSE;
-        g_warning ("Unable to connect to device %s", device);
-    }
+	if (listener->listener->connect (device)) {
+		listener->connected = TRUE;
+	} else {
+		listener->connected = FALSE;
+		g_warning ("Unable to connect to device %s", device);
+	}
 
-    return listener->connected;
+	return listener->connected;
 }
 
 void
 phonemgr_listener_disconnect (PhonemgrListener *listener)
 {
-    if (listener->connected) {
-        listener->listener->request_disconnect ();
-        listener->connected = FALSE;
-    } else {
-        g_warning ("phonemgr_listener_disconnect: not connected");
-    }
+	if (listener->connected) {
+		listener->listener->request_disconnect ();
+		listener->connected = FALSE;
+	} else {
+		g_warning ("phonemgr_listener_disconnect: not connected");
+	}
 }
 
 void
 phonemgr_listener_queue_message (PhonemgrListener *listener,
-        const gchar *number, const gchar *message)
+		const gchar *number, const gchar *message)
 {
-    if (listener->connected)
-        listener->listener->queue_outgoing_message (number, message);
-    else
-        g_warning ("phonemgr_listener_queue_message: not connected");
+	gchar *mstr;
+	gsize r, w;
+	GError *err=NULL;
+	
+	if (listener->connected)
+	{
+		mstr = g_convert (message, strlen (message),
+						"iso-8859-1", "utf-8",
+						&r, &w, &err);
+
+		if (err == NULL) {
+				//g_message ("Queuing message '%s'", mstr);
+				listener->listener->queue_outgoing_message (number, mstr);
+		} else {
+			g_warning ("Conversion error: %d %s", err->code, err->message);
+			g_error_free (err);
+		}
+
+		if (mstr)
+			g_free (mstr);
+	} else {
+		g_warning ("phonemgr_listener_queue_message: not connected");
+	}
 }
 
 void
 phonemgr_listener_poll (PhonemgrListener *listener)
 {
-    if (listener->connected)
-        listener->listener->polled_loop ();
+	if (listener->connected)
+		listener->listener->polled_loop ();
 }
 
 gboolean
 phonemgr_listener_connected (PhonemgrListener *listener)
 {
-    return listener->connected;
+	return listener->connected;
 }
