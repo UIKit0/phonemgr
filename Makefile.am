@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = po libgsm
+SUBDIRS = po libgsm libegg src
 
 EXTRA_DIST = \
 	autogen.sh \

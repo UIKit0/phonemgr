@@ -47,7 +47,7 @@ main (int argc, char **argv)
 	g_signal_connect (G_OBJECT (listener), "status",
 			G_CALLBACK (status), (gpointer) listener);
 		
-	if (phonemgr_listener_connect (listener, "/dev/rfcomm7")) {
+	if (phonemgr_listener_connect (listener, "/dev/rfcomm0")) {
 		timeout = g_timeout_add (200, poll_listener,
 				(gpointer) listener);
 		g_message ("Connected OK");

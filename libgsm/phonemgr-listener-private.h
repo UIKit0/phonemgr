@@ -33,6 +33,7 @@ struct _PhonemgrListener
     PhoneListener *listener;
     SigC::Connection messagecon;
     SigC::Connection statuscon;
+    gboolean connected;
 };
 
 G_END_DECLS

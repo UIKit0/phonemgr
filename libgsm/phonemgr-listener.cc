@@ -108,11 +108,6 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 }
 
 static void
-phonemgr_listener_init (PhonemgrListener *bo)
-{
-}
-
-static void
 phonemgr_listener_emit_message (PhonemgrListener *bo, const gchar *sender,
 		GTime sent, const gchar *message)
 {
@@ -128,6 +123,7 @@ phonemgr_listener_emit_status (PhonemgrListener *bo, gint status)
 		phonemgr_listener_signals[STATUS_SIGNAL],
 		0, status);
 }
+
 static void
 on_phone_message (std::string sender,
         time_t sent, std::string msg, PhonemgrListener *listener)
@@ -142,23 +138,21 @@ on_status_change (int status, PhonemgrListener *listener)
     phonemgr_listener_emit_status (listener, status);
 }
 
-/**
- * phonemgr_listener_new:
- *
- * Return value:
- *
- **/
+static void
+phonemgr_listener_init (PhonemgrListener *l)
+{
+    l->listener = new PhoneListener ();
+    l->listener->signal_notify().connect (SigC::bind<PhonemgrListener*>
+            (SigC::slot(&on_phone_message), l));
+    l->listener->signal_status().connect (SigC::bind<PhonemgrListener*>
+            (SigC::slot(&on_status_change), l));
+}
+
 PhonemgrListener *
 phonemgr_listener_new ()
 {
-    PhonemgrListener *l = PHONEMGR_LISTENER (g_object_new (phonemgr_listener_get_type(), NULL));
-    if (NULL != l) {
-        l->listener = new PhoneListener ();
-        l->listener->signal_notify().connect (SigC::bind<PhonemgrListener*>
-                (SigC::slot(&on_phone_message), l));
-        l->listener->signal_status().connect (SigC::bind<PhonemgrListener*>
-                (SigC::slot(&on_status_change), l));
-    }
+    PhonemgrListener *l = PHONEMGR_LISTENER (
+            g_object_new (phonemgr_listener_get_type(), NULL));
     return l;
 }
 
@@ -169,6 +163,8 @@ phonemgr_listener_finalize(GObject *obj)
 
 	listener = PHONEMGR_LISTENER (obj);
     if (listener) {
+        if (listener->connected)
+            listener->listener->disconnect ();
         listener->messagecon.disconnect ();
         listener->statuscon.disconnect ();
         delete listener->listener;
@@ -181,27 +177,46 @@ phonemgr_listener_finalize(GObject *obj)
 gboolean
 phonemgr_listener_connect (PhonemgrListener *listener, gchar *device)
 {
-    if (listener->listener->connect (device))
-        return TRUE;
-    g_warning ("Unable to connect to device %s", device);
-    return FALSE;
+    if (listener->listener->connect (device)) {
+        listener->connected = TRUE;
+    } else {
+        listener->connected = FALSE;
+        g_warning ("Unable to connect to device %s", device);
+    }
+
+    return listener->connected;
 }
 
 void
 phonemgr_listener_disconnect (PhonemgrListener *listener)
 {
-    listener->listener->request_disconnect ();
+    if (listener->connected) {
+        listener->listener->request_disconnect ();
+        listener->connected = FALSE;
+    } else {
+        g_warning ("phonemgr_listener_disconnect: not connected");
+    }
 }
 
 void
 phonemgr_listener_queue_message (PhonemgrListener *listener,
         const gchar *number, const gchar *message)
 {
-    listener->listener->queue_outgoing_message (number, message);
+    if (listener->connected)
+        listener->listener->queue_outgoing_message (number, message);
+    else
+        g_warning ("phonemgr_listener_queue_message: not connected");
 }
 
 void
 phonemgr_listener_poll (PhonemgrListener *listener)
 {
-    listener->listener->polled_loop ();
+    if (listener->connected)
+        listener->listener->polled_loop ();
+}
+
+gboolean
+phonemgr_listener_connected (PhonemgrListener *listener)
+{
+    return listener->connected;
 }

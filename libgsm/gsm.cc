@@ -98,9 +98,7 @@ PhoneListener::send_message_notification(gsmlib::SMSMessageRef msg)
 
 	timestamp=mktime(&stamp);
 
-	m_signal_notify.emit(addr.toString(),
-						 timestamp,
-						 msg->userData());
+	m_signal_notify.emit(addr.toString(), timestamp, msg->userData());
 }
 
 bool
@@ -192,13 +190,21 @@ PhoneListener::polled_loop ()
     struct timeval timeoutVal;
     timeoutVal.tv_sec = 0;
     timeoutVal.tv_usec = 0;
-    mt->waitEvent(&timeoutVal);
-    sms_loop_once ();
+
+    try {
+        mt->waitEvent(&timeoutVal);
+        sms_loop_once ();
+	} catch (gsmlib::GsmException &ge) {
+        cerr << ("[ERROR]: ") << ge.what() << endl;
+        m_signal_status.emit(PHONELISTENER_ERROR);
+        // signify exit by error
+	}
 }
 
 void
 PhoneListener::sms_loop_once ()
 {
+    try {
 		// if it returns, there was an event or a timeout
 		while (newMessages.size() > 0) {
 			// get first new message and remove it from the vector
@@ -262,6 +268,11 @@ PhoneListener::sms_loop_once ()
 			send_message (&(*sendQueue.begin()));
 			sendQueue.erase (sendQueue.begin());
 		}
+	} catch (gsmlib::GsmException &ge) {
+        cerr << ("[ERROR]: ") << ge.what() << endl;
+        m_signal_status.emit(PHONELISTENER_ERROR);
+        // signify exit by error
+	}
 
     return;
 }

@@ -1,5 +1,8 @@
-Phone Manager
-=============
+phonemgr 0.3
+============
 
-This file contains the latest news about Phone Manager.
-
+ * More or less 100% rewritten to use the new gnome-bluetooth framework,
+   
+ * Restricted use of C++ to the GSM mobile phone communication code.
+   Nothing personal against C++, I was just fed up of Debian not tracking
+   the libgnome*mm libraries well.

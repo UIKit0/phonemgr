@@ -4,6 +4,12 @@
 	gnome-bluetooth framework.
 	* Move gsm stuff to libgsm/. Start work on GObject wrapper for it.
 	* libgsm/.cvsignore, .cvsignore: add cvsignores.
+	* libgsm/phonemgr-listener.cc: keep track of whether connected, and
+	complain if methods requiring connection are called when disconnected.
+	* libegg/: import libegg bits we'll need.
+	* autogen.sh: call libegg autogen.sh.
+	* configure.in: chain libegg configure.
+	* src/Makefile.am, src/main.c: stubs for main program.
 
 2003-07-06  Edd Dumbill  <edd@usefulinc.com>
 
