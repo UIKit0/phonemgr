@@ -250,6 +250,7 @@ disconnect_signal_handlers (MyApp *app)
 			app->message_cb);
 }
 
+#ifdef TESTING
 static gboolean
 send_test_message (MyApp *app)
 {
@@ -258,6 +259,7 @@ send_test_message (MyApp *app)
 	on_message (app->listener, "1234567", 0, "test message 2", app);
 	return FALSE;
 }
+#endif
 
 void
 initialise_connection (MyApp *app)
@@ -271,5 +273,8 @@ initialise_connection (MyApp *app)
 	gdk_threads_init ();
 	app->connecting_mutex = g_mutex_new ();
 	app->message_mutex = g_mutex_new ();
-	g_timeout_add (1000*15, (GSourceFunc) send_test_message, (gpointer) app);
+#ifdef TESTING
+	g_timeout_add (1000*15, (GSourceFunc) send_test_message,
+	 (gpointer) app);
+#endif
 }

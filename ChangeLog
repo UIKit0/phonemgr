@@ -17,6 +17,7 @@
 	prefs to UI
 	* ui/alert.wav: sound file for audible alert
 	* src/ui.c (play_alert): add method to play bell if enabled
+	* src/connection.c: ifdef out testing code.
 
 2004-06-21  Edd Dumbill <edd@usefulinc.com>
 
