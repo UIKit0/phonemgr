@@ -72,12 +72,12 @@ GdkPixbuf *load_icon (MyApp *app, const gchar *iconname, int size)
 	GError *err=NULL;
 
 	fname = gnome_program_locate_file (app->program,
-				GNOME_FILE_DOMAIN_APP_PIXMAP,
+				GNOME_FILE_DOMAIN_APP_DATADIR,
 				iconname,
 				TRUE, NULL);
 
 	if (fname == NULL)
-		fname = g_strdup_printf ("../ui/pixmaps/%s", iconname);
+		fname = g_strdup_printf ("../ui/%s", iconname);
 
 	buf = gdk_pixbuf_new_from_file_at_size (fname, size, size, &err);
 

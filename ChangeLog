@@ -19,6 +19,9 @@
 	glade file: abandon hope of glade respecting the pixmap dir.
 	* src/gnome-phone-manager.desktop.in: correct icon path
 	* po/POTFILES.in: update.
+	* src/icon.c: update pixmaps path.
+	* src/main.c: init UI before tray icon.
+	* src/ui.c: prefer local UI to installed one, if available.
 
 2004-06-17  Edd Dumbill <edd@usefulinc.com>
 

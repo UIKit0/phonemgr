@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phonemgr 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-18 16:44+0100\n"
+"POT-Creation-Date: 2004-06-18 19:40+0100\n"
 "PO-Revision-Date: 2003-03-02 02:19+0000\n"
 "Last-Translator: Gaël Chamoulaud (strider) <strider@freespiders.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -193,7 +193,7 @@ msgstr ""
 
 #. When try icon is destroyed, recreate it.  This happens
 #. when the notification area is removed.
-#: src/icon.c:40 src/menu.c:30
+#: src/icon.c:40 src/menu.c:30 src/gnome-phone-manager.desktop.in.h:1
 msgid "Phone Manager"
 msgstr "Phone Manager"
 
@@ -242,15 +242,14 @@ msgstr ""
 msgid "Message too long!"
 msgstr "Message trop long! "
 
-#: src/gnome-phone-manager.desktop.in.h:1
-#, fuzzy
-msgid "Mobile Phone Manager"
-msgstr "Phone Manager"
-
 #: src/gnome-phone-manager.desktop.in.h:2
 #, fuzzy
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Envoyer et recevoir vos SMS avec votre téléphone portable. "
+
+#, fuzzy
+#~ msgid "Mobile Phone Manager"
+#~ msgstr "Phone Manager"
 
 #~ msgid "Test the phone manager"
 #~ msgstr "Tester Phone Manager"

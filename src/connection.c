@@ -254,6 +254,4 @@ initialise_connection (MyApp *app)
 	gdk_threads_init ();
 	app->connecting_mutex = g_mutex_new ();
 	app->message_mutex = g_mutex_new ();
-	on_message (NULL, "+441234567890", 0, "Hello, this is a test message.", app);
-	on_message (NULL, "+441234567890", 0, "Hello again, this is a test message.", app);
 }

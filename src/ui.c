@@ -274,11 +274,12 @@ create_send_dialog (MyApp *app, gchar *recip)
 	gchar *fname;
 	GtkWidget *w;
 
-	fname = gnome_program_locate_file (app->program,
-				GNOME_FILE_DOMAIN_APP_DATADIR,
-				"phonemgr.glade", TRUE, NULL);
-	if (fname == NULL)
+	if (g_file_test ("../ui/phonemgr.glade", G_FILE_TEST_EXISTS))
 		fname = g_strdup ("../ui/phonemgr.glade");
+	else
+		fname = gnome_program_locate_file (app->program,
+					GNOME_FILE_DOMAIN_APP_DATADIR,
+					"phonemgr.glade", FALSE, NULL);
 	ui = glade_xml_new (fname, "send_dialog", NULL);
 	g_free (fname);
 	
@@ -326,11 +327,12 @@ ui_init (MyApp *app)
 	gchar *fname;
 	GtkWidget *w;
 
-	fname = gnome_program_locate_file (app->program,
-				GNOME_FILE_DOMAIN_APP_DATADIR,
-				"phonemgr.glade", TRUE, NULL);
-	if (fname == NULL)
+	if (g_file_test ("../ui/phonemgr.glade", G_FILE_TEST_EXISTS))
 		fname = g_strdup ("../ui/phonemgr.glade");
+	else
+		fname = gnome_program_locate_file (app->program,
+					GNOME_FILE_DOMAIN_APP_DATADIR,
+					"phonemgr.glade", FALSE, NULL);
 	app->ui = glade_xml_new (fname, NULL, NULL);
 	g_free (fname);
 
