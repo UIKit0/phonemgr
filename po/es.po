@@ -1,0 +1,417 @@
+# traducción de es.po al Spanish
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-21 20:48+0200\n"
+"PO-Revision-Date: 2004-08-21 20:50+0200\n"
+"Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
+"Language-Team: Spanish <traductores@es.gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: libegg/libegg/iconlist/eggiconlist.c:313
+msgid "Selection mode"
+msgstr "Modo de selección"
+
+#: libegg/libegg/iconlist/eggiconlist.c:314
+msgid "The selection mode"
+msgstr "El modo de selección"
+
+#: libegg/libegg/iconlist/eggiconlist.c:322
+msgid "Sorted"
+msgstr "Ordenado"
+
+#: libegg/libegg/iconlist/eggiconlist.c:323
+msgid "Icon list is sorted"
+msgstr "La lista de iconos está ordenada"
+
+#: libegg/libegg/iconlist/eggiconlist.c:329
+msgid "Sort order"
+msgstr "Orden"
+
+#: libegg/libegg/iconlist/eggiconlist.c:330
+msgid "Sort direction the icon list should use"
+msgstr "Dirección de ordenación que debe usar la lista de iconos"
+
+#: libegg/libegg/iconlist/eggiconlist.c:344
+msgid "Icon padding"
+msgstr "Separación de iconos"
+
+#: libegg/libegg/iconlist/eggiconlist.c:345
+msgid "Number of pixels between icons"
+msgstr "Número de píxeles entre iconos"
+
+#: libegg/libegg/iconlist/eggiconlist.c:352
+msgid "Top margin"
+msgstr "Margen superior"
+
+#: libegg/libegg/iconlist/eggiconlist.c:353
+msgid "Number of pixels in top margin"
+msgstr "Número de píxeles en el margen superior"
+
+#: libegg/libegg/iconlist/eggiconlist.c:360
+msgid "Bottom margin"
+msgstr "Margen inferior"
+
+#: libegg/libegg/iconlist/eggiconlist.c:361
+msgid "Number of pixels in bottom margin"
+msgstr "Número de píxeles en el margen inferior"
+
+#: libegg/libegg/iconlist/eggiconlist.c:369
+msgid "Left margin"
+msgstr "Margen izquierdo"
+
+#: libegg/libegg/iconlist/eggiconlist.c:370
+msgid "Number of pixels in left margin"
+msgstr "Número de píxeles en el marrgen izquierdo"
+
+#: libegg/libegg/iconlist/eggiconlist.c:377
+msgid "Right margin"
+msgstr "Margen derecho"
+
+#: libegg/libegg/iconlist/eggiconlist.c:378
+msgid "Number of pixels in right margin"
+msgstr "Número de píxeles en el margen derecho"
+
+#: libegg/libegg/iconlist/eggiconlist.c:386
+msgid "Selection Box Color"
+msgstr "Caja de selección de color"
+
+#: libegg/libegg/iconlist/eggiconlist.c:387
+msgid "Color of the selection box"
+msgstr "Color de la caja de selección"
+
+#: libegg/libegg/iconlist/eggiconlist.c:393
+msgid "Selection Box Alpha"
+msgstr "Alfa de la caja de selección"
+
+#: libegg/libegg/iconlist/eggiconlist.c:394
+msgid "Opacity of the selection box"
+msgstr "Opacidad de la caja de selección"
+
+#: libegg/libegg/tray/eggstatusicon.c:154
+msgid "Pixbuf"
+msgstr "Pixbuf"
+
+#: libegg/libegg/tray/eggstatusicon.c:155
+msgid "A GdkPixbuf to display"
+msgstr "Un Gdkpixbuf para mostrar"
+
+#: libegg/libegg/tray/eggstatusicon.c:162
+msgid "Filename"
+msgstr "Nombre de archivo"
+
+#: libegg/libegg/tray/eggstatusicon.c:163
+msgid "Filename to load and display"
+msgstr "Nombre de archivo para cargar y mostrar"
+
+#: libegg/libegg/tray/eggstatusicon.c:170
+msgid "Stock ID"
+msgstr "ID de fábrica"
+
+#: libegg/libegg/tray/eggstatusicon.c:171
+msgid "Stock ID for a stock image to display"
+msgstr "ID de fábrica para una imagen de fábrica que mostrar"
+
+#: libegg/libegg/tray/eggstatusicon.c:178
+msgid "Animation"
+msgstr "Animación"
+
+#: libegg/libegg/tray/eggstatusicon.c:179
+msgid "GdkPixbufAnimation to display"
+msgstr "GdkPixbufAnimation para mostrar"
+
+#: libegg/libegg/tray/eggstatusicon.c:186
+msgid "Image type"
+msgstr "Tipo de imagen"
+
+#: libegg/libegg/tray/eggstatusicon.c:187
+msgid "The representation being used for image data"
+msgstr "La representación que se está usando para los datos de imagen"
+
+#: libegg/libegg/tray/eggstatusicon.c:195
+msgid "Size"
+msgstr "Tamaño"
+
+#: libegg/libegg/tray/eggstatusicon.c:196
+msgid "The size of the icon"
+msgstr "El tamaño del icono"
+
+#: libegg/libegg/tray/eggstatusicon.c:205
+msgid "Blinking"
+msgstr "Parpadeo"
+
+#: libegg/libegg/tray/eggstatusicon.c:206
+msgid "Whether or not the status icon is blinking"
+msgstr "Indica si el icono de estado está parpadeando"
+
+#: libegg/libegg/tray/eggtrayicon.c:118
+#: libegg/libegg/tray/eggtraymanager.c:145
+msgid "Orientation"
+msgstr "Orientación"
+
+#: libegg/libegg/tray/eggtrayicon.c:119
+#: libegg/libegg/tray/eggtraymanager.c:146
+msgid "The orientation of the tray."
+msgstr "La orientación de la bandeja."
+
+#. translators: the %d is substituted for a number
+#. which can be used for diagnostic purposes
+#: src/connection.c:40
+#, c-format
+msgid "Unable to obtain RFCOMM connection (%d)"
+msgstr ""
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: src/connection.c:110
+#, c-format
+msgid "Connected to device on %s"
+msgstr ""
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: src/connection.c:119
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr ""
+
+#. When try icon is destroyed, recreate it.  This happens
+#. when the notification area is removed.
+#: src/gnome-phone-manager.desktop.in.h:1 src/icon.c:66 src/menu.c:30
+msgid "Phone Manager"
+msgstr ""
+
+#: src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr ""
+
+#: src/icon.c:162
+msgid "Message arrived"
+msgstr ""
+
+#: src/icon.c:166
+msgid "Connected"
+msgstr "Conectado"
+
+#: src/icon.c:171
+msgid "Connecting to phone"
+msgstr "Conectando con el teléfono"
+
+#: src/icon.c:176
+msgid "Not connected"
+msgstr "No conectado"
+
+#: src/icon.c:196
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+"span>\n"
+"\n"
+"Phone Manager uses the notification area to display information and provide "
+"access to message sending and preferences. You can add it by right-clicking "
+"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
+"i>."
+msgstr ""
+
+#: src/main.c:36
+msgid "Couldn't create phone listener."
+msgstr ""
+
+#: src/menu.c:22
+msgid "translator_credits"
+msgstr "Francisco Javier F. Serrador <serrador@gnome.org>"
+
+#: src/menu.c:32
+msgid "Send and receive messages from your mobile phone."
+msgstr ""
+
+#: src/menu.c:75
+msgid "_Send Message"
+msgstr "_Enviar mensaje"
+
+#: src/ui.c:88
+msgid "No Bluetooth device chosen."
+msgstr ""
+
+#: src/ui.c:321
+msgid "Message too long!"
+msgstr ""
+
+#: ui/phonemgr.glade.h:1 ui/strings.c:31 ui/strings.c:44
+msgid "*"
+msgstr "*"
+
+#: ui/phonemgr.glade.h:2 ui/strings.c:30
+msgid "/dev/ttyS2"
+msgstr ""
+
+#: ui/phonemgr.glade.h:3 ui/strings.c:15
+msgid "<b>Alerting</b>"
+msgstr ""
+
+#: ui/phonemgr.glade.h:4 ui/strings.c:35
+msgid "<b>Error Handling</b>"
+msgstr ""
+
+#: ui/phonemgr.glade.h:5 ui/strings.c:32
+msgid "<b>Phone Connection</b>"
+msgstr ""
+
+#: ui/phonemgr.glade.h:6 ui/strings.c:39
+msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+msgstr ""
+
+#: ui/phonemgr.glade.h:7 ui/strings.c:9
+msgid "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgstr ""
+
+#: ui/phonemgr.glade.h:8 ui/strings.c:29
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr ""
+
+#: ui/phonemgr.glade.h:9 ui/strings.c:33
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+
+#: ui/phonemgr.glade.h:10 ui/strings.c:34
+msgid "Automatically _retry connections"
+msgstr ""
+
+#: ui/phonemgr.glade.h:11 ui/strings.c:40
+msgid "Characters left:"
+msgstr ""
+
+#: ui/phonemgr.glade.h:12 ui/strings.c:20
+msgid "Choo_se"
+msgstr ""
+
+#: ui/phonemgr.glade.h:13 ui/strings.c:19
+msgid "Choose a Bluetooth-enabled mobile phone to connect to."
+msgstr ""
+
+#: ui/phonemgr.glade.h:14 ui/strings.c:27
+msgid "Connect using an alternative serial device"
+msgstr ""
+
+#: ui/phonemgr.glade.h:15 ui/strings.c:25
+msgid "Connect using infrared communication"
+msgstr ""
+
+#: ui/phonemgr.glade.h:16 ui/strings.c:21
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+
+#: ui/phonemgr.glade.h:17 ui/strings.c:23
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+
+#: ui/phonemgr.glade.h:18 ui/strings.c:36
+msgid "Connection"
+msgstr "Conexión"
+
+#: ui/phonemgr.glade.h:19 ui/strings.c:11
+msgid "Date:"
+msgstr "Fecha:"
+
+#: ui/phonemgr.glade.h:20 ui/strings.c:43
+msgid "Enter the number you wish to send a message to."
+msgstr ""
+
+#: ui/phonemgr.glade.h:21 ui/strings.c:46
+msgid "Enter the text message you want to send."
+msgstr ""
+
+#: ui/phonemgr.glade.h:22 ui/strings.c:16
+msgid "Interface"
+msgstr "Interfaz"
+
+#.
+#. * Translatable strings file generated by Glade.
+#. * Add this file to your project's POTFILES.in.
+#. * DO NOT compile it as part of your application.
+#.
+#: ui/phonemgr.glade.h:23 ui/strings.c:7
+msgid "Message Received"
+msgstr "Mensaje recibido"
+
+#: ui/phonemgr.glade.h:24 ui/strings.c:41
+msgid "Number of characters left in the message"
+msgstr ""
+
+#: ui/phonemgr.glade.h:25 ui/strings.c:28
+msgid "Other _port"
+msgstr ""
+
+#: ui/phonemgr.glade.h:26 ui/strings.c:12
+msgid "Phone Manager Preferences"
+msgstr ""
+
+#: ui/phonemgr.glade.h:27 ui/strings.c:14
+msgid "Play _sound when messages arrive"
+msgstr ""
+
+#: ui/phonemgr.glade.h:28 ui/strings.c:37
+msgid "Send Message"
+msgstr "Enviar mensaje"
+
+#: ui/phonemgr.glade.h:29 ui/strings.c:10
+msgid "Sender:"
+msgstr ""
+
+#: ui/phonemgr.glade.h:30 ui/strings.c:22
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr ""
+
+#: ui/phonemgr.glade.h:31 ui/strings.c:24
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr ""
+
+#: ui/phonemgr.glade.h:32 ui/strings.c:17
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr ""
+
+#: ui/phonemgr.glade.h:33 ui/strings.c:18
+msgid "_Bluetooth"
+msgstr ""
+
+#: ui/phonemgr.glade.h:34 ui/strings.c:26
+msgid "_Infra red (/dev/ircomm)"
+msgstr ""
+
+#: ui/phonemgr.glade.h:35 ui/strings.c:45
+msgid "_Message:"
+msgstr "_Mensaje:"
+
+#: ui/phonemgr.glade.h:36 ui/strings.c:13
+msgid "_Pop-up window for new messages"
+msgstr ""
+
+#: ui/phonemgr.glade.h:37 ui/strings.c:42
+msgid "_Recipient:"
+msgstr ""
+
+#: ui/phonemgr.glade.h:38 ui/strings.c:8
+msgid "_Reply"
+msgstr "_Responder"
+
+#: ui/phonemgr.glade.h:39 ui/strings.c:38
+msgid "_Send"
+msgstr "_Enviar"
+
+#: ui/phonemgr.glade.h:40 ui/strings.c:47
+msgid "message body"
+msgstr ""
+
