@@ -1,0 +1,8 @@
+src/main.cc
+src/application.cc
+src/gsm.cc
+src/phonemgr.cc
+src/prefs.cc
+src/GNOME_PhonemanagerApplet.server.in
+ui/strings.c
+ui/GNOME_PhonemanagerApplet.xml

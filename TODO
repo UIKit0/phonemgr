@@ -1,0 +1,34 @@
+SHORT TERM
+
+* fix translation to/from Unicode for sending and receiving messages, to
+  correspond with the phone's native character set.
+
+* get localization working properly
+
+* tighten up configure checks to fail hard if the pre-requisites
+  aren't found
+
+* add preference for
+	- erase messages from phone
+
+* write help documentation
+
+* proper exception handling for GConf errors
+
+* when disconnecting, if it doesn't disconnect within 5 seconds then
+  kill it off by brute force
+
+* move scanning animation out into the bonobo bluetooth component
+
+LONG TERM
+
+* look up sender number in phone addressbook
+  	- this may be slow, use Evolution instead?
+	- or perhaps do a one-time download of phonebook and cache locally?
+	- or perhaps provide a multisync plugin?
+
+* implement phone voice dialer
+
+* implement MMS functionality (picture messaging, etc.)
+
+* bluetooth headset control

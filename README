@@ -1,0 +1,42 @@
+Phone Manager
+=============
+
+This applet will connect to your mobile phone over a serial port,
+either via a cable, infra-red or Bluetooth connection.
+
+It listens for text messages, and when they arrive, displays them
+on the desktop.
+
+Phone Manager is currently a work in progress, see the TODO file for
+tasks left undone and BUGS for problems that I know about.
+
+Building
+--------
+
+You need:
+
+* Bluetooth libs, utils and sdp installed installed (bluez.sf.net)
+
+* Bluetooth kernel modules installed (must use kernel 2.4.20 or
+  patches from bluez.sf.net)
+
+* gnome-bluetooth and libbtctl, from
+  http://usefulinc.com/software/gnome-bluetooth
+
+* These GNOME 2 packages:
+    sigc++-1.2 libgnomeuimm-2.0 gconfmm-2.0
+    gtkmm-2.0 glibmm-2.0 glibmm-2.0 glib-2.0 libgnomeui-2.0 >= 1.110.0
+    libpanelapplet-2.0 libgnome-2.0 gdk-pixbuf-2.0 gconf-2.0
+    libbonobo-2.0 bonobo-activation-2.0
+
+  (some of the *mm packages are still called *mm1.3 as they're still in
+   development.)
+
+   libsigc++ can be found at http://sourceforge.net/projects/libsigc/
+
+* gsmlib 1.10, with the patch from http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=168475
+  applied (works, even though the patch is against 1.9).
+  gsmlib homepage is http://www.pxh.de/fs/gsmlib/
+	-- or gsmlib 1.11 or better, when released.
+
+ -- Edd Dumbill <edd@usefulinc.com>, 2003-03-01

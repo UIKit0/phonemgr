@@ -1,0 +1,121 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_PREREQ(2.52)
+
+AC_INIT(phonemgr, 0.2.1)
+AC_CONFIG_SRCDIR(src/main.cc)
+AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+
+AM_MAINTAINER_MODE
+AM_CONFIG_HEADER(config.h)
+
+AC_PROG_INTLTOOL([0.18])
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_LANG(C++)
+
+dnl Initialize libtool
+AM_DISABLE_SHARED
+AM_PROG_LIBTOOL
+
+AC_ISC_POSIX
+dnl Check for the "check" unit test framework
+dnl AC_CHECK_LIB(check,suite_create)
+
+dnl Gettext stuff.
+GETTEXT_PACKAGE=phonemgr
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"phonemgr", [GNOME phone manager applet.])
+ALL_LINGUAS="fr"
+AM_GLIB_GNU_GETTEXT
+
+AC_SUBST(DLOPEN)
+AC_SUBST(DLPREOPEN)
+
+dnl Add the languages which your application supports here.
+
+AM_PATH_ORBIT2([], [], [ORBit-2.0 required])
+AM_GCONF_SOURCE_2
+
+PKG_CHECK_MODULES(PHONEMGR, sigc++-1.2 libgnomeuimm-2.0 gconfmm-2.0 
+	gtkmm-2.0 glibmm-2.0 glibmm-2.0 glib-2.0 libgnomeui-2.0 >= 1.110.0
+	libpanelapplet-2.0 libgnome-2.0 gdk-pixbuf-2.0 gconf-2.0
+	libbonobo-2.0 bonobo-activation-2.0
+	)
+
+AC_CHECK_LIB(gsmme,main,[],
+	AC_MSG_ERROR([gsmlib is required to build this software]))
+
+AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
+
+if test x"$GCONFTOOL" = xno; then
+  AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
+fi
+
+AM_GCONF_SOURCE_2
+
+
+AC_SUBST(PHONEMGR_CFLAGS)
+AC_SUBST(PHONEMGR_LIBS)
+
+dnl ================================================================
+dnl set up data dir
+if test "x${datadir}" = 'x${prefix}/share'; then
+  if test "x${prefix}" = "xNONE"; then
+    AC_DEFINE_UNQUOTED(PHONEMGR_DATA_DIR, "${ac_default_prefix}/share/${PACKAGE}", [data dir])
+  else
+    AC_DEFINE_UNQUOTED(PHONEMGR_DATA_DIR, "${prefix}/share/${PACKAGE}", [data dir])
+  fi
+else
+  AC_DEFINE_UNQUOTED(PHONEMGR_DATA_DIR, "${datadir}/${PACKAGE}", [data dir])
+fi
+
+
+dnl ==========================================================================
+dnl Turn on the additional warnings last, so -Werror doesn't affect other tests.
+AC_ARG_ENABLE(more-warnings,
+[  --enable-more-warnings  Maximum compiler warnings],
+set_more_warnings="$enableval",[
+if test -f $srcdir/CVS/Entries; then
+    is_cvs_version=true
+    set_more_warnings=yes
+else
+    set_more_warnings=no
+fi
+])
+AC_MSG_CHECKING(for more warnings, including -Werror)
+if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
+    AC_MSG_RESULT(yes)
+    CXXFLAGS="\
+    -Wall \
+    -Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes \
+    -Wnested-externs -Wpointer-arith \
+    -Wcast-align -Wsign-compare \
+    -Werror \
+    $CXXFLAGS"
+
+    for option in -Wsign-promo -Wno-sign-compare; do
+        SAVE_CFLAGS="$CXXFLAGS"
+        CFLAGS="$option $CXXFLAGS"
+        AC_MSG_CHECKING([whether gcc understands $option])
+        AC_TRY_COMPILE([], [],
+            has_option=yes,
+            has_option=no,)
+        if test $has_option = no; then
+            CXXFLAGS="$SAVE_CXXFLAGS"
+        fi
+        AC_MSG_RESULT($has_option)
+        unset has_option
+        unset SAVE_CXXFLAGS
+    done
+    unset option
+else
+    AC_MSG_RESULT(no)
+fi
+
+
+AC_OUTPUT([
+Makefile
+src/Makefile
+po/Makefile.in
+])

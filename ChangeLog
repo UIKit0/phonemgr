@@ -1,0 +1,54 @@
+2004-06-17  Edd Dumbill <edd@usefulinc.com>
+
+	* Checking into GNOME CVS.  Starting port to the new Bonobo-less
+	gnome-bluetooth framework.
+
+2003-07-06  Edd Dumbill  <edd@usefulinc.com>
+
+	* Release 0.2.1.
+	* giveusaclue.c,h dashboard-frontend.c: now supports sending
+	cluepackets to Nat Friedman's Dashboard <http://nat.org/dashboard>.
+
+2003-04-03  Edd Dumbill  <edd@usefulinc.com>
+
+	* Now goes for the dialup networking connection rather than
+	  the serial port on Bluetooth -- increased compatibility, I
+	  hope.  Means it should work for Nokia 7650 owners.
+
+2003-03-05  Edd Dumbill  <edd@usefulinc.com>
+
+	* Added French translation from Gaël Chamoulaud
+
+2003-03-01  Edd Dumbill  <edd@usefulinc.com>
+
+	* Release 0.2.0.
+	* src/gsm.cc: make date formatting use Glib as much as possible
+	* pursue further Glib::ustring conversions
+
+2003-02-19  Edd Dumbill  <edd@usefulinc.com>
+
+	* Converted std::strings to Glib::ustrings throughout.
+
+	* Implemented sending functionality.  Reply button now works
+	in message dialog.  "Send message..." menu item on applet.
+
+2003-02-07  Edd Dumbill  <edd@usefulinc.com>
+
+	* Release 0.1.2.
+	* Fixed missing std:: prefix from some string declaration types.
+
+2002-11-15  Edd Dumbill  <edd@usefulinc.com>
+
+	* Release 0.1.1.
+
+	* Hook up Prefs/Update button to Bluetooth device discovery and
+	provides UI feedback while the discovery is going on.
+
+2002-11-11  Edd Dumbill  <edd@usefulinc.com>
+
+	* First public release, 0.1.
+
+2002-10-28  Edd Dumbill  <edd@usefulinc.com>
+
+	* Pre-alpha stage, released privately.
+
