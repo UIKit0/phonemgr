@@ -50,8 +50,22 @@ about_activated(GtkMenuItem *item, gpointer data)
 static gboolean
 quit_activated (GtkMenuItem *item, gpointer data)
 {
-    gtk_main_quit();
+	MyApp *app = (MyApp *)data;
+	disconnect_signal_handlers (app);
+	gtk_main_quit ();
     return TRUE;
+}
+
+static gboolean
+send_activated (GtkMenuItem *item, gpointer data)
+{
+	MyApp *app = (MyApp *)data;
+	GtkWidget *w;
+
+	gtk_widget_set_sensitive (GTK_WIDGET (app->send_item), FALSE);
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "send_dialog"));
+	gtk_widget_show_all (w);
+	return TRUE;
 }
 
 void
@@ -60,6 +74,16 @@ construct_menu (MyApp *app)
 	GtkWidget *item;
 
 	app->menu = GTK_MENU (gtk_menu_new ());
+
+	item = gtk_image_menu_item_new_with_mnemonic (_("_Send Message"));
+	g_signal_connect (G_OBJECT(item), "activate",
+			G_CALLBACK (send_activated), (gpointer) app);
+	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item),
+			GTK_WIDGET (gtk_image_new_from_stock ("gnome-stock-mail",
+					GTK_ICON_SIZE_MENU)));
+	gtk_widget_show (item);
+	gtk_menu_shell_append (GTK_MENU_SHELL (app->menu), item);
+	app->send_item = GTK_WIDGET (item);
 
 	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_PREFERENCES,
 			 NULL);

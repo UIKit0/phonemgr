@@ -1,6 +1,8 @@
 
 #include <stdlib.h>
 #include <glade/glade.h>
+#include <time.h>
+#include <string.h>
 
 #include "app.h"
 
@@ -54,6 +56,26 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 	set_dependent_widget (app, port, active);
 	if (active)
 		conn_port = port;
+}
+
+static gboolean
+message_dialog_close (MyApp *app)
+{
+	GtkWidget *dialog = GTK_WIDGET (
+			glade_xml_get_widget (app->ui, "sms_dialog"));
+	app->showing_message = FALSE;
+	gtk_widget_hide (dialog);
+	return TRUE;
+}
+
+static gboolean
+send_dialog_close (MyApp *app)
+{
+	GtkWidget *dialog = GTK_WIDGET (
+			glade_xml_get_widget (app->ui, "send_dialog"));
+	gtk_widget_hide (dialog);
+	gtk_widget_set_sensitive (GTK_WIDGET (app->send_item), TRUE);
+	return TRUE;
 }
 
 static void
@@ -124,6 +146,8 @@ populate_prefs (MyApp *app)
 	bdaddr = gconf_client_get_string (app->client,
 			CONFBASE"/bluetooth_addr", NULL);
 	set_btdevname (app);
+
+
 }
 
 static void
@@ -203,7 +227,7 @@ ui_init (MyApp *app)
 	
 	g_signal_connect_swapped (
 			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_window")),
-			"delete_event", G_CALLBACK (gtk_widget_hide),
+			"delete-event", G_CALLBACK (gtk_widget_hide),
 			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_window")));
 
 	g_signal_connect_swapped (
@@ -230,6 +254,30 @@ ui_init (MyApp *app)
 	S_CONNECT("serialport2", CONNECTION_SERIAL2);
 	S_CONNECT("irdaport", CONNECTION_IRCOMM);
 	S_CONNECT("otherport", CONNECTION_OTHER);
+
+	app->tooltip = gtk_tooltips_new ();
+
+	/* sms dialog stuff. every quarter second, check if there's a
+	   message */
+	g_timeout_add (250, (GSourceFunc) dequeue_message, (gpointer) app);
+
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "sms_dialog"));
+	g_signal_connect_swapped (G_OBJECT (w), "delete-event",
+			G_CALLBACK (message_dialog_close), (gpointer) app);
+
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "okbutton"));
+	g_signal_connect_swapped(G_OBJECT (w), "clicked",
+			G_CALLBACK (message_dialog_close), (gpointer) app);
+
+	/* send dialog stuff */
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "send_dialog"));
+	g_signal_connect_swapped (G_OBJECT (w), "delete-event",
+			G_CALLBACK (send_dialog_close), (gpointer) app);
+
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "msgcancelbutton"));
+	g_signal_connect_swapped (G_OBJECT (w), "clicked",
+			G_CALLBACK (send_dialog_close), (gpointer) app);
+
 }
 
 void
@@ -238,4 +286,63 @@ show_prefs_window (MyApp *app)
 	GtkWidget *prefs = glade_xml_get_widget (app->ui, "prefs_window");
 	populate_prefs (app);
 	gtk_widget_show (prefs);
+}
+
+static size_t
+my_strftime(char *s, size_t max, const char  *fmt,  const
+           struct tm *tm)
+{
+	return strftime(s, max, fmt, tm);
+}
+
+gboolean
+dequeue_message (MyApp *app)
+{
+	GList *ptr = NULL;
+	Message *msg = NULL;
+	GtkDialog *dialog;
+	GtkTextView *textview;
+	GtkLabel *l_sender, *l_sent;
+	GtkTextBuffer *buf;
+	gchar work[64];
+	struct tm *time_tm;
+
+	if (app->showing_message)
+		return TRUE;
+
+	g_mutex_lock (app->message_mutex);
+	ptr = g_list_first (app->messages);
+	if (ptr) {
+		app->messages = g_list_remove_link (app->messages, ptr);
+	}
+	g_mutex_unlock (app->message_mutex);
+	if (!ptr)
+		return TRUE;
+
+	g_message ("Message arrived.");
+
+	/* time to get on with displaying it */
+	msg = (Message *)ptr->data;
+
+	dialog = GTK_DIALOG (glade_xml_get_widget (app->ui, "sms_dialog"));
+	l_sender = GTK_LABEL (glade_xml_get_widget (app->ui, "senderlabel"));
+	l_sent = GTK_LABEL (glade_xml_get_widget (app->ui, "datelabel"));
+	textview = GTK_TEXT_VIEW (glade_xml_get_widget (app->ui, "messagecontents"));
+	buf = gtk_text_view_get_buffer (textview);
+	gtk_text_buffer_set_text (buf, msg->message, strlen (msg->message));
+	gtk_label_set_text (l_sender, msg->sender);
+
+	time_tm = localtime ((time_t*)&msg->timestamp);
+	my_strftime (work, 64, "%X %x", time_tm);
+	gtk_label_set_text (l_sent, work);
+
+	gtk_widget_show_all (GTK_WIDGET (dialog));
+	app->showing_message = TRUE;
+
+	g_free (msg->sender);
+	g_free (msg->message);
+	g_free (msg);
+	g_list_free_1 (ptr);
+	
+	return TRUE;
 }

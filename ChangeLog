@@ -2,6 +2,19 @@
 
 	* libgsm/gsm.cc: delete MeTa when disconnected.
 	* src/*.c: partially working phonemgr app now.
+	* src/connection.c: make connection and disconnection
+	happen in a separate thread, so the GUI doesn't block while
+	this happens.
+	* src/connection.c: implement auto-reconnect feature.
+	* src/connection.c, src/ui.c: message receiving functional.
+	* src/connection.c, ui.c: add disconnect_signal_handlers() to
+	be called on quit, so don't deadlock in status change.
+	* src/icon.c: make tray_icon_set do a tooltip too.
+	* libgsm/gsm.cc: disconnect on errors properly.
+	* libgsm/phonemgr-listener.cc: set disconnected flag on error.
+	* src/menu.c: add Send Message menu item.
+	
+	
 
 2004-06-17  Edd Dumbill <edd@usefulinc.com>
 

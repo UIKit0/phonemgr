@@ -127,7 +127,6 @@ PhoneListener::connect(std::string device)
 	mt->setSMSRoutingToTA(true, false, false,
 						true); // only Receiption indication
 
-	m_signal_status.emit(PHONELISTENER_CONNECTED);
 
 	// register event handler
 	EventHandler *e=new EventHandler();
@@ -136,10 +135,12 @@ PhoneListener::connect(std::string device)
 	mt->setEventHandler(e);
 	} catch (gsmlib::GsmException &ge) {
         cerr << ("[ERROR]: ") << ge.what() << endl;
-        m_signal_status.emit(PHONELISTENER_ERROR);
+        m_signal_status.emit (PHONELISTENER_ERROR);
         // signify exit by error
         return false;
 	}
+
+	m_signal_status.emit (PHONELISTENER_CONNECTED);
     return true;
 }
 
@@ -157,7 +158,7 @@ PhoneListener::disconnect ()
 void
 PhoneListener::request_disconnect ()
 {
-    m_signal_status.emit(PHONELISTENER_DISCONNECTING);
+    m_signal_status.emit (PHONELISTENER_DISCONNECTING);
     disconnect ();
     // the AT sequences involved in switching of SMS routing
     // may yield more SMS events, so go round the loop one more time
@@ -166,7 +167,7 @@ PhoneListener::request_disconnect ()
     delete mt;
     // delete port;
     // now say we're done -- got to be last
-    m_signal_status.emit(PHONELISTENER_IDLE);
+    m_signal_status.emit (PHONELISTENER_IDLE);
 }
 
 void
@@ -178,7 +179,8 @@ PhoneListener::sms_loop ()
 		timeoutVal.tv_usec = 0;
 		mt->waitEvent(&timeoutVal);
 
-        sms_loop_once ();
+        if (! sms_loop_once ())
+            return;
 
 		// handle terminate signal
 		if (terminateSent ()) {
@@ -200,12 +202,14 @@ PhoneListener::polled_loop ()
         sms_loop_once ();
 	} catch (gsmlib::GsmException &ge) {
         cerr << ("[ERROR]: ") << ge.what() << endl;
-        m_signal_status.emit(PHONELISTENER_ERROR);
+        disconnect ();
+        delete mt;
+        m_signal_status.emit (PHONELISTENER_ERROR);
         // signify exit by error
 	}
 }
 
-void
+bool
 PhoneListener::sms_loop_once ()
 {
     try {
@@ -274,11 +278,14 @@ PhoneListener::sms_loop_once ()
 		}
 	} catch (gsmlib::GsmException &ge) {
         cerr << ("[ERROR]: ") << ge.what() << endl;
+        disconnect ();
+        delete mt;
         m_signal_status.emit(PHONELISTENER_ERROR);
         // signify exit by error
+        return false;
 	}
 
-    return;
+    return true;
 }
 
 bool

@@ -42,7 +42,7 @@ tray_destroy_cb (GtkObject *obj, MyApp *app)
 	app->event_box = GTK_EVENT_BOX (gtk_event_box_new ());
 	app->image_icon = GTK_IMAGE (gtk_image_new ());
 
-	tray_icon_set (app, ICON_IDLE);
+	tray_icon_set (app, app->iconstate, NULL);
 
 	gtk_container_add (GTK_CONTAINER (app->event_box),
 			GTK_WIDGET (app->image_icon));
@@ -73,11 +73,11 @@ GdkPixbuf *load_icon (MyApp *app, const gchar *iconname, int size)
 
 	fname = gnome_program_locate_file (app->program,
 				GNOME_FILE_DOMAIN_APP_PIXMAP,
-				"cellphone.png",
+				iconname,
 				TRUE, NULL);
 
 	if (fname == NULL)
-		fname = g_strdup ("../ui/pixmaps/cellphone.png");
+		fname = g_strdup_printf ("../ui/pixmaps/%s", iconname);
 
 	buf = gdk_pixbuf_new_from_file_at_size (fname, size, size, &err);
 
@@ -101,8 +101,9 @@ icon_init (MyApp *app)
 }
 
 void
-tray_icon_set (MyApp *app, int which)
+tray_icon_set (MyApp *app, gint which, gchar *tooltip)
 {
+	app->iconstate = which;
 	switch (which) {
 		case ICON_ERROR:
 			gtk_image_set_from_pixbuf (app->image_icon, pb_error);
@@ -118,6 +119,11 @@ tray_icon_set (MyApp *app, int which)
 			break;
 		default:
 			g_warning ("Unknown icon state %d", which);
+	}
+	if (tooltip) {
+		gtk_tooltips_set_tip (app->tooltip,
+				GTK_WIDGET (app->event_box),
+				tooltip, NULL);
 	}
 }
 

@@ -135,6 +135,10 @@ on_phone_message (std::string sender,
 static void
 on_status_change (int status, PhonemgrListener *listener)
 {
+    /* an error causes a disconnect */
+    if (status == PHONELISTENER_ERROR)
+        listener->connected = FALSE;
+
     phonemgr_listener_emit_status (listener, status);
 }
 

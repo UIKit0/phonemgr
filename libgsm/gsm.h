@@ -68,7 +68,7 @@ class PhoneListener : public SigC::Object
 
   void sms_loop ();
   void polled_loop ();
-  void sms_loop_once ();
+  bool sms_loop_once ();
   void disconnect ();
   void request_disconnect ();
   bool connect (std::string device);

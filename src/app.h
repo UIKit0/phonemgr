@@ -13,19 +13,49 @@
 
 typedef struct _appinfo {
 	GnomeProgram	*program;
+
+    /* gui stuff */
 	GtkTooltips	*tooltip;
 	EggTrayIcon	*tray_icon;
 	GtkImage    *image_icon;
     GtkEventBox *event_box;
 	GtkMenu *menu;
     GladeXML    *ui;
+    gint    iconstate;
+    gboolean showing_message;
+    GtkWidget *send_item;
+
+    /* auxilliary controllers */
     GConfClient *client;
     GnomebtController   *btctl;
     PhonemgrListener    *listener;
+
+    /* connection state */
     gchar   *devname;
     gboolean    reconnect;
-    guint   pollsource;
+
+    /* messages */
+    GMutex  *message_mutex;
+    GList   *messages;
+
+    /* thread stuff for connecting and disconnecting */
+    GThread *connecting_thread;
+    GThread *disconnecting_thread;
+    GMutex *connecting_mutex;
+    gboolean connecting;
+
+    /* signal handlers and timeouts */
+    gulong  status_cb;
+    gulong  message_cb;
+    gulong   pollsource;
+    gulong   reconnector;
 } MyApp;
+
+typedef struct _message {
+    gchar   *sender;
+    GTime   timestamp;
+    gchar   *message;
+} Message;
 
 /* menu functions */
 void construct_menu (MyApp *app);
@@ -33,15 +63,17 @@ void construct_menu (MyApp *app);
 /* ui functions */
 void ui_init (MyApp *app);
 void show_prefs_window (MyApp *app);
+gboolean dequeue_message (MyApp *app);
 
 /* connection functions */
 void free_connection (MyApp *app);
+void disconnect_signal_handlers (MyApp *app);
 void initialise_connection (MyApp *app);
 void reconnect_phone (MyApp *app);
 
 /* icon functions */
 void icon_init (MyApp *app);
-void tray_icon_set (MyApp *app, gint which);
+void tray_icon_set (MyApp *app, gint which, gchar *tooltip);
 gboolean tray_destroy_cb (GtkObject *obj, MyApp *app);
 #define tray_icon_init(x) tray_destroy_cb (NULL, x)
 GdkPixbuf *program_icon (void);
