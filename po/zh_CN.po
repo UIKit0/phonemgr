@@ -1,0 +1,415 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Funda Wang <fundawang@linux.net.cn>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phonemgr HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-03 12:01+0100\n"
+"PO-Revision-Date: 2004-12-04 01:45+0800\n"
+"Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
+"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libegg/libegg/iconlist/eggiconlist.c:313
+msgid "Selection mode"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:314
+msgid "The selection mode"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:322
+msgid "Sorted"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:323
+msgid "Icon list is sorted"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:329
+msgid "Sort order"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:330
+msgid "Sort direction the icon list should use"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:344
+msgid "Icon padding"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:345
+msgid "Number of pixels between icons"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:352
+msgid "Top margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:353
+msgid "Number of pixels in top margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:360
+msgid "Bottom margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:361
+msgid "Number of pixels in bottom margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:369
+msgid "Left margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:370
+msgid "Number of pixels in left margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:377
+msgid "Right margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:378
+msgid "Number of pixels in right margin"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:386
+msgid "Selection Box Color"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:387
+msgid "Color of the selection box"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:393
+msgid "Selection Box Alpha"
+msgstr ""
+
+#: libegg/libegg/iconlist/eggiconlist.c:394
+msgid "Opacity of the selection box"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:154
+msgid "Pixbuf"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:155
+msgid "A GdkPixbuf to display"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:162
+msgid "Filename"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:163
+msgid "Filename to load and display"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:170
+msgid "Stock ID"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:171
+msgid "Stock ID for a stock image to display"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:178
+msgid "Animation"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:179
+msgid "GdkPixbufAnimation to display"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:186
+msgid "Image type"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:187
+msgid "The representation being used for image data"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:195
+msgid "Size"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:196
+msgid "The size of the icon"
+msgstr ""
+
+#: libegg/libegg/tray/eggstatusicon.c:205
+msgid "Blinking"
+msgstr "闪烁"
+
+#: libegg/libegg/tray/eggstatusicon.c:206
+msgid "Whether or not the status icon is blinking"
+msgstr ""
+
+#: libegg/libegg/tray/eggtrayicon.c:118
+#: libegg/libegg/tray/eggtraymanager.c:145
+msgid "Orientation"
+msgstr ""
+
+#: libegg/libegg/tray/eggtrayicon.c:119
+#: libegg/libegg/tray/eggtraymanager.c:146
+msgid "The orientation of the tray."
+msgstr ""
+
+#. translators: the %d is substituted for a number
+#. which can be used for diagnostic purposes
+#: src/connection.c:40
+#, c-format
+msgid "Unable to obtain RFCOMM connection (%d)"
+msgstr "无法获得 RFCOMM 连接(%d)"
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: src/connection.c:110
+#, c-format
+msgid "Connected to device on %s"
+msgstr "已连接到 %s 上的设备"
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: src/connection.c:119
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr "连接到 %s 上的设备失败"
+
+#. When try icon is destroyed, recreate it.  This happens
+#. when the notification area is removed.
+#: src/gnome-phone-manager.desktop.in.h:1 src/icon.c:66 src/menu.c:30
+msgid "Phone Manager"
+msgstr "电话管理器"
+
+#: src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr "从您的移动电话收发文字消息"
+
+#: src/icon.c:162
+msgid "Message arrived"
+msgstr "收到了消息"
+
+#: src/icon.c:166
+msgid "Connected"
+msgstr "已连接"
+
+#: src/icon.c:171
+msgid "Connecting to phone"
+msgstr "已连接到电话"
+
+#: src/icon.c:176
+msgid "Not connected"
+msgstr "未连接"
+
+#: src/icon.c:196
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+"span>\n"
+"\n"
+"Phone Manager uses the notification area to display information and provide "
+"access to message sending and preferences. You can add it by right-clicking "
+"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
+"i>."
+msgstr ""
+
+#: src/main.c:36
+msgid "Couldn't create phone listener."
+msgstr "无法创建电话监听器。"
+
+#: src/menu.c:22
+msgid "translator_credits"
+msgstr "开源软件国际化之简体中文组"
+
+#: src/menu.c:32
+msgid "Send and receive messages from your mobile phone."
+msgstr "从您的移动电话收发短消息。"
+
+#: src/menu.c:75
+msgid "_Send Message"
+msgstr "发送消息(_S)"
+
+#: src/ui.c:88
+msgid "No Bluetooth device chosen."
+msgstr "没有选择蓝牙设备。"
+
+#: src/ui.c:321
+msgid "Message too long!"
+msgstr "消息太长！"
+
+#: ui/phonemgr.glade.h:1 ui/strings.c:31 ui/strings.c:44
+msgid "*"
+msgstr "*"
+
+#: ui/phonemgr.glade.h:2 ui/strings.c:30
+msgid "/dev/ttyS2"
+msgstr ""
+
+#: ui/phonemgr.glade.h:3 ui/strings.c:15
+msgid "<b>Alerting</b>"
+msgstr ""
+
+#: ui/phonemgr.glade.h:4 ui/strings.c:35
+msgid "<b>Error Handling</b>"
+msgstr "<b>错误处理</b>"
+
+#: ui/phonemgr.glade.h:5 ui/strings.c:32
+msgid "<b>Phone Connection</b>"
+msgstr "<b>电话连接</b>"
+
+#: ui/phonemgr.glade.h:6 ui/strings.c:39
+msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">输入您的文字消息</span>"
+
+#: ui/phonemgr.glade.h:7 ui/strings.c:9
+msgid ""
+"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgstr ""
+
+#: ui/phonemgr.glade.h:8 ui/strings.c:29
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr ""
+
+#: ui/phonemgr.glade.h:9 ui/strings.c:33
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+
+#: ui/phonemgr.glade.h:10 ui/strings.c:34
+msgid "Automatically _retry connections"
+msgstr "自动重试连接(_R)"
+
+#: ui/phonemgr.glade.h:11 ui/strings.c:40
+msgid "Characters left:"
+msgstr "所剩字符数："
+
+#: ui/phonemgr.glade.h:12 ui/strings.c:20
+msgid "Choo_se"
+msgstr "选择(_S)"
+
+#: ui/phonemgr.glade.h:13 ui/strings.c:19
+msgid "Choose a Bluetooth-enabled mobile phone to connect to."
+msgstr "选择要连接的蓝牙移动电话。"
+
+#: ui/phonemgr.glade.h:14 ui/strings.c:27
+msgid "Connect using an alternative serial device"
+msgstr "使用另外的串行设备连接"
+
+#: ui/phonemgr.glade.h:15 ui/strings.c:25
+msgid "Connect using infrared communication"
+msgstr "使用红外连接"
+
+#: ui/phonemgr.glade.h:16 ui/strings.c:21
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+
+#: ui/phonemgr.glade.h:17 ui/strings.c:23
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+
+#: ui/phonemgr.glade.h:18 ui/strings.c:36
+msgid "Connection"
+msgstr "连接"
+
+#: ui/phonemgr.glade.h:19 ui/strings.c:11
+msgid "Date:"
+msgstr "日期："
+
+#: ui/phonemgr.glade.h:20 ui/strings.c:43
+msgid "Enter the number you wish to send a message to."
+msgstr "输入您想要发送的电话号码。"
+
+#: ui/phonemgr.glade.h:21 ui/strings.c:46
+msgid "Enter the text message you want to send."
+msgstr "输入您想要发送的文字消息。"
+
+#: ui/phonemgr.glade.h:22 ui/strings.c:16
+msgid "Interface"
+msgstr "界面"
+
+#.
+#. * Translatable strings file generated by Glade.
+#. * Add this file to your project's POTFILES.in.
+#. * DO NOT compile it as part of your application.
+#.
+#: ui/phonemgr.glade.h:23 ui/strings.c:7
+msgid "Message Received"
+msgstr "收到了消息"
+
+#: ui/phonemgr.glade.h:24 ui/strings.c:41
+msgid "Number of characters left in the message"
+msgstr "消息中所剩字符数"
+
+#: ui/phonemgr.glade.h:25 ui/strings.c:28
+msgid "Other _port"
+msgstr "其它端口(_P)"
+
+#: ui/phonemgr.glade.h:26 ui/strings.c:12
+msgid "Phone Manager Preferences"
+msgstr "电话管理器首选项"
+
+#: ui/phonemgr.glade.h:27 ui/strings.c:14
+msgid "Play _sound when messages arrive"
+msgstr "收到消息时播放声音(_S)"
+
+#: ui/phonemgr.glade.h:28 ui/strings.c:37
+msgid "Send Message"
+msgstr "发送消息"
+
+#: ui/phonemgr.glade.h:29 ui/strings.c:10
+msgid "Sender:"
+msgstr "发送人："
+
+#: ui/phonemgr.glade.h:30 ui/strings.c:22
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "串口1(/dev/ttyS0)(_1)"
+
+#: ui/phonemgr.glade.h:31 ui/strings.c:24
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "串口2(/dev/ttyS1)(_2)"
+
+#: ui/phonemgr.glade.h:32 ui/strings.c:17
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "使用蓝牙无线网络连接到您的电话"
+
+#: ui/phonemgr.glade.h:33 ui/strings.c:18
+msgid "_Bluetooth"
+msgstr "蓝牙(_B)"
+
+#: ui/phonemgr.glade.h:34 ui/strings.c:26
+msgid "_Infra red (/dev/ircomm)"
+msgstr "红外(/dev/ircomm)(_I)"
+
+#: ui/phonemgr.glade.h:35 ui/strings.c:45
+msgid "_Message:"
+msgstr "消息(_M)："
+
+#: ui/phonemgr.glade.h:36 ui/strings.c:13
+msgid "_Pop-up window for new messages"
+msgstr "新消息弹出窗口(_P)"
+
+#: ui/phonemgr.glade.h:37 ui/strings.c:42
+msgid "_Recipient:"
+msgstr "收件人(_R)："
+
+#: ui/phonemgr.glade.h:38 ui/strings.c:8
+msgid "_Reply"
+msgstr "回复(_R)"
+
+#: ui/phonemgr.glade.h:39 ui/strings.c:38
+msgid "_Send"
+msgstr "发送(_S)"
+
+#: ui/phonemgr.glade.h:40 ui/strings.c:47
+msgid "message body"
+msgstr ""
