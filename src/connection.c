@@ -18,24 +18,27 @@ set_connection_device (MyApp *app)
 
 	switch (ctype) {
 		case CONNECTION_BLUETOOTH:
-			portno = gnomebt_controller_get_rfcomm_port_by_service (
-					app->btctl, bdaddr, 0x1103);
-			if (portno < 0)
-				portno = gnomebt_controller_connect_rfcomm_port_by_service (
-						app->btctl, bdaddr, 0x1103);
-			if (portno >= 0) {
-				dev = g_strdup_printf ("/dev/rfcomm%d", portno);
-				/* udev workaround: need to wait until udev device
-				 is created */
-				if (g_file_test ("/dev/.udev.tdb", G_FILE_TEST_EXISTS)) {
-					while (! g_file_test (dev, G_FILE_TEST_EXISTS)) {
-						g_message ("Waiting for udev device to appear");
-						g_usleep (500000);
+			if (bdaddr && strlen (bdaddr) == 17) {
+					portno = gnomebt_controller_get_rfcomm_port_by_service (
+							app->btctl, bdaddr, 0x1103);
+					if (portno < 0)
+						portno = gnomebt_controller_connect_rfcomm_port_by_service (
+								app->btctl, bdaddr, 0x1103);
+					if (portno >= 0) {
+						dev = g_strdup_printf ("/dev/rfcomm%d", portno);
+						/* udev workaround: need to wait until udev device
+						 is created */
+						if (g_file_test ("/dev/.udev.tdb", G_FILE_TEST_EXISTS)) {
+							while (! g_file_test (dev, G_FILE_TEST_EXISTS)) {
+								g_message ("Waiting for udev device to appear");
+								g_usleep (500000);
+							}
+						}
+					} else {
+						g_warning (_("Unable to obtain RFCOMM connection (%d)"),
+								portno);
 					}
-				}
-			} else {
-				g_warning (_("Unable to obtain RFCOMM connection (%d)"),
-						portno);
+
 			}
 			break;
 		case CONNECTION_SERIAL1:

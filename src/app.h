@@ -65,7 +65,7 @@ void construct_menu (MyApp *app);
 void ui_init (MyApp *app);
 void show_prefs_window (MyApp *app);
 gboolean dequeue_message (MyApp *app);
-void create_send_dialog (MyApp *app, gchar *recip);
+void create_send_dialog (MyApp *app, const gchar *recip);
 
 /* connection functions */
 void free_connection (MyApp *app);

@@ -70,6 +70,17 @@ message_dialog_close (MyApp *app)
 	return TRUE;
 }
 
+static gboolean
+message_dialog_reply (MyApp *app)
+{
+	GtkLabel *sender = GTK_LABEL (
+			glade_xml_get_widget (app->ui, "senderlabel"));
+
+	create_send_dialog (app, gtk_label_get_text (sender));
+
+	return TRUE;
+}
+
 static void
 set_btdevname (MyApp *app)
 {
@@ -264,7 +275,7 @@ send_message (GtkWidget *w, GladeXML *ui)
 }
 
 void
-create_send_dialog (MyApp *app, gchar *recip)
+create_send_dialog (MyApp *app, const gchar *recip)
 {
 	GtkTextBuffer *buf;
 	GtkTextView *view;
@@ -386,7 +397,9 @@ ui_init (MyApp *app)
 	g_signal_connect_swapped(G_OBJECT (w), "clicked",
 			G_CALLBACK (message_dialog_close), (gpointer) app);
 
-
+	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "replybutton"));
+	g_signal_connect_swapped (G_OBJECT (w), "clicked",
+			G_CALLBACK (message_dialog_reply), (gpointer) app);
 }
 
 void

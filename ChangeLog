@@ -22,6 +22,9 @@
 	* src/icon.c: update pixmaps path.
 	* src/main.c: init UI before tray icon.
 	* src/ui.c: prefer local UI to installed one, if available.
+	* src/ui.c: hook up the Reply button.
+	* src/connection.c: deal with empty bdaddr better.
+	* Release 0.3.
 
 2004-06-17  Edd Dumbill <edd@usefulinc.com>
 
