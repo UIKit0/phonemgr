@@ -9,18 +9,18 @@ EXTRA_DIST = \
 install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d $(srcdir)/ui/pixmaps; then \
-	  $(mkinstalldirs) $(DESTDIR)$(datadir)/$(PACKAGE)/ui/pixmaps; \
+	  $(mkinstalldirs) $(DESTDIR)$(datadir)/$(PACKAGE)/pixmaps; \
 	  for pixmap in $(srcdir)/ui/pixmaps/*.png; do \
 	    if test -f $$pixmap; then \
-	      $(INSTALL_DATA) $$pixmap $(DESTDIR)$(datadir)/$(PACKAGE)/ui/pixmaps; \
+	      $(INSTALL_DATA) $$pixmap $(DESTDIR)$(datadir)/$(PACKAGE)/pixmaps; \
 	    fi \
 	  done \
 	fi
 	if test -d $(srcdir)/ui; then \
-	  $(mkinstalldirs) $(DESTDIR)$(datadir)/$(PACKAGE)/ui; \
+	  $(mkinstalldirs) $(DESTDIR)$(datadir)/$(PACKAGE); \
 	  for uifile in $(srcdir)/ui/*.glade $(srcdir)/ui/*.xml; do \
 	    if test -f $$uifile; then \
-	      $(INSTALL_DATA) $$uifile $(DESTDIR)$(datadir)/$(PACKAGE)/ui; \
+	      $(INSTALL_DATA) $$uifile $(DESTDIR)$(datadir)/$(PACKAGE)/; \
 	    fi \
 	  done \
 	fi

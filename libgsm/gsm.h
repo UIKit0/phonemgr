@@ -3,6 +3,7 @@
 
 #include <gsmlib/gsm_me_ta.h>
 #include <gsmlib/gsm_event.h>
+#include <gsmlib/gsm_unix_serial.h>
 
 #include <sigc++/sigc++.h>
 
@@ -96,6 +97,7 @@ class PhoneListener : public SigC::Object
   vector<IncomingMessage> newMessages;
   vector<OutgoingMessage> sendQueue;
   gsmlib::MeTa *mt;
+  gsmlib::UnixSerialPort *port;
 
   // methods
   void init();

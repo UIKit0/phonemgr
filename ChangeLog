@@ -1,3 +1,8 @@
+2004-06-18  Edd Dumbill <edd@usefulinc.com>
+
+	* libgsm/gsm.cc: delete MeTa when disconnected.
+	* src/*.c: partially working phonemgr app now.
+
 2004-06-17  Edd Dumbill <edd@usefulinc.com>
 
 	* Checking into GNOME CVS.  Starting port to the new Bonobo-less
@@ -10,6 +15,8 @@
 	* autogen.sh: call libegg autogen.sh.
 	* configure.in: chain libegg configure.
 	* src/Makefile.am, src/main.c: stubs for main program.
+	* ui/GNOME_PhonemanagerApplet.xml: remove.
+	* src/gnome-phone-manager.desktop.in: add desktop file.
 
 2003-07-06  Edd Dumbill  <edd@usefulinc.com>
 

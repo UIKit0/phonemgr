@@ -108,7 +108,7 @@ PhoneListener::connect(std::string device)
 
 	try {
 	// open GSM device
-	gsmlib::UnixSerialPort *port=new gsmlib::UnixSerialPort(device,
+    port = new gsmlib::UnixSerialPort(device,
 									gsmlib::DEFAULT_BAUD_RATE,
 									gsmlib::DEFAULT_INIT_STRING,
 									false);
@@ -162,6 +162,10 @@ PhoneListener::request_disconnect ()
     // the AT sequences involved in switching of SMS routing
     // may yield more SMS events, so go round the loop one more time
     sms_loop_once ();
+    // disconnect properly
+    delete mt;
+    // delete port;
+    // now say we're done -- got to be last
     m_signal_status.emit(PHONELISTENER_IDLE);
 }
 
