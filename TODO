@@ -3,6 +3,9 @@ SHORT TERM
 * distinguish between fatal phone errors and recoverable errors,
   and don't force reconnect if they're recoverable
 
+* and then: add feature to notify if message was sent or there
+  was an error.
+
 * get localization working properly
 
 * tighten up configure checks to fail hard if the pre-requisites

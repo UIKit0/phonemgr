@@ -35,6 +35,8 @@ set_connection_device (MyApp *app)
 							}
 						}
 					} else {
+						/* translators: the %d is substituted for a number
+						   which can be used for diagnostic purposes */
 						g_warning (_("Unable to obtain RFCOMM connection (%d)"),
 								portno);
 					}
@@ -103,13 +105,17 @@ connect_phone_thread (gpointer data)
 	if (app->devname) {
 		g_message ("Connecting...");
 		if (phonemgr_listener_connect (app->listener, app->devname)) {
+			/* translators: the '%s' will be substituted with '/dev/ttyS0'
+			   or similar */
 			g_message (_("Connected to device on %s"), app->devname);
 			app->pollsource = g_timeout_add (200,
 				(GSourceFunc)poll_listener,
 				(gpointer) app->listener);
 		} else {
 			/* the ERROR signal will have been emitted, so we don't
-			 bother changing the icon ourselves at this point */
+			   bother changing the icon ourselves at this point */
+			/* translators: the '%s' will be substituted with '/dev/ttyS0'
+			   or similar */
 			g_message (_("Failed connection to device on %s"), app->devname);
 		}
 	} else {
