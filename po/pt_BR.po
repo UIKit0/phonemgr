@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-10 16:09-0400\n"
-"PO-Revision-Date: 2004-08-08 11:26-0300\n"
+"POT-Creation-Date: 2004-08-12 16:48-0400\n"
+"PO-Revision-Date: 2004-08-12 14:47-0300\n"
 "Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -113,11 +113,11 @@ msgstr "Nome do arquivo para carregar e exibir"
 
 #: libegg/libegg/tray/eggstatusicon.c:170
 msgid "Stock ID"
-msgstr ""
+msgstr "ID do Estoque"
 
 #: libegg/libegg/tray/eggstatusicon.c:171
 msgid "Stock ID for a stock image to display"
-msgstr ""
+msgstr "A ID para uma imagem do estoque a ser exibida"
 
 #: libegg/libegg/tray/eggstatusicon.c:178
 msgid "Animation"
@@ -168,21 +168,19 @@ msgstr "A orientação da bandeja."
 msgid "Unable to obtain RFCOMM connection (%d)"
 msgstr "Impossível obter uma conexão RFCOMM (%d)"
 
-# Coloquei fuzzy porque estou esperando a resposta de um bug no bugzilla
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
 #: src/connection.c:110
-#, fuzzy, c-format
+#, c-format
 msgid "Connected to device on %s"
 msgstr "Conectado no dispositivo em %s"
 
-# Coloquei fuzzy porque estou esperando a resposta de um bug no bugzilla
 #. the ERROR signal will have been emitted, so we don't
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
 #: src/connection.c:119
-#, fuzzy, c-format
+#, c-format
 msgid "Failed connection to device on %s"
 msgstr "Falha ao conectar no dispositivo em %s"
 
