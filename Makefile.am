@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = po src
+SUBDIRS = po libgsm
 
 EXTRA_DIST = \
 	autogen.sh \
