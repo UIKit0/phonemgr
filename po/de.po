@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr 0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-31 23:20+0200\n"
-"PO-Revision-Date: 2004-08-31 23:37+0200\n"
+"POT-Creation-Date: 2004-10-22 22:24+0200\n"
+"PO-Revision-Date: 2004-10-22 22:38+0200\n"
 "Last-Translator: Hendrik Brandt <eru@gmx.li>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit"
 
 #: libegg/libegg/iconlist/eggiconlist.c:313
-#, fuzzy
 msgid "Selection mode"
 msgstr "Auswahlmodus"
 
 #: libegg/libegg/iconlist/eggiconlist.c:314
-#, fuzzy
 msgid "The selection mode"
 msgstr "Der Auswahlmodus"
 
@@ -85,27 +83,27 @@ msgstr "Anzahl der Pixel des rechten Randes"
 
 #: libegg/libegg/iconlist/eggiconlist.c:386
 msgid "Selection Box Color"
-msgstr ""
+msgstr "Auswahlboxfarbe"
 
 #: libegg/libegg/iconlist/eggiconlist.c:387
 msgid "Color of the selection box"
-msgstr ""
+msgstr "Die Farbe der Auswahlbox"
 
 #: libegg/libegg/iconlist/eggiconlist.c:393
 msgid "Selection Box Alpha"
-msgstr ""
+msgstr "Auswahlbox-Alphakanal"
 
 #: libegg/libegg/iconlist/eggiconlist.c:394
 msgid "Opacity of the selection box"
-msgstr ""
+msgstr "Deckkraft der Auswahlbox"
 
 #: libegg/libegg/tray/eggstatusicon.c:154
 msgid "Pixbuf"
-msgstr ""
+msgstr "Pixbuf"
 
 #: libegg/libegg/tray/eggstatusicon.c:155
 msgid "A GdkPixbuf to display"
-msgstr ""
+msgstr "Ein anzuzeigender  GdkPixbuf"
 
 #: libegg/libegg/tray/eggstatusicon.c:162
 msgid "Filename"
@@ -113,15 +111,15 @@ msgstr "Dateiname"
 
 #: libegg/libegg/tray/eggstatusicon.c:163
 msgid "Filename to load and display"
-msgstr ""
+msgstr "Der Name der zu ladende und anzuzeigende Datei"
 
 #: libegg/libegg/tray/eggstatusicon.c:170
 msgid "Stock ID"
-msgstr ""
+msgstr "Stock ID"
 
 #: libegg/libegg/tray/eggstatusicon.c:171
 msgid "Stock ID for a stock image to display"
-msgstr ""
+msgstr "Stock ID für ein anzuzeigendes Stock-Image"
 
 #: libegg/libegg/tray/eggstatusicon.c:178
 msgid "Animation"
@@ -129,7 +127,7 @@ msgstr "Animation"
 
 #: libegg/libegg/tray/eggstatusicon.c:179
 msgid "GdkPixbufAnimation to display"
-msgstr ""
+msgstr "Eine anzuzeigende GdkPixbufAnimation to display"
 
 #: libegg/libegg/tray/eggstatusicon.c:186
 msgid "Image type"
@@ -137,7 +135,7 @@ msgstr "Bildtyp"
 
 #: libegg/libegg/tray/eggstatusicon.c:187
 msgid "The representation being used for image data"
-msgstr ""
+msgstr "Die zu verwendende Darstellung für Bilddaten"
 
 #: libegg/libegg/tray/eggstatusicon.c:195
 msgid "Size"
@@ -224,18 +222,19 @@ msgid ""
 "on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
 "i>."
 msgstr ""
-"<span weight=\"bold\" size=\"larger\">Benachrichtigungsfeld konnte nicht gefunden werden</"
-"span>\n"
+"<span weight=\"bold\" size=\"larger\">Benachrichtigungsfeld konnte nicht "
+"gefunden werden</span>\n"
 "\n"
-"Die Telefonverwaltung verwendet das Benachrichtigungsfeld um Informationen anzuzeigen "
-"und außerdem um es Ihnen zu ermöglichen Nachrichten zu versenden und Einstellungen vorzunehmen. "
-"Sie können das Benachrichtigungsfeld zu Ihrem Panel hinzufügen, in dem Sie es mit der rechten "
-"Maustaste anklicken, »Zum Panel hinzufügen...« auswählen und anschließend im erscheindenen Dialog"
-"»Benachrichtigungsfeld« markieren und es mit »Hinzufügen« hinzufügen."
+"Die Telefonverwaltung verwendet das Benachrichtigungsfeld um Informationen "
+"anzuzeigen und außerdem um es Ihnen zu ermöglichen Nachrichten zu versenden "
+"und Einstellungen vorzunehmen. Sie können das Benachrichtigungsfeld zu Ihrem "
+"Panel hinzufügen, in dem Sie es mit der rechten Maustaste anklicken, »Zum "
+"Panel hinzufügen...« auswählen und anschließend im erscheindenen "
+"Dialog»Benachrichtigungsfeld« markieren und es mit »Hinzufügen« hinzufügen."
 
 #: src/main.c:36
 msgid "Couldn't create phone listener."
-msgstr ""
+msgstr "Der Telefonempfänger konnte nicht angelegt werden."
 
 #: src/menu.c:22
 msgid "translator_credits"
@@ -406,8 +405,9 @@ msgstr "Serielle Schnittstelle _2 (/dev/ttyS1)"
 
 #: ui/phonemgr.glade.h:32 ui/strings.c:17
 msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr "Wenn diese Option ausgewählt ist, wird das drahtlose Bluetooth-Netzwerk verwendet,"
-" um eine Verbindung mit Ihrem Telefon herzustellen"
+msgstr ""
+"Wenn diese Option ausgewählt ist, wird das drahtlose Bluetooth-Netzwerk "
+"verwendet, um eine Verbindung mit Ihrem Telefon herzustellen"
 
 #: ui/phonemgr.glade.h:33 ui/strings.c:18
 msgid "_Bluetooth"
@@ -438,7 +438,6 @@ msgid "_Send"
 msgstr "_Senden"
 
 #: ui/phonemgr.glade.h:40 ui/strings.c:47
-#, fuzzy
 msgid "message body"
 msgstr "Nachrichtenkörper"
 
