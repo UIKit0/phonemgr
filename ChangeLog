@@ -13,8 +13,8 @@
 	* libgsm/gsm.cc: disconnect on errors properly.
 	* libgsm/phonemgr-listener.cc: set disconnected flag on error.
 	* src/menu.c: add Send Message menu item.
-	
-	
+	* ui/phonemgr.glade: a bit of HIGgification.
+	* src/ui.c: implement sending dialog.
 
 2004-06-17  Edd Dumbill <edd@usefulinc.com>
 

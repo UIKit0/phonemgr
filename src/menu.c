@@ -60,11 +60,8 @@ static gboolean
 send_activated (GtkMenuItem *item, gpointer data)
 {
 	MyApp *app = (MyApp *)data;
-	GtkWidget *w;
 
-	gtk_widget_set_sensitive (GTK_WIDGET (app->send_item), FALSE);
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "send_dialog"));
-	gtk_widget_show_all (w);
+	create_send_dialog (app, NULL);
 	return TRUE;
 }
 
@@ -83,7 +80,7 @@ construct_menu (MyApp *app)
 					GTK_ICON_SIZE_MENU)));
 	gtk_widget_show (item);
 	gtk_menu_shell_append (GTK_MENU_SHELL (app->menu), item);
-	app->send_item = GTK_WIDGET (item);
+	app->send_item = item;
 
 	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_PREFERENCES,
 			 NULL);

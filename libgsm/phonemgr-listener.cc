@@ -136,7 +136,8 @@ static void
 on_status_change (int status, PhonemgrListener *listener)
 {
     /* an error causes a disconnect */
-    if (status == PHONELISTENER_ERROR)
+    if (status == PHONELISTENER_ERROR ||
+            stats == PHONELISTENER_IDLE)
         listener->connected = FALSE;
 
     phonemgr_listener_emit_status (listener, status);
@@ -174,7 +175,7 @@ phonemgr_listener_finalize(GObject *obj)
         delete listener->listener;
     }
 
-	G_OBJECT_CLASS(parent_class)->finalize(obj);
+	G_OBJECT_CLASS (parent_class)->finalize(obj);
 }
 
 

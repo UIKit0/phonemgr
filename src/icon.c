@@ -42,7 +42,7 @@ tray_destroy_cb (GtkObject *obj, MyApp *app)
 	app->event_box = GTK_EVENT_BOX (gtk_event_box_new ());
 	app->image_icon = GTK_IMAGE (gtk_image_new ());
 
-	tray_icon_set (app, app->iconstate, NULL);
+	set_icon_state (app);
 
 	gtk_container_add (GTK_CONTAINER (app->event_box),
 			GTK_WIDGET (app->image_icon));
@@ -101,29 +101,29 @@ icon_init (MyApp *app)
 }
 
 void
-tray_icon_set (MyApp *app, gint which, gchar *tooltip)
+set_icon_state (MyApp *app)
 {
-	app->iconstate = which;
-	switch (which) {
-		case ICON_ERROR:
-			gtk_image_set_from_pixbuf (app->image_icon, pb_error);
-			break;
-		case ICON_CONNECTING:
-			gtk_image_set_from_pixbuf (app->image_icon, pb_connecting);
-			break;
-		case ICON_MESSAGE:
+	if (app->listener && phonemgr_listener_connected (app->listener)) {
+		gtk_widget_set_sensitive (app->send_item, TRUE);
+		if (app->messages) {
 			gtk_image_set_from_pixbuf (app->image_icon, pb_message);
-			break;
-		case ICON_IDLE:
+			gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
+					_("Message arrived"), NULL);
+		} else {
 			gtk_image_set_from_pixbuf (app->image_icon, pb_idle);
-			break;
-		default:
-			g_warning ("Unknown icon state %d", which);
-	}
-	if (tooltip) {
-		gtk_tooltips_set_tip (app->tooltip,
-				GTK_WIDGET (app->event_box),
-				tooltip, NULL);
+			gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
+					_("Connected"), NULL);
+		}
+	} else if (app->connecting) {
+		gtk_image_set_from_pixbuf (app->image_icon, pb_connecting);
+		gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
+				_("Connecting to phone"), NULL);
+		gtk_widget_set_sensitive (app->send_item, FALSE);
+	} else {
+		gtk_image_set_from_pixbuf (app->image_icon, pb_error);
+		gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
+				_("Not connected"), NULL);
+		gtk_widget_set_sensitive (app->send_item, FALSE);
 	}
 }
 

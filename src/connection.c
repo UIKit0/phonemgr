@@ -93,7 +93,7 @@ connect_phone_thread (gpointer data)
 	MyApp *app = (MyApp *)data;
 
 	gdk_threads_enter ();
-	tray_icon_set (app, ICON_CONNECTING, (_("Connecting...")));
+	set_icon_state (app);
 	gdk_threads_leave ();
 	set_connection_device (app);
 	app->reconnect = FALSE;
@@ -110,16 +110,16 @@ connect_phone_thread (gpointer data)
 			g_message (_("Failed connection to device on %s"), app->devname);
 		}
 	} else {
-		/* the listener object can't pick this error up, so we set
-		 the icon ourselves */
-		gdk_threads_enter ();
-		tray_icon_set (app, ICON_ERROR, (_("Failed to connect")));
-		gdk_threads_leave ();
 		g_message ("No device!");
 	}
 	g_mutex_lock (app->connecting_mutex);
 	app->connecting = FALSE;
 	g_mutex_unlock (app->connecting_mutex);
+
+	gdk_threads_enter ();
+	set_icon_state (app);
+	gdk_threads_leave ();
+
 	g_message ("Exiting connect thread");
 	return NULL;
 }
@@ -161,7 +161,7 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 			/* received when disconnected */
 			g_source_remove (app->pollsource);
 			app->pollsource = 0;
-			tray_icon_set (app, ICON_ERROR, _("Not connected"));
+			set_icon_state (app);
 			if (app->reconnect)
 				g_idle_add ((GSourceFunc)idle_connect_phone,
 						(gpointer)app);
@@ -170,13 +170,13 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 			g_message ("Making serial port connection");
 			break;
 		case PHONEMGR_LISTENER_CONNECTED:
-			tray_icon_set (app, ICON_IDLE, _("Connected to phone"));
+			g_message ("Serial port connected");
 			break;
 		case PHONEMGR_LISTENER_DISCONNECTING:
 			g_message ("Closing serial port connection");
 			break;
 		case PHONEMGR_LISTENER_ERROR:
-			tray_icon_set (app, ICON_ERROR, _("Failed to connect"));
+			set_icon_state (app);
 			g_message ("Connected error occurred.");
 			break;
 		default:
@@ -195,14 +195,14 @@ on_message (PhonemgrListener *listener, gchar *sender,
 	/* this handler called from a normal poll: happens
 	   on the main gtk thread */
 	g_message ("Got message %s | %ld | %s", sender, (long)timestamp, message);
-	msg = g_new0(Message, 1);
+	msg = g_new0 (Message, 1);
 	msg->sender = g_strdup (sender);
 	msg->timestamp = timestamp;
 	msg->message = g_strdup (message);
 	g_mutex_lock (app->message_mutex);
 	app->messages = g_list_append (app->messages, (gpointer) msg);
 	g_mutex_unlock (app->message_mutex);
-	tray_icon_set (app, ICON_MESSAGE, _("Message arrived"));
+	set_icon_state (app);
 }
 
 void
@@ -213,8 +213,7 @@ reconnect_phone (MyApp *app)
 		app->reconnect = TRUE;
 		app->disconnecting_thread =
 			g_thread_create ((GThreadFunc) phonemgr_listener_disconnect,
-				(gpointer) app->listener,
-				TRUE, NULL);
+				(gpointer) app->listener, TRUE, NULL);
 	} else {
 		connect_phone (app);
 	}
@@ -257,5 +256,4 @@ initialise_connection (MyApp *app)
 	app->message_mutex = g_mutex_new ();
 	on_message (NULL, "+441234567890", 0, "Hello, this is a test message.", app);
 	on_message (NULL, "+441234567890", 0, "Hello again, this is a test message.", app);
-	on_message (NULL, "+441234567890", 0, "Hello once more, this is a test message.", app);
 }
