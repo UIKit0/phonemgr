@@ -1,3 +1,9 @@
+2004-06-21  Edd Dumbill <edd@usefulinc.com>
+
+	* ui/phonemgr.glade: remove irritating single pixel border on
+	textview in message send dialog. In message received dialog,
+	change "OK" to "Close".
+
 2004-06-20  Edd Dumbill <edd@usefulinc.com>
 
 	* libgsm/gsm.cc: connect() empty send queue on connection to
