@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-17 12:16+0200\n"
-"PO-Revision-Date: 2004-08-17 14:12+0200\n"
+"POT-Creation-Date: 2004-08-20 04:14+0200\n"
+"PO-Revision-Date: 2004-08-23 15:11+0200\n"
 "Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgstr ""
 
 #: libegg/libegg/tray/eggstatusicon.c:155
 msgid "A GdkPixbuf to display"
-msgstr ""
+msgstr "Een GdkPixbuf om weer te geven"
 
 #: libegg/libegg/tray/eggstatusicon.c:162
 msgid "Filename"
@@ -126,7 +126,7 @@ msgstr "Animatie"
 
 #: libegg/libegg/tray/eggstatusicon.c:179
 msgid "GdkPixbufAnimation to display"
-msgstr ""
+msgstr "GdkPixbufAnimation om weer te geven"
 
 #: libegg/libegg/tray/eggstatusicon.c:186
 msgid "Image type"
@@ -224,7 +224,10 @@ msgstr ""
 "<span weight=\"bold\" size=\"larger\">Kon mededelingengebied niet vinden</"
 "span>\n"
 "\n"
-"Telefoonbeheer gebruikt het mededelingengebied om informatie weer te geven, om berichten mee te verzenden en voor voorkeuren. U kunt het toevoegen door rechts te klikken op het paneel en <i>Toevoegen aan paneel -> Mededelingengebied</i> te kiezen."
+"Telefoonbeheer gebruikt het mededelingengebied om informatie weer te geven, "
+"om berichten mee te verzenden en voor voorkeuren. U kunt het toevoegen door "
+"rechts te klikken op het paneel en <i>Toevoegen aan paneel -> "
+"Mededelingengebied</i> te kiezen."
 
 #: src/main.c:36
 msgid "Couldn't create phone listener."
@@ -290,8 +293,9 @@ msgid ""
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
 "range."
 msgstr ""
-"Altijd opnieuw proberen te verbinden als er niet direct een verbinding beschikbaar is. "
-"Gebruik dit met Bluetooth om te zorgen dat uw telefoon verbinding maakt zodra die binnen bereik komt."
+"Altijd opnieuw proberen te verbinden als er niet direct een verbinding "
+"beschikbaar is. Gebruik dit met Bluetooth om te zorgen dat uw telefoon "
+"verbinding maakt zodra die binnen bereik komt."
 
 #: ui/phonemgr.glade.h:10 ui/strings.c:34
 msgid "Automatically _retry connections"
@@ -307,7 +311,8 @@ msgstr "_Kiezen"
 
 #: ui/phonemgr.glade.h:13 ui/strings.c:19
 msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr "Kies een mobiele telefoon die Bluetooth ondersteunt om mee te verbinden."
+msgstr ""
+"Kies een mobiele telefoon die Bluetooth ondersteunt om mee te verbinden."
 
 #: ui/phonemgr.glade.h:14 ui/strings.c:27
 msgid "Connect using an alternative serial device"
