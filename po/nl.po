@@ -1,20 +1,19 @@
 # Dutch translation of phonemgr.
 # Copyright (C) 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the phonemgr package.
-# Elros Cyriatan <cyriatan@fastmail.fm>, 2004.
-# 
+# Taco Witte <tcwitte@cs.uu.nl>, 2004.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-20 04:14+0200\n"
-"PO-Revision-Date: 2004-08-23 15:11+0200\n"
-"Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
-"Language-Team: Dutch <vertaling@nl.linux.org>\n"
+"POT-Creation-Date: 2004-10-21 12:55+0200\n"
+"PO-Revision-Date: 2004-10-29 22:23+0200\n"
+"Last-Translator: Taco Witte <tcwitte@cs.uu.nl>\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: libegg/libegg/iconlist/eggiconlist.c:313
 msgid "Selection mode"
@@ -98,7 +97,7 @@ msgstr "Ondoorzichtigheid van het keuzevak"
 
 #: libegg/libegg/tray/eggstatusicon.c:154
 msgid "Pixbuf"
-msgstr ""
+msgstr "Afbeelding"
 
 #: libegg/libegg/tray/eggstatusicon.c:155
 msgid "A GdkPixbuf to display"
@@ -426,4 +425,3 @@ msgstr "_Verzenden"
 #: ui/phonemgr.glade.h:40 ui/strings.c:47
 msgid "message body"
 msgstr "berichtsinhoud"
-
