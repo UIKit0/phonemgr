@@ -1,5 +1,9 @@
 libgsm/gsm.cc
 libgsm/phonemgr-listener.cc
-src/main.cc
-src/gnome-phonemanager.desktop.in
 ui/strings.c
+src/connection.c
+src/icon.c
+src/main.c
+src/menu.c
+src/ui.c
+src/gnome-phone-manager.desktop.in

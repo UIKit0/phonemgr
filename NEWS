@@ -2,6 +2,7 @@ phonemgr 0.3
 ============
 
  * More or less 100% rewritten to use the new gnome-bluetooth framework,
+   no feature difference from previous release.
    
  * Restricted use of C++ to the GSM mobile phone communication code.
    Nothing personal against C++, I was just fed up of Debian not tracking

@@ -137,7 +137,7 @@ on_status_change (int status, PhonemgrListener *listener)
 {
     /* an error causes a disconnect */
     if (status == PHONELISTENER_ERROR ||
-            stats == PHONELISTENER_IDLE)
+            status == PHONELISTENER_IDLE)
         listener->connected = FALSE;
 
     phonemgr_listener_emit_status (listener, status);

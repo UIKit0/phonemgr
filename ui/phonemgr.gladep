@@ -4,6 +4,7 @@
 <glade-project>
   <name>phonemgr</name>
   <program_name>phonemgr</program_name>
+  <pixmaps_directory>.</pixmaps_directory>
   <language>C++</language>
   <output_translatable_strings>TRUE</output_translatable_strings>
   <translatable_strings_file>strings.c</translatable_strings_file>

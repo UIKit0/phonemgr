@@ -15,6 +15,10 @@
 	* src/menu.c: add Send Message menu item.
 	* ui/phonemgr.glade: a bit of HIGgification.
 	* src/ui.c: implement sending dialog.
+	* ui/pixmaps/, Makefile.am: move pngs into same directory as
+	glade file: abandon hope of glade respecting the pixmap dir.
+	* src/gnome-phone-manager.desktop.in: correct icon path
+	* po/POTFILES.in: update.
 
 2004-06-17  Edd Dumbill <edd@usefulinc.com>
 

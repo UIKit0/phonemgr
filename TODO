@@ -15,11 +15,6 @@ SHORT TERM
 
 * proper exception handling for GConf errors
 
-* when disconnecting, if it doesn't disconnect within 5 seconds then
-  kill it off by brute force
-
-* move scanning animation out into the bonobo bluetooth component
-
 LONG TERM
 
 * look up sender number in phone addressbook
