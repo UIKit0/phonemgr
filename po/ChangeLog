@@ -1,0 +1,5 @@
+2004-08-05  Christian Rose  <menthos@menthos.com>
+
+	* POTFILES.in: Added missing file entries.
+	* .cvsignore: Added more entries.
+
