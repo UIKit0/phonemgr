@@ -26,7 +26,7 @@ dnl Gettext stuff.
 GETTEXT_PACKAGE=gnome-phone-manager
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"gnome-phone-manager", [GNOME phone manager applet.])
-ALL_LINGUAS="cs en_CA fr pt"
+ALL_LINGUAS="cs en_CA fr pt pt_BR"
 AM_GLIB_GNU_GETTEXT
 
 AC_SUBST(DLOPEN)
