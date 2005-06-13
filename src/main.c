@@ -45,6 +45,8 @@ main (int argc, char **argv)
 	reconnect_phone (app);
 	gtk_main ();
 
+	tray_icon_hide (app);
+	ui_hide (app);
 	free_connection (app);
 	g_object_unref (app->listener);
 	g_object_unref (app->btctl);

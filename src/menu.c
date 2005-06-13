@@ -53,7 +53,7 @@ quit_activated (GtkMenuItem *item, gpointer data)
 	MyApp *app = (MyApp *)data;
 	disconnect_signal_handlers (app);
 	gtk_main_quit ();
-    return TRUE;
+	return TRUE;
 }
 
 static gboolean

@@ -70,6 +70,7 @@ gboolean dequeue_message (MyApp *app);
 void create_send_dialog (MyApp *app, GtkDialog *parent, const gchar *recip);
 void enable_flasher (MyApp *app);
 void play_alert (MyApp *app);
+void ui_hide (MyApp *app);
 
 /* connection functions */
 void free_connection (MyApp *app);
@@ -82,6 +83,7 @@ void icon_init (MyApp *app);
 void set_icon_state (MyApp *app);
 void tray_icon_init (MyApp *app);
 GdkPixbuf *program_icon (void);
+void tray_icon_hide (MyApp *app);
 
 enum {
     ICON_IDLE,

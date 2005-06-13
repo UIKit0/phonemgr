@@ -1,5 +1,14 @@
 2005-06-13  Bastien Nocera  <hadess@hadess.net>
 
+	* src/app.h:
+	* src/icon.c: (tray_icon_hide):
+	* src/main.c: (main):
+	* src/menu.c: (quit_activated):
+	* src/ui.c: (ui_hide): Speed up the exit by hiding the widgets as
+	soon as they're not needed anymore
+
+2005-06-13  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
 	(phonemgr_listener_queue_message):
 	* src/e-contact-entry.c: (view_contacts_added_cb), (entry_height):

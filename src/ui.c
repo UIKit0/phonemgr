@@ -489,6 +489,22 @@ ui_init (MyApp *app)
 }
 
 void
+ui_hide (MyApp *app)
+{
+	GtkWidget *w;
+	GdkDisplay *display;
+
+	w = glade_xml_get_widget (app->ui, "prefs_window");
+	display = gtk_widget_get_display (w);
+	gtk_widget_hide (w);
+
+	w = glade_xml_get_widget (app->ui, "send_dialog");
+	gtk_widget_hide (w);
+
+	gdk_display_sync (display);
+}
+
+void
 show_prefs_window (MyApp *app)
 {
 	GtkWidget *prefs = glade_xml_get_widget (app->ui, "prefs_window");

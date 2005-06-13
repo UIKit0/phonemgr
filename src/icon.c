@@ -206,3 +206,9 @@ tray_icon_init (MyApp  *app)
 	}
 	tray_destroy_cb (NULL, app);
 }
+
+void
+tray_icon_hide (MyApp *app)
+{
+	gtk_widget_hide (GTK_WIDGET (app->tray_icon));
+}
