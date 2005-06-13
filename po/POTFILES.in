@@ -4,8 +4,6 @@ libegg/libegg/iconlist/eggiconlist.c
 libegg/libegg/tray/eggstatusicon.c
 libegg/libegg/tray/eggtrayicon.c
 libegg/libegg/tray/eggtraymanager.c
-libgsm/gsm.cc
-libgsm/phonemgr-listener.cc
 src/connection.c
 src/gnome-phone-manager.desktop.in
 src/icon.c

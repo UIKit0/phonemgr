@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-13 12:10+0200\n"
+"POT-Creation-Date: 2005-06-13 12:20+0200\n"
 "PO-Revision-Date: 2005-06-13 12:19+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
@@ -161,16 +161,9 @@ msgstr "Orientering"
 msgid "The orientation of the tray."
 msgstr "Orientering for trauet."
 
-#. translators: the %d is substituted for a number
-#. which can be used for diagnostic purposes
-#: ../src/connection.c:40
-#, c-format
-msgid "Unable to obtain RFCOMM connection (%d)"
-msgstr "Kan ikke oprette RFCOMM-tilkobling (%d)"
-
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:110
+#: ../src/connection.c:90
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Koblet til enhet på %s"
@@ -179,7 +172,7 @@ msgstr "Koblet til enhet på %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:119
+#: ../src/connection.c:99
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Tilkobling til enhet på %s feilet"
@@ -263,7 +256,8 @@ msgstr "<b>Telefontilkobling</b>"
 
 #: ../ui/phonemgr.glade.h:5
 msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Skriv inn din tekstmelding</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">Skriv inn din tekstmelding</span>"
 
 #: ../ui/phonemgr.glade.h:6
 msgid ""
@@ -495,3 +489,6 @@ msgstr ""
 #: ../src/e-contact-entry.c:844 ../src/e-contact-entry.c:847
 msgid "An unknown error occured."
 msgstr "En ukjent feil oppsto."
+
+#~ msgid "Unable to obtain RFCOMM connection (%d)"
+#~ msgstr "Kan ikke oprette RFCOMM-tilkobling (%d)"
