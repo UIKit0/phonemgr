@@ -1,5 +1,9 @@
 2005-06-13  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/.cvsignore: upd
+
+2005-06-13  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in:
 	* README:
 	* libgsm/Makefile.am:
