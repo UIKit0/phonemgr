@@ -13,4 +13,4 @@ src/main.c
 src/menu.c
 src/ui.c
 ui/phonemgr.glade
-ui/strings.c
+src/e-contact-entry.c
