@@ -1,7 +1,7 @@
 /*
- *  PhoneListener GObject wrapper.
+ *  PhoneListener utilities
  *
- *  Copyright (C) 2004  Edd Dumbill <edd@usefulinc.com>
+ *  Copyright (C) 2005 Bastien Nocera <hadess@hadess.net>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,23 +18,15 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  */
-#ifndef __PHONEMGR_LISTENER_PRIVATE_H__
-#define __PHONEMGR_LISTENER_PRIVATE_H__
+#ifndef __PHONEMGR_UTILS_H__
+#define __PHONEMGR_UTILS_H__
 
-#include "phonemgr-listener.h"
-#include "gsm.h"
-#include <sigc++/sigc++.h>
+#include <glib-object.h>
 
 G_BEGIN_DECLS
 
-struct _PhonemgrListener
-{
-    GObject obj;
-    PhoneListener *listener;
-    SigC::Connection messagecon;
-    SigC::Connection statuscon;
-    gboolean connected;
-};
+char *phonemgr_utils_write_config (const char *driver, const char *addr);
+char *phonemgr_utils_guess_driver (char *device);
 
 G_END_DECLS
 

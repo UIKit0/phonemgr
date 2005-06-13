@@ -40,6 +40,8 @@ int main (int argc, char **argv)
 	entry = e_phone_entry_new ();
 	g_signal_connect (G_OBJECT (entry), "phone_changed",
 			G_CALLBACK (phone_changed_cb), NULL);
+	g_signal_connect (G_OBJECT (window), "delete",
+			G_CALLBACK (window_closed), NULL);
 
 	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (window)->vbox), entry);
 

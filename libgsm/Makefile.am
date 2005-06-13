@@ -1,30 +1,24 @@
-AM_CPPFLAGS = \
-	-I$(top_srcdir)/intl \
-	$(LIBGSM_CFLAGS)
+AM_CPPFLAGS = $(LIBGSM_CFLAGS)
 
 EXTRA_DIST = \
 	phonemgr-marshal.list
 
-noinst_PROGRAMS = gsmtest glibgsmtest
+noinst_PROGRAMS = glibgsmtest gnokii-identify
 
 noinst_LTLIBRARIES = libgsmwrap.la
 
 libgsmwrap_la_SOURCES = \
-	gsm.cc gsm.h phonemgr-listener.h phonemgr-listener-private.h \
-	phonemgr-listener.cc \
+	phonemgr-listener.h \
+	phonemgr-listener.c \
+	phonemgr-utils.c \
+	phonemgr-utils.h \
 	phonemgr-marshal.c phonemgr-marshal.h
 
-gsmtest_SOURCES = \
-	main.cc
+glibgsmtest_SOURCES = glibgsmtest.c
+glibgsmtest_LDADD = $(LIBGSM_LIBS) libgsmwrap.la
 
-gsmtest_LDADD = $(LIBGSM_LIBS) -lgsmme \
-	libgsmwrap.la
-
-glibgsmtest_SOURCES = \
-	glibgsmtest.c
-
-glibgsmtest_LDADD = $(LIBGSM_LIBS) -lgsmme \
-	libgsmwrap.la
+gnokii_identify_SOURCES = gnokii-identify.c
+gnokii_identify_LDADD = $(LIBGSM_LIBS) libgsmwrap.la
 
 GENMARSHAL_GENERATED = phonemgr-marshal.c phonemgr-marshal.h
 
@@ -45,3 +39,4 @@ CLEANFILES = $(BUILT_SOURCES)
 
 dist-hook:
 	cd $(distdir); rm -f $(BUILT_SOURCES)
+

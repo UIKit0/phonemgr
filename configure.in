@@ -36,8 +36,7 @@ dnl Add the languages which your application supports here.
 
 AM_GCONF_SOURCE_2
 
-PKG_CHECK_MODULES(LIBGSM, sigc++-1.2
-	glib-2.0 gobject-2.0)
+PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 gnokii >= 0.6.4 gthread-2.0)
 AC_SUBST(LIBGSM_CFLAGS)
 AC_SUBST(LIBGSM_LIBS)
 
@@ -46,11 +45,11 @@ PKG_CHECK_MODULES(TMP_EVO, libebook-1.2,
 		evo_pc_file="libebook-1.2",
 		evo_pc_file="libebook-1.0")
 
-PKG_CHECK_MODULES(PHONEMGR, sigc++-1.2
-	gtk+-2.0 glib-2.0 libgnomeui-2.0 >= 1.110.0
+PKG_CHECK_MODULES(PHONEMGR, gtk+-2.0 glib-2.0 libgnomeui-2.0 >= 1.110.0
 	libgnome-2.0 gdk-pixbuf-2.0 gconf-2.0 libbtctl >= 0.4.1
-	libglade-2.0 gnome-bluetooth $evo_pc_file
+	libglade-2.0 gnome-bluetooth gnokii >= 0.6.4 $evo_pc_file
 )
+
 AC_SUBST(PHONEMGR_CFLAGS)
 AC_SUBST(PHONEMGR_LIBS)
 
@@ -58,9 +57,6 @@ AM_PATH_OPENOBEX(1.0.0)
 
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal, no)
 AC_SUBST(GLIB_GENMARSHAL)
-
-AC_CHECK_LIB(gsmme,main,[],
-	AC_MSG_ERROR([gsmlib is required to build this software]))
 
 AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
 

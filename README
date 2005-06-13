@@ -24,14 +24,10 @@ You need:
   http://usefulinc.com/software/gnome-bluetooth
 
 * These GNOME 2 packages:
-    sigc++-1.2 glib-2.0 libgnomeui-2.0 >= 1.110.0
+    glib-2.0 libgnomeui-2.0 >= 1.110.0
     libgnome-2.0 gtk-2.0 gconf-2.0
 
-   libsigc++ can be found at http://sourceforge.net/projects/libsigc/
-
-* gsmlib 1.10, with the patch from http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=168475
-  applied (works, even though the patch is against 1.9).
-  gsmlib homepage is http://www.pxh.de/fs/gsmlib/
-	-- or gsmlib 1.11 or better, when released.
+* gnokii 0.6.4 or better
+  gnokii's homepage is at http://gnokii.org/
 
  -- Edd Dumbill <edd@usefulinc.com>, 2003-03-01

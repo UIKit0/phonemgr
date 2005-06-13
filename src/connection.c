@@ -4,12 +4,13 @@
 
 #include "app.h"
 
+#define POLL_TIMEOUT 50
+
 static gchar *
 set_connection_device (MyApp *app)
 {
 	gint ctype = gconf_client_get_int (app->client,
 			CONFBASE"/connection_type", NULL);
-	gint portno;
 	gchar *bdaddr;
 	gchar *dev = NULL;
 
@@ -19,28 +20,7 @@ set_connection_device (MyApp *app)
 	switch (ctype) {
 		case CONNECTION_BLUETOOTH:
 			if (bdaddr && strlen (bdaddr) == 17) {
-					portno = gnomebt_controller_get_rfcomm_port_by_service (
-							app->btctl, bdaddr, 0x1103);
-					if (portno < 0)
-						portno = gnomebt_controller_connect_rfcomm_port_by_service (
-								app->btctl, bdaddr, 0x1103);
-					if (portno >= 0) {
-						dev = g_strdup_printf ("/dev/rfcomm%d", portno);
-						/* udev workaround: need to wait until udev device
-						 is created */
-						if (g_file_test ("/dev/.udev.tdb", G_FILE_TEST_EXISTS)) {
-							while (! g_file_test (dev, G_FILE_TEST_EXISTS)) {
-								g_message ("Waiting for udev device to appear");
-								g_usleep (500000);
-							}
-						}
-					} else {
-						/* translators: the %d is substituted for a number
-						   which can be used for diagnostic purposes */
-						g_warning (_("Unable to obtain RFCOMM connection (%d)"),
-								portno);
-					}
-
+				dev = g_strdup (bdaddr);
 			}
 			break;
 		case CONNECTION_SERIAL1:
@@ -108,7 +88,7 @@ connect_phone_thread (gpointer data)
 			/* translators: the '%s' will be substituted with '/dev/ttyS0'
 			   or similar */
 			g_message (_("Connected to device on %s"), app->devname);
-			app->pollsource = g_timeout_add (200,
+			app->pollsource = g_timeout_add (POLL_TIMEOUT,
 				(GSourceFunc)poll_listener,
 				(gpointer) app->listener);
 		} else {

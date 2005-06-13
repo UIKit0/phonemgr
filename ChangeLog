@@ -1,6 +1,31 @@
 2005-06-13  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in:
+	* README:
+	* libgsm/Makefile.am:
+	* libgsm/glibgsmtest.c: (message), (status), (main):
+	* libgsm/gsm.cc:
+	* libgsm/gsm.h:
+	* libgsm/main.cc:
+	* libgsm/phonemgr-listener-private.h:
+	* libgsm/phonemgr-listener.c:
+	* libgsm/phonemgr-listener.cc:
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-utils.c:
+	* libgsm/phonemgr-utils.h:
+	* libgsm/gnokii-identify.c:
+	* src/.cvsignore:
+	* src/Makefile.am:
+	* src/connection.c: (set_connection_device),
+	(connect_phone_thread):
+	* src/test-entry.c: (main):
+	Remove the libgsm backend, and use gnokii now instead, this should
+	allow us to have better compatibility with more phones
+	(Closes: #307406)
+
+2005-06-13  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
 	* src/Makefile.am:
 	* src/e-contact-entry.c:
 	* src/e-contact-entry.h:

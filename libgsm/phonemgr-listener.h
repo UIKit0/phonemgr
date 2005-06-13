@@ -38,7 +38,7 @@ typedef struct _PhonemgrListenerClass PhonemgrListenerClass;
 struct _PhonemgrListenerClass
 {
   GObjectClass	parent_class;
-  void (* message) (PhonemgrListener *bc, gchar *bdaddr, GTime timestamp, gchar *message);
+  void (* message) (PhonemgrListener *bc, char *phone, GTime timestamp, char *message);
   void (* status) (PhonemgrListener *bc, gint status);
 };
 
@@ -49,10 +49,10 @@ PhonemgrListener* phonemgr_listener_new	(void);
 
 /* public methods */
 
-gboolean phonemgr_listener_connect (PhonemgrListener *listener, gchar *device);
+gboolean phonemgr_listener_connect (PhonemgrListener *listener, char *device);
 void phonemgr_listener_disconnect (PhonemgrListener *listener);
 void phonemgr_listener_queue_message (PhonemgrListener *listener,
-        const gchar *number, const gchar *message);
+        const char *number, const char *message);
 void phonemgr_listener_poll (PhonemgrListener *listener);
 gboolean phonemgr_listener_connected (PhonemgrListener *listener);
 
