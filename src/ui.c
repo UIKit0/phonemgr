@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "app.h"
+#include "e-phone-entry.h"
 
 #include <gnomebt-chooser.h>
 
@@ -297,25 +298,27 @@ destroy_send_dialog (GtkDialog *dialog, GladeXML *ui)
 static void
 set_send_sensitivity (GtkWidget *w, GladeXML *ui)
 {
-	GtkEntry *entry;
+	EPhoneEntry *entry;
 	GtkTextView *view;
 	GtkTextBuffer *buf;
 	GtkWidget *sendbutton;
 	GtkLabel *left;
 	gint l;
 	gchar *work;
+	gchar *text;
 
 	left = GTK_LABEL (glade_xml_get_widget (ui, "charsleft"));
 	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
-	entry = GTK_ENTRY (glade_xml_get_widget (ui, "recipient"));
+	entry = E_PHONE_ENTRY (glade_xml_get_widget (ui, "recipient"));
 	sendbutton = GTK_WIDGET (glade_xml_get_widget (ui, "sendbutton"));
 
 	l = gtk_text_buffer_get_char_count (buf);
+	text = e_phone_entry_get_number (entry);
 
 	gtk_widget_set_sensitive (sendbutton,
-			l > 0 && l <= MAX_MESSAGE_LENGTH &&
-			(*gtk_entry_get_text (entry) != 0));
+			l > 0 && l <= MAX_MESSAGE_LENGTH && text != NULL);
+	g_free (text);
 
 	if (l > MAX_MESSAGE_LENGTH) {
 		gtk_label_set_text (left, _("Message too long!"));
@@ -328,26 +331,35 @@ set_send_sensitivity (GtkWidget *w, GladeXML *ui)
 }
 
 static void
+phone_number_changed (GtkWidget *entry, char *phone_number, GladeXML *ui)
+{
+	set_send_sensitivity (entry, ui);
+}
+
+static void
 send_message (GtkWidget *w, GladeXML *ui)
 {
 	GtkTextBuffer *buf;
 	GtkTextView *view;
-	GtkEntry *entry;
+	EPhoneEntry *entry;
 	GtkDialog *dialog;
 	GtkTextIter s, e;
+	gchar *number;
 
 	MyApp *app = (MyApp *) g_object_get_data (G_OBJECT (ui), "app");
 
 	dialog = GTK_DIALOG (glade_xml_get_widget (ui, "send_dialog"));
 	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
-	entry = GTK_ENTRY (glade_xml_get_widget (ui, "recipient"));
+	entry = E_PHONE_ENTRY (glade_xml_get_widget (ui, "recipient"));
 
 	gtk_text_buffer_get_start_iter (buf, &s);
 	gtk_text_buffer_get_end_iter (buf, &e);
+	number = e_phone_entry_get_number (entry);
 	phonemgr_listener_queue_message (app->listener,
-			gtk_entry_get_text (entry),
+			number,
 			gtk_text_buffer_get_text (buf, &s, &e, FALSE));
+	g_free (number);
 
 	gtk_widget_hide (GTK_WIDGET (dialog));
 }
@@ -396,8 +408,8 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const gchar *recip)
 	g_signal_connect_swapped (G_OBJECT (w), "clicked",
 			G_CALLBACK (gtk_widget_hide), (gpointer) dialog);
 
-	g_signal_connect (G_OBJECT (entry), "changed",
-			G_CALLBACK (set_send_sensitivity), (gpointer) ui);
+	g_signal_connect (G_OBJECT (entry), "phone-changed",
+			G_CALLBACK (phone_number_changed), (gpointer) ui);
 	g_signal_connect (G_OBJECT (buf), "changed",
 			G_CALLBACK (set_send_sensitivity), (gpointer) ui);
 

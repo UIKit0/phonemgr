@@ -1,3 +1,28 @@
+2005-06-13  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
+	* src/Makefile.am:
+	* src/e-contact-entry.c:
+	* src/e-contact-entry.h:
+	* src/e-phone-entry.c:
+	* src/e-phone-entry.h:
+	* src/test-entry.c:
+	* src/ui.c: (set_send_sensitivity), (phone_number_changed),
+	(send_message), (create_send_dialog):
+	* src/update-from-egg.sh:
+	* ui/phonemgr.glade:
+	* ui/phonemgr.gladep:
+	* ui/strings.c:
+
+	Check for libebook in configure
+	Add EContactEntry from contact-lookup-applet with script to update
+	the files
+	Add new EPhoneEntry widget, which checks for mobile phone numbers
+	in Evolution's addressbook
+	Make gnome-phone-manager use EPhoneEntry rather than a plain GtkEntry
+	Remove unused files
+	(Closes: #151119)
+
 2005-04-01  Steve Murphy  <murf@e-tools.com>
 
         * configure.in: Added "rw" to ALL_LINGUAS.
