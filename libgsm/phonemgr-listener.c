@@ -135,27 +135,28 @@ static void
 phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 {
 	GTime time;
-	char *text, *sender;
+	char *text, *sender, *origtext;
 
 	text = NULL;
 
-	if (g_utf8_validate (message->user_data[0].u.text, -1, NULL) == FALSE) {
+	origtext = (char *) message->user_data[0].u.text;
+	if (g_utf8_validate (origtext, -1, NULL) == FALSE) {
 		GError *err = NULL;
 
-		text = g_convert (message->user_data[0].u.text,
-				strlen (message->user_data[0].u.text),
+		text = g_convert (origtext,
+				strlen (origtext),
 				"utf-8", "iso-8859-1",
 				NULL, NULL, &err);
 		if (err != NULL) {
 			g_warning ("Conversion error: %d %s",
 					err->code, err->message);
 			g_error_free (err);
-			text = g_strdup (message->user_data[0].u.text);
+			text = g_strdup (origtext);
 		}
 	}
 
 	if (text == NULL)
-		text = g_strdup (message->user_data[0].u.text);
+		text = g_strdup (origtext);
 
 	time = gn_timestamp_to_gtime (message->smsc_time);
 	sender = g_strdup (message->remote.number);
@@ -352,8 +353,7 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 
 	/* Set the message data */
 	sms.user_data[0].type = GN_SMS_DATA_Text;
-	g_strlcpy (sms.user_data[0].u.text, mstr,
-			strlen (mstr) + 1);
+	g_strlcpy ((char *) sms.user_data[0].u.text, mstr, strlen (mstr) + 1);
 	sms.user_data[0].length = strlen (mstr);
 
 	/* Set the message encoding */

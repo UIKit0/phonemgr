@@ -1,5 +1,12 @@
 2005-06-13  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
+	(phonemgr_listener_queue_message):
+	* src/e-contact-entry.c: (view_contacts_added_cb), (entry_height):
+	GCC4 compilation fixes
+
+2005-06-13  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/.cvsignore: upd
 
 2005-06-13  Bastien Nocera  <hadess@hadess.net>

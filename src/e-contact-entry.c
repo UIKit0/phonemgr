@@ -254,7 +254,8 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
 
       loader = gdk_pixbuf_loader_new ();
 
-      if (gdk_pixbuf_loader_write (loader, photo->data, photo->length, NULL))
+      if (gdk_pixbuf_loader_write (loader, (guchar *)photo->data,
+			      photo->length, NULL))
         pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
 
       if (pixbuf) {
@@ -788,7 +789,7 @@ static guint
 entry_height (GtkWidget *widget)
 {
   PangoLayout *layout;
-  guint bound;
+  int bound;
   g_return_val_if_fail (widget != NULL, 0);
   layout = gtk_widget_create_pango_layout (widget, NULL);
   pango_layout_get_pixel_size (layout, NULL, &bound);
