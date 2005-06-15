@@ -41,6 +41,8 @@ tell_driver (char *addr)
 		g_warning ("gn_cfg_memory_read");
 	g_strfreev (lines);
 
+	memset (&state, 0, sizeof(struct gn_statemachine));
+
 	if (gn_cfg_phone_load("", &state) < 0)
 		g_warning ("gn_cfg_phone_load");
 
@@ -52,6 +54,8 @@ tell_driver (char *addr)
 
 	if (gn_sm_functions(GN_OP_Identify, &data, &state) != GN_ERR_NONE)
 		g_warning ("gn_sm_functions");
+
+	gn_sm_functions(GN_OP_Terminate, NULL, &state);
 
 	g_print ("model: %s\n", model);
 

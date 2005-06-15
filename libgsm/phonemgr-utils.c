@@ -35,6 +35,12 @@ static GHashTable *driver_device = NULL;
  * match */
 static GHashTable *driver_model = NULL;
 
+void
+phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state)
+{
+	memset (state, 0, sizeof(struct gn_statemachine));
+}
+
 static const char *
 phonemgr_utils_gn_error_to_string (gn_error error)
 {
@@ -177,6 +183,8 @@ phonemgr_utils_guess_driver (char *device)
 		goto bail;
 	}
 	g_strfreev (lines);
+
+	phonemgr_utils_gn_statemachine_clear (&state);
 
 	if (gn_cfg_phone_load("", &state) < 0) {
 		g_warning ("gn_cfg_phone_load");

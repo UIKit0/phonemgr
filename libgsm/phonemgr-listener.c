@@ -236,6 +236,8 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device)
 	}
 	g_strfreev (lines);
 
+	phonemgr_utils_gn_statemachine_clear (&l->state);
+
 	if (gn_cfg_phone_load("", &l->state) < 0) {
 		g_warning ("gn_cfg_phone_load");
 		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);

@@ -27,6 +27,7 @@ G_BEGIN_DECLS
 
 char *phonemgr_utils_write_config (const char *driver, const char *addr);
 char *phonemgr_utils_guess_driver (char *device);
+void phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state);
 
 G_END_DECLS
 

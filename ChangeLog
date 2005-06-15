@@ -1,3 +1,13 @@
+2005-06-15  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/gnokii-identify.c: (tell_driver):
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect):
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_gn_statemachine_clear),
+	(phonemgr_utils_guess_driver):
+	* libgsm/phonemgr-utils.h: add a work-around for a gnokii segfault
+	when running GN_OP_Terminate
+	See http://article.gmane.org/gmane.linux.drivers.gnokii/5888
+
 2005-06-13  Bastien Nocera  <hadess@hadess.net>
 
 	* src/app.h:
