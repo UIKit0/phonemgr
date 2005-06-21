@@ -1,17 +1,16 @@
 # German translation of phonemgr.
 # Copyright (C) 2004 THE phonemgr'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the phonemgr package.
-# Hendrik Brandt <eru@gmx.li>, 2004.
-# , fuzzy
+# Hendrik Brandt <heb@gnome-de.org>, 2004-2005.
 # 
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr 0.4\n"
+"Project-Id-Version: phonemgr HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-22 22:24+0200\n"
-"PO-Revision-Date: 2004-10-22 22:38+0200\n"
-"Last-Translator: Hendrik Brandt <eru@gmx.li>\n"
+"POT-Creation-Date: 2005-06-21 23:18+0200\n"
+"PO-Revision-Date: 2005-06-21 23:26+0200\n"
+"Last-Translator: Hendrik Brandt <heb@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -163,16 +162,9 @@ msgstr "Ausrichtung"
 msgid "The orientation of the tray."
 msgstr "Die Ausrichtung des Benachrichtigungsfeldes"
 
-#. translators: the %d is substituted for a number
-#. which can be used for diagnostic purposes
-#: src/connection.c:40
-#, c-format
-msgid "Unable to obtain RFCOMM connection (%d)"
-msgstr "Es konnte keine RFCOMM-Verbindung hergestellt werden (%d)"
-
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:110
+#: src/connection.c:90
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Verbunden mit einem Gerät auf %s"
@@ -181,7 +173,7 @@ msgstr "Verbunden mit einem Gerät auf %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:119
+#: src/connection.c:99
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Die Verbindung mit einem Gerät auf %s ist fehlgeschlagen"
@@ -238,7 +230,7 @@ msgstr "Der Telefonempfänger konnte nicht angelegt werden."
 
 #: src/menu.c:22
 msgid "translator_credits"
-msgstr "Hendrik Brandt <eru@gmx.li>"
+msgstr "Hendrik Brandt <heb@gnome-de.org>"
 
 #: src/menu.c:32
 msgid "Send and receive messages from your mobile phone."
@@ -248,52 +240,48 @@ msgstr "Empfangen und senden Sie Textnachrichten über Ihr Mobiltelefon"
 msgid "_Send Message"
 msgstr "Nachrichten _senden"
 
-#: src/ui.c:88
+#: src/ui.c:89
 msgid "No Bluetooth device chosen."
 msgstr "Es wurde kein Bluetooth-Gerät ausgewählt."
 
-#: src/ui.c:321
+#: src/ui.c:324
 msgid "Message too long!"
 msgstr "Ihre Nachricht ist zu lang!"
 
-#: ui/phonemgr.glade.h:1 ui/strings.c:31 ui/strings.c:44
-msgid "*"
-msgstr "*"
-
-#: ui/phonemgr.glade.h:2 ui/strings.c:30
+#: ui/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
-#: ui/phonemgr.glade.h:3 ui/strings.c:15
+#: ui/phonemgr.glade.h:2
 msgid "<b>Alerting</b>"
 msgstr "<b>Benachrichtigung</b>"
 
-#: ui/phonemgr.glade.h:4 ui/strings.c:35
+#: ui/phonemgr.glade.h:3
 msgid "<b>Error Handling</b>"
 msgstr "<b>Fehlerbehandlung</b>"
 
-#: ui/phonemgr.glade.h:5 ui/strings.c:32
+#: ui/phonemgr.glade.h:4
 msgid "<b>Phone Connection</b>"
 msgstr "<b>Telefonverbindung</b>"
 
-#: ui/phonemgr.glade.h:6 ui/strings.c:39
+#: ui/phonemgr.glade.h:5
 msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
 msgstr ""
 "<span weight=\"bold\" size=\"larger\">Bitte geben Sie Ihre Textnachricht "
 "ein</span>"
 
-#: ui/phonemgr.glade.h:7 ui/strings.c:9
+#: ui/phonemgr.glade.h:6
 msgid ""
 "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
 msgstr ""
 "<span weight=\"bold\" size=\"larger\">Sie haben eine Nachricht erhalten</"
 "span>"
 
-#: ui/phonemgr.glade.h:8 ui/strings.c:29
+#: ui/phonemgr.glade.h:7
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Anderer Gerätename, z.B. /dev/ttyS3"
 
-#: ui/phonemgr.glade.h:9 ui/strings.c:33
+#: ui/phonemgr.glade.h:8
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -304,140 +292,226 @@ msgstr ""
 "dass Ihr Telefon jedesmal verbunden wird, sobald es in Bluetooth-Reichweite "
 "kommt."
 
-#: ui/phonemgr.glade.h:10 ui/strings.c:34
+#: ui/phonemgr.glade.h:9
 msgid "Automatically _retry connections"
 msgstr "Verbindung automatisch wieder herstellen"
 
-#: ui/phonemgr.glade.h:11 ui/strings.c:40
+#: ui/phonemgr.glade.h:10
 msgid "Characters left:"
 msgstr "Verbleibende Zeichen:"
 
-#: ui/phonemgr.glade.h:12 ui/strings.c:20
+#: ui/phonemgr.glade.h:11
 msgid "Choo_se"
 msgstr "Au_swählen"
 
-#: ui/phonemgr.glade.h:13 ui/strings.c:19
+#: ui/phonemgr.glade.h:12
 msgid "Choose a Bluetooth-enabled mobile phone to connect to."
 msgstr ""
 "Wählen Sie ein Telefon mit Bluetooth-Funktion aus zu dem verbunden werden "
 "soll."
 
-#: ui/phonemgr.glade.h:14 ui/strings.c:27
+#: ui/phonemgr.glade.h:13
 msgid "Connect using an alternative serial device"
 msgstr "Zum Verbinden ein anderes serielles Gerät verwenden"
 
-#: ui/phonemgr.glade.h:15 ui/strings.c:25
+#: ui/phonemgr.glade.h:14
 msgid "Connect using infrared communication"
 msgstr "Zum Verbinden die Infrarotschnittstelle verwenden"
 
-#: ui/phonemgr.glade.h:16 ui/strings.c:21
+#: ui/phonemgr.glade.h:15
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr ""
 "Zum Verbinden die serielle Schnittstelle 1 verwenden (auch COM1 oder /dev/"
 "ttyS0)"
 
-#: ui/phonemgr.glade.h:17 ui/strings.c:23
+#: ui/phonemgr.glade.h:16
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr ""
 "Zum Verbinden die serielle Schnittstelle 2 verwenden (auch COM2 oder /dev/"
 "ttyS1)"
 
-#: ui/phonemgr.glade.h:18 ui/strings.c:36
+#: ui/phonemgr.glade.h:17
 msgid "Connection"
 msgstr "Verbindung"
 
-#: ui/phonemgr.glade.h:19 ui/strings.c:11
+#: ui/phonemgr.glade.h:18
 msgid "Date:"
 msgstr "Datum:"
 
-#: ui/phonemgr.glade.h:20 ui/strings.c:43
-msgid "Enter the number you wish to send a message to."
-msgstr "Geben Sie hier die Telefonnummer des Empfängers der Nachricht ein."
-
-#: ui/phonemgr.glade.h:21 ui/strings.c:46
+#: ui/phonemgr.glade.h:19
 msgid "Enter the text message you want to send."
 msgstr "Bitte geben Sie die zu verschickende Textnachricht ein."
 
-#: ui/phonemgr.glade.h:22 ui/strings.c:16
+#: ui/phonemgr.glade.h:20
 msgid "Interface"
 msgstr "Schnittstelle"
 
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
-#: ui/phonemgr.glade.h:23 ui/strings.c:7
+#: ui/phonemgr.glade.h:21
 msgid "Message Received"
 msgstr "Nachricht erhalten"
 
-#: ui/phonemgr.glade.h:24 ui/strings.c:41
+#: ui/phonemgr.glade.h:22
 msgid "Number of characters left in the message"
 msgstr "Die Anzahl der Zeichen, die für diese Nachricht verbleiben"
 
-#: ui/phonemgr.glade.h:25 ui/strings.c:28
+#: ui/phonemgr.glade.h:23
 msgid "Other _port"
 msgstr "Anderer _Port"
 
-#: ui/phonemgr.glade.h:26 ui/strings.c:12
+#: ui/phonemgr.glade.h:24
 msgid "Phone Manager Preferences"
 msgstr "Einstellungen der Telefonverwaltung"
 
-#: ui/phonemgr.glade.h:27 ui/strings.c:14
+#: ui/phonemgr.glade.h:25
 msgid "Play _sound when messages arrive"
 msgstr "Einen _Klang abspielen, wenn eine neue Nachricht eintrifft"
 
-#: ui/phonemgr.glade.h:28 ui/strings.c:37
+#: ui/phonemgr.glade.h:26
 msgid "Send Message"
 msgstr "Nachricht versenden"
 
-#: ui/phonemgr.glade.h:29 ui/strings.c:10
+#: ui/phonemgr.glade.h:27
 msgid "Sender:"
 msgstr "Sender:"
 
-#: ui/phonemgr.glade.h:30 ui/strings.c:22
+#: ui/phonemgr.glade.h:28
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Serielle Schnittstelle _1 (/dev/ttyS0)"
 
-#: ui/phonemgr.glade.h:31 ui/strings.c:24
+#: ui/phonemgr.glade.h:29
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Serielle Schnittstelle _2 (/dev/ttyS1)"
 
-#: ui/phonemgr.glade.h:32 ui/strings.c:17
+#: ui/phonemgr.glade.h:30
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr ""
 "Wenn diese Option ausgewählt ist, wird das drahtlose Bluetooth-Netzwerk "
 "verwendet, um eine Verbindung mit Ihrem Telefon herzustellen"
 
-#: ui/phonemgr.glade.h:33 ui/strings.c:18
+#: ui/phonemgr.glade.h:31
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ui/phonemgr.glade.h:34 ui/strings.c:26
+#: ui/phonemgr.glade.h:32
 msgid "_Infra red (/dev/ircomm)"
 msgstr "_Infrarot (/dev/ircomm)"
 
-#: ui/phonemgr.glade.h:35 ui/strings.c:45
+#: ui/phonemgr.glade.h:33
 msgid "_Message:"
 msgstr "_Nachricht:"
 
-#: ui/phonemgr.glade.h:36 ui/strings.c:13
+#: ui/phonemgr.glade.h:34
 msgid "_Pop-up window for new messages"
 msgstr "_Dialogfenster für neue Nachrichten"
 
-#: ui/phonemgr.glade.h:37 ui/strings.c:42
+#: ui/phonemgr.glade.h:35
 msgid "_Recipient:"
 msgstr "_Empfänger:"
 
-#: ui/phonemgr.glade.h:38 ui/strings.c:8
+#: ui/phonemgr.glade.h:36
 msgid "_Reply"
 msgstr "_Antworten"
 
-#: ui/phonemgr.glade.h:39 ui/strings.c:38
+#: ui/phonemgr.glade.h:37
 msgid "_Send"
 msgstr "_Senden"
 
-#: ui/phonemgr.glade.h:40 ui/strings.c:47
+#: ui/phonemgr.glade.h:38
 msgid "message body"
 msgstr "Nachrichtenkörper"
+
+#: src/e-contact-entry.c:152
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Kontakt konnte nicht geholt werden: %s"
+
+#: src/e-contact-entry.c:184
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Kontakt konnte nicht gefunden werden: %s"
+
+#: src/e-contact-entry.c:366
+msgid "Cannot create searchable view."
+msgstr "Durchsuchbare Ansicht konnte nicht erstellt werden."
+
+#: src/e-contact-entry.c:807
+msgid "Success"
+msgstr "Erfolg"
+
+#: src/e-contact-entry.c:809
+msgid "An argument was invalid."
+msgstr "Ein Argument war ungültig."
+
+#: src/e-contact-entry.c:811
+msgid "The address book is busy."
+msgstr "Das Adressbuch ist beschäftigt."
+
+#: src/e-contact-entry.c:813
+msgid "The address book is offline."
+msgstr "Das Adressbuch ist inaktiv."
+
+#: src/e-contact-entry.c:815
+msgid "The address book does not exist."
+msgstr "Das Adressbuch existiert nicht."
+
+#: src/e-contact-entry.c:817
+msgid "The \"Me\" contact does not exist."
+msgstr "Der Kontakt \"Ich\" existiert nicht."
+
+#: src/e-contact-entry.c:819
+msgid "The address book is not loaded."
+msgstr "Das Adressbuch ist nicht geladen."
+
+#: src/e-contact-entry.c:821
+msgid "The address book is already loaded."
+msgstr "Das Adressbuch ist bereits geladen."
+
+#: src/e-contact-entry.c:823
+msgid "Permission was denied when accessing the address book."
+msgstr "Der Zugriff wurde beim Versuch auf das Adressbuch zuzugreifen verweigert."
+
+#: src/e-contact-entry.c:825
+msgid "The contact was not found."
+msgstr "Der Kontakt wurde nicht gefunden."
+
+#: src/e-contact-entry.c:827
+msgid "This contact ID already exists."
+msgstr "Diese Kontaktkennung existiert bereits."
+
+#: src/e-contact-entry.c:829
+msgid "The protocol is not supported."
+msgstr "Das Protokoll wird nicht unterstützt."
+
+#: src/e-contact-entry.c:831
+msgid "The operation was cancelled."
+msgstr "Der Vorgang wurde abgebrochen."
+
+#: src/e-contact-entry.c:833
+msgid "The operation could not be cancelled."
+msgstr "Der Vorgang konnte nicht abgebrochen werden."
+
+#: src/e-contact-entry.c:835
+msgid "The address book authentication failed."
+msgstr "Die Authentifizierung am Adressbuch ist fehlgeschlagen."
+
+#: src/e-contact-entry.c:837
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr "Um auf das Adressbuch zuzugreifen ist eine Authentifikation nötig, diese wurde nicht übergeben."
+
+#: src/e-contact-entry.c:839
+msgid "A secure connection is not available."
+msgstr "Eine sichere Verbindung steht nicht zur Verfügung."
+
+#: src/e-contact-entry.c:841
+msgid "A CORBA error occured whilst accessing the address book."
+msgstr "Während des Zugriffs auf das Adressbuch ist ein CORBA-Fehler aufgetreten."
+
+#: src/e-contact-entry.c:843
+msgid "The address book source does not exist."
+msgstr "Die Adressbuchquelle existiert nicht."
+
+#: src/e-contact-entry.c:845 src/e-contact-entry.c:848
+msgid "An unknown error occured."
+msgstr "Es ist ein unbekannter Fehler aufgetreten."
 
