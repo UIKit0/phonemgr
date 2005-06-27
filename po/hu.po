@@ -1,0 +1,498 @@
+# Hungarian translation of phonemgr
+# This file is distributed under the same license as the phonemgr package.
+# Copyright (C) 2005, Free Software Foundation, Inc.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-06-19 04:08+0000\n"
+"PO-Revision-Date: 2005-06-27 19:18+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"Language-Team: Hungarian <gnome@gnome.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.10\n"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:313
+msgid "Selection mode"
+msgstr "Kijelölési mód"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:314
+msgid "The selection mode"
+msgstr "A kijelölés módja"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:322
+msgid "Sorted"
+msgstr "Rendezett"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:323
+msgid "Icon list is sorted"
+msgstr "Az ikonlista rendezett"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:329
+msgid "Sort order"
+msgstr "Rendezési sorrend"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:330
+msgid "Sort direction the icon list should use"
+msgstr "Az ikonlista által használandó rendezési sorrend"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:344
+msgid "Icon padding"
+msgstr "Ikonok kitöltése"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:345
+msgid "Number of pixels between icons"
+msgstr "Képpontok száma az ikonok között"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:352
+msgid "Top margin"
+msgstr "Felső margó"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:353
+msgid "Number of pixels in top margin"
+msgstr "Képpontok száma a felső margóban"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:360
+msgid "Bottom margin"
+msgstr "Alsó margó"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:361
+msgid "Number of pixels in bottom margin"
+msgstr "Képpontok száma az alsó margóban"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:369
+msgid "Left margin"
+msgstr "Bal oldali margó"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:370
+msgid "Number of pixels in left margin"
+msgstr "Képpontok száma a bal oldali margóban"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:377
+msgid "Right margin"
+msgstr "Jobb oldali margó"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:378
+msgid "Number of pixels in right margin"
+msgstr "Képpontok száma a jobb oldali margóban"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:386
+msgid "Selection Box Color"
+msgstr "Kijelölődoboz színe"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:387
+msgid "Color of the selection box"
+msgstr "A kijelölődoboz színe"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:393
+msgid "Selection Box Alpha"
+msgstr "A kijelölődoboz alfa csatornája"
+
+#: ../libegg/libegg/iconlist/eggiconlist.c:394
+msgid "Opacity of the selection box"
+msgstr "A kijelölődoboz átlátszatlansága"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:154
+msgid "Pixbuf"
+msgstr "Pixbuf"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:155
+msgid "A GdkPixbuf to display"
+msgstr "A megjelenítendő GdkPixbuf"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:162
+msgid "Filename"
+msgstr "Fájlnév"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:163
+msgid "Filename to load and display"
+msgstr "A betöltendő és megjelenítendő fájl neve"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:170
+msgid "Stock ID"
+msgstr "Alap azonosító"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:171
+msgid "Stock ID for a stock image to display"
+msgstr "A megjelenítendő alapértelmezett kép alap azonosítója"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:178
+msgid "Animation"
+msgstr "Animáció"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:179
+msgid "GdkPixbufAnimation to display"
+msgstr "A megjelenítendő GdkPixbuf animáció"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:186
+msgid "Image type"
+msgstr "Képtípus"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:187
+msgid "The representation being used for image data"
+msgstr "A képadatokhoz használt ábrázolás"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:195
+msgid "Size"
+msgstr "Méret"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:196
+msgid "The size of the icon"
+msgstr "Az ikon mérete"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:205
+msgid "Blinking"
+msgstr "Villogás"
+
+#: ../libegg/libegg/tray/eggstatusicon.c:206
+msgid "Whether or not the status icon is blinking"
+msgstr "Az állapotikon villogjon-e vagy sem"
+
+#: ../libegg/libegg/tray/eggtrayicon.c:118
+#: ../libegg/libegg/tray/eggtraymanager.c:145
+msgid "Orientation"
+msgstr "Tájolás"
+
+#: ../libegg/libegg/tray/eggtrayicon.c:119
+#: ../libegg/libegg/tray/eggtraymanager.c:146
+msgid "The orientation of the tray."
+msgstr "A tálca tájolása."
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:90
+#, c-format
+msgid "Connected to device on %s"
+msgstr "Kapcsolódva az eszközhöz a következőn: %s"
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:99
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr "Nem sikerült kapcsolódni az eszközhöz a következőn: %s"
+
+#. When try icon is destroyed, recreate it.  This happens
+#. when the notification area is removed.
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:66 ../src/menu.c:30
+msgid "Phone Manager"
+msgstr "Telefonkezelő"
+
+#: ../src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr "Szöveges üzenetek fogadása és küldése mobiltelefonról"
+
+#: ../src/icon.c:162
+msgid "Message arrived"
+msgstr "Üzenete érkezett"
+
+#: ../src/icon.c:166
+msgid "Connected"
+msgstr "Kapcsolódva"
+
+#: ../src/icon.c:171
+msgid "Connecting to phone"
+msgstr "Kapcsolódás a telefonhoz"
+
+#: ../src/icon.c:176
+msgid "Not connected"
+msgstr "Nincs kapcsolat"
+
+#: ../src/icon.c:196
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+"span>\n"
+"\n"
+"Phone Manager uses the notification area to display information and provide "
+"access to message sending and preferences. You can add it by right-clicking "
+"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
+"i>."
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">Nem található figyelmeztetési terület</"
+"span>\n"
+"\n"
+"A Telefonkezelő a figyelmeztetési területet használja információközlésre és "
+"az üzenetküldéshez, valamint a beállításokhoz is ezen keresztül férhet hozzá."
+"A panel jobbklikk-menüjének hozzáadás pontja alatt hozzáadhat egy figyelmeztetési területet a panelhez. "
+
+#: ../src/main.c:36
+msgid "Couldn't create phone listener."
+msgstr "Nem sikerült telefon figyelőt létrehozni."
+
+#: ../src/menu.c:22
+msgid "translator_credits"
+msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
+
+#: ../src/menu.c:32
+msgid "Send and receive messages from your mobile phone."
+msgstr "Üzenetek fogadása és küldése mobiltelefonról."
+
+#: ../src/menu.c:75
+msgid "_Send Message"
+msgstr "Ü_zenet küldése"
+
+#: ../src/ui.c:89
+msgid "No Bluetooth device chosen."
+msgstr "Nincs Bluetooth eszköz kiválasztva."
+
+#: ../src/ui.c:324
+msgid "Message too long!"
+msgstr "Az üzenet túl hosszú!"
+
+#: ../ui/phonemgr.glade.h:1
+msgid "/dev/ttyS2"
+msgstr "/dev/ttyS2"
+
+#: ../ui/phonemgr.glade.h:2
+msgid "<b>Alerting</b>"
+msgstr "<b>Riasztás</b>"
+
+#: ../ui/phonemgr.glade.h:3
+msgid "<b>Error Handling</b>"
+msgstr "<b>Hibakezelés</b>"
+
+#: ../ui/phonemgr.glade.h:4
+msgid "<b>Phone Connection</b>"
+msgstr "<b>Telefonos kapcsolat</b>"
+
+#: ../ui/phonemgr.glade.h:5
+msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Írja be a szöveges üzenetet</span>"
+
+#: ../ui/phonemgr.glade.h:6
+msgid "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Üzenete érkezett</span>"
+
+#: ../ui/phonemgr.glade.h:7
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "Alternatív eszközfájl-név, például /dev/ttyS3"
+
+#: ../ui/phonemgr.glade.h:8
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+"Mindig próbáljon újrakapcsolódni, amikor a kapcsolat nem áll rendelkezésre azonnal. "
+"Használja ezt Bluetooth-szal, hogy a telefonja biztosan kapcsolódjon, ha hatósugáron belülre kerül."
+
+#: ../ui/phonemgr.glade.h:9
+msgid "Automatically _retry connections"
+msgstr "_Automatikus újrakapcsolódás"
+
+#: ../ui/phonemgr.glade.h:10
+msgid "Characters left:"
+msgstr "Hátralévő karakterek száma:"
+
+#: ../ui/phonemgr.glade.h:11
+msgid "Choo_se"
+msgstr "_Kiválasztás"
+
+#: ../ui/phonemgr.glade.h:12
+msgid "Choose a Bluetooth-enabled mobile phone to connect to."
+msgstr "Válasszon ki egy Bluetooth-képes mobiltelefont a kapcsolódáshoz."
+
+#: ../ui/phonemgr.glade.h:13
+msgid "Connect using an alternative serial device"
+msgstr "Kapcsolódás egy alternatív soros eszközön keresztül"
+
+#: ../ui/phonemgr.glade.h:14
+msgid "Connect using infrared communication"
+msgstr "Kapcsolódás infravörös kommunikáció használatával"
+
+#: ../ui/phonemgr.glade.h:15
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr "Kapcsolódás az első soros port, másnéven COM1 vagy /dev/ttyS0 használatával"
+
+#: ../ui/phonemgr.glade.h:16
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr "Kapcsolódás a második soros port, más néven COM2 vagy /dev/ttyS1 használatával"
+
+#: ../ui/phonemgr.glade.h:17
+msgid "Connection"
+msgstr "Kapcsolat"
+
+#: ../ui/phonemgr.glade.h:18
+msgid "Date:"
+msgstr "Dátum:"
+
+#: ../ui/phonemgr.glade.h:19
+msgid "Enter the text message you want to send."
+msgstr "Írja be a szöveges üzenetet, amit el szeretne küldeni."
+
+#: ../ui/phonemgr.glade.h:20
+msgid "Interface"
+msgstr "Felület"
+
+#: ../ui/phonemgr.glade.h:21
+msgid "Message Received"
+msgstr "Üzenet érkezett"
+
+#: ../ui/phonemgr.glade.h:22
+msgid "Number of characters left in the message"
+msgstr "Az üzenetben hátralévő karakterek száma"
+
+#: ../ui/phonemgr.glade.h:23
+msgid "Other _port"
+msgstr "_Másik port:"
+
+#: ../ui/phonemgr.glade.h:24
+msgid "Phone Manager Preferences"
+msgstr "Telefonkezelő tulajdonságai"
+
+#: ../ui/phonemgr.glade.h:25
+msgid "Play _sound when messages arrive"
+msgstr "_Hang lejátszása üzenet érkezésekor"
+
+#: ../ui/phonemgr.glade.h:26
+msgid "Send Message"
+msgstr "Üzenet küldése"
+
+#: ../ui/phonemgr.glade.h:27
+msgid "Sender:"
+msgstr "Küldő:"
+
+#: ../ui/phonemgr.glade.h:28
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "_1. soros port (/dev/ttyS0)"
+
+#: ../ui/phonemgr.glade.h:29
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "_2. soros port (/dev/ttyS1)"
+
+#: ../ui/phonemgr.glade.h:30
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "Bluetooth vezeték nélküli hálózat használata a telefonhoz való kapcsolódáshoz"
+
+#: ../ui/phonemgr.glade.h:31
+msgid "_Bluetooth"
+msgstr "_Bluetooth"
+
+#: ../ui/phonemgr.glade.h:32
+msgid "_Infra red (/dev/ircomm)"
+msgstr "_Infravörös (/dev/ircomm)"
+
+#: ../ui/phonemgr.glade.h:33
+msgid "_Message:"
+msgstr "_Üzenet:"
+
+#: ../ui/phonemgr.glade.h:34
+msgid "_Pop-up window for new messages"
+msgstr "_Felugró ablak az új üzeneteknek"
+
+#: ../ui/phonemgr.glade.h:35
+msgid "_Recipient:"
+msgstr "_Címzett:"
+
+#: ../ui/phonemgr.glade.h:36
+msgid "_Reply"
+msgstr "_Válasz"
+
+#: ../ui/phonemgr.glade.h:37
+msgid "_Send"
+msgstr "_Küldés"
+
+#: ../ui/phonemgr.glade.h:38
+msgid "message body"
+msgstr "üzenet törzse"
+
+#: ../src/e-contact-entry.c:152
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Nem érhető el a névjegy: %s"
+
+#: ../src/e-contact-entry.c:184
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Nem található a névjegy: %s"
+
+#: ../src/e-contact-entry.c:366
+msgid "Cannot create searchable view."
+msgstr "Nem hozható létre kereshető nézet."
+
+#: ../src/e-contact-entry.c:807
+msgid "Success"
+msgstr "Sikerült"
+
+#: ../src/e-contact-entry.c:809
+msgid "An argument was invalid."
+msgstr "Egy paraméter érvénytelen volt."
+
+#: ../src/e-contact-entry.c:811
+msgid "The address book is busy."
+msgstr "A címjegyzék foglalt."
+
+#: ../src/e-contact-entry.c:813
+msgid "The address book is offline."
+msgstr "A címjegyzék offline."
+
+#: ../src/e-contact-entry.c:815
+msgid "The address book does not exist."
+msgstr "A címjegyzék nem létezik."
+
+#: ../src/e-contact-entry.c:817
+msgid "The \"Me\" contact does not exist."
+msgstr "Az \"Én\" névjegy nem létezik."
+
+#: ../src/e-contact-entry.c:819
+msgid "The address book is not loaded."
+msgstr "A címjegyzék nincs betöltve."
+
+#: ../src/e-contact-entry.c:821
+msgid "The address book is already loaded."
+msgstr "A címjegyzék már be van töltve."
+
+#: ../src/e-contact-entry.c:823
+msgid "Permission was denied when accessing the address book."
+msgstr "Engedély megtagadva a címjegyzékhez való hozzáférés közben."
+
+#: ../src/e-contact-entry.c:825
+msgid "The contact was not found."
+msgstr "A névjegy nem található."
+
+#: ../src/e-contact-entry.c:827
+msgid "This contact ID already exists."
+msgstr "A névjegyazonosító már létezik."
+
+#: ../src/e-contact-entry.c:829
+msgid "The protocol is not supported."
+msgstr "A protokoll nem támogatott."
+
+#: ../src/e-contact-entry.c:831
+msgid "The operation was cancelled."
+msgstr "A művelet megszakítva."
+
+#: ../src/e-contact-entry.c:833
+msgid "The operation could not be cancelled."
+msgstr "A műveletet nem lehet megszakítani."
+
+#: ../src/e-contact-entry.c:835
+msgid "The address book authentication failed."
+msgstr "A címjegyzék azonosítása sikertelen."
+
+#: ../src/e-contact-entry.c:837
+msgid "Authentication is required to access the address book and was not given."
+msgstr "Azonosítás szükséges a címjegyzékhez való hozzáféréshez, de nem adta azt meg."
+
+#: ../src/e-contact-entry.c:839
+msgid "A secure connection is not available."
+msgstr "Biztonságos kapcsolat nem áll rendelkezésre."
+
+#: ../src/e-contact-entry.c:841
+msgid "A CORBA error occured whilst accessing the address book."
+msgstr "CORBA hiba lépett fel a címjegyzékhez való hozzáférés közben."
+
+#: ../src/e-contact-entry.c:843
+msgid "The address book source does not exist."
+msgstr "A címjegyzék forrása nem létezik."
+
+#: ../src/e-contact-entry.c:845 ../src/e-contact-entry.c:848
+msgid "An unknown error occured."
+msgstr "Ismeretlen hiba lépett fel."
+
