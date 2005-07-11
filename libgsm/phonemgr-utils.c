@@ -153,6 +153,7 @@ phonemgr_utils_init_hash_tables (void)
 	driver_model = g_hash_table_new (g_str_hash, g_str_equal);
 
 	g_hash_table_insert (driver_model, "Nokia 6310i", "6310i");
+	g_hash_table_insert (driver_model, "Nokia 6230i", "6230");
 }
 
 #define MODEL_SIZE 64
