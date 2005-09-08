@@ -621,6 +621,9 @@ e_contact_entry_init (EContactEntry *entry)
   reset_search_fields (entry);
 
   entry->priv->completion = gtk_entry_completion_new ();
+#if NEW_GTK
+  gtk_entry_completion_set_popup_set_width (entry->priv->completion, FALSE);
+#endif
   gtk_entry_completion_set_model (entry->priv->completion, GTK_TREE_MODEL (entry->priv->store));
   gtk_entry_completion_set_match_func (entry->priv->completion, (GtkEntryCompletionMatchFunc)completion_match_cb, NULL, NULL);
   g_signal_connect (entry->priv->completion, "match-selected", G_CALLBACK (completion_match_selected_cb), entry);
@@ -838,13 +841,13 @@ stringify_ebook_error(const EBookStatus status)
   case E_BOOK_ERROR_TLS_NOT_AVAILABLE:
     return _("A secure connection is not available.");
   case E_BOOK_ERROR_CORBA_EXCEPTION:
-    return _("A CORBA error occured whilst accessing the address book.");
+    return _("A CORBA error occurred whilst accessing the address book.");
   case E_BOOK_ERROR_NO_SUCH_SOURCE:
     return _("The address book source does not exist.");
   case E_BOOK_ERROR_OTHER_ERROR:
-    return _("An unknown error occured.");
+    return _("An unknown error occurred.");
   default:
     g_warning ("Unknown status %d", status);
-    return _("An unknown error occured.");
+    return _("An unknown error occurred.");
   }
 }

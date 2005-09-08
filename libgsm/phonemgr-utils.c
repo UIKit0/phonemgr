@@ -114,7 +114,7 @@ phonemgr_utils_driver_for_model (const char *model, const char *device)
 	driver = g_hash_table_lookup (driver_model, model);
 	if (driver == NULL) {
 		g_warning ("Model %s not supported natively", model);
-		driver = g_strdup ("AT-HW");
+		driver = g_strdup ("AT");
 	} else {
 		driver = g_strdup (driver);
 	}
@@ -173,7 +173,7 @@ phonemgr_utils_guess_driver (char *device)
 	if (driver != NULL)
 		return driver;
 
-	config = phonemgr_utils_write_config ("AT-HW", device);
+	config = phonemgr_utils_write_config ("AT", device);
 	lines = g_strsplit (config, "\n", -1);
 
 	g_free (config);

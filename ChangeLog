@@ -1,3 +1,24 @@
+2005-09-08  Bastien Nocera  <hadess@hadess.net>
+
+	* autogen.sh: use autogen 1.8
+	* configure.in: dist as a .tar.bz2, and check the NEWS file before
+	dist'ing
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_status),
+	(phonemgr_listener_new), (phonemgr_listener_connect),
+	(phonemgr_listener_disconnect), (phonemgr_listener_queue_message),
+	(phonemgr_listener_poll), (phonemgr_listener_connected),
+	(phonemgr_listener_init), (phonemgr_listener_finalize):
+	add a new dummy mode (#define DUMMY, to enable), this allows you
+	to test gnome-phone-manager and specific bugs without having a
+	phone, GSM coverage, or a bluetooth adapter
+	It will send you a new message after 5 seconds, and another one after
+	that at 100 seconds (Closes: #315553)
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_driver_for_model),
+	(phonemgr_utils_guess_driver): use the AT driver instead of the
+	AT-HW one
+	* src/e-contact-entry.c: (e_contact_entry_init),
+	(stringify_ebook_error): update from contact-lookup-applet CVS
+
 2005-08-10  Maxim Dziumanenko <mvd@mylinux.ua>
 
         * configure.in: Added "uk" to ALL_LINGUAS.
