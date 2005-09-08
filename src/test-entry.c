@@ -17,15 +17,9 @@ phone_changed_cb (EPhoneEntry *pentry, const char *number, gpointer data)
 	g_free (phone_number);
 	phone_number = g_strdup (number);
 
-	gtk_widget_set_sensitive (activate, (number != NULL));
-}
+	g_message ("phone number: %s", number);
 
-static gboolean
-window_closed (GtkWidget *widget, GdkEvent *event, gpointer data)
-{
-	g_print ("Phone number selected: %s\n", phone_number);
-	exit (0);
-	return FALSE;
+	gtk_widget_set_sensitive (activate, (number != NULL));
 }
 
 int main (int argc, char **argv)
@@ -40,15 +34,13 @@ int main (int argc, char **argv)
 	entry = e_phone_entry_new ();
 	g_signal_connect (G_OBJECT (entry), "phone_changed",
 			G_CALLBACK (phone_changed_cb), NULL);
-	g_signal_connect (G_OBJECT (window), "delete",
-			G_CALLBACK (window_closed), NULL);
 
 	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (window)->vbox), entry);
 
 	gtk_widget_show_all (window);
 
 	gtk_dialog_run (GTK_DIALOG (window));
-	g_print ("Phone number selected: %s\n", phone_number);
+	g_print ("Phone number selected: %s\n", phone_number ? phone_number : "None");
 
 	return 0;
 }

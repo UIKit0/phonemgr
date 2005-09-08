@@ -510,7 +510,7 @@ phonemgr_listener_poll (PhonemgrListener *l)
 
 	i++;
 	if (i == target) {
-		char *sender = "01234 56789";
+		char *sender = "+01234 567-89";
 		GTimeVal time;
 		char *text = "This is my test, this is my supa test";
 

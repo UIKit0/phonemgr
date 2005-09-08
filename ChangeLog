@@ -1,5 +1,17 @@
 2005-09-08  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_poll): add some
+	+ and - in the phone number, to test for common phone numbers found in
+	people's address books
+	* src/e-phone-entry.c: (cleanup_number), (text_changed),
+	(contact_selected_cb), (e_phone_entry_get_number):
+	send a changed signal when first setting the phone number,
+	allow '-' in phone numbers (Closes: #314545),
+	Fix some memory leaks when checking for changed text in text_changed()
+	* src/test-entry.c: (phone_changed_cb), (main): Fix warnings
+
+2005-09-08  Bastien Nocera  <hadess@hadess.net>
+
 	* autogen.sh: use autogen 1.8
 	* configure.in: dist as a .tar.bz2, and check the NEWS file before
 	dist'ing

@@ -50,22 +50,24 @@ static int signals[LAST_SIGNAL] = { 0 };
 G_DEFINE_TYPE(EPhoneEntry, e_phone_entry, E_TYPE_CONTACT_ENTRY);
 
 static char *
-remove_spaces (const char *str)
+cleanup_number (const char *str)
 {
-	GString *nospace;
+	GString *res;
 	char *p;
 
 	p = (char *) str;
-	nospace = g_string_new ("");
+	res = g_string_new ("");
 	while (*p != '\0') {
 		gunichar c;
 		c = g_utf8_get_char (p);
-		if (g_unichar_isspace (c) == FALSE)
-			nospace = g_string_append_unichar (nospace, c);
+		if (g_unichar_isdigit (c) ||
+				c == '+') {
+			res = g_string_append_unichar (res, c);
+		}
 		p = g_utf8_next_char(p);
 	}
 
-	return g_string_free (nospace, FALSE);
+	return g_string_free (res, FALSE);
 }
 
 static void
@@ -83,40 +85,44 @@ text_changed (GtkEditable *entry, gpointer user_data)
 	char *p;
 
 	current = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
-	if (pentry->text == NULL) {
-		pentry->text = g_strdup (current);
-		return;
-	}
 
-	if (strcmp (pentry->text, current) == 0) {
+	if (pentry->text != NULL && strcmp (pentry->text, current) == 0) {
 		g_free (current);
 		return;
 	}
-	pentry->text = g_strdup (current);
+
+	if (pentry->text != NULL)
+		g_free (pentry->text);
+	pentry->text = current;
+
 	if (pentry->phone_number != NULL) {
 		g_free (pentry->phone_number);
 		pentry->phone_number = NULL;
 	}
-	p = current;
+	if (g_str_equal (pentry->text, "") != FALSE) {
+		emit_changed_signal (pentry, NULL);
+		return;
+	}
 
+	p = current;
 	while (*p != '\0') {
 		gunichar c;
-		c = g_utf8_get_char (p);
-		/* We only allow digits, plus signs and spaces in user supplied
-		 * phone numbers. */
+		c = g_utf8_get_char_validated (p, -1);
+		/* We only allow digits, plus signs, spaces and dashes
+		 * in user supplied phone numbers. */
 		if (g_unichar_isdigit (c) == FALSE
 				&& g_unichar_isspace (c) == FALSE
-				&& c != 0x2B) {
-			g_free (current);
+				&& c != 0x2B /* '+' */
+				&& c != 0x2D /* '-' */) {
+			g_message ("%c is not gfood", c);
 			emit_changed_signal (pentry, NULL);
 			return;
 		}
-		p = g_utf8_next_char(p);
+		p = g_utf8_next_char (p);
 	}
 
 	/* Remove spaces from the phone number */
-	pentry->phone_number = remove_spaces (current);
-	g_free (current);
+	pentry->phone_number = cleanup_number (current);
 	emit_changed_signal (pentry, pentry->phone_number);
 }
 
@@ -127,7 +133,7 @@ contact_selected_cb (GtkWidget *entry, EContact *contact)
 	char *text;
 
 	text = g_strdup_printf (CONTACT_FORMAT, (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), (char*)e_contact_get_const (contact, E_CONTACT_PHONE_MOBILE));
-	pentry->phone_number = remove_spaces (e_contact_get_const
+	pentry->phone_number = cleanup_number (e_contact_get_const
 			(contact, E_CONTACT_PHONE_MOBILE));
 
 	emit_changed_signal (pentry, pentry->phone_number);
@@ -153,7 +159,6 @@ test_display_func (EContact *contact, gpointer data)
 	}
 	return g_strdup_printf (CONTACT_FORMAT, (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), mobile);
 }
-
 
 static void
 e_phone_entry_finalize (GObject *object)
@@ -224,7 +229,10 @@ e_phone_entry_get_number (EPhoneEntry *pentry)
 {
 	g_return_val_if_fail (E_IS_PHONE_ENTRY (pentry), NULL);
 
-	return g_strdup (pentry->phone_number);
+	if (pentry->phone_number == NULL)
+		return NULL;
+
+	return cleanup_number (pentry->phone_number);
 }
 
 GtkWidget *
