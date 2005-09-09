@@ -55,6 +55,7 @@
 enum {
   CONTACT_SELECTED, /* Signal argument is the contact. ref it if you want to keep it */
   ERROR,
+  STATE_CHANGE,
   LAST_SIGNAL
 };
 
@@ -381,11 +382,11 @@ book_opened_cb (EBook *book, EBookStatus status, gpointer data)
   lookup = (EntryLookup*)data;
   
   if (status != E_BOOK_ERROR_OK) {
+    g_signal_emit (lookup->entry, signals[STATE_CHANGE], 0, FALSE);
     g_signal_emit (lookup->entry, signals[ERROR], 0, stringify_ebook_error (status));
-    gtk_widget_set_sensitive (GTK_WIDGET (lookup->entry), FALSE);
     return;
   }
-  gtk_widget_set_sensitive (GTK_WIDGET (lookup->entry), TRUE);
+  g_signal_emit (lookup->entry, signals[STATE_CHANGE], 0, TRUE);
 }
 
 
@@ -404,7 +405,7 @@ e_contact_entry_set_source_list (EContactEntry *entry,
 
   g_return_if_fail (E_IS_CONTACT_ENTRY (entry));
 
-  /* Release the old sources */  
+  /* Release the old sources */
   if (entry->priv->lookup_entries) {
     g_list_foreach (entry->priv->lookup_entries, (GFunc)lookup_entry_free, NULL);
     g_list_free (entry->priv->lookup_entries);
@@ -415,7 +416,7 @@ e_contact_entry_set_source_list (EContactEntry *entry,
 
   /* If we have no new sources, disable and return here */
   if (source_list == NULL) {
-    gtk_widget_set_sensitive (GTK_WIDGET (entry), FALSE);
+    g_signal_emit (entry, signals[STATE_CHANGE], 0, FALSE);
     entry->priv->source_list = NULL;
     entry->priv->lookup_entries = NULL;
     return;
@@ -467,6 +468,9 @@ e_contact_entry_set_source_list (EContactEntry *entry,
       }
     }
   }
+
+  if (entry->priv->lookup_entries == NULL)
+    g_signal_emit (entry, signals[STATE_CHANGE], 0, FALSE);
 }
 
 ESourceList *
@@ -610,7 +614,6 @@ e_contact_entry_init (EContactEntry *entry)
   GtkCellRenderer *renderer;
 
   entry->priv = g_new0 (EContactEntryPriv, 1);
-  gtk_widget_set_sensitive (GTK_WIDGET (entry), FALSE);
 
   g_signal_connect (entry, "activate", G_CALLBACK (entry_activate_cb), NULL);
   g_signal_connect (entry, "changed", G_CALLBACK (entry_changed_cb), NULL);
@@ -684,6 +687,13 @@ e_contact_entry_class_init (EContactEntryClass *klass)
                                  NULL, NULL,
                                  g_cclosure_marshal_VOID__STRING,
                                  G_TYPE_NONE, 1, G_TYPE_STRING);
+  signals[STATE_CHANGE] = g_signal_new ("state-change",
+		  			G_TYPE_FROM_CLASS (object_class),
+					G_SIGNAL_RUN_LAST,
+					G_STRUCT_OFFSET (EContactEntryClass, state_change),
+					NULL, NULL,
+					g_cclosure_marshal_VOID__BOOLEAN,
+					G_TYPE_NONE, 1, G_TYPE_BOOLEAN);
 }
 
 GtkWidget *

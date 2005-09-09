@@ -1,3 +1,15 @@
+2005-09-09  Bastien Nocera  <hadess@hadess.net>
+
+	* src/e-contact-entry.c: (book_opened_cb),
+	(e_contact_entry_set_source_list), (e_contact_entry_init),
+	(e_contact_entry_class_init):
+	* src/e-contact-entry.h: update from contact-lookup-applet CVS
+	* src/e-phone-entry.c: (sources_changed_cb),
+	(setup_source_changes), (e_phone_entry_init):
+	Update for changes in EContactEntry, watch the availability of
+	completion entries, the entry now works even if there aren't any
+	addressbooks with completion enabled (Closes: #310014)
+
 2005-09-08  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_poll): add some

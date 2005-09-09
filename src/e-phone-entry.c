@@ -46,7 +46,6 @@ enum {
 
 static int signals[LAST_SIGNAL] = { 0 };
 
-
 G_DEFINE_TYPE(EPhoneEntry, e_phone_entry, E_TYPE_CONTACT_ENTRY);
 
 static char *
@@ -183,11 +182,32 @@ add_sources (EContactEntry *entry)
 }
 
 static void
+sources_changed_cb (GConfClient *client, guint cnxn_id,
+		GConfEntry *entry, EContactEntry *entry_widget)
+{
+	add_sources (entry_widget);
+}
+
+static void
+setup_source_changes (EPhoneEntry *entry)
+{
+	GConfClient *gc;
+
+	gc = gconf_client_get_default ();
+	gconf_client_add_dir (gc, GCONF_COMPLETION,
+			GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
+	gconf_client_notify_add (gc, GCONF_COMPLETION,
+			(GConfClientNotifyFunc) sources_changed_cb,
+			entry, NULL, NULL);
+}
+
+static void
 e_phone_entry_init (EPhoneEntry *entry)
 {
 	EContactField fields[] = { E_CONTACT_FULL_NAME, E_CONTACT_NICKNAME, E_CONTACT_ORG, E_CONTACT_PHONE_MOBILE, 0 };
 
 	add_sources (E_CONTACT_ENTRY (entry));
+	setup_source_changes (E_PHONE_ENTRY (entry));
 	e_contact_entry_set_search_fields (E_CONTACT_ENTRY (entry), (const EContactField *)fields);
 	e_contact_entry_set_display_func (E_CONTACT_ENTRY (entry), test_display_func, NULL, NULL);
 	g_signal_connect (G_OBJECT (entry), "contact_selected",

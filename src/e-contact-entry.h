@@ -50,6 +50,8 @@ typedef struct {
   void (*contact_selected) (GtkWidget *entry, EContact *contact);
   /* Signal fired when an async error occured */
   void (*error) (GtkWidget *entry, const char* error);
+  /* Signal fired when the widget's state should change */
+  void (*state_change) (GtkWidget *entry, gboolean state);
 } EContactEntryClass;
 
 typedef char* (*EContactEntryDisplayFunc) (EContact *contact, gpointer data);
