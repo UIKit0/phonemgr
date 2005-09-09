@@ -14,6 +14,7 @@ dnl Initialize libtool
 AM_DISABLE_SHARED
 AM_PROG_LIBTOOL
 
+GNOKII_REQS=0.6.5
 
 AC_PROG_INTLTOOL([0.18])
 AC_PROG_CC
@@ -38,7 +39,7 @@ dnl Add the languages which your application supports here.
 
 AM_GCONF_SOURCE_2
 
-PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 gnokii >= 0.6.4 gthread-2.0)
+PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 gnokii >= 0.6.5 gthread-2.0)
 AC_SUBST(LIBGSM_CFLAGS)
 AC_SUBST(LIBGSM_LIBS)
 
