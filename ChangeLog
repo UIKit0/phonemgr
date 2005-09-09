@@ -1,3 +1,9 @@
+2005-09-09  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_init_hash_tables):
+	Add support for the Nokia 6021 and Nokia 6230, with help from
+	Frederic Crozat <fcrozat@mandriva.com>
+
 ============ Version 0.6
 
 2005-09-09  Bastien Nocera  <hadess@hadess.net>
