@@ -1,3 +1,12 @@
+gnome-phone-manager 0.6
+=======================
+
+ * Completion support in the destination text entry, via Evolution's
+   addressbook
+
+ * Use libgnokii instead of libgsm to send and receive SMS messages, which
+   means we support more phones than the previous versions
+
 gnome-phone-manager 0.4
 =======================
 

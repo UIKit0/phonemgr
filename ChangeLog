@@ -1,3 +1,10 @@
+============ Version 0.6
+
+2005-09-09  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: updated
+	* configure.in: version 0.6
+
 2005-09-09  Bastien Nocera  <hadess@hadess.net>
 
 	* src/e-contact-entry.c: (book_opened_cb),
