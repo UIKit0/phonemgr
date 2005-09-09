@@ -144,6 +144,93 @@ phonemgr_utils_driver_for_device (const char *device)
 }
 
 static void
+phonemgr_utils_driver_parse_start_tag (GMarkupParseContext *ctx,
+		const gchar         *element_name,
+		const gchar        **attr_names,
+		const gchar        **attr_values,
+		gpointer             data,
+		GError             **error)
+{
+	const char *phone_name, *phone_driver;
+
+	if (!g_str_equal (element_name, "phone_entry")
+			|| attr_names == NULL
+			|| attr_values == NULL)
+		return;
+
+	phone_name = NULL;
+	phone_driver = NULL;
+
+	while (*attr_names && *attr_values)
+	{
+		if (g_str_equal (*attr_names, "identifier"))
+		{
+			/* skip if empty */
+			if (**attr_values)
+				phone_name = *attr_values;
+		} else if (g_str_equal (*attr_names, "driver")) {
+			/* skip if empty */
+			if (**attr_values)
+				phone_driver = *attr_values;
+		}
+
+		++attr_names;
+		++attr_values;
+	}
+
+	if (phone_driver == NULL || phone_name == NULL)
+		return;
+
+	g_hash_table_insert (driver_model,
+			g_strdup (phone_name),
+			g_strdup (phone_driver));
+}
+
+static void
+totem_driver_model_free (void)
+{
+	g_hash_table_destroy (driver_model);
+	driver_model = NULL;
+}
+
+static void
+phonemgr_utils_start_parse (void)
+{
+	GError *err = NULL;
+	char *buf;
+	gsize buf_len;
+
+	driver_model = g_hash_table_new_full
+		(g_str_hash, g_str_equal, g_free, g_free);
+
+	g_atexit (totem_driver_model_free);
+
+	if (g_file_get_contents (DATA_DIR"/phones.xml",
+				&buf, &buf_len, &err))
+	{
+		GMarkupParseContext *ctx;
+		GMarkupParser parser = { phonemgr_utils_driver_parse_start_tag, NULL, NULL, NULL, NULL };
+
+		ctx = g_markup_parse_context_new (&parser, 0, NULL, NULL);
+
+		if (!g_markup_parse_context_parse (ctx, buf, buf_len, &err))
+		{
+			g_warning ("Failed to parse '%s': %s\n",
+					DATA_DIR"/phones.xml",
+					err->message);
+			g_error_free (err);
+		}
+
+		g_markup_parse_context_free (ctx);
+		g_free (buf);
+	} else {
+		g_warning ("Failed to load '%s': %s\n",
+				DATA_DIR"/phones.xml", err->message);
+		g_error_free (err);
+	}
+}
+
+static void
 phonemgr_utils_init_hash_tables (void)
 {
 	if (driver_device != NULL && driver_model != NULL)
@@ -152,10 +239,7 @@ phonemgr_utils_init_hash_tables (void)
 	driver_device = g_hash_table_new (g_str_hash, g_str_equal);
 	driver_model = g_hash_table_new (g_str_hash, g_str_equal);
 
-	g_hash_table_insert (driver_model, "Nokia 6310i", "6310i");
-	g_hash_table_insert (driver_model, "Nokia 6230i", "6230");
-	g_hash_table_insert (driver_model, "Nokia 6021", "6021");
-	g_hash_table_insert (driver_model, "Nokia 6230", "6230");
+	phonemgr_utils_start_parse ();
 }
 
 #define MODEL_SIZE 64

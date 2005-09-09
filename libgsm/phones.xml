@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phone_entries>
+	<phone_entry
+		identifier="Nokia 6310i"
+		driver="6310i" />
+	<phone_entry
+		identifier="Nokia 6230i"
+		driver="6230" />
+	<phone_entry
+		identifier="Nokia 6021"
+		driver="6021" />
+	<phone_entry
+		identifier="Nokia 6230"
+		driver="6230" />
+</phone_entries>
+

@@ -1,7 +1,9 @@
-AM_CPPFLAGS = $(LIBGSM_CFLAGS)
+AM_CPPFLAGS = $(LIBGSM_CFLAGS)		\
+	      -DDATA_DIR="\"$(datadir)/$(PACKAGE)\""
 
 EXTRA_DIST = \
-	phonemgr-marshal.list
+	phonemgr-marshal.list		\
+	phones.xml
 
 noinst_PROGRAMS = glibgsmtest gnokii-identify
 
@@ -19,6 +21,9 @@ glibgsmtest_LDADD = $(LIBGSM_LIBS) libgsmwrap.la
 
 gnokii_identify_SOURCES = gnokii-identify.c
 gnokii_identify_LDADD = $(LIBGSM_LIBS) libgsmwrap.la
+
+phones_DATA = phones.xml
+phonesdir = $(datadir)/$(PACKAGE)
 
 GENMARSHAL_GENERATED = phonemgr-marshal.c phonemgr-marshal.h
 

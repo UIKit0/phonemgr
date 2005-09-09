@@ -1,5 +1,16 @@
 2005-09-09  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/Makefile.am:
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_driver_parse_start_tag),
+	(totem_driver_model_free), (phonemgr_utils_start_parse),
+	(phonemgr_utils_init_hash_tables):
+	* libgsm/phones.xml:
+	Move the model/driver match to an xml file to avoid having to
+	rebuild gnome-phone-manager to add support for more phones
+	(Closes: #315630)
+
+2005-09-09  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in: require gnokii 0.6.5 to compile (Closes: #315628)
 
 2005-09-09  Bastien Nocera  <hadess@hadess.net>
