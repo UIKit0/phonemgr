@@ -41,7 +41,7 @@ phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state)
 	memset (state, 0, sizeof(struct gn_statemachine));
 }
 
-static const char *
+const char *
 phonemgr_utils_gn_error_to_string (gn_error error)
 {
 	switch (error) {

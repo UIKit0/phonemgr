@@ -222,13 +222,14 @@ gboolean
 phonemgr_listener_connect (PhonemgrListener *l, char *device)
 {
 	char *config, **lines;
+	gn_error err;
 
 	g_return_val_if_fail (l->connected == FALSE, FALSE);
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
 
-	//l->driver = g_strdup ("6310i");
 	l->driver = phonemgr_utils_guess_driver (device);
+	g_message ("Using driver '%s'", l->driver);
 	config = phonemgr_utils_write_config (l->driver, device);
 	lines = g_strsplit (config, "\n", -1);
 	g_free (config);
@@ -249,8 +250,10 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device)
 		return FALSE;
 	}
 
-	if (gn_gsm_initialise(&l->state) != GN_ERR_NONE) {
-		g_warning ("gn_gsm_initialise");
+	err = gn_gsm_initialise(&l->state);
+	if (err != GN_ERR_NONE) {
+		g_warning ("gn_gsm_initialise: %s",
+				phonemgr_utils_gn_error_to_string (err));
 		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
 		return FALSE;
 	}
