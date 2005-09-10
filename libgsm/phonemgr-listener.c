@@ -488,7 +488,7 @@ phonemgr_listener_connected (PhonemgrListener *listener)
 #else /* !DUMMY */
 
 gboolean
-phonemgr_listener_connect (PhonemgrListener *l, char *device, GError *err)
+phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **err)
 {
 	g_message ("[DUMMY] connecting to %s", device);
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
