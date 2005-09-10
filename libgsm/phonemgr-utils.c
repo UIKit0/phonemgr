@@ -42,23 +42,31 @@ phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state)
 }
 
 const char *
-phonemgr_utils_gn_error_to_string (gn_error error)
+phonemgr_utils_gn_error_to_string (gn_error error, PhoneMgrError *perr)
 {
+	g_return_val_if_fail (perr != NULL, NULL);
+	*perr = -1;
+
 	switch (error) {
 	/* General codes */
 	case GN_ERR_NONE:
 		return NULL;
 	case GN_ERR_FAILED:
+		*perr = PHONEMGR_ERROR_COMMAND_FAILED;
 		return "Command failed";
 	case GN_ERR_UNKNOWNMODEL:
+		*perr = PHONEMGR_ERROR_UNKNOWN_MODEL;
 		return "Model specified isn't known/supported.";
 	case GN_ERR_INVALIDSECURITYCODE:
 		return "Invalid Security code.";
 	case GN_ERR_INTERNALERROR:
+		*perr = PHONEMGR_ERROR_INTERNAL_ERROR;
 		return "Problem occured internal to model specific code.";
 	case GN_ERR_NOTIMPLEMENTED:
+		*perr = PHONEMGR_ERROR_NOT_IMPLEMENTED;
 		return "Command called isn't implemented in model.";
 	case GN_ERR_NOTSUPPORTED:
+		*perr = PHONEMGR_ERROR_NOT_SUPPORTED;
 		return "Function not supported by the phone";
 	case GN_ERR_USERCANCELED:
 		return "User aborted the action.";
@@ -68,14 +76,17 @@ phonemgr_utils_gn_error_to_string (gn_error error)
 		return "The specified memory is full.";
 	/* Statemachine */
 	case GN_ERR_NOLINK:
+		*perr = PHONEMGR_ERROR_NO_LINK;
 		return "Couldn't establish link with phone.";
 	case GN_ERR_TIMEOUT:
+		*perr = PHONEMGR_ERROR_TIME_OUT;
 		return "Command timed out.";
 	case GN_ERR_TRYAGAIN:
 		return "Try again.";
 	case GN_ERR_WAITING:
 		return "Waiting for the next part of the message.";
 	case GN_ERR_NOTREADY:
+		*perr = PHONEMGR_ERROR_NOT_READY;
 		return "Device not ready.";
 	case GN_ERR_BUSY:
 		return "Command is still being executed.";
@@ -244,7 +255,7 @@ phonemgr_utils_init_hash_tables (void)
 
 #define MODEL_SIZE 64
 char *
-phonemgr_utils_guess_driver (char *device)
+phonemgr_utils_guess_driver (char *device, GError **error)
 {
 	char *config, **lines, model[MODEL_SIZE];
 	gn_data data;
@@ -261,7 +272,6 @@ phonemgr_utils_guess_driver (char *device)
 
 	config = phonemgr_utils_write_config ("AT", device);
 	lines = g_strsplit (config, "\n", -1);
-
 	g_free (config);
 
 	if (gn_cfg_memory_read ((const char **)lines) < 0) {
@@ -283,21 +293,26 @@ phonemgr_utils_guess_driver (char *device)
 
 	err = gn_gsm_initialise(&state);
 	if (err != GN_ERR_NONE) {
+		PhoneMgrError perr;
 		g_warning ("gn_gsm_initialise: %s",
-				phonemgr_utils_gn_error_to_string (err));
+				phonemgr_utils_gn_error_to_string (err, &perr));
 		goto bail;
 	}
 
 	err = gn_sm_functions(GN_OP_Identify, &data, &state);
 	if (err != GN_ERR_NONE) {
+		PhoneMgrError perr;
 		g_warning ("gn_sm_functions: %s",
-				phonemgr_utils_gn_error_to_string (err));
+				phonemgr_utils_gn_error_to_string (err, &perr));
 		goto bail;
 	}
 
 	gn_sm_functions(GN_OP_Terminate, NULL, &state);
 
 bail:
+	if (model[0] == '\0')
+		return NULL;
+
 	driver = phonemgr_utils_driver_for_model (model, device);
 
 	return driver;

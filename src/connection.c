@@ -76,6 +76,7 @@ static gpointer
 connect_phone_thread (gpointer data)
 {
 	MyApp *app = (MyApp *)data;
+	GError *err = NULL;
 
 	gdk_threads_enter ();
 	set_icon_state (app);
@@ -84,7 +85,7 @@ connect_phone_thread (gpointer data)
 	app->reconnect = FALSE;
 	if (app->devname) {
 		g_message ("Connecting...");
-		if (phonemgr_listener_connect (app->listener, app->devname)) {
+		if (phonemgr_listener_connect (app->listener, app->devname, &err)) {
 			/* translators: the '%s' will be substituted with '/dev/ttyS0'
 			   or similar */
 			g_message (_("Connected to device on %s"), app->devname);
@@ -97,6 +98,8 @@ connect_phone_thread (gpointer data)
 			/* translators: the '%s' will be substituted with '/dev/ttyS0'
 			   or similar */
 			g_message (_("Failed connection to device on %s"), app->devname);
+			if (err != NULL)
+				g_message ("Error message is %s", err->message);
 		}
 	} else {
 		g_message ("No device!");

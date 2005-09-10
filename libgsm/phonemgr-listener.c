@@ -110,6 +110,15 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 	klass->status = NULL;
 }
 
+GQuark
+phonemgr_listener_error_quark (void)
+{
+	static GQuark q = 0;
+	if (q == 0)
+		q = g_quark_from_static_string ("phonemgr-error-quark");
+	return q;
+}
+
 static void
 phonemgr_listener_emit_status (PhonemgrListener *bo, gint status)
 {
@@ -219,7 +228,7 @@ phonemgr_listener_finalize(GObject *obj)
 }
 
 gboolean
-phonemgr_listener_connect (PhonemgrListener *l, char *device)
+phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 {
 	char *config, **lines;
 	gn_error err;
@@ -228,7 +237,11 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device)
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
 
-	l->driver = phonemgr_utils_guess_driver (device);
+	l->driver = phonemgr_utils_guess_driver (device, error);
+	if (l->driver == NULL) {
+		//FIXME
+		return FALSE;
+	}
 	g_message ("Using driver '%s'", l->driver);
 	config = phonemgr_utils_write_config (l->driver, device);
 	lines = g_strsplit (config, "\n", -1);
@@ -252,8 +265,9 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device)
 
 	err = gn_gsm_initialise(&l->state);
 	if (err != GN_ERR_NONE) {
+		PhoneMgrError perr;
 		g_warning ("gn_gsm_initialise: %s",
-				phonemgr_utils_gn_error_to_string (err));
+				phonemgr_utils_gn_error_to_string (err, &perr));
 		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
 		return FALSE;
 	}
@@ -474,7 +488,7 @@ phonemgr_listener_connected (PhonemgrListener *listener)
 #else /* !DUMMY */
 
 gboolean
-phonemgr_listener_connect (PhonemgrListener *l, char *device)
+phonemgr_listener_connect (PhonemgrListener *l, char *device, GError *err)
 {
 	g_message ("[DUMMY] connecting to %s", device);
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);

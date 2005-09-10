@@ -31,6 +31,7 @@ G_BEGIN_DECLS
 #define PHONEMGR_IS_LISTENER(obj)       (G_TYPE_CHECK_INSTANCE_TYPE (obj, PHONEMGR_TYPE_LISTENER))
 #define PHONEMGR_IS_LISTENER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), PHONEMGR_TYPE_LISTENER))
 #define PHONEMGR_LISTENER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), PHONEMGR_TYPE_LISTENER, PhonemgrListenerClass)
+#define PHONEMGR_ERROR phonemgr_listener_error_quark ()
 
 typedef struct _PhonemgrListener PhonemgrListener;
 typedef struct _PhonemgrListenerClass PhonemgrListenerClass;
@@ -42,29 +43,39 @@ struct _PhonemgrListenerClass
   void (* status) (PhonemgrListener *bc, gint status);
 };
 
-/* Gtk housekeeping methods */
-
+GQuark phonemgr_listener_error_quark	(void) G_GNUC_CONST;
 GType	phonemgr_listener_get_type	(void);
 PhonemgrListener* phonemgr_listener_new	(void);
-
-/* public methods */
-
-gboolean phonemgr_listener_connect (PhonemgrListener *listener, char *device);
-void phonemgr_listener_disconnect (PhonemgrListener *listener);
-void phonemgr_listener_queue_message (PhonemgrListener *listener,
-        const char *number, const char *message);
-void phonemgr_listener_poll (PhonemgrListener *listener);
-gboolean phonemgr_listener_connected (PhonemgrListener *listener);
+gboolean phonemgr_listener_connect	(PhonemgrListener *listener,
+					 char *device,
+					 GError **error);
+void phonemgr_listener_disconnect	(PhonemgrListener *listener);
+void phonemgr_listener_queue_message	(PhonemgrListener *listener,
+					 const char *number,
+					 const char *message);
+void phonemgr_listener_poll		(PhonemgrListener *listener);
+gboolean phonemgr_listener_connected	(PhonemgrListener *listener);
 
 /* status codes */
 
 enum {
-  PHONEMGR_LISTENER_IDLE,
-  PHONEMGR_LISTENER_CONNECTING,
-  PHONEMGR_LISTENER_CONNECTED,
-  PHONEMGR_LISTENER_DISCONNECTING,
-  PHONEMGR_LISTENER_ERROR
+	PHONEMGR_LISTENER_IDLE,
+	PHONEMGR_LISTENER_CONNECTING,
+	PHONEMGR_LISTENER_CONNECTED,
+	PHONEMGR_LISTENER_DISCONNECTING,
+	PHONEMGR_LISTENER_ERROR
 };
+
+typedef enum {
+	PHONEMGR_ERROR_COMMAND_FAILED,
+	PHONEMGR_ERROR_UNKNOWN_MODEL,
+	PHONEMGR_ERROR_INTERNAL_ERROR,
+	PHONEMGR_ERROR_NOT_IMPLEMENTED,
+	PHONEMGR_ERROR_NOT_SUPPORTED,
+	PHONEMGR_ERROR_NO_LINK,
+	PHONEMGR_ERROR_TIME_OUT,
+	PHONEMGR_ERROR_NOT_READY
+} PhoneMgrError;
 
 G_END_DECLS
 

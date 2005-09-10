@@ -1,5 +1,17 @@
 2005-09-10  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_error_quark),
+	(phonemgr_listener_connect):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_gn_error_to_string),
+	(phonemgr_utils_guess_driver):
+	* libgsm/phonemgr-utils.h:
+	* src/connection.c: (connect_phone_thread):
+	Some work towards adding better error reporting, especially on
+	new connections
+
+2005-09-10  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect):
 	* libgsm/phonemgr-utils.c:
 	* libgsm/phonemgr-utils.h: Print out which driver we are using, and
