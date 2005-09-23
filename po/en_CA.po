@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-17 02:03-0400\n"
+"POT-Creation-Date: 2005-09-23 10:58-0400\n"
 "PO-Revision-Date: 2005-06-17 10:29-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -164,7 +164,7 @@ msgstr "The orientation of the tray."
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:90
+#: src/connection.c:91
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Connected to device on %s"
@@ -173,7 +173,7 @@ msgstr "Connected to device on %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:99
+#: src/connection.c:100
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Failed connection to device on %s"
@@ -406,98 +406,98 @@ msgstr "_Send"
 msgid "message body"
 msgstr "message body"
 
-#: src/e-contact-entry.c:152
+#: src/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Cannot get contact: %s"
 
-#: src/e-contact-entry.c:184
+#: src/e-contact-entry.c:185
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Could not find contact: %s"
 
-#: src/e-contact-entry.c:366
+#: src/e-contact-entry.c:367
 msgid "Cannot create searchable view."
 msgstr "Cannot create searchable view."
 
-#: src/e-contact-entry.c:807
+#: src/e-contact-entry.c:820
 msgid "Success"
 msgstr "Success"
 
-#: src/e-contact-entry.c:809
+#: src/e-contact-entry.c:822
 msgid "An argument was invalid."
 msgstr "An argument was invalid."
 
-#: src/e-contact-entry.c:811
+#: src/e-contact-entry.c:824
 msgid "The address book is busy."
 msgstr "The address book is busy."
 
-#: src/e-contact-entry.c:813
+#: src/e-contact-entry.c:826
 msgid "The address book is offline."
 msgstr "The address book is offline."
 
-#: src/e-contact-entry.c:815
+#: src/e-contact-entry.c:828
 msgid "The address book does not exist."
 msgstr "The address book does not exist."
 
-#: src/e-contact-entry.c:817
+#: src/e-contact-entry.c:830
 msgid "The \"Me\" contact does not exist."
 msgstr "The \"Me\" contact does not exist."
 
-#: src/e-contact-entry.c:819
+#: src/e-contact-entry.c:832
 msgid "The address book is not loaded."
 msgstr "The address book is not loaded."
 
-#: src/e-contact-entry.c:821
+#: src/e-contact-entry.c:834
 msgid "The address book is already loaded."
 msgstr "The address book is already loaded."
 
-#: src/e-contact-entry.c:823
+#: src/e-contact-entry.c:836
 msgid "Permission was denied when accessing the address book."
 msgstr "Permission was denied when accessing the address book."
 
-#: src/e-contact-entry.c:825
+#: src/e-contact-entry.c:838
 msgid "The contact was not found."
 msgstr "The contact was not found."
 
-#: src/e-contact-entry.c:827
+#: src/e-contact-entry.c:840
 msgid "This contact ID already exists."
 msgstr "This contact ID already exists."
 
-#: src/e-contact-entry.c:829
+#: src/e-contact-entry.c:842
 msgid "The protocol is not supported."
 msgstr "The protocol is not supported."
 
-#: src/e-contact-entry.c:831
+#: src/e-contact-entry.c:844
 msgid "The operation was cancelled."
 msgstr "The operation was cancelled."
 
-#: src/e-contact-entry.c:833
+#: src/e-contact-entry.c:846
 msgid "The operation could not be cancelled."
 msgstr "The operation could not be cancelled."
 
-#: src/e-contact-entry.c:835
+#: src/e-contact-entry.c:848
 msgid "The address book authentication failed."
 msgstr "The address book authentication failed."
 
-#: src/e-contact-entry.c:837
+#: src/e-contact-entry.c:850
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr ""
 "Authentication is required to access the address book and was not given."
 
-#: src/e-contact-entry.c:839
+#: src/e-contact-entry.c:852
 msgid "A secure connection is not available."
 msgstr "A secure connection is not available."
 
-#: src/e-contact-entry.c:841
-msgid "A CORBA error occured whilst accessing the address book."
+#: src/e-contact-entry.c:854
+msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "A CORBA error occurred while accessing the address book."
 
-#: src/e-contact-entry.c:843
+#: src/e-contact-entry.c:856
 msgid "The address book source does not exist."
 msgstr "The address book source does not exist."
 
-#: src/e-contact-entry.c:845 src/e-contact-entry.c:848
-msgid "An unknown error occured."
+#: src/e-contact-entry.c:858 src/e-contact-entry.c:861
+msgid "An unknown error occurred."
 msgstr "An unknown error occurred."
