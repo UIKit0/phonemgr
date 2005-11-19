@@ -126,6 +126,7 @@ AC_CONFIG_SUBDIRS(libegg)
 
 AC_OUTPUT([
 Makefile
+ui/Makefile
 libgsm/Makefile
 src/Makefile
 po/Makefile.in
