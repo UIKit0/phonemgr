@@ -1,3 +1,8 @@
+2005-12-27  Bastien Nocera  <hadess@hadess.net>
+
+	* ui/.cvsignore:
+	* ui/Makefile.am: add missing files (Closes: #324285)
+
 2005-11-19  Bastien Nocera  <hadess@hadess.net>
 
 	* Makefile.am:
