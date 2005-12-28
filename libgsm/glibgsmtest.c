@@ -40,6 +40,7 @@ status (PhonemgrListener *listener, gint status)
 int
 main (int argc, char **argv)
 {
+	GError *err = NULL;
 	PhonemgrListener *listener;
 	guint timeout;
 
@@ -55,8 +56,8 @@ main (int argc, char **argv)
 	g_signal_connect (G_OBJECT (listener), "status",
 			G_CALLBACK (status), (gpointer) listener);
 
-	if (phonemgr_listener_connect (listener, "00:60:57:1A:0A:6D")) {
-//	if (phonemgr_listener_connect (listener, "/dev/rfcomm0")) {
+	if (phonemgr_listener_connect (listener, "00:60:57:1A:0A:6D", &err)) {
+//	if (phonemgr_listener_connect (listener, "/dev/rfcomm0", &err)) {
 		timeout = g_timeout_add (200, poll_listener,
 				(gpointer) listener);
 		g_message ("Connected OK");
@@ -70,6 +71,11 @@ main (int argc, char **argv)
 
 		g_source_remove (timeout);
 		phonemgr_listener_disconnect (listener);
+	} else {
+		g_error ("Couldn't connect to the phone: %s\n",
+				err ? err->message : "No reason");
+		if (err)
+			g_error_free (err);
 	}
 
 	g_object_unref (listener);

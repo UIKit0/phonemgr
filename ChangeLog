@@ -1,3 +1,8 @@
+2005-12-28  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/glibgsmtest.c: (main): fix the _connect functions to be
+	called with the right number of arguments
+
 2005-12-27  Bastien Nocera  <hadess@hadess.net>
 
 	* ui/.cvsignore:
