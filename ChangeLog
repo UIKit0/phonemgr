@@ -1,3 +1,8 @@
+2006-02-01  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: add gmodule-2.0 to the needed libraries, to get
+	-rdynamic and avoid the entry not showing up
+
 2006-01-24  Clytie Siddall <clytie@riverland.net.au>
 
 	* configure.in	Added vi in ALL_LINGUAS line.
