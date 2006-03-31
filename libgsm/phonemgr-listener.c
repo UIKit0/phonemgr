@@ -45,11 +45,10 @@ struct _PhonemgrListener
 	GMutex *mutex;
 	gboolean terminated;
 
+	PhonemgrState *phone_state;
+
 	char *driver;
 	guint old_state;
-
-	gn_data data;
-	struct gn_statemachine state;
 
 	gboolean connected;
 };
@@ -230,54 +229,35 @@ phonemgr_listener_finalize(GObject *obj)
 gboolean
 phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 {
-	char *config, **lines;
-	gn_error err;
-
 	g_return_val_if_fail (l->connected == FALSE, FALSE);
+	g_return_val_if_fail (l->phone_state == NULL, FALSE);
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
 
-	l->driver = phonemgr_utils_guess_driver (device, error);
+	l->phone_state = phonemgr_utils_connect (device, NULL, error);
+	if (l->phone_state == NULL) {
+		//FIXME
+		return FALSE;
+	}
+
+	l->driver = phonemgr_utils_guess_driver (l->phone_state, device, error);
 	if (l->driver == NULL) {
 		//FIXME
 		return FALSE;
 	}
+
+	/* Need a different driver? then reconnect */
+	if (strcmp (l->driver, PHONEMGR_DEFAULT_DRIVER) != 0) {
+		phonemgr_utils_disconnect (l->phone_state);
+		phonemgr_utils_free (l->phone_state);
+		l->phone_state = phonemgr_utils_connect (device, l->driver, error);
+		if (l->phone_state == NULL) {
+			//FIXME
+			return FALSE;
+		}
+	}
+
 	g_message ("Using driver '%s'", l->driver);
-	config = phonemgr_utils_write_config (l->driver, device);
-	lines = g_strsplit (config, "\n", -1);
-	g_free (config);
-
-	if (gn_cfg_memory_read ((const char **)lines) < 0) {
-		g_strfreev (lines);
-		g_warning ("gn_cfg_file_read");
-		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
-		return FALSE;
-	}
-	g_strfreev (lines);
-
-	phonemgr_utils_gn_statemachine_clear (&l->state);
-
-	if (gn_cfg_phone_load("", &l->state) < 0) {
-		g_warning ("gn_cfg_phone_load");
-		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
-		return FALSE;
-	}
-
-	err = gn_gsm_initialise(&l->state);
-	if (err != GN_ERR_NONE) {
-		PhoneMgrError perr;
-		g_warning ("gn_gsm_initialise: %s",
-				phonemgr_utils_gn_error_to_string (err, &perr));
-		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
-		return FALSE;
-	}
-
-	if (gn_cfg_phone_load("", &l->state) < 0) {
-		g_warning ("gn_cfg_phone_load");
-		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
-		return FALSE;
-	}
-
 	l->connected = TRUE;
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTED);
@@ -318,8 +298,10 @@ phonemgr_listener_disconnect (PhonemgrListener *l)
 
 	l->old_state = 0;
 	l->connected = FALSE;
-	//FIXME
-	gn_sm_functions(GN_OP_Terminate, NULL, &l->state);
+	//FIXME more to kill?
+	phonemgr_utils_disconnect (l->phone_state);
+	phonemgr_utils_free (l->phone_state);
+	l->phone_state = NULL;
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_IDLE);
 }
@@ -340,7 +322,7 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	/* Lock the phone */
 	g_mutex_lock (l->mutex);
 
-	gn_data_clear(&l->data);
+	gn_data_clear(&l->phone_state->data);
 
 	mstr = g_convert (message, strlen (message),
 			"iso-8859-1", "utf-8",
@@ -365,15 +347,13 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 		sms.remote.type = GN_GSM_NUMBER_Unknown;
 
 	/* Get the SMS Center number */
-	l->data.message_center = g_new (gn_sms_message_center, 1);
-	l->data.message_center->id = 1;
-	if (gn_sm_functions(GN_OP_GetSMSCenter, &l->data, &l->state) == GN_ERR_NONE) {
-		g_strlcpy (sms.smsc.number,
-				l->data.message_center->smsc.number,
-				sizeof (sms.smsc.number));
-		sms.smsc.type = l->data.message_center->smsc.type;
+	l->phone_state->data.message_center = g_new (gn_sms_message_center, 1);
+	l->phone_state->data.message_center->id = 1;
+	if (gn_sm_functions(GN_OP_GetSMSCenter, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
+		g_strlcpy (sms.smsc.number, l->phone_state->data.message_center->smsc.number, sizeof (sms.smsc.number));
+		sms.smsc.type = l->phone_state->data.message_center->smsc.type;
 	}
-	g_free (l->data.message_center);
+	g_free (l->phone_state->data.message_center);
 
 	/* Set the message data */
 	sms.user_data[0].type = GN_SMS_DATA_Text;
@@ -386,10 +366,10 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	sms.user_data[1].type = GN_SMS_DATA_None;
 	g_free (mstr);
 
-	l->data.sms = &sms;
+	l->phone_state->data.sms = &sms;
 
 	/* Actually send the message */
-	error = gn_sms_send (&l->data, &l->state);
+	error = gn_sms_send (&l->phone_state->data, &l->phone_state->state);
 
 	/* Unlock the phone */
 	g_mutex_unlock (l->mutex);
@@ -423,10 +403,10 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 
 	g_return_if_fail (l->connected != FALSE);
 
-	gn_data_clear(&l->data);
-	l->data.sms_status = &smsstatus;
+	gn_data_clear(&l->phone_state->data);
+	l->phone_state->data.sms_status = &smsstatus;
 
-	if (gn_sm_functions(GN_OP_GetSMSStatus, &l->data, &l->state) != GN_ERR_NONE) {
+	if (gn_sm_functions(GN_OP_GetSMSStatus, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE) {
 		g_warning ("gn_sm_functions");
 		return;
 	}
@@ -439,8 +419,8 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 	}
 
 	folder.folder_id = 0;
-	l->data.sms_folder = &folder;
-	l->data.sms_folder_list = &folderlist;
+	l->phone_state->data.sms_folder = &folder;
+	l->phone_state->data.sms_folder_list = &folderlist;
 
 	i = smsstatus.number;
 
@@ -450,9 +430,9 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 		message = g_new0 (gn_sms, 1);
 		message->memory_type = GN_MT_IN;
 		message->number = i;
-		l->data.sms = message;
+		l->phone_state->data.sms = message;
 
-		error = gn_sms_get (&l->data, &l->state);
+		error = gn_sms_get (&l->phone_state->data, &l->phone_state->state);
 		if (error == GN_ERR_NONE) {
 			if (message->status == GN_SMS_Unread) {
 				g_message ("message pushed");

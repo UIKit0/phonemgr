@@ -104,7 +104,7 @@ if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
     -Werror \
     $CXXFLAGS"
 
-    for option in -Wsign-promo -Wno-sign-compare; do
+    for option in -Wsign-promo -Wno-sign-compare -Wmissing-noreturn; do
         SAVE_CFLAGS="$CXXFLAGS"
         CFLAGS="$option $CXXFLAGS"
         AC_MSG_CHECKING([whether gcc understands $option])

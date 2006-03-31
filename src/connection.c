@@ -47,7 +47,7 @@ set_connection_device (MyApp *app)
 		app->devname = dev;
 	}
 
-	g_message ("New connection device is %s", dev);
+	g_message ("New connection device is %s", dev ? dev : "empty");
 
 	return dev;
 }

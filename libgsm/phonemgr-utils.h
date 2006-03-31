@@ -28,10 +28,27 @@
 
 G_BEGIN_DECLS
 
+#define PHONEMGR_DEFAULT_DRIVER "AT"
+#define PHONEMGR_CONDERR_STR(err) (err ? err->message : "No reason")
+
+typedef struct PhonemgrState PhonemgrState;
+
+struct PhonemgrState {
+	gn_data data;
+	struct gn_statemachine state;
+};
+
 char *phonemgr_utils_write_config (const char *driver, const char *addr);
-char *phonemgr_utils_guess_driver (char *device, GError **error);
+char *phonemgr_utils_guess_driver (PhonemgrState *state,
+				   const char *device, GError **error);
 void phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state);
-const char *phonemgr_utils_gn_error_to_string (gn_error error, PhoneMgrError *perr);
+const char *phonemgr_utils_gn_error_to_string (gn_error error,
+					       PhoneMgrError *perr);
+
+PhonemgrState *phonemgr_utils_connect (const char *device, const char *driver,
+				       GError **error);
+void phonemgr_utils_disconnect (PhonemgrState *state);
+void phonemgr_utils_free (PhonemgrState *state);
 
 G_END_DECLS
 

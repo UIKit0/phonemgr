@@ -125,7 +125,7 @@ phonemgr_utils_driver_for_model (const char *model, const char *device)
 	driver = g_hash_table_lookup (driver_model, model);
 	if (driver == NULL) {
 		g_warning ("Model %s not supported natively", model);
-		driver = g_strdup ("AT");
+		driver = g_strdup (PHONEMGR_DEFAULT_DRIVER);
 	} else {
 		driver = g_strdup (driver);
 	}
@@ -255,11 +255,10 @@ phonemgr_utils_init_hash_tables (void)
 
 #define MODEL_SIZE 64
 char *
-phonemgr_utils_guess_driver (char *device, GError **error)
+phonemgr_utils_guess_driver (PhonemgrState *phone_state, const char *device,
+			     GError **error)
 {
-	char *config, **lines, model[MODEL_SIZE];
-	gn_data data;
-	struct gn_statemachine state;
+	char model[MODEL_SIZE];
 	char *driver;
 	gn_error err;
 
@@ -270,7 +269,41 @@ phonemgr_utils_guess_driver (char *device, GError **error)
 	if (driver != NULL)
 		return driver;
 
-	config = phonemgr_utils_write_config ("AT", device);
+	if (phone_state == NULL)
+		return NULL;
+
+	gn_data_clear(&phone_state->data);
+	phone_state->data.model = model;
+
+	err = gn_sm_functions(GN_OP_Identify,
+			&phone_state->data, &phone_state->state);
+
+	if (err != GN_ERR_NONE) {
+		PhoneMgrError perr;
+		g_warning ("gn_sm_functions: %s",
+				phonemgr_utils_gn_error_to_string (err, &perr));
+		goto bail;
+	}
+
+bail:
+	if (model[0] == '\0')
+		return NULL;
+
+	driver = phonemgr_utils_driver_for_model (model, device);
+
+	return driver;
+}
+
+PhonemgrState *
+phonemgr_utils_connect (const char *device, const char *driver, GError **error)
+{
+	PhonemgrState *phonemgr_state = NULL;
+	char *config, **lines;
+	gn_data data;
+	struct gn_statemachine state;
+	gn_error err;
+
+	config = phonemgr_utils_write_config (driver ? driver : PHONEMGR_DEFAULT_DRIVER, device);
 	lines = g_strsplit (config, "\n", -1);
 	g_free (config);
 
@@ -288,9 +321,6 @@ phonemgr_utils_guess_driver (char *device, GError **error)
 		goto bail;
 	}
 
-	gn_data_clear(&data);
-	data.model = model;
-
 	err = gn_gsm_initialise(&state);
 	if (err != GN_ERR_NONE) {
 		PhoneMgrError perr;
@@ -299,22 +329,29 @@ phonemgr_utils_guess_driver (char *device, GError **error)
 		goto bail;
 	}
 
-	err = gn_sm_functions(GN_OP_Identify, &data, &state);
-	if (err != GN_ERR_NONE) {
-		PhoneMgrError perr;
-		g_warning ("gn_sm_functions: %s",
-				phonemgr_utils_gn_error_to_string (err, &perr));
-		goto bail;
-	}
-
-	gn_sm_functions(GN_OP_Terminate, NULL, &state);
+	phonemgr_state = g_new (PhonemgrState, 1);
+	phonemgr_state->data = data;
+	phonemgr_state->state = state;
 
 bail:
-	if (model[0] == '\0')
-		return NULL;
 
-	driver = phonemgr_utils_driver_for_model (model, device);
+	return phonemgr_state;
+}
 
-	return driver;
+void
+phonemgr_utils_disconnect (PhonemgrState *state)
+{
+	g_return_if_fail (state != NULL);
+
+	gn_sm_functions (GN_OP_Terminate, NULL, &state->state);
+	phonemgr_utils_gn_statemachine_clear (&state->state);
+	gn_data_clear (&state->data);
+}
+
+void
+phonemgr_utils_free (PhonemgrState *state)
+{
+	g_return_if_fail (state != NULL);
+	g_free (state);
 }
 

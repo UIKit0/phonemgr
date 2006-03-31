@@ -1,3 +1,20 @@
+2006-03-31  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
+	* libgsm/gnokii-identify.c: (tell_driver):
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect),
+	(phonemgr_listener_disconnect), (phonemgr_listener_queue_message),
+	(phonemgr_listener_poll_real):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_driver_for_model),
+	(phonemgr_utils_guess_driver), (phonemgr_utils_connect),
+	(phonemgr_utils_disconnect), (phonemgr_utils_free):
+	* libgsm/phonemgr-utils.h:
+	* src/connection.c: (set_connection_device):
+	Add new convenience structs and functions to connect to the phone
+	using gnokii, and avoid reconnecting to the phone if the default
+	driver is already the one being used (Closes: #312278)
+
 2006-02-01  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in: add gmodule-2.0 to the needed libraries, to get
