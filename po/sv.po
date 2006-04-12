@@ -1,6 +1,7 @@
 # Swedish messages for phonemgr.
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004, 2006 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004.
+# Daniel Nylander <po@danielnylander.se>, 2006.
 #
 # $Id$
 #
@@ -8,170 +9,163 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-30 20:27+0200\n"
-"PO-Revision-Date: 2004-08-30 20:27+0200\n"
-"Last-Translator: Christian Rose <menthos@menthos.com>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"POT-Creation-Date: 2006-04-12 20:21+0200\n"
+"PO-Revision-Date: 2006-04-12 20:53+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libegg/libegg/iconlist/eggiconlist.c:313
+#: ../libegg/libegg/iconlist/eggiconlist.c:313
 msgid "Selection mode"
 msgstr "Markeringsläge"
 
-#: libegg/libegg/iconlist/eggiconlist.c:314
+#: ../libegg/libegg/iconlist/eggiconlist.c:314
 msgid "The selection mode"
 msgstr "Markeringsläget"
 
-#: libegg/libegg/iconlist/eggiconlist.c:322
+#: ../libegg/libegg/iconlist/eggiconlist.c:322
 msgid "Sorted"
 msgstr "Sorterad"
 
-#: libegg/libegg/iconlist/eggiconlist.c:323
+#: ../libegg/libegg/iconlist/eggiconlist.c:323
 msgid "Icon list is sorted"
 msgstr "Ikonlistan är sorterad"
 
-#: libegg/libegg/iconlist/eggiconlist.c:329
+#: ../libegg/libegg/iconlist/eggiconlist.c:329
 msgid "Sort order"
 msgstr "Sorteringsordning"
 
-#: libegg/libegg/iconlist/eggiconlist.c:330
+#: ../libegg/libegg/iconlist/eggiconlist.c:330
 msgid "Sort direction the icon list should use"
 msgstr "Sorteringsriktningen som ikonlistan ska använda"
 
-#: libegg/libegg/iconlist/eggiconlist.c:344
+#: ../libegg/libegg/iconlist/eggiconlist.c:344
 msgid "Icon padding"
 msgstr "Ikonmellanrum"
 
-#: libegg/libegg/iconlist/eggiconlist.c:345
+#: ../libegg/libegg/iconlist/eggiconlist.c:345
 msgid "Number of pixels between icons"
 msgstr "Antalet bildpunkter mellan ikoner"
 
-#: libegg/libegg/iconlist/eggiconlist.c:352
+#: ../libegg/libegg/iconlist/eggiconlist.c:352
 msgid "Top margin"
 msgstr "Överkantsmarginal"
 
-#: libegg/libegg/iconlist/eggiconlist.c:353
+#: ../libegg/libegg/iconlist/eggiconlist.c:353
 msgid "Number of pixels in top margin"
 msgstr "Antal bildpunkter i överkantsmarginalen"
 
-#: libegg/libegg/iconlist/eggiconlist.c:360
+#: ../libegg/libegg/iconlist/eggiconlist.c:360
 msgid "Bottom margin"
 msgstr "Underkantsmarginal"
 
-#: libegg/libegg/iconlist/eggiconlist.c:361
+#: ../libegg/libegg/iconlist/eggiconlist.c:361
 msgid "Number of pixels in bottom margin"
 msgstr "Antal bildpunkter i underkantsmarginalen"
 
-#: libegg/libegg/iconlist/eggiconlist.c:369
+#: ../libegg/libegg/iconlist/eggiconlist.c:369
 msgid "Left margin"
 msgstr "Vänstermarginal"
 
-#: libegg/libegg/iconlist/eggiconlist.c:370
+#: ../libegg/libegg/iconlist/eggiconlist.c:370
 msgid "Number of pixels in left margin"
 msgstr "Antal bildpunkter i vänstermarginalen"
 
-#: libegg/libegg/iconlist/eggiconlist.c:377
+#: ../libegg/libegg/iconlist/eggiconlist.c:377
 msgid "Right margin"
 msgstr "Högermarginal"
 
-#: libegg/libegg/iconlist/eggiconlist.c:378
+#: ../libegg/libegg/iconlist/eggiconlist.c:378
 msgid "Number of pixels in right margin"
 msgstr "Antal bildpunkter i högermarginalen"
 
-#: libegg/libegg/iconlist/eggiconlist.c:386
+#: ../libegg/libegg/iconlist/eggiconlist.c:386
 msgid "Selection Box Color"
 msgstr "Färg på markeringsruta"
 
-#: libegg/libegg/iconlist/eggiconlist.c:387
+#: ../libegg/libegg/iconlist/eggiconlist.c:387
 msgid "Color of the selection box"
 msgstr "Färg på markeringsrutan"
 
-#: libegg/libegg/iconlist/eggiconlist.c:393
+#: ../libegg/libegg/iconlist/eggiconlist.c:393
 msgid "Selection Box Alpha"
 msgstr "Alfavärde för markeringsrutan"
 
-#: libegg/libegg/iconlist/eggiconlist.c:394
+#: ../libegg/libegg/iconlist/eggiconlist.c:394
 msgid "Opacity of the selection box"
 msgstr "Opacitet för markeringsrutan"
 
-#: libegg/libegg/tray/eggstatusicon.c:154
+#: ../libegg/libegg/tray/eggstatusicon.c:154
 msgid "Pixbuf"
 msgstr "Bild"
 
-#: libegg/libegg/tray/eggstatusicon.c:155
+#: ../libegg/libegg/tray/eggstatusicon.c:155
 msgid "A GdkPixbuf to display"
 msgstr "En GdkPixbuf att visa"
 
-#: libegg/libegg/tray/eggstatusicon.c:162
+#: ../libegg/libegg/tray/eggstatusicon.c:162
 msgid "Filename"
 msgstr "Filnamn"
 
-#: libegg/libegg/tray/eggstatusicon.c:163
+#: ../libegg/libegg/tray/eggstatusicon.c:163
 msgid "Filename to load and display"
 msgstr "Filnamn att läsa in och visa"
 
-#: libegg/libegg/tray/eggstatusicon.c:170
+#: ../libegg/libegg/tray/eggstatusicon.c:170
 msgid "Stock ID"
 msgstr "Standardid"
 
-#: libegg/libegg/tray/eggstatusicon.c:171
+#: ../libegg/libegg/tray/eggstatusicon.c:171
 msgid "Stock ID for a stock image to display"
 msgstr "Standard-id för en standardbild att visa"
 
-#: libegg/libegg/tray/eggstatusicon.c:178
+#: ../libegg/libegg/tray/eggstatusicon.c:178
 msgid "Animation"
 msgstr "Animation"
 
-#: libegg/libegg/tray/eggstatusicon.c:179
+#: ../libegg/libegg/tray/eggstatusicon.c:179
 msgid "GdkPixbufAnimation to display"
 msgstr "GdkPixbufAnimation att visa"
 
-#: libegg/libegg/tray/eggstatusicon.c:186
+#: ../libegg/libegg/tray/eggstatusicon.c:186
 msgid "Image type"
 msgstr "Bildtyp"
 
-#: libegg/libegg/tray/eggstatusicon.c:187
+#: ../libegg/libegg/tray/eggstatusicon.c:187
 msgid "The representation being used for image data"
 msgstr "Representationen som används för bilddata"
 
-#: libegg/libegg/tray/eggstatusicon.c:195
+#: ../libegg/libegg/tray/eggstatusicon.c:195
 msgid "Size"
 msgstr "Storlek"
 
-#: libegg/libegg/tray/eggstatusicon.c:196
+#: ../libegg/libegg/tray/eggstatusicon.c:196
 msgid "The size of the icon"
 msgstr "Storleken på ikonen"
 
-#: libegg/libegg/tray/eggstatusicon.c:205
+#: ../libegg/libegg/tray/eggstatusicon.c:205
 msgid "Blinking"
 msgstr "Blinkar"
 
-#: libegg/libegg/tray/eggstatusicon.c:206
+#: ../libegg/libegg/tray/eggstatusicon.c:206
 msgid "Whether or not the status icon is blinking"
 msgstr "Huruvida statusikonen blinkar"
 
-#: libegg/libegg/tray/eggtrayicon.c:118
-#: libegg/libegg/tray/eggtraymanager.c:145
+#: ../libegg/libegg/tray/eggtrayicon.c:118
+#: ../libegg/libegg/tray/eggtraymanager.c:145
 msgid "Orientation"
 msgstr "Orientering"
 
-#: libegg/libegg/tray/eggtrayicon.c:119
-#: libegg/libegg/tray/eggtraymanager.c:146
+#: ../libegg/libegg/tray/eggtrayicon.c:119
+#: ../libegg/libegg/tray/eggtraymanager.c:146
 msgid "The orientation of the tray."
 msgstr "Orienteringen på lådan."
 
-#. translators: the %d is substituted for a number
-#. which can be used for diagnostic purposes
-#: src/connection.c:40
-#, c-format
-msgid "Unable to obtain RFCOMM connection (%d)"
-msgstr "Kan inte få tag i RFCOMM-anslutning (%d)"
-
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:110
+#: ../src/connection.c:91
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Ansluten till enhet på %s"
@@ -180,265 +174,333 @@ msgstr "Ansluten till enhet på %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:119
+#: ../src/connection.c:100
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Anslutning till enhet på %s misslyckades"
 
 #. When try icon is destroyed, recreate it.  This happens
 #. when the notification area is removed.
-#: src/gnome-phone-manager.desktop.in.h:1 src/icon.c:66 src/menu.c:30
+#: ../src/gnome-phone-manager.desktop.in.h:1
+#: ../src/icon.c:66
+#: ../src/menu.c:30
 msgid "Phone Manager"
 msgstr "Telefonhanterare"
 
-#: src/gnome-phone-manager.desktop.in.h:2
+#: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Mottag och skicka textmeddelanden från din mobiltelefon"
 
-#: src/icon.c:162
+#: ../src/icon.c:162
 msgid "Message arrived"
 msgstr "Meddelande ankom"
 
-#: src/icon.c:166
+#: ../src/icon.c:166
 msgid "Connected"
 msgstr "Ansluten"
 
-#: src/icon.c:171
+#: ../src/icon.c:171
 msgid "Connecting to phone"
 msgstr "Ansluter till telefon"
 
-#: src/icon.c:176
+#: ../src/icon.c:176
 msgid "Not connected"
 msgstr "Inte ansluten"
 
-#: src/icon.c:196
+#: ../src/icon.c:196
 msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</span>\n"
 "\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
+"Phone Manager uses the notification area to display information and provide access to message sending and preferences. You can add it by right-clicking on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</i>."
 msgstr ""
-"<span weight=\"bold\" size=\"larger\">Kunde inte hitta notifieringsyta</"
-"span>\n"
+"<span weight=\"bold\" size=\"larger\">Kunde inte hitta notifieringsyta</span>\n"
 "\n"
-"Telefonhanteraren använder notifieringsytan för att visa information och "
-"tillhandahålla åtkomst till skickande av meddelanden och inställningar. Du "
-"kan lägga till den genom att högerklicka på din panel och välja <i>Lägg till "
-"i panelen -> Verktyg -> Notifieringsyta</i>."
+"Telefonhanteraren använder notifieringsytan för att visa information och tillhandahålla åtkomst till skickande av meddelanden och inställningar. Du kan lägga till den genom att högerklicka på din panel och välja <i>Lägg till i panelen -> Verktyg -> Notifieringsyta</i>."
 
-#: src/main.c:36
+#: ../src/main.c:36
 msgid "Couldn't create phone listener."
 msgstr "Kunde inte skapa telefonlyssnare."
 
-#: src/menu.c:22
+#: ../src/menu.c:22
 msgid "translator_credits"
 msgstr ""
+"Daniel Nylander\n"
 "Christian Rose\n"
-"Skicka synpunkter på översättningen till sv@li.org"
+"Skicka synpunkter på översättningen till tp-sv@listor.tp-sv.se"
 
-#: src/menu.c:32
+#: ../src/menu.c:32
 msgid "Send and receive messages from your mobile phone."
 msgstr "Skicka och mottag meddelanden från din mobiltelefon."
 
-#: src/menu.c:75
+#: ../src/menu.c:75
 msgid "_Send Message"
 msgstr "_Skicka meddelande"
 
-#: src/ui.c:88
+#: ../src/ui.c:89
 msgid "No Bluetooth device chosen."
 msgstr "Inga Bluetooth-enheter valda."
 
-#: src/ui.c:321
+#: ../src/ui.c:324
 msgid "Message too long!"
 msgstr "Meddelandet för långt!"
 
-#: ui/phonemgr.glade.h:1 ui/strings.c:31 ui/strings.c:44
-msgid "*"
-msgstr "*"
-
-#: ui/phonemgr.glade.h:2 ui/strings.c:30
+#: ../ui/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
-#: ui/phonemgr.glade.h:3 ui/strings.c:15
+#: ../ui/phonemgr.glade.h:2
 msgid "<b>Alerting</b>"
 msgstr "<b>Varnar</b>"
 
-#: ui/phonemgr.glade.h:4 ui/strings.c:35
+#: ../ui/phonemgr.glade.h:3
 msgid "<b>Error Handling</b>"
 msgstr "<b>Felhantering</b>"
 
-#: ui/phonemgr.glade.h:5 ui/strings.c:32
+#: ../ui/phonemgr.glade.h:4
 msgid "<b>Phone Connection</b>"
 msgstr "<b>Telefonanslutning</b>"
 
-#: ui/phonemgr.glade.h:6 ui/strings.c:39
+#: ../ui/phonemgr.glade.h:5
 msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Ange ditt textmeddelande</span>"
 
-#: ui/phonemgr.glade.h:7 ui/strings.c:9
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"larger\">Du har fått ett meddelande</span>"
+#: ../ui/phonemgr.glade.h:6
+msgid "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Du har fått ett meddelande</span>"
 
-#: ui/phonemgr.glade.h:8 ui/strings.c:29
+#: ../ui/phonemgr.glade.h:7
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Alternativt enhetsfilnamn, t.ex. /dev/ttyS3"
 
-#: ui/phonemgr.glade.h:9 ui/strings.c:33
-msgid ""
-"Always try and reconnect whenever a connection is not immediately available. "
-"Use this with Bluetooth to ensure your phone connects whenever it comes in "
-"range."
-msgstr ""
-"Försök alltid att ansluta igen när en anslutning inte är omedelbart "
-"tillgänglig. Använd detta tillsammans med Bluetooth för att försäkra dig om "
-"att din telefon ansluter när den är inom räckhåll."
+#: ../ui/phonemgr.glade.h:8
+msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgstr "Försök alltid att ansluta igen när en anslutning inte är omedelbart tillgänglig. Använd detta tillsammans med Bluetooth för att försäkra dig om att din telefon ansluter när den är inom räckhåll."
 
-#: ui/phonemgr.glade.h:10 ui/strings.c:34
+#: ../ui/phonemgr.glade.h:9
 msgid "Automatically _retry connections"
 msgstr "_Försök ansluta igen automatiskt"
 
-#: ui/phonemgr.glade.h:11 ui/strings.c:40
+#: ../ui/phonemgr.glade.h:10
 msgid "Characters left:"
 msgstr "Tecken kvar:"
 
-#: ui/phonemgr.glade.h:12 ui/strings.c:20
+#: ../ui/phonemgr.glade.h:11
 msgid "Choo_se"
 msgstr "_Välj"
 
-#: ui/phonemgr.glade.h:13 ui/strings.c:19
+#: ../ui/phonemgr.glade.h:12
 msgid "Choose a Bluetooth-enabled mobile phone to connect to."
 msgstr "Välj en Bluetooth-kapabel mobiltelefon att ansluta till."
 
-#: ui/phonemgr.glade.h:14 ui/strings.c:27
+#: ../ui/phonemgr.glade.h:13
 msgid "Connect using an alternative serial device"
 msgstr "Anslut genom att använda en alternativ seriell enhet"
 
-#: ui/phonemgr.glade.h:15 ui/strings.c:25
+#: ../ui/phonemgr.glade.h:14
 msgid "Connect using infrared communication"
 msgstr "Anslut genom att använda infraröd kommunikation"
 
-#: ui/phonemgr.glade.h:16 ui/strings.c:21
+#: ../ui/phonemgr.glade.h:15
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
-"Anslut genom att använda serieport 1, även känd som COM1 eller /dev/ttyS0"
+msgstr "Anslut genom att använda serieport 1, även känd som COM1 eller /dev/ttyS0"
 
-#: ui/phonemgr.glade.h:17 ui/strings.c:23
+#: ../ui/phonemgr.glade.h:16
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
-"Anslut genom att använda serieport 2, även känd som COM2 eller /dev/ttyS1"
+msgstr "Anslut genom att använda serieport 2, även känd som COM2 eller /dev/ttyS1"
 
-#: ui/phonemgr.glade.h:18 ui/strings.c:36
+#: ../ui/phonemgr.glade.h:17
 msgid "Connection"
 msgstr "Anslutning"
 
-#: ui/phonemgr.glade.h:19 ui/strings.c:11
+#: ../ui/phonemgr.glade.h:18
 msgid "Date:"
 msgstr "Datum:"
 
-#: ui/phonemgr.glade.h:20 ui/strings.c:43
-msgid "Enter the number you wish to send a message to."
-msgstr "Ange det nummer som du vill skicka ett meddelande till."
-
-#: ui/phonemgr.glade.h:21 ui/strings.c:46
+#: ../ui/phonemgr.glade.h:19
 msgid "Enter the text message you want to send."
 msgstr "Ange det textmeddelande som du vill skicka."
 
-#: ui/phonemgr.glade.h:22 ui/strings.c:16
+#: ../ui/phonemgr.glade.h:20
 msgid "Interface"
 msgstr "Gränssnitt"
 
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
-#: ui/phonemgr.glade.h:23 ui/strings.c:7
+#: ../ui/phonemgr.glade.h:21
 msgid "Message Received"
 msgstr "Meddelande har mottagits"
 
-#: ui/phonemgr.glade.h:24 ui/strings.c:41
+#: ../ui/phonemgr.glade.h:22
 msgid "Number of characters left in the message"
 msgstr "Antal tecken kvar i meddelandet"
 
-#: ui/phonemgr.glade.h:25 ui/strings.c:28
+#: ../ui/phonemgr.glade.h:23
 msgid "Other _port"
 msgstr "Annan _port"
 
-#: ui/phonemgr.glade.h:26 ui/strings.c:12
+#: ../ui/phonemgr.glade.h:24
 msgid "Phone Manager Preferences"
 msgstr "Inställningar för telefonhanteraren"
 
-#: ui/phonemgr.glade.h:27 ui/strings.c:14
+#: ../ui/phonemgr.glade.h:25
 msgid "Play _sound when messages arrive"
 msgstr "Spela _ljudfil då meddelanden ankommer"
 
-#: ui/phonemgr.glade.h:28 ui/strings.c:37
+#: ../ui/phonemgr.glade.h:26
 msgid "Send Message"
 msgstr "Skicka meddelande"
 
-#: ui/phonemgr.glade.h:29 ui/strings.c:10
+#: ../ui/phonemgr.glade.h:27
 msgid "Sender:"
 msgstr "Avsändare:"
 
-#: ui/phonemgr.glade.h:30 ui/strings.c:22
+#: ../ui/phonemgr.glade.h:28
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Serieport _1 (/dev/ttyS0)"
 
-#: ui/phonemgr.glade.h:31 ui/strings.c:24
+#: ../ui/phonemgr.glade.h:29
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Serieport _2 (/dev/ttyS1)"
 
-#: ui/phonemgr.glade.h:32 ui/strings.c:17
+#: ../ui/phonemgr.glade.h:30
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Använd trådlöst Bluetooth-nätverk för att ansluta till din telefon"
 
-#: ui/phonemgr.glade.h:33 ui/strings.c:18
+#: ../ui/phonemgr.glade.h:31
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ui/phonemgr.glade.h:34 ui/strings.c:26
+#: ../ui/phonemgr.glade.h:32
 msgid "_Infra red (/dev/ircomm)"
 msgstr "_Infrarött (/dev/ircomm)"
 
-#: ui/phonemgr.glade.h:35 ui/strings.c:45
+#: ../ui/phonemgr.glade.h:33
 msgid "_Message:"
 msgstr "_Meddelande:"
 
-#: ui/phonemgr.glade.h:36 ui/strings.c:13
+#: ../ui/phonemgr.glade.h:34
 msgid "_Pop-up window for new messages"
 msgstr "_Popupfönster för nya meddelanden"
 
-#: ui/phonemgr.glade.h:37 ui/strings.c:42
+#: ../ui/phonemgr.glade.h:35
 msgid "_Recipient:"
 msgstr "_Mottagare:"
 
-#: ui/phonemgr.glade.h:38 ui/strings.c:8
+#: ../ui/phonemgr.glade.h:36
 msgid "_Reply"
 msgstr "_Svara"
 
-#: ui/phonemgr.glade.h:39 ui/strings.c:38
+#: ../ui/phonemgr.glade.h:37
 msgid "_Send"
 msgstr "_Skicka"
 
-#: ui/phonemgr.glade.h:40 ui/strings.c:47
+#: ../ui/phonemgr.glade.h:38
 msgid "message body"
 msgstr "meddelandetext"
 
+#: ../src/e-contact-entry.c:153
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Kan inte hämta kontakt: %s"
+
+#: ../src/e-contact-entry.c:185
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Kunde inte hitta kontakt: %s"
+
+#: ../src/e-contact-entry.c:367
+msgid "Cannot create searchable view."
+msgstr "Kan inte skapa sökbar vy."
+
+#: ../src/e-contact-entry.c:820
+msgid "Success"
+msgstr "Lyckades"
+
+#: ../src/e-contact-entry.c:822
+msgid "An argument was invalid."
+msgstr "Ett argument var ogiltigt."
+
+#: ../src/e-contact-entry.c:824
+msgid "The address book is busy."
+msgstr "Adressboken är upptagen."
+
+#: ../src/e-contact-entry.c:826
+msgid "The address book is offline."
+msgstr "Adressboken är offline."
+
+#: ../src/e-contact-entry.c:828
+msgid "The address book does not exist."
+msgstr "Adressboken finns inte."
+
+#: ../src/e-contact-entry.c:830
+msgid "The \"Me\" contact does not exist."
+msgstr "Kontakten \"Jag\" finns inte."
+
+#: ../src/e-contact-entry.c:832
+msgid "The address book is not loaded."
+msgstr "Adressboken är inte inläst."
+
+#: ../src/e-contact-entry.c:834
+msgid "The address book is already loaded."
+msgstr "Adressboken är redan inläst."
+
+#: ../src/e-contact-entry.c:836
+msgid "Permission was denied when accessing the address book."
+msgstr "Åtkomst till adressboken nekades."
+
+#: ../src/e-contact-entry.c:838
+msgid "The contact was not found."
+msgstr "Kontakten hittades inte."
+
+#: ../src/e-contact-entry.c:840
+msgid "This contact ID already exists."
+msgstr "Detta kontakt-id finns redan."
+
+#: ../src/e-contact-entry.c:842
+msgid "The protocol is not supported."
+msgstr "Protokollet stöds inte."
+
+#: ../src/e-contact-entry.c:844
+msgid "The operation was cancelled."
+msgstr "Operationen avbröts."
+
+#: ../src/e-contact-entry.c:846
+msgid "The operation could not be cancelled."
+msgstr "Operationen kunde inte avbrytas."
+
+#: ../src/e-contact-entry.c:848
+msgid "The address book authentication failed."
+msgstr "Autentisering för adressboken misslyckades."
+
+#: ../src/e-contact-entry.c:850
+msgid "Authentication is required to access the address book and was not given."
+msgstr "Autentisering krävs för att komma åt adressboken och den angavs inte."
+
+#: ../src/e-contact-entry.c:852
+msgid "A secure connection is not available."
+msgstr "En säker anslutning är inte tillgänglig."
+
+#: ../src/e-contact-entry.c:854
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Ett CORBA-fel inträffade vid åtkomst till adressboken."
+
+#: ../src/e-contact-entry.c:856
+msgid "The address book source does not exist."
+msgstr "Adressbokskällan finns inte."
+
+#: ../src/e-contact-entry.c:858
+#: ../src/e-contact-entry.c:861
+msgid "An unknown error occurred."
+msgstr "Ett okänt fel inträffade."
+
+#~ msgid "Unable to obtain RFCOMM connection (%d)"
+#~ msgstr "Kan inte få tag i RFCOMM-anslutning (%d)"
+#~ msgid "*"
+#~ msgstr "*"
+#~ msgid "Enter the number you wish to send a message to."
+#~ msgstr "Ange det nummer som du vill skicka ett meddelande till."
 #~ msgid "Connected to %s"
 #~ msgstr "Ansluten till %s"
-
 #~ msgid "Connecting"
 #~ msgstr "Ansluter"
-
-#~ msgid "Couldn't find notification area"
-#~ msgstr "Kunde inte hitta notifieringsyta"
-
 #~ msgid ""
 #~ "Phone Manager uses the notification area to display information and "
 #~ "provide access to message sending and preferences. You can add it by "
@@ -449,88 +511,61 @@ msgstr "meddelandetext"
 #~ "tillhandahålla åtkomst till skickande av meddelanden och inställningar. "
 #~ "Du kan lägga till den genom att högerklicka på din panel och välja "
 #~ "<i>Lägg till i panelen -> Verktyg -> Notifieringsyta</i>."
-
 #~ msgid "Send message"
 #~ msgstr "Skicka meddelande"
-
 #~ msgid "Bluetooth devices"
 #~ msgstr "Bluetooth-enheter"
-
 #~ msgid "Bluetooth device"
 #~ msgstr "Bluetooth-enhet"
-
 #~ msgid "Alerting"
 #~ msgstr "Varnar"
-
 #~ msgid "Error Handling"
 #~ msgstr "Felhantering"
-
 #~ msgid "Phone Connection"
 #~ msgstr "Telefonanslutning"
-
 #~ msgid "Enter your text message"
 #~ msgstr "Ange ditt textmeddelande"
-
 #~ msgid "You have received a message"
 #~ msgstr "Du har fått ett meddelande"
-
 #~ msgid "Choose"
 #~ msgstr "Välj"
-
 #~ msgid "Other port"
 #~ msgstr "Annan port"
-
 #~ msgid "Preferences"
 #~ msgstr "Inställningar"
-
 #~ msgid "Sender"
 #~ msgstr "Avsändare"
-
 #~ msgid "Bluetooth"
 #~ msgstr "Bluetooth"
-
 #~ msgid "_Infrared (/dev/ircomm)"
 #~ msgstr "_Infrarött (/dev/ircomm)"
-
 #~ msgid "Message:"
 #~ msgstr "Meddelande:"
-
 #~ msgid "_Popup window for new messages"
 #~ msgstr "_Popupfönster för nya meddelanden"
-
 #~ msgid "Recipient:"
 #~ msgstr "Mottagare:"
-
 #~ msgid "_Recipient"
 #~ msgstr "_Mottagare"
-
 #~ msgid "Recipient"
 #~ msgstr "Mottagare"
-
 #~ msgid "Send via Bluetooth..."
 #~ msgstr "Skicka via Bluetooth..."
-
 #~ msgid "Connecting..."
 #~ msgstr "Ansluter..."
-
 #~ msgid ""
 #~ "Can't find user interface file, check your gnome-bluetooth installation."
 #~ msgstr ""
 #~ "Kan inte hitta användargränssnittsfil. Kontrollera din installation av "
 #~ "gnome-bluetooth."
-
 #~ msgid "Remote device doesn't support receiving objects."
 #~ msgstr "Fjärrenheten stöder inte mottagande objekt."
-
 #~ msgid "Can't initialize program."
 #~ msgstr "Kan inte initiera program."
-
 #~ msgid "Unable to connect to remote device."
 #~ msgstr "Kan inte ansluta till fjärrenheten."
-
 #~ msgid "Incoming Bluetooth Transfer"
 #~ msgstr "Inkommande Bluetooth-överföring"
-
 #~ msgid ""
 #~ "<span weight='bold' size='larger'>Accept a file from '%s'?</span>\n"
 #~ "\n"
@@ -541,96 +576,68 @@ msgstr "meddelandetext"
 #~ "\n"
 #~ "Fjärrenheten försöker att skicka en fil till dig via Bluetooth. Vill du "
 #~ "tillåta anslutningen?"
-
 #~ msgid "Always accept files from this device."
 #~ msgstr "Acceptera alltid filer från denna enhet."
-
 #~ msgid "Bluetooth File Sharing"
 #~ msgstr "Bluetooth-fildelning"
-
 #~ msgid "Receive files from Bluetooth devices"
 #~ msgstr "Mottag filer från Bluetooth-enheter"
-
 #~ msgid "Bluetooth File Server"
 #~ msgstr "Bluetooth-filserver"
-
 #~ msgid "Ready for Bluetooth file transfers"
 #~ msgstr "Redo för Bluetooth-filöverföringar"
-
 #~ msgid "Receive files sent by Bluetooth devices"
 #~ msgstr "Mottag filer som skickas av Bluetooth-enheter"
-
 #~ msgid "Bluetooth Manager"
 #~ msgstr "Bluetooth-hanterare"
-
 #~ msgid "Display Bluetooth devices and their properties"
 #~ msgstr "Visa Bluetooth-enheter och deras egenskaper"
-
 #~ msgid "Bluetooth Device Manager"
 #~ msgstr "Bluetooth-enhetshanterare"
-
 #~ msgid "Could not find Bluetooth devices on the system"
 #~ msgstr "Kunde inte hitta Bluetooth-enheter på systemet"
-
 #~ msgid ""
 #~ "Please make sure that your bluetooth adapter is correctly plugged in your "
 #~ "machine."
 #~ msgstr ""
 #~ "Försäkra dig om att din Bluetooth-adapter är korrekt ansluten till din "
 #~ "dator."
-
 #~ msgid "_Devices"
 #~ msgstr "_Enheter"
-
 #~ msgid "_Scan"
 #~ msgstr "_Genomsök"
-
 #~ msgid "_Edit"
 #~ msgstr "_Redigera"
-
 #~ msgid "_Help"
 #~ msgstr "_Hjälp"
-
 #~ msgid "Found device %s."
 #~ msgstr "Hittade enheten %s."
-
 #~ msgid "Device %s is called '%s'."
 #~ msgstr "Enheten %s kallas \"%s\"."
-
 #~ msgid "Scanning for devices..."
 #~ msgstr "Letar efter enheter..."
-
 #~ msgid "Retrieving device names..."
 #~ msgstr "Hämtar namn på enheter..."
-
 #~ msgid "Scan complete."
 #~ msgstr "Genomsökning klar."
-
 #~ msgid "Error during scan."
 #~ msgstr "Fel vid genomsökning."
-
 #~ msgid "Copyright Â© Edd Dumbill 2003"
 #~ msgstr "Copyright Â© Edd Dumbill 2003"
-
 #~ msgid "Manage remote bluetooth devices."
 #~ msgstr "Hantera Bluetooth-fjärrenheter."
-
 #~ msgid "Choose Bluetooth device"
 #~ msgstr "Välj Bluetooth-enhet"
-
 #~ msgid "Device"
 #~ msgstr "Enhet"
-
 #~ msgid "Bluetooth Transfer Received"
 #~ msgstr "Bluetooth-överföring mottagen"
-
 #~ msgid ""
 #~ "<span weight='bold' size='larger'>File received from '%s'. What would you "
 #~ "like to do?</span>"
 #~ msgstr ""
 #~ "<span weight='bold' size='larger'>Fil mottagen från \"%s\". Vad vill du "
 #~ "göra?</span>"
-
 #~ msgid ""
 #~ "<span weight='bold'>Name:</span> %s\n"
 #~ "<span weight='bold'>Type:</span> %s\n"
@@ -639,10 +646,8 @@ msgstr "meddelandetext"
 #~ "<span weight='bold'>Namn:</span> %s\n"
 #~ "<span weight='bold'>Typ:</span> %s\n"
 #~ "<span weight='bold'>Storlek:</span> %s"
-
 #~ msgid "Connection Request"
 #~ msgstr "Anslutningsbegäran"
-
 #~ msgid ""
 #~ "<span weight='bold' size='larger'>Allow Bluetooth device '%s' to connect?"
 #~ "</span>\n"
@@ -655,86 +660,64 @@ msgstr "meddelandetext"
 #~ "\n"
 #~ "En extern enhet försöker att ansluta till din dator via Bluetooth. Du "
 #~ "måste välja om du vill acceptera anslutningen."
-
 #~ msgid "_Always allow this device to connect."
 #~ msgstr "_Tillåt alltid denna enhet att ansluta."
-
 #~ msgid "Bluetooth file transfer"
 #~ msgstr "Bluetooth-filöverföring"
-
 #~ msgid "Choose destination device"
 #~ msgstr "Välj målenhet"
-
 #~ msgid "Accept a file from '%s'?"
 #~ msgstr "Acceptera en fil från \"%s\"?"
-
 #~ msgid ""
 #~ "The remote device is attempting to send you a file via Bluetooth. Do you "
 #~ "wish to allow the connection?"
 #~ msgstr ""
 #~ "Fjärrenheten försöker att skicka en fil till dig via Bluetooth. Vill du "
 #~ "tillåta anslutningen?"
-
 #~ msgid "translator-credits"
 #~ msgstr ""
 #~ "Christian Rose\n"
 #~ "Skicka synpunkter på översättningen till sv@li.org"
-
 #~ msgid "File Sharing"
 #~ msgstr "Fildelning"
-
 #~ msgid ""
 #~ "Please make sure that your Bluetooth adapter is correctly plugged in your "
 #~ "machine."
 #~ msgstr ""
 #~ "Försäkra dig om att din Bluetooth-adapter är korrekt ansluten till din "
 #~ "dator."
-
 #~ msgid "Devices"
 #~ msgstr "Enheter"
-
 #~ msgid "Copyright © Edd Dumbill 2003"
 #~ msgstr "Copyright © Edd Dumbill 2003"
-
 #~ msgid "Copyright Â© Edd Dumbill 2004"
 #~ msgstr "Copyright Â© Edd Dumbill 2004"
-
 #~ msgid "Copyright © Edd Dumbill 2004"
 #~ msgstr "Copyright © Edd Dumbill 2004"
-
 #~ msgid "Copyright Â© Edd Dumbill 2003, 2004"
 #~ msgstr "Copyright Â© Edd Dumbill 2003, 2004"
-
 #~ msgid "Copyright © Edd Dumbill 2003, 2004"
 #~ msgstr "Copyright © Edd Dumbill 2003, 2004"
-
 #~ msgid "Manage remote Bluetooth devices."
 #~ msgstr "Hantera Bluetooth-fjärrenheter."
-
 #~ msgid "Choose device"
 #~ msgstr "Välj enhet"
-
 #~ msgid "File received from '%s'. What would you like to do?"
 #~ msgstr "Fil mottagen från \"%s\". Vad vill du göra?"
-
 #~ msgid "Name:"
 #~ msgstr "Namn:"
-
 #~ msgid "Type:"
 #~ msgstr "Typ:"
-
 #~ msgid "Size:"
 #~ msgstr "Storlek:"
-
 #~ msgid "Allow Bluetooth device '%s' to connect?"
 #~ msgstr "Tillåt Bluetooth-enheten \"%s\" att ansluta?"
-
 #~ msgid ""
 #~ "An external device is attempting to connect to your computer via "
 #~ "Bluetooth. You must decide if you want to accept the connection."
 #~ msgstr ""
 #~ "En extern enhet försöker att ansluta till din dator via Bluetooth. Du "
 #~ "måste välja om du vill acceptera anslutningen."
-
 #~ msgid "Sending file"
 #~ msgstr "Skickar fil"
+
