@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-13 12:20+0200\n"
-"PO-Revision-Date: 2005-06-13 12:19+0200\n"
+"POT-Creation-Date: 2005-09-13 11:40+0200\n"
+"PO-Revision-Date: 2005-09-13 11:40+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -163,7 +163,7 @@ msgstr "Orientering for trauet."
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:90
+#: ../src/connection.c:91
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Koblet til enhet på %s"
@@ -172,7 +172,7 @@ msgstr "Koblet til enhet på %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:99
+#: ../src/connection.c:100
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Tilkobling til enhet på %s feilet"
@@ -395,100 +395,97 @@ msgstr "_Send"
 msgid "message body"
 msgstr "meldingskropp"
 
-#: ../src/e-contact-entry.c:152
+#: ../src/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Kan ikke hente kontakt: %s"
 
-#: ../src/e-contact-entry.c:184
+#: ../src/e-contact-entry.c:185
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Kunne ikke finne kontakt: %s"
 
-#: ../src/e-contact-entry.c:365
+#: ../src/e-contact-entry.c:367
 msgid "Cannot create searchable view."
 msgstr "Kan ikke opprette søkbar visning."
 
-#: ../src/e-contact-entry.c:806
+#: ../src/e-contact-entry.c:820
 msgid "Success"
 msgstr "Suksess"
 
-#: ../src/e-contact-entry.c:808
+#: ../src/e-contact-entry.c:822
 msgid "An argument was invalid."
 msgstr "Ugyldig argument oppgitt."
 
-#: ../src/e-contact-entry.c:810
+#: ../src/e-contact-entry.c:824
 msgid "The address book is busy."
 msgstr "Adresseboken er opptatt."
 
-#: ../src/e-contact-entry.c:812
+#: ../src/e-contact-entry.c:826
 msgid "The address book is offline."
 msgstr "Adresseboken er frakoblet."
 
-#: ../src/e-contact-entry.c:814
+#: ../src/e-contact-entry.c:828
 msgid "The address book does not exist."
 msgstr "Adresseboken eksisterer ikke."
 
-#: ../src/e-contact-entry.c:816
+#: ../src/e-contact-entry.c:830
 msgid "The \"Me\" contact does not exist."
 msgstr "Kontakten «Meg» eksisterer ikke."
 
-#: ../src/e-contact-entry.c:818
+#: ../src/e-contact-entry.c:832
 msgid "The address book is not loaded."
 msgstr "Adresseboken er ikke lastet."
 
-#: ../src/e-contact-entry.c:820
+#: ../src/e-contact-entry.c:834
 msgid "The address book is already loaded."
 msgstr ""
 
-#: ../src/e-contact-entry.c:822
+#: ../src/e-contact-entry.c:836
 msgid "Permission was denied when accessing the address book."
 msgstr ""
 
-#: ../src/e-contact-entry.c:824
+#: ../src/e-contact-entry.c:838
 msgid "The contact was not found."
 msgstr "Kontakten ble ikke funnet."
 
-#: ../src/e-contact-entry.c:826
+#: ../src/e-contact-entry.c:840
 msgid "This contact ID already exists."
 msgstr ""
 
-#: ../src/e-contact-entry.c:828
+#: ../src/e-contact-entry.c:842
 msgid "The protocol is not supported."
 msgstr ""
 
-#: ../src/e-contact-entry.c:830
+#: ../src/e-contact-entry.c:844
 msgid "The operation was cancelled."
 msgstr "Operavsjonen ble avbrutt."
 
-#: ../src/e-contact-entry.c:832
+#: ../src/e-contact-entry.c:846
 msgid "The operation could not be cancelled."
 msgstr ""
 
-#: ../src/e-contact-entry.c:834
+#: ../src/e-contact-entry.c:848
 msgid "The address book authentication failed."
 msgstr ""
 
-#: ../src/e-contact-entry.c:836
+#: ../src/e-contact-entry.c:850
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr ""
 
-#: ../src/e-contact-entry.c:838
+#: ../src/e-contact-entry.c:852
 msgid "A secure connection is not available."
 msgstr ""
 
-#: ../src/e-contact-entry.c:840
-msgid "A CORBA error occured whilst accessing the address book."
+#: ../src/e-contact-entry.c:854
+msgid "A CORBA error occurred whilst accessing the address book."
 msgstr ""
 
-#: ../src/e-contact-entry.c:842
+#: ../src/e-contact-entry.c:856
 msgid "The address book source does not exist."
 msgstr ""
 
-#: ../src/e-contact-entry.c:844 ../src/e-contact-entry.c:847
-msgid "An unknown error occured."
+#: ../src/e-contact-entry.c:858 ../src/e-contact-entry.c:861
+msgid "An unknown error occurred."
 msgstr "En ukjent feil oppsto."
-
-#~ msgid "Unable to obtain RFCOMM connection (%d)"
-#~ msgstr "Kan ikke oprette RFCOMM-tilkobling (%d)"

@@ -1,3 +1,9 @@
+2006-04-17  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Remove obsolete entry for no_NO.
+	* po/nb.po: Updated Norwegian bokmål translation.
+	* po/no.po: Remove the old one.
+
 2006-03-31  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in:
