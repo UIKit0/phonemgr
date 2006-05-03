@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-phone-manager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-03 21:03+0300\n"
-"PO-Revision-Date: 2006-05-03 21:04+0300\n"
+"PO-Revision-Date: 2006-05-03 21:11+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -334,7 +334,7 @@ msgstr "Syötä tekstiviestä, jonka haluat lähettää."
 
 #: ../ui/phonemgr.glade.h:20
 msgid "Interface"
-msgstr "Liittymä"
+msgstr "Käyttöliittymä"
 
 #: ../ui/phonemgr.glade.h:21
 msgid "Message Received"
