@@ -512,13 +512,6 @@ show_prefs_window (MyApp *app)
 	gtk_widget_show (prefs);
 }
 
-static size_t
-my_strftime(char *s, size_t max, const char  *fmt,  const
-           struct tm *tm)
-{
-	return strftime(s, max, fmt, tm);
-}
-
 gboolean
 dequeue_message (MyApp *app)
 {
@@ -529,7 +522,7 @@ dequeue_message (MyApp *app)
 	GtkLabel *l_sender, *l_sent;
 	GtkTextBuffer *buf;
 	gchar work[64];
-	struct tm *time_tm;
+	GDate *date;
 	GladeXML *ui;
 	GtkWidget *w;
 
@@ -573,8 +566,10 @@ dequeue_message (MyApp *app)
 	gtk_text_buffer_set_text (buf, msg->message, strlen (msg->message));
 	gtk_label_set_text (l_sender, msg->sender);
 
-	time_tm = localtime ((time_t*)&msg->timestamp);
-	my_strftime (work, 64, "%X %x", time_tm);
+	date = g_date_new ();
+	g_date_set_time (date, msg->timestamp);
+	g_date_strftime (work, 64, "%X %x", date);
+	g_date_free (date);
 	gtk_label_set_text (l_sent, work);
 
 	gtk_widget_show_all (GTK_WIDGET (dialog));
