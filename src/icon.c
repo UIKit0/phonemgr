@@ -103,6 +103,12 @@ GdkPixbuf *load_icon (MyApp *app, const gchar *iconname, int size)
 				TRUE, NULL);
 
 	if (fname == NULL)
+		fname = gnome_program_locate_file (app->program,
+				GNOME_FILE_DOMAIN_DATADIR,
+				iconname,
+				TRUE, NULL);
+
+	if (fname == NULL)
 		fname = g_strdup_printf ("../ui/%s", iconname);
 
 	buf = gdk_pixbuf_new_from_file_at_size (fname, size, size, &err);

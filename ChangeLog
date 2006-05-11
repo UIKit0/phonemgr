@@ -1,3 +1,10 @@
+2006-05-11  Bastien Nocera  <hadess@hadess.net>
+
+	* src/icon.c: (load_icon): Try to load icons in both the program's
+	datadir, and the pixmaps dir
+	* ui/Makefile.am: install cellphone.png in both $(datadir)/pixmaps
+	and $(datadir)/gnome-phone-manager (Closes: #341385)
+
 ============ Version 0.7
 
 2006-05-05  Bastien Nocera  <hadess@hadess.net>

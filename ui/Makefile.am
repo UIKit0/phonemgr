@@ -1,12 +1,12 @@
 
-pixmapsdir = $(datadir)/pixmaps
+pixmapsdir = $(datadir)/$(pixmaps)
 pixmaps_DATA = cellphone.png
 
 uidir = $(datadir)/$(PACKAGE)
 ui_DATA = phonemgr.glade
 
 icondir = $(datadir)/$(PACKAGE)
-icon_DATA = cellphone-connecting.png cellphone-error.png cellphone-message.png
+icon_DATA = cellphone-connecting.png cellphone-error.png cellphone-message.png cellphone.png
 
 sounddir = $(datadir)/$(PACKAGE)
 sound_DATA = alert.wav
