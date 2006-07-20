@@ -277,11 +277,11 @@ msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
 "range."
-msgstr "Luôn luôn cố tài kết nối khi không có kết nối sẵn sàng ngay. Hãy dùng tính năng này với Bluetooth để bảo đảm điện thoại bạn có tài kết nối một khi vào phạm vi."
+msgstr "Luôn luôn cố tái kết nối khi không có kết nối sẵn sàng ngay. Hãy dùng tính năng này với Bluetooth để bảo đảm điện thoại bạn có tái kết nối một khi vào phạm vi."
 
 #:../ui/phonemgr.glade.h:9
 msgid "Automatically _retry connections"
-msgstr "Tự động _cố tài kết nối"
+msgstr "Tự động _cố tái kết nối"
 
 #:../ui/phonemgr.glade.h:10
 msgid "Characters left:"
