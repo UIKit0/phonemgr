@@ -250,13 +250,22 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
     }
 
     photo = e_contact_get (contact, E_CONTACT_PHOTO);
+#ifndef HAVE_ECONTACTHOTOTYPE
     if (photo) {
+#else
+    if (photo && photo->type == E_CONTACT_PHOTO_TYPE_INLINED) {
+#endif
       GdkPixbufLoader *loader;
 
       loader = gdk_pixbuf_loader_new ();
 
+#ifndef HAVE_ECONTACTPHOTOTYPE
       if (gdk_pixbuf_loader_write (loader, (guchar *)photo->data,
 			      photo->length, NULL))
+#else
+      if (gdk_pixbuf_loader_write (loader, (guchar *)photo->data.inlined.data,
+			      photo->data.inlined.length, NULL))
+#endif
         pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
 
       if (pixbuf) {
@@ -277,8 +286,9 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
             pixbuf = tmp;
           }
       }
-      e_contact_photo_free (photo);
     }
+    if (photo)
+      e_contact_photo_free (photo);
     
     gtk_list_store_append (lookup->entry->priv->store, &iter);
     /* At this point the matcher callback gets called */

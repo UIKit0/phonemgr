@@ -1,3 +1,9 @@
+2006-08-22  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
+	* src/e-contact-entry.c: Patch from Ed Catmur <ed@catmur.co.uk>
+	to make c-l-a compile with newer versions of e-d-s (Closes: #349726)
+
 2006-05-11  Bastien Nocera  <hadess@hadess.net>
 
 	* src/icon.c: (load_icon): Try to load icons in both the program's

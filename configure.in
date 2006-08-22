@@ -54,6 +54,11 @@ PKG_CHECK_MODULES(PHONEMGR, gtk+-2.0 glib-2.0 libgnomeui-2.0 >= 1.110.0
 	gmodule-2.0
 )
 
+saved_CPPFLAGS="$CPPFLAGS"
+CPPFLAGS="$CPPFLAGS $TMP_EVO_CFLAGS"
+AC_CHECK_TYPES([EContactPhotoType], , , [#include <libebook/e-contact.h>])
+CPPFLAGS="$saved_CPPFLAGS"
+
 AC_SUBST(PHONEMGR_CFLAGS)
 AC_SUBST(PHONEMGR_LIBS)
 
