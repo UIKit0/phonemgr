@@ -1,3 +1,10 @@
+============ Version 0.8
+
+2006-09-18  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: upd
+	* configure.in: 0.8
+
 2006-08-25  Hendrik Richter  <hrichter@gnome.org>
 
 	* configure.in: Added "de" to ALL_LINGUAS.
