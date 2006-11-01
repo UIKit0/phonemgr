@@ -18,9 +18,7 @@ GNOKII_REQS=0.6.5
 
 AC_PROG_INTLTOOL([0.18])
 AC_PROG_CC
-AC_PROG_CXX
 AC_PROG_INSTALL
-AC_LANG(C++)
 AC_ISC_POSIX
 dnl Check for the "check" unit test framework
 dnl AC_CHECK_LIB(check,suite_create)

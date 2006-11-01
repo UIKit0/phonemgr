@@ -1,3 +1,7 @@
+2006-11-01  Dan Winship  <danw@novell.com>
+
+	* configure.in: Run configure checks under gcc, not g++ (#368920)
+
 2006-10-19  Josep Puigdemont i Casamajó  <josep.puigdemont@gmail.com>
 
 	* configure.in: Added "ca" (Catalan) to ALL_LINGUAS.
