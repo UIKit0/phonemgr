@@ -1,3 +1,7 @@
+2006-12-14  Pema Geyleg  <pgeyleg@gmail.com>
+
+	* configure.in: Added 'dz' to ALL_LINGUAS
+
 2006-11-01  Dan Winship  <danw@novell.com>
 
 	* configure.in: Run configure checks under gcc, not g++ (#368920)
