@@ -1,3 +1,7 @@
+2007-01-23  David Lodge <dave@cirt.net>
+
+	* configure.in: Added en_GB to ALL_LINGUAS
+
 2006-12-14  Pema Geyleg  <pgeyleg@gmail.com>
 
 	* configure.in: Added 'dz' to ALL_LINGUAS

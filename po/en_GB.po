@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-11 23:13+0100\n"
+"POT-Creation-Date: 2007-01-23 21:21+0000\n"
 "PO-Revision-Date: 2006-09-11 23:13-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: English/GB <en@li.org>\n"
@@ -181,9 +181,7 @@ msgstr "Failed connection to device on %s"
 
 #. When try icon is destroyed, recreate it.  This happens
 #. when the notification area is removed.
-#: ../src/gnome-phone-manager.desktop.in.h:1
-#: ../src/icon.c:66
-#: ../src/menu.c:30
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:66 ../src/menu.c:30
 msgid "Phone Manager"
 msgstr "Phone Manager"
 
@@ -209,13 +207,21 @@ msgstr "Not connected"
 
 #: ../src/icon.c:202
 msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</span>\n"
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+"span>\n"
 "\n"
-"Phone Manager uses the notification area to display information and provide access to message sending and preferences. You can add it by right-clicking on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</i>."
+"Phone Manager uses the notification area to display information and provide "
+"access to message sending and preferences. You can add it by right-clicking "
+"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
+"i>."
 msgstr ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</span>\n"
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+"span>\n"
 "\n"
-"Phone Manager uses the notification area to display information and provide access to message sending and preferences. You can add it by right-clicking on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</i>."
+"Phone Manager uses the notification area to display information and provide "
+"access to message sending and preferences. You can add it by right-clicking "
+"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
+"i>."
 
 #: ../src/main.c:36
 msgid "Couldn't create phone listener."
@@ -262,16 +268,24 @@ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
 
 #: ../ui/phonemgr.glade.h:6
-msgid "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgid ""
+"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
 
 #: ../ui/phonemgr.glade.h:7
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Alternative device filename, e.g. /dev/ttyS3"
 
 #: ../ui/phonemgr.glade.h:8
-msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
-msgstr "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
 
 #: ../ui/phonemgr.glade.h:9
 msgid "Automatically _retry connections"
@@ -468,8 +482,10 @@ msgid "The address book authentication failed."
 msgstr "The address book authentication failed."
 
 #: ../src/e-contact-entry.c:860
-msgid "Authentication is required to access the address book and was not given."
-msgstr "Authentication is required to access the address book and was not given."
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+"Authentication is required to access the address book and was not given."
 
 #: ../src/e-contact-entry.c:862
 msgid "A secure connection is not available."
@@ -483,15 +499,15 @@ msgstr "A CORBA error occurred whilst accessing the address book."
 msgid "The address book source does not exist."
 msgstr "The address book source does not exist."
 
-#: ../src/e-contact-entry.c:868
-#: ../src/e-contact-entry.c:871
+#: ../src/e-contact-entry.c:868 ../src/e-contact-entry.c:871
 msgid "An unknown error occurred."
 msgstr "An unknown error occurred."
 
 #~ msgid "Unable to obtain RFCOMM connection (%d)"
 #~ msgstr "Unable to obtain RFCOMM connection (%d)"
+
 #~ msgid "*"
 #~ msgstr "*"
+
 #~ msgid "Enter the number you wish to send a message to."
 #~ msgstr "Enter the number you wish to send a message to."
-
