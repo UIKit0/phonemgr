@@ -1,65 +1,61 @@
-# Arabic translations for PACKAGE package.
-# Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2006.
-#
+# Arabic translations for THIS package.
+# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as THIS package.
+# Automatically generated, 2007.
+# Djihed Afifi <djihed@gmail.com>, 2007
 msgid ""
 msgstr ""
-"Project-Id-Version: Project\n"
+"Project-Id-Version: Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-17 21:14+0000\n"
-"PO-Revision-Date: 2006-11-18 00:20+0100\n"
+"POT-Creation-Date: 2007-04-21 22:52+0100\n"
+"PO-Revision-Date: 2007-04-14 18:49+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
-"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language-Team: Arabeyes <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n >= 3 && n <= 10 ? 3 : n >= 11 && n <= 99 ? 4 : 5;\n"
-"X-Poedit-Language: Arabic\n"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:313
-#, fuzzy
 msgid "Selection mode"
 msgstr "نمط الانتقاء"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:314
-#, fuzzy
 msgid "The selection mode"
 msgstr "نمط الانتقاء"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:322
 #, fuzzy
 msgid "Sorted"
-msgstr "غير مرتّبة"
+msgstr "المرتّب"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:323
 #, fuzzy
 msgid "Icon list is sorted"
-msgstr "المفتاح '%s' ليس قائمة.\n"
+msgstr "حجم الأيقونات محدّد"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:329
-#, fuzzy
 msgid "Sort order"
 msgstr "ترتيب الفرز"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:330
+#, fuzzy
 msgid "Sort direction the icon list should use"
-msgstr ""
+msgstr "اتجاه الفرز الذي يتوجب على مؤشر الفرز أن يشير إليه"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:344
 #, fuzzy
 msgid "Icon padding"
-msgstr "الحشو الأعلى"
+msgstr "تَبَاعُد الأيقونة"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:345
 #, fuzzy
 msgid "Number of pixels between icons"
-msgstr "عدد بكسلات الإزاحة"
+msgstr "عدد البكسلات بين أعمدة أيقونات"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:352
 #, fuzzy
 msgid "Top margin"
-msgstr "<b>الحاشية اليمنى</b>"
+msgstr "الهامش ا?يسر"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:353
 #, fuzzy
@@ -69,7 +65,7 @@ msgstr "عدد البكسلات في الهامش الأيسر"
 #: ../libegg/libegg/iconlist/eggiconlist.c:360
 #, fuzzy
 msgid "Bottom margin"
-msgstr "<b>الحاشية اليمنى</b>"
+msgstr "الحشو الأسفل"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:361
 #, fuzzy
@@ -77,7 +73,6 @@ msgid "Number of pixels in bottom margin"
 msgstr "عدد البكسلات في الهامش الأيسر"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:369
-#, fuzzy
 msgid "Left margin"
 msgstr "الهامش ا?يسر"
 
@@ -87,7 +82,6 @@ msgid "Number of pixels in left margin"
 msgstr "عدد البكسلات في الهامش الأيسر"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:377
-#, fuzzy
 msgid "Right margin"
 msgstr "الهامش ا?يمن"
 
@@ -97,42 +91,35 @@ msgid "Number of pixels in right margin"
 msgstr "عدد البكسلات في الهامش الأيمن"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:386
-#, fuzzy
 msgid "Selection Box Color"
-msgstr "اختيار لون المنتقى"
+msgstr "لون علبة الإختيار"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:387
-#, fuzzy
 msgid "Color of the selection box"
-msgstr "اختيار لون المنتقى"
+msgstr "لون صندوق الإختيار"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:393
-#, fuzzy
 msgid "Selection Box Alpha"
-msgstr "عنوان صندوق مربع حوار الانتقاء"
+msgstr "ألفا علبة الإختيار"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:394
-#, fuzzy
 msgid "Opacity of the selection box"
-msgstr "عنوان صندوق مربع حوار الانتقاء"
+msgstr "شفافية علبة الإختيار"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:154
-#, fuzzy
 msgid "Pixbuf"
 msgstr "بكسبف"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:155
-#, fuzzy
 msgid "A GdkPixbuf to display"
 msgstr "GdkPixbuf لعرضه"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:162
 #, fuzzy
 msgid "Filename"
-msgstr "اسم الملف"
+msgstr "اسم الملف:"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:163
-#, fuzzy
 msgid "Filename to load and display"
 msgstr "اسم الملف للتحميل و العرض"
 
@@ -142,54 +129,47 @@ msgid "Stock ID"
 msgstr "هوية المخزون"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:171
-#, fuzzy
 msgid "Stock ID for a stock image to display"
 msgstr "هوية المخزون لصورة مخزون للعرض"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:178
-#, fuzzy
 msgid "Animation"
 msgstr "رسوم متحركة"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:179
-#, fuzzy
 msgid "GdkPixbufAnimation to display"
 msgstr "GdkPixbufAnimation لعرضها"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:186
-#, fuzzy
 msgid "Image type"
-msgstr "نوع الصورة:"
+msgstr "نوع الصورة"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:187
-#, fuzzy
 msgid "The representation being used for image data"
 msgstr "التقديم المستعمل لبيانات الرسوم"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:195
 #, fuzzy
 msgid "Size"
-msgstr "الحجم"
+msgstr "الحجم:"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:196
-#, fuzzy
 msgid "The size of the icon"
 msgstr "حجم الأيقونة"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:205
-#, fuzzy
 msgid "Blinking"
-msgstr "نص ومّاض"
+msgstr "ومّاض"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:206
 msgid "Whether or not the status icon is blinking"
-msgstr ""
+msgstr "فيما إذا كانت أيقونة الحالة وامضة"
 
 #: ../libegg/libegg/tray/eggtrayicon.c:118
 #: ../libegg/libegg/tray/eggtraymanager.c:145
 #, fuzzy
 msgid "Orientation"
-msgstr "الإتّجاه"
+msgstr "الإتجاه:"
 
 #: ../libegg/libegg/tray/eggtrayicon.c:119
 #: ../libegg/libegg/tray/eggtraymanager.c:146
@@ -202,7 +182,7 @@ msgstr "إتجاه الطبق."
 #: ../src/connection.c:91
 #, fuzzy, c-format
 msgid "Connected to device on %s"
-msgstr "فشل فتح الجهاز"
+msgstr "اتّصل بالخادم %s"
 
 #. the ERROR signal will have been emitted, so we don't
 #. bother changing the icon ourselves at this point
@@ -211,16 +191,14 @@ msgstr "فشل فتح الجهاز"
 #: ../src/connection.c:100
 #, fuzzy, c-format
 msgid "Failed connection to device on %s"
-msgstr "فشل ضبط النسق لـ `%s': %s"
+msgstr "فشل ايجاد عقدة للجهاز %s"
 
 #. When try icon is destroyed, recreate it.  This happens
 #. when the notification area is removed.
-#: ../src/gnome-phone-manager.desktop.in.h:1
-#: ../src/icon.c:66
-#: ../src/menu.c:30
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:66 ../src/menu.c:30
 #, fuzzy
 msgid "Phone Manager"
-msgstr "مدير المحفوظات"
+msgstr "مدير الطاقة"
 
 #: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
@@ -229,67 +207,74 @@ msgstr ""
 #: ../src/icon.c:168
 #, fuzzy
 msgid "Message arrived"
-msgstr "إر_سال رسالة"
+msgstr "ترويسة الرّسالة"
 
 #: ../src/icon.c:172
 #, fuzzy
 msgid "Connected"
-msgstr "تم الاتصال مع %s"
+msgstr "اتصل"
 
 #: ../src/icon.c:177
 #, fuzzy
 msgid "Connecting to phone"
-msgstr "حساب كمبيوتر-إلى-هاتف"
+msgstr "جاري الاتصال بـ{0}"
 
 #: ../src/icon.c:182
 #, fuzzy
 msgid "Not connected"
-msgstr "غير متّصل"
+msgstr "غير متّصِل."
 
 #: ../src/icon.c:202
+#, fuzzy
 msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</span>\n"
+"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+"span>\n"
 "\n"
-"Phone Manager uses the notification area to display information and provide access to message sending and preferences. You can add it by right-clicking on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</i>."
+"Phone Manager uses the notification area to display information and provide "
+"access to message sending and preferences. You can add it by right-clicking "
+"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
+"i>."
 msgstr ""
+"يستعمل الدكتور ورايت مساحة التبليغ لعرض معلومات. يبدو انك لا تملك مساحة "
+"للتبليغ على شريطك. الرجاء اضافتها."
 
 #: ../src/main.c:36
 #, fuzzy
 msgid "Couldn't create phone listener."
-msgstr "لم أستطع إنشاء pixbuf جديد"
+msgstr "لا يمكن إنشاء عميل GConf.\n"
 
 #: ../src/menu.c:22
 #, fuzzy
 msgid "translator_credits"
-msgstr "جهاد عفيفي (Djihed Afifi) <djihed@gmail.com> /n عرفات المديني، تونس <lumina@silverpen.de>"
+msgstr "المترجمون:"
 
 #: ../src/menu.c:32
+#, fuzzy
 msgid "Send and receive messages from your mobile phone."
-msgstr ""
+msgstr "    يرسل رسائل خاصة لمستخدم على الشبكة."
 
 #: ../src/menu.c:75
-#, fuzzy
 msgid "_Send Message"
 msgstr "إر_سال رسالة"
 
 #: ../src/ui.c:89
 #, fuzzy
 msgid "No Bluetooth device chosen."
-msgstr "لا توجد مساحة كافية على الجهاز"
+msgstr "إدارة أجهزة البلوتوث"
 
 #: ../src/ui.c:324
 #, fuzzy
 msgid "Message too long!"
-msgstr "المسار طويل جداً: %s"
+msgstr "حوار رسالة"
 
 #: ../ui/phonemgr.glade.h:1
-#, fuzzy
 msgid "/dev/ttyS2"
-msgstr "/dev/floppy/0 أو /dev/fd0"
+msgstr ""
 
 #: ../ui/phonemgr.glade.h:2
+#, fuzzy
 msgid "<b>Alerting</b>"
-msgstr ""
+msgstr "<b>الإعدادات</b>"
 
 #: ../ui/phonemgr.glade.h:3
 #, fuzzy
@@ -299,7 +284,7 @@ msgstr "التعامل مع الأخطاء"
 #: ../ui/phonemgr.glade.h:4
 #, fuzzy
 msgid "<b>Phone Connection</b>"
-msgstr "تم إلغاء الإتّصال"
+msgstr "<b>الإتصال</b>"
 
 #: ../ui/phonemgr.glade.h:5
 #, fuzzy
@@ -307,43 +292,51 @@ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">رجاء أدخل كلمة سر الجذر</span>"
 
 #: ../ui/phonemgr.glade.h:6
-msgid "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr ""
+#, fuzzy
+msgid ""
+"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgstr "<spanWeight=\"bold\" size=\"larger\">بحاجة لكلمة سر الجذر </span>"
 
 #: ../ui/phonemgr.glade.h:7
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr ""
 
 #: ../ui/phonemgr.glade.h:8
-msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
 msgstr ""
 
 #: ../ui/phonemgr.glade.h:9
 #, fuzzy
 msgid "Automatically _retry connections"
-msgstr "الاتّصالات المشفّرة فقط"
+msgstr "مكتشف تلقائيا"
 
 #: ../ui/phonemgr.glade.h:10
 #, fuzzy
 msgid "Characters left:"
-msgstr "الإلتفاف إلى جهة اليسار"
+msgstr "ال_محرف:"
 
 #: ../ui/phonemgr.glade.h:11
 #, fuzzy
 msgid "Choo_se"
-msgstr "STUN خادم"
+msgstr "اختر..."
 
 #: ../ui/phonemgr.glade.h:12
+#, fuzzy
 msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr ""
+msgstr "أختر مستضيفا للإت_صال به:"
 
 #: ../ui/phonemgr.glade.h:13
+#, fuzzy
 msgid "Connect using an alternative serial device"
-msgstr ""
+msgstr "اكتب و ابحر في تطبيقات باستعمال اجهزة ادخال بديلة"
 
 #: ../ui/phonemgr.glade.h:14
+#, fuzzy
 msgid "Connect using infrared communication"
-msgstr ""
+msgstr "مقبس لاتصالات xdm"
 
 #: ../ui/phonemgr.glade.h:15
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
@@ -354,28 +347,26 @@ msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr ""
 
 #: ../ui/phonemgr.glade.h:17
-#, fuzzy
 msgid "Connection"
-msgstr "<b>الاتصال</b>"
+msgstr "الإتصال"
 
 #: ../ui/phonemgr.glade.h:18
-#, fuzzy
 msgid "Date:"
 msgstr "التّاريخ:"
 
 #: ../ui/phonemgr.glade.h:19
+#, fuzzy
 msgid "Enter the text message you want to send."
-msgstr ""
+msgstr "ا_نتقي الألعاب التي تريد حفظها:"
 
 #: ../ui/phonemgr.glade.h:20
-#, fuzzy
 msgid "Interface"
 msgstr "الواجهة"
 
 #: ../ui/phonemgr.glade.h:21
 #, fuzzy
 msgid "Message Received"
-msgstr "المكالمات المستلمة"
+msgstr "تاريخ الاستلام:"
 
 #: ../ui/phonemgr.glade.h:22
 #, fuzzy
@@ -385,17 +376,17 @@ msgstr "عدد البكسلات في الهامش الأيسر"
 #: ../ui/phonemgr.glade.h:23
 #, fuzzy
 msgid "Other _port"
-msgstr "منفذ الاستماع"
+msgstr "مغاير، تهيئة"
 
 #: ../ui/phonemgr.glade.h:24
 #, fuzzy
 msgid "Phone Manager Preferences"
-msgstr "لا يمكن تشغيل مدير التفضيلات"
+msgstr "تفضيلات إدارة الطاقة"
 
 #: ../ui/phonemgr.glade.h:25
 #, fuzzy
 msgid "Play _sound when messages arrive"
-msgstr "تشغيل صوت للرسائل القصيرة الجديدة"
+msgstr "فيما إذا سيصدر صوت عند وصول الرَّسائل."
 
 #: ../ui/phonemgr.glade.h:26
 #, fuzzy
@@ -408,22 +399,21 @@ msgid "Sender:"
 msgstr "المرسِل"
 
 #: ../ui/phonemgr.glade.h:28
-#, fuzzy
 msgid "Serial port _1 (/dev/ttyS0)"
-msgstr "فشل ضبط رقم المنفذ المسلسل : %s."
+msgstr ""
 
 #: ../ui/phonemgr.glade.h:29
-#, fuzzy
 msgid "Serial port _2 (/dev/ttyS1)"
-msgstr "فشل ضبط رقم المنفذ المسلسل : %s."
+msgstr ""
 
 #: ../ui/phonemgr.glade.h:30
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr ""
 
 #: ../ui/phonemgr.glade.h:31
+#, fuzzy
 msgid "_Bluetooth"
-msgstr ""
+msgstr "عنوان البلوتوث"
 
 #: ../ui/phonemgr.glade.h:32
 msgid "_Infra red (/dev/ircomm)"
@@ -432,26 +422,25 @@ msgstr ""
 #: ../ui/phonemgr.glade.h:33
 #, fuzzy
 msgid "_Message:"
-msgstr "رسالة"
+msgstr "الرسالة:"
 
 #: ../ui/phonemgr.glade.h:34
+#, fuzzy
 msgid "_Pop-up window for new messages"
-msgstr ""
+msgstr "إلعب صوتاً في حال رسالة جديدة"
 
 #: ../ui/phonemgr.glade.h:35
 #, fuzzy
 msgid "_Recipient:"
-msgstr "شهادة مستلِم البريد الإلكتروني"
+msgstr "المستلِمون"
 
 #: ../ui/phonemgr.glade.h:36
-#, fuzzy
 msgid "_Reply"
-msgstr "رد"
+msgstr "_رد"
 
 #: ../ui/phonemgr.glade.h:37
-#, fuzzy
 msgid "_Send"
-msgstr "إر_سال"
+msgstr "أر_سل"
 
 #: ../ui/phonemgr.glade.h:38
 #, fuzzy
@@ -461,22 +450,19 @@ msgstr "متن الرّسالة"
 #: ../src/e-contact-entry.c:153
 #, fuzzy, c-format
 msgid "Cannot get contact: %s"
-msgstr ""
-"لا يمكن إحضار الرّسالة: %s\n"
-"  %s"
+msgstr "لا يمكن نقل المراسل."
 
 #: ../src/e-contact-entry.c:185
 #, fuzzy, c-format
 msgid "Could not find contact: %s"
-msgstr "تعذّر العثور على التّطبيق"
+msgstr "تعذّر العثور على '%s'"
 
 #: ../src/e-contact-entry.c:377
 #, fuzzy
 msgid "Cannot create searchable view."
-msgstr "لم أستطع إنشاء صورة pixbuf!"
+msgstr "لا يمكن إنشاء معاينة"
 
 #: ../src/e-contact-entry.c:830
-#, fuzzy
 msgid "Success"
 msgstr "نجاح"
 
@@ -488,50 +474,55 @@ msgstr "قيمة معامل غير صالحة"
 #: ../src/e-contact-entry.c:834
 #, fuzzy
 msgid "The address book is busy."
-msgstr "المستخدم المحلي مشغول"
+msgstr "أفتح دفتر العناوين"
 
 #: ../src/e-contact-entry.c:836
 #, fuzzy
 msgid "The address book is offline."
-msgstr "المستخدم البعيد ليس على الخط"
+msgstr "العنوان الذي أدخلته غير صحيح."
 
 #: ../src/e-contact-entry.c:838
 #, fuzzy
 msgid "The address book does not exist."
-msgstr "%s: %s غير موجود لكن يجب أن يكون موجودًا."
+msgstr "دفتر العناوين غير موجود"
 
 #: ../src/e-contact-entry.c:840
 #, fuzzy
 msgid "The \"Me\" contact does not exist."
-msgstr "%s: %s غير موجود لكن يجب أن يكون موجودًا."
+msgstr "المستند غير موجود."
 
 #: ../src/e-contact-entry.c:842
 #, fuzzy
 msgid "The address book is not loaded."
-msgstr "العنوان الذي قدمته غير صحيح."
+msgstr "العنوان الذي أدخلته غير صحيح."
 
 #: ../src/e-contact-entry.c:844
+#, fuzzy
 msgid "The address book is already loaded."
-msgstr ""
+msgstr "هذا الملف تم تنزيله من قبل"
 
 #: ../src/e-contact-entry.c:846
+#, fuzzy
 msgid "Permission was denied when accessing the address book."
-msgstr ""
+msgstr "رُفض التّصريح بفتح التقويم"
 
 #: ../src/e-contact-entry.c:848
 #, fuzzy
 msgid "The contact was not found."
-msgstr "حساب المستخدم '%s' غير موجود"
+msgstr "لم يوجد المراسَل"
 
+# checked, typed but the nchanged: you add a new ID and the other exists
+# the meaning of this dialog is more" you can't add a newone cz another one exists"
+#
 #: ../src/e-contact-entry.c:850
 #, fuzzy
 msgid "This contact ID already exists."
-msgstr "علامة موقع بعنوان %s لهذه الصفحة موجودة سابقا. "
+msgstr "هويّة المراسَل موجودة مسبقاً"
 
 #: ../src/e-contact-entry.c:852
 #, fuzzy
 msgid "The protocol is not supported."
-msgstr "البروتوكول “%s” غير مدعوم"
+msgstr "البروتوكول “%s” غير مدعوم."
 
 #: ../src/e-contact-entry.c:854
 #, fuzzy
@@ -541,33 +532,35 @@ msgstr "تم إلغاء العملية من طرف المستخدم."
 #: ../src/e-contact-entry.c:856
 #, fuzzy
 msgid "The operation could not be cancelled."
-msgstr "لم يمكن إيجاد “%s”"
+msgstr "لا يمكن تغيير التصاريح."
 
 #: ../src/e-contact-entry.c:858
 #, fuzzy
 msgid "The address book authentication failed."
-msgstr "حجم نافذة دفتر العناوين"
+msgstr "فشل مؤقّت في التّوثّق"
 
 #: ../src/e-contact-entry.c:860
-msgid "Authentication is required to access the address book and was not given."
+msgid ""
+"Authentication is required to access the address book and was not given."
 msgstr ""
 
 #: ../src/e-contact-entry.c:862
 #, fuzzy
 msgid "A secure connection is not available."
-msgstr "هذه الرّسالة غير متوفّرة حاليّاً"
+msgstr "خيارات الإرسال غير متوفرة."
 
 #: ../src/e-contact-entry.c:864
+#, fuzzy
 msgid "A CORBA error occurred whilst accessing the address book."
-msgstr ""
+msgstr "حدث خطأ خلال النفاذ للجهاز !"
 
 #: ../src/e-contact-entry.c:866
+#, fuzzy
 msgid "The address book source does not exist."
-msgstr ""
+msgstr "دفتر العناوين غير موجود"
 
-#: ../src/e-contact-entry.c:868
-#: ../src/e-contact-entry.c:871
+#: ../src/e-contact-entry.c:868 ../src/e-contact-entry.c:871
 #, fuzzy
 msgid "An unknown error occurred."
-msgstr "حدث خطأ مجهول."
+msgstr "حدث خطأ مجهول"
 
