@@ -1,3 +1,10 @@
+2007-07-03  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_new),
+	(phonemgr_listener_init), (phonemgr_listener_connect),
+	(phonemgr_listener_poll_real): Try to work around the fact that
+	the AT driver doesn't support report the number of unread messages
+
 2007-07-02  Bastien Nocera  <hadess@hadess.net>
 
 	* autogen.sh: remove libegg mentions in there as well
