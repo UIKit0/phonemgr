@@ -15,6 +15,58 @@
 static gint conn_port=0;
 static gchar *bdaddr=NULL;
 
+static void
+boldify_label (GladeXML *xml, const char *name)
+{
+	GtkWidget *widget;
+
+	widget = glade_xml_get_widget (xml, name);
+
+	if (widget == NULL) {
+		/* g_warning ("widget '%s' not found", name); */
+		return;
+	}
+
+	/* this way is probably better, but for some reason doesn't work with
+	 * labels with mnemonics.
+
+	static PangoAttrList *pattrlist = NULL;
+
+	if (pattrlist == NULL) {
+		PangoAttribute *attr;
+
+		pattrlist = pango_attr_list_new ();
+		attr = pango_attr_weight_new (PANGO_WEIGHT_BOLD);
+		attr->start_index = 0;
+		attr->end_index = G_MAXINT;
+		pango_attr_list_insert (pattrlist, attr);
+	}
+	gtk_label_set_attributes (GTK_LABEL (widget), pattrlist);*/
+
+	gchar *str_final;
+	str_final = g_strdup_printf ("<b>%s</b>", gtk_label_get_label (GTK_LABEL (widget)));
+	gtk_label_set_markup_with_mnemonic (GTK_LABEL (widget), str_final);
+	g_free (str_final);
+}
+
+static void
+bigger_label (GladeXML *xml, const char *name)
+{
+	GtkWidget *widget;
+
+	widget = glade_xml_get_widget (xml, name);
+
+	if (widget == NULL) {
+		/* g_warning ("widget '%s' not found", name); */
+		return;
+	}
+
+	char *str_final;
+	str_final = g_strdup_printf ("<span weight=\"bold\" size=\"larger\">%s</span>", gtk_label_get_label (GTK_LABEL (widget)));
+	gtk_label_set_markup_with_mnemonic (GTK_LABEL (widget), str_final);
+	g_free (str_final);
+}
+
 static
 GladeXML *get_ui (MyApp *app, gchar *widget)
 {
@@ -29,6 +81,12 @@ GladeXML *get_ui (MyApp *app, gchar *widget)
 					"phonemgr.glade", FALSE, NULL);
 	ui = glade_xml_new (fname, widget, NULL);
 	g_free (fname);
+
+	boldify_label (ui, "alerting_label");
+	boldify_label (ui, "phone_connection_label");
+	boldify_label (ui, "error_handling_label");
+	bigger_label (ui, "new_message_label");
+	bigger_label (ui, "enter_message_label");
 
 	return ui;
 }
@@ -375,7 +433,7 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const gchar *recip)
 	GtkWidget *w;
 
 	ui = get_ui (app, "send_dialog");
-	
+
 	dialog = GTK_DIALOG (glade_xml_get_widget (ui, "send_dialog"));
 
 	if (parent) {

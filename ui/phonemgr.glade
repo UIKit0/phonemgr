@@ -172,11 +172,11 @@
 	      <property name="spacing">12</property>
 
 	      <child>
-		<widget class="GtkLabel" id="label6">
+		<widget class="GtkLabel" id="new_message_label">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span weight=&quot;bold&quot; size=&quot;larger&quot;&gt;You have received a message&lt;/span&gt;</property>
+		  <property name="label" translatable="yes">You have received a message</property>
 		  <property name="use_underline">False</property>
-		  <property name="use_markup">True</property>
+		  <property name="use_markup">False</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>
 		  <property name="wrap">True</property>
 		  <property name="selectable">False</property>
@@ -501,9 +501,9 @@
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label27">
+		    <widget class="GtkLabel" id="alerting_label">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;b&gt;Alerting&lt;/b&gt;</property>
+		      <property name="label" translatable="yes">Alerting</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -825,9 +825,9 @@
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label25">
+		    <widget class="GtkLabel" id="phone_connection_label">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;b&gt;Phone Connection&lt;/b&gt;</property>
+		      <property name="label" translatable="yes">Phone Connection</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">True</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -904,11 +904,11 @@
 		  </child>
 
 		  <child>
-		    <widget class="GtkLabel" id="label24">
+		    <widget class="GtkLabel" id="error_handling_label">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">&lt;b&gt;Error Handling&lt;/b&gt;</property>
+		      <property name="label" translatable="yes">Error Handling</property>
 		      <property name="use_underline">False</property>
-		      <property name="use_markup">True</property>
+		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
 		      <property name="wrap">False</property>
 		      <property name="selectable">False</property>
@@ -1192,9 +1192,9 @@
 	      <property name="spacing">12</property>
 
 	      <child>
-		<widget class="GtkLabel" id="label17">
+		<widget class="GtkLabel" id="enter_message_label">
 		  <property name="visible">True</property>
-		  <property name="label" translatable="yes">&lt;span weight=&quot;bold&quot; size=&quot;larger&quot;&gt;Enter your text message&lt;/span&gt;</property>
+		  <property name="label" translatable="yes">Enter your text message</property>
 		  <property name="use_underline">False</property>
 		  <property name="use_markup">True</property>
 		  <property name="justify">GTK_JUSTIFY_LEFT</property>

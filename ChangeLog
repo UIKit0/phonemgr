@@ -1,5 +1,11 @@
 2007-07-02  Bastien Nocera  <hadess@hadess.net>
 
+	* src/ui.c: (boldify_label), (bigger_label), (get_ui):
+	* ui/phonemgr.glade:
+	Remove markup from the glade file (Closes: #151431)
+
+2007-07-02  Bastien Nocera  <hadess@hadess.net>
+
 	* libegg/*: remove outdated copy of libegg
 
 	* Makefile.am:

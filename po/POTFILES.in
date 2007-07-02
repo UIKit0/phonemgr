@@ -1,9 +1,5 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-libegg/libegg/iconlist/eggiconlist.c
-libegg/libegg/tray/eggstatusicon.c
-libegg/libegg/tray/eggtrayicon.c
-libegg/libegg/tray/eggtraymanager.c
 src/connection.c
 src/gnome-phone-manager.desktop.in
 src/icon.c
