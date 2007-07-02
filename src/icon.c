@@ -9,85 +9,24 @@
 
 static GdkPixbuf *pb_idle, *pb_connecting, *pb_error, *pb_message, *pb_program;
 
-static gboolean
-have_tray (void)
+static void
+tray_icon_activate_cb (GtkStatusIcon *status_icon, MyApp *app)
 {
-    Screen *xscreen = DefaultScreenOfDisplay (gdk_display);
-    Atom    selection_atom;
-    char   *selection_atom_name;
-
-    selection_atom_name = g_strdup_printf ("_NET_SYSTEM_TRAY_S%d",
-                           XScreenNumberOfScreen (xscreen));
-    selection_atom = XInternAtom (DisplayOfScreen (xscreen),
-			selection_atom_name, False);
-    g_free (selection_atom_name);
-
-    if (XGetSelectionOwner (DisplayOfScreen (xscreen), selection_atom)) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
-}
-
-static gboolean
-tray_icon_press (GtkWidget *widget, GdkEventButton *event, MyApp *app)
-{
-	if (event->button == 3) {
-		gtk_menu_popup (GTK_MENU (app->menu), NULL, NULL, NULL,
-						NULL, event->button, event->time);
-		return TRUE;
-	} else if (event->button == 1) {
-		/* if not popping up messages automatically, popup a
-		 message on button 1 click */
-		if (app->messages && (! app->popup_cb)) {
-			dequeue_message (app);
-		}
+	/* if not popping up messages automatically, popup a
+	   message on button 1 click */
+	if (app->messages && (! app->popup_cb)) {
+		dequeue_message (app);
 	}
-	return FALSE;
 }
 
-static gboolean
-tray_icon_release (GtkWidget *widget, GdkEventButton *event, MyApp *app)
+static void
+tray_icon_popup_menu_cb (GtkStatusIcon *status_icon,
+			 guint          button,
+			 guint          activate_time,
+			 MyApp         *app)
 {
-	if (event->button == 3) {
-		gtk_menu_popdown (GTK_MENU (app->menu));
-		return FALSE;
-	}
-
-	return TRUE;
-}
-
-static gboolean
-tray_destroy_cb (GtkObject *obj, MyApp *app)
-{
-	/* When try icon is destroyed, recreate it.  This happens
-	   when the notification area is removed. */
-
-	app->tray_icon = egg_tray_icon_new (_("Phone Manager"));
-
-	app->event_box = GTK_EVENT_BOX (gtk_event_box_new ());
-	app->image_icon = GTK_IMAGE (gtk_image_new ());
-
-	set_icon_state (app);
-
-	gtk_container_add (GTK_CONTAINER (app->event_box),
-			GTK_WIDGET (app->image_icon));
-	gtk_container_add (GTK_CONTAINER (app->tray_icon),
-			GTK_WIDGET (app->event_box));
-
-	g_signal_connect (G_OBJECT (app->tray_icon), "destroy",
-		G_CALLBACK (tray_destroy_cb), (gpointer) app);
-
-	g_signal_connect (GTK_OBJECT (app->event_box), "button_press_event",
-		G_CALLBACK (tray_icon_press), (gpointer) app);
-
-	g_signal_connect (GTK_OBJECT (app->event_box), "button_release_event",
-		G_CALLBACK (tray_icon_release), (gpointer) app);
-
-
-	gtk_widget_show_all (GTK_WIDGET (app->tray_icon));
-
-	return TRUE;
+	gtk_menu_popup (GTK_MENU (app->menu), NULL, NULL, NULL,
+			NULL, button, activate_time);
 }
 
 static
@@ -96,17 +35,16 @@ GdkPixbuf *load_icon (MyApp *app, const gchar *iconname, int size)
 	gchar *fname;
 	GdkPixbuf *buf;
 	GError *err=NULL;
-
 	fname = gnome_program_locate_file (app->program,
-				GNOME_FILE_DOMAIN_APP_DATADIR,
-				iconname,
-				TRUE, NULL);
+					   GNOME_FILE_DOMAIN_APP_DATADIR,
+					   iconname,
+					   TRUE, NULL);
 
 	if (fname == NULL)
 		fname = gnome_program_locate_file (app->program,
-				GNOME_FILE_DOMAIN_DATADIR,
-				iconname,
-				TRUE, NULL);
+						   GNOME_FILE_DOMAIN_DATADIR,
+						   iconname,
+						   TRUE, NULL);
 
 	if (fname == NULL)
 		fname = g_strdup_printf ("../ui/%s", iconname);
@@ -136,25 +74,20 @@ static gboolean
 flash_icon (MyApp *app)
 {
 	if (app->listener && phonemgr_listener_connected (app->listener)
-			&& app->messages)
-	{
-		if (app->flashon)
-			gtk_image_set_from_pixbuf (app->image_icon, pb_message);
-		else
-			gtk_image_set_from_pixbuf (app->image_icon, pb_idle);
-		app->flashon = ! app->flashon;
+	    && app->messages) {
 		return TRUE;
 	} else {
 		/* disable flasher if we disconnect or have no messages left */
 		return FALSE;
 	}
 }
-
 void
 enable_flasher (MyApp *app)
 {
+	gtk_status_icon_set_blinking (app->tray_icon, TRUE);
+	//FIXME we shouldn't rely on a timeout
 	app->flasher_cb = g_timeout_add (500, (GSourceFunc) flash_icon,
-			(gpointer) app);
+					 (gpointer) app);
 }
 
 void
@@ -163,58 +96,45 @@ set_icon_state (MyApp *app)
 	if (app->listener && phonemgr_listener_connected (app->listener)) {
 		gtk_widget_set_sensitive (app->send_item, TRUE);
 		if (app->messages) {
-			gtk_image_set_from_pixbuf (app->image_icon, pb_message);
-			gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
-					_("Message arrived"), NULL);
+			gtk_status_icon_set_from_pixbuf (app->tray_icon, pb_message);
+			gtk_status_icon_set_tooltip (app->tray_icon, _("Message arrived"));
 		} else {
-			gtk_image_set_from_pixbuf (app->image_icon, pb_idle);
-			gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
-					_("Connected"), NULL);
+			gtk_status_icon_set_from_pixbuf (app->tray_icon, pb_idle);
+			gtk_status_icon_set_tooltip (app->tray_icon, _("Connected"));
 		}
 	} else if (app->connecting) {
-		gtk_image_set_from_pixbuf (app->image_icon, pb_connecting);
-		gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
-				_("Connecting to phone"), NULL);
+		gtk_status_icon_set_from_pixbuf (app->tray_icon, pb_connecting);
+		gtk_status_icon_set_tooltip (app->tray_icon, _("Connecting to phone"));
 		gtk_widget_set_sensitive (app->send_item, FALSE);
 	} else {
-		gtk_image_set_from_pixbuf (app->image_icon, pb_error);
-		gtk_tooltips_set_tip (app->tooltip, GTK_WIDGET (app->event_box),
-				_("Not connected"), NULL);
+		gtk_status_icon_set_from_pixbuf (app->tray_icon, pb_error);
+		gtk_status_icon_set_tooltip (app->tray_icon, _("Not connected"));
 		gtk_widget_set_sensitive (app->send_item, FALSE);
 	}
 }
 
 GdkPixbuf *
-program_icon ()
+program_icon (void)
 {
 	return pb_program;
 }
 
 void
-tray_icon_init (MyApp  *app)
+tray_icon_init (MyApp *app)
 {
-	if (! have_tray ()) {
-		GtkWidget *dialog;
+	app->tray_icon = gtk_status_icon_new ();
+	set_icon_state (app);
 
-		dialog = gtk_message_dialog_new_with_markup (NULL, 0,
-				GTK_MESSAGE_INFO,
-				GTK_BUTTONS_CLOSE,
-				_("<span weight=\"bold\" size=\"larger\">Couldn't find notification area</span>\n\n"
-				"Phone Manager uses the notification area to display "
-			   "information and provide access to message sending and "
-			   "preferences. "
-			   "You can add it by right-clicking on your "
-			   "panel and choosing <i>Add to Panel -> Utility -> Notification Area</i>."));
-		g_signal_connect_swapped (G_OBJECT (dialog), "response",
-				G_CALLBACK (gtk_widget_destroy), (gpointer) dialog);
-		
-		gtk_widget_show_all (GTK_WIDGET (dialog));
-	}
-	tray_destroy_cb (NULL, app);
+	g_signal_connect (G_OBJECT (app->tray_icon), "activate",
+			  G_CALLBACK (tray_icon_activate_cb), (gpointer) app);
+
+	g_signal_connect (G_OBJECT (app->tray_icon), "popup-menu",
+			  G_CALLBACK (tray_icon_popup_menu_cb), (gpointer) app);
 }
 
 void
 tray_icon_hide (MyApp *app)
 {
-	gtk_widget_hide (GTK_WIDGET (app->tray_icon));
+	gtk_status_icon_set_visible (app->tray_icon, FALSE);
 }
+

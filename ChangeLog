@@ -1,5 +1,20 @@
 2007-07-02  Bastien Nocera  <hadess@hadess.net>
 
+	* libegg/*: remove outdated copy of libegg
+
+	* Makefile.am:
+	* configure.in:
+	* src/Makefile.am:
+	* src/app.h:
+	* src/icon.c: (tray_icon_activate_cb), (tray_icon_popup_menu_cb),
+	(load_icon), (flash_icon), (enable_flasher), (set_icon_state),
+	(program_icon), (tray_icon_init), (tray_icon_hide):
+	* src/main.c: (main):
+	* src/ui.c: (ui_init): Use GtkStatusIcon instead of the EggTrayIcon
+	(Closes: #349259)
+
+2007-07-02  Bastien Nocera  <hadess@hadess.net>
+
 	* src/e-contact-entry.c: Update from contact-lookup-applet trunk
 
 2007-07-02  Bastien Nocera  <hadess@hadess.net>

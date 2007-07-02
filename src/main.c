@@ -12,6 +12,8 @@ main (int argc, char **argv)
 {
 	MyApp *app;
 
+	g_thread_init (NULL);
+
 	app = g_new0 (MyApp, 1);
 
 	app->program = gnome_program_init (

@@ -5,8 +5,7 @@ AM_CPPFLAGS = \
 	-DDATA_DIR="\"$(datadir)/$(PACKAGE)\"" \
 	-DVERSION="\"$(VERSION)\"" \
 	-DPACKAGE="\"$(PACKAGE)\"" \
-	-I$(srcdir)/../libgsm \
-	-I$(srcdir)/../libegg/libegg/tray
+	-I$(srcdir)/../libgsm
 
 bin_PROGRAMS = gnome-phone-manager
 
@@ -23,7 +22,6 @@ gnome_phone_manager_SOURCES =		\
 
 gnome_phone_manager_LDADD = \
 	$(PHONEMGR_LIBS) \
-	../libegg/libegg/tray/libeggtray.la \
 	../libgsm/libgsmwrap.la
 
 EXTRA_DIST = gnome-phone-manager.desktop.in

@@ -5,7 +5,6 @@
 #include <gnome.h>
 #include <glade/glade.h>
 #include <gconf/gconf-client.h>
-#include "eggtrayicon.h"
 
 #include "phonemgr-listener.h"
 
@@ -14,50 +13,47 @@
 typedef struct _appinfo {
 	GnomeProgram	*program;
 
-    /* gui stuff */
-	GtkTooltips	*tooltip;
-	EggTrayIcon	*tray_icon;
-	GtkImage    *image_icon;
-    GtkEventBox *event_box;
+	/* gui stuff */
+	GtkStatusIcon *tray_icon;
 	GtkMenu *menu;
-    GladeXML    *ui;
-    gint    iconstate;
-    gint    chars;
-    GtkWidget *send_item;
-    gboolean flashon;
+	GladeXML    *ui;
+	gint    iconstate;
+	gint    chars;
+	GtkWidget *send_item;
+	gboolean flashon;
 
-    /* auxilliary controllers */
-    GConfClient *client;
-    GnomebtController   *btctl;
-    PhonemgrListener    *listener;
+	/* auxilliary controllers */
+	GConfClient *client;
+	GnomebtController   *btctl;
+	PhonemgrListener    *listener;
 
-    /* connection state */
-    gchar   *devname;
-    gboolean    reconnect;
+	/* connection state */
+	gchar   *devname;
+	gboolean    reconnect;
 
-    /* messages */
-    GMutex  *message_mutex;
-    GList   *messages;
+	/* messages */
+	GMutex  *message_mutex;
+	GList   *messages;
 
-    /* thread stuff for connecting and disconnecting */
-    GThread *connecting_thread;
-    GThread *disconnecting_thread;
-    GMutex *connecting_mutex;
-    gboolean connecting;
+	/* thread stuff for connecting and disconnecting */
+	GThread *connecting_thread;
+	GThread *disconnecting_thread;
+	GMutex *connecting_mutex;
+	gboolean connecting;
 
-    /* signal handlers and timeouts */
-    gulong  status_cb;
-    gulong  message_cb;
-    gulong  pollsource;
-    gulong  reconnector;
-    gulong  flasher_cb;
-    gulong  popup_cb;
+	/* signal handlers and timeouts */
+	gulong  status_cb;
+	gulong  message_cb;
+	gulong  pollsource;
+	gulong  reconnector;
+	gulong  flasher_cb;
+	gulong  popup_cb;
 } MyApp;
 
 typedef struct _message {
-    gchar   *sender;
-    GTime   timestamp;
-    gchar   *message;
+	gchar   *sender;
+	GTime   timestamp;
+	gchar   *message;
 } Message;
 
 /* menu functions */
@@ -95,12 +91,12 @@ enum {
 #define CONFBASE "/apps/gnome-phone-manager/prefs"
 
 enum {
-    CONNECTION_BLUETOOTH,
-    CONNECTION_SERIAL1,
-    CONNECTION_SERIAL2,
-    CONNECTION_IRCOMM,
-    CONNECTION_OTHER,
-    CONNECTION_LAST
+	CONNECTION_BLUETOOTH,
+	CONNECTION_SERIAL1,
+	CONNECTION_SERIAL2,
+	CONNECTION_IRCOMM,
+	CONNECTION_OTHER,
+	CONNECTION_LAST
 };
 
 

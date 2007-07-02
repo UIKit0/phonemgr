@@ -477,8 +477,6 @@ ui_init (MyApp *app)
 	S_CONNECT("irdaport", CONNECTION_IRCOMM);
 	S_CONNECT("otherport", CONNECTION_OTHER);
 
-	app->tooltip = gtk_tooltips_new ();
-
 	/* set up popup on message */
 	initialise_dequeuer (NULL, 0, NULL, app);
 	gconf_client_notify_add (app->client,
