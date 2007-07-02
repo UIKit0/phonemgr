@@ -1,5 +1,9 @@
 2007-07-02  Bastien Nocera  <hadess@hadess.net>
 
+	* src/e-contact-entry.c: Update from contact-lookup-applet trunk
+
+2007-07-02  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in: No need to check open-obex, we don't use it here
 	(Closes: #441032)
 

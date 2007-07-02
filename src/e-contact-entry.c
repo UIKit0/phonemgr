@@ -241,7 +241,13 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
     if (lookup->entry->priv->display_func) {
       string = lookup->entry->priv->display_func (contact, lookup->entry->priv->display_data);
     } else {
+	/* Make sure that we actually have an email address to show */
+	if (e_contact_get_const (contact, E_CONTACT_EMAIL_1)) {
       string = g_strdup_printf ("%s <%s>", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), (char*)e_contact_get_const (contact, E_CONTACT_EMAIL_1));
+    }
+	else {
+	    string = g_strdup_printf ("%s", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG));
+	}
     }
 
     /* Don't add the contact to the list if we don't have a string */
@@ -250,7 +256,7 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
     }
 
     photo = e_contact_get (contact, E_CONTACT_PHOTO);
-#ifndef HAVE_ECONTACTHOTOTYPE
+#ifndef HAVE_ECONTACTPHOTOTYPE
     if (photo) {
 #else
     if (photo && photo->type == E_CONTACT_PHOTO_TYPE_INLINED) {
