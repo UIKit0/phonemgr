@@ -37,7 +37,7 @@ dnl Add the languages which your application supports here.
 
 AM_GCONF_SOURCE_2
 
-PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 gnokii >= 0.6.5 gthread-2.0)
+PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 gnokii >= 0.6.16 gthread-2.0)
 AC_SUBST(LIBGSM_CFLAGS)
 AC_SUBST(LIBGSM_LIBS)
 
@@ -48,7 +48,7 @@ PKG_CHECK_MODULES(TMP_EVO, libebook-1.2,
 
 PKG_CHECK_MODULES(PHONEMGR, gtk+-2.0 >= 2.10 glib-2.0 libgnomeui-2.0 >= 1.110.0
 	libgnome-2.0 gdk-pixbuf-2.0 gconf-2.0 libbtctl >= 0.4.1
-	libglade-2.0 gnome-bluetooth gnokii >= 0.6.4 $evo_pc_file
+	libglade-2.0 gnome-bluetooth gnokii >= 0.6.16 $evo_pc_file
 	gmodule-2.0
 )
 

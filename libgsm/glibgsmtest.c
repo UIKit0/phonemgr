@@ -44,6 +44,7 @@ main (int argc, char **argv)
 	PhonemgrListener *listener;
 	guint timeout;
 
+	g_thread_init (NULL);
 	g_type_init ();
 	
 	listener = phonemgr_listener_new ();
@@ -62,10 +63,9 @@ main (int argc, char **argv)
 				(gpointer) listener);
 		g_message ("Connected OK");
 
-
 		/* phonemgr_listener_queue_message (listener, "1234567",
 				"test message XXX"); */
-		
+
 		loop = g_main_loop_new (NULL, FALSE);
 		g_main_loop_run (loop);
 

@@ -1,5 +1,21 @@
 2007-07-02  Bastien Nocera  <hadess@hadess.net>
 
+	* autogen.sh: remove libegg mentions in there as well
+
+	* configure.in: up the gnokii requirements
+
+	* libgsm/glibgsmtest.c: (main): silly identation changes,
+	call g_thread_init() to avoid warnings with newer glibs
+
+	* libgsm/gnokii-identify.c: (main):
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_guess_driver),
+	(phonemgr_utils_tell_driver):
+	* libgsm/phonemgr-utils.h: Move tell_driver() to phonemgr-utils,
+	so we can add the feature in g-p-m itself, use gn_lib_get_phone_model
+	instead of GN_OP_Identify, kill warning with newer glib, as above
+
+2007-07-02  Bastien Nocera  <hadess@hadess.net>
+
 	* src/ui.c: (boldify_label), (bigger_label), (get_ui):
 	* ui/phonemgr.glade:
 	Remove markup from the glade file (Closes: #151431)

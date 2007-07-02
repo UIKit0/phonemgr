@@ -49,6 +49,7 @@ PhonemgrState *phonemgr_utils_connect (const char *device, const char *driver,
 				       GError **error);
 void phonemgr_utils_disconnect (PhonemgrState *state);
 void phonemgr_utils_free (PhonemgrState *state);
+void phonemgr_utils_tell_driver (const char *addr);
 
 G_END_DECLS
 

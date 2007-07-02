@@ -253,16 +253,14 @@ phonemgr_utils_init_hash_tables (void)
 	phonemgr_utils_start_parse ();
 }
 
-#define MODEL_SIZE 64
 char *
 phonemgr_utils_guess_driver (PhonemgrState *phone_state, const char *device,
 			     GError **error)
 {
-	char model[MODEL_SIZE];
+	const char *model;
 	char *driver;
 	gn_error err;
 
-	memset (model, 0, MODEL_SIZE);
 	phonemgr_utils_init_hash_tables ();
 
 	driver = phonemgr_utils_driver_for_device (device);
@@ -272,16 +270,11 @@ phonemgr_utils_guess_driver (PhonemgrState *phone_state, const char *device,
 	if (phone_state == NULL)
 		return NULL;
 
-	gn_data_clear(&phone_state->data);
-	phone_state->data.model = model;
+	model = gn_lib_get_phone_model (&phone_state->state);
 
-	err = gn_sm_functions(GN_OP_Identify,
-			&phone_state->data, &phone_state->state);
-
-	if (err != GN_ERR_NONE) {
+	if (model == NULL) {
 		PhoneMgrError perr;
-		g_warning ("gn_sm_functions: %s",
-				phonemgr_utils_gn_error_to_string (err, &perr));
+		g_warning ("gn_lib_get_phone_model failed");
 		goto bail;
 	}
 
@@ -353,5 +346,28 @@ phonemgr_utils_free (PhonemgrState *state)
 {
 	g_return_if_fail (state != NULL);
 	g_free (state);
+}
+
+void
+phonemgr_utils_tell_driver (const char *addr)
+{
+	GError *error = NULL;
+	PhonemgrState *phone_state;
+	const char *model;
+
+	phone_state = phonemgr_utils_connect (addr, NULL, &error);
+	if (phone_state == NULL) {
+		g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
+		if (error != NULL)
+			g_error_free (error);
+		return;
+	}
+
+	model = gn_lib_get_phone_model (&phone_state->state);
+
+	g_print ("model: '%s'\n", model);
+
+	phonemgr_utils_disconnect (phone_state);
+	phonemgr_utils_free (phone_state);
 }
 
