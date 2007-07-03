@@ -7,14 +7,6 @@
 
 GMainLoop *loop;
 
-static gboolean
-poll_listener (gpointer data)
-{
-	PhonemgrListener *listener = PHONEMGR_LISTENER (data);
-	phonemgr_listener_poll (listener);
-	return TRUE;
-}
-
 static void
 message (PhonemgrListener *listener, const gchar *sender,
 		GTime timestamp, const char *message)
@@ -57,10 +49,8 @@ main (int argc, char **argv)
 	g_signal_connect (G_OBJECT (listener), "status",
 			G_CALLBACK (status), (gpointer) listener);
 
-	if (phonemgr_listener_connect (listener, "00:60:57:1A:0A:6D", &err)) {
+	if (phonemgr_listener_connect (listener, "00:12:D2:79:B7:33", &err)) {
 //	if (phonemgr_listener_connect (listener, "/dev/rfcomm0", &err)) {
-		timeout = g_timeout_add (200, poll_listener,
-				(gpointer) listener);
 		g_message ("Connected OK");
 
 		/* phonemgr_listener_queue_message (listener, "1234567",

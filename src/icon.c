@@ -70,26 +70,6 @@ icon_init (MyApp *app)
 	pb_program = load_icon (app, "cellphone.png", 48);
 }
 
-static gboolean
-flash_icon (MyApp *app)
-{
-	if (app->listener && phonemgr_listener_connected (app->listener)
-	    && app->messages) {
-		return TRUE;
-	} else {
-		/* disable flasher if we disconnect or have no messages left */
-		return FALSE;
-	}
-}
-void
-enable_flasher (MyApp *app)
-{
-	gtk_status_icon_set_blinking (app->tray_icon, TRUE);
-	//FIXME we shouldn't rely on a timeout
-	app->flasher_cb = g_timeout_add (500, (GSourceFunc) flash_icon,
-					 (gpointer) app);
-}
-
 void
 set_icon_state (MyApp *app)
 {

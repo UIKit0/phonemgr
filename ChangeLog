@@ -1,5 +1,28 @@
 2007-07-03  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_push),
+	(phonemgr_listener_poll_real), (phonemgr_listener_poll),
+	(phonemgr_listener_init):
+	* libgsm/phonemgr-listener.h:
+	Remove phonemgr_listener_poll() and use an idle signal to
+	push the new messages instead
+
+	* libgsm/glibgsmtest.c: (main): update for above change
+
+	* src/connection.c: (connect_phone_thread), (on_message),
+	(initialise_connection): update for above change, and remove testing
+	code, as we already have a dummy backend in libgsm
+
+	* src/e-phone-entry.c: (text_changed): Remove some outdated debug code
+
+	* src/icon.c: remove the icon blinking/flashing code, we'll use
+	libnotify instead
+
+	* src/test-entry.c: (main): Call g_thread_init to avoid warning with
+	newer glib
+
+2007-07-03  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_new),
 	(phonemgr_listener_init), (phonemgr_listener_connect),
 	(phonemgr_listener_poll_real): Try to work around the fact that

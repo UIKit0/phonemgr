@@ -26,6 +26,8 @@ int main (int argc, char **argv)
 {
 	GtkWidget *window, *entry;
 
+	g_thread_init (NULL);
+
 	gtk_init (&argc, &argv);
 
 	window = gtk_dialog_new ();

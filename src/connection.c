@@ -53,13 +53,6 @@ set_connection_device (MyApp *app)
 }
 
 static gboolean
-poll_listener (PhonemgrListener *listener)
-{
-	phonemgr_listener_poll (listener);
-	return TRUE;
-}
-
-static gboolean
 attempt_reconnect (MyApp *app)
 {
 	if (gconf_client_get_bool (app->client,
@@ -89,9 +82,6 @@ connect_phone_thread (gpointer data)
 			/* translators: the '%s' will be substituted with '/dev/ttyS0'
 			   or similar */
 			g_message (_("Connected to device on %s"), app->devname);
-			app->pollsource = g_timeout_add (POLL_TIMEOUT,
-				(GSourceFunc)poll_listener,
-				(gpointer) app->listener);
 		} else {
 			/* the ERROR signal will have been emitted, so we don't
 			   bother changing the icon ourselves at this point */
@@ -193,8 +183,6 @@ on_message (PhonemgrListener *listener, gchar *sender,
 	msg->message = g_strdup (message);
 
 	g_mutex_lock (app->message_mutex);
-	if (app->messages == NULL)
-		enable_flasher (app);
 	app->messages = g_list_append (app->messages, (gpointer) msg);
 	g_mutex_unlock (app->message_mutex);
 
@@ -239,17 +227,6 @@ disconnect_signal_handlers (MyApp *app)
 			app->message_cb);
 }
 
-#ifdef TESTING
-static gboolean
-send_test_message (MyApp *app)
-{
-	g_message ("Sending test message");
-	on_message (app->listener, "1234567", 0, "test message", app);
-	on_message (app->listener, "1234567", 0, "test message 2", app);
-	return FALSE;
-}
-#endif
-
 void
 initialise_connection (MyApp *app)
 {
@@ -262,8 +239,5 @@ initialise_connection (MyApp *app)
 	gdk_threads_init ();
 	app->connecting_mutex = g_mutex_new ();
 	app->message_mutex = g_mutex_new ();
-#ifdef TESTING
-	g_timeout_add (1000*15, (GSourceFunc) send_test_message,
-	 (gpointer) app);
-#endif
 }
+

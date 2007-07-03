@@ -113,7 +113,6 @@ text_changed (GtkEditable *entry, gpointer user_data)
 				&& g_unichar_isspace (c) == FALSE
 				&& c != 0x2B /* '+' */
 				&& c != 0x2D /* '-' */) {
-			g_message ("%c is not gfood", c);
 			emit_changed_signal (pentry, NULL);
 			return;
 		}

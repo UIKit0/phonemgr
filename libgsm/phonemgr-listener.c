@@ -394,19 +394,22 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	g_mutex_unlock (l->mutex);
 }
 
-void
-phonemgr_listener_poll (PhonemgrListener *l)
+static gboolean
+phonemgr_listener_push (PhonemgrListener *l)
 {
 	gn_sms *message;
 
 	g_return_if_fail (l->connected != FALSE);
 
 	message = g_async_queue_try_pop (l->queue);
-	if (message != NULL) {
-		g_message ("emitting message");
-		phonemgr_listener_emit_message (l, message);
-		g_free (message);
-	}
+	if (message == NULL)
+		return FALSE;
+
+	g_message ("emitting message");
+	phonemgr_listener_emit_message (l, message);
+	g_free (message);
+
+	return FALSE;
 }
 
 static void
@@ -484,7 +487,10 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 		if (error == GN_ERR_NONE) {
 			if (message.status == GN_SMS_Unread) {
 				g_message ("message pushed");
+
 				g_async_queue_push (l->queue, &message);
+				g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
+
 				read++;
 			}
 			count++;
@@ -545,7 +551,7 @@ phonemgr_listener_queue_message (PhonemgrListener *listener,
  * we need to go through poll() to wait for one second */
 #define POLL_SECOND 1000 / 50
 
-void
+static gboolean
 phonemgr_listener_poll (PhonemgrListener *l)
 {
 	static int i = 0;
@@ -565,6 +571,8 @@ phonemgr_listener_poll (PhonemgrListener *l)
 				0, sender, time.tv_sec, text);
 		target = 15 * POLL_SECOND;
 	}
+
+	return TRUE;
 }
 
 gboolean
@@ -576,6 +584,7 @@ phonemgr_listener_connected (PhonemgrListener *listener)
 static void
 phonemgr_listener_init (PhonemgrListener *l)
 {
+	g_timeout_add (50, (GSourceFunc) phonemgr_listener_poll, l);
 }
 
 static void

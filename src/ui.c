@@ -639,3 +639,4 @@ dequeue_message (MyApp *app)
 	
 	return TRUE;
 }
+
