@@ -170,7 +170,7 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 
 static void
 on_message (PhonemgrListener *listener, gchar *sender,
-		GTime timestamp, gchar *message, MyApp *app)
+		time_t timestamp, gchar *message, MyApp *app)
 {
 	Message *msg;
 

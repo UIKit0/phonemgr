@@ -52,7 +52,7 @@ typedef struct _appinfo {
 
 typedef struct _message {
 	gchar   *sender;
-	GTime   timestamp;
+	time_t   timestamp;
 	gchar   *message;
 } Message;
 

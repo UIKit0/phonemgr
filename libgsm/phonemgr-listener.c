@@ -147,11 +147,11 @@ phonemgr_listener_new (void)
 }
 
 #ifndef DUMMY
-static GTime
+static time_t
 gn_timestamp_to_gtime (gn_timestamp stamp)
 {
 	GDate *date;
-	GTime time = 0;
+	time_t time = 0;
 	int i;
 
 	if (gn_timestamp_isvalid (stamp) == FALSE)
@@ -175,7 +175,7 @@ gn_timestamp_to_gtime (gn_timestamp stamp)
 static void
 phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 {
-	GTime time;
+	time_t time;
 	char *text, *sender, *origtext;
 
 	text = NULL;
@@ -476,22 +476,25 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 	//FIXME use GN_OP_OnSMS as in smsreader() in gnokii-sms.c,
 	//FIXME doesn't work on all devices though
 	while (count < smsstatus.number && read < unread && i >= 0) {
-		gn_sms message;
+		gn_sms *message;
 
-		memset (&message, 0, sizeof (gn_sms));
-		message.memory_type = l->default_mem;
-		message.number = i;
-		l->phone_state->data.sms = &message;
+		message = g_new0 (gn_sms, 1);
+		memset (message, 0, sizeof (gn_sms));
+		message->memory_type = l->default_mem;
+		message->number = i;
+		l->phone_state->data.sms = message;
 
 		error = gn_sms_get (&l->phone_state->data, &l->phone_state->state);
 		if (error == GN_ERR_NONE) {
-			if (message.status == GN_SMS_Unread) {
+			if (message->status == GN_SMS_Unread) {
 				g_message ("message pushed");
 
-				g_async_queue_push (l->queue, &message);
+				g_async_queue_push (l->queue, message);
 				g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
 
 				read++;
+			} else {
+				g_free (message);
 			}
 			count++;
 		} else {

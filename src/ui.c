@@ -568,6 +568,14 @@ show_prefs_window (MyApp *app)
 	gtk_widget_show (prefs);
 }
 
+static char *
+time_to_string (time_t time)
+{
+	char work[128];
+	strftime (work, sizeof(work), "%c", gmtime (&time));
+	return g_strdup (work);
+}
+
 gboolean
 dequeue_message (MyApp *app)
 {
@@ -577,8 +585,7 @@ dequeue_message (MyApp *app)
 	GtkTextView *textview;
 	GtkLabel *l_sender, *l_sent;
 	GtkTextBuffer *buf;
-	gchar work[64];
-	GDate *date;
+	char *time;
 	GladeXML *ui;
 	GtkWidget *w;
 
@@ -601,7 +608,7 @@ dequeue_message (MyApp *app)
 	w = GTK_WIDGET (glade_xml_get_widget (ui, "sms_dialog"));
 	g_signal_connect_swapped (G_OBJECT (w), "delete-event",
 			G_CALLBACK (gtk_widget_destroy), (gpointer) w);
-	
+
 	g_object_set_data (G_OBJECT (w), "app", (gpointer) app);
 
 	dialog = GTK_DIALOG (w);
@@ -622,11 +629,9 @@ dequeue_message (MyApp *app)
 	gtk_text_buffer_set_text (buf, msg->message, strlen (msg->message));
 	gtk_label_set_text (l_sender, msg->sender);
 
-	date = g_date_new ();
-	g_date_set_time (date, msg->timestamp);
-	g_date_strftime (work, 64, "%X %x", date);
-	g_date_free (date);
-	gtk_label_set_text (l_sent, work);
+	time = time_to_string (msg->timestamp);
+	gtk_label_set_text (l_sent, time);
+	g_free (time);
 
 	gtk_widget_show_all (GTK_WIDGET (dialog));
 

@@ -1,5 +1,24 @@
 2007-07-03  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/glibgsmtest.c: (message), (main):
+	* libgsm/phonemgr-listener.c: (gn_timestamp_to_gtime),
+	(phonemgr_listener_emit_message), (phonemgr_listener_poll_real):
+	* libgsm/phonemgr-listener.h:
+	* src/app.h:
+	* src/connection.c: (on_message):
+	* src/ui.c: (time_to_string), (dequeue_message):
+	Use time_t instead of GTime all around, as GTime is 32-bit even on
+	64-bit platforms.
+			 
+	Use strftime directly instead of g_date_strftime(), as GDate doesn't do
+	time, just dates, fixes all messages as showing up as sent at midnight
+
+	Fix crasher when receiving new message, gn_sms was freed in another function
+	when it's supposed to be on the stack. Allocate it properly instead,
+	and only free it in the idle handler, or if the message isn't unread.
+
+2007-07-03  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_push),
 	(phonemgr_listener_poll_real), (phonemgr_listener_poll),
 	(phonemgr_listener_init):

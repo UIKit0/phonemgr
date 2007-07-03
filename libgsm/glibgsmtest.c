@@ -9,7 +9,7 @@ GMainLoop *loop;
 
 static void
 message (PhonemgrListener *listener, const gchar *sender,
-		GTime timestamp, const char *message)
+		time_t timestamp, const char *message)
 {
 	g_message ("Got message %s | %ld | %s", sender, (long)timestamp, message);
 	g_main_loop_quit (loop);
@@ -34,7 +34,6 @@ main (int argc, char **argv)
 {
 	GError *err = NULL;
 	PhonemgrListener *listener;
-	guint timeout;
 
 	g_thread_init (NULL);
 	g_type_init ();
@@ -59,7 +58,6 @@ main (int argc, char **argv)
 		loop = g_main_loop_new (NULL, FALSE);
 		g_main_loop_run (loop);
 
-		g_source_remove (timeout);
 		phonemgr_listener_disconnect (listener);
 	} else {
 		g_error ("Couldn't connect to the phone: %s\n",

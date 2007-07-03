@@ -39,7 +39,7 @@ typedef struct _PhonemgrListenerClass PhonemgrListenerClass;
 struct _PhonemgrListenerClass
 {
   GObjectClass	parent_class;
-  void (* message) (PhonemgrListener *bc, char *phone, GTime timestamp, char *message);
+  void (* message) (PhonemgrListener *bc, char *phone, time_t timestamp, char *message);
   void (* status) (PhonemgrListener *bc, gint status);
 };
 
