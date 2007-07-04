@@ -6,13 +6,13 @@
 
 #define POLL_TIMEOUT 50
 
-static gchar *
+static char *
 set_connection_device (MyApp *app)
 {
-	gint ctype = gconf_client_get_int (app->client,
+	int ctype = gconf_client_get_int (app->client,
 			CONFBASE"/connection_type", NULL);
-	gchar *bdaddr;
-	gchar *dev = NULL;
+	char *bdaddr;
+	char *dev = NULL;
 
 	bdaddr = gconf_client_get_string (app->client,
 			CONFBASE"/bluetooth_addr", NULL);
@@ -169,8 +169,8 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 }
 
 static void
-on_message (PhonemgrListener *listener, gchar *sender,
-		time_t timestamp, gchar *message, MyApp *app)
+on_message (PhonemgrListener *listener, char *sender,
+		time_t timestamp, char *message, MyApp *app)
 {
 	Message *msg;
 

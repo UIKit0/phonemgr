@@ -83,7 +83,7 @@ enum {
 	LAST_SIGNAL
 };
 
-static gint phonemgr_listener_signals[LAST_SIGNAL] = { 0 } ;
+static int phonemgr_listener_signals[LAST_SIGNAL] = { 0 } ;
 
 G_DEFINE_TYPE (PhonemgrListener, phonemgr_listener, G_TYPE_OBJECT)
 
@@ -134,7 +134,7 @@ phonemgr_listener_error_quark (void)
 }
 
 static void
-phonemgr_listener_emit_status (PhonemgrListener *bo, gint status)
+phonemgr_listener_emit_status (PhonemgrListener *bo, int status)
 {
 	g_signal_emit (G_OBJECT (bo),
 		phonemgr_listener_signals[STATUS_SIGNAL],

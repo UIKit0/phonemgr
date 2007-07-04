@@ -30,9 +30,9 @@ tray_icon_popup_menu_cb (GtkStatusIcon *status_icon,
 }
 
 static
-GdkPixbuf *load_icon (MyApp *app, const gchar *iconname, int size)
+GdkPixbuf *load_icon (MyApp *app, const char *iconname, int size)
 {
-	gchar *fname;
+	char *fname;
 	GdkPixbuf *buf;
 	GError *err=NULL;
 	fname = gnome_program_locate_file (app->program,

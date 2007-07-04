@@ -1,5 +1,22 @@
 2007-07-04  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_status):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_driver_parse_start_tag):
+	* src/app.h:
+	* src/connection.c: (set_connection_device), (on_message):
+	* src/e-phone-entry.c: (e_phone_entry_new_from_glade):
+	* src/e-phone-entry.h:
+	* src/icon.c: (load_icon):
+	* src/menu.c: (about_activated):
+	* src/ui.c: (boldify_label), (get_ui), (get_resource),
+	(idle_play_alert), (get_current_btname), (set_dependent_widget),
+	(on_conn_port_change), (set_btdevname), (populate_prefs),
+	(choose_bdaddr), (set_send_sensitivity), (send_message),
+	(create_send_dialog): Kill gint and gchar
+
+2007-07-04  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_push),
 	(phonemgr_listener_new_sms_cb),
 	(phonemgr_listener_sms_notification_poll),

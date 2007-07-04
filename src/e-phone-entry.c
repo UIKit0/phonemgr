@@ -255,9 +255,9 @@ e_phone_entry_get_number (EPhoneEntry *pentry)
 }
 
 GtkWidget *
-e_phone_entry_new_from_glade (gchar *widget_name,
-			      gchar *string1, gchar *string2,
-			      gint int1, gint int2)
+e_phone_entry_new_from_glade (char *widget_name,
+			      char *string1, char *string2,
+			      int int1, int int2)
 {
 	GtkWidget *w = e_phone_entry_new ();
 	gtk_widget_set_name (w, widget_name);

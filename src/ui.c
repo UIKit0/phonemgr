@@ -12,8 +12,8 @@
 
 #define MAX_MESSAGE_LENGTH 160
 
-static gint conn_port=0;
-static gchar *bdaddr=NULL;
+static int conn_port=0;
+static char *bdaddr=NULL;
 
 static void
 boldify_label (GladeXML *xml, const char *name)
@@ -43,7 +43,7 @@ boldify_label (GladeXML *xml, const char *name)
 	}
 	gtk_label_set_attributes (GTK_LABEL (widget), pattrlist);*/
 
-	gchar *str_final;
+	char *str_final;
 	str_final = g_strdup_printf ("<b>%s</b>", gtk_label_get_label (GTK_LABEL (widget)));
 	gtk_label_set_markup_with_mnemonic (GTK_LABEL (widget), str_final);
 	g_free (str_final);
@@ -68,9 +68,9 @@ bigger_label (GladeXML *xml, const char *name)
 }
 
 static
-GladeXML *get_ui (MyApp *app, gchar *widget)
+GladeXML *get_ui (MyApp *app, char *widget)
 {
-	gchar *fname;
+	char *fname;
 	GladeXML *ui;
 
 	if (g_file_test ("../ui/phonemgr.glade", G_FILE_TEST_EXISTS))
@@ -91,10 +91,10 @@ GladeXML *get_ui (MyApp *app, gchar *widget)
 	return ui;
 }
 
-static
-gchar *get_resource (MyApp *app, gchar *uiresname)
+static char *
+get_resource (MyApp *app, char *uiresname)
 {
-	gchar *fname;
+	char *fname;
 
 	fname = gnome_program_locate_file (app->program,
 				GNOME_FILE_DOMAIN_APP_DATADIR,
@@ -115,7 +115,7 @@ gchar *get_resource (MyApp *app, gchar *uiresname)
 static gboolean
 idle_play_alert (MyApp *app)
 {
-	gchar *fname;
+	char *fname;
 
 	if (gconf_client_get_bool (app->client, CONFBASE"/sound_alert", NULL)) {
 		fname = get_resource (app, "alert.wav");
@@ -135,10 +135,10 @@ play_alert (MyApp *app)
 	g_idle_add ((GSourceFunc) idle_play_alert, (gpointer) app);
 }
 
-static gchar *
+static char *
 get_current_btname (MyApp *app)
 {
-	gchar *name = NULL;
+	char *name = NULL;
 	if (bdaddr) {
 		name = gnomebt_controller_get_device_preferred_name (
 				app->btctl, bdaddr);
@@ -150,7 +150,7 @@ get_current_btname (MyApp *app)
 }
 
 static void
-set_dependent_widget (MyApp *app, gint conn_type, gboolean active)
+set_dependent_widget (MyApp *app, int conn_type, gboolean active)
 {
 	GtkWidget *w = NULL;
 	switch (conn_type) {
@@ -173,7 +173,7 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 {
 	gboolean active = gtk_toggle_button_get_active (
 				GTK_TOGGLE_BUTTON (widget));
-	gint port = GPOINTER_TO_INT (
+	int port = GPOINTER_TO_INT (
 			g_object_get_data (G_OBJECT (widget), "port"));
 
 	set_dependent_widget (app, port, active);
@@ -202,7 +202,7 @@ static void
 set_btdevname (MyApp *app)
 {
 	GtkWidget *w = GTK_WIDGET (glade_xml_get_widget (app->ui, "btdevname"));
-	gchar *c = get_current_btname (app);
+	char *c = get_current_btname (app);
 	gtk_label_set_text (GTK_LABEL (w), c);
 	g_free (c);
 }
@@ -221,8 +221,8 @@ static void
 populate_prefs (MyApp *app)
 {
 	GtkWidget *w;
-	gchar *c;
-	gint ctype = gconf_client_get_int (app->client,
+	char *c;
+	int ctype = gconf_client_get_int (app->client,
 			CONFBASE"/connection_type", NULL);
 
 	conn_port = ctype;
@@ -319,10 +319,10 @@ apply_prefs (MyApp *app, gpointer data)
 static void
 choose_bdaddr (MyApp *app, gpointer data)
 {
-    gchar *ret = NULL;
+    char *ret = NULL;
     GnomebtController *btctl;
     GnomebtChooser *btchooser;
-    gint result;
+    int result;
 
     btctl = app->btctl;
     btchooser = gnomebt_chooser_new (btctl);
@@ -361,9 +361,9 @@ set_send_sensitivity (GtkWidget *w, GladeXML *ui)
 	GtkTextBuffer *buf;
 	GtkWidget *sendbutton;
 	GtkLabel *left;
-	gint l;
-	gchar *work;
-	gchar *text;
+	int l;
+	char *work;
+	char *text;
 
 	left = GTK_LABEL (glade_xml_get_widget (ui, "charsleft"));
 	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
@@ -381,7 +381,7 @@ set_send_sensitivity (GtkWidget *w, GladeXML *ui)
 	if (l > MAX_MESSAGE_LENGTH) {
 		gtk_label_set_text (left, _("Message too long!"));
 	} else {
-		gint cl = MAX_MESSAGE_LENGTH - l;
+		int cl = MAX_MESSAGE_LENGTH - l;
 		work = g_strdup_printf ("%d", cl);
 		gtk_label_set_text (left, work);
 		g_free (work);
@@ -402,7 +402,7 @@ send_message (GtkWidget *w, GladeXML *ui)
 	EPhoneEntry *entry;
 	GtkDialog *dialog;
 	GtkTextIter s, e;
-	gchar *number;
+	char *number;
 
 	MyApp *app = (MyApp *) g_object_get_data (G_OBJECT (ui), "app");
 
@@ -423,7 +423,7 @@ send_message (GtkWidget *w, GladeXML *ui)
 }
 
 void
-create_send_dialog (MyApp *app, GtkDialog *parent, const gchar *recip)
+create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 {
 	GtkTextBuffer *buf;
 	GtkTextView *view;

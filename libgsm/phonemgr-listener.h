@@ -40,7 +40,7 @@ struct _PhonemgrListenerClass
 {
   GObjectClass	parent_class;
   void (* message) (PhonemgrListener *bc, char *phone, time_t timestamp, char *message);
-  void (* status) (PhonemgrListener *bc, gint status);
+  void (* status) (PhonemgrListener *bc, int status);
 };
 
 GQuark phonemgr_listener_error_quark	(void) G_GNUC_CONST;

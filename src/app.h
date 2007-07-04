@@ -17,8 +17,8 @@ typedef struct _appinfo {
 	GtkStatusIcon *tray_icon;
 	GtkMenu *menu;
 	GladeXML    *ui;
-	gint    iconstate;
-	gint    chars;
+	int    iconstate;
+	int    chars;
 	GtkWidget *send_item;
 	gboolean flashon;
 
@@ -28,7 +28,7 @@ typedef struct _appinfo {
 	PhonemgrListener    *listener;
 
 	/* connection state */
-	gchar   *devname;
+	char   *devname;
 	gboolean    reconnect;
 
 	/* messages */
@@ -51,9 +51,9 @@ typedef struct _appinfo {
 } MyApp;
 
 typedef struct _message {
-	gchar   *sender;
+	char   *sender;
 	time_t   timestamp;
-	gchar   *message;
+	char   *message;
 } Message;
 
 /* menu functions */
@@ -63,7 +63,7 @@ void construct_menu (MyApp *app);
 void ui_init (MyApp *app);
 void show_prefs_window (MyApp *app);
 gboolean dequeue_message (MyApp *app);
-void create_send_dialog (MyApp *app, GtkDialog *parent, const gchar *recip);
+void create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip);
 void enable_flasher (MyApp *app);
 void play_alert (MyApp *app);
 void ui_hide (MyApp *app);

@@ -17,9 +17,9 @@ static gboolean
 about_activated(GtkMenuItem *item, gpointer data)
 {
     static gpointer about = NULL;
-    const gchar *authors[] = { "Edd Dumbill <edd@usefulinc.com>", NULL };
-    const gchar *documenters[] = { NULL };
-    const gchar *translator_credits = _("translator_credits");
+    const char *authors[] = { "Edd Dumbill <edd@usefulinc.com>", NULL };
+    const char *documenters[] = { NULL };
+    const char *translator_credits = _("translator_credits");
 
     if (about != NULL) {
 		gdk_window_raise (GTK_WIDGET(about)->window);

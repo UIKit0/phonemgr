@@ -8,7 +8,7 @@
 GMainLoop *loop;
 
 static void
-message (PhonemgrListener *listener, const gchar *sender,
+message (PhonemgrListener *listener, const char *sender,
 		time_t timestamp, const char *message)
 {
 	g_message ("Got message %s | %ld | %s", sender, (long)timestamp, message);

@@ -156,11 +156,11 @@ phonemgr_utils_driver_for_device (const char *device)
 
 static void
 phonemgr_utils_driver_parse_start_tag (GMarkupParseContext *ctx,
-		const gchar         *element_name,
-		const gchar        **attr_names,
-		const gchar        **attr_values,
-		gpointer             data,
-		GError             **error)
+				       const char          *element_name,
+				       const char         **attr_names,
+				       const char         **attr_values,
+				       gpointer             data,
+				       GError             **error)
 {
 	const char *phone_name, *phone_driver;
 
