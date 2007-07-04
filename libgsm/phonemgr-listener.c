@@ -43,7 +43,6 @@ struct _PhonemgrListener
 	GThread *thread;
 	GAsyncQueue *queue;
 	GMutex *mutex;
-	gboolean terminated;
 
 	PhonemgrState *phone_state;
 
@@ -59,10 +58,14 @@ struct _PhonemgrListener
 	gn_memory_type default_mem;
 
 	guint connected : 1;
+	guint terminated : 1;
 
 	/* Whether the driver supports reporting unread through
 	 * GN_OP_GetSMSStatus */
 	guint supports_unread : 1;
+
+	/* Whether the driver supports GN_OP_OnSMS */
+	guint supports_sms_notif : 1;
 };
 
 static void phonemgr_listener_class_init (PhonemgrListenerClass *klass);
@@ -287,18 +290,94 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	return l->connected;
 }
 
+static gboolean
+phonemgr_listener_push (PhonemgrListener *l)
+{
+	gn_sms *message;
+
+	g_return_if_fail (l->connected != FALSE);
+
+	message = g_async_queue_try_pop (l->queue);
+	if (message == NULL)
+		return FALSE;
+
+	g_message ("emitting message");
+	phonemgr_listener_emit_message (l, message);
+	g_free (message);
+
+	return FALSE;
+}
+
+static gn_error
+phonemgr_listener_new_sms_cb (gn_sms *message, struct gn_statemachine *state, void *user_data)
+{
+	PhonemgrListener *l = (PhonemgrListener *) user_data;
+	gn_sms *msg;
+
+	/* The message is allocated on the stack in the driver, so copy it */
+	msg = g_memdup (message, sizeof (gn_sms));
+	g_async_queue_push (l->queue, msg);
+	g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
+
+	return GN_ERR_NONE;
+}
+
+static void
+phonemgr_listener_sms_notification_poll (PhonemgrListener *l)
+{
+	gn_sm_loop(1, &l->phone_state->state);
+	/* Some phones may not be able to notify us, thus we give
+	 * lowlevel chance to poll them */
+	gn_sm_functions (GN_OP_PollSMS, &l->phone_state->data, &l->phone_state->state);
+}
+
+static void
+phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
+{
+	if (state != FALSE) {
+		/* Try to set up SMS notification using GN_OP_OnSMS */
+		gn_data_clear(&l->phone_state->data);
+		l->phone_state->data.on_sms = phonemgr_listener_new_sms_cb;
+		l->phone_state->data.user_data = l;
+		if (gn_sm_functions (GN_OP_OnSMS, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
+			l->supports_sms_notif = TRUE;
+		}
+	} else {
+		if (l->supports_sms_notif == FALSE)
+			return;
+		/* Disable the SMS callback on exit */
+		if (l->supports_sms_notif != FALSE) {
+			l->phone_state->data.on_sms = NULL;
+			gn_sm_functions (GN_OP_OnSMS, &l->phone_state->data, &l->phone_state->state);
+		}
+	}
+}
+
 static void
 phonemgr_listener_thread (PhonemgrListener *l)
 {
+	g_mutex_lock (l->mutex);
+	phonemgr_listener_set_sms_notification (l, TRUE);
+	g_mutex_unlock (l->mutex);
+
 	while (l->terminated == FALSE) {
 		if (g_mutex_trylock (l->mutex) != FALSE) {
-			phonemgr_listener_poll_real (l);
+			if (l->supports_sms_notif != FALSE)
+				phonemgr_listener_sms_notification_poll (l);
+			else
+				phonemgr_listener_poll_real (l);
+
 			g_mutex_unlock (l->mutex);
 			g_usleep (POLL_TIMEOUT);
 		} else {
 			g_usleep (TRYLOCK_TIMEOUT);
 		}
 	}
+
+	g_mutex_lock (l->mutex);
+	phonemgr_listener_set_sms_notification (l, FALSE);
+	g_mutex_unlock (l->mutex);
+
 	g_thread_exit (NULL);
 }
 
@@ -394,22 +473,37 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	g_mutex_unlock (l->mutex);
 }
 
-static gboolean
-phonemgr_listener_push (PhonemgrListener *l)
+void
+phonemgr_listener_set_time (PhonemgrListener *l,
+			    time_t time)
 {
-	gn_sms *message;
+	struct tm *t;
+	gn_timestamp date;
+	gn_error error;
+	PhoneMgrError perr;
 
-	g_return_if_fail (l->connected != FALSE);
+	t = localtime(&time);
+	date.year = t->tm_year;
+	date.month = t->tm_mon + 1;
+	date.day = t->tm_mday;
+	date.hour = t->tm_hour;
+	date.minute = t->tm_min;
+	date.second = t->tm_sec;
+	free (t);
 
-	message = g_async_queue_try_pop (l->queue);
-	if (message == NULL)
-		return FALSE;
+	/* Lock the phone */
+	g_mutex_lock (l->mutex);
 
-	g_message ("emitting message");
-	phonemgr_listener_emit_message (l, message);
-	g_free (message);
+	/* Set the time and date */
+	gn_data_clear(&l->phone_state->data);
+	l->phone_state->data.datetime = &date;
+	error = gn_sm_functions (GN_OP_SetDateTime, &l->phone_state->data, &l->phone_state->state);
 
-	return FALSE;
+	/* Unlock the phone */
+	g_mutex_unlock (l->mutex);
+
+	if (error != GN_ERR_NONE)
+		g_warning ("Can't set date: %s", phonemgr_utils_gn_error_to_string (error, &perr));
 }
 
 static void
@@ -425,7 +519,7 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 
 	errcount = count = read = unread = 0;
 
-	gn_data_clear(&l->phone_state->data);
+	gn_data_clear (&l->phone_state->data);
 
 	/* Handle calls */
 	//FIXME implement

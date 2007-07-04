@@ -53,6 +53,9 @@ void phonemgr_listener_disconnect	(PhonemgrListener *listener);
 void phonemgr_listener_queue_message	(PhonemgrListener *listener,
 					 const char *number,
 					 const char *message);
+void phonemgr_listener_set_time		(PhonemgrListener *l,
+					 time_t time);
+
 gboolean phonemgr_listener_connected	(PhonemgrListener *listener);
 
 /* status codes */

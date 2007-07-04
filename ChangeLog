@@ -1,3 +1,16 @@
+2007-07-04  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_push),
+	(phonemgr_listener_new_sms_cb),
+	(phonemgr_listener_sms_notification_poll),
+	(phonemgr_listener_set_sms_notification),
+	(phonemgr_listener_thread), (phonemgr_listener_set_time),
+	(phonemgr_listener_poll_real):
+	* libgsm/phonemgr-listener.h:
+	Add support for out-of-band notification, requires gnokii patch from
+	http://thread.gmane.org/gmane.linux.drivers.gnokii/8941/focus=8956
+	to allow user_data parameter to the callbacks (Closes: #453656)
+
 2007-07-03  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/glibgsmtest.c: (message), (main):
