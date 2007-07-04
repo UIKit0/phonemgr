@@ -33,14 +33,29 @@ G_BEGIN_DECLS
 #define PHONEMGR_LISTENER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), PHONEMGR_TYPE_LISTENER, PhonemgrListenerClass)
 #define PHONEMGR_ERROR phonemgr_listener_error_quark ()
 
+typedef enum {
+	PHONEMGR_LISTENER_IDLE,
+	PHONEMGR_LISTENER_CONNECTING,
+	PHONEMGR_LISTENER_CONNECTED,
+	PHONEMGR_LISTENER_DISCONNECTING,
+	PHONEMGR_LISTENER_ERROR
+} PhonemgrListenerStatus;
+
+typedef enum {
+	PHONEMGR_LISTENER_CALL_INCOMING,
+	PHONEMGR_LISTENER_CALL_HANGUP,
+	PHONEMGR_LISTENER_CALL_IDLE
+} PhonemgrListenerCallStatus;
+
 typedef struct _PhonemgrListener PhonemgrListener;
 typedef struct _PhonemgrListenerClass PhonemgrListenerClass;
 
 struct _PhonemgrListenerClass
 {
   GObjectClass	parent_class;
-  void (* message) (PhonemgrListener *bc, char *phone, time_t timestamp, char *message);
-  void (* status) (PhonemgrListener *bc, int status);
+  void (* message) (PhonemgrListener *l, char *phone, time_t timestamp, char *message);
+  void (* status) (PhonemgrListener *l, PhonemgrListenerStatus status);
+  void (* call) (PhonemgrListener *l, PhonemgrListenerCallStatus status, const char *phone);
 };
 
 GQuark phonemgr_listener_error_quark	(void) G_GNUC_CONST;
@@ -57,16 +72,6 @@ void phonemgr_listener_set_time		(PhonemgrListener *l,
 					 time_t time);
 
 gboolean phonemgr_listener_connected	(PhonemgrListener *listener);
-
-/* status codes */
-
-enum {
-	PHONEMGR_LISTENER_IDLE,
-	PHONEMGR_LISTENER_CONNECTING,
-	PHONEMGR_LISTENER_CONNECTED,
-	PHONEMGR_LISTENER_DISCONNECTING,
-	PHONEMGR_LISTENER_ERROR
-};
 
 /* Error types */
 typedef enum {

@@ -36,6 +36,13 @@
 
 static gpointer		 parent_class = NULL;
 
+typedef struct {
+	int type;
+	union {
+		gn_sms *message;
+	};
+} AsyncSignal;
+
 struct _PhonemgrListener
 {
 	GObject object;
@@ -80,6 +87,7 @@ static void phonemgr_listener_poll_real (PhonemgrListener *l);
 enum {
 	MESSAGE_SIGNAL,
 	STATUS_SIGNAL,
+	CALL_STATUS_SIGNAL,
 	LAST_SIGNAL
 };
 
@@ -92,31 +100,42 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 {
 	GObjectClass *object_class;
 
-	parent_class = g_type_class_ref(G_TYPE_OBJECT);
+	parent_class = g_type_class_ref (G_TYPE_OBJECT);
 
-	object_class=(GObjectClass*)klass;
+	object_class = (GObjectClass*) klass;
 
 	phonemgr_listener_signals[MESSAGE_SIGNAL] =
 		g_signal_new ("message",
-			G_OBJECT_CLASS_TYPE(klass),
-			G_SIGNAL_RUN_FIRST,
-			G_STRUCT_OFFSET(PhonemgrListenerClass, message),
-			NULL /* accu */, NULL,
-			phonemgr_marshal_VOID__STRING_ULONG_STRING,
-			G_TYPE_NONE,
-			3,
-			G_TYPE_STRING, G_TYPE_ULONG, G_TYPE_STRING);
+			      G_OBJECT_CLASS_TYPE (klass),
+			      G_SIGNAL_RUN_FIRST,
+			      G_STRUCT_OFFSET (PhonemgrListenerClass, message),
+			      NULL, NULL,
+			      phonemgr_marshal_VOID__STRING_ULONG_STRING,
+			      G_TYPE_NONE,
+			      3,
+			      G_TYPE_STRING, G_TYPE_ULONG, G_TYPE_STRING);
 
 	phonemgr_listener_signals[STATUS_SIGNAL] =
 		g_signal_new ("status",
-			G_OBJECT_CLASS_TYPE(klass),
-			G_SIGNAL_RUN_FIRST,
-			G_STRUCT_OFFSET(PhonemgrListenerClass, status),
-			NULL /* accu */, NULL,
-			phonemgr_marshal_VOID__UINT,
-			G_TYPE_NONE,
-			1,
-			G_TYPE_UINT);
+			      G_OBJECT_CLASS_TYPE (klass),
+			      G_SIGNAL_RUN_FIRST,
+			      G_STRUCT_OFFSET (PhonemgrListenerClass, status),
+			      NULL, NULL,
+			      phonemgr_marshal_VOID__UINT,
+			      G_TYPE_NONE,
+			      1,
+			      G_TYPE_UINT);
+
+	phonemgr_listener_signals[CALL_STATUS_SIGNAL] =
+		g_signal_new ("call-status",
+			      G_OBJECT_CLASS_TYPE (klass),
+			      G_SIGNAL_RUN_FIRST,
+			      G_STRUCT_OFFSET (PhonemgrListenerClass, status),
+			      NULL, NULL,
+			      phonemgr_marshal_VOID__UINT_STRING,
+			      G_TYPE_NONE,
+			      2,
+			      G_TYPE_UINT, G_TYPE_STRING);
 
 	object_class->finalize = phonemgr_listener_finalize;
 
@@ -134,45 +153,19 @@ phonemgr_listener_error_quark (void)
 }
 
 static void
-phonemgr_listener_emit_status (PhonemgrListener *bo, int status)
+phonemgr_listener_emit_status (PhonemgrListener *l, PhonemgrListenerStatus status)
 {
-	g_signal_emit (G_OBJECT (bo),
-		phonemgr_listener_signals[STATUS_SIGNAL],
-		0, status);
+	g_signal_emit (G_OBJECT (l),
+		       phonemgr_listener_signals[STATUS_SIGNAL],
+		       0, status);
 }
 
-PhonemgrListener *
-phonemgr_listener_new (void)
+static void
+phonemgr_listener_emit_call_status (PhonemgrListener *l, PhonemgrListenerCallStatus status, const char *phone)
 {
-	PhonemgrListener *l = PHONEMGR_LISTENER (
-			g_object_new (phonemgr_listener_get_type(), NULL));
-	return l;
-}
-
-#ifndef DUMMY
-static time_t
-gn_timestamp_to_gtime (gn_timestamp stamp)
-{
-	GDate *date;
-	time_t time = 0;
-	int i;
-
-	if (gn_timestamp_isvalid (stamp) == FALSE)
-		return time;
-
-	date = g_date_new_dmy (stamp.day, stamp.month, stamp.year);
-	for (i = 1970; i < stamp.year; i++) {
-		if (g_date_is_leap_year (i) != FALSE)
-			time += 3600 * 24 * 366;
-		else
-			time += 3600 * 24 * 365;
-	}
-	time += g_date_get_day_of_year (date) * 3600 * 24;
-	time += stamp.hour * 3600 + stamp.minute * 60 + stamp.second;
-
-	g_free (date);
-
-	return time;
+	g_signal_emit (G_OBJECT (l),
+		       phonemgr_listener_signals[CALL_STATUS_SIGNAL],
+		       0, status, phone);
 }
 
 static void
@@ -183,6 +176,7 @@ phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 
 	text = NULL;
 
+	//FIXME use the encoding as coming out of the txt message
 	origtext = (char *) message->user_data[0].u.text;
 	if (g_utf8_validate (origtext, -1, NULL) == FALSE) {
 		GError *err = NULL;
@@ -206,13 +200,20 @@ phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 	sender = g_strdup (message->remote.number);
 
 	g_signal_emit (G_OBJECT (l),
-			phonemgr_listener_signals[MESSAGE_SIGNAL],
-			0, sender, time, text);
+		       phonemgr_listener_signals[MESSAGE_SIGNAL],
+		       0, sender, time, text);
 
 	g_free (text);
 	g_free (sender);
 }
 
+PhonemgrListener *
+phonemgr_listener_new (void)
+{
+	return PHONEMGR_LISTENER (g_object_new (PHONEMGR_TYPE_LISTENER, NULL));
+}
+
+#ifndef DUMMY
 static void
 phonemgr_listener_init (PhonemgrListener *l)
 {
@@ -233,6 +234,7 @@ phonemgr_listener_finalize(GObject *obj)
 	if (l != NULL) {
 		if (l->connected)
 			phonemgr_listener_disconnect (l);
+		//FIXME empty the queue of its stuff
 		g_async_queue_unref (l->queue);
 		g_mutex_free (l->mutex);
 	}
@@ -293,17 +295,23 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 static gboolean
 phonemgr_listener_push (PhonemgrListener *l)
 {
-	gn_sms *message;
+	AsyncSignal *signal;
 
 	g_return_if_fail (l->connected != FALSE);
 
-	message = g_async_queue_try_pop (l->queue);
-	if (message == NULL)
+	signal = g_async_queue_try_pop (l->queue);
+	if (signal == NULL)
 		return FALSE;
 
-	g_message ("emitting message");
-	phonemgr_listener_emit_message (l, message);
-	g_free (message);
+	if (signal->type == MESSAGE_SIGNAL) {
+		g_message ("emitting message");
+		phonemgr_listener_emit_message (l, signal->message);
+		g_free (signal->message);
+	} else {
+		g_assert_not_reached ();
+	}
+
+	g_free (signal);
 
 	return FALSE;
 }
@@ -312,11 +320,14 @@ static gn_error
 phonemgr_listener_new_sms_cb (gn_sms *message, struct gn_statemachine *state, void *user_data)
 {
 	PhonemgrListener *l = (PhonemgrListener *) user_data;
-	gn_sms *msg;
+	AsyncSignal *signal;
 
+	signal = g_new0 (AsyncSignal, 1);
+	signal->type = MESSAGE_SIGNAL;
 	/* The message is allocated on the stack in the driver, so copy it */
-	msg = g_memdup (message, sizeof (gn_sms));
-	g_async_queue_push (l->queue, msg);
+	signal->message = g_memdup (message, sizeof (gn_sms));
+	g_async_queue_push (l->queue, signal);
+
 	g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
 
 	return GN_ERR_NONE;
@@ -581,9 +592,15 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 		error = gn_sms_get (&l->phone_state->data, &l->phone_state->state);
 		if (error == GN_ERR_NONE) {
 			if (message->status == GN_SMS_Unread) {
+				AsyncSignal *signal;
+
 				g_message ("message pushed");
 
-				g_async_queue_push (l->queue, message);
+				signal = g_new0 (AsyncSignal, 1);
+				signal->type = MESSAGE_SIGNAL;
+				signal->message = message;
+				g_async_queue_push (l->queue, signal);
+
 				g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
 
 				read++;

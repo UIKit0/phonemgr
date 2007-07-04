@@ -371,3 +371,28 @@ phonemgr_utils_tell_driver (const char *addr)
 	phonemgr_utils_free (phone_state);
 }
 
+time_t
+gn_timestamp_to_gtime (gn_timestamp stamp)
+{
+	GDate *date;
+	time_t time = 0;
+	int i;
+
+	if (gn_timestamp_isvalid (stamp) == FALSE)
+		return time;
+
+	date = g_date_new_dmy (stamp.day, stamp.month, stamp.year);
+	for (i = 1970; i < stamp.year; i++) {
+		if (g_date_is_leap_year (i) != FALSE)
+			time += 3600 * 24 * 366;
+		else
+			time += 3600 * 24 * 365;
+	}
+	time += g_date_get_day_of_year (date) * 3600 * 24;
+	time += stamp.hour * 3600 + stamp.minute * 60 + stamp.second;
+
+	g_free (date);
+
+	return time;
+}
+

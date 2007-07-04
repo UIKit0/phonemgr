@@ -1,5 +1,19 @@
 2007-07-04  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_class_init),
+	(phonemgr_listener_emit_status),
+	(phonemgr_listener_emit_call_status),
+	(phonemgr_listener_emit_message), (phonemgr_listener_new),
+	(phonemgr_listener_finalize), (phonemgr_listener_push),
+	(phonemgr_listener_new_sms_cb), (phonemgr_listener_poll_real):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-marshal.list:
+	* libgsm/phonemgr-utils.c: (gn_timestamp_to_gtime):
+	* libgsm/phonemgr-utils.h: Add framework for call status reporting,
+	no actual call polling right now
+
+2007-07-04  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_status):
 	* libgsm/phonemgr-listener.h:
 	* libgsm/phonemgr-utils.c: (phonemgr_utils_driver_parse_start_tag):
