@@ -81,7 +81,7 @@ static void phonemgr_listener_finalize (GObject *obj);
 
 #ifndef DUMMY
 static void phonemgr_listener_thread (PhonemgrListener *l);
-static void phonemgr_listener_poll_real (PhonemgrListener *l);
+static void phonemgr_listener_sms_notification_real_poll (PhonemgrListener *l);
 #endif
 
 enum {
@@ -334,12 +334,68 @@ phonemgr_listener_new_sms_cb (gn_sms *message, struct gn_statemachine *state, vo
 }
 
 static void
-phonemgr_listener_sms_notification_poll (PhonemgrListener *l)
+phonemgr_listener_new_call_cb (gn_call_status call_status, gn_call_info *call_info, struct gn_statemachine *state, void *user_data)
 {
-	gn_sm_loop(1, &l->phone_state->state);
+	PhonemgrListener *l = (PhonemgrListener *) user_data;
+	PhonemgrListenerCallStatus status;
+
+	/* FIXME ignore second phone call */
+	if (call_info->call_id != 1)
+		return;
+
+	status = PHONEMGR_LISTENER_CALL_UNKNOWN;
+
+	switch (call_status) {
+	case GN_CALL_Incoming:
+		g_message ("INCOMING CALL: ID: %d, Number: %s, Name: \"%s\"\n", call_info->call_id, call_info->number, call_info->name);
+		status = PHONEMGR_LISTENER_CALL_INCOMING;
+		break;
+	case GN_CALL_LocalHangup:
+		g_message ("CALL %d TERMINATED (LOCAL)\n", call_info->call_id);
+		status = PHONEMGR_LISTENER_CALL_HANGUP;
+		break;
+	case GN_CALL_RemoteHangup:
+		g_message ("CALL %d TERMINATED (REMOTE)\n", call_info->call_id);
+		status = PHONEMGR_LISTENER_CALL_HANGUP;
+		break;
+	case GN_CALL_Established:
+		g_message ("CALL %d ACCEPTED BY THE REMOTE SIDE\n", call_info->call_id);
+		status = PHONEMGR_LISTENER_CALL_ONGOING;
+		break;
+	case GN_CALL_Held:
+		g_message ("CALL %d PLACED ON HOLD\n", call_info->call_id);
+		break;
+	case GN_CALL_Resumed:
+		g_message ("CALL %d RETRIEVED FROM HOLD\n", call_info->call_id);
+		break;
+	default:
+		break;
+	}
+
+	gn_call_notifier (call_status, call_info, state);
+
+	if (status == PHONEMGR_LISTENER_CALL_UNKNOWN)
+		return;
+
+	phonemgr_listener_emit_call_status (l, status, call_info->number);
+}
+
+static void
+phonemgr_listener_sms_notification_soft_poll (PhonemgrListener *l)
+{
+	gn_sm_loop (1, &l->phone_state->state);
 	/* Some phones may not be able to notify us, thus we give
 	 * lowlevel chance to poll them */
 	gn_sm_functions (GN_OP_PollSMS, &l->phone_state->data, &l->phone_state->state);
+}
+
+static void
+phonemgr_listener_call_notification_poll (PhonemgrListener *l)
+{
+	/* Don't call gn_sm_loop(), if the SMS notification already does it */
+	if (l->supports_sms_notif == FALSE)
+		gn_sm_loop (1, &l->phone_state->state);
+	gn_call_check_active (&l->phone_state->state);
 }
 
 static void
@@ -347,9 +403,9 @@ phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 {
 	if (state != FALSE) {
 		/* Try to set up SMS notification using GN_OP_OnSMS */
-		gn_data_clear(&l->phone_state->data);
+		gn_data_clear (&l->phone_state->data);
 		l->phone_state->data.on_sms = phonemgr_listener_new_sms_cb;
-		l->phone_state->data.user_data = l;
+		l->phone_state->data.callback_data = l;
 		if (gn_sm_functions (GN_OP_OnSMS, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
 			l->supports_sms_notif = TRUE;
 		}
@@ -365,18 +421,37 @@ phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 }
 
 static void
+phonemgr_listener_set_call_notification (PhonemgrListener *l, gboolean state)
+{
+	if (state != FALSE) {
+		/* Set up Call notification using GN_OP_SetCallNotification */
+		gn_data_clear (&l->phone_state->data);
+		l->phone_state->data.call_notification = phonemgr_listener_new_call_cb;
+		l->phone_state->data.callback_data = l;
+		gn_sm_functions (GN_OP_SetCallNotification, &l->phone_state->data, &l->phone_state->state);
+	} else {
+		/* Disable call notification */
+		gn_data_clear (&l->phone_state->data);
+		l->phone_state->data.call_notification = NULL;
+		gn_sm_functions (GN_OP_SetCallNotification, &l->phone_state->data, &l->phone_state->state);
+	}
+}
+
+static void
 phonemgr_listener_thread (PhonemgrListener *l)
 {
 	g_mutex_lock (l->mutex);
 	phonemgr_listener_set_sms_notification (l, TRUE);
+	phonemgr_listener_set_call_notification (l, TRUE);
 	g_mutex_unlock (l->mutex);
 
 	while (l->terminated == FALSE) {
 		if (g_mutex_trylock (l->mutex) != FALSE) {
 			if (l->supports_sms_notif != FALSE)
-				phonemgr_listener_sms_notification_poll (l);
+				phonemgr_listener_sms_notification_soft_poll (l);
 			else
-				phonemgr_listener_poll_real (l);
+				phonemgr_listener_sms_notification_real_poll (l);
+			phonemgr_listener_call_notification_poll (l);
 
 			g_mutex_unlock (l->mutex);
 			g_usleep (POLL_TIMEOUT);
@@ -387,6 +462,7 @@ phonemgr_listener_thread (PhonemgrListener *l)
 
 	g_mutex_lock (l->mutex);
 	phonemgr_listener_set_sms_notification (l, FALSE);
+	phonemgr_listener_set_call_notification (l, FALSE);
 	g_mutex_unlock (l->mutex);
 
 	g_thread_exit (NULL);
@@ -518,7 +594,7 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 }
 
 static void
-phonemgr_listener_poll_real (PhonemgrListener *l)
+phonemgr_listener_sms_notification_real_poll (PhonemgrListener *l)
 {
 	gn_sms_status smsstatus = {0, 0, 0, 0};
 	gn_sms_folder_list folderlist;
@@ -532,13 +608,9 @@ phonemgr_listener_poll_real (PhonemgrListener *l)
 
 	gn_data_clear (&l->phone_state->data);
 
-	/* Handle calls */
-	//FIXME implement
-
 	/* Push battery status */
 	//FIXME implement
 
-	/* SMS messages */
 	l->phone_state->data.sms_status = &smsstatus;
 
 	if (gn_sm_functions(GN_OP_GetSMSStatus, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE) {
