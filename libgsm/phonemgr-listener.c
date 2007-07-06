@@ -64,6 +64,9 @@ struct _PhonemgrListener
 	 * sets it */
 	gn_memory_type default_mem;
 
+	/* The previous call status */
+	gn_call_status prev_call_status;
+
 	guint connected : 1;
 	guint terminated : 1;
 
@@ -132,10 +135,10 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 			      G_SIGNAL_RUN_FIRST,
 			      G_STRUCT_OFFSET (PhonemgrListenerClass, status),
 			      NULL, NULL,
-			      phonemgr_marshal_VOID__UINT_STRING,
+			      phonemgr_marshal_VOID__UINT_STRING_STRING,
 			      G_TYPE_NONE,
-			      2,
-			      G_TYPE_UINT, G_TYPE_STRING);
+			      3,
+			      G_TYPE_UINT, G_TYPE_STRING, G_TYPE_STRING);
 
 	object_class->finalize = phonemgr_listener_finalize;
 
@@ -161,11 +164,14 @@ phonemgr_listener_emit_status (PhonemgrListener *l, PhonemgrListenerStatus statu
 }
 
 static void
-phonemgr_listener_emit_call_status (PhonemgrListener *l, PhonemgrListenerCallStatus status, const char *phone)
+phonemgr_listener_emit_call_status (PhonemgrListener *l,
+				    PhonemgrListenerCallStatus status,
+				    const char *phone,
+				    const char *name)
 {
 	g_signal_emit (G_OBJECT (l),
 		       phonemgr_listener_signals[CALL_STATUS_SIGNAL],
-		       0, status, phone);
+		       0, status, phone, name);
 }
 
 static void
@@ -334,50 +340,53 @@ phonemgr_listener_new_sms_cb (gn_sms *message, struct gn_statemachine *state, vo
 }
 
 static void
-phonemgr_listener_new_call_cb (gn_call_status call_status, gn_call_info *call_info, struct gn_statemachine *state, void *user_data)
+phonemgr_listener_call_status (PhonemgrListener *l, gn_call_status call_status, const char *number, const char *name)
 {
-	PhonemgrListener *l = (PhonemgrListener *) user_data;
 	PhonemgrListenerCallStatus status;
 
-	/* FIXME ignore second phone call */
-	if (call_info->call_id != 1)
+	if (call_status == l->prev_call_status)
 		return;
 
 	status = PHONEMGR_LISTENER_CALL_UNKNOWN;
 
 	switch (call_status) {
+	case GN_CALL_Idle:
+		status = PHONEMGR_LISTENER_CALL_IDLE;
+		break;
 	case GN_CALL_Incoming:
-		g_message ("INCOMING CALL: ID: %d, Number: %s, Name: \"%s\"\n", call_info->call_id, call_info->number, call_info->name);
 		status = PHONEMGR_LISTENER_CALL_INCOMING;
 		break;
-	case GN_CALL_LocalHangup:
-		g_message ("CALL %d TERMINATED (LOCAL)\n", call_info->call_id);
-		status = PHONEMGR_LISTENER_CALL_HANGUP;
-		break;
 	case GN_CALL_RemoteHangup:
-		g_message ("CALL %d TERMINATED (REMOTE)\n", call_info->call_id);
-		status = PHONEMGR_LISTENER_CALL_HANGUP;
+	case GN_CALL_LocalHangup:
+	case GN_CALL_Held:
+	case GN_CALL_Resumed:
 		break;
 	case GN_CALL_Established:
-		g_message ("CALL %d ACCEPTED BY THE REMOTE SIDE\n", call_info->call_id);
 		status = PHONEMGR_LISTENER_CALL_ONGOING;
-		break;
-	case GN_CALL_Held:
-		g_message ("CALL %d PLACED ON HOLD\n", call_info->call_id);
-		break;
-	case GN_CALL_Resumed:
-		g_message ("CALL %d RETRIEVED FROM HOLD\n", call_info->call_id);
 		break;
 	default:
 		break;
 	}
 
-	gn_call_notifier (call_status, call_info, state);
-
 	if (status == PHONEMGR_LISTENER_CALL_UNKNOWN)
 		return;
+	l->prev_call_status = call_status;
 
-	phonemgr_listener_emit_call_status (l, status, call_info->number);
+	phonemgr_listener_emit_call_status (l, status, number, name);
+}
+
+static void
+phonemgr_listener_new_call_cb (gn_call_status call_status, gn_call_info *call_info, struct gn_statemachine *state, void *user_data)
+{
+	PhonemgrListener *l = (PhonemgrListener *) user_data;
+	PhonemgrListenerCallStatus status;
+
+	/* We should ignore things that aren't the first call, but we have no idea of what
+	 * call ID the drivers might be using */
+
+	gn_call_notifier (call_status, call_info, state);
+
+	phonemgr_listener_call_status (l, call_status, call_info->number, call_info->name);
 }
 
 static void
@@ -392,10 +401,21 @@ phonemgr_listener_sms_notification_soft_poll (PhonemgrListener *l)
 static void
 phonemgr_listener_call_notification_poll (PhonemgrListener *l)
 {
+	gn_call *call;
+
 	/* Don't call gn_sm_loop(), if the SMS notification already does it */
 	if (l->supports_sms_notif == FALSE)
 		gn_sm_loop (1, &l->phone_state->state);
+
+	/* Check for active calls */
 	gn_call_check_active (&l->phone_state->state);
+	call = gn_call_get_active (0);
+	if (call == NULL) {
+		/* Call is NULL when it's GN_CALL_Idle */
+		phonemgr_listener_call_status (l, GN_CALL_Idle, NULL, NULL);
+	} else {
+		phonemgr_listener_call_status (l, call->status, call->remote_number, call->remote_name);
+	}
 }
 
 static void

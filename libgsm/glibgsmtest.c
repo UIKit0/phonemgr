@@ -23,6 +23,19 @@ static char *statuses[] = {
 	"PHONEMGR_LISTENER_ERROR"
 };
 
+static char *call_statutes[] = {
+	"PHONEMGR_LISTENER_CALL_INCOMING",
+	"PHONEMGR_LISTENER_CALL_ONGOING",
+	"PHONEMGR_LISTENER_CALL_IDLE",
+	"PHONEMGR_LISTENER_CALL_UNKNOWN"
+};
+
+static void
+call_status (PhonemgrListener *listener, PhonemgrListenerCallStatus status, const char *phone, const char *name)
+{
+	g_message ("Got call status %s from %s (%s)", call_statutes[status], phone, name);
+}
+
 static void
 status (PhonemgrListener *listener, gint status)
 {
@@ -47,6 +60,8 @@ main (int argc, char **argv)
 			G_CALLBACK (message), (gpointer) listener);
 	g_signal_connect (G_OBJECT (listener), "status",
 			G_CALLBACK (status), (gpointer) listener);
+	g_signal_connect (G_OBJECT (listener), "call-status",
+			  G_CALLBACK (call_status), (gpointer) listener);
 
 	if (phonemgr_listener_connect (listener, "00:12:D2:79:B7:33", &err)) {
 //	if (phonemgr_listener_connect (listener, "/dev/rfcomm0", &err)) {

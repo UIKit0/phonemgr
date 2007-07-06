@@ -1,3 +1,15 @@
+2007-07-06  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/glibgsmtest.c: (call_status), (main):
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_class_init),
+	(phonemgr_listener_emit_call_status),
+	(phonemgr_listener_call_status), (phonemgr_listener_new_call_cb),
+	(phonemgr_listener_call_notification_poll):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-marshal.list: Add proper call notification, rings
+	for AT with a notification, status is polled,
+	update glibgsmtest to print call status changes
+
 2007-07-05  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_new_call_cb),

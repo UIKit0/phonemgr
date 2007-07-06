@@ -44,10 +44,12 @@ typedef enum {
 typedef enum {
 	PHONEMGR_LISTENER_CALL_INCOMING,
 	PHONEMGR_LISTENER_CALL_ONGOING,
-	PHONEMGR_LISTENER_CALL_HANGUP,
 	PHONEMGR_LISTENER_CALL_IDLE,
 	PHONEMGR_LISTENER_CALL_UNKNOWN
 } PhonemgrListenerCallStatus;
+
+#define CALL_NAME_UNKNOWN "Unknown"
+#define CALL_NAME_RESTRICTED "Withheld"
 
 typedef struct _PhonemgrListener PhonemgrListener;
 typedef struct _PhonemgrListenerClass PhonemgrListenerClass;
@@ -57,7 +59,7 @@ struct _PhonemgrListenerClass
   GObjectClass	parent_class;
   void (* message) (PhonemgrListener *l, char *phone, time_t timestamp, char *message);
   void (* status) (PhonemgrListener *l, PhonemgrListenerStatus status);
-  void (* call) (PhonemgrListener *l, PhonemgrListenerCallStatus status, const char *phone);
+  void (* call_status) (PhonemgrListener *l, PhonemgrListenerCallStatus status, const char *phone, const char *name);
 };
 
 GQuark phonemgr_listener_error_quark	(void) G_GNUC_CONST;
