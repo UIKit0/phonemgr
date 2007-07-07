@@ -31,13 +31,19 @@ static char *call_statutes[] = {
 };
 
 static void
-call_status (PhonemgrListener *listener, PhonemgrListenerCallStatus status, const char *phone, const char *name)
+call_status (PhonemgrListener *listener, PhonemgrListenerCallStatus status, const char *phone, const char *name, gpointer user_data)
 {
 	g_message ("Got call status %s from %s (%s)", call_statutes[status], phone, name);
 }
 
 static void
-status (PhonemgrListener *listener, gint status)
+battery (PhonemgrListener *l, int percent, gboolean on_battery, gpointer user_data)
+{
+	g_message ("battery is %d%%, on %s", percent, on_battery ? "battery" : "mains");
+}
+
+static void
+status (PhonemgrListener *listener, gint status, gpointer user_data)
 {
 	g_message ("Got status %s (%d)", statuses[status], status);
 }
@@ -62,6 +68,8 @@ main (int argc, char **argv)
 			G_CALLBACK (status), (gpointer) listener);
 	g_signal_connect (G_OBJECT (listener), "call-status",
 			  G_CALLBACK (call_status), (gpointer) listener);
+	g_signal_connect (G_OBJECT (listener), "battery",
+			  G_CALLBACK (battery), (gpointer) listener);
 
 	if (phonemgr_listener_connect (listener, "00:12:D2:79:B7:33", &err)) {
 //	if (phonemgr_listener_connect (listener, "/dev/rfcomm0", &err)) {

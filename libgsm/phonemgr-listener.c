@@ -37,9 +37,22 @@
 static gpointer		 parent_class = NULL;
 
 typedef struct {
+	PhonemgrListenerCallStatus status;
+	char *number;
+	char *name;
+} PhoneMgrCall;
+
+typedef struct {
+	float batterylevel;
+	gn_power_source powersource;
+} PhoneMgrBattery;
+
+typedef struct {
 	int type;
 	union {
 		gn_sms *message;
+		PhoneMgrCall *call;
+		PhoneMgrBattery *battery;
 	};
 } AsyncSignal;
 
@@ -67,6 +80,10 @@ struct _PhonemgrListener
 	/* The previous call status */
 	gn_call_status prev_call_status;
 
+	/* Battery info */
+	float batterylevel;
+	gn_power_source powersource;
+
 	guint connected : 1;
 	guint terminated : 1;
 
@@ -91,6 +108,7 @@ enum {
 	MESSAGE_SIGNAL,
 	STATUS_SIGNAL,
 	CALL_STATUS_SIGNAL,
+	BATTERY_SIGNAL,
 	LAST_SIGNAL
 };
 
@@ -133,12 +151,23 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 		g_signal_new ("call-status",
 			      G_OBJECT_CLASS_TYPE (klass),
 			      G_SIGNAL_RUN_FIRST,
-			      G_STRUCT_OFFSET (PhonemgrListenerClass, status),
+			      G_STRUCT_OFFSET (PhonemgrListenerClass, call_status),
 			      NULL, NULL,
 			      phonemgr_marshal_VOID__UINT_STRING_STRING,
 			      G_TYPE_NONE,
 			      3,
 			      G_TYPE_UINT, G_TYPE_STRING, G_TYPE_STRING);
+
+	phonemgr_listener_signals[BATTERY_SIGNAL] =
+		g_signal_new ("battery",
+			      G_OBJECT_CLASS_TYPE (klass),
+			      G_SIGNAL_RUN_FIRST,
+			      G_STRUCT_OFFSET (PhonemgrListenerClass, battery),
+			      NULL, NULL,
+			      phonemgr_marshal_VOID__INT_BOOLEAN,
+			      G_TYPE_NONE,
+			      2,
+			      G_TYPE_INT, G_TYPE_BOOLEAN);
 
 	object_class->finalize = phonemgr_listener_finalize;
 
@@ -172,6 +201,16 @@ phonemgr_listener_emit_call_status (PhonemgrListener *l,
 	g_signal_emit (G_OBJECT (l),
 		       phonemgr_listener_signals[CALL_STATUS_SIGNAL],
 		       0, status, phone, name);
+}
+
+static void
+phonemgr_listener_emit_battery (PhonemgrListener *l,
+				int percent,
+				gboolean on_battery)
+{
+	g_signal_emit (G_OBJECT (l),
+		       phonemgr_listener_signals[BATTERY_SIGNAL],
+		       0, percent, on_battery);
 }
 
 static void
@@ -229,6 +268,8 @@ phonemgr_listener_init (PhonemgrListener *l)
 	l->supports_unread = TRUE;
 	l->default_mem = GN_MT_IN;
 	l->driver = NULL;
+	l->batterylevel = 1;
+	l->powersource = GN_PS_BATTERY;
 }
 
 static void
@@ -313,6 +354,20 @@ phonemgr_listener_push (PhonemgrListener *l)
 		g_message ("emitting message");
 		phonemgr_listener_emit_message (l, signal->message);
 		g_free (signal->message);
+	} else if (signal->type == CALL_STATUS_SIGNAL) {
+		g_message ("emitting call status");
+		phonemgr_listener_emit_call_status (l, signal->call->status,
+						    signal->call->number,
+						    signal->call->name);
+		g_free (signal->call->number);
+		g_free (signal->call->name);
+		g_free (signal->call);
+	} else if (signal->type == BATTERY_SIGNAL) {
+		g_message ("emitting battery");
+		phonemgr_listener_emit_battery (l,
+						(int) signal->battery->batterylevel,
+						signal->battery->powersource == GN_PS_BATTERY);
+		g_free (signal->battery);
 	} else {
 		g_assert_not_reached ();
 	}
@@ -332,8 +387,8 @@ phonemgr_listener_new_sms_cb (gn_sms *message, struct gn_statemachine *state, vo
 	signal->type = MESSAGE_SIGNAL;
 	/* The message is allocated on the stack in the driver, so copy it */
 	signal->message = g_memdup (message, sizeof (gn_sms));
-	g_async_queue_push (l->queue, signal);
 
+	g_async_queue_push (l->queue, signal);
 	g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
 
 	return GN_ERR_NONE;
@@ -343,6 +398,8 @@ static void
 phonemgr_listener_call_status (PhonemgrListener *l, gn_call_status call_status, const char *number, const char *name)
 {
 	PhonemgrListenerCallStatus status;
+	PhoneMgrCall *call;
+	AsyncSignal *signal;
 
 	if (call_status == l->prev_call_status)
 		return;
@@ -372,7 +429,17 @@ phonemgr_listener_call_status (PhonemgrListener *l, gn_call_status call_status, 
 		return;
 	l->prev_call_status = call_status;
 
-	phonemgr_listener_emit_call_status (l, status, number, name);
+	call = g_new0 (PhoneMgrCall, 1);
+	call->status = status;
+	call->number = g_strdup (number);
+	call->name = g_strdup (name);
+
+	signal = g_new0 (AsyncSignal, 1);
+	signal->type = CALL_STATUS_SIGNAL;
+	signal->call = call;
+
+	g_async_queue_push (l->queue, signal);
+	g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
 }
 
 static void
@@ -416,6 +483,43 @@ phonemgr_listener_call_notification_poll (PhonemgrListener *l)
 	} else {
 		phonemgr_listener_call_status (l, call->status, call->remote_number, call->remote_name);
 	}
+}
+
+static void
+phonemgr_listener_battery_poll (PhonemgrListener *l)
+{
+	float batterylevel = -1;
+	gn_power_source powersource = -1;
+	gn_battery_unit battery_unit = GN_BU_Arbitrary;
+
+	(&l->phone_state->data)->battery_level = &batterylevel;
+	(&l->phone_state->data)->power_source = &powersource;
+	(&l->phone_state->data)->battery_unit = &battery_unit;
+
+	if (gn_sm_functions(GN_OP_GetBatteryLevel, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+		return;
+
+	if (gn_sm_functions(GN_OP_GetPowersource, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+		return;
+
+	if (batterylevel != l->batterylevel || powersource != l->powersource) {
+		AsyncSignal *signal;
+
+		l->batterylevel = batterylevel;
+		l->powersource = powersource;
+
+		//FIXME fuckup the arbitrary values to percents
+
+		signal = g_new0 (AsyncSignal, 1);
+		signal->type = BATTERY_SIGNAL;
+		signal->battery = g_new0 (PhoneMgrBattery, 1);
+		signal->battery->batterylevel = batterylevel;
+		signal->battery->powersource = powersource;
+
+		g_async_queue_push (l->queue, signal);
+		g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
+	}
+
 }
 
 static void
@@ -472,6 +576,7 @@ phonemgr_listener_thread (PhonemgrListener *l)
 			else
 				phonemgr_listener_sms_notification_real_poll (l);
 			phonemgr_listener_call_notification_poll (l);
+			phonemgr_listener_battery_poll (l);
 
 			g_mutex_unlock (l->mutex);
 			g_usleep (POLL_TIMEOUT);
