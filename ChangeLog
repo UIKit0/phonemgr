@@ -1,5 +1,12 @@
 2007-07-07  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_battery_poll):
+	Only use 2 functions for reading the power info if the driver uses
+	2 different commands, handle arbitrary percentages the same way
+	xgnokii does
+
+2007-07-07  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/glibgsmtest.c: (call_status), (battery), (status), (main):
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_class_init),
 	(phonemgr_listener_emit_battery), (phonemgr_listener_init),

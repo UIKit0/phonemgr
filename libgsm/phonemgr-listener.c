@@ -496,11 +496,14 @@ phonemgr_listener_battery_poll (PhonemgrListener *l)
 	(&l->phone_state->data)->power_source = &powersource;
 	(&l->phone_state->data)->battery_unit = &battery_unit;
 
-	if (gn_sm_functions(GN_OP_GetBatteryLevel, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
-		return;
-
 	if (gn_sm_functions(GN_OP_GetPowersource, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
-		return;
+		powersource = GN_PS_BATTERY;
+
+	/* Some drivers will use the same function for battery level and power source, so optimise */
+	if (batterylevel == -1)
+		if (gn_sm_functions(GN_OP_GetBatteryLevel, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+			return;
+
 
 	if (batterylevel != l->batterylevel || powersource != l->powersource) {
 		AsyncSignal *signal;
@@ -508,7 +511,9 @@ phonemgr_listener_battery_poll (PhonemgrListener *l)
 		l->batterylevel = batterylevel;
 		l->powersource = powersource;
 
-		//FIXME fuckup the arbitrary values to percents
+		/* Probably not the best guess, but that's what xgnokii uses */
+		if (battery_unit == GN_BU_Arbitrary)
+			batterylevel *= 25;
 
 		signal = g_new0 (AsyncSignal, 1);
 		signal->type = BATTERY_SIGNAL;
