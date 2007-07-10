@@ -1,5 +1,10 @@
 2007-07-10  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-utils.c:
+	(phonemgr_utils_connection_is_supported): Remove test code
+
+2007-07-10  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-utils.c: (phonemgr_utils_connect),
 	(phonemgr_utils_connection_is_supported):
 	* libgsm/phonemgr-utils.h:

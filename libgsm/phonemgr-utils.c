@@ -408,8 +408,6 @@ phonemgr_utils_connection_is_supported (PhonemgrConnectionType type)
 
 	switch (type) {
 	case PHONEMGR_CONNECTION_BLUETOOTH:
-
-		return FALSE;
 		conntype = GN_CT_Bluetooth;
 		break;
 	case PHONEMGR_CONNECTION_SERIAL:
