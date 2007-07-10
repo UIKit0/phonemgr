@@ -290,7 +290,7 @@ bail:
 PhonemgrState *
 phonemgr_utils_connect (const char *device, const char *driver, GError **error)
 {
-	PhonemgrState *phonemgr_state = NULL;
+	PhonemgrState *phone_state = NULL;
 	char *config, **lines;
 	gn_data data;
 	struct gn_statemachine state;
@@ -303,7 +303,7 @@ phonemgr_utils_connect (const char *device, const char *driver, GError **error)
 	if (gn_cfg_memory_read ((const char **)lines) < 0) {
 		g_warning ("gn_cfg_memory_read");
 		g_strfreev (lines);
-		goto bail;
+		return NULL;
 	}
 	g_strfreev (lines);
 
@@ -311,41 +311,39 @@ phonemgr_utils_connect (const char *device, const char *driver, GError **error)
 
 	if (gn_cfg_phone_load("", &state) < 0) {
 		g_warning ("gn_cfg_phone_load");
-		goto bail;
+		return NULL;
 	}
 
 	err = gn_gsm_initialise(&state);
 	if (err != GN_ERR_NONE) {
 		PhoneMgrError perr;
 		g_warning ("gn_gsm_initialise: %s",
-				phonemgr_utils_gn_error_to_string (err, &perr));
-		goto bail;
+			   phonemgr_utils_gn_error_to_string (err, &perr));
+		return NULL;
 	}
 
-	phonemgr_state = g_new (PhonemgrState, 1);
-	phonemgr_state->data = data;
-	phonemgr_state->state = state;
+	phone_state = g_new (PhonemgrState, 1);
+	phone_state->data = data;
+	phone_state->state = state;
 
-bail:
-
-	return phonemgr_state;
+	return phone_state;
 }
 
 void
-phonemgr_utils_disconnect (PhonemgrState *state)
+phonemgr_utils_disconnect (PhonemgrState *phone_state)
 {
-	g_return_if_fail (state != NULL);
+	g_return_if_fail (phone_state != NULL);
 
-	gn_sm_functions (GN_OP_Terminate, NULL, &state->state);
-	phonemgr_utils_gn_statemachine_clear (&state->state);
-	gn_data_clear (&state->data);
+	gn_lib_phone_close (&phone_state->state);
+	phonemgr_utils_gn_statemachine_clear (&phone_state->state);
+	gn_data_clear (&phone_state->data);
 }
 
 void
-phonemgr_utils_free (PhonemgrState *state)
+phonemgr_utils_free (PhonemgrState *phone_state)
 {
-	g_return_if_fail (state != NULL);
-	g_free (state);
+	g_return_if_fail (phone_state != NULL);
+	g_free (phone_state);
 }
 
 void

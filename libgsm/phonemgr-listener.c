@@ -68,17 +68,9 @@ struct _PhonemgrListener
 
 	char *driver;
 
-	/* The number of unread messages, or the number
-	 * of messages in the folder if unread reporting isn't
-	 * supported */
-	guint old_state;
-	/* The default folder for new messages, we should use
-	 * smsstatus.new_message_store instead, but nothing 
-	 * sets it */
-	gn_memory_type default_mem;
-
 	/* The previous call status */
 	gn_call_status prev_call_status;
+	int call_id;
 
 	/* Battery info */
 	float batterylevel;
@@ -86,10 +78,6 @@ struct _PhonemgrListener
 
 	guint connected : 1;
 	guint terminated : 1;
-
-	/* Whether the driver supports reporting unread through
-	 * GN_OP_GetSMSStatus */
-	guint supports_unread : 1;
 
 	/* Whether the driver supports GN_OP_OnSMS */
 	guint supports_sms_notif : 1;
@@ -101,7 +89,6 @@ static void phonemgr_listener_finalize (GObject *obj);
 
 #ifndef DUMMY
 static void phonemgr_listener_thread (PhonemgrListener *l);
-static void phonemgr_listener_sms_notification_real_poll (PhonemgrListener *l);
 #endif
 
 enum {
@@ -264,9 +251,6 @@ phonemgr_listener_init (PhonemgrListener *l)
 {
 	l->queue = g_async_queue_new ();
 	l->mutex = g_mutex_new ();
-	l->old_state = 0;
-	l->supports_unread = TRUE;
-	l->default_mem = GN_MT_IN;
 	l->driver = NULL;
 	l->batterylevel = 1;
 	l->powersource = GN_PS_BATTERY;
@@ -318,14 +302,6 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 			//FIXME
 			return FALSE;
 		}
-	}
-
-	if (strcmp (l->driver, PHONEMGR_DEFAULT_DRIVER) == 0) {
-		/* The AT driver doesn't support reading the number of unread messages:
-		 * http://bugzilla.gnome.org/show_bug.cgi?id=330773 */
-		l->supports_unread = FALSE;
-		/* The AT driver doesn't support the GN_MT_IN memory type, as per atgen.c */
-		l->default_mem = GN_MT_ME;
 	}
 
 	g_message ("Using driver '%s'", l->driver);
@@ -451,6 +427,7 @@ phonemgr_listener_new_call_cb (gn_call_status call_status, gn_call_info *call_in
 	/* We should ignore things that aren't the first call, but we have no idea of what
 	 * call ID the drivers might be using */
 
+	l->call_id = call_info->call_id;
 	gn_call_notifier (call_status, call_info, state);
 
 	phonemgr_listener_call_status (l, call_status, call_info->number, call_info->name);
@@ -480,8 +457,10 @@ phonemgr_listener_call_notification_poll (PhonemgrListener *l)
 	if (call == NULL) {
 		/* Call is NULL when it's GN_CALL_Idle */
 		phonemgr_listener_call_status (l, GN_CALL_Idle, NULL, NULL);
+		l->call_id = 0;
 	} else {
 		phonemgr_listener_call_status (l, call->status, call->remote_number, call->remote_name);
+		l->call_id = call->call_id;
 	}
 }
 
@@ -537,6 +516,9 @@ phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 		l->phone_state->data.callback_data = l;
 		if (gn_sm_functions (GN_OP_OnSMS, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
 			l->supports_sms_notif = TRUE;
+			g_message ("driver supports sms notifications");
+		} else {
+			g_message ("driver doesn't support sms nots");
 		}
 	} else {
 		if (l->supports_sms_notif == FALSE)
@@ -578,8 +560,6 @@ phonemgr_listener_thread (PhonemgrListener *l)
 		if (g_mutex_trylock (l->mutex) != FALSE) {
 			if (l->supports_sms_notif != FALSE)
 				phonemgr_listener_sms_notification_soft_poll (l);
-			else
-				phonemgr_listener_sms_notification_real_poll (l);
 			phonemgr_listener_call_notification_poll (l);
 			phonemgr_listener_battery_poll (l);
 
@@ -611,7 +591,6 @@ phonemgr_listener_disconnect (PhonemgrListener *l)
 	g_free (l->driver);
 	l->driver = NULL;
 
-	l->old_state = 0;
 	l->connected = FALSE;
 	//FIXME more to kill?
 	phonemgr_utils_disconnect (l->phone_state);
@@ -619,6 +598,18 @@ phonemgr_listener_disconnect (PhonemgrListener *l)
 	l->phone_state = NULL;
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_IDLE);
+}
+
+void
+phonemgr_listener_cancel_call (PhonemgrListener *l)
+{
+	//FIXME
+}
+
+void
+phonemgr_listener_answer_call (PhonemgrListener *l)
+{
+	//FIXME
 }
 
 void
@@ -721,110 +712,6 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 
 	if (error != GN_ERR_NONE)
 		g_warning ("Can't set date: %s", phonemgr_utils_gn_error_to_string (error, &perr));
-}
-
-static void
-phonemgr_listener_sms_notification_real_poll (PhonemgrListener *l)
-{
-	gn_sms_status smsstatus = {0, 0, 0, 0};
-	gn_sms_folder_list folderlist;
-	gn_sms_folder folder;
-	guint count, read, unread;
-	int i, error, errcount;
-
-	g_return_if_fail (l->connected != FALSE);
-
-	errcount = count = read = unread = 0;
-
-	gn_data_clear (&l->phone_state->data);
-
-	/* Push battery status */
-	//FIXME implement
-
-	l->phone_state->data.sms_status = &smsstatus;
-
-	if (gn_sm_functions(GN_OP_GetSMSStatus, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE) {
-		g_warning ("gn_sm_functions");
-		return;
-	}
-
-	if (l->supports_unread != FALSE) {
-		if (smsstatus.unread > 0 && l->old_state != smsstatus.unread) {
-			l->old_state = smsstatus.unread;
-			unread = smsstatus.unread;
-		} else {
-			l->old_state = smsstatus.unread;
-			return;
-		}
-	} else {
-		if (smsstatus.number != l->old_state) {
-			if (smsstatus.number > l->old_state) {
-				/* We have more messages now, so have a guess
-				 * that the new ones are unread */
-				unread = smsstatus.number - l->old_state;
-			} else {
-				/* We don't know how many are really unread, so
-				 * we assume all of them are */
-				l->old_state = smsstatus.number;
-				unread = smsstatus.number;
-			}
-		} else {
-			return;
-		}
-	}
-
-	folder.folder_id = 0;
-	l->phone_state->data.sms_folder = &folder;
-	l->phone_state->data.sms_folder_list = &folderlist;
-
-	i = smsstatus.number;
-
-	//FIXME look in all of GN_OP_GetSMSFolders, but doesn't work for AT
-	//FIXME use GN_OP_OnSMS as in smsreader() in gnokii-sms.c,
-	//FIXME doesn't work on all devices though
-	while (count < smsstatus.number && read < unread && i >= 0) {
-		gn_sms *message;
-
-		message = g_new0 (gn_sms, 1);
-		memset (message, 0, sizeof (gn_sms));
-		message->memory_type = l->default_mem;
-		message->number = i;
-		l->phone_state->data.sms = message;
-
-		error = gn_sms_get (&l->phone_state->data, &l->phone_state->state);
-		if (error == GN_ERR_NONE) {
-			if (message->status == GN_SMS_Unread) {
-				AsyncSignal *signal;
-
-				g_message ("message pushed");
-
-				signal = g_new0 (AsyncSignal, 1);
-				signal->type = MESSAGE_SIGNAL;
-				signal->message = message;
-				g_async_queue_push (l->queue, signal);
-
-				g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
-
-				read++;
-			} else {
-				g_free (message);
-			}
-			count++;
-		} else {
-			if (error == GN_ERR_EMPTYLOCATION) {
-				error = GN_ERR_NONE;
-				count++;
-			} else if (error == GN_ERR_INVALIDMEMORYTYPE) {
-				g_warning ("invalid memory type, can't continue");
-				break;
-			} else {
-				errcount++;
-			}
-			if (errcount > 25)
-				break;
-		}
-		i--;
-	}
 }
 
 gboolean

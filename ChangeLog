@@ -1,3 +1,40 @@
+2007-07-10  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: Require the latest gnokii CVS (newer than
+	0.6.17)
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_init),
+	(phonemgr_listener_connect), (phonemgr_listener_new_call_cb),
+	(phonemgr_listener_call_notification_poll),
+	(phonemgr_listener_set_sms_notification),
+	(phonemgr_listener_thread), (phonemgr_listener_disconnect),
+	(phonemgr_listener_cancel_call), (phonemgr_listener_answer_call):
+	* libgsm/phonemgr-listener.h:
+	Remove actual polling for new SMSes, and rely on the driver
+	notifications, it removes gross hacks, and notifications is
+	supported by our biggest user, the AT driver (Closes: #330773)
+
+	Add stubs for answer/cancel call
+
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_connect),
+	(phonemgr_utils_disconnect), (phonemgr_utils_free):
+	* libgsm/phonemgr-utils.h: some prototypes cleanups
+
+2007-07-10  Bastien Nocera  <hadess@hadess.net>
+
+	reviewed by: <delete if not using a buddy>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_init),
+	(phonemgr_listener_connect), (phonemgr_listener_new_call_cb),
+	(phonemgr_listener_call_notification_poll),
+	(phonemgr_listener_set_sms_notification),
+	(phonemgr_listener_thread), (phonemgr_listener_disconnect),
+	(phonemgr_listener_cancel_call), (phonemgr_listener_answer_call):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_connect),
+	(phonemgr_utils_disconnect), (phonemgr_utils_free):
+	* libgsm/phonemgr-utils.h:
+
 2007-07-07  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_battery_poll):

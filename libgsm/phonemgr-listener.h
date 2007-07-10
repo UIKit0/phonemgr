@@ -73,6 +73,8 @@ void phonemgr_listener_disconnect	(PhonemgrListener *listener);
 void phonemgr_listener_queue_message	(PhonemgrListener *listener,
 					 const char *number,
 					 const char *message);
+void phonemgr_listener_cancel_call	(PhonemgrListener *l);
+void phonemgr_listener_answer_call	(PhonemgrListener *l);
 void phonemgr_listener_set_time		(PhonemgrListener *l,
 					 time_t time);
 

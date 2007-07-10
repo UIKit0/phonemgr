@@ -39,7 +39,7 @@ struct PhonemgrState {
 };
 
 char *phonemgr_utils_write_config (const char *driver, const char *addr);
-char *phonemgr_utils_guess_driver (PhonemgrState *state,
+char *phonemgr_utils_guess_driver (PhonemgrState *phone_state,
 				   const char *device, GError **error);
 void phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state);
 const char *phonemgr_utils_gn_error_to_string (gn_error error,
@@ -47,8 +47,8 @@ const char *phonemgr_utils_gn_error_to_string (gn_error error,
 
 PhonemgrState *phonemgr_utils_connect (const char *device, const char *driver,
 				       GError **error);
-void phonemgr_utils_disconnect (PhonemgrState *state);
-void phonemgr_utils_free (PhonemgrState *state);
+void phonemgr_utils_disconnect (PhonemgrState *phone_state);
+void phonemgr_utils_free (PhonemgrState *phone_state);
 void phonemgr_utils_tell_driver (const char *addr);
 time_t gn_timestamp_to_gtime (gn_timestamp stamp);
 
