@@ -48,9 +48,16 @@ PKG_CHECK_MODULES(TMP_EVO, libebook-1.2,
 
 PKG_CHECK_MODULES(PHONEMGR, gtk+-2.0 >= 2.10 glib-2.0 libgnomeui-2.0 >= 1.110.0
 	libgnome-2.0 gdk-pixbuf-2.0 gconf-2.0 libbtctl >= 0.4.1
-	libglade-2.0 gnome-bluetooth $GNOKII_REQS $evo_pc_file
-	gmodule-2.0
+	libglade-2.0 gnome-bluetooth $evo_pc_file
+	gmodule-2.0 dbus-glib-1
 )
+
+DBUSLIBDIR="`$PKG_CONFIG dbus-glib-1 --variable=libdir`"
+DBUSBINDIR="`echo $DBUSLIBDIR | sed -e s/lib/bin/`"
+AC_PATH_PROG([DBUS_BIND], [dbus-binding-tool], [no], [$DBUSBINDIR:$PATH])
+if test "x$DBUS_BIND" = "xno"; then
+	AC_MSG_WARN([dbus-binding-tool not found])
+fi
 
 saved_CPPFLAGS="$CPPFLAGS"
 CPPFLAGS="$CPPFLAGS $TMP_EVO_CFLAGS"

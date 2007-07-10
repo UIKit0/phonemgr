@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/org/gnome/phonemgr/Battery">
+  <interface name="org.gnome.totem.Battery">
+    <signal name="BatteryStateChanged">
+      <arg type="u" name="BatteryIndex" />
+      <arg type="u" name="Percentage" />
+      <arg type="b" name="OnAC" />
+    </signal>
+    <signal name="NumberBatteriesChanged">
+      <arg type="u" name="NumBatteries" />
+    </signal>
+  </interface>
+</node>

@@ -15,12 +15,13 @@ libgsmwrap_la_SOURCES = \
 	phonemgr-utils.c \
 	phonemgr-utils.h \
 	phonemgr-marshal.c phonemgr-marshal.h
+libgsmwrap_la_LIBADD = $(LIBGSM_LIBS)
 
 glibgsmtest_SOURCES = glibgsmtest.c
-glibgsmtest_LDADD = $(LIBGSM_LIBS) libgsmwrap.la
+glibgsmtest_LDADD = libgsmwrap.la
 
 gnokii_identify_SOURCES = gnokii-identify.c
-gnokii_identify_LDADD = $(LIBGSM_LIBS) libgsmwrap.la
+gnokii_identify_LDADD = libgsmwrap.la
 
 phones_DATA = phones.xml
 phonesdir = $(datadir)/$(PACKAGE)

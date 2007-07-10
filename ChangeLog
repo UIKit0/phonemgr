@@ -1,3 +1,16 @@
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: Add dbus dependency
+	* libgsm/Makefile.am: Only bind the .la to libgnokii, rest will
+	fall into place
+	* libgsm/phonemgr-marshal.list: add marshaller for the D-Bus exported
+	objects
+	* src/Makefile.am:
+	* src/main.c: (phonemgr_object_class_init), (phonemgr_object_init),
+	(main):
+	* src/org_gnome_phonemgr_Battery.xml: Add a D-Bus interface to send
+	out signals when battery status changes
+
 2007-07-10  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-utils.c:

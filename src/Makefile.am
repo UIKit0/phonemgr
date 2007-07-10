@@ -5,11 +5,13 @@ AM_CPPFLAGS = \
 	-DDATA_DIR="\"$(datadir)/$(PACKAGE)\"" \
 	-DVERSION="\"$(VERSION)\"" \
 	-DPACKAGE="\"$(PACKAGE)\"" \
-	-I$(srcdir)/../libgsm
+	-I$(srcdir)/../libgsm \
+	-I.
 
 bin_PROGRAMS = gnome-phone-manager
 
 gnome_phone_manager_SOURCES =		\
+	phonemgr-battery-interface.h	\
 	main.c				\
 	icon.c				\
 	app.h				\
@@ -24,7 +26,12 @@ gnome_phone_manager_LDADD = \
 	$(PHONEMGR_LIBS) \
 	../libgsm/libgsmwrap.la
 
-EXTRA_DIST = gnome-phone-manager.desktop.in
+BUILT_SOURCES = phonemgr-battery-interface.h
+
+phonemgr-battery-interface.h: org_gnome_phonemgr_Battery.xml
+	$(DBUS_BIND) --prefix=phonemgr_object --mode=glib-server $< > $@
+
+EXTRA_DIST = gnome-phone-manager.desktop.in org_gnome_phonemgr_Battery.xml
 
 desktop_in_files = gnome-phone-manager.desktop.in
 desktopdir = $(datadir)/applications
