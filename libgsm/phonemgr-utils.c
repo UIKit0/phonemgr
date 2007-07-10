@@ -296,6 +296,13 @@ phonemgr_utils_connect (const char *device, const char *driver, GError **error)
 	struct gn_statemachine state;
 	gn_error err;
 
+	if (phonemgr_utils_is_bluetooth (device) != FALSE) {
+		if (phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE) {
+			//FIXME set the error message
+			return NULL;
+		}
+	}
+
 	config = phonemgr_utils_write_config (driver ? driver : PHONEMGR_DEFAULT_DRIVER, device);
 	lines = g_strsplit (config, "\n", -1);
 	g_free (config);
@@ -392,5 +399,36 @@ gn_timestamp_to_gtime (gn_timestamp stamp)
 	g_free (date);
 
 	return time;
+}
+
+gboolean
+phonemgr_utils_connection_is_supported (PhonemgrConnectionType type)
+{
+	gn_connection_type conntype;
+
+	switch (type) {
+	case PHONEMGR_CONNECTION_BLUETOOTH:
+
+		return FALSE;
+		conntype = GN_CT_Bluetooth;
+		break;
+	case PHONEMGR_CONNECTION_SERIAL:
+		conntype = GN_CT_Serial;
+		break;
+	case PHONEMGR_CONNECTION_IRDA:
+		conntype = GN_CT_Irda;
+		if (!gn_lib_is_connectiontype_supported (conntype))
+			conntype = GN_CT_Infrared;
+		break;
+	case PHONEMGR_CONNECTION_USB:
+		conntype = GN_CT_DKU2LIBUSB;
+		if (!gn_lib_is_connectiontype_supported (conntype))
+			conntype = GN_CT_DKU2;
+		break;
+	default:
+		g_assert_not_reached ();
+	}
+
+	return gn_lib_is_connectiontype_supported (conntype);
 }
 

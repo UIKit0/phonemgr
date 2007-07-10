@@ -7,6 +7,7 @@
 
 #include "app.h"
 #include "e-phone-entry.h"
+#include "phonemgr-utils.h"
 
 #include <gnomebt-chooser.h>
 
@@ -156,9 +157,9 @@ set_dependent_widget (MyApp *app, int conn_type, gboolean active)
 	switch (conn_type) {
 		case CONNECTION_BLUETOOTH:
 			/* only set sensitive if bluetooth available */
-			if (app->btctl == NULL)
+			if (app->btctl == NULL || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
 				active = FALSE;
-			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "btchoose"));
+			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "bluetooth_box"));
 			gtk_widget_set_sensitive (w, active);
 			break;
 		case CONNECTION_OTHER:
@@ -256,8 +257,6 @@ populate_prefs (MyApp *app)
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w),
 			gconf_client_get_bool (app->client,
 				CONFBASE"/sound_alert", NULL));
-
-	/* TODO: if Bluetooth isn't available, disable the bluetooth radio */
 
 	S_ACTIVE("btdevice",  CONNECTION_BLUETOOTH);
 

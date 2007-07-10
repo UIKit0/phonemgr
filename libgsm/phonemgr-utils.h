@@ -31,6 +31,13 @@ G_BEGIN_DECLS
 #define PHONEMGR_DEFAULT_DRIVER "AT"
 #define PHONEMGR_CONDERR_STR(err) (err ? err->message : "No reason")
 
+typedef enum {
+	PHONEMGR_CONNECTION_BLUETOOTH,
+	PHONEMGR_CONNECTION_SERIAL,
+	PHONEMGR_CONNECTION_IRDA,
+	PHONEMGR_CONNECTION_USB
+} PhonemgrConnectionType;
+
 typedef struct PhonemgrState PhonemgrState;
 
 struct PhonemgrState {
@@ -50,6 +57,7 @@ PhonemgrState *phonemgr_utils_connect (const char *device, const char *driver,
 void phonemgr_utils_disconnect (PhonemgrState *phone_state);
 void phonemgr_utils_free (PhonemgrState *phone_state);
 void phonemgr_utils_tell_driver (const char *addr);
+gboolean phonemgr_utils_connection_is_supported (PhonemgrConnectionType type);
 time_t gn_timestamp_to_gtime (gn_timestamp stamp);
 
 G_END_DECLS
