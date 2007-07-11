@@ -193,11 +193,11 @@ phonemgr_listener_emit_call_status (PhonemgrListener *l,
 static void
 phonemgr_listener_emit_battery (PhonemgrListener *l,
 				int percent,
-				gboolean on_battery)
+				gboolean on_ac)
 {
 	g_signal_emit (G_OBJECT (l),
 		       phonemgr_listener_signals[BATTERY_SIGNAL],
-		       0, percent, on_battery);
+		       0, percent, on_ac);
 }
 
 static void
@@ -342,7 +342,7 @@ phonemgr_listener_push (PhonemgrListener *l)
 		g_message ("emitting battery");
 		phonemgr_listener_emit_battery (l,
 						(int) signal->battery->batterylevel,
-						signal->battery->powersource == GN_PS_BATTERY);
+						signal->battery->powersource != GN_PS_BATTERY);
 		g_free (signal->battery);
 	} else {
 		g_assert_not_reached ();

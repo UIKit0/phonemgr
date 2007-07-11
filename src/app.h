@@ -7,6 +7,7 @@
 #include <gconf/gconf-client.h>
 
 #include "phonemgr-listener.h"
+#include "phonemgr-object.h"
 
 #include <gnomebt-controller.h>
 
@@ -26,6 +27,7 @@ typedef struct _appinfo {
 	GConfClient *client;
 	GnomebtController   *btctl;
 	PhonemgrListener    *listener;
+	PhonemgrObject      *object;
 
 	/* connection state */
 	char   *devname;
@@ -46,6 +48,7 @@ typedef struct _appinfo {
 	gulong  message_cb;
 	gulong  reconnector;
 	gulong  popup_cb;
+	gulong  battery_cb;
 } MyApp;
 
 typedef struct _message {

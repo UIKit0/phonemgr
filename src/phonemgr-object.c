@@ -55,11 +55,17 @@ phonemgr_object_class_init (PhonemgrObjectClass *klass)
 void
 phonemgr_object_emit_number_batteries_changed (PhonemgrObject *o, guint num_batteries)
 {
+	g_signal_emit (G_OBJECT (o),
+		       phonemgr_object_signals[NUMBER_BATTERIES_CHANGED],
+		       0, num_batteries);
 }
 
 void
 phonemgr_object_emit_battery_state_changed (PhonemgrObject *o, guint index, guint percentage, gboolean on_ac)
 {
+	g_signal_emit (G_OBJECT (o),
+		       phonemgr_object_signals[BATTERY_STATE_CHANGED],
+		       0, index, percentage, on_ac);
 }
 
 static void

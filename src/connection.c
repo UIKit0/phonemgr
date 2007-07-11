@@ -150,9 +150,11 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 			break;
 		case PHONEMGR_LISTENER_CONNECTED:
 			g_message ("Serial port connected");
+			phonemgr_object_emit_number_batteries_changed (app->object, 1);
 			break;
 		case PHONEMGR_LISTENER_DISCONNECTING:
 			g_message ("Closing serial port connection");
+			phonemgr_object_emit_number_batteries_changed (app->object, 0);
 			break;
 		case PHONEMGR_LISTENER_ERROR:
 			set_icon_state (app);
@@ -185,6 +187,12 @@ on_message (PhonemgrListener *listener, char *sender,
 
 	set_icon_state (app);
 	play_alert (app);
+}
+
+static void
+on_battery (PhonemgrListener *listener, int percent, gboolean on_ac, MyApp *app)
+{
+	phonemgr_object_emit_battery_state_changed (app->object, 0, percent, on_ac);
 }
 
 void
@@ -229,6 +237,8 @@ initialise_connection (MyApp *app)
 			G_CALLBACK (on_status), (gpointer) app);
 	app->message_cb = g_signal_connect (G_OBJECT (app->listener), "message",
 			G_CALLBACK (on_message), (gpointer) app);
+	app->battery_cb = g_signal_connect (G_OBJECT (app->listener), "battery",
+						G_CALLBACK (on_battery), (gpointer) app);
 	app->reconnector = g_timeout_add_seconds (20, (GSourceFunc)attempt_reconnect,
 						  (gpointer)app);
 	gdk_threads_init ();

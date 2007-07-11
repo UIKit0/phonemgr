@@ -9,7 +9,6 @@ int
 main (int argc, char **argv)
 {
 	MyApp *app;
-	PhonemgrObject *o;
 
 	g_thread_init (NULL);
 
@@ -26,7 +25,7 @@ main (int argc, char **argv)
 
 	gconf_init (argc, argv, NULL);
 
-	o = g_object_new (phonemgr_object_get_type (), NULL);
+	app->object = g_object_new (phonemgr_object_get_type (), NULL);
 
 	app->client = gconf_client_get_default ();
 	gconf_client_add_dir (app->client, CONFBASE,
@@ -54,7 +53,7 @@ main (int argc, char **argv)
 	g_object_unref (app->listener);
 	g_object_unref (app->btctl);
 	g_object_unref (app->client);
-	g_object_unref (o);
+	g_object_unref (app->object);
 
 	return 0;
 }

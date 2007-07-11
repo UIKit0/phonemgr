@@ -1,5 +1,23 @@
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/glibgsmtest.c: (battery):
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_battery),
+	(phonemgr_listener_push):
+	* libgsm/phonemgr-listener.h: Change the public API to use on_ac
+	rather than on_battery to match gnome-power-manager's external API
+
+	* src/app.h:
+	* src/connection.c: (on_status), (on_battery),
+	(initialise_connection):
+	* src/main.c: (main):
+	* src/phonemgr-object.c:
+	(phonemgr_object_emit_number_batteries_changed),
+	(phonemgr_object_emit_battery_state_changed):
+	* src/phonemgr-object.h: Emit battery related signals on the D-Bus
+	interface for gnome-power-manager's benefit (Closes: #455095)
+
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
 	* src/app.h:
 	* src/connection.c: (on_status), (free_connection),
 	(initialise_connection): Remove an unneeded timeout

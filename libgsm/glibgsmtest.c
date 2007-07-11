@@ -37,9 +37,9 @@ call_status (PhonemgrListener *listener, PhonemgrListenerCallStatus status, cons
 }
 
 static void
-battery (PhonemgrListener *l, int percent, gboolean on_battery, gpointer user_data)
+battery (PhonemgrListener *l, int percent, gboolean on_ac, gpointer user_data)
 {
-	g_message ("battery is %d%%, on %s", percent, on_battery ? "battery" : "mains");
+	g_message ("battery is %d%%, on %s", percent, on_ac ? "mains" : "battery");
 }
 
 static void
