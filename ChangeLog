@@ -1,3 +1,8 @@
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
+	* src/connection.c: (initialise_connection): Make it compile again
+	with F7's glib
+
 2007-07-11  Christian Persch  <chpe@gnome.org>
 
 	* configure.in:
