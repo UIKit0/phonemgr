@@ -1,5 +1,14 @@
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
+	* configure.in:
+	* src/app.h:
+	* ui/Makefile.am:
+	* ui/gnome-phone-manager.schemas.in: Add a schemas file,
+	remove the /prefs subdir to gnome-phone-manager GConf entries,
+	it's all prefs anyway (Closes: #455841)
+
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
 	* src/icon.c: (tray_icon_popup_menu_cb):
 	* src/ui.c: (apply_prefs), (prefs_dialog_response), (ui_init),
 	(ui_hide), (show_prefs_window):

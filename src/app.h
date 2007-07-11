@@ -87,7 +87,7 @@ enum {
     ICON_ERROR
 };
 
-#define CONFBASE "/apps/gnome-phone-manager/prefs"
+#define CONFBASE "/apps/gnome-phone-manager"
 
 enum {
 	CONNECTION_BLUETOOTH,
