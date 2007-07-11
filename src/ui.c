@@ -1,7 +1,7 @@
 
+#include <glib/gi18n.h>
 #include <stdlib.h>
 #include <glade/glade.h>
-#include <libgnome/gnome-sound.h>
 #include <time.h>
 #include <string.h>
 
@@ -68,18 +68,34 @@ bigger_label (GladeXML *xml, const char *name)
 	g_free (str_final);
 }
 
+static char *
+get_resource (MyApp *app, char *uiresname)
+{
+	char *fname;
+
+	fname = g_build_filename ("..", "ui", uiresname, NULL);
+
+	if (g_file_test (fname, G_FILE_TEST_EXISTS) == FALSE) {
+		g_free (fname);
+		fname = g_build_filename (DATA_DIR, uiresname, NULL);
+	}
+
+	if (g_file_test (fname, G_FILE_TEST_EXISTS) == FALSE) {
+		g_free (fname);
+		fname = NULL;
+	}
+
+	return fname;
+}
+
 static
 GladeXML *get_ui (MyApp *app, char *widget)
 {
 	char *fname;
 	GladeXML *ui;
 
-	if (g_file_test ("../ui/phonemgr.glade", G_FILE_TEST_EXISTS))
-		fname = g_strdup ("../ui/phonemgr.glade");
-	else
-		fname = gnome_program_locate_file (app->program,
-					GNOME_FILE_DOMAIN_APP_DATADIR,
-					"phonemgr.glade", FALSE, NULL);
+	fname = get_resource (app, "phonemgr.glade");
+
 	ui = glade_xml_new (fname, widget, NULL);
 	g_free (fname);
 
@@ -92,25 +108,29 @@ GladeXML *get_ui (MyApp *app, char *widget)
 	return ui;
 }
 
-static char *
-get_resource (MyApp *app, char *uiresname)
+static void
+play_sound (MyApp *app, const char *filename)
 {
-	char *fname;
+	GstElement *audio_sink;
+	char *uri;
 
-	fname = gnome_program_locate_file (app->program,
-				GNOME_FILE_DOMAIN_APP_DATADIR,
-				uiresname,
-				TRUE, NULL);
-
-	if (fname == NULL)
-		fname = g_strdup_printf ("../ui/%s", uiresname);
-
-	if (! g_file_test (fname, G_FILE_TEST_EXISTS)) {
-		fname = NULL;
-		g_free (fname);
+	/* Setup the playbin */
+	if (app->playbin == NULL) {
+		audio_sink = gst_element_factory_make ("gconfaudiosink", "audio-sink");
+		if (audio_sink == NULL)
+			audio_sink = gst_element_factory_make ("autoaudiosink", "audio-sink");
+		if (g_object_class_find_property (G_OBJECT_GET_CLASS (audio_sink), "profile"))
+			g_object_set (G_OBJECT (audio_sink), "profile", 0, NULL);
+		app->playbin = gst_element_factory_make ("playbin", "play");
+		g_object_set (app->playbin, "audio-sink", audio_sink, NULL);
 	}
 
-	return fname;
+	/* Play the file */
+	uri = g_filename_to_uri (filename, NULL, NULL);
+	gst_element_set_state (app->playbin, GST_STATE_NULL);
+	g_object_set (G_OBJECT (app->playbin), "uri", uri, NULL);
+	gst_element_set_state (app->playbin, GST_STATE_PLAYING);
+	g_free (uri);
 }
 
 static gboolean
@@ -121,7 +141,7 @@ idle_play_alert (MyApp *app)
 	if (gconf_client_get_bool (app->client, CONFBASE"/sound_alert", NULL)) {
 		fname = get_resource (app, "alert.wav");
 		if (fname) {
-			gnome_sound_play (fname);
+			play_sound (app, fname);
 			g_free (fname);
 		} else {
 			g_warning ("Couldn't find sound file %s", fname);

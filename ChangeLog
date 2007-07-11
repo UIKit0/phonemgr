@@ -1,5 +1,31 @@
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
+	* configure.in: require a newer gnome-bluetooth to get a fixed
+	pkgconfig file for libgnomeui includes
+	add GStreamer dependency to play our sound alert
+
+	* libgsm/Makefile.am:
+	* libgsm/gnokii-identify.c: Removed, deprecated by the --identify
+	switch in gnome-phone-manager
+
+	* src/menu.c: (about_activated), (construct_menu): Port to GtkAbout,
+	use Gtk stock icons instead of GNOME ones
+
+	* src/ui.c: (get_resource), (get_ui), (play_sound),
+	(idle_play_alert): Use GStreamer to play the alerts, remove GNOME
+	dependency for finding resource files
+
+	* src/main.c: (main): Remove the GNOME dependencies, use GOption
+	to add the --identify switch
+
+	* src/icon.c: (load_icon):
+	* src/app.h:
+	* src/connection.c: Remove GNOME dep
+
+	(Closes: #455837)
+
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
 	* src/gnome-phone-manager.desktop.in: Fix wonky desktop file,
 	thanks to Richard Hughes
 

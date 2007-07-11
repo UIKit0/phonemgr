@@ -2,18 +2,15 @@
 #define _APP_H
 
 #include <gtk/gtk.h>
-#include <gnome.h>
 #include <glade/glade.h>
 #include <gconf/gconf-client.h>
+#include <gst/gst.h>
+#include <gnomebt-controller.h>
 
 #include "phonemgr-listener.h"
 #include "phonemgr-object.h"
 
-#include <gnomebt-controller.h>
-
 typedef struct _appinfo {
-	GnomeProgram	*program;
-
 	/* gui stuff */
 	GtkStatusIcon *tray_icon;
 	GtkMenu *menu;
@@ -28,6 +25,7 @@ typedef struct _appinfo {
 	GnomebtController   *btctl;
 	PhonemgrListener    *listener;
 	PhonemgrObject      *object;
+	GstElement *playbin;
 
 	/* connection state */
 	char   *devname;

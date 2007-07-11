@@ -1,6 +1,8 @@
 
 #include <stdlib.h>
+#include <string.h>
 #include <glib.h>
+#include <glib/gi18n.h>
 
 #include "app.h"
 

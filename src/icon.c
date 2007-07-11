@@ -1,9 +1,8 @@
 
-
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-#include <gnome.h>
 
 #include "app.h"
 
@@ -34,25 +33,20 @@ GdkPixbuf *load_icon (MyApp *app, const char *iconname, int size)
 {
 	char *fname;
 	GdkPixbuf *buf;
-	GError *err=NULL;
-	fname = gnome_program_locate_file (app->program,
-					   GNOME_FILE_DOMAIN_APP_DATADIR,
-					   iconname,
-					   TRUE, NULL);
+	GError *err = NULL;
 
-	if (fname == NULL)
-		fname = gnome_program_locate_file (app->program,
-						   GNOME_FILE_DOMAIN_DATADIR,
-						   iconname,
-						   TRUE, NULL);
-
-	if (fname == NULL)
-		fname = g_strdup_printf ("../ui/%s", iconname);
-
+	fname = g_build_filename (DATA_DIR, iconname, NULL);
 	buf = gdk_pixbuf_new_from_file_at_size (fname, size, size, &err);
+	if (buf == NULL) {
+		g_free (fname);
+		fname = g_build_filename ("..", "ui", iconname, NULL);
+		g_error_free (err);
+		buf = gdk_pixbuf_new_from_file_at_size (fname, size, size, &err);
+	}
 
 	if (buf == NULL) {
-		g_error ("Unable to load pixmap %s", iconname);
+		g_error ("Unable to load pixmap %s: %s", iconname, err->message);
+		g_error_free (err);
 	}
 
 	g_free (fname);

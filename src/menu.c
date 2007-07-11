@@ -1,8 +1,7 @@
 
-
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
-#include <gnome.h>
 
 #include "app.h"
 
@@ -16,33 +15,22 @@ prefs_activated (GtkMenuItem *item, MyApp *app)
 static gboolean
 about_activated(GtkMenuItem *item, gpointer data)
 {
-    static gpointer about = NULL;
-    const char *authors[] = { "Edd Dumbill <edd@usefulinc.com>", NULL };
+    const char *authors[] = { "Bastien Nocera <hadess@hadess.net>", "Edd Dumbill <edd@usefulinc.com>", NULL };
     const char *documenters[] = { NULL };
     const char *translator_credits = _("translator_credits");
 
-    if (about != NULL) {
-		gdk_window_raise (GTK_WIDGET(about)->window);
-		gdk_window_show (GTK_WIDGET(about)->window);
-		return TRUE;
-    }
-
-    about = (gpointer)gnome_about_new(_("Phone Manager"), VERSION,
-					"Copyright \xc2\xa9 2003-4 Edd Dumbill",
-					_("Send and receive messages from your mobile phone."),
-					(const char **)authors,
-					(const char **)documenters,
-					strcmp (translator_credits,
-							"translator_credits") != 0 ?
-					translator_credits : NULL,
-					program_icon());
-
-    g_signal_connect (G_OBJECT (about), "destroy",
-				G_CALLBACK (gtk_widget_destroyed), &about);
-
-    g_object_add_weak_pointer (G_OBJECT (about), &about);
-
-    gtk_widget_show (GTK_WIDGET(about));
+    gtk_show_about_dialog (NULL,
+			   "authors", authors,
+			   "comments", _("Send and receive messages from your mobile phone."),
+			   "copyright", "Copyright \xc2\xa9 2003-2004 Edd Dumbill\nCopyright \xc2\xa9 2005-2007 Bastien Nocera",
+			   "documenters", documenters,
+			   "logo", program_icon (),
+			   "program-name", _("Phone Manager"),
+			   "version", VERSION,
+			   "translator-credits", strcmp (translator_credits, "translator_credits") != 0 ?  translator_credits : NULL,
+			   "website", "http://live.gnome.org/PhoneManager",
+			   "website-label", _("Phone Manager website"),
+			   NULL);
 
     return TRUE;
 }
@@ -76,7 +64,7 @@ construct_menu (MyApp *app)
 	g_signal_connect (G_OBJECT(item), "activate",
 			G_CALLBACK (send_activated), (gpointer) app);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item),
-			GTK_WIDGET (gtk_image_new_from_stock ("gnome-stock-mail",
+			GTK_WIDGET (gtk_image_new_from_icon_name ("mail-message-new",
 					GTK_ICON_SIZE_MENU)));
 	gtk_widget_show (item);
 	gtk_menu_shell_append (GTK_MENU_SHELL (app->menu), item);
@@ -90,7 +78,7 @@ construct_menu (MyApp *app)
     gtk_widget_show (item);
     gtk_menu_shell_append(GTK_MENU_SHELL(app->menu), item);
 
-	item = gtk_image_menu_item_new_from_stock (GNOME_STOCK_ABOUT,
+	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_ABOUT,
 			 NULL);
 
     g_signal_connect (G_OBJECT(item), "activate",

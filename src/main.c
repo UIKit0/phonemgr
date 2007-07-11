@@ -1,27 +1,46 @@
 
+#include "config.h"
+
 #include <stdlib.h>
 #include <glib.h>
+#include <glib/gi18n.h>
 
 #include "phonemgr-object.h"
 #include "app.h"
+
+static char *bdaddr = NULL;
+
+const GOptionEntry options[] = {
+	{"identify", '\0', 0, G_OPTION_ARG_STRING, &bdaddr, N_("Show model name of a specific device"), NULL},
+	{ NULL }
+};
 
 int
 main (int argc, char **argv)
 {
 	MyApp *app;
+	GOptionContext *context;
+	GError *error = NULL;
 
 	g_thread_init (NULL);
 
 	app = g_new0 (MyApp, 1);
 
-	app->program = gnome_program_init (
-			PACKAGE,
-			VERSION,
-			LIBGNOMEUI_MODULE,
-			argc, argv,
-			GNOME_PARAM_APP_DATADIR, "..",
-			GNOME_PARAM_APP_DATADIR, DATA_DIR,
-			GNOME_PARAM_NONE);
+	context = g_option_context_new (N_("- Manage your mobile phone"));
+	g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
+	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
+
+	g_option_context_add_group (context, gtk_get_option_group (TRUE));
+	if (g_option_context_parse (context, &argc, &argv, &error) == FALSE) {
+		g_error ("Couldn't parse options: %s", error->message);
+		g_error_free (error);
+		return 1;
+	}
+
+	if (bdaddr != NULL) {
+		phonemgr_utils_tell_driver (bdaddr);
+		return 0;
+	}
 
 	gconf_init (argc, argv, NULL);
 
@@ -51,9 +70,10 @@ main (int argc, char **argv)
 	ui_hide (app);
 	free_connection (app);
 	g_object_unref (app->listener);
-	g_object_unref (app->btctl);
 	g_object_unref (app->client);
 	g_object_unref (app->object);
+	if (app->playbin)
+		g_object_unref (app->playbin);
 
 	return 0;
 }

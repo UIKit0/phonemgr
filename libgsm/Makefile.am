@@ -5,7 +5,7 @@ EXTRA_DIST = \
 	phonemgr-marshal.list		\
 	phones.xml
 
-noinst_PROGRAMS = glibgsmtest gnokii-identify
+noinst_PROGRAMS = glibgsmtest
 
 noinst_LTLIBRARIES = libgsmwrap.la
 
@@ -19,9 +19,6 @@ libgsmwrap_la_LIBADD = $(LIBGSM_LIBS)
 
 glibgsmtest_SOURCES = glibgsmtest.c
 glibgsmtest_LDADD = libgsmwrap.la
-
-gnokii_identify_SOURCES = gnokii-identify.c
-gnokii_identify_LDADD = libgsmwrap.la
 
 phones_DATA = phones.xml
 phonesdir = $(datadir)/$(PACKAGE)
