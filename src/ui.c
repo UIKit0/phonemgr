@@ -300,7 +300,7 @@ populate_prefs (MyApp *app)
 }
 
 static void
-apply_prefs (MyApp *app, gpointer data)
+apply_prefs (MyApp *app)
 {
 	GtkWidget *w;
 
@@ -333,6 +333,21 @@ apply_prefs (MyApp *app, gpointer data)
 				CONFBASE"/bluetooth_addr", bdaddr, NULL);
 
 	reconnect_phone (app);
+}
+
+static void
+prefs_dialog_response (GtkWidget *dialog,
+		       int response,
+		       MyApp *app)
+{
+	if (response == GTK_RESPONSE_APPLY)
+		apply_prefs (app);
+	else if (response == GTK_RESPONSE_CLOSE)
+		;
+	else if (response == GTK_RESPONSE_HELP)
+		;
+
+	gtk_widget_hide (dialog);
 }
 
 static void
@@ -525,20 +540,15 @@ ui_init (MyApp *app)
 	   prefs panel */
 	
 	g_signal_connect_swapped (
-			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_window")),
+			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")),
 			"delete-event", G_CALLBACK (gtk_widget_hide),
-			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_window")));
+			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")));
 
-	g_signal_connect_swapped (
-			G_OBJECT (glade_xml_get_widget (app->ui, "prefsclosebutton")),
-			"clicked", G_CALLBACK (gtk_widget_hide),
-			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_window")));
-
-	/* prefs apply */
-
-	g_signal_connect_swapped (
-			G_OBJECT (glade_xml_get_widget (app->ui, "prefsapplybutton")),
-			"clicked", G_CALLBACK (apply_prefs), (gpointer) app);
+	/* response */
+	g_signal_connect (glade_xml_get_widget (app->ui, "prefs_dialog"),
+			  "response",
+     			  G_CALLBACK (prefs_dialog_response),
+			  app);
 
 	/* bt device chooser */
 
@@ -569,7 +579,7 @@ ui_hide (MyApp *app)
 	GtkWidget *w;
 	GdkDisplay *display;
 
-	w = glade_xml_get_widget (app->ui, "prefs_window");
+	w = glade_xml_get_widget (app->ui, "prefs_dialog");
 	display = gtk_widget_get_display (w);
 	gtk_widget_hide (w);
 
@@ -582,7 +592,7 @@ ui_hide (MyApp *app)
 void
 show_prefs_window (MyApp *app)
 {
-	GtkWidget *prefs = glade_xml_get_widget (app->ui, "prefs_window");
+	GtkWidget *prefs = glade_xml_get_widget (app->ui, "prefs_dialog");
 	populate_prefs (app);
 	gtk_widget_show (prefs);
 }

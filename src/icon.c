@@ -24,8 +24,9 @@ tray_icon_popup_menu_cb (GtkStatusIcon *status_icon,
 			 guint          activate_time,
 			 MyApp         *app)
 {
-	gtk_menu_popup (GTK_MENU (app->menu), NULL, NULL, NULL,
-			NULL, button, activate_time);
+	gtk_menu_popup (GTK_MENU (app->menu), NULL, NULL,
+			gtk_status_icon_position_menu, status_icon,
+			button, activate_time);
 }
 
 static
