@@ -160,7 +160,7 @@ static char *
 get_current_btname (MyApp *app)
 {
 	char *name = NULL;
-	if (bdaddr) {
+	if (bdaddr != NULL && bdaddr[0] != '\0') {
 		name = gnomebt_controller_get_device_preferred_name (
 				app->btctl, bdaddr);
 	}
@@ -295,8 +295,6 @@ populate_prefs (MyApp *app)
 	bdaddr = gconf_client_get_string (app->client,
 			CONFBASE"/bluetooth_addr", NULL);
 	set_btdevname (app);
-
-
 }
 
 static void
@@ -328,7 +326,7 @@ apply_prefs (MyApp *app)
 			CONFBASE"/sound_alert",
 			gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w)), NULL);
 
-	if (bdaddr != NULL)
+	if (bdaddr != NULL && bdaddr[0] != '\0')
 		gconf_client_set_string (app->client,
 				CONFBASE"/bluetooth_addr", bdaddr, NULL);
 

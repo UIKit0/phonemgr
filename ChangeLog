@@ -1,5 +1,10 @@
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
+	* src/ui.c: (get_current_btname), (populate_prefs), (apply_prefs):
+	Avoid GConf errors when the bdaddr is empty (non-NULL)
+
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in:
 	* src/app.h:
 	* ui/Makefile.am:
