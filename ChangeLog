@@ -1,5 +1,23 @@
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
+	* src/app.h:
+	* src/connection.c: (on_status), (free_connection),
+	(initialise_connection): Remove an unneeded timeout
+	id, use g_timeout_add_seconds() for our reconnector function
+
+	* src/Makefile.am:
+	* src/main.c: (main):
+	* src/org_gnome_phone_Manager.xml:
+	* src/org_gnome_phonemgr_Battery.xml:
+	* src/phonemgr-object.c: (phonemgr_object_class_init),
+	(phonemgr_object_emit_number_batteries_changed),
+	(phonemgr_object_emit_battery_state_changed),
+	(phonemgr_object_init):
+	* src/phonemgr-object.h: Move the battery signal code to
+	another file, rename to org.gnome.phone.Manager
+
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in: Add dbus dependency
 	* libgsm/Makefile.am: Only bind the .la to libgnokii, rest will
 	fall into place

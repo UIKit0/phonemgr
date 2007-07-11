@@ -140,9 +140,6 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 	switch (status) {
 		case PHONEMGR_LISTENER_IDLE:
 			g_message ("Disconnect complete");
-			/* received when disconnected */
-			g_source_remove (app->pollsource);
-			app->pollsource = 0;
 			set_icon_state (app);
 			if (app->reconnect)
 				g_idle_add ((GSourceFunc)idle_connect_phone,
@@ -210,8 +207,6 @@ free_connection (MyApp *app)
 	g_source_remove (app->reconnector);
 	if (phonemgr_listener_connected (app->listener))
 		phonemgr_listener_disconnect (app->listener);
-	if (app->pollsource)
-		g_source_remove (app->pollsource);
 	g_mutex_free (app->connecting_mutex);
 	g_mutex_free (app->message_mutex);
 }
@@ -234,8 +229,8 @@ initialise_connection (MyApp *app)
 			G_CALLBACK (on_status), (gpointer) app);
 	app->message_cb = g_signal_connect (G_OBJECT (app->listener), "message",
 			G_CALLBACK (on_message), (gpointer) app);
-	app->reconnector = g_timeout_add (20*1000,
-		(GSourceFunc)attempt_reconnect, (gpointer)app);
+	app->reconnector = g_timeout_add_seconds (20, (GSourceFunc)attempt_reconnect,
+						  (gpointer)app);
 	gdk_threads_init ();
 	app->connecting_mutex = g_mutex_new ();
 	app->message_mutex = g_mutex_new ();

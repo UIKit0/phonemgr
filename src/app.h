@@ -44,9 +44,7 @@ typedef struct _appinfo {
 	/* signal handlers and timeouts */
 	gulong  status_cb;
 	gulong  message_cb;
-	gulong  pollsource;
 	gulong  reconnector;
-	gulong  flasher_cb;
 	gulong  popup_cb;
 } MyApp;
 
