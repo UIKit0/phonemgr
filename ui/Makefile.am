@@ -1,5 +1,5 @@
 
-pixmapsdir = $(datadir)/$(pixmaps)
+pixmapsdir = $(datadir)/pixmaps
 pixmaps_DATA = cellphone.png
 
 uidir = $(datadir)/$(PACKAGE)
