@@ -1,5 +1,10 @@
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
+	* src/gnome-phone-manager.desktop.in: Fix wonky desktop file,
+	thanks to Richard Hughes
+
+2007-07-11  Bastien Nocera  <hadess@hadess.net>
+
 	* ui/Makefile.am: install cellphone in $(datadir)/pixmaps, not
 	$(datadir)
 
