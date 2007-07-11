@@ -9,15 +9,6 @@
 
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
-	reviewed by: <delete if not using a buddy>
-
-	* src/icon.c: (tray_icon_popup_menu_cb):
-	* src/ui.c: (apply_prefs), (prefs_dialog_response), (ui_init),
-	(ui_hide), (show_prefs_window):
-	* ui/phonemgr.glade:
-
-2007-07-11  Bastien Nocera  <hadess@hadess.net>
-
 	* configure.in: require a newer gnome-bluetooth to get a fixed
 	pkgconfig file for libgnomeui includes
 	add GStreamer dependency to play our sound alert
