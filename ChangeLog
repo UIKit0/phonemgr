@@ -1,3 +1,8 @@
+2007-07-11  Christian Persch  <chpe@gnome.org>
+
+	* configure.in:
+	* po/LINGUAS: Use po/LINGUAS as per GnomeGoal.
+
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/glibgsmtest.c: (battery):
