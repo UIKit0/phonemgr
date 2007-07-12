@@ -44,21 +44,20 @@ main (int argc, char **argv)
 
 	gconf_init (argc, argv, NULL);
 
+	/* Setup the D-Bus object */
 	app->object = g_object_new (phonemgr_object_get_type (), NULL);
 
 	app->client = gconf_client_get_default ();
 	gconf_client_add_dir (app->client, CONFBASE,
-			GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
+			      GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
 
+	/* Setup the listener */
 	app->listener = phonemgr_listener_new ();
-
-	if (! app->listener)
-		g_error (_("Couldn't create phone listener."));
 
 	initialise_connection (app);
 
-	ui_init (app);
 	icon_init (app);
+	ui_init (app);
 	construct_menu (app);
 	tray_icon_init (app);
 

@@ -32,6 +32,7 @@ struct _PhonemgrChooserButton {
 	GtkButton          parent;
 
 	GtkWidget         *image;
+	GtkWidget         *dialog;
 	GnomebtController *btctl;
 	char              *bdaddr;
 };
@@ -90,20 +91,25 @@ choose_bdaddr (PhonemgrChooserButton *button, gpointer user_data)
 {
 	char *bdaddr = NULL;
 	GnomebtChooser *btchooser;
+	GtkWidget *parent;
 	int result;
 
-	//FIXME need to destroy the dialogue
-
 	btchooser = gnomebt_chooser_new (button->btctl);
-	result = gtk_dialog_run (GTK_DIALOG (btchooser));
+	button->dialog = GTK_WIDGET (btchooser);
+	parent = gtk_widget_get_toplevel (GTK_WIDGET (button));
+	gtk_window_set_transient_for (GTK_WINDOW (button->dialog), GTK_WINDOW (parent));
 
+	result = gtk_dialog_run (GTK_DIALOG (btchooser));
 	if (result == GTK_RESPONSE_OK)
 		bdaddr = gnomebt_chooser_get_bdaddr (btchooser);
 
 	gtk_widget_destroy (GTK_WIDGET (btchooser));
+	button->dialog = NULL;
+
+	if (result != GTK_RESPONSE_OK)
+		return;
 
 	set_btdevname (button, bdaddr);
-
 	g_free (bdaddr);
 }
 
@@ -115,6 +121,10 @@ phonemgr_chooser_button_finalize (GObject *object)
 	if (button->btctl != NULL) {
 		g_object_unref (button->btctl);
 		button->btctl = NULL;
+	}
+	if (button->dialog != NULL) {
+		gtk_widget_destroy (button->dialog);
+		button->dialog = NULL;
 	}
 
 	G_OBJECT_CLASS (parent_class)->finalize (object);

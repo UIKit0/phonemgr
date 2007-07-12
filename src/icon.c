@@ -63,6 +63,8 @@ icon_init (MyApp *app)
 	pb_message = load_icon (app, "cellphone-message.png", 24);
 	pb_error = load_icon (app, "cellphone-error.png", 24);
 	pb_program = load_icon (app, "cellphone.png", 48);
+
+	gtk_window_set_default_icon (pb_program);
 }
 
 void

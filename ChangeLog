@@ -1,5 +1,18 @@
 2007-07-12  Bastien Nocera  <hadess@hadess.net>
 
+	* src/main.c: (main): Creating the listener can't fail,
+	init the icons before any UI bits
+
+	* src/icon.c: (icon_init): Set a default window icon
+
+	* src/phonemgr-chooser-button.c: (choose_bdaddr),
+	(phonemgr_chooser_button_finalize): Don't change the device
+	selected if there was already one, and we click cancel,
+	parent the dialog properly to the preferences window, and
+	kill the dialog when we exit
+
+2007-07-12  Bastien Nocera  <hadess@hadess.net>
+
 	* src/connection.c: (set_connection_device), (connect_phone),
 	(reconnect_phone): Only reconnect to the phone if the device
 	we're connecting to really changed
