@@ -118,6 +118,10 @@ play_sound (MyApp *app, const char *filename)
 		audio_sink = gst_element_factory_make ("gconfaudiosink", "audio-sink");
 		if (audio_sink == NULL)
 			audio_sink = gst_element_factory_make ("autoaudiosink", "audio-sink");
+		if (audio_sink == NULL) {
+			g_warning ("Couldn't create audio sink");
+			return;
+		}
 		if (g_object_class_find_property (G_OBJECT_GET_CLASS (audio_sink), "profile"))
 			g_object_set (G_OBJECT (audio_sink), "profile", 0, NULL);
 		app->playbin = gst_element_factory_make ("playbin", "play");
@@ -138,7 +142,7 @@ idle_play_alert (MyApp *app)
 	char *fname;
 
 	if (gconf_client_get_bool (app->client, CONFBASE"/sound_alert", NULL)) {
-		fname = get_resource (app, "alert.wav");
+		fname = g_build_filename (DATA_DIR, "alert.wav", NULL);
 		if (fname) {
 			play_sound (app, fname);
 			g_free (fname);
@@ -166,7 +170,6 @@ set_dependent_widget (MyApp *app, int conn_type, gboolean active)
 			if (phonemgr_chooser_button_available (PHONEMGR_CHOOSER_BUTTON (w)) == FALSE
 			    || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
 				active = FALSE;
-			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "bluetooth_box"));
 			gtk_widget_set_sensitive (w, active);
 			break;
 		case CONNECTION_OTHER:
@@ -372,7 +375,7 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 		gtk_window_set_transient_for (GTK_WINDOW (dialog),
 			GTK_WINDOW (parent));
 	}
-	
+
 	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
 	gtk_text_buffer_set_text (buf, "", 0);
@@ -387,25 +390,24 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 	g_object_set_data (G_OBJECT (ui), "app", (gpointer) app);
 
 	/* hook up signals */
-	
 	g_signal_connect (G_OBJECT (dialog), "delete-event",
-			G_CALLBACK (gtk_widget_hide), (gpointer) dialog);
+			  G_CALLBACK (gtk_widget_hide), (gpointer) dialog);
 
 	g_signal_connect (G_OBJECT (dialog), "hide",
-			G_CALLBACK (destroy_send_dialog), (gpointer) ui);
+			  G_CALLBACK (destroy_send_dialog), (gpointer) ui);
 
 	w = GTK_WIDGET (glade_xml_get_widget (ui, "msgcancelbutton"));
 	g_signal_connect_swapped (G_OBJECT (w), "clicked",
-			G_CALLBACK (gtk_widget_hide), (gpointer) dialog);
+				  G_CALLBACK (gtk_widget_hide), (gpointer) dialog);
 
 	g_signal_connect (G_OBJECT (entry), "phone-changed",
-			G_CALLBACK (phone_number_changed), (gpointer) ui);
+			  G_CALLBACK (phone_number_changed), (gpointer) ui);
 	g_signal_connect (G_OBJECT (buf), "changed",
-			G_CALLBACK (set_send_sensitivity), (gpointer) ui);
+			  G_CALLBACK (set_send_sensitivity), (gpointer) ui);
 
 	w = GTK_WIDGET (glade_xml_get_widget (ui, "sendbutton"));
 	g_signal_connect (G_OBJECT (w), "clicked",
-			G_CALLBACK (send_message), (gpointer) ui);
+			  G_CALLBACK (send_message), (gpointer) ui);
 
 	gtk_widget_show_all (GTK_WIDGET (dialog));
 }
@@ -438,11 +440,9 @@ ui_init (MyApp *app)
 
 	/* close button and windowframe close button just hide the
 	   prefs panel */
-
-	g_signal_connect_swapped (
-			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")),
-			"delete-event", G_CALLBACK (gtk_widget_hide),
-			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")));
+	g_signal_connect_swapped (G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")),
+				  "delete-event", G_CALLBACK (gtk_widget_hide),
+				  G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")));
 
 	/* response */
 	g_signal_connect (glade_xml_get_widget (app->ui, "prefs_dialog"),
@@ -451,7 +451,6 @@ ui_init (MyApp *app)
 			  app);
 
 	/* connect signal handlers for radio buttons */
-
 	S_CONNECT("btdevice",  CONNECTION_BLUETOOTH);
 	S_CONNECT("serialport1", CONNECTION_SERIAL1);
 	S_CONNECT("serialport2", CONNECTION_SERIAL2);
@@ -471,6 +470,7 @@ ui_init (MyApp *app)
 				    CONFBASE"/sound_alert",
 				    G_OBJECT (glade_xml_get_widget (app->ui, "prefs_sound")),
 				    "active");
+
 	/* And the address chooser */
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/bluetooth_addr",

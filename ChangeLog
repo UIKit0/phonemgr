@@ -1,5 +1,15 @@
 2007-07-12  Bastien Nocera  <hadess@hadess.net>
 
+	* src/main.c: (main): Don't forget to init GStreamer, if we want
+	to play sounds
+	* src/ui.c: (play_sound), (idle_play_alert),
+	(set_dependent_widget), (create_send_dialog), (ui_init): Don't crash
+	if we can't create an audiosink, only pass absolute filenames to
+	the play_sound function, don't set the bluetooth radio button unsensitive
+	if we switch to another type of connection
+
+2007-07-12  Bastien Nocera  <hadess@hadess.net>
+
 	* src/main.c: (main): Creating the listener can't fail,
 	init the icons before any UI bits
 

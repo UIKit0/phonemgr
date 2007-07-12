@@ -31,6 +31,7 @@ main (int argc, char **argv)
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
 
 	g_option_context_add_group (context, gtk_get_option_group (TRUE));
+	g_option_context_add_group (context, gst_init_get_option_group ());
 	if (g_option_context_parse (context, &argc, &argv, &error) == FALSE) {
 		g_error ("Couldn't parse options: %s", error->message);
 		g_error_free (error);
