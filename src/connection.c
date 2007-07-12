@@ -6,12 +6,16 @@
 
 #include "app.h"
 
-static void
+static gboolean
 set_connection_device (MyApp *app)
 {
-	int ctype = gconf_client_get_int (app->client,
-			CONFBASE"/connection_type", NULL);
+	int ctype;
 	char *dev = NULL;
+	gboolean changed;
+
+	ctype = gconf_client_get_int (app->client,
+				      CONFBASE"/connection_type", NULL);
+	changed = FALSE;
 
 	switch (ctype) {
 		case CONNECTION_BLUETOOTH:
@@ -38,11 +42,22 @@ set_connection_device (MyApp *app)
 			break;
 	}
 
+	if (dev == NULL && app->devname != NULL)
+		changed = TRUE;
+	else if (dev != NULL && app->devname == NULL)
+		changed = TRUE;
+	else if (dev != NULL && app->devname != NULL && strcmp (dev, app->devname) != 0)
+		changed = TRUE;
+
 	if (app->devname)
 		g_free (app->devname);
 	app->devname = dev;
 
-	g_message ("New connection device is %s", dev ? dev : "empty");
+	g_message ("New connection device is %s (%s)",
+		   dev ? dev : "empty",
+		   changed ? "changed" : "not changed");
+
+	return changed;
 }
 
 static gboolean
@@ -103,14 +118,14 @@ static void
 connect_phone (MyApp *app)
 {
 	g_mutex_lock (app->connecting_mutex);
-	if (! phonemgr_listener_connected (app->listener) &&
-			! app->connecting) {
+	if (phonemgr_listener_connected (app->listener) == FALSE
+	    && app->connecting == FALSE) {
 		app->connecting = TRUE;
 		g_mutex_unlock (app->connecting_mutex);
 		/* we're neither connected, nor connecting */
-		app->connecting_thread = g_thread_create (
-				connect_phone_thread, (gpointer) app,
-				FALSE, NULL);
+		app->connecting_thread = g_thread_create (connect_phone_thread,
+							  (gpointer) app,
+							  FALSE, NULL);
 	} else {
 		g_message ("Can't connect twice");
 		g_mutex_unlock (app->connecting_mutex);
@@ -191,7 +206,11 @@ on_battery (PhonemgrListener *listener, int percent, gboolean on_ac, MyApp *app)
 void
 reconnect_phone (MyApp *app)
 {
-	if (phonemgr_listener_connected (app->listener)) {
+	gboolean changed;
+
+	changed = set_connection_device (app);
+
+	if (changed && phonemgr_listener_connected (app->listener) != FALSE) {
 		g_message ("Disconnecting...");
 		app->reconnect = TRUE;
 		app->disconnecting_thread =

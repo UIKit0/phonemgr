@@ -1,5 +1,11 @@
 2007-07-12  Bastien Nocera  <hadess@hadess.net>
 
+	* src/connection.c: (set_connection_device), (connect_phone),
+	(reconnect_phone): Only reconnect to the phone if the device
+	we're connecting to really changed
+
+2007-07-12  Bastien Nocera  <hadess@hadess.net>
+
 	* src/Makefile.am: upd
 
 	* src/app.h:
