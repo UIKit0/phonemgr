@@ -7,14 +7,13 @@
 
 #include "app.h"
 #include "e-phone-entry.h"
+#include "gconf-bridge.h"
+#include "phonemgr-chooser-button.h"
 #include "phonemgr-utils.h"
-
-#include <gnomebt-chooser.h>
 
 #define MAX_MESSAGE_LENGTH 160
 
 static int conn_port=0;
-static char *bdaddr=NULL;
 
 static void
 boldify_label (GladeXML *xml, const char *name)
@@ -156,20 +155,6 @@ play_alert (MyApp *app)
 	g_idle_add ((GSourceFunc) idle_play_alert, (gpointer) app);
 }
 
-static char *
-get_current_btname (MyApp *app)
-{
-	char *name = NULL;
-	if (bdaddr != NULL && bdaddr[0] != '\0') {
-		name = gnomebt_controller_get_device_preferred_name (
-				app->btctl, bdaddr);
-	}
-	if (!name)
-		name = g_strdup (_("No Bluetooth device chosen."));
-
-	return name;
-}
-
 static void
 set_dependent_widget (MyApp *app, int conn_type, gboolean active)
 {
@@ -177,7 +162,9 @@ set_dependent_widget (MyApp *app, int conn_type, gboolean active)
 	switch (conn_type) {
 		case CONNECTION_BLUETOOTH:
 			/* only set sensitive if bluetooth available */
-			if (app->btctl == NULL || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
+			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "btchooser"));
+			if (phonemgr_chooser_button_available (PHONEMGR_CHOOSER_BUTTON (w)) == FALSE
+			    || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
 				active = FALSE;
 			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "bluetooth_box"));
 			gtk_widget_set_sensitive (w, active);
@@ -219,15 +206,6 @@ message_dialog_reply (GladeXML *ui)
 	return TRUE;
 }
 
-static void
-set_btdevname (MyApp *app)
-{
-	GtkWidget *w = GTK_WIDGET (glade_xml_get_widget (app->ui, "btdevname"));
-	char *c = get_current_btname (app);
-	gtk_label_set_text (GTK_LABEL (w), c);
-	g_free (c);
-}
-
 #define S_CONNECT(x, y) 	\
 	w = glade_xml_get_widget (app->ui, (x)); \
 	g_object_set_data (G_OBJECT (w), "port", GINT_TO_POINTER (y)); \
@@ -242,9 +220,11 @@ static void
 populate_prefs (MyApp *app)
 {
 	GtkWidget *w;
-	char *c;
-	int ctype = gconf_client_get_int (app->client,
-			CONFBASE"/connection_type", NULL);
+	char *c, *bdaddr;
+	int ctype;
+	
+	ctype = gconf_client_get_int (app->client,
+				      CONFBASE"/connection_type", NULL);
 
 	conn_port = ctype;
 
@@ -255,7 +235,7 @@ populate_prefs (MyApp *app)
 
 	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "otherportentry"));
 	c  = gconf_client_get_string (app->client,
-				CONFBASE"/other_serial", NULL);
+				      CONFBASE"/other_serial", NULL);
 	if (c != NULL) {
 		gtk_entry_set_text (GTK_ENTRY (w), c);
 		g_free (c);
@@ -263,38 +243,12 @@ populate_prefs (MyApp *app)
 		gtk_entry_set_text (GTK_ENTRY (w), "");
 	}
 
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "auto_retry"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w),
-			gconf_client_get_bool (app->client,
-				CONFBASE"/auto_retry", NULL));
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_popup"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w),
-			gconf_client_get_bool (app->client,
-				CONFBASE"/popup_messages", NULL));
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_sound"));
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w),
-			gconf_client_get_bool (app->client,
-				CONFBASE"/sound_alert", NULL));
-
 	S_ACTIVE("btdevice",  CONNECTION_BLUETOOTH);
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "btdevice"));
-	if (app->btctl == NULL)
-		gtk_widget_set_sensitive (w, FALSE);
 
 	S_ACTIVE("serialport1", CONNECTION_SERIAL1);
 	S_ACTIVE("serialport2", CONNECTION_SERIAL2);
 	S_ACTIVE("irdaport", CONNECTION_IRCOMM);
 	S_ACTIVE("otherport", CONNECTION_OTHER);
-
-	if (bdaddr)
-		g_free (bdaddr);
-
-	bdaddr = gconf_client_get_string (app->client,
-			CONFBASE"/bluetooth_addr", NULL);
-	set_btdevname (app);
 }
 
 static void
@@ -304,31 +258,12 @@ apply_prefs (MyApp *app)
 
 	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "otherportentry"));
 	gconf_client_set_string (app->client,
-			CONFBASE"/other_serial",
-			gtk_entry_get_text (GTK_ENTRY (w)), NULL);
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "auto_retry"));
-	gconf_client_set_bool (app->client,
-			CONFBASE"/auto_retry",
-			gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w)), NULL);
+				 CONFBASE"/other_serial",
+				 gtk_entry_get_text (GTK_ENTRY (w)), NULL);
 
 	gconf_client_set_int (app->client,
-			CONFBASE"/connection_type",
-			conn_port, NULL);
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_popup"));
-	gconf_client_set_bool (app->client,
-			CONFBASE"/popup_messages",
-			gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w)), NULL);
-
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "prefs_sound"));
-	gconf_client_set_bool (app->client,
-			CONFBASE"/sound_alert",
-			gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (w)), NULL);
-
-	if (bdaddr != NULL && bdaddr[0] != '\0')
-		gconf_client_set_string (app->client,
-				CONFBASE"/bluetooth_addr", bdaddr, NULL);
+			      CONFBASE"/connection_type",
+			      conn_port, NULL);
 
 	reconnect_phone (app);
 }
@@ -338,43 +273,8 @@ prefs_dialog_response (GtkWidget *dialog,
 		       int response,
 		       MyApp *app)
 {
-	if (response == GTK_RESPONSE_APPLY)
-		apply_prefs (app);
-	else if (response == GTK_RESPONSE_CLOSE)
-		;
-	else if (response == GTK_RESPONSE_HELP)
-		;
-
+	apply_prefs (app);
 	gtk_widget_hide (dialog);
-}
-
-static void
-choose_bdaddr (MyApp *app, gpointer data)
-{
-    char *ret = NULL;
-    GnomebtController *btctl;
-    GnomebtChooser *btchooser;
-    int result;
-
-    btctl = app->btctl;
-    btchooser = gnomebt_chooser_new (btctl);
-    result = gtk_dialog_run (GTK_DIALOG (btchooser));
-
-    if (result == GTK_RESPONSE_OK)
-        ret = gnomebt_chooser_get_bdaddr (btchooser);
-
-    gtk_widget_destroy (GTK_WIDGET (btchooser));
-
-    /* consume events, so dialog gets removed from screen */
-    while (gtk_events_pending ())
-        gtk_main_iteration ();
-
-	if (ret) {
-		if (bdaddr)
-			g_free (bdaddr);
-		bdaddr = ret;
-		set_btdevname (app);
-	}
 }
 
 static gboolean
@@ -527,16 +427,18 @@ initialise_dequeuer (GConfClient *client, guint cnxn_id,
 void
 ui_init (MyApp *app)
 {
+	GConfBridge *bridge;
 	GtkWidget *w;
 
 	app->ui = get_ui (app, NULL);
+	bridge = gconf_bridge_get ();
 
 	if (!app->ui)
 		g_error ("Couldn't load user interface.");
 
 	/* close button and windowframe close button just hide the
 	   prefs panel */
-	
+
 	g_signal_connect_swapped (
 			G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")),
 			"delete-event", G_CALLBACK (gtk_widget_hide),
@@ -548,12 +450,6 @@ ui_init (MyApp *app)
      			  G_CALLBACK (prefs_dialog_response),
 			  app);
 
-	/* bt device chooser */
-
-	g_signal_connect_swapped (
-			G_OBJECT (glade_xml_get_widget (app->ui, "btchoose")),
-			"clicked", G_CALLBACK (choose_bdaddr), (gpointer) app);
-
 	/* connect signal handlers for radio buttons */
 
 	S_CONNECT("btdevice",  CONNECTION_BLUETOOTH);
@@ -561,6 +457,25 @@ ui_init (MyApp *app)
 	S_CONNECT("serialport2", CONNECTION_SERIAL2);
 	S_CONNECT("irdaport", CONNECTION_IRCOMM);
 	S_CONNECT("otherport", CONNECTION_OTHER);
+
+	/* Connect a few toggle buttons */
+	gconf_bridge_bind_property (bridge,
+				    CONFBASE"/auto_retry",
+				    G_OBJECT (glade_xml_get_widget (app->ui, "auto_retry")),
+				    "active");
+	gconf_bridge_bind_property (bridge,
+				    CONFBASE"/popup_messages",
+				    G_OBJECT (glade_xml_get_widget (app->ui, "prefs_popup")),
+				    "active");
+	gconf_bridge_bind_property (bridge,
+				    CONFBASE"/sound_alert",
+				    G_OBJECT (glade_xml_get_widget (app->ui, "prefs_sound")),
+				    "active");
+	/* And the address chooser */
+	gconf_bridge_bind_property (bridge,
+				    CONFBASE"/bluetooth_addr",
+				    G_OBJECT (glade_xml_get_widget (app->ui, "btchooser")),
+				    "device");
 
 	/* set up popup on message */
 	initialise_dequeuer (NULL, 0, NULL, app);

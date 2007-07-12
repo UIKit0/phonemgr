@@ -6,23 +6,21 @@
 
 #include "app.h"
 
-#define POLL_TIMEOUT 50
-
-static char *
+static void
 set_connection_device (MyApp *app)
 {
 	int ctype = gconf_client_get_int (app->client,
 			CONFBASE"/connection_type", NULL);
-	char *bdaddr;
 	char *dev = NULL;
-
-	bdaddr = gconf_client_get_string (app->client,
-			CONFBASE"/bluetooth_addr", NULL);
 
 	switch (ctype) {
 		case CONNECTION_BLUETOOTH:
-			if (bdaddr && strlen (bdaddr) == 17) {
-				dev = g_strdup (bdaddr);
+			dev = gconf_client_get_string (app->client,
+						       CONFBASE"/bluetooth_addr",
+						       NULL);
+			if (!dev || strlen (dev) != 17) {
+				g_free (dev);
+				dev = NULL;
 			}
 			break;
 		case CONNECTION_SERIAL1:
@@ -40,18 +38,11 @@ set_connection_device (MyApp *app)
 			break;
 	}
 
-	if (bdaddr)
-		g_free (bdaddr);
-
-	if (dev) {
-		if (app->devname)
-			g_free (app->devname);
-		app->devname = dev;
-	}
+	if (app->devname)
+		g_free (app->devname);
+	app->devname = dev;
 
 	g_message ("New connection device is %s", dev ? dev : "empty");
-
-	return dev;
 }
 
 static gboolean

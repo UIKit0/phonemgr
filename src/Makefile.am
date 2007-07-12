@@ -22,7 +22,11 @@ gnome_phone_manager_SOURCES =		\
 	e-phone-entry.h			\
 	$(CLA_FILES)			\
 	phonemgr-object.c		\
-	phonemgr-object.h
+	phonemgr-object.h		\
+	phonemgr-chooser-button.c	\
+	phonemgr-chooser-button.h	\
+	gconf-bridge.c			\
+	gconf-bridge.h
 
 gnome_phone_manager_LDADD = \
 	$(PHONEMGR_LIBS) \
@@ -48,6 +52,9 @@ test_entry_LDADD = $(PHONEMGR_LIBS)
 
 CLA_FILES = e-contact-entry.h e-contact-entry.c
 CLADIR = $(srcdir)/../../contact-lookup-applet/src/
+GCONF_BRIDGE_FILES = gconf-bridge.h gconf-bridge.c
+GCONF_BRIDGE_DIR = $(srcdir)/../../libgconf-bridge/libgconf-bridge/
 regenerate-built-sources:
 	EGGFILES="$(CLA_FILES)" EGGDIR="$(CLADIR)" $(srcdir)/update-from-egg.sh || true
+	EGGFILES="$(GCONF_BRIDGE_FILES)" EGGDIR="$(GCONF_BRIDGE_DIR)" $(srcdir)/update-from-egg.sh || true
 

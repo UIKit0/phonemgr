@@ -1,3 +1,25 @@
+2007-07-12  Bastien Nocera  <hadess@hadess.net>
+
+	* src/Makefile.am: upd
+
+	* src/app.h:
+	* src/main.c: (main): Remove the BtctlController, and move it
+	into the chooser widget
+
+	* src/phonemgr-chooser-button.*:
+	* ui/phonemgr.glade: Add a new chooser widget, and use it
+
+	* src/gconf-bridge.*:
+	* src/ui.c: (set_dependent_widget), (populate_prefs),
+	(apply_prefs), (prefs_dialog_response), (ui_init):
+	Simplify the code, using GConfBridge to bind toggle buttons
+	and GConf keys, use GConfBridge to bind the new Bluetooth
+	chooser button as well, try to bring as close as possible to
+	instant-apply (still flaky) on reconnects
+
+	* src/connection.c: (set_connection_device): Simplify
+	set_connection_device(), remove unneeded define
+
 2007-07-11  Bastien Nocera  <hadess@hadess.net>
 
 	* src/ui.c: (get_current_btname), (populate_prefs), (apply_prefs):

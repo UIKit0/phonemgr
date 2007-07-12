@@ -50,7 +50,6 @@ main (int argc, char **argv)
 	gconf_client_add_dir (app->client, CONFBASE,
 			GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
 
-	app->btctl = gnomebt_controller_new ();
 	app->listener = phonemgr_listener_new ();
 
 	if (! app->listener)

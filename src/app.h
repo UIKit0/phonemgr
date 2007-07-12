@@ -22,7 +22,6 @@ typedef struct _appinfo {
 
 	/* auxilliary controllers */
 	GConfClient *client;
-	GnomebtController   *btctl;
 	PhonemgrListener    *listener;
 	PhonemgrObject      *object;
 	GstElement *playbin;
