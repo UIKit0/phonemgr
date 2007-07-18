@@ -1,12 +1,8 @@
 
-pixmapsdir = $(datadir)/pixmaps
-pixmaps_DATA = cellphone.png
+SUBDIRS = icons
 
 uidir = $(datadir)/$(PACKAGE)
 ui_DATA = phonemgr.glade
-
-icondir = $(datadir)/$(PACKAGE)
-icon_DATA = cellphone-connecting.png cellphone-error.png cellphone-message.png cellphone.png
 
 sounddir = $(datadir)/$(PACKAGE)
 sound_DATA = alert.wav
@@ -25,5 +21,5 @@ if GCONF_SCHEMAS_INSTALL
 	fi
 endif
 
-EXTRA_DIST = $(ui_DATA) $(icon_DATA) $(sound_DATA) $(pixmaps_DATA) $(schema_in_files) cellphone-connecting.xcf cellphone-error.xcf cellphone-message.xcf
+EXTRA_DIST = $(ui_DATA) $(sound_DATA) $(schema_in_files)
 

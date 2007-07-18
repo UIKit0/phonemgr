@@ -1,3 +1,19 @@
+2007-07-18  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
+	* src/app.h:
+	* src/icon.c: (set_icon_state), (tray_icon_init):
+	* src/main.c: (main):
+	* src/menu.c: (about_activated):
+	* ui/Makefile.am:
+	* ui/icons/16x16/Makefile.am:
+	* ui/icons/16x16/status/Makefile.am:
+	* ui/icons/22x22/Makefile.am:
+	* ui/icons/22x22/status/Makefile.am:
+	* ui/icons/Makefile.am:
+	* ui/phonemgr.glade: New icons from Andreas Nilsson, thanks
+	Andreas! (Closes: #455844)
+
 2007-07-12  Bastien Nocera  <hadess@hadess.net>
 
 	* src/main.c: (main): Don't forget to init GStreamer, if we want

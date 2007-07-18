@@ -24,7 +24,7 @@ about_activated(GtkMenuItem *item, gpointer data)
 			   "comments", _("Send and receive messages from your mobile phone."),
 			   "copyright", "Copyright \xc2\xa9 2003-2004 Edd Dumbill\nCopyright \xc2\xa9 2005-2007 Bastien Nocera",
 			   "documenters", documenters,
-			   "logo", program_icon (),
+			   "logo-icon-name", "phone",
 			   "program-name", _("Phone Manager"),
 			   "version", VERSION,
 			   "translator-credits", strcmp (translator_credits, "translator_credits") != 0 ?  translator_credits : NULL,

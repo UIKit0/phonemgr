@@ -57,7 +57,6 @@ main (int argc, char **argv)
 
 	initialise_connection (app);
 
-	icon_init (app);
 	ui_init (app);
 	construct_menu (app);
 	tray_icon_init (app);

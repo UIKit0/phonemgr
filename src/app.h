@@ -73,10 +73,8 @@ void initialise_connection (MyApp *app);
 void reconnect_phone (MyApp *app);
 
 /* icon functions */
-void icon_init (MyApp *app);
 void set_icon_state (MyApp *app);
 void tray_icon_init (MyApp *app);
-GdkPixbuf *program_icon (void);
 void tray_icon_hide (MyApp *app);
 
 enum {

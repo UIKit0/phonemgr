@@ -134,9 +134,15 @@ fi
 AC_CONFIG_FILES([
 Makefile
 ui/Makefile
+ui/icons/Makefile
+ui/icons/16x16/status/Makefile
+ui/icons/16x16/Makefile
+ui/icons/22x22/status/Makefile
+ui/icons/22x22/Makefile
 libgsm/Makefile
 src/Makefile
 po/Makefile.in
 ])
 
 AC_OUTPUT
+
