@@ -1,5 +1,12 @@
 2007-07-18  Bastien Nocera  <hadess@hadess.net>
 
+	* ui/icons/16x16/status/Makefile.am:
+	* ui/icons/22x22/status/Makefile.am: Rename some
+	files to not conflict with other named icons in other
+	directories.
+
+2007-07-18  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in:
 	* src/app.h:
 	* src/icon.c: (set_icon_state), (tray_icon_init):
