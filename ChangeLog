@@ -1,5 +1,10 @@
 2007-07-18  Bastien Nocera  <hadess@hadess.net>
 
+	* src/icon.c: (set_icon_state): Use the right icons
+	* ui/Makefile.am: Don't forget to update the icon cache
+
+2007-07-18  Bastien Nocera  <hadess@hadess.net>
+
 	* ui/icons/16x16/status/Makefile.am:
 	* ui/icons/22x22/status/Makefile.am: Rename some
 	files to not conflict with other named icons in other
