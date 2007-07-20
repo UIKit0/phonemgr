@@ -1,3 +1,14 @@
+2007-07-20  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect):
+	* libgsm/phonemgr-utils.c: (get_rfcomm_channel),
+	(find_dun_channel), (phonemgr_utils_get_channel),
+	(phonemgr_utils_write_config), (phonemgr_utils_connect),
+	(phonemgr_utils_tell_driver):
+	* libgsm/phonemgr-utils.h: Look up for the DUN channel,
+	rather than letting gnokii use the default channel (1),
+	Fixes connecting to Sony Ericsson K800i phones (Closes: #356865)
+
 2007-07-18  Bastien Nocera  <hadess@hadess.net>
 
 	* src/gnome-phone-manager.desktop.in: Use the right

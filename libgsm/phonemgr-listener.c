@@ -276,12 +276,25 @@ phonemgr_listener_finalize(GObject *obj)
 gboolean
 phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 {
+	int channel;
+
 	g_return_val_if_fail (l->connected == FALSE, FALSE);
 	g_return_val_if_fail (l->phone_state == NULL, FALSE);
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
 
-	l->phone_state = phonemgr_utils_connect (device, NULL, error);
+
+	channel = -1;
+
+	if (phonemgr_utils_is_bluetooth (device) != FALSE) {
+		channel = phonemgr_utils_get_channel (device);
+		if (channel < 0) {
+			//FIXME
+			return FALSE;
+		}
+	}
+
+	l->phone_state = phonemgr_utils_connect (device, NULL, channel, error);
 	if (l->phone_state == NULL) {
 		//FIXME
 		return FALSE;
@@ -297,7 +310,7 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	if (strcmp (l->driver, PHONEMGR_DEFAULT_DRIVER) != 0) {
 		phonemgr_utils_disconnect (l->phone_state);
 		phonemgr_utils_free (l->phone_state);
-		l->phone_state = phonemgr_utils_connect (device, l->driver, error);
+		l->phone_state = phonemgr_utils_connect (device, l->driver, channel, error);
 		if (l->phone_state == NULL) {
 			//FIXME
 			return FALSE;

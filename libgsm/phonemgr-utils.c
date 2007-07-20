@@ -26,6 +26,10 @@
 #include <glib-object.h>
 #include <gnokii.h>
 
+#include <bluetooth/bluetooth.h>
+#include <bluetooth/sdp.h>
+#include <bluetooth/sdp_lib.h>
+
 #include "phonemgr-utils.h"
 
 /* This is the hash table containing information about driver <-> device
@@ -95,14 +99,98 @@ phonemgr_utils_gn_error_to_string (gn_error error, PhoneMgrError *perr)
 	}
 }
 
-static gboolean
+gboolean
 phonemgr_utils_is_bluetooth (const char *addr)
 {
 	return (g_file_test (addr, G_FILE_TEST_EXISTS) == FALSE);
 }
 
+static int
+get_rfcomm_channel (sdp_record_t *rec)
+{
+	int channel = -1;
+	sdp_list_t *protos = NULL;
+
+	if (sdp_get_access_protos (rec, &protos) != 0)
+		goto end;
+
+	channel = sdp_get_proto_port (protos, RFCOMM_UUID);
+ end:
+	sdp_list_foreach(protos, (sdp_list_func_t)sdp_list_free, 0);
+	sdp_list_free(protos, 0);
+	return channel;
+}
+
+/* Determine whether the given device supports Dial-Up Networking, and if so
+ * what the RFCOMM channel number for the service is.
+ */
+static int
+find_dun_channel (bdaddr_t *adapter, bdaddr_t *device)
+{
+	sdp_session_t *sdp = NULL;
+	sdp_list_t *search = NULL, *attrs = NULL, *recs = NULL, *tmp;
+	uuid_t browse_uuid, dun_id, obex_uuid;
+	uint16_t proto_desc_list = SDP_ATTR_PROTO_DESC_LIST;
+	uint16_t svclass_id_list = SDP_ATTR_SVCLASS_ID_LIST;
+	int channel = -1;
+
+	sdp = sdp_connect (adapter, device, SDP_RETRY_IF_BUSY);
+	if (!sdp)
+		goto end;
+
+	/* Normally, we'd just do a search for OBEX_FILETRANS_SVCLASS_ID,
+	 * but we also want to check multiple services.  So instead, we
+	 * browse all rfcomm obex services.
+	 */
+	sdp_uuid16_create(&browse_uuid, PUBLIC_BROWSE_GROUP);
+	sdp_uuid16_create(&dun_id, DIALUP_NET_SVCLASS_ID);
+	search = sdp_list_append (NULL, &browse_uuid);
+	search = sdp_list_append (search, &dun_id);
+
+	attrs = sdp_list_append (NULL, &proto_desc_list);
+	attrs = sdp_list_append (attrs, &svclass_id_list);
+
+	if (sdp_service_search_attr_req (sdp, search,
+					 SDP_ATTR_REQ_INDIVIDUAL, attrs,
+					 &recs))
+		goto end;
+
+	for (tmp = recs; tmp != NULL; tmp = tmp->next) {
+		sdp_record_t *rec = tmp->data;
+
+		/* If this service is better than what we've
+		 * previously seen, try and get the channel number.
+		 */
+		channel = get_rfcomm_channel (rec);
+		if (channel > 0)
+			goto end;
+	}
+
+end:
+	sdp_list_free (recs, (sdp_free_func_t)sdp_record_free);
+	sdp_list_free (search, NULL);
+	sdp_list_free (attrs, NULL);
+	sdp_close(sdp);
+
+	return channel;
+}
+
+int
+phonemgr_utils_get_channel (char *device)
+{
+	bdaddr_t src, dst;
+	int channel;
+
+	bacpy (&src, BDADDR_ANY);
+	str2ba(device, &dst);
+
+	channel = find_dun_channel (&src, &dst);
+
+	return channel;
+}
+
 char *
-phonemgr_utils_write_config (const char *driver, const char *addr)
+phonemgr_utils_write_config (const char *driver, const char *addr, int channel)
 {
 	if (phonemgr_utils_is_bluetooth (addr) == FALSE) {
 		return g_strdup_printf ("[global]\n"
@@ -110,10 +198,21 @@ phonemgr_utils_write_config (const char *driver, const char *addr)
 			"model = %s\n"
 			"connection = serial\n", addr, driver);
 	} else {
-		return g_strdup_printf ("[global]\n"
-				"port = %s\n"
-				"model = %s\n"
-				"connection = bluetooth\n", addr, driver);
+		if (channel > 0) {
+			return g_strdup_printf ("[global]\n"
+						"port = %s\n"
+						"model = %s\n"
+						"connection = bluetooth\n"
+						"channel = %d\n",
+						addr,
+						driver,
+						channel);
+		} else {
+			return g_strdup_printf ("[global]\n"
+						"port = %s\n"
+						"model = %s\n"
+						"connection = bluetooth\n", addr, driver);
+		}
 	}
 }
 
@@ -288,7 +387,7 @@ bail:
 }
 
 PhonemgrState *
-phonemgr_utils_connect (const char *device, const char *driver, GError **error)
+phonemgr_utils_connect (const char *device, const char *driver, int channel, GError **error)
 {
 	PhonemgrState *phone_state = NULL;
 	char *config, **lines;
@@ -303,7 +402,7 @@ phonemgr_utils_connect (const char *device, const char *driver, GError **error)
 		}
 	}
 
-	config = phonemgr_utils_write_config (driver ? driver : PHONEMGR_DEFAULT_DRIVER, device);
+	config = phonemgr_utils_write_config (driver ? driver : PHONEMGR_DEFAULT_DRIVER, device, channel);
 	lines = g_strsplit (config, "\n", -1);
 	g_free (config);
 
@@ -359,8 +458,10 @@ phonemgr_utils_tell_driver (const char *addr)
 	GError *error = NULL;
 	PhonemgrState *phone_state;
 	const char *model;
+	int channel;
 
-	phone_state = phonemgr_utils_connect (addr, NULL, &error);
+	channel = phonemgr_utils_get_channel (addr);
+	phone_state = phonemgr_utils_connect (addr, NULL, channel, &error);
 	if (phone_state == NULL) {
 		g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
 		if (error != NULL)
