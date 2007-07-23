@@ -1,3 +1,11 @@
+2007-07-23  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: generate the Makefiles for the new icons
+	* src/ui.c: (on_conn_port_change), (populate_prefs), (apply_prefs):
+	Kill the global conn_port variable
+	* ui/icons/16x16/status/Makefile.am:
+	* ui/icons/22x22/status/Makefile.am: update to distcheck the SVG files
+
 2007-07-23  Andreas Nilsson  <nisses.mail@home.se>
 
 	* ui/icons/24x24/status/phone-connecting:

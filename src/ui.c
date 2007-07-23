@@ -13,8 +13,6 @@
 
 #define MAX_MESSAGE_LENGTH 160
 
-static int conn_port=0;
-
 static void
 boldify_label (GladeXML *xml, const char *name)
 {
@@ -184,12 +182,16 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 {
 	gboolean active = gtk_toggle_button_get_active (
 				GTK_TOGGLE_BUTTON (widget));
-	int port = GPOINTER_TO_INT (
-			g_object_get_data (G_OBJECT (widget), "port"));
+	int port;
+	
+	port = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "port"));
 
 	set_dependent_widget (app, port, active);
-	if (active)
-		conn_port = port;
+	if (active) {
+		gconf_client_set_int (app->client,
+				      CONFBASE"/connection_type",
+				      port, NULL);
+	}
 }
 
 static gboolean
@@ -229,8 +231,6 @@ populate_prefs (MyApp *app)
 	ctype = gconf_client_get_int (app->client,
 				      CONFBASE"/connection_type", NULL);
 
-	conn_port = ctype;
-
 	set_dependent_widget (app, CONNECTION_BLUETOOTH,
 			ctype == CONNECTION_BLUETOOTH);
 	set_dependent_widget (app, CONNECTION_OTHER,
@@ -263,10 +263,6 @@ apply_prefs (MyApp *app)
 	gconf_client_set_string (app->client,
 				 CONFBASE"/other_serial",
 				 gtk_entry_get_text (GTK_ENTRY (w)), NULL);
-
-	gconf_client_set_int (app->client,
-			      CONFBASE"/connection_type",
-			      conn_port, NULL);
 
 	reconnect_phone (app);
 }

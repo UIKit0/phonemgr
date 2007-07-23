@@ -139,6 +139,8 @@ ui/icons/16x16/status/Makefile
 ui/icons/16x16/Makefile
 ui/icons/22x22/status/Makefile
 ui/icons/22x22/Makefile
+ui/icons/24x24/status/Makefile
+ui/icons/24x24/Makefile
 libgsm/Makefile
 src/Makefile
 po/Makefile.in
