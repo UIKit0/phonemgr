@@ -1,5 +1,11 @@
 2007-07-23  Andreas Nilsson  <nisses.mail@home.se>
 
+	* ui/icons/24x24/status/phone-connecting:
+	* ui/icons/24x24/status/phone-error:
+	* ui/icons/24x24/status/phone-message: 24x24 canvas size added.
+
+2007-07-23  Andreas Nilsson  <nisses.mail@home.se>
+
 	* ui/icons/16x16/status/phone-connecting:
 	* ui/icons/16x16/status/phone-error:
 	* ui/icons/16x16/status/phone-message:
