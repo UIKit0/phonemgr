@@ -1,5 +1,16 @@
 2007-07-23  Bastien Nocera  <hadess@hadess.net>
 
+	* src/org_gnome_phone_Manager.xml: add the Coldplug method
+	* src/phonemgr-object.c:
+	(phonemgr_object_emit_number_batteries_changed),
+	(phonemgr_object_emit_battery_state_changed),
+	(phonemgr_object_coldplug):
+	* src/phonemgr-object.h:
+	Implement the coldplug method, so that gnome-power-manager can
+	trigger us emitting signals when started after gnome-phone-manager
+
+2007-07-23  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in: generate the Makefiles for the new icons
 	* src/ui.c: (on_conn_port_change), (populate_prefs), (apply_prefs):
 	Kill the global conn_port variable

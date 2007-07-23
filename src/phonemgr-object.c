@@ -55,6 +55,11 @@ phonemgr_object_class_init (PhonemgrObjectClass *klass)
 void
 phonemgr_object_emit_number_batteries_changed (PhonemgrObject *o, guint num_batteries)
 {
+	if (num_batteries != 0)
+		o->num_batteries = 1;
+	else
+		o->num_batteries = 0;
+
 	g_signal_emit (G_OBJECT (o),
 		       phonemgr_object_signals[NUMBER_BATTERIES_CHANGED],
 		       0, num_batteries);
@@ -63,9 +68,26 @@ phonemgr_object_emit_number_batteries_changed (PhonemgrObject *o, guint num_batt
 void
 phonemgr_object_emit_battery_state_changed (PhonemgrObject *o, guint index, guint percentage, gboolean on_ac)
 {
+	o->percentage = percentage;
+	o->on_ac = on_ac;
+
 	g_signal_emit (G_OBJECT (o),
 		       phonemgr_object_signals[BATTERY_STATE_CHANGED],
 		       0, index, percentage, on_ac);
+}
+
+void
+phonemgr_object_coldplug (PhonemgrObject *o)
+{
+	if (o->num_batteries == 0) {
+		g_signal_emit (G_OBJECT (o),
+			       phonemgr_object_signals[NUMBER_BATTERIES_CHANGED],
+			       0, 0);
+	} else {
+		g_signal_emit (G_OBJECT (o),
+			       phonemgr_object_signals[BATTERY_STATE_CHANGED],
+			       0, 0, o->percentage, o->on_ac);
+	}
 }
 
 static void

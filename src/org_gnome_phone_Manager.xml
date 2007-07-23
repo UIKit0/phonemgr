@@ -2,6 +2,7 @@
 
 <node name="/org/gnome/phone/Manager">
   <interface name="org.gnome.phone.Manager">
+    <method name="Coldplug" />
     <signal name="BatteryStateChanged">
       <arg type="u" name="BatteryIndex" />
       <arg type="u" name="Percentage" />
