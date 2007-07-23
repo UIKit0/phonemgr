@@ -1,3 +1,12 @@
+2007-07-23  Andreas Nilsson  <nisses.mail@home.se>
+
+	* ui/icons/16x16/status/phone-connecting:
+	* ui/icons/16x16/status/phone-error:
+	* ui/icons/16x16/status/phone-message:
+	* ui/icons/22x22/status/phone-connecting:
+	* ui/icons/22x22/status/phone-error:
+	* ui/icons/22x22/status/phone-message: Added sources for the status icons.
+
 2007-07-20  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect):
