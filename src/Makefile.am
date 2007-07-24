@@ -2,7 +2,7 @@
 AM_CPPFLAGS = \
 	$(PHONEMGR_CFLAGS) \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DDATA_DIR="\"$(datadir)/$(PACKAGE)\"" \
+	-DDATA_DIR="\"$(pkgdatadir)\"" \
 	-DVERSION="\"$(VERSION)\"" \
 	-DPACKAGE="\"$(PACKAGE)\"" \
 	-I$(srcdir)/../libgsm \

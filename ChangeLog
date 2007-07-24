@@ -1,3 +1,16 @@
+2007-07-24  Bastien Nocera  <hadess@hadess.net>
+
+	* src/Makefile.am:
+	* src/icon.c: (tray_icon_init):
+	* src/main.c:
+	* ui/icons/16x16/status/Makefile.am:
+	* ui/icons/22x22/status/Makefile.am:
+	* ui/icons/24x24/status/Makefile.am:
+	Update the icon loading to follow the best practices at
+	http://live.gnome.org/ThemableAppSpecificIcons
+	Make sure your hicolor theme is new enough, otherwise it just
+	won't load anything
+
 2007-07-23  Bastien Nocera  <hadess@hadess.net>
 
 	* src/org_gnome_phone_Manager.xml: add the Coldplug method
