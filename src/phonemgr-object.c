@@ -18,6 +18,10 @@ static void phonemgr_object_init (PhonemgrObject *o);
 
 static int phonemgr_object_signals[LAST_SIGNAL] = { 0 } ;
 
+#define PHONEMGR_DBUS_SERVICE		"org.gnome.phone"
+#define PHONEMGR_DBUS_INTERFACE		"org.gnome.phone.Manager"
+#define PHONEMGR_DBUS_PATH		"/org/gnome/phone/Manager"
+
 G_DEFINE_TYPE (PhonemgrObject, phonemgr_object, G_TYPE_OBJECT)
 
 static void
@@ -90,6 +94,48 @@ phonemgr_object_coldplug (PhonemgrObject *o)
 	}
 }
 
+static gboolean
+phonemgr_object_register (DBusGConnection *connection,
+		          GObject         *object)
+{
+	DBusGProxy *bus_proxy = NULL;
+	GError *error = NULL;
+	guint request_name_result;
+	gboolean ret;
+
+	bus_proxy = dbus_g_proxy_new_for_name (connection,
+					       DBUS_SERVICE_DBUS,
+					       DBUS_PATH_DBUS,
+					       DBUS_INTERFACE_DBUS);
+
+	ret = dbus_g_proxy_call (bus_proxy, "RequestName", &error,
+				 G_TYPE_STRING, PHONEMGR_DBUS_SERVICE,
+				 G_TYPE_UINT, 0,
+				 G_TYPE_INVALID,
+				 G_TYPE_UINT, &request_name_result,
+				 G_TYPE_INVALID);
+	if (error) {
+		g_debug ("ERROR: %s", error->message);
+		g_error_free (error);
+	}
+	if (ret == FALSE) {
+		/* abort as the DBUS method failed */
+		g_warning ("RequestName failed!");
+		return FALSE;
+	}
+
+	/* free the bus_proxy */
+	g_object_unref (G_OBJECT (bus_proxy));
+
+	/* already running */
+ 	if (request_name_result != DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER) {
+		return FALSE;
+	}
+
+	dbus_g_connection_register_g_object (connection, PHONEMGR_DBUS_PATH, object);
+	return TRUE;
+}
+
 static void
 phonemgr_object_init (PhonemgrObject *o)
 {
@@ -100,7 +146,7 @@ phonemgr_object_init (PhonemgrObject *o)
 		g_warning ("Failed to get DBUS connection: %s", e->message);
 		g_error_free (e);
 	} else {
-		dbus_g_connection_register_g_object (conn, "/org/gnome/phone/Manager", G_OBJECT (o));
+		phonemgr_object_register (conn, G_OBJECT (o));
 		//FIXME connection leak?
 	}
 }
