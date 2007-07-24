@@ -30,7 +30,7 @@ struct _PhonemgrObject {
 void phonemgr_object_emit_number_batteries_changed (PhonemgrObject *o, guint num_batteries);
 void phonemgr_object_emit_battery_state_changed (PhonemgrObject *o, guint index, guint percentage, gboolean on_ac);
 
-void phonemgr_object_coldplug (PhonemgrObject *o);
+gboolean phonemgr_object_coldplug (PhonemgrObject *o, GError **error);
 
 G_END_DECLS
 
