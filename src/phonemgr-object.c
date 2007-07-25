@@ -83,11 +83,10 @@ phonemgr_object_emit_battery_state_changed (PhonemgrObject *o, guint index, guin
 gboolean
 phonemgr_object_coldplug (PhonemgrObject *o, GError **error)
 {
-	if (o->num_batteries == 0) {
-		g_signal_emit (G_OBJECT (o),
-			       phonemgr_object_signals[NUMBER_BATTERIES_CHANGED],
-			       0, 0);
-	} else {
+	g_signal_emit (G_OBJECT (o),
+		       phonemgr_object_signals[NUMBER_BATTERIES_CHANGED],
+		       0, o->num_batteries);
+	if (o->num_batteries > 0) {
 		g_signal_emit (G_OBJECT (o),
 			       phonemgr_object_signals[BATTERY_STATE_CHANGED],
 			       0, 0, o->percentage, o->on_ac);

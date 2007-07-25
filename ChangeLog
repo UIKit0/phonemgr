@@ -1,6 +1,12 @@
 2007-07-25  Richard Hughes  <richard@hughsie.com>
 
 	* src/phonemgr-object.c: (phonemgr_object_coldplug):
+	Unconditionally do NumberBatteriesChanged at coldplug to avoid a
+	totally non-interesting race condition.
+
+2007-07-25  Richard Hughes  <richard@hughsie.com>
+
+	* src/phonemgr-object.c: (phonemgr_object_coldplug):
 	* src/phonemgr-object.h:
 	Fix the coldplug method so it can work. You _have_ to return TRUE,
 	or return a GError.
