@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-25 10:50+0200\n"
-"PO-Revision-Date: 2007-07-25 10:57+0100\n"
+"PO-Revision-Date: 2007-07-25 11:00+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +105,7 @@ msgstr "Alternativt enhetsfilnamn, t.ex. /dev/ttyS3"
 
 #: ../ui/phonemgr.glade.h:4
 msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
-msgstr "Försök alltid att ansluta igen när en anslutning inte är omedelbart tillgänglig. Använd detta tillsammans med blåtand för att försäkra dig om att din telefon ansluter när den är inom räckhåll."
+msgstr "Försök alltid att ansluta igen när en anslutning inte är omedelbart tillgänglig. Använd detta tillsammans med Bluetooth för att försäkra dig om att din telefon ansluter när den är inom räckhåll."
 
 #: ../ui/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
@@ -209,7 +209,7 @@ msgstr "Du har fått ett meddelande"
 
 #: ../ui/phonemgr.glade.h:30
 msgid "_Bluetooth"
-msgstr "_Blåtand"
+msgstr "_Bluetooth"
 
 #: ../ui/phonemgr.glade.h:31
 msgid "_Message:"
@@ -358,7 +358,7 @@ msgstr "Anslutningstypen som används av gnome-phone-manager"
 
 #: ../ui/gnome-phone-manager.schemas.in.h:4
 msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
-msgstr "Anslutningstypen som används av gnome-phone-manager: Blåtand är 0, Seriell 1 är 1, Seriell 2 är 2, Infrarött är 3, övriga anslutningstyper är 4"
+msgstr "Anslutningstypen som används av gnome-phone-manager: Bluetooth är 0, Seriell 1 är 1, Seriell 2 är 2, Infrarött är 3, övriga anslutningstyper är 4"
 
 #: ../ui/gnome-phone-manager.schemas.in.h:5
 msgid "The device node for the serial device to connect to"
