@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-03 21:03+0300\n"
+"POT-Creation-Date: 2007-08-06 17:08+0300\n"
 "PO-Revision-Date: 2006-05-03 21:11+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -16,155 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:313
-msgid "Selection mode"
-msgstr "Valintatila"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:314
-msgid "The selection mode"
-msgstr "Valintatila"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:322
-msgid "Sorted"
-msgstr "Järjestetty"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:323
-msgid "Icon list is sorted"
-msgstr "Kuvakelista on järjestetty"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:329
-msgid "Sort order"
-msgstr "Järjestyksen suunta"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:330
-msgid "Sort direction the icon list should use"
-msgstr "Kuvakelistan järjestyksessä käytetty suunta"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:344
-msgid "Icon padding"
-msgstr "Kuvakkeiden väli"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:345
-msgid "Number of pixels between icons"
-msgstr "Kuinka monta pikseliä kuvakkeiden välissä on"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:352
-msgid "Top margin"
-msgstr "Ylämarginaali"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:353
-msgid "Number of pixels in top margin"
-msgstr "Kuinka monta pikseliä ylämarginaali on"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:360
-msgid "Bottom margin"
-msgstr "Alamarginaali"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:361
-msgid "Number of pixels in bottom margin"
-msgstr "Kuinka monta pikseliä alamarginaali on"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:369
-msgid "Left margin"
-msgstr "Vasen marginaali"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:370
-msgid "Number of pixels in left margin"
-msgstr "Kuinka monta pikseliä vasen marginaali on"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:377
-msgid "Right margin"
-msgstr "Oikea marginaali"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:378
-msgid "Number of pixels in right margin"
-msgstr "Kuinka monta pikseliä oikea marginaali on"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:386
-msgid "Selection Box Color"
-msgstr "Valintalaatikon väri"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:387
-msgid "Color of the selection box"
-msgstr "Valintalaatikon väri"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:393
-msgid "Selection Box Alpha"
-msgstr "Valintalaatikon läpinäkyvyys"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:394
-msgid "Opacity of the selection box"
-msgstr "Valintalaatikon läpinäkyvyys"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:154
-msgid "Pixbuf"
-msgstr "Pixbuf"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:155
-msgid "A GdkPixbuf to display"
-msgstr "Näytettävä GdkPixBuf"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:162
-msgid "Filename"
-msgstr "Tiedosto"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:163
-msgid "Filename to load and display"
-msgstr "Näytettävä ja ladattava tiedosto"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:170
-msgid "Stock ID"
-msgstr "Oletustunniste"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:171
-msgid "Stock ID for a stock image to display"
-msgstr "Näytettävän oletuskuvan tunniste"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:178
-msgid "Animation"
-msgstr "Animaatio"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:179
-msgid "GdkPixbufAnimation to display"
-msgstr "Näytettävä GdkPixbufAnimation-animaatio"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:186
-msgid "Image type"
-msgstr "Kuvan tyyppi"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:187
-msgid "The representation being used for image data"
-msgstr "Kuvatiedon esitysmuoto"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:195
-msgid "Size"
-msgstr "Koko"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:196
-msgid "The size of the icon"
-msgstr "Kuvakkeen koko"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:205
-msgid "Blinking"
-msgstr "Vilkkuva"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:206
-msgid "Whether or not the status icon is blinking"
-msgstr "Määrittää vilkkuuko tilakuvake"
-
-#: ../libegg/libegg/tray/eggtrayicon.c:118
-#: ../libegg/libegg/tray/eggtraymanager.c:145
-msgid "Orientation"
-msgstr "Suunta"
-
-#: ../libegg/libegg/tray/eggtrayicon.c:119
-#: ../libegg/libegg/tray/eggtraymanager.c:146
-msgid "The orientation of the tray."
-msgstr "Ilmoitusalueen suunta."
-
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:91
+#: ../src/connection.c:92
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Yhteys laitteeseen %s"
@@ -173,14 +27,12 @@ msgstr "Yhteys laitteeseen %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:100
+#: ../src/connection.c:98
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Yhteyttä laitteseen %s ei saatu"
 
-#. When try icon is destroyed, recreate it.  This happens
-#. when the notification area is removed.
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:66 ../src/menu.c:30
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:28
 msgid "Phone Manager"
 msgstr "Puhelimen hallinta"
 
@@ -188,64 +40,50 @@ msgstr "Puhelimen hallinta"
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Lähetä ja vastaanota tekstiviestejä kännykällä"
 
-#: ../src/icon.c:162
+#: ../src/icon.c:37
 msgid "Message arrived"
 msgstr "Viesti saapui"
 
-#: ../src/icon.c:166
+#: ../src/icon.c:40
 msgid "Connected"
 msgstr "Yhteys auki"
 
-#: ../src/icon.c:171
+#: ../src/icon.c:44
 msgid "Connecting to phone"
 msgstr "Otetaan yhteyttä Puhelimeen"
 
-#: ../src/icon.c:176
+#: ../src/icon.c:48
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: ../src/icon.c:196
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
-"\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
-msgstr ""
-"<span weight=\"bold\" size=\"larger\">Ilmoitusaluetta ei löydy</span>\n"
-"\n"
-"Puhelimen hallinta käyttää ilmoitusaluetta näyttämään tietoja ja tarjoaa sen "
-"avulla pääsyn viestin lähetykseen ja asetuksiin. Voit lisätä ilmoitusalueen "
-"napsauttamalla paneelia hiiren oikealla napilla, valitsemalla kohta \"Lisää "
-"paneeliin...\" ja valitsemalla \"Ilmoitusalue\" listan kohdasta "
-"\"Lisäohjelmat\"."
+#: ../src/main.c:14
+msgid "Show model name of a specific device"
+msgstr "Näytä määritellyn laitteen mallinimi"
 
-#: ../src/main.c:36
-msgid "Couldn't create phone listener."
-msgstr "Puhelimen kuuntelijaa ei löydy."
+#: ../src/main.c:29
+msgid "- Manage your mobile phone"
+msgstr "- Hallitse matkapuhelintasi"
 
-#: ../src/menu.c:22
+#: ../src/menu.c:20
 msgid "translator_credits"
 msgstr ""
 "Ilkka Tuohela, 2006\n"
 "\n"
 "http://www.gnome.fi/"
 
-#: ../src/menu.c:32
+#: ../src/menu.c:24
 msgid "Send and receive messages from your mobile phone."
 msgstr "Lähetä ja vastaanota viestejä kännykälläsi."
 
-#: ../src/menu.c:75
+#: ../src/menu.c:32
+msgid "Phone Manager website"
+msgstr "Puhelimen hallinnan www-sivut"
+
+#: ../src/menu.c:63
 msgid "_Send Message"
 msgstr "_Lähetä viesti"
 
-#: ../src/ui.c:89
-msgid "No Bluetooth device chosen."
-msgstr "Bluetooth-laitetta ei ole valittu."
-
-#: ../src/ui.c:324
+#: ../src/ui.c:313
 msgid "Message too long!"
 msgstr "Viesti on liian pitkä!"
 
@@ -254,31 +92,14 @@ msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
 #: ../ui/phonemgr.glade.h:2
-msgid "<b>Alerting</b>"
-msgstr "<b>Huomautus</b>"
+msgid "Alerting"
+msgstr "Hälytys"
 
 #: ../ui/phonemgr.glade.h:3
-msgid "<b>Error Handling</b>"
-msgstr "<b>Virheenkäsittely</b>"
-
-#: ../ui/phonemgr.glade.h:4
-msgid "<b>Phone Connection</b>"
-msgstr "<b>Puhelinyhteys</b>"
-
-#: ../ui/phonemgr.glade.h:5
-msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Syötä tekstiviesti</span>"
-
-#: ../ui/phonemgr.glade.h:6
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Vastaanotit uuden viestin</span>"
-
-#: ../ui/phonemgr.glade.h:7
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Vaihtoehtoinen laitenimi, kuten /dev/ttyS3"
 
-#: ../ui/phonemgr.glade.h:8
+#: ../ui/phonemgr.glade.h:4
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -288,123 +109,131 @@ msgstr ""
 "tätä Bluetoothin kanssa varmistaaksesi, että puhelin yhdistetään aina kun se "
 "tulee tietokoneen lähettyville."
 
-#: ../ui/phonemgr.glade.h:9
+#: ../ui/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
 msgstr "Y_ritä avata yhteys uudestaan automaattisesti"
 
-#: ../ui/phonemgr.glade.h:10
+#: ../ui/phonemgr.glade.h:6
 msgid "Characters left:"
 msgstr "Merkkejä jäljellä:"
 
-#: ../ui/phonemgr.glade.h:11
-msgid "Choo_se"
-msgstr "Valit_se"
-
-#: ../ui/phonemgr.glade.h:12
-msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr "Valitse Bluetooth-puhelin, johon otetaan yhteyttä."
-
-#: ../ui/phonemgr.glade.h:13
+#: ../ui/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
 msgstr "Yhdistä käyttäen muuta sarjalaitetta"
 
-#: ../ui/phonemgr.glade.h:14
+#: ../ui/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
 msgstr "Yhdistä käyttäen infrapunayhteyttä"
 
-#: ../ui/phonemgr.glade.h:15
+#: ../ui/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr "Ota yhteyttä sarjaportin 1 kautta (COM1 tai /dev/ttyS0)"
 
-#: ../ui/phonemgr.glade.h:16
+#: ../ui/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr "Ota yhteyttä sarjaportin 2 kautta (COM2 tai /dev/ttyS1)"
 
-#: ../ui/phonemgr.glade.h:17
+#: ../ui/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "Yhteys"
 
-#: ../ui/phonemgr.glade.h:18
+#: ../ui/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "Päivämäärä:"
 
-#: ../ui/phonemgr.glade.h:19
+#: ../ui/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
-msgstr "Syötä tekstiviestä, jonka haluat lähettää."
+msgstr "Syötä lähetettävä tekstiviesti."
 
-#: ../ui/phonemgr.glade.h:20
+#: ../ui/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "Syötä lähetettävä tekstiviesti"
+
+#: ../ui/phonemgr.glade.h:15
+msgid "Error Handling"
+msgstr "Virheenkäsittely"
+
+#: ../ui/phonemgr.glade.h:16
+msgid "I_nfra red (/dev/ircomm)"
+msgstr "I_nfrapuna (/dev/ircomm)"
+
+#: ../ui/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
-#: ../ui/phonemgr.glade.h:21
+#: ../ui/phonemgr.glade.h:18
 msgid "Message Received"
 msgstr "Viesti vastaanotettu"
 
-#: ../ui/phonemgr.glade.h:22
+#: ../ui/phonemgr.glade.h:19
 msgid "Number of characters left in the message"
 msgstr "Viestissä jäljellä olevien merkkien lukumäärä"
 
-#: ../ui/phonemgr.glade.h:23
+#: ../ui/phonemgr.glade.h:20
 msgid "Other _port"
 msgstr "Muu _portti"
 
-#: ../ui/phonemgr.glade.h:24
+#: ../ui/phonemgr.glade.h:21
+msgid "Phone Connection"
+msgstr "Puhelinyhteys"
+
+#: ../ui/phonemgr.glade.h:22
 msgid "Phone Manager Preferences"
 msgstr "Puhelimen hallinnan asetukset"
 
-#: ../ui/phonemgr.glade.h:25
+#: ../ui/phonemgr.glade.h:23
 msgid "Play _sound when messages arrive"
 msgstr "_Soita ääni, kun viesti saapuu"
 
-#: ../ui/phonemgr.glade.h:26
+#: ../ui/phonemgr.glade.h:24
 msgid "Send Message"
 msgstr "Lähetä viesti"
 
-#: ../ui/phonemgr.glade.h:27
+#: ../ui/phonemgr.glade.h:25
 msgid "Sender:"
 msgstr "Lähettäjä:"
 
-#: ../ui/phonemgr.glade.h:28
+#: ../ui/phonemgr.glade.h:26
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Sarjaportti _1 (/dev/ttyS0)"
 
-#: ../ui/phonemgr.glade.h:29
+#: ../ui/phonemgr.glade.h:27
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Sarjaportti _2 (/dev/ttyS1)"
 
-#: ../ui/phonemgr.glade.h:30
+#: ../ui/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Yhdistä käyttäen langatonta Bluetooth-yhteyttä"
 
-#: ../ui/phonemgr.glade.h:31
+#: ../ui/phonemgr.glade.h:29
+msgid "You have received a message"
+msgstr "Olet vastaanottanut viestin"
+
+#: ../ui/phonemgr.glade.h:30
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../ui/phonemgr.glade.h:32
-msgid "_Infra red (/dev/ircomm)"
-msgstr "_Infrapuna (/dev/ircomm)"
-
-#: ../ui/phonemgr.glade.h:33
+#: ../ui/phonemgr.glade.h:31
 msgid "_Message:"
 msgstr "_Viesti:"
 
-#: ../ui/phonemgr.glade.h:34
+#: ../ui/phonemgr.glade.h:32
 msgid "_Pop-up window for new messages"
 msgstr "Näytä _ponnahdusikkuna viestin saapuessa"
 
-#: ../ui/phonemgr.glade.h:35
+#: ../ui/phonemgr.glade.h:33
 msgid "_Recipient:"
 msgstr "_Vastaanottaja:"
 
-#: ../ui/phonemgr.glade.h:36
+#: ../ui/phonemgr.glade.h:34
 msgid "_Reply"
 msgstr "_Vastaa"
 
-#: ../ui/phonemgr.glade.h:37
+#: ../ui/phonemgr.glade.h:35
 msgid "_Send"
 msgstr "_Lähetä"
 
-#: ../ui/phonemgr.glade.h:38
+#: ../ui/phonemgr.glade.h:36
 msgid "message body"
 msgstr "viestin runko"
 
@@ -418,88 +247,233 @@ msgstr "Yhteystietoa ei voi hakea: %s"
 msgid "Could not find contact: %s"
 msgstr "Yhteystietoa ei löydy: %s"
 
-#: ../src/e-contact-entry.c:367
+#: ../src/e-contact-entry.c:383
 msgid "Cannot create searchable view."
 msgstr "Etsintänäkymää ei voi luoda."
 
-#: ../src/e-contact-entry.c:820
+#: ../src/e-contact-entry.c:836
 msgid "Success"
 msgstr "Onnistui"
 
-#: ../src/e-contact-entry.c:822
+#: ../src/e-contact-entry.c:838
 msgid "An argument was invalid."
 msgstr "Argumentti oli virheellinen."
 
-#: ../src/e-contact-entry.c:824
+#: ../src/e-contact-entry.c:840
 msgid "The address book is busy."
 msgstr "Osoitekirja on käytössä."
 
-#: ../src/e-contact-entry.c:826
+#: ../src/e-contact-entry.c:842
 msgid "The address book is offline."
 msgstr "Osoitekirja ei ole käytettävissä."
 
-#: ../src/e-contact-entry.c:828
+#: ../src/e-contact-entry.c:844
 msgid "The address book does not exist."
 msgstr "Osoitekirjaa ei ole olemassa."
 
-#: ../src/e-contact-entry.c:830
+#: ../src/e-contact-entry.c:846
 msgid "The \"Me\" contact does not exist."
 msgstr "Yhteystietoa \"Minä\" ei löydy."
 
-#: ../src/e-contact-entry.c:832
+#: ../src/e-contact-entry.c:848
 msgid "The address book is not loaded."
 msgstr "Osoitekirjaa ei ole ladattu."
 
-#: ../src/e-contact-entry.c:834
+#: ../src/e-contact-entry.c:850
 msgid "The address book is already loaded."
 msgstr "Osoitekirja on jo ladattu."
 
-#: ../src/e-contact-entry.c:836
+#: ../src/e-contact-entry.c:852
 msgid "Permission was denied when accessing the address book."
 msgstr "Pääsy evättiin yritettäessä avata osoitekirjaa."
 
-#: ../src/e-contact-entry.c:838
+#: ../src/e-contact-entry.c:854
 msgid "The contact was not found."
 msgstr "Yhteystietoa ei löydy."
 
-#: ../src/e-contact-entry.c:840
+#: ../src/e-contact-entry.c:856
 msgid "This contact ID already exists."
 msgstr "Yhteystiedon tunniste on jo olemassa."
 
-#: ../src/e-contact-entry.c:842
+#: ../src/e-contact-entry.c:858
 msgid "The protocol is not supported."
 msgstr "Protokolla ei ole tuettu."
 
-#: ../src/e-contact-entry.c:844
+#: ../src/e-contact-entry.c:860
 msgid "The operation was cancelled."
 msgstr "Toiminto peruttiin."
 
-#: ../src/e-contact-entry.c:846
+#: ../src/e-contact-entry.c:862
 msgid "The operation could not be cancelled."
 msgstr "Toimintoa ei voitu perua."
 
-#: ../src/e-contact-entry.c:848
+#: ../src/e-contact-entry.c:864
 msgid "The address book authentication failed."
 msgstr "Todentaminen osoitekirjaan epäonnistui."
 
-#: ../src/e-contact-entry.c:850
+#: ../src/e-contact-entry.c:866
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr ""
 "Todentaminen vaaditaan osoitekirjan käyttöön, eikä todennusta määritelty."
 
-#: ../src/e-contact-entry.c:852
+#: ../src/e-contact-entry.c:868
 msgid "A secure connection is not available."
 msgstr "Turvallinen yhteys ei ole käytettävissä."
 
-#: ../src/e-contact-entry.c:854
+#: ../src/e-contact-entry.c:870
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Tapahtui CORBA-virhe käytettäessä osoitekirjaa."
 
-#: ../src/e-contact-entry.c:856
+#: ../src/e-contact-entry.c:872
 msgid "The address book source does not exist."
 msgstr "Osoitekirjan lähdettä ei löydy."
 
-#: ../src/e-contact-entry.c:858 ../src/e-contact-entry.c:861
+#: ../src/e-contact-entry.c:874 ../src/e-contact-entry.c:877
 msgid "An unknown error occurred."
 msgstr "Tapahtui tuntematon virhe."
+
+#~ msgid "Selection mode"
+#~ msgstr "Valintatila"
+
+#~ msgid "The selection mode"
+#~ msgstr "Valintatila"
+
+#~ msgid "Sorted"
+#~ msgstr "Järjestetty"
+
+#~ msgid "Icon list is sorted"
+#~ msgstr "Kuvakelista on järjestetty"
+
+#~ msgid "Sort order"
+#~ msgstr "Järjestyksen suunta"
+
+#~ msgid "Sort direction the icon list should use"
+#~ msgstr "Kuvakelistan järjestyksessä käytetty suunta"
+
+#~ msgid "Icon padding"
+#~ msgstr "Kuvakkeiden väli"
+
+#~ msgid "Number of pixels between icons"
+#~ msgstr "Kuinka monta pikseliä kuvakkeiden välissä on"
+
+#~ msgid "Top margin"
+#~ msgstr "Ylämarginaali"
+
+#~ msgid "Number of pixels in top margin"
+#~ msgstr "Kuinka monta pikseliä ylämarginaali on"
+
+#~ msgid "Bottom margin"
+#~ msgstr "Alamarginaali"
+
+#~ msgid "Number of pixels in bottom margin"
+#~ msgstr "Kuinka monta pikseliä alamarginaali on"
+
+#~ msgid "Left margin"
+#~ msgstr "Vasen marginaali"
+
+#~ msgid "Number of pixels in left margin"
+#~ msgstr "Kuinka monta pikseliä vasen marginaali on"
+
+#~ msgid "Right margin"
+#~ msgstr "Oikea marginaali"
+
+#~ msgid "Number of pixels in right margin"
+#~ msgstr "Kuinka monta pikseliä oikea marginaali on"
+
+#~ msgid "Selection Box Color"
+#~ msgstr "Valintalaatikon väri"
+
+#~ msgid "Color of the selection box"
+#~ msgstr "Valintalaatikon väri"
+
+#~ msgid "Selection Box Alpha"
+#~ msgstr "Valintalaatikon läpinäkyvyys"
+
+#~ msgid "Opacity of the selection box"
+#~ msgstr "Valintalaatikon läpinäkyvyys"
+
+#~ msgid "Pixbuf"
+#~ msgstr "Pixbuf"
+
+#~ msgid "A GdkPixbuf to display"
+#~ msgstr "Näytettävä GdkPixBuf"
+
+#~ msgid "Filename"
+#~ msgstr "Tiedosto"
+
+#~ msgid "Filename to load and display"
+#~ msgstr "Näytettävä ja ladattava tiedosto"
+
+#~ msgid "Stock ID"
+#~ msgstr "Oletustunniste"
+
+#~ msgid "Stock ID for a stock image to display"
+#~ msgstr "Näytettävän oletuskuvan tunniste"
+
+#~ msgid "Animation"
+#~ msgstr "Animaatio"
+
+#~ msgid "GdkPixbufAnimation to display"
+#~ msgstr "Näytettävä GdkPixbufAnimation-animaatio"
+
+#~ msgid "Image type"
+#~ msgstr "Kuvan tyyppi"
+
+#~ msgid "The representation being used for image data"
+#~ msgstr "Kuvatiedon esitysmuoto"
+
+#~ msgid "Size"
+#~ msgstr "Koko"
+
+#~ msgid "The size of the icon"
+#~ msgstr "Kuvakkeen koko"
+
+#~ msgid "Blinking"
+#~ msgstr "Vilkkuva"
+
+#~ msgid "Whether or not the status icon is blinking"
+#~ msgstr "Määrittää vilkkuuko tilakuvake"
+
+#~ msgid "Orientation"
+#~ msgstr "Suunta"
+
+#~ msgid "The orientation of the tray."
+#~ msgstr "Ilmoitusalueen suunta."
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+#~ "span>\n"
+#~ "\n"
+#~ "Phone Manager uses the notification area to display information and "
+#~ "provide access to message sending and preferences. You can add it by "
+#~ "right-clicking on your panel and choosing <i>Add to Panel -> Utility -> "
+#~ "Notification Area</i>."
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Ilmoitusaluetta ei löydy</span>\n"
+#~ "\n"
+#~ "Puhelimen hallinta käyttää ilmoitusaluetta näyttämään tietoja ja tarjoaa "
+#~ "sen avulla pääsyn viestin lähetykseen ja asetuksiin. Voit lisätä "
+#~ "ilmoitusalueen napsauttamalla paneelia hiiren oikealla napilla, "
+#~ "valitsemalla kohta \"Lisää paneeliin...\" ja valitsemalla \"Ilmoitusalue"
+#~ "\" listan kohdasta \"Lisäohjelmat\"."
+
+#~ msgid "Couldn't create phone listener."
+#~ msgstr "Puhelimen kuuntelijaa ei löydy."
+
+#~ msgid "No Bluetooth device chosen."
+#~ msgstr "Bluetooth-laitetta ei ole valittu."
+
+#~ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+#~ msgstr "<span weight=\"bold\" size=\"larger\">Syötä tekstiviesti</span>"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Vastaanotit uuden viestin</span>"
+
+#~ msgid "Choo_se"
+#~ msgstr "Valit_se"
+
+#~ msgid "Choose a Bluetooth-enabled mobile phone to connect to."
+#~ msgstr "Valitse Bluetooth-puhelin, johon otetaan yhteyttä."
