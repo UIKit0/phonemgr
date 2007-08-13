@@ -1,3 +1,8 @@
+2007-08-13  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: Require gnome-icon-theme 2.19.1 so we have a phone
+	icon available (Closes: #461968)
+
 2007-07-25  Richard Hughes  <richard@hughsie.com>
 
 	* src/phonemgr-object.c: (phonemgr_object_coldplug):
