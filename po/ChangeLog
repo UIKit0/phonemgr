@@ -1,3 +1,8 @@
+2007-08-13  Bastien Nocera  <hadess@hadess.net>
+
+	* POTFILES.in: Add some missing files to be translated
+	(Closes: #466059)
+
 2007-08-13 Gabor Kelemen  <kelemeng@gnome.hu>
 
 	* hu.po: Translation updated.
