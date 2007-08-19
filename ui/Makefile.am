@@ -34,5 +34,6 @@ update-icon-cache:
 		echo "***   $(gtk_update_icon_cache)"; \
 	fi
 
+CLEANFILES = $(schema_DATA)
 EXTRA_DIST = $(ui_DATA) $(sound_DATA) $(schema_in_files)
 

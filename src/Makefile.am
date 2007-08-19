@@ -6,7 +6,8 @@ AM_CPPFLAGS = \
 	-DVERSION="\"$(VERSION)\"" \
 	-DPACKAGE="\"$(PACKAGE)\"" \
 	-I$(srcdir)/../libgsm \
-	-I.
+	-I$(builddir)/../libgsm \
+	-I$(builddir)/src
 
 bin_PROGRAMS = gnome-phone-manager
 
@@ -37,9 +38,6 @@ BUILT_SOURCES = phone-manager-interface.h
 phone-manager-interface.h: org_gnome_phone_Manager.xml
 	$(DBUS_BIND) --prefix=phonemgr_object --mode=glib-server $< > $@
 
-EXTRA_DIST = gnome-phone-manager.desktop.in org_gnome_phone_Manager.xml
-CLEANFILES = $(BUILT_SOURCES)
-
 desktop_in_files = gnome-phone-manager.desktop.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
@@ -57,4 +55,7 @@ GCONF_BRIDGE_DIR = $(srcdir)/../../libgconf-bridge/libgconf-bridge/
 regenerate-built-sources:
 	EGGFILES="$(CLA_FILES)" EGGDIR="$(CLADIR)" $(srcdir)/update-from-egg.sh || true
 	EGGFILES="$(GCONF_BRIDGE_FILES)" EGGDIR="$(GCONF_BRIDGE_DIR)" $(srcdir)/update-from-egg.sh || true
+
+EXTRA_DIST = gnome-phone-manager.desktop.in org_gnome_phone_Manager.xml
+CLEANFILES = $(BUILT_SOURCES) $(desktop_DATA)
 

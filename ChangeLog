@@ -1,3 +1,14 @@
+============ Version 0.10
+
+2007-08-19  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: upd
+	* configure.in: release 0.10
+
+	* Makefile.am:
+	* src/Makefile.am:
+	* ui/Makefile.am: distcheck fixes
+
 2007-08-13  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in: Require gnome-icon-theme 2.19.1 so we have a phone
@@ -327,21 +338,6 @@
 	(phonemgr_utils_disconnect), (phonemgr_utils_free):
 	* libgsm/phonemgr-utils.h: some prototypes cleanups
 
-2007-07-10  Bastien Nocera  <hadess@hadess.net>
-
-	reviewed by: <delete if not using a buddy>
-
-	* libgsm/phonemgr-listener.c: (phonemgr_listener_init),
-	(phonemgr_listener_connect), (phonemgr_listener_new_call_cb),
-	(phonemgr_listener_call_notification_poll),
-	(phonemgr_listener_set_sms_notification),
-	(phonemgr_listener_thread), (phonemgr_listener_disconnect),
-	(phonemgr_listener_cancel_call), (phonemgr_listener_answer_call):
-	* libgsm/phonemgr-listener.h:
-	* libgsm/phonemgr-utils.c: (phonemgr_utils_connect),
-	(phonemgr_utils_disconnect), (phonemgr_utils_free):
-	* libgsm/phonemgr-utils.h:
-
 2007-07-07  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_battery_poll):
@@ -442,7 +438,7 @@
 	* src/ui.c: (time_to_string), (dequeue_message):
 	Use time_t instead of GTime all around, as GTime is 32-bit even on
 	64-bit platforms.
-			 
+
 	Use strftime directly instead of g_date_strftime(), as GDate doesn't do
 	time, just dates, fixes all messages as showing up as sent at midnight
 
