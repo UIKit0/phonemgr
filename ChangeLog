@@ -1,3 +1,7 @@
+2007-08-19  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phones.xml: Add the Nokia 6300 to the list (Closes: #468244)
+
 ============ Version 0.10
 
 2007-08-19  Bastien Nocera  <hadess@hadess.net>

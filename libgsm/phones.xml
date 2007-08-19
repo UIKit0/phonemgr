@@ -12,5 +12,8 @@
 	<phone_entry
 		identifier="Nokia 6230"
 		driver="6230" />
+	<phone_entry
+		identifier="Nokia 6300"
+		driver="6300" />
 </phone_entries>
 
