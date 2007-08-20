@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phonemgr 0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-02-23 22:42+0100\n"
-"PO-Revision-Date: 2007-07-29 16:05+0200\n"
+"PO-Revision-Date: 2007-08-20 19:35+0200\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -83,11 +83,11 @@ msgstr ""
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:386
 msgid "Selection Box Color"
-msgstr "Color de la bóstia de seleccion"
+msgstr "Color de la brustia de seleccion"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:387
 msgid "Color of the selection box"
-msgstr "Color de la bóstia de seleccion"
+msgstr "Color de la brustia de seleccion"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:393
 msgid "Selection Box Alpha"
@@ -95,7 +95,7 @@ msgstr ""
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:394
 msgid "Opacity of the selection box"
-msgstr "Opacitat de la bóstia de seleccion"
+msgstr "Opacitat de la brustia de seleccion"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:154
 msgid "Pixbuf"
@@ -244,7 +244,7 @@ msgstr ""
 
 #: ../ui/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
-msgstr ""
+msgstr "/dev/ttyS2"
 
 #: ../ui/phonemgr.glade.h:2
 msgid "<b>Alerting</b>"
