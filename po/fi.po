@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-06 17:08+0300\n"
+"POT-Creation-Date: 2007-08-23 08:33+0300\n"
 "PO-Revision-Date: 2006-05-03 21:11+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -31,6 +31,15 @@ msgstr "Yhteys laitteeseen %s"
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Yhteyttä laitteseen %s ei saatu"
+
+#: ../src/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf-virhe: %s"
+
+#: ../src/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Kaikki jatkossa tulevat virheet näytetään vain päätteessä."
 
 #: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:28
 msgid "Phone Manager"
@@ -82,6 +91,10 @@ msgstr "Puhelimen hallinnan www-sivut"
 #: ../src/menu.c:63
 msgid "_Send Message"
 msgstr "_Lähetä viesti"
+
+#: ../src/phonemgr-chooser-button.c:79 ../src/phonemgr-chooser-button.c:189
+msgid "Click to select device..."
+msgstr "Valise laite napsauttamalla..."
 
 #: ../src/ui.c:313
 msgid "Message too long!"
@@ -236,6 +249,74 @@ msgstr "_Lähetä"
 #: ../ui/phonemgr.glade.h:36
 msgid "message body"
 msgstr "viestin runko"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Bluetooth-osoite laitteelle, johon otetaan yhteyttä."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+"Bluetooth-osoite laitteelle, johon otetaan yhteyttä. Vaatii, että avain "
+"connection_type on arvoltaan 1."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Gnome-phone-managerin käyttämän yhteyden tyyppi"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+"Gnome-phone-managerin käyttämä yhteystyyppi. Arvo 0 on bluetooth, 1 "
+"sarjaportti 1, 2 sarjaportti 2, 3 IrDA ja 4 muu yhteystapa"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Sarjaporttia käytettäessä käytetty laitetiedosto"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
+"Sarjaporttiyhteydelle käytetty laitetiedosto. Vaatii, että avain "
+"connection_type on 4."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Soitetaanko äänihuomautus, kun uusi viesti saapuu"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Soitetaanko äänihuomautus, kun uusi viesti saapuu."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Näytetäänkö uudet viestit huomautusikkunoina työpöydällä"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"Näytetäänkö uudet viesti työpöydällä niiden saapuessa, sen sijaan että "
+"ne näytetään napsautettaessa ilmoitusalueen kuvaketta."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Yritetäänkö yhteyttä matkapuhelimeen uudestaan"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+"Yritetäänkö yhteyttä matkapuhelimeen uudestaan, jos yhteys katkeaa jossain "
+"vaiheessa."
 
 #: ../src/e-contact-entry.c:153
 #, c-format
@@ -474,6 +555,3 @@ msgstr "Tapahtui tuntematon virhe."
 
 #~ msgid "Choo_se"
 #~ msgstr "Valit_se"
-
-#~ msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-#~ msgstr "Valitse Bluetooth-puhelin, johon otetaan yhteyttä."
