@@ -1,3 +1,7 @@
+2007-08-31  Bastien Nocera  <hadess@hadess.net>
+
+	* MAINTAINERS: Added
+
 2007-08-19  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phones.xml: the Nokia 6300 should use the 6510 driver,
