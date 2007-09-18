@@ -25,7 +25,11 @@ about_activated(GtkMenuItem *item, gpointer data)
 			   "copyright", "Copyright \xc2\xa9 2003-2004 Edd Dumbill\nCopyright \xc2\xa9 2005-2007 Bastien Nocera",
 			   "documenters", documenters,
 			   "logo-icon-name", "phone",
+#if GTK_CHECK_VERSION (2, 11, 0)
 			   "program-name", _("Phone Manager"),
+#else
+			   "name", _("Phone Manager"),
+#endif /* GTK+ 2.11.0 */
 			   "version", VERSION,
 			   "translator-credits", strcmp (translator_credits, "translator_credits") != 0 ?  translator_credits : NULL,
 			   "website", "http://live.gnome.org/PhoneManager",
