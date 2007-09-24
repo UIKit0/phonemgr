@@ -208,18 +208,16 @@ phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 
 	text = NULL;
 
-	//FIXME use the encoding as coming out of the txt message
+	/* The data should be in whatever the locale's encoding is,
+	 * as a design decision in gnokii */
 	origtext = (char *) message->user_data[0].u.text;
 	if (g_utf8_validate (origtext, -1, NULL) == FALSE) {
 		GError *err = NULL;
 
-		text = g_convert (origtext,
-				strlen (origtext),
-				"utf-8", "iso-8859-1",
-				NULL, NULL, &err);
+		text = g_locale_to_utf8 (origtext, -1, NULL, NULL, &err);
+
 		if (err != NULL) {
-			g_warning ("Conversion error: %d %s",
-					err->code, err->message);
+			g_warning ("Conversion error: %d %s", err->code, err->message);
 			g_error_free (err);
 			text = g_strdup (origtext);
 		}
@@ -531,7 +529,7 @@ phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 			l->supports_sms_notif = TRUE;
 			g_message ("driver supports sms notifications");
 		} else {
-			g_message ("driver doesn't support sms nots");
+			g_message ("driver doesn't support sms notifications");
 		}
 	} else {
 		if (l->supports_sms_notif == FALSE)
@@ -638,16 +636,22 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	g_return_if_fail (number != NULL);
 	g_return_if_fail (message != NULL);
 
-	/* Lock the phone */
+	/* Lock the phone and set up for SMS sending */
 	g_mutex_lock (l->mutex);
-
 	gn_data_clear(&l->phone_state->data);
+	gn_sms_default_submit(&sms);
 
-	mstr = g_convert (message, strlen (message),
-			"iso-8859-1", "utf-8",
-			NULL, NULL, &err);
-
-	g_message ("mstr '%s'", mstr);
+	/* If the message contains characters not in the
+	 * default GSM alaphabet, we convert it to UCS-2 encoding instead */
+	if (gn_char_def_alphabet(sms.user_data[0].u.text)) {
+		mstr = g_strdup (sms.user_data[0].u.text);
+		sms.dcs.u.general.alphabet = GN_SMS_DCS_DefaultAlphabet;
+	} else {
+		mstr = g_convert (message, strlen (message),
+				  "UCS-2", "UTF-8",
+				  NULL, NULL, &err);
+		sms.dcs.u.general.alphabet = GN_SMS_DCS_UCS2;
+	}
 
 	if (err != NULL) {
 		g_warning ("Conversion error: %d %s", err->code, err->message);
@@ -655,8 +659,6 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 		g_mutex_unlock (l->mutex);
 		return;
 	}
-
-	gn_sms_default_submit(&sms);
 
 	/* Set the destination number */
 	g_strlcpy (sms.remote.number, number, sizeof(sms.remote.number));
@@ -678,12 +680,8 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	sms.user_data[0].type = GN_SMS_DATA_Text;
 	g_strlcpy ((char *) sms.user_data[0].u.text, mstr, strlen (mstr) + 1);
 	sms.user_data[0].length = strlen (mstr);
-
-	/* Set the message encoding */
-	if (!gn_char_def_alphabet(sms.user_data[0].u.text))
-		sms.dcs.u.general.alphabet = GN_SMS_DCS_UCS2;
-	sms.user_data[1].type = GN_SMS_DATA_None;
 	g_free (mstr);
+	sms.user_data[1].type = GN_SMS_DATA_None;
 
 	l->phone_state->data.sms = &sms;
 

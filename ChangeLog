@@ -1,3 +1,14 @@
+2007-09-24  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
+	(phonemgr_listener_set_sms_notification),
+	(phonemgr_listener_queue_message): When receving a message, it
+	will be in the locale's encoding, so convert it from that to
+	UTF-8 (Closes: #479764)
+	When sending a message, don't try to stuff UTF-8 in a UCS-2 string,
+	and only use UCS-2 when the text doesn't fit in the default
+	GSM alphabet, fixes sending in non-ASCII locales
+
 2007-09-18  Bastien Nocera  <hadess@hadess.net>
 
 	* src/menu.c: (about_activated): Fix warnings when running with
