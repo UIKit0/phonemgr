@@ -1,7 +1,8 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
  * PhoneManager Listener
  * Copyright (C) 2003-2004 Edd Dumbill <edd@usefulinc.com>
- * Copyright (C) 2005 Bastien Nocera <hadess@hadess.net>
+ * Copyright (C) 2005-2007 Bastien Nocera <hadess@hadess.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -17,6 +18,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
  */
+
 #include <config.h>
 
 #include <stdlib.h>

@@ -11,23 +11,27 @@ one is presently added to the panel.
 Phone Manager is currently a work in progress, see the TODO file for
 tasks left undone and BUGS for problems that I know about.
 
+License
+-------
+
+All the code is under GNU General Public License version 2 or better, except
+for select files which are licensed under the Lesser General Public License.
+
+See each file's headers for details.
+
 Building
 --------
 
 You need:
 
-* Bluetooth libs, utils installed installed (bluez.sf.net)
-
-* Bluetooth kernel modules installed (must use kernel 2.4.20 or better)
-
 * gnome-bluetooth and libbtctl, from
-  http://usefulinc.com/software/gnome-bluetooth
+  http://live.gnome.org/GnomeBluetooth
 
 * These GNOME 2 packages:
     glib-2.0 libgnomeui-2.0 >= 1.110.0
     libgnome-2.0 gtk-2.0 gconf-2.0
 
-* gnokii 0.6.4 or better
+* gnokii 0.6.18 or better
   gnokii's homepage is at http://gnokii.org/
 
  -- Edd Dumbill <edd@usefulinc.com>, 2003-03-01

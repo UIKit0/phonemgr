@@ -1,7 +1,8 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
  *  PhoneListener utilities
  *
- *  Copyright (C) 2005 Bastien Nocera <hadess@hadess.net>
+ *  Copyright (C) 2005-2007 Bastien Nocera <hadess@hadess.net>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,6 +19,7 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  */
+
 #ifndef __PHONEMGR_UTILS_H__
 #define __PHONEMGR_UTILS_H__
 

@@ -1,5 +1,28 @@
 2007-09-24  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/glibgsmtest.c:
+	* libgsm/phonemgr-listener.c:
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-utils.c:
+	* libgsm/phonemgr-utils.h:
+	* src/app.h:
+	* src/connection.c:
+	* src/e-phone-entry.c:
+	* src/e-phone-entry.h:
+	* src/icon.c:
+	* src/main.c:
+	* src/menu.c:
+	* src/phonemgr-chooser-button.c:
+	* src/phonemgr-chooser-button.h:
+	* src/phonemgr-object.c:
+	* src/phonemgr-object.h:
+	* src/test-entry.c:
+	* src/ui.c:
+	* README: Update copyright headers (Closes: #468938), mention license
+	in the README, update requirements in the README
+
+2007-09-24  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
 	(phonemgr_listener_set_sms_notification),
 	(phonemgr_listener_queue_message): When receving a message, it

@@ -1,3 +1,4 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
  * (C) Copyright 2007 Bastien Nocera <hadess@hadess.net>
  *
