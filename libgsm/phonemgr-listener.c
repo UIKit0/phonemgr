@@ -645,8 +645,8 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 
 	/* If the message contains characters not in the
 	 * default GSM alaphabet, we convert it to UCS-2 encoding instead */
-	if (gn_char_def_alphabet(sms.user_data[0].u.text)) {
-		mstr = g_strdup (sms.user_data[0].u.text);
+	if (gn_char_def_alphabet((unsigned char *) message)) {
+		mstr = g_strdup (message);
 		sms.dcs.u.general.alphabet = GN_SMS_DCS_DefaultAlphabet;
 	} else {
 		mstr = g_convert (message, strlen (message),
