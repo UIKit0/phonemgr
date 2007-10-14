@@ -1,3 +1,11 @@
+2007-10-14  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_write_config):
+	Really use the right channel to connect to a phone, as gnokii
+	uses rfcomm_channel, not channel in its config
+	spotted by Malcolm Caldwell <malcolm.caldwell@cdu.edu.au>
+	(Closes: #486331)
+
 2007-10-03  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message):

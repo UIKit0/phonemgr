@@ -205,7 +205,7 @@ phonemgr_utils_write_config (const char *driver, const char *addr, int channel)
 						"port = %s\n"
 						"model = %s\n"
 						"connection = bluetooth\n"
-						"channel = %d\n",
+						"rfcomm_channel = %d\n",
 						addr,
 						driver,
 						channel);
