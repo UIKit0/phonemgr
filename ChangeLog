@@ -1,5 +1,10 @@
 2007-10-21  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phones.xml: Add Sagem myX-7 to the list
+	(Closes: #479563)
+
+2007-10-21  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phones.xml: Add the Nokia 3110 to the list
 	(Closes: #488836)
 
