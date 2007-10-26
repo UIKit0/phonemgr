@@ -66,7 +66,7 @@ struct _PhonemgrListenerClass
 
 GQuark phonemgr_listener_error_quark	(void) G_GNUC_CONST;
 GType	phonemgr_listener_get_type	(void);
-PhonemgrListener* phonemgr_listener_new	(void);
+PhonemgrListener* phonemgr_listener_new	(gboolean debug);
 gboolean phonemgr_listener_connect	(PhonemgrListener *listener,
 					 char *device,
 					 GError **error);

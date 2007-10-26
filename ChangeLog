@@ -1,5 +1,19 @@
 2007-10-26  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/glibgsmtest.c: (main):
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_get_property),
+	(phonemgr_listener_set_property), (phonemgr_listener_class_init),
+	(phonemgr_listener_emit_message), (phonemgr_listener_new),
+	(phonemgr_listener_connect), (phonemgr_listener_battery_poll):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_connect),
+	(phonemgr_utils_tell_driver), (phonemgr_utils_write_gnokii_config):
+	* libgsm/phonemgr-utils.h:
+	* src/main.c: (main): Add "-d/--debug" option, to allow enabling
+	debugging gnokii
+
+2007-10-26  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c:
 	(phonemgr_listener_set_sms_notification):
 	* libgsm/phonemgr-utils.c: (phonemgr_utils_get_channel),

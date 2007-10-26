@@ -80,6 +80,7 @@ struct _PhonemgrListener
 
 	guint connected : 1;
 	guint terminated : 1;
+	guint debug : 1;
 
 	/* Whether the driver supports GN_OP_OnSMS */
 	guint supports_sms_notif : 1;
@@ -101,9 +102,52 @@ enum {
 	LAST_SIGNAL
 };
 
+enum {
+	PROP_0,
+	PROP_DEBUG,
+};
+
 static int phonemgr_listener_signals[LAST_SIGNAL] = { 0 } ;
 
 G_DEFINE_TYPE (PhonemgrListener, phonemgr_listener, G_TYPE_OBJECT)
+
+static void
+phonemgr_listener_get_property (GObject *object,
+				 guint property_id,
+				 GValue *value,
+				 GParamSpec *pspec)
+{
+	PhonemgrListener *l;
+
+	l = PHONEMGR_LISTENER (object);
+
+	switch (property_id) {
+	case PROP_DEBUG:
+		g_value_set_boolean (value, l->debug != FALSE);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+	}
+}
+
+static void
+phonemgr_listener_set_property (GObject *object,
+				guint property_id,
+				const GValue *value,
+				GParamSpec *pspec)
+{
+	PhonemgrListener *l;
+
+	l = PHONEMGR_LISTENER (object);
+
+	switch (property_id) {
+	case PROP_DEBUG:
+		l->debug = g_value_get_boolean (value);
+		break;
+	default:
+		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+	}
+}
 
 static void
 phonemgr_listener_class_init (PhonemgrListenerClass *klass)
@@ -113,6 +157,8 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 	parent_class = g_type_class_ref (G_TYPE_OBJECT);
 
 	object_class = (GObjectClass*) klass;
+	object_class->set_property = phonemgr_listener_set_property;
+	object_class->get_property = phonemgr_listener_get_property;
 
 	phonemgr_listener_signals[MESSAGE_SIGNAL] =
 		g_signal_new ("message",
@@ -157,6 +203,11 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 			      G_TYPE_NONE,
 			      2,
 			      G_TYPE_INT, G_TYPE_BOOLEAN);
+
+	g_object_class_install_property (object_class,
+					 PROP_DEBUG,
+					 g_param_spec_boolean ("debug", NULL, NULL,
+							       FALSE, G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
 	object_class->finalize = phonemgr_listener_finalize;
 
@@ -240,9 +291,9 @@ phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 }
 
 PhonemgrListener *
-phonemgr_listener_new (void)
+phonemgr_listener_new (gboolean debug)
 {
-	return PHONEMGR_LISTENER (g_object_new (PHONEMGR_TYPE_LISTENER, NULL));
+	return PHONEMGR_LISTENER (g_object_new (PHONEMGR_TYPE_LISTENER, "debug", debug, NULL));
 }
 
 #ifndef DUMMY
@@ -294,7 +345,7 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 		}
 	}
 
-	l->phone_state = phonemgr_utils_connect (device, NULL, channel, error);
+	l->phone_state = phonemgr_utils_connect (device, NULL, channel, l->debug, error);
 	if (l->phone_state == NULL) {
 		//FIXME
 		return FALSE;
@@ -310,7 +361,7 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	if (strcmp (l->driver, PHONEMGR_DEFAULT_DRIVER) != 0) {
 		phonemgr_utils_disconnect (l->phone_state);
 		phonemgr_utils_free (l->phone_state);
-		l->phone_state = phonemgr_utils_connect (device, l->driver, channel, error);
+		l->phone_state = phonemgr_utils_connect (device, l->driver, channel, l->debug, error);
 		if (l->phone_state == NULL) {
 			//FIXME
 			return FALSE;

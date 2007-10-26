@@ -76,7 +76,7 @@ main (int argc, char **argv)
 	g_thread_init (NULL);
 	g_type_init ();
 	
-	listener = phonemgr_listener_new ();
+	listener = phonemgr_listener_new (TRUE);
 
 	if (!listener)
 		g_error ("Couldn't make listener");

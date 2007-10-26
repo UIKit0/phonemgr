@@ -404,7 +404,7 @@ bail:
 }
 
 PhonemgrState *
-phonemgr_utils_connect (const char *device, const char *driver, int channel, GError **error)
+phonemgr_utils_connect (const char *device, const char *driver, int channel, gboolean debug, GError **error)
 {
 	PhonemgrState *phone_state = NULL;
 	char *config, **lines;
@@ -420,8 +420,17 @@ phonemgr_utils_connect (const char *device, const char *driver, int channel, GEr
 	}
 
 	config = phonemgr_utils_write_config (driver ? driver : PHONEMGR_DEFAULT_DRIVER, device, channel);
-	lines = g_strsplit (config, "\n", -1);
-	g_free (config);
+	if (debug != FALSE) {
+		char *debug;
+
+		debug = phonemgr_utils_config_append_debug (config);
+		g_free (config);
+		lines = g_strsplit (debug, "\n", -1);
+		g_free (debug);
+	} else {
+		lines = g_strsplit (config, "\n", -1);
+		g_free (config);
+	}
 
 	if (gn_cfg_memory_read ((const char **)lines) < 0) {
 		g_warning ("gn_cfg_memory_read");
@@ -479,7 +488,7 @@ phonemgr_utils_tell_driver (const char *addr)
 	int channel;
 
 	channel = phonemgr_utils_get_channel (addr);
-	phone_state = phonemgr_utils_connect (addr, NULL, channel, &error);
+	phone_state = phonemgr_utils_connect (addr, NULL, channel, FALSE, &error);
 	if (phone_state == NULL) {
 		g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
 		if (error != NULL)
@@ -507,7 +516,7 @@ phonemgr_utils_write_gnokii_config (const char *addr)
 	int channel;
 
 	channel = phonemgr_utils_get_channel (addr);
-	phone_state = phonemgr_utils_connect (addr, NULL, channel, &error);
+	phone_state = phonemgr_utils_connect (addr, NULL, channel, FALSE, &error);
 	if (phone_state == NULL) {
 		g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
 		if (error != NULL)

@@ -30,10 +30,12 @@
 
 static char *bdaddr_ident = NULL;
 static char *bdaddr_config = NULL;
+static gboolean debug = FALSE;
 
 const GOptionEntry options[] = {
 	{ "identify", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_ident, N_("Show model name of a specific device"), NULL },
 	{ "config", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_config, N_("Write the configuration file for gnokii debugging"), NULL },
+	{ "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, N_("Enable debug"), NULL},
 	{ NULL }
 };
 
@@ -79,7 +81,7 @@ main (int argc, char **argv)
 			      GCONF_CLIENT_PRELOAD_ONELEVEL, NULL);
 
 	/* Setup the listener */
-	app->listener = phonemgr_listener_new ();
+	app->listener = phonemgr_listener_new (debug);
 
 	initialise_connection (app);
 

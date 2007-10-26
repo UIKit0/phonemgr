@@ -49,15 +49,21 @@ struct PhonemgrState {
 
 gboolean phonemgr_utils_is_bluetooth (const char *addr);
 int phonemgr_utils_get_channel (const char *device);
-char *phonemgr_utils_write_config (const char *driver, const char *addr, int channel);
+char *phonemgr_utils_write_config (const char *driver,
+				   const char *addr,
+				   int channel);
 char *phonemgr_utils_guess_driver (PhonemgrState *phone_state,
-				   const char *device, GError **error);
+				   const char *device,
+				   GError **error);
 void phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state);
 const char *phonemgr_utils_gn_error_to_string (gn_error error,
 					       PhoneMgrError *perr);
 
-PhonemgrState *phonemgr_utils_connect (const char *device, const char *driver,
-				       int channel, GError **error);
+PhonemgrState *phonemgr_utils_connect (const char *device,
+				       const char *driver,
+				       int channel,
+				       gboolean debug,
+				       GError **error);
 void phonemgr_utils_disconnect (PhonemgrState *phone_state);
 void phonemgr_utils_free (PhonemgrState *phone_state);
 void phonemgr_utils_tell_driver (const char *addr);
