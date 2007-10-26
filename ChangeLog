@@ -1,3 +1,17 @@
+2007-10-26  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c:
+	(phonemgr_listener_set_sms_notification):
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_get_channel),
+	(phonemgr_utils_config_append_debug),
+	(phonemgr_utils_driver_for_model),
+	(phonemgr_utils_driver_for_device), (phonemgr_utils_guess_driver),
+	(phonemgr_utils_tell_driver), (phonemgr_utils_write_gnokii_config):
+	* libgsm/phonemgr-utils.h:
+	* src/main.c: (main): Add --config flag to gnome-phone-manager
+	to dump a gnokii configuration file, to the best of g-p-m's
+	knowledge, useful for debugging
+
 2007-10-21  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phones.xml: Add Sagem myX-7 to the list

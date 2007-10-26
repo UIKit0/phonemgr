@@ -41,6 +41,8 @@ static GHashTable *driver_device = NULL;
  * match */
 static GHashTable *driver_model = NULL;
 
+static void phonemgr_utils_init_hash_tables (void);
+
 void
 phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state)
 {
@@ -178,7 +180,7 @@ end:
 }
 
 int
-phonemgr_utils_get_channel (char *device)
+phonemgr_utils_get_channel (const char *device)
 {
 	bdaddr_t src, dst;
 	int channel;
@@ -218,10 +220,22 @@ phonemgr_utils_write_config (const char *driver, const char *addr, int channel)
 	}
 }
 
+char *
+phonemgr_utils_config_append_debug (const char *config)
+{
+	return g_strdup_printf ("%s\n"
+				"[logging]\n"
+				"debug = on\n",
+				config);
+}
+
 static char *
 phonemgr_utils_driver_for_model (const char *model, const char *device)
 {
 	char *driver;
+
+	if (driver_model == NULL)
+		phonemgr_utils_init_hash_tables ();
 
 	driver = g_hash_table_lookup (driver_model, model);
 	if (driver == NULL) {
@@ -249,6 +263,9 @@ phonemgr_utils_driver_for_device (const char *device)
 
 	if (phonemgr_utils_is_bluetooth (device) == FALSE)
 		return NULL;
+
+	if (driver_device == NULL)
+		phonemgr_utils_init_hash_tables ();
 
 	driver = g_hash_table_lookup (driver_device, device);
 
@@ -362,8 +379,6 @@ phonemgr_utils_guess_driver (PhonemgrState *phone_state, const char *device,
 	char *driver;
 	gn_error err;
 
-	phonemgr_utils_init_hash_tables ();
-
 	driver = phonemgr_utils_driver_for_device (device);
 	if (driver != NULL)
 		return driver;
@@ -460,6 +475,7 @@ phonemgr_utils_tell_driver (const char *addr)
 	GError *error = NULL;
 	PhonemgrState *phone_state;
 	const char *model;
+	char *driver;
 	int channel;
 
 	channel = phonemgr_utils_get_channel (addr);
@@ -474,6 +490,44 @@ phonemgr_utils_tell_driver (const char *addr)
 	model = gn_lib_get_phone_model (&phone_state->state);
 
 	g_print ("model: '%s'\n", model);
+	driver = phonemgr_utils_driver_for_model (model, addr);
+	g_print ("guessed driver: '%s'\n", driver);
+	g_free (driver);
+
+	phonemgr_utils_disconnect (phone_state);
+	phonemgr_utils_free (phone_state);
+}
+
+void
+phonemgr_utils_write_gnokii_config (const char *addr)
+{
+	GError *error = NULL;
+	PhonemgrState *phone_state;
+	char *driver, *config, *debug;
+	int channel;
+
+	channel = phonemgr_utils_get_channel (addr);
+	phone_state = phonemgr_utils_connect (addr, NULL, channel, &error);
+	if (phone_state == NULL) {
+		g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
+		if (error != NULL)
+			g_error_free (error);
+		return;
+	}
+
+	driver = phonemgr_utils_guess_driver (phone_state, addr, NULL);
+
+	config = phonemgr_utils_write_config (driver, addr, channel);
+	g_free (driver);
+	debug = phonemgr_utils_config_append_debug (config);
+	g_free (config);
+	if (g_file_set_contents ("gnokiirc", debug, -1, NULL) == FALSE) {
+		g_warning ("Couldn't write gnokiirc file in the current directory");
+	} else {
+		g_print ("Configuration file written in the current directory\n");
+		g_print ("Move gnokiirc to ~/.gnokiirc to start debugging with gnokii\n");
+	}
+	g_free (debug);
 
 	phonemgr_utils_disconnect (phone_state);
 	phonemgr_utils_free (phone_state);

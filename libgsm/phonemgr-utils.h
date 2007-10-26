@@ -48,7 +48,7 @@ struct PhonemgrState {
 };
 
 gboolean phonemgr_utils_is_bluetooth (const char *addr);
-int phonemgr_utils_get_channel (char *device);
+int phonemgr_utils_get_channel (const char *device);
 char *phonemgr_utils_write_config (const char *driver, const char *addr, int channel);
 char *phonemgr_utils_guess_driver (PhonemgrState *phone_state,
 				   const char *device, GError **error);
@@ -61,6 +61,8 @@ PhonemgrState *phonemgr_utils_connect (const char *device, const char *driver,
 void phonemgr_utils_disconnect (PhonemgrState *phone_state);
 void phonemgr_utils_free (PhonemgrState *phone_state);
 void phonemgr_utils_tell_driver (const char *addr);
+void phonemgr_utils_write_gnokii_config (const char *addr);
+char *phonemgr_utils_config_append_debug (const char *config);
 gboolean phonemgr_utils_connection_is_supported (PhonemgrConnectionType type);
 time_t gn_timestamp_to_gtime (gn_timestamp stamp);
 

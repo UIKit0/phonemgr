@@ -529,9 +529,9 @@ phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 		l->phone_state->data.callback_data = l;
 		if (gn_sm_functions (GN_OP_OnSMS, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
 			l->supports_sms_notif = TRUE;
-			g_message ("driver supports sms notifications");
+			g_message ("driver and phone support sms notifications");
 		} else {
-			g_message ("driver doesn't support sms notifications");
+			g_message ("driver or phone doesn't support sms notifications");
 		}
 	} else {
 		if (l->supports_sms_notif == FALSE)

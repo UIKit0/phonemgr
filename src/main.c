@@ -28,10 +28,12 @@
 #include "phonemgr-object.h"
 #include "app.h"
 
-static char *bdaddr = NULL;
+static char *bdaddr_ident = NULL;
+static char *bdaddr_config = NULL;
 
 const GOptionEntry options[] = {
-	{"identify", '\0', 0, G_OPTION_ARG_STRING, &bdaddr, N_("Show model name of a specific device"), NULL},
+	{ "identify", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_ident, N_("Show model name of a specific device"), NULL },
+	{ "config", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_config, N_("Write the configuration file for gnokii debugging"), NULL },
 	{ NULL }
 };
 
@@ -58,8 +60,12 @@ main (int argc, char **argv)
 		return 1;
 	}
 
-	if (bdaddr != NULL) {
-		phonemgr_utils_tell_driver (bdaddr);
+	if (bdaddr_ident != NULL) {
+		phonemgr_utils_tell_driver (bdaddr_ident);
+		return 0;
+	}
+	if (bdaddr_config != NULL) {
+		phonemgr_utils_write_gnokii_config (bdaddr_config);
 		return 0;
 	}
 
