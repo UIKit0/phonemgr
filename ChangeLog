@@ -1,5 +1,13 @@
 2007-10-26  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
+	(phonemgr_listener_init), (phonemgr_listener_connect),
+	(phonemgr_listener_battery_poll): Call GN_OP_GetBatteryLevel first,
+	as it's what most drivers implement, also warn when the driver
+	doesn't support
+
+2007-10-26  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/glibgsmtest.c: (main):
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_get_property),
 	(phonemgr_listener_set_property), (phonemgr_listener_class_init),

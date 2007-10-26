@@ -84,6 +84,8 @@ struct _PhonemgrListener
 
 	/* Whether the driver supports GN_OP_OnSMS */
 	guint supports_sms_notif : 1;
+	/* Whether or not the driver supports GN_OP_GetPowersource */
+	guint supports_power_source : 1;
 };
 
 static void phonemgr_listener_class_init (PhonemgrListenerClass *klass);
@@ -304,6 +306,7 @@ phonemgr_listener_init (PhonemgrListener *l)
 	l->mutex = g_mutex_new ();
 	l->driver = NULL;
 	l->batterylevel = 1;
+	l->supports_power_source = TRUE;
 	l->powersource = GN_PS_BATTERY;
 }
 
@@ -539,14 +542,20 @@ phonemgr_listener_battery_poll (PhonemgrListener *l)
 	(&l->phone_state->data)->power_source = &powersource;
 	(&l->phone_state->data)->battery_unit = &battery_unit;
 
-	if (gn_sm_functions(GN_OP_GetPowersource, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+	/* Some drivers will use the same function for battery level and power source, so optimise.
+	 * Make sure to get the battery level first, as most drivers implement only this one */
+	if (gn_sm_functions(GN_OP_GetBatteryLevel, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+		return;
+
+	if (powersource == -1 && l->supports_power_source != FALSE) {
+		if (gn_sm_functions(GN_OP_GetPowersource, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE) {
+			g_message ("driver or phone doesn't support getting the power source");
+			l->supports_power_source = FALSE;
+			powersource = GN_PS_BATTERY;
+		}
+	} else if (l->supports_power_source == FALSE) {
 		powersource = GN_PS_BATTERY;
-
-	/* Some drivers will use the same function for battery level and power source, so optimise */
-	if (batterylevel == -1)
-		if (gn_sm_functions(GN_OP_GetBatteryLevel, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
-			return;
-
+	}
 
 	if (batterylevel != l->batterylevel || powersource != l->powersource) {
 		AsyncSignal *signal;
