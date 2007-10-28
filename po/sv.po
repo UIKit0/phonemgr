@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-25 10:50+0200\n"
-"PO-Revision-Date: 2007-07-25 11:00+0100\n"
+"POT-Creation-Date: 2007-10-28 10:09+0100\n"
+"PO-Revision-Date: 2007-10-28 10:10+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:92
+#: ../src/connection.c:112
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Ansluten till enhet på %s"
@@ -28,13 +28,23 @@ msgstr "Ansluten till enhet på %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:98
+#: ../src/connection.c:118
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Anslutning till enhet på %s misslyckades"
 
+#: ../src/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf-fel: %s"
+
+#: ../src/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Alla ytterligare fel visas endast på terminalen."
+
 #: ../src/gnome-phone-manager.desktop.in.h:1
-#: ../src/menu.c:28
+#: ../src/menu.c:49
+#: ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "Telefonhanterare"
 
@@ -42,31 +52,39 @@ msgstr "Telefonhanterare"
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Mottag och skicka textmeddelanden från din mobiltelefon"
 
-#: ../src/icon.c:37
+#: ../src/icon.c:57
 msgid "Message arrived"
 msgstr "Meddelande ankom"
 
-#: ../src/icon.c:40
+#: ../src/icon.c:60
 msgid "Connected"
 msgstr "Ansluten"
 
-#: ../src/icon.c:44
+#: ../src/icon.c:64
 msgid "Connecting to phone"
 msgstr "Ansluter till telefon"
 
-#: ../src/icon.c:48
+#: ../src/icon.c:68
 msgid "Not connected"
 msgstr "Inte ansluten"
 
-#: ../src/main.c:14
+#: ../src/main.c:36
 msgid "Show model name of a specific device"
 msgstr "Visa modellnamn för en specifik enhet"
 
-#: ../src/main.c:29
+#: ../src/main.c:37
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Skriv konfigurationsfilen för gnokii-felsökning"
+
+#: ../src/main.c:38
+msgid "Enable debug"
+msgstr "Aktivera felsökning"
+
+#: ../src/main.c:53
 msgid "- Manage your mobile phone"
 msgstr "- Hantera din mobiltelefon"
 
-#: ../src/menu.c:20
+#: ../src/menu.c:40
 msgid "translator_credits"
 msgstr ""
 "Daniel Nylander\n"
@@ -75,19 +93,24 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "tp-sv@listor.tp-sv.se"
 
-#: ../src/menu.c:24
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "Skicka och mottag meddelanden från din mobiltelefon."
 
-#: ../src/menu.c:32
+#: ../src/menu.c:56
 msgid "Phone Manager website"
 msgstr "Webbplatsen för Telefonhanterare"
 
-#: ../src/menu.c:63
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "_Skicka meddelande"
 
-#: ../src/ui.c:313
+#: ../src/phonemgr-chooser-button.c:80
+#: ../src/phonemgr-chooser-button.c:190
+msgid "Click to select device..."
+msgstr "Klicka för att välja enhet..."
+
+#: ../src/ui.c:333
 msgid "Message too long!"
 msgstr "Meddelandet är för långt!"
 
@@ -235,6 +258,54 @@ msgstr "_Skicka"
 msgid "message body"
 msgstr "meddelandetext"
 
+#: ../ui/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Blåtandsadress för enheten att ansluta till"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:2
+msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
+msgstr "Blåtandsadress för enheten att ansluta till. Kräver att connection_type är 1 för att användas."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Anslutningstypen som används av gnome-phone-manager"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:4
+msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr "Anslutningstypen som används av gnome-phone-manager: Bluetooth är 0, Seriell 1 är 1, Seriell 2 är 2, Infrarött är 3, övriga anslutningstyper är 4"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Enhetsnoden för serieenheten att ansluta till"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:6
+msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
+msgstr "Enhetsnoden för serieenheten att ansluta till. Kräver att connection_type är 4 för att användas."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Huruvida ett ljud ska spelas upp när ett nytt meddelande tas emot"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Huruvida ett ljud ska spelas upp när ett nytt meddelande tas emot."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Huruvida nya meddelanden ska visas i en popupruta på skrivbordet"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
+msgstr "Huruvida nya meddelanden ska visas i en popupruta på skrivbordet så snart som de tas emot, i motsats till att visa dem vid klickning på brickikonen."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Huruvida nya försök att ansluta till mobiltelefonen ska göras"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:12
+msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
+msgstr "Huruvida nya försök att ansluta till mobiltelefonen ska göras om anslutningen förloras."
+
 #: ../src/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
@@ -329,68 +400,6 @@ msgstr "Adressbokskällan finns inte."
 #: ../src/e-contact-entry.c:877
 msgid "An unknown error occurred."
 msgstr "Ett okänt fel inträffade."
-
-#: ../src/gconf-bridge.c:1218
-#, c-format
-msgid "GConf error: %s"
-msgstr "GConf-fel: %s"
-
-#: ../src/gconf-bridge.c:1228
-msgid "All further errors shown only on terminal."
-msgstr "Alla ytterligare fel visas endast på terminalen."
-
-#: ../src/phonemgr-chooser-button.c:79
-#: ../src/phonemgr-chooser-button.c:189
-msgid "Click to select device..."
-msgstr "Klicka för att välja enhet..."
-
-#: ../ui/gnome-phone-manager.schemas.in.h:1
-msgid "Bluetooth address of the device to connect to"
-msgstr "Blåtandsadress för enheten att ansluta till"
-
-#: ../ui/gnome-phone-manager.schemas.in.h:2
-msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
-msgstr "Blåtandsadress för enheten att ansluta till. Kräver att connection_type är 1 för att användas."
-
-#: ../ui/gnome-phone-manager.schemas.in.h:3
-msgid "The connection type used by gnome-phone-manager"
-msgstr "Anslutningstypen som används av gnome-phone-manager"
-
-#: ../ui/gnome-phone-manager.schemas.in.h:4
-msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
-msgstr "Anslutningstypen som används av gnome-phone-manager: Bluetooth är 0, Seriell 1 är 1, Seriell 2 är 2, Infrarött är 3, övriga anslutningstyper är 4"
-
-#: ../ui/gnome-phone-manager.schemas.in.h:5
-msgid "The device node for the serial device to connect to"
-msgstr "Enhetsnoden för serieenheten att ansluta till"
-
-#: ../ui/gnome-phone-manager.schemas.in.h:6
-msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
-msgstr "Enhetsnoden för serieenheten att ansluta till. Kräver att connection_type är 4 för att användas."
-
-#: ../ui/gnome-phone-manager.schemas.in.h:7
-msgid "Whether to play a sound alert when a new message comes in"
-msgstr "Huruvida ett ljud ska spelas upp när ett nytt meddelande tas emot"
-
-#: ../ui/gnome-phone-manager.schemas.in.h:8
-msgid "Whether to play a sound alert when a new message comes in."
-msgstr "Huruvida ett ljud ska spelas upp när ett nytt meddelande tas emot."
-
-#: ../ui/gnome-phone-manager.schemas.in.h:9
-msgid "Whether to popup new messages on the desktop"
-msgstr "Huruvida nya meddelanden ska visas i en popupruta på skrivbordet"
-
-#: ../ui/gnome-phone-manager.schemas.in.h:10
-msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
-msgstr "Huruvida nya meddelanden ska visas i en popupruta på skrivbordet så snart som de tas emot, i motsats till att visa dem vid klickning på brickikonen."
-
-#: ../ui/gnome-phone-manager.schemas.in.h:11
-msgid "Whether to retry connecting to the mobile phone"
-msgstr "Huruvida nya försök att ansluta till mobiltelefonen ska göras"
-
-#: ../ui/gnome-phone-manager.schemas.in.h:12
-msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
-msgstr "Huruvida nya försök att ansluta till mobiltelefonen ska göras om anslutningen förloras."
 
 #~ msgid "Selection mode"
 #~ msgstr "Markeringsläge"
