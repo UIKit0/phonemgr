@@ -1,7 +1,22 @@
+gnome-phone-manager 0.30
+========================
+
+ * More fixes for sending and receiving text messages with international
+   characters that don't fit in the default GSM alphabet
+
+ * Warn when a phone or driver doesn't support getting the state
+   of the power source (such as the nk6510)
+
+ * Add the --config flag to dump a gnokiirc file for debugging
+
+ * Add the --debug/-d flag to enable gnokii debugging
+
+ * Add the Sagem myX-7 and Nokia 3110 to the supported phones
+
 gnome-phone-manager 0.20
 ========================
 
- * Fix sending on receiving messages with non-ASCII characters
+ * Fix sending or receiving messages with non-ASCII characters
 
  * Really fix connecting to Sony Ericsson phones (and a lot of other
    models and makes of phones)

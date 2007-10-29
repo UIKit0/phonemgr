@@ -1,3 +1,10 @@
+============ Version 0.30
+
+2007-10-29  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: upd
+	* configure.in: 0.30
+
 2007-10-29  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message):
