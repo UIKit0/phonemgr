@@ -264,9 +264,24 @@ phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 	text = NULL;
 
 	/* The data should be in whatever the locale's encoding is,
+	 * if it doesn't fit the default GSM alphabet (roughly ISO8859-1)
 	 * as a design decision in gnokii */
 	origtext = (char *) message->user_data[0].u.text;
-	if (g_utf8_validate (origtext, -1, NULL) == FALSE) {
+
+	if (gn_char_def_alphabet (origtext)) {
+		GError *err = NULL;
+
+		text = g_convert (origtext, -1,
+				  "UTF-8", "ISO8859-1",
+				  NULL, NULL, &err);
+
+		if (err != NULL) {
+			g_warning ("Conversion error from GSM default alphabet: %d %s", err->code, err->message);
+			g_error_free (err);
+			g_free (text);
+			text = g_strdup (origtext);
+		}
+	} else if (g_utf8_validate (origtext, -1, NULL) == FALSE) {
 		GError *err = NULL;
 
 		text = g_locale_to_utf8 (origtext, -1, NULL, NULL, &err);
@@ -274,6 +289,7 @@ phonemgr_listener_emit_message (PhonemgrListener *l, gn_sms *message)
 		if (err != NULL) {
 			g_warning ("Conversion error: %d %s", err->code, err->message);
 			g_error_free (err);
+			g_free (text);
 			text = g_strdup (origtext);
 		}
 	}
@@ -689,7 +705,7 @@ void
 phonemgr_listener_queue_message (PhonemgrListener *l,
 		const char *number, const char *message)
 {
-	char *mstr;
+	char *mstr, *iso;
 	GError *err = NULL;
 	gn_sms sms;
 	gn_error error;
@@ -703,12 +719,25 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	gn_data_clear(&l->phone_state->data);
 	gn_sms_default_submit(&sms);
 
+	/* Default GSM alphabet is a subset of ISO8859-1,
+	 * so try that */
+	iso = g_convert (message, -1,
+			 "ISO8859-1", "UTF-8",
+			 NULL, NULL, &err);
+	if (err != NULL) {
+		g_warning ("Conversion error from UTF-8: %d %s", err->code, err->message);
+		g_error_free (err);
+		g_free (iso);
+		return;
+	}
+
 	/* If the message contains characters not in the
 	 * default GSM alaphabet, we convert it to UCS-2 encoding instead */
-	if (gn_char_def_alphabet((unsigned char *) message)) {
-		mstr = g_strdup (message);
+	if (gn_char_def_alphabet((unsigned char *) iso)) {
+		mstr = iso;
 		sms.dcs.u.general.alphabet = GN_SMS_DCS_DefaultAlphabet;
 	} else {
+		g_free (iso);
 		mstr = g_convert (message, strlen (message),
 				  "UCS-2", "UTF-8",
 				  NULL, NULL, &err);

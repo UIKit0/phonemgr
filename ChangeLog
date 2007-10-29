@@ -1,3 +1,15 @@
+2007-10-29  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
+	(phonemgr_listener_connect), (phonemgr_listener_queue_message):
+	When receiving texts, they will be in GSM alphabet if it fits
+	in the alphabet (fixes receiving SMS from ISO8859-1 texts),
+	Don't send texts as UCS-2 when they fit in the default GSM alphabet
+	by not forgetting to convert to ISO8859-1 first
+	(Closes: #490471)
+
+	Sending as UCS-2 doesn't work though
+
 2007-10-26  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
