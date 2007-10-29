@@ -725,27 +725,26 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 			 "ISO8859-1", "UTF-8",
 			 NULL, NULL, &err);
 	if (err != NULL) {
-		g_warning ("Conversion error from UTF-8: %d %s", err->code, err->message);
-		g_error_free (err);
+		g_clear_error (&err);
 		g_free (iso);
-		return;
+		iso = NULL;
 	}
 
 	/* If the message contains characters not in the
-	 * default GSM alaphabet, we convert it to UCS-2 encoding instead */
-	if (gn_char_def_alphabet((unsigned char *) iso)) {
+	 * default GSM alaphabet, we pass it as UTF-8 encoding instead */
+	if (iso && gn_char_def_alphabet((unsigned char *) iso)) {
 		mstr = iso;
 		sms.dcs.u.general.alphabet = GN_SMS_DCS_DefaultAlphabet;
 	} else {
 		g_free (iso);
-		mstr = g_convert (message, strlen (message),
-				  "UCS-2", "UTF-8",
-				  NULL, NULL, &err);
+		/* gnokii will convert to UCS-2 itself, but we pass UTF-8 */
+		mstr = g_strdup (message);
 		sms.dcs.u.general.alphabet = GN_SMS_DCS_UCS2;
 	}
 
 	if (err != NULL) {
 		g_warning ("Conversion error: %d %s", err->code, err->message);
+		g_free (mstr);
 		g_error_free (err);
 		g_mutex_unlock (l->mutex);
 		return;

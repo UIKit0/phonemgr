@@ -1,6 +1,12 @@
 2007-10-29  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message):
+	Fix sending texts that don't fit in the default GSM alphabet,
+	gnokii expects UTF-8, and will convert to UCS-2 itself
+
+2007-10-29  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message):
 	Zero-out the SMS data after having sent the message
 
 2007-10-29  Bastien Nocera  <hadess@hadess.net>
