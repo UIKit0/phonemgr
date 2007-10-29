@@ -779,6 +779,9 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	/* Actually send the message */
 	error = gn_sms_send (&l->phone_state->data, &l->phone_state->state);
 
+	/* Remove the reference to SMS */
+	l->phone_state->data.sms = NULL;
+
 	/* Unlock the phone */
 	g_mutex_unlock (l->mutex);
 }

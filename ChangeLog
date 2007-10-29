@@ -1,5 +1,10 @@
 2007-10-29  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message):
+	Zero-out the SMS data after having sent the message
+
+2007-10-29  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
 	(phonemgr_listener_connect), (phonemgr_listener_queue_message):
 	When receiving texts, they will be in GSM alphabet if it fits
