@@ -1,5 +1,13 @@
 2007-10-30  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-utils.c: (get_rfcomm_channel),
+	(find_service_channel), (phonemgr_utils_get_channel): 
+	Look for the Serial port channel before looking for DUN one,
+	and ignore the "Nokia PC Suite" service, as it's useless to us
+	(Closes: #491526)
+
+2007-10-30  Bastien Nocera  <hadess@hadess.net>
+
 	* README: Add web page address, thanks Kjartan
 
 ============ Version 0.30

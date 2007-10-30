@@ -114,48 +114,52 @@ get_rfcomm_channel (sdp_record_t *rec)
 {
 	int channel = -1;
 	sdp_list_t *protos = NULL;
+	sdp_data_t *data;
+	char *name = NULL;
 
 	if (sdp_get_access_protos (rec, &protos) != 0)
 		goto end;
 
+	data = sdp_data_get(rec, SDP_ATTR_SVCNAME_PRIMARY);
+	if (data)
+		name = g_strdup_printf ("%.*s", data->unitSize, data->val.str);
+
+	if (strstr (name, "Nokia PC Suite") != NULL)
+		goto end;
+
 	channel = sdp_get_proto_port (protos, RFCOMM_UUID);
- end:
+end:
+	g_free (name);
 	sdp_list_foreach(protos, (sdp_list_func_t)sdp_list_free, 0);
 	sdp_list_free(protos, 0);
 	return channel;
 }
 
-/* Determine whether the given device supports Dial-Up Networking, and if so
+/* Determine whether the given device supports Serial or Dial-Up Networking, and if so
  * what the RFCOMM channel number for the service is.
  */
 static int
-find_dun_channel (bdaddr_t *adapter, bdaddr_t *device)
+find_service_channel (bdaddr_t *adapter, bdaddr_t *device, uint16_t svclass_id)
 {
 	sdp_session_t *sdp = NULL;
 	sdp_list_t *search = NULL, *attrs = NULL, *recs = NULL, *tmp;
-	uuid_t browse_uuid, dun_id, obex_uuid;
-	uint16_t proto_desc_list = SDP_ATTR_PROTO_DESC_LIST;
-	uint16_t svclass_id_list = SDP_ATTR_SVCLASS_ID_LIST;
+	uuid_t browse_uuid, service_id, obex_uuid;
+	uint32_t range = 0x0000ffff;
 	int channel = -1;
 
 	sdp = sdp_connect (adapter, device, SDP_RETRY_IF_BUSY);
 	if (!sdp)
 		goto end;
 
-	/* Normally, we'd just do a search for OBEX_FILETRANS_SVCLASS_ID,
-	 * but we also want to check multiple services.  So instead, we
-	 * browse all rfcomm obex services.
-	 */
 	sdp_uuid16_create(&browse_uuid, PUBLIC_BROWSE_GROUP);
-	sdp_uuid16_create(&dun_id, DIALUP_NET_SVCLASS_ID);
+	sdp_uuid16_create(&service_id, svclass_id);
 	search = sdp_list_append (NULL, &browse_uuid);
-	search = sdp_list_append (search, &dun_id);
+	search = sdp_list_append (search, &service_id);
 
-	attrs = sdp_list_append (NULL, &proto_desc_list);
-	attrs = sdp_list_append (attrs, &svclass_id_list);
+	attrs = sdp_list_append (NULL, &range);
 
 	if (sdp_service_search_attr_req (sdp, search,
-					 SDP_ATTR_REQ_INDIVIDUAL, attrs,
+					 SDP_ATTR_REQ_RANGE, attrs,
 					 &recs))
 		goto end;
 
@@ -188,7 +192,9 @@ phonemgr_utils_get_channel (const char *device)
 	bacpy (&src, BDADDR_ANY);
 	str2ba(device, &dst);
 
-	channel = find_dun_channel (&src, &dst);
+	channel = find_service_channel (&src, &dst, SERIAL_PORT_SVCLASS_ID);
+	if (channel < 0)
+		channel = find_service_channel (&src, &dst, DIALUP_NET_SVCLASS_ID);
 
 	return channel;
 }
