@@ -1,3 +1,9 @@
+2007-10-31  Bastien Nocera  <hadess@hadess.net>
+
+	* src/e-contact-entry.c: (completion_match_selected_cb):
+	Update from contact-lookup-applet, thanks Ross!
+	(Closes: #491440)
+
 2007-10-30  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-utils.c: (get_rfcomm_channel),

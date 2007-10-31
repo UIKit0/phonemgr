@@ -95,6 +95,7 @@ struct EContactEntryPriv {
  */
 typedef struct _EntryLookup {
   EContactEntry *entry;
+  gboolean open;
   EBook *book;
   EBookView *bookview;
 } EntryLookup;
@@ -374,11 +375,16 @@ entry_changed_cb (GtkEditable *editable, gpointer user_data)
     }
     
     gtk_list_store_clear (entry->priv->store);
-    
+
     query = create_query (entry, gtk_editable_get_chars (editable, 0, -1));
     for (l = entry->priv->lookup_entries; l != NULL; l = l->next) {
       EntryLookup *lookup;
       lookup = (EntryLookup*)l->data;
+
+      /* If the book isn't open yet, skip this source */
+      if (!lookup->open)
+        continue;
+      
       if (e_book_async_get_book_view (lookup->book, query, NULL, 11, (EBookBookViewCallback)bookview_cb, lookup) != 0) {
         g_signal_emit (entry, signals[ERROR], 0, _("Cannot create searchable view."));
       }
@@ -402,6 +408,7 @@ book_opened_cb (EBook *book, EBookStatus status, gpointer data)
     g_signal_emit (lookup->entry, signals[ERROR], 0, stringify_ebook_error (status));
     return;
   }
+  lookup->open = TRUE;
   g_signal_emit (lookup->entry, signals[STATE_CHANGE], 0, TRUE);
 }
 
@@ -469,6 +476,7 @@ e_contact_entry_set_source_list (EContactEntry *entry,
 	/* Now add those to the lookup entries list */
 	lookup = g_new0 (EntryLookup, 1);
 	lookup->entry = entry;
+	lookup->open = FALSE;
 
 	if ((lookup->book = e_book_new (s, &error)) == NULL) {
 	  /* TODO handle this better, fire the error signal I guess */
