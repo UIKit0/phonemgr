@@ -579,9 +579,10 @@ phonemgr_listener_battery_poll (PhonemgrListener *l)
 		l->batterylevel = batterylevel;
 		l->powersource = powersource;
 
-		/* Probably not the best guess, but that's what xgnokii uses */
+		/* As mentioned by Daniele Forsi at:
+		 * http://thread.gmane.org/gmane.linux.drivers.gnokii/9329/focus=9331 */
 		if (battery_unit == GN_BU_Arbitrary)
-			batterylevel *= 25;
+			batterylevel = batterylevel * 100 / l->phone_state->state.driver.phone.max_battery_level;
 
 		signal = g_new0 (AsyncSignal, 1);
 		signal->type = BATTERY_SIGNAL;
