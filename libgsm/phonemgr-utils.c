@@ -195,6 +195,9 @@ phonemgr_utils_get_channel (const char *device)
 	channel = find_service_channel (&src, &dst, SERIAL_PORT_SVCLASS_ID);
 	if (channel < 0)
 		channel = find_service_channel (&src, &dst, DIALUP_NET_SVCLASS_ID);
+	/* Still no channel? Try the default "1" as used on Nokia phones */
+	if (channel < 0)
+		channel = 1;
 
 	return channel;
 }

@@ -1,5 +1,11 @@
 2007-11-01  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_get_channel):
+	Use channel 1 if no channel is listed in the discovery,
+	some Nokia phones don't show channel 1, little buggers
+
+2007-11-01  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phones.xml: Add the Sony Ericsson K800i to the list
 	(Closes: #492378)
 
