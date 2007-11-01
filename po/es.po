@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-14 04:05+0100\n"
-"PO-Revision-Date: 2007-08-19 11:49+0200\n"
+"POT-Creation-Date: 2007-10-26 14:42+0100\n"
+"PO-Revision-Date: 2007-11-01 18:44+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:92
+#: ../src/connection.c:112
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Conectado con el dispositivo en %s"
@@ -29,7 +29,7 @@ msgstr "Conectado con el dispositivo en %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:98
+#: ../src/connection.c:118
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Ha fallado la conexión con el dispositivo %s"
@@ -43,7 +43,7 @@ msgstr "Error de GConf:  %s"
 msgid "All further errors shown only on terminal."
 msgstr "Todos los demás errores se muestran sólo en el terminal."
 
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:28
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "Gestor de teléfonos"
 
@@ -51,53 +51,61 @@ msgstr "Gestor de teléfonos"
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Recibir y envíe mensajes de texto desde su teléfono móvil"
 
-#: ../src/icon.c:37
+#: ../src/icon.c:57
 msgid "Message arrived"
 msgstr "Ha llegado un mensaje"
 
-#: ../src/icon.c:40
+#: ../src/icon.c:60
 msgid "Connected"
 msgstr "Conectado"
 
-#: ../src/icon.c:44
+#: ../src/icon.c:64
 msgid "Connecting to phone"
 msgstr "Conectando con el teléfono"
 
-#: ../src/icon.c:48
+#: ../src/icon.c:68
 msgid "Not connected"
 msgstr "No conectado"
 
-#: ../src/main.c:14
+#: ../src/main.c:36
 msgid "Show model name of a specific device"
 msgstr "Mostrar el nombre del modelo de un dispositivo específico"
 
-#: ../src/main.c:29
+#: ../src/main.c:37
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Escriba el archivo de configuración para la depuración de gnokii"
+
+#: ../src/main.c:38
+msgid "Enable debug"
+msgstr "Activar depuración"
+
+#: ../src/main.c:53
 msgid "- Manage your mobile phone"
 msgstr " - Gestionar su teléfono móvil"
 
-#: ../src/menu.c:20
+#: ../src/menu.c:40
 msgid "translator_credits"
 msgstr ""
 "Jorge González <jorgegonz@svn.gnome.org>, 2007\n"
 "Francisco Javier F. Serrador <serrador@gnome.org>, 2004, 2005"
 
-#: ../src/menu.c:24
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "Enviar y recibir mensajes desde su teléfono móvil."
 
-#: ../src/menu.c:32
+#: ../src/menu.c:56
 msgid "Phone Manager website"
 msgstr "Página web del Gestor de teléfonos"
 
-#: ../src/menu.c:63
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "_Enviar mensaje"
 
-#: ../src/phonemgr-chooser-button.c:79 ../src/phonemgr-chooser-button.c:189
+#: ../src/phonemgr-chooser-button.c:80 ../src/phonemgr-chooser-button.c:190
 msgid "Click to select device..."
 msgstr "Pulse para seleccionar el dispositivo..."
 
-#: ../src/ui.c:313
+#: ../src/ui.c:333
 msgid "Message too long!"
 msgstr "El mensaje es demasiado largo."
 
@@ -260,8 +268,8 @@ msgid ""
 "Bluetooth address of the device to connect to. Requires connection_type to "
 "be 1 to be used."
 msgstr ""
-"Dirección Bluetooth del dispositivo al que conectarse. Para poder "
-"ser usado requiere que connection_type sea 1."
+"Dirección Bluetooth del dispositivo al que conectarse. Para poder ser usado "
+"requiere que connection_type sea 1."
 
 #: ../ui/gnome-phone-manager.schemas.in.h:3
 msgid "The connection type used by gnome-phone-manager"
@@ -272,8 +280,8 @@ msgid ""
 "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
 "1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
 msgstr ""
-"El tipo de conexión que usará gnome-phone-manager: 0 para Bluetooth; 1 para Serial 1; "
-"2 para Serial 2; 3 para IrDa; 4 para otros tipos de conexión"
+"El tipo de conexión que usará gnome-phone-manager: 0 para Bluetooth; 1 para "
+"Serial 1; 2 para Serial 2; 3 para IrDa; 4 para otros tipos de conexión"
 
 #: ../ui/gnome-phone-manager.schemas.in.h:5
 msgid "The device node for the serial device to connect to"
@@ -284,28 +292,35 @@ msgid ""
 "The device node for the serial device to connect to. Requires "
 "connection_type to be 4 to be used."
 msgstr ""
-"El nodo del dispositivo para el dispositivo serie al que conectarse. Para poder "
-"ser usado requiere que connection_type sea 4."
+"El nodo del dispositivo para el dispositivo serie al que conectarse. Para "
+"poder ser usado requiere que connection_type sea 4."
 
 #: ../ui/gnome-phone-manager.schemas.in.h:7
 msgid "Whether to play a sound alert when a new message comes in"
-msgstr "Indica si se debe reproducir un sonido de alerta cuando llega un nuevo mensaje"
+msgstr ""
+"Indica si se debe reproducir un sonido de alerta cuando llega un nuevo "
+"mensaje"
 
 #: ../ui/gnome-phone-manager.schemas.in.h:8
 msgid "Whether to play a sound alert when a new message comes in."
-msgstr "Indica si se debe reproducir un sonido de alerta cuando llega un nuevo mensaje."
+msgstr ""
+"Indica si se debe reproducir un sonido de alerta cuando llega un nuevo "
+"mensaje."
 
 #: ../ui/gnome-phone-manager.schemas.in.h:9
 msgid "Whether to popup new messages on the desktop"
-msgstr "Indica si se deben mostrar mensajes emergentes en el escritorio con los nuevos mensajes"
+msgstr ""
+"Indica si se deben mostrar mensajes emergentes en el escritorio con los "
+"nuevos mensajes"
 
 #: ../ui/gnome-phone-manager.schemas.in.h:10
 msgid ""
 "Whether to popup new messages on the desktop as soon as they're received, as "
 "opposed to showing them when clicking on the tray icon."
 msgstr ""
-"Indica si se deben mostrar mensajes emergentes en el escritorio tan pronto como se reciben, "
-"en contraposición a mostrarlos al pulsar en la bandeja de notificación."
+"Indica si se deben mostrar mensajes emergentes en el escritorio tan pronto "
+"como se reciben, en contraposición a mostrarlos al pulsar en la bandeja de "
+"notificación."
 
 #: ../ui/gnome-phone-manager.schemas.in.h:11
 msgid "Whether to retry connecting to the mobile phone"
@@ -316,8 +331,8 @@ msgid ""
 "Whether to retry connecting to the mobile phone if the connection fails at "
 "some point."
 msgstr ""
-"Indica si se debe reintentar la conexión con el teléfono móvil si la conexión falla "
-"en algún punto."
+"Indica si se debe reintentar la conexión con el teléfono móvil si la "
+"conexión falla en algún punto."
 
 #: ../src/e-contact-entry.c:153
 #, c-format
