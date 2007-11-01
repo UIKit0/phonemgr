@@ -1,5 +1,10 @@
 2007-11-01  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phones.xml: Add the Sony Ericsson K800i to the list
+	(Closes: #492378)
+
+2007-11-01  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_battery_poll):
 	Fix calculation of battery level when the driver uses arbitrary
 	units

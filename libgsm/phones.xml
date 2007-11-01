@@ -21,5 +21,8 @@
 	<phone_entry
 		identifier="myX-7 GPRS"
 		driver="AT" />
+	<phone_entry
+		identifier="AAD-3022031-BV"
+		driver="AT" />
 </phone_entries>
 
