@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = po libgsm src ui
+SUBDIRS = po libgsm src telepathy ui
 
 EXTRA_DIST = \
 	autogen.sh \

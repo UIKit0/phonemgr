@@ -68,6 +68,25 @@ CPPFLAGS="$saved_CPPFLAGS"
 AC_SUBST(PHONEMGR_CFLAGS)
 AC_SUBST(PHONEMGR_LIBS)
 
+dnl Check for telepathy property page build
+AC_ARG_ENABLE(telepathy,
+	AC_HELP_STRING([--enable-telepathy],[compile the telepathy SMS plugin]),
+	[case "${enableval}" in
+	yes) ENABLE_TELEPATHY=yes ;;
+	no) ENABLE_TELEPATHY=no ;;
+	*) AC_MSG_ERROR(bad value ${enableval} for --enable-telepathy) ;;
+	esac],
+	[ENABLE_TELEPATHY=yes]) dnl Default value
+
+if test x$ENABLE_TELEPATHY = "xyes" ; then
+	PKG_CHECK_MODULES(TELEPATHY, telepathy-glib,
+			[HAVE_TELEPATHY=yes], [HAVE_TELEPATHY=no])
+fi
+if test x$HAVE_TELEPATHY = "xyes"; then
+	AC_DEFINE(HAVE_TELEPATHY, 1, [defined if you build the telepathy SMS plugin])
+fi
+AM_CONDITIONAL(HAVE_TELEPATHY, test x$HAVE_TELEPATHY = "xyes")
+
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal, no)
 AC_SUBST(GLIB_GENMARSHAL)
 
@@ -143,6 +162,7 @@ ui/icons/24x24/status/Makefile
 ui/icons/24x24/Makefile
 libgsm/Makefile
 src/Makefile
+telepathy/Makefile
 po/Makefile.in
 ])
 
