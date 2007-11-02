@@ -1,5 +1,10 @@
 2007-11-02  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phones.xml: Add the Nokia 5500 as an AT phone,
+	until we can get something better (Closes: #475795)
+
+2007-11-02  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-utils.c: (get_rfcomm_channel),
 	(phonemgr_utils_get_channel), (phonemgr_utils_driver_for_model):
 	Remove the work-around for channel 1, it was due to a b0rked SDP

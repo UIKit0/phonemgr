@@ -24,5 +24,9 @@
 	<phone_entry
 		identifier="AAD-3022031-BV"
 		driver="AT" />
+	<!-- That's the Nokia 5500, see http://bugzilla.gnome.org/show_bug.cgi?id=475795 -->
+	<phone_entry
+		identifier="Nokia"
+		driver="AT" />
 </phone_entries>
 
