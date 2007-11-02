@@ -1,3 +1,14 @@
+2007-11-02  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-utils.c: (get_rfcomm_channel),
+	(phonemgr_utils_get_channel), (phonemgr_utils_driver_for_model):
+	Remove the work-around for channel 1, it was due to a b0rked SDP
+	query
+	Don't try to use the "Bluetooth Serial Port" on Nokias
+	it doesn't work
+	Make the "model not supported natively" a message
+	so it doesn't hamper debugging
+
 2007-11-01  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-utils.c: (phonemgr_utils_get_channel):

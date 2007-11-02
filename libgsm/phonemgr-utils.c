@@ -124,7 +124,12 @@ get_rfcomm_channel (sdp_record_t *rec)
 	if (data)
 		name = g_strdup_printf ("%.*s", data->unitSize, data->val.str);
 
+	/* We can't seem to connect to the PC Suite channel */
 	if (strstr (name, "Nokia PC Suite") != NULL)
+		goto end;
+	/* And that type of channel on Nokia Symbian phones doesn't
+	 * work either */
+	if (strstr (name, "Bluetooth Serial Port") != NULL)
 		goto end;
 
 	channel = sdp_get_proto_port (protos, RFCOMM_UUID);
@@ -195,9 +200,6 @@ phonemgr_utils_get_channel (const char *device)
 	channel = find_service_channel (&src, &dst, SERIAL_PORT_SVCLASS_ID);
 	if (channel < 0)
 		channel = find_service_channel (&src, &dst, DIALUP_NET_SVCLASS_ID);
-	/* Still no channel? Try the default "1" as used on Nokia phones */
-	if (channel < 0)
-		channel = 1;
 
 	return channel;
 }
@@ -248,7 +250,7 @@ phonemgr_utils_driver_for_model (const char *model, const char *device)
 
 	driver = g_hash_table_lookup (driver_model, model);
 	if (driver == NULL) {
-		g_warning ("Model %s not supported natively", model);
+		g_message ("Model %s not supported natively", model);
 		driver = g_strdup (PHONEMGR_DEFAULT_DRIVER);
 	} else {
 		driver = g_strdup (driver);
