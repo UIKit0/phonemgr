@@ -1,5 +1,10 @@
 2007-11-02  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-utils.c: (get_rfcomm_channel):
+	Avoid the m-Router Connectivity channel as well
+
+2007-11-02  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phones.xml: Add the Nokia 5500 as an AT phone,
 	until we can get something better (Closes: #475795)
 

@@ -131,6 +131,9 @@ get_rfcomm_channel (sdp_record_t *rec)
 	 * work either */
 	if (strstr (name, "Bluetooth Serial Port") != NULL)
 		goto end;
+	/* Avoid the m-Router channel, same as the PC Suite on Sony Ericsson phones */
+	if (strstr (name, "m-Router Connectivity") != NULL)
+		goto end;
 
 	channel = sdp_get_proto_port (protos, RFCOMM_UUID);
 end:
