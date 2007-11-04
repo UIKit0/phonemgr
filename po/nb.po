@@ -7,163 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-13 11:40+0200\n"
-"PO-Revision-Date: 2005-09-13 11:40+0200\n"
-"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
+"POT-Creation-Date: 2007-11-04 18:13+0100\n"
+"PO-Revision-Date: 2007-11-04 18:46+0100\n"
+"Last-Translator: Espen Stefansen <espens@svn.gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:313
-msgid "Selection mode"
-msgstr "Utvalgsmodus"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:314
-msgid "The selection mode"
-msgstr "Utvalgsmodus"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:322
-msgid "Sorted"
-msgstr "Sortert"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:323
-msgid "Icon list is sorted"
-msgstr "Ikonlisten er sortert"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:329
-msgid "Sort order"
-msgstr "Sorteringsrekkefølge"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:330
-msgid "Sort direction the icon list should use"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:344
-msgid "Icon padding"
-msgstr "Ikonfyll"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:345
-msgid "Number of pixels between icons"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:352
-msgid "Top margin"
-msgstr "Toppmarg"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:353
-msgid "Number of pixels in top margin"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:360
-msgid "Bottom margin"
-msgstr "Bunnmarg"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:361
-msgid "Number of pixels in bottom margin"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:369
-msgid "Left margin"
-msgstr "Venstre marg"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:370
-msgid "Number of pixels in left margin"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:377
-msgid "Right margin"
-msgstr "Høyre marg"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:378
-msgid "Number of pixels in right margin"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:386
-msgid "Selection Box Color"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:387
-msgid "Color of the selection box"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:393
-msgid "Selection Box Alpha"
-msgstr ""
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:394
-msgid "Opacity of the selection box"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:154
-msgid "Pixbuf"
-msgstr "Bilde"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:155
-msgid "A GdkPixbuf to display"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:162
-msgid "Filename"
-msgstr "Filnavn"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:163
-msgid "Filename to load and display"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:170
-msgid "Stock ID"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:171
-msgid "Stock ID for a stock image to display"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:178
-msgid "Animation"
-msgstr "Animasjon"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:179
-msgid "GdkPixbufAnimation to display"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:186
-msgid "Image type"
-msgstr "Bildetype"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:187
-msgid "The representation being used for image data"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:195
-msgid "Size"
-msgstr "Størrelse"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:196
-msgid "The size of the icon"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggstatusicon.c:205
-msgid "Blinking"
-msgstr "Blinkende"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:206
-msgid "Whether or not the status icon is blinking"
-msgstr ""
-
-#: ../libegg/libegg/tray/eggtrayicon.c:118
-#: ../libegg/libegg/tray/eggtraymanager.c:145
-msgid "Orientation"
-msgstr "Orientering"
-
-#: ../libegg/libegg/tray/eggtrayicon.c:119
-#: ../libegg/libegg/tray/eggtraymanager.c:146
-msgid "The orientation of the tray."
-msgstr "Orientering for trauet."
-
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:91
+#: ../src/connection.c:112
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Koblet til enhet på %s"
@@ -172,14 +26,23 @@ msgstr "Koblet til enhet på %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:100
+#: ../src/connection.c:118
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Tilkobling til enhet på %s feilet"
 
-#. When try icon is destroyed, recreate it.  This happens
-#. when the notification area is removed.
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:66 ../src/menu.c:30
+#: ../src/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf-feil: %s"
+
+#: ../src/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Alle feil heretter vises bare på terminalen."
+
+#: ../src/gnome-phone-manager.desktop.in.h:1
+#: ../src/menu.c:49
+#: ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "Telefonhåndterer"
 
@@ -187,54 +50,62 @@ msgstr "Telefonhåndterer"
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Motta og send tekstmeldinger fra din mobiltelefon"
 
-#: ../src/icon.c:162
+#: ../src/icon.c:57
 msgid "Message arrived"
 msgstr "Melding mottatt"
 
-#: ../src/icon.c:166
+#: ../src/icon.c:60
 msgid "Connected"
 msgstr "Koblet til"
 
-#: ../src/icon.c:171
+#: ../src/icon.c:64
 msgid "Connecting to phone"
 msgstr "Kobler til telefon"
 
-#: ../src/icon.c:176
+#: ../src/icon.c:68
 msgid "Not connected"
 msgstr "Ikke koblet til"
 
-#: ../src/icon.c:196
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
-"\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
-msgstr ""
-
 #: ../src/main.c:36
-msgid "Couldn't create phone listener."
-msgstr ""
+msgid "Show model name of a specific device"
+msgstr "Vis modellnavn for en spesifikk enhet"
 
-#: ../src/menu.c:22
+#: ../src/main.c:37
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Skriv konfigurasjonsfilen for gnokii-feilsøking"
+
+#: ../src/main.c:38
+msgid "Enable debug"
+msgstr "Slå på feilsøking"
+
+#: ../src/main.c:53
+msgid "- Manage your mobile phone"
+msgstr "- Håndter din mobiltelefon."
+
+#: ../src/menu.c:40
 msgid "translator_credits"
-msgstr "Kjartan Maraas <kmaraas@gnome.org>"
+msgstr ""
+"Kjartan Maraas <kmaraas@gnome.org>\n"
+"Espen Stefansen <libbe AT stefansen DOT org>"
 
-#: ../src/menu.c:32
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "Send og motta meldinger med din mobiltelefon."
 
-#: ../src/menu.c:75
+#: ../src/menu.c:56
+msgid "Phone Manager website"
+msgstr "Hjemmeside for telefonhåndterer"
+
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "_Send melding"
 
-#: ../src/ui.c:89
-msgid "No Bluetooth device chosen."
-msgstr "Ingen Bluetooth-enhet valgt."
+#: ../src/phonemgr-chooser-button.c:80
+#: ../src/phonemgr-chooser-button.c:190
+msgid "Click to select device..."
+msgstr "Klikk for å velge enhet ..."
 
-#: ../src/ui.c:324
+#: ../src/ui.c:333
 msgid "Message too long!"
 msgstr "Meldingen er for lang!"
 
@@ -243,249 +114,333 @@ msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
 #: ../ui/phonemgr.glade.h:2
-msgid "<b>Alerting</b>"
-msgstr "<b>Varsling</b>"
+msgid "Alerting"
+msgstr "Varsler"
 
 #: ../ui/phonemgr.glade.h:3
-msgid "<b>Error Handling</b>"
-msgstr "<b>Feilhåndtering</b>"
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "Alternativt enhetsfilnavn, f.eks. /dev/ttyS3"
 
 #: ../ui/phonemgr.glade.h:4
-msgid "<b>Phone Connection</b>"
-msgstr "<b>Telefontilkobling</b>"
+msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgstr "Forsøk alltid å koble til på nytt igjen med en gang tilkoblingen ikke er tilgjengelig. Bruk dette sammen med Bluetooth for å forsikre deg om at telefonen din kobles til når den kommer innenfor rekkevidde."
 
 #: ../ui/phonemgr.glade.h:5
-msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"larger\">Skriv inn din tekstmelding</span>"
+msgid "Automatically _retry connections"
+msgstr "_Forsøk koble til igjen automatisk"
 
 #: ../ui/phonemgr.glade.h:6
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Du har mottatt en melding</span>"
-
-#: ../ui/phonemgr.glade.h:7
-msgid "Alternative device filename, e.g. /dev/ttyS3"
-msgstr ""
-
-#: ../ui/phonemgr.glade.h:8
-msgid ""
-"Always try and reconnect whenever a connection is not immediately available. "
-"Use this with Bluetooth to ensure your phone connects whenever it comes in "
-"range."
-msgstr ""
-
-#: ../ui/phonemgr.glade.h:9
-msgid "Automatically _retry connections"
-msgstr ""
-
-#: ../ui/phonemgr.glade.h:10
 msgid "Characters left:"
 msgstr "Tegn som gjenstår:"
 
-#: ../ui/phonemgr.glade.h:11
-msgid "Choo_se"
-msgstr "_Velg"
-
-#: ../ui/phonemgr.glade.h:12
-msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr ""
-
-#: ../ui/phonemgr.glade.h:13
+#: ../ui/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
-msgstr ""
+msgstr "Koble til via en alternativ seriell-enhet"
 
-#: ../ui/phonemgr.glade.h:14
+#: ../ui/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
 msgstr "Koble til via infrarød kommunikasjon"
 
-#: ../ui/phonemgr.glade.h:15
+#: ../ui/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
+msgstr "Koble til via serieport 1, også kjent som COM1 eller /dev/ttyS0"
 
-#: ../ui/phonemgr.glade.h:16
+#: ../ui/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
+msgstr "Koble til via serieport 2, også kjent som COM2 eller /dev/ttyS1"
 
-#: ../ui/phonemgr.glade.h:17
+#: ../ui/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "Tilkobling"
 
-#: ../ui/phonemgr.glade.h:18
+#: ../ui/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "Dato:"
 
-#: ../ui/phonemgr.glade.h:19
+#: ../ui/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
 msgstr "Skriv inn tekstmeldingen du ønsker å sende."
 
-#: ../ui/phonemgr.glade.h:20
+#: ../ui/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "Skriv inn tekstmelding"
+
+#: ../ui/phonemgr.glade.h:15
+msgid "Error Handling"
+msgstr "Feilhåndtering"
+
+#: ../ui/phonemgr.glade.h:16
+msgid "I_nfra red (/dev/ircomm)"
+msgstr "I_nfrarød (/dev/ircomm)"
+
+#: ../ui/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "Grensesnitt"
 
-#: ../ui/phonemgr.glade.h:21
+#: ../ui/phonemgr.glade.h:18
 msgid "Message Received"
 msgstr "Melding mottatt"
 
-#: ../ui/phonemgr.glade.h:22
+#: ../ui/phonemgr.glade.h:19
 msgid "Number of characters left in the message"
 msgstr "Antall tegn som gjenstår i meldingen"
 
-#: ../ui/phonemgr.glade.h:23
+#: ../ui/phonemgr.glade.h:20
 msgid "Other _port"
 msgstr "Annen _port"
 
-#: ../ui/phonemgr.glade.h:24
+#: ../ui/phonemgr.glade.h:21
+msgid "Phone Connection"
+msgstr "Telefontilkobling"
+
+#: ../ui/phonemgr.glade.h:22
 msgid "Phone Manager Preferences"
 msgstr "Brukervalg for telefonhåndterer"
 
-#: ../ui/phonemgr.glade.h:25
+#: ../ui/phonemgr.glade.h:23
 msgid "Play _sound when messages arrive"
 msgstr "_Spill lyd når meldinger mottas"
 
-#: ../ui/phonemgr.glade.h:26
+#: ../ui/phonemgr.glade.h:24
 msgid "Send Message"
 msgstr "Send melding"
 
-#: ../ui/phonemgr.glade.h:27
+#: ../ui/phonemgr.glade.h:25
 msgid "Sender:"
 msgstr "Avsender:"
 
-#: ../ui/phonemgr.glade.h:28
+#: ../ui/phonemgr.glade.h:26
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Serieport _1 (/dev/ttyS0)"
 
-#: ../ui/phonemgr.glade.h:29
+#: ../ui/phonemgr.glade.h:27
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Serieport _2 (/dev/ttyS1)"
 
-#: ../ui/phonemgr.glade.h:30
+#: ../ui/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Koble til din telefon med trådløst nettverk via Bluetooth"
 
-#: ../ui/phonemgr.glade.h:31
+#: ../ui/phonemgr.glade.h:29
+msgid "You have received a message"
+msgstr "Du har mottatt en melding"
+
+#: ../ui/phonemgr.glade.h:30
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../ui/phonemgr.glade.h:32
-msgid "_Infra red (/dev/ircomm)"
-msgstr "_Infrarød (/dev/ircomm)"
-
-#: ../ui/phonemgr.glade.h:33
+#: ../ui/phonemgr.glade.h:31
 msgid "_Message:"
 msgstr "_Melding"
 
-#: ../ui/phonemgr.glade.h:34
+#: ../ui/phonemgr.glade.h:32
 msgid "_Pop-up window for new messages"
 msgstr "S_prettoppvindu for nye meldinger"
 
-#: ../ui/phonemgr.glade.h:35
+#: ../ui/phonemgr.glade.h:33
 msgid "_Recipient:"
 msgstr "_Mottaker:"
 
-#: ../ui/phonemgr.glade.h:36
+#: ../ui/phonemgr.glade.h:34
 msgid "_Reply"
 msgstr "Sva_r"
 
-#: ../ui/phonemgr.glade.h:37
+#: ../ui/phonemgr.glade.h:35
 msgid "_Send"
 msgstr "_Send"
 
-#: ../ui/phonemgr.glade.h:38
+#: ../ui/phonemgr.glade.h:36
 msgid "message body"
 msgstr "meldingskropp"
 
-#: ../src/e-contact-entry.c:153
+#: ../ui/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Bluetooth-adresse på enheten som skal kobles til"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:2
+msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
+msgstr "Bluetooth-adresse på enheten som skal kobles til. Krever at connection_type er 1 for å brukes."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Tilkoblingstypen som brukes av gnome-phone-manager"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:4
+msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr "Tilkoblingstypen som brukes av gnome-phone-manager: Bluetooth er 0, seriell 1 er 1, seriell 2 er 2, infrarød er 3, andre tilkoblingstyper er 4"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Enhetsnoden for seriell-enheten som skal kobles til"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:6
+msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
+msgstr "Enhetsnoden for seriell-enheten som skal kobles til. Krever at connection_type er 4 for å brukes."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Hvorvidt en lyd skal spilles av når en ny melding mottas"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Hvorvidt en lyd skal spilles av når en ny melding mottas."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Hvorvidt et oppsprettsvindu med meldingen skal vises på skrivebordet"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
+msgstr "Hvorvidt et oppsprettsvindu med meldingen skal vises på skrivebordet med en gang de mottas, i motsetning til å vise dem ved å klikke på programikonet."
+
+#: ../ui/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Hvorvidt å forsøke å koble til mobiltelefonen på nytt"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:12
+msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
+msgstr "Hvorvidt å forsøke å koble til mobiltelefonen på nytt, hvis tilkoblingen feiler på et tidspunkt."
+
+#: ../src/e-contact-entry.c:154
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Kan ikke hente kontakt: %s"
 
-#: ../src/e-contact-entry.c:185
+#: ../src/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Kunne ikke finne kontakt: %s"
 
-#: ../src/e-contact-entry.c:367
+#: ../src/e-contact-entry.c:389
 msgid "Cannot create searchable view."
 msgstr "Kan ikke opprette søkbar visning."
 
-#: ../src/e-contact-entry.c:820
+#: ../src/e-contact-entry.c:844
 msgid "Success"
 msgstr "Suksess"
 
-#: ../src/e-contact-entry.c:822
+#: ../src/e-contact-entry.c:846
 msgid "An argument was invalid."
 msgstr "Ugyldig argument oppgitt."
 
-#: ../src/e-contact-entry.c:824
+#: ../src/e-contact-entry.c:848
 msgid "The address book is busy."
 msgstr "Adresseboken er opptatt."
 
-#: ../src/e-contact-entry.c:826
+#: ../src/e-contact-entry.c:850
 msgid "The address book is offline."
 msgstr "Adresseboken er frakoblet."
 
-#: ../src/e-contact-entry.c:828
+#: ../src/e-contact-entry.c:852
 msgid "The address book does not exist."
 msgstr "Adresseboken eksisterer ikke."
 
-#: ../src/e-contact-entry.c:830
+#: ../src/e-contact-entry.c:854
 msgid "The \"Me\" contact does not exist."
 msgstr "Kontakten «Meg» eksisterer ikke."
 
-#: ../src/e-contact-entry.c:832
+#: ../src/e-contact-entry.c:856
 msgid "The address book is not loaded."
 msgstr "Adresseboken er ikke lastet."
 
-#: ../src/e-contact-entry.c:834
+#: ../src/e-contact-entry.c:858
 msgid "The address book is already loaded."
-msgstr ""
+msgstr "Adresseboken er allerede lastet."
 
-#: ../src/e-contact-entry.c:836
+#: ../src/e-contact-entry.c:860
 msgid "Permission was denied when accessing the address book."
-msgstr ""
+msgstr "Nektet tilgang til adresseboken ."
 
-#: ../src/e-contact-entry.c:838
+#: ../src/e-contact-entry.c:862
 msgid "The contact was not found."
 msgstr "Kontakten ble ikke funnet."
 
-#: ../src/e-contact-entry.c:840
+#: ../src/e-contact-entry.c:864
 msgid "This contact ID already exists."
-msgstr ""
+msgstr "Denne kontakt-IDen finnes allerede."
 
-#: ../src/e-contact-entry.c:842
+#: ../src/e-contact-entry.c:866
 msgid "The protocol is not supported."
-msgstr ""
+msgstr "Protokollen er ikke støttet."
 
-#: ../src/e-contact-entry.c:844
+#: ../src/e-contact-entry.c:868
 msgid "The operation was cancelled."
 msgstr "Operavsjonen ble avbrutt."
 
-#: ../src/e-contact-entry.c:846
+#: ../src/e-contact-entry.c:870
 msgid "The operation could not be cancelled."
-msgstr ""
+msgstr "Handlingen kunne ikke avbrytes"
 
-#: ../src/e-contact-entry.c:848
+#: ../src/e-contact-entry.c:872
 msgid "The address book authentication failed."
-msgstr ""
+msgstr "Autentisering mot adresseboken feilet."
 
-#: ../src/e-contact-entry.c:850
-msgid ""
-"Authentication is required to access the address book and was not given."
-msgstr ""
+#: ../src/e-contact-entry.c:874
+msgid "Authentication is required to access the address book and was not given."
+msgstr "Autentisering mot adresseboken er nødvendig og ble ikke angitt."
 
-#: ../src/e-contact-entry.c:852
+#: ../src/e-contact-entry.c:876
 msgid "A secure connection is not available."
-msgstr ""
+msgstr "En sikker tilkobling er ikke tilgjengelig."
 
-#: ../src/e-contact-entry.c:854
+#: ../src/e-contact-entry.c:878
 msgid "A CORBA error occurred whilst accessing the address book."
-msgstr ""
+msgstr "En CORBA-feil oppsto under tilgang til adresseboken."
 
-#: ../src/e-contact-entry.c:856
+#: ../src/e-contact-entry.c:880
 msgid "The address book source does not exist."
-msgstr ""
+msgstr "Adressebokskilden finnes ikke"
 
-#: ../src/e-contact-entry.c:858 ../src/e-contact-entry.c:861
+#: ../src/e-contact-entry.c:882
+#: ../src/e-contact-entry.c:885
 msgid "An unknown error occurred."
 msgstr "En ukjent feil oppsto."
+
+#~ msgid "Selection mode"
+#~ msgstr "Utvalgsmodus"
+#~ msgid "The selection mode"
+#~ msgstr "Utvalgsmodus"
+#~ msgid "Sorted"
+#~ msgstr "Sortert"
+#~ msgid "Icon list is sorted"
+#~ msgstr "Ikonlisten er sortert"
+#~ msgid "Sort order"
+#~ msgstr "Sorteringsrekkefølge"
+#~ msgid "Icon padding"
+#~ msgstr "Ikonfyll"
+#~ msgid "Top margin"
+#~ msgstr "Toppmarg"
+#~ msgid "Bottom margin"
+#~ msgstr "Bunnmarg"
+#~ msgid "Left margin"
+#~ msgstr "Venstre marg"
+#~ msgid "Right margin"
+#~ msgstr "Høyre marg"
+#~ msgid "Pixbuf"
+#~ msgstr "Bilde"
+#~ msgid "Filename"
+#~ msgstr "Filnavn"
+#~ msgid "Animation"
+#~ msgstr "Animasjon"
+#~ msgid "Image type"
+#~ msgstr "Bildetype"
+#~ msgid "Size"
+#~ msgstr "Størrelse"
+#~ msgid "Blinking"
+#~ msgstr "Blinkende"
+#~ msgid "Orientation"
+#~ msgstr "Orientering"
+#~ msgid "The orientation of the tray."
+#~ msgstr "Orientering for trauet."
+#~ msgid "No Bluetooth device chosen."
+#~ msgstr "Ingen Bluetooth-enhet valgt."
+#~ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Skriv inn din tekstmelding</span>"
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Du har mottatt en melding</span>"
+#~ msgid "Choo_se"
+#~ msgstr "_Velg"
+
