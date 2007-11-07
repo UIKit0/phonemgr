@@ -23,6 +23,8 @@
 #include <telepathy-glib/dbus.h>
 #include <telepathy-glib/interfaces.h>
 
+#include <phonemgr-listener.h>
+
 #include "im-channel.h"
 #include "connection.h"
 #include "debug.h"
@@ -266,9 +268,13 @@ sms_im_channel_send (TpSvcChannelTypeText *channel,
 {
     SmsIMChannel *self = SMS_IM_CHANNEL (channel);
     SmsIMChannelPrivate *priv = SMS_IM_CHANNEL_GET_PRIVATE (self);
+    TpHandleRepoIface *contact_handles;
+    TpHandle handle;
     GError *error = NULL;
+    PhonemgrListener *listener;
 //    PurpleMessageFlags flags = 0;
     char *message, *escaped;
+    const char *number;
 
     if (type >= NUM_TP_CHANNEL_TEXT_MESSAGE_TYPES) {
         DEBUG ("invalid message type %u", type);
@@ -280,6 +286,7 @@ sms_im_channel_send (TpSvcChannelTypeText *channel,
         return;
     }
 
+    //FIXME no action stuff on text
     if (type == TP_CHANNEL_TEXT_MESSAGE_TYPE_ACTION) {
         /* XXX this is not good enough for prpl-irc, which has a slash-command
          *     for actions and doesn't do special stuff to messages which happen
@@ -291,6 +298,14 @@ sms_im_channel_send (TpSvcChannelTypeText *channel,
     }
 
     escaped = g_markup_escape_text (message, -1);
+
+    contact_handles = tp_base_connection_get_handles (TP_BASE_CONNECTION (priv->conn),
+        TP_HANDLE_TYPE_CONTACT);
+    number = tp_handle_inspect (contact_handles, priv->handle);
+
+    g_object_get (G_OBJECT (priv->conn), "listener", &listener, NULL);
+    g_message ("number: %s, text: %s", number, escaped);
+//    phonemgr_listener_queue_message (listener, number, escaped);
 
 #if 0
     if (type == TP_CHANNEL_TEXT_MESSAGE_TYPE_AUTO_REPLY) {

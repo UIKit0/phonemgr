@@ -1,5 +1,16 @@
 2007-11-07  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_poll):
+	Fix a crasher in the random text sending
+
+	* telepathy/im-channel-factory.c:
+	(sms_im_channel_factory_iface_request), (new_sms):
+	* telepathy/im-channel.c: (sms_im_channel_send):
+	Try to implement the sending part, fails miserably because the
+	handle we get is our own bdaddr, what the
+
+2007-11-07  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_poll),
 	(phonemgr_listener_connect), (phonemgr_listener_disconnect),
 	(phonemgr_listener_init): Only send new messages when we're

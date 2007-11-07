@@ -334,6 +334,7 @@ sms_im_channel_factory_iface_request (TpChannelFactoryIface *iface,
     if (!tp_handle_is_valid (contact_repo, handle, error))
         return TP_CHANNEL_FACTORY_REQUEST_STATUS_ERROR;
 
+    g_message ("handle: %u", handle);
     chan = get_im_channel (self, handle, &created);
     if (created)
     {
@@ -378,17 +379,12 @@ new_sms (GObject *l, char *phone, time_t timestamp, char *message, gpointer data
 
 	contact_handle = tp_handle_ensure (contact_repo, phone, NULL, NULL);
 
-//        DEBUG ("channel %u: ignoring message %s with flags %u",
-//            ui_data->contact_handle, message, flags);
-
-//    SmsConversationUiData *ui_data = PURPLE_CONV_GET_SMS_UI_DATA (conv);
-
     chan = get_im_channel (self, contact_handle, NULL);
 
         tp_text_mixin_receive (G_OBJECT (chan), type, contact_handle,
                                timestamp, message);
-        DEBUG ("channel %u: ignoring message %s",
-            contact_handle, message);
+        DEBUG ("channel %u: handled message %s phone: %s",
+            contact_handle, message, phone);
 }
 
 static void

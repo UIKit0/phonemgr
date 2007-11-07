@@ -855,14 +855,18 @@ phonemgr_listener_poll (PhonemgrListener *l)
 		char *sender;
 		GTimeVal time;
 		char *text;
+		GRand *rand;
 
-		if (g_rand_boolean (i)) {
+		rand = g_rand_new_with_seed (i);
+
+		if (g_rand_boolean (rand)) {
 			sender = "+09876 543-21";
 			text = "This is my other test, this is NOT a supa test";
 		} else {
 			sender = "+01234 567-89";
 			text = "This is my test, this is my supa test";
 		}
+		g_rand_free (rand);
 
 		g_get_current_time (&time);
 
