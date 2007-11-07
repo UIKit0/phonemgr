@@ -38,15 +38,16 @@
 
 enum
 {
-    PROP_BDADDR = 1,
-
-    LAST_PROPERTY
+	PROP_0,
+	PROP_BDADDR,
+	PROP_LISTENER
 };
 
 G_DEFINE_TYPE(SmsConnection, sms_connection, TP_TYPE_BASE_CONNECTION);
 
 typedef struct _SmsConnectionPrivate
 {
+    char *bdaddr;
     PhonemgrListener *listener;
 } SmsConnectionPrivate;
 
@@ -60,8 +61,9 @@ gchar *
 sms_connection_get_unique_connection_name(TpBaseConnection *base)
 {
 	SmsConnection *self = SMS_CONNECTION(base);
+	SmsConnectionPrivate *priv = SMS_CONNECTION_GET_PRIVATE(self);
 
-	return g_strdup (self->bdaddr);
+	return g_strdup (priv->bdaddr);
 }
 
 static gboolean
@@ -74,7 +76,7 @@ _sms_connection_start_connecting (TpBaseConnection *base,
         tp_base_connection_get_handles (base, TP_HANDLE_TYPE_CONTACT);
 
     base->self_handle = tp_handle_ensure (contact_handles,
-					  self->bdaddr, NULL, error);
+					  priv->bdaddr, NULL, error);
     if (!base->self_handle)
         return FALSE;
 
@@ -85,7 +87,7 @@ _sms_connection_start_connecting (TpBaseConnection *base,
                                      TP_CONNECTION_STATUS_REASON_REQUESTED);
 
     //FIXME that should probably be threaded
-    phonemgr_listener_connect (priv->listener, self->bdaddr, NULL);
+    phonemgr_listener_connect (priv->listener, priv->bdaddr, NULL);
     tp_base_connection_change_status(base, TP_CONNECTION_STATUS_CONNECTED,
                                      TP_CONNECTION_STATUS_REASON_REQUESTED);
 
@@ -98,8 +100,10 @@ _contact_normalize (TpHandleRepoIface *repo,
                     gpointer context,
                     GError **error)
 {
-    SmsConnection *conn = SMS_CONNECTION (context);
-    return g_strdup (conn->bdaddr);
+    SmsConnection *self = SMS_CONNECTION (context);
+    SmsConnectionPrivate *priv = SMS_CONNECTION_GET_PRIVATE(self);
+
+    return g_strdup (priv->bdaddr);
 }
 
 static void
@@ -151,11 +155,15 @@ sms_connection_get_property (GObject    *object,
                               GParamSpec *pspec)
 {
     SmsConnection *self = SMS_CONNECTION (object);
+    SmsConnectionPrivate *priv = SMS_CONNECTION_GET_PRIVATE(self);
 
     switch (property_id) {
         case PROP_BDADDR:
-            g_value_set_string (value, self->bdaddr);
+            g_value_set_string (value, priv->bdaddr);
             break;
+	case PROP_LISTENER:
+	    g_value_set_object (value, priv->listener);
+	    break;
         default:
             G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
             break;
@@ -169,11 +177,12 @@ sms_connection_set_property (GObject      *object,
                               GParamSpec   *pspec)
 {
     SmsConnection *self = SMS_CONNECTION (object);
+    SmsConnectionPrivate *priv = SMS_CONNECTION_GET_PRIVATE(self);
 
     switch (property_id) {
         case PROP_BDADDR:
-            g_free (self->bdaddr);
-            self->bdaddr = g_value_dup_string(value);
+            g_free (priv->bdaddr);
+            priv->bdaddr = g_value_dup_string(value);
             break;
         default:
             G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -213,9 +222,9 @@ sms_connection_finalize (GObject *object)
     SmsConnection *self = SMS_CONNECTION (object);
     SmsConnectionPrivate *priv = SMS_CONNECTION_GET_PRIVATE(self);
 
+    g_free (priv->bdaddr);
     g_object_unref (priv->listener);
     self->priv = NULL;
-    g_free (self->bdaddr);
 
     G_OBJECT_CLASS (sms_connection_parent_class)->finalize (object);
 }
@@ -251,6 +260,13 @@ sms_connection_class_init (SmsConnectionClass *klass)
                                       G_PARAM_STATIC_NAME |
                                       G_PARAM_STATIC_BLURB);
     g_object_class_install_property (object_class, PROP_BDADDR, param_spec);
+    param_spec = g_param_spec_object ("listener", "Listener object",
+				      "The listener object used from communicating with a phone.",
+				      PHONEMGR_TYPE_LISTENER,
+				      G_PARAM_READABLE |
+				      G_PARAM_STATIC_NAME |
+				      G_PARAM_STATIC_BLURB);
+    g_object_class_install_property (object_class, PROP_LISTENER, param_spec);
 
 //    sms_connection_aliasing_class_init (object_class);
 //    sms_connection_avatars_class_init (object_class);
@@ -265,6 +281,7 @@ sms_connection_init (SmsConnection *self)
     self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, SMS_TYPE_CONNECTION,
                                               SmsConnectionPrivate);
     priv = SMS_CONNECTION_GET_PRIVATE(self);
+    priv->bdaddr = NULL;
     priv->listener = phonemgr_listener_new (FALSE);
 }
 

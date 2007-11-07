@@ -39,8 +39,6 @@ struct _SmsConnectionClass {
 struct _SmsConnection {
     TpBaseConnection parent;
 
-    char *bdaddr;
-
     SmsImChannelFactory *im_factory;
 
 //    SmsContactList *contact_list;

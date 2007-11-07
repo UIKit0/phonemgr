@@ -80,14 +80,21 @@ SmsConnection *
 sms_connection_manager_get_sms_connection (SmsConnectionManager *self,
                                            const gchar *bdaddr)
 {
-    SmsConnection *hc;
+    SmsConnection *conn;
     GList *l = self->connections;
 
+    g_return_val_if_fail (bdaddr != NULL, NULL);
+
     while (l != NULL) {
-        hc = l->data;
-        if(strcmp (hc->bdaddr, bdaddr) == 0) {
-            return hc;
-        }
+    	    char *tmp;
+
+	    conn = l->data;
+	    g_object_get (G_OBJECT (conn), "listener", &tmp, NULL);
+	    if(tmp != NULL && strcmp (tmp, bdaddr) == 0) {
+	    	    g_free (tmp);
+		    return conn;
+	    }
+	    g_free (tmp);
     }
 
     return NULL;

@@ -38,6 +38,13 @@
 #include "debug.h"
 #include "connection-manager.h"
 
+static gboolean g_fatal_warnings = FALSE;
+
+static const GOptionEntry entries[] = {
+	{"g-fatal-warnings", 0, 0, G_OPTION_ARG_NONE, &g_fatal_warnings, "Make all warnings fatal", NULL},
+	{NULL}
+};
+
 static TpBaseConnectionManager *
 get_cm (void)
 {
@@ -49,9 +56,23 @@ main(int argc,
      char **argv)
 {
     int ret = 0;
+    GOptionContext *context;
 
     g_set_prgname("telepathy-sms");
     g_thread_init (NULL);
+
+    context = g_option_context_new ("Telepathy SMS backend");
+    g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
+
+    g_option_context_parse (context, &argc, &argv, NULL);
+
+    if (g_fatal_warnings) {
+	    GLogLevelFlags fatal_mask;
+
+	    fatal_mask = g_log_set_always_fatal (G_LOG_FATAL_MASK);
+	    fatal_mask |= G_LOG_LEVEL_WARNING | G_LOG_LEVEL_CRITICAL;
+	    g_log_set_always_fatal (fatal_mask);
+    }
 
     signal (SIGCHLD, SIG_IGN);
 
