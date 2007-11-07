@@ -38,6 +38,12 @@
 #include "debug.h"
 #include "connection-manager.h"
 
+static TpBaseConnectionManager *
+get_cm (void)
+{
+	return (TpBaseConnectionManager *) sms_connection_manager_get ();
+}
+
 int
 main(int argc,
      char **argv)
@@ -45,12 +51,13 @@ main(int argc,
     int ret = 0;
 
     g_set_prgname("telepathy-sms");
+    g_thread_init (NULL);
 
     signal (SIGCHLD, SIG_IGN);
 
     tp_debug_set_flags_from_env ("SMS_DEBUG");
     ret = tp_run_connection_manager ("telepathy-sms", PACKAGE_VERSION,
-    				     sms_connection_manager_get, argc, argv);
+    				     get_cm, argc, argv);
 
     return ret;
 }

@@ -1,3 +1,26 @@
+2007-11-07  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect),
+	(phonemgr_listener_disconnect), (phonemgr_listener_cancel_call),
+	(phonemgr_listener_answer_call), (phonemgr_listener_queue_message),
+	(phonemgr_listener_set_time), (phonemgr_listener_connected):
+	Add PhonemgrListener type-checks to public functions
+
+	* telepathy/connection-manager.c: (free_params):
+	NULL terminate the params spec, otherwise we crash on startup
+
+	* telepathy/connection.c: (_contact_normalize),
+	(_sms_connection_create_handle_repos),
+	(_sms_connection_create_channel_factories),
+	(sms_connection_class_init), (sms_connection_init):
+	* telepathy/connection.h:
+	Implement ->create_handle_repos and ->create_channel_factories
+	to make telepathy happy, also get a PhonemgrListener in the object
+	on init, otherwise we don't have anything to play with
+
+	* telepathy/main.c: (get_cm), (main): init threads for
+	PhonemgrListener
+
 2007-11-03  Bastien Nocera  <hadess@hadess.net>
 
 	* ui/phonemgr.glade: Skip the characters left field when

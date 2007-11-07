@@ -348,11 +348,11 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 {
 	int channel;
 
+	g_return_val_if_fail (PHONEMGR_IS_LISTENER (l), FALSE);
 	g_return_val_if_fail (l->connected == FALSE, FALSE);
 	g_return_val_if_fail (l->phone_state == NULL, FALSE);
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
-
 
 	channel = -1;
 
@@ -671,6 +671,7 @@ phonemgr_listener_thread (PhonemgrListener *l)
 void
 phonemgr_listener_disconnect (PhonemgrListener *l)
 {
+	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
 	g_return_if_fail (l->connected != FALSE);
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_DISCONNECTING);
@@ -693,12 +694,14 @@ phonemgr_listener_disconnect (PhonemgrListener *l)
 void
 phonemgr_listener_cancel_call (PhonemgrListener *l)
 {
+	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
 	//FIXME
 }
 
 void
 phonemgr_listener_answer_call (PhonemgrListener *l)
 {
+	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
 	//FIXME
 }
 
@@ -711,6 +714,7 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	gn_sms sms;
 	gn_error error;
 
+	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
 	g_return_if_fail (l->connected != FALSE);
 	g_return_if_fail (number != NULL);
 	g_return_if_fail (message != NULL);
@@ -795,6 +799,10 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 	gn_error error;
 	PhoneMgrError perr;
 
+	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
+	g_return_if_fail (l->connected == FALSE);
+	g_return_if_fail (l->phone_state == NULL);
+
 	t = localtime(&time);
 	date.year = t->tm_year;
 	date.month = t->tm_mon + 1;
@@ -820,9 +828,11 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 }
 
 gboolean
-phonemgr_listener_connected (PhonemgrListener *listener)
+phonemgr_listener_connected (PhonemgrListener *l)
 {
-	return listener->connected;
+	g_return_val_if_fail (PHONEMGR_IS_LISTENER (l), FALSE);
+
+	return l->connected;
 }
 
 #else /* !DUMMY */

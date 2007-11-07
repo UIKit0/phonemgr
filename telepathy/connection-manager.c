@@ -41,6 +41,7 @@ static const TpCMParamSpec params[] = {
   { "bdaddr", DBUS_TYPE_STRING_AS_STRING, G_TYPE_STRING,
     TP_CONN_MGR_PARAM_FLAG_REQUIRED, NULL,
     G_STRUCT_OFFSET(SmsParams, bdaddr), NULL, NULL },
+  { NULL, NULL, 0, 0, NULL, 0, NULL, NULL }
 };
 
 static void *
@@ -54,7 +55,6 @@ free_params (void *p)
 {
     SmsParams *params = (SmsParams *)p;
     g_free (params->bdaddr);
-
     g_free (params);
 }
 

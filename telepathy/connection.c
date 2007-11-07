@@ -31,6 +31,7 @@
 #include "debug.h"
 //#include "defines.h"
 #include "connection-manager.h"
+#include "im-channel-factory.h"
 #include "connection.h"
 //#include "connection-aliasing.h"
 //#include "connection-avatars.h"
@@ -92,6 +93,49 @@ _sms_connection_start_connecting (TpBaseConnection *base,
                                      TP_CONNECTION_STATUS_REASON_REQUESTED);
 
     return TRUE;
+}
+
+static gchar*
+_contact_normalize (TpHandleRepoIface *repo,
+                    const gchar *id,
+                    gpointer context,
+                    GError **error)
+{
+    SmsConnection *conn = SMS_CONNECTION (context);
+    return g_strdup (conn->bdaddr);
+}
+
+static void
+_sms_connection_create_handle_repos (TpBaseConnection *base,
+				     TpHandleRepoIface *repos[NUM_TP_HANDLE_TYPES])
+{
+    repos[TP_HANDLE_TYPE_CONTACT] =
+        tp_dynamic_handle_repo_new (TP_HANDLE_TYPE_CONTACT, _contact_normalize,
+                                    base);
+    /* repos[TP_HANDLE_TYPE_ROOM] = XXX MUC */
+#if 0
+    repos[TP_HANDLE_TYPE_GROUP] =
+        tp_dynamic_handle_repo_new (TP_HANDLE_TYPE_GROUP, NULL, NULL);
+    repos[TP_HANDLE_TYPE_LIST] =
+        tp_static_handle_repo_new (TP_HANDLE_TYPE_LIST, list_handle_strings);
+#endif
+}
+
+static GPtrArray *
+_sms_connection_create_channel_factories (TpBaseConnection *base)
+{
+    SmsConnection *self = SMS_CONNECTION(base);
+    GPtrArray *channel_factories = g_ptr_array_new ();
+
+    self->im_factory = SMS_IM_CHANNEL_FACTORY (
+        g_object_new (SMS_TYPE_IM_CHANNEL_FACTORY, "connection", self, NULL));
+    g_ptr_array_add (channel_factories, self->im_factory);
+#if 0
+    self->contact_list = SMS_CONTACT_LIST (
+        g_object_new (SMS_TYPE_CONTACT_LIST, "connection", self, NULL));
+    g_ptr_array_add (channel_factories, self->contact_list);
+#endif
+    return channel_factories;
 }
 
 static void
@@ -195,6 +239,8 @@ sms_connection_class_init (SmsConnectionClass *klass)
     object_class->dispose = sms_connection_dispose;
     object_class->finalize = sms_connection_finalize;
 
+    base_class->create_handle_repos = _sms_connection_create_handle_repos;
+    base_class->create_channel_factories = _sms_connection_create_channel_factories;
     base_class->get_unique_connection_name =
         sms_connection_get_unique_connection_name;
     base_class->start_connecting = _sms_connection_start_connecting;
@@ -216,11 +262,13 @@ sms_connection_class_init (SmsConnectionClass *klass)
 static void
 sms_connection_init (SmsConnection *self)
 {
-    DEBUG ("Initializing (SmsConnection *)%p", self);
-//    self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, SMS_TYPE_CONNECTION,
-//                                              SmsConnectionPrivate);
+    SmsConnectionPrivate *priv;
 
-//    sms_connection_presence_init (self);
+    DEBUG ("Initializing (SmsConnection *)%p", self);
+    self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, SMS_TYPE_CONNECTION,
+                                              SmsConnectionPrivate);
+    priv = SMS_CONNECTION_GET_PRIVATE(self);
+    priv->listener = phonemgr_listener_new (FALSE);
 }
 
 const gchar *

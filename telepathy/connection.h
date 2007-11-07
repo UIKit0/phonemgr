@@ -25,7 +25,7 @@
 #include <telepathy-glib/base-connection.h>
 #include <telepathy-glib/presence-mixin.h>
 
-//#include "contact-list.h"
+#include "im-channel-factory.h"
 
 G_BEGIN_DECLS
 
@@ -40,6 +40,8 @@ struct _SmsConnection {
     TpBaseConnection parent;
 
     char *bdaddr;
+
+    SmsImChannelFactory *im_factory;
 
 //    SmsContactList *contact_list;
 
