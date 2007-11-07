@@ -1,5 +1,20 @@
 2007-11-07  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_poll),
+	(phonemgr_listener_connect), (phonemgr_listener_disconnect),
+	(phonemgr_listener_init): Only send new messages when we're
+	"connected" in the dummy backend, and randomise a bit the messages
+	and senders
+
+	* telepathy/im-channel-factory.c: (sms_im_channel_factory_init),
+	(sms_im_channel_factory_set_property),
+	(sms_im_channel_factory_iface_close_all), (new_sms),
+	(set_im_channel_factory_listener): Connect to the "message" signal
+	and receive messages without crashing, disconnect from the signal
+	when all the channels are closed
+
+2007-11-07  Bastien Nocera  <hadess@hadess.net>
+
 	* telepathy/connection-manager.c:
 	(sms_connection_manager_get_sms_connection):
 	Modify for changes below

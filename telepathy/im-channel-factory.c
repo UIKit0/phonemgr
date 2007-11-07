@@ -57,10 +57,9 @@ enum {
     LAST_PROPERTY
 };
 
-static SmsIMChannel *
-get_im_channel (SmsImChannelFactory *self,
-                TpHandle handle,
-                gboolean *created);
+static SmsIMChannel *get_im_channel (SmsImChannelFactory *self, TpHandle handle, gboolean *created);
+static void set_im_channel_factory_listener (SmsImChannelFactory *fac, GObject *conn);
+static void new_sms (GObject *l, char *phone, time_t timestamp, char *message, gpointer data);
 
 static void
 sms_im_channel_factory_init (SmsImChannelFactory *self)
@@ -68,7 +67,7 @@ sms_im_channel_factory_init (SmsImChannelFactory *self)
     SmsImChannelFactoryPrivate *priv =
         SMS_IM_CHANNEL_FACTORY_GET_PRIVATE(self);
 
-    priv->channels = g_hash_table_new_full (g_int_hash, g_str_equal, NULL, g_free);
+    priv->channels = g_hash_table_new_full (g_direct_hash, g_direct_equal, NULL, g_free);
 
     priv->conn = NULL;
     priv->dispose_has_run = FALSE;
@@ -126,6 +125,7 @@ sms_im_channel_factory_set_property (GObject      *object,
     switch (property_id) {
         case PROP_CONNECTION:
             priv->conn = g_value_get_object (value);
+            set_im_channel_factory_listener (fac, G_OBJECT (priv->conn));
             break;
         default:
             G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -249,6 +249,13 @@ sms_im_channel_factory_iface_close_all (TpChannelFactoryIface *iface)
 
     DEBUG ("closing im channels");
 
+    if (priv->conn)
+    {
+    	GObject *listener;
+
+    	g_object_get (priv->conn, "listener", &listener, NULL);
+    	g_signal_handlers_disconnect_by_func(listener, new_sms, fac);
+    }
     if (priv->channels)
     {
         tmp = priv->channels;
@@ -353,6 +360,45 @@ sms_im_channel_factory_iface_init (gpointer g_iface,
     klass->disconnected = sms_im_channel_factory_iface_disconnected;
     klass->foreach = sms_im_channel_factory_iface_foreach;
     klass->request = sms_im_channel_factory_iface_request;
+}
+
+static void
+new_sms (GObject *l, char *phone, time_t timestamp, char *message, gpointer data)
+{
+    SmsImChannelFactory *self = SMS_IM_CHANNEL_FACTORY (data);
+    SmsImChannelFactoryPrivate *priv =
+        SMS_IM_CHANNEL_FACTORY_GET_PRIVATE (self);
+    TpChannelTextMessageType type = TP_CHANNEL_TEXT_MESSAGE_TYPE_NORMAL;
+    SmsIMChannel *chan = NULL;
+    TpHandle contact_handle;
+    TpHandleRepoIface *contact_repo;
+
+    contact_repo =
+        tp_base_connection_get_handles (TP_BASE_CONNECTION (priv->conn), TP_HANDLE_TYPE_CONTACT);
+
+	contact_handle = tp_handle_ensure (contact_repo, phone, NULL, NULL);
+
+//        DEBUG ("channel %u: ignoring message %s with flags %u",
+//            ui_data->contact_handle, message, flags);
+
+//    SmsConversationUiData *ui_data = PURPLE_CONV_GET_SMS_UI_DATA (conv);
+
+    chan = get_im_channel (self, contact_handle, NULL);
+
+        tp_text_mixin_receive (G_OBJECT (chan), type, contact_handle,
+                               timestamp, message);
+        DEBUG ("channel %u: ignoring message %s",
+            contact_handle, message);
+}
+
+static void
+set_im_channel_factory_listener (SmsImChannelFactory *fac, GObject *conn)
+{
+	GObject *listener;
+
+	g_object_get (conn, "listener", &listener, NULL);
+	g_signal_connect (G_OBJECT (listener), "message",
+			  G_CALLBACK (new_sms), fac);
 }
 
 #if 0

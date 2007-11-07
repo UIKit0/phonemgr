@@ -837,34 +837,6 @@ phonemgr_listener_connected (PhonemgrListener *l)
 
 #else /* !DUMMY */
 
-gboolean
-phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **err)
-{
-	g_message ("[DUMMY] connecting to %s", device);
-	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
-	g_usleep (G_USEC_PER_SEC * 2);
-	l->connected = TRUE;
-	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTED);
-
-	return TRUE;
-}
-
-void
-phonemgr_listener_disconnect (PhonemgrListener *l)
-{
-	g_message ("[DUMMY] disconnecting");
-	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_DISCONNECTING);
-	g_usleep (G_USEC_PER_SEC * 2);
-	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_IDLE);
-}
-
-void
-phonemgr_listener_queue_message (PhonemgrListener *listener,
-        const char *number, const char *message)
-{
-	g_message ("[DUMMY] sending message to %s: %s", number, message);
-}
-
 /* We poll every 50 milliseconds, so this is the number of times
  * we need to go through poll() to wait for one second */
 #define POLL_SECOND 1000 / 50
@@ -875,11 +847,22 @@ phonemgr_listener_poll (PhonemgrListener *l)
 	static int i = 0;
 	static int target = 5 * POLL_SECOND;
 
+	if (l->connected == FALSE)
+		return FALSE;
+
 	i++;
 	if (i == target) {
-		char *sender = "+01234 567-89";
+		char *sender;
 		GTimeVal time;
-		char *text = "This is my test, this is my supa test";
+		char *text;
+
+		if (g_rand_boolean (i)) {
+			sender = "+09876 543-21";
+			text = "This is my other test, this is NOT a supa test";
+		} else {
+			sender = "+01234 567-89";
+			text = "This is my test, this is my supa test";
+		}
 
 		g_get_current_time (&time);
 
@@ -894,6 +877,37 @@ phonemgr_listener_poll (PhonemgrListener *l)
 }
 
 gboolean
+phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **err)
+{
+	g_message ("[DUMMY] connecting to %s", device);
+	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
+	g_usleep (G_USEC_PER_SEC * 2);
+	l->connected = TRUE;
+	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTED);
+
+	g_timeout_add (50, (GSourceFunc) phonemgr_listener_poll, l);
+
+	return TRUE;
+}
+
+void
+phonemgr_listener_disconnect (PhonemgrListener *l)
+{
+	g_message ("[DUMMY] disconnecting");
+	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_DISCONNECTING);
+	l->connected = FALSE;
+	g_usleep (G_USEC_PER_SEC * 2);
+	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_IDLE);
+}
+
+void
+phonemgr_listener_queue_message (PhonemgrListener *listener,
+        const char *number, const char *message)
+{
+	g_message ("[DUMMY] sending message to %s: %s", number, message);
+}
+
+gboolean
 phonemgr_listener_connected (PhonemgrListener *listener)
 {
 	return listener->connected;
@@ -902,7 +916,6 @@ phonemgr_listener_connected (PhonemgrListener *listener)
 static void
 phonemgr_listener_init (PhonemgrListener *l)
 {
-	g_timeout_add (50, (GSourceFunc) phonemgr_listener_poll, l);
 }
 
 static void
