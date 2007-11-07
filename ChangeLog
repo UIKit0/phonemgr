@@ -1,5 +1,10 @@
 2007-11-07  Bastien Nocera  <hadess@hadess.net>
 
+	* telepathy/connection.c: (_sms_connection_start_connecting):
+	Setup the connection handle once connected
+
+2007-11-07  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect),
 	(phonemgr_listener_disconnect), (phonemgr_listener_cancel_call),
 	(phonemgr_listener_answer_call), (phonemgr_listener_queue_message),

@@ -70,19 +70,16 @@ _sms_connection_start_connecting (TpBaseConnection *base,
 {
     SmsConnection *self = SMS_CONNECTION(base);
     SmsConnectionPrivate *priv = SMS_CONNECTION_GET_PRIVATE(self);
-
-#if 0
     TpHandleRepoIface *contact_handles =
         tp_base_connection_get_handles (base, TP_HANDLE_TYPE_CONTACT);
 
     base->self_handle = tp_handle_ensure (contact_handles,
-        purple_account_get_username (self->account), NULL, error);
+					  self->bdaddr, NULL, error);
     if (!base->self_handle)
         return FALSE;
 
-    purple_account_set_enabled(self->account, UI_ID, TRUE);
-    purple_account_connect(self->account);
-#endif
+//    purple_account_set_enabled(self->account, UI_ID, TRUE);
+//    purple_account_connect(self->account);
 
     tp_base_connection_change_status(base, TP_CONNECTION_STATUS_CONNECTING,
                                      TP_CONNECTION_STATUS_REASON_REQUESTED);
