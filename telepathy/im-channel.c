@@ -305,7 +305,7 @@ sms_im_channel_send (TpSvcChannelTypeText *channel,
 
     g_object_get (G_OBJECT (priv->conn), "listener", &listener, NULL);
     g_message ("number: %s, text: %s", number, escaped);
-//    phonemgr_listener_queue_message (listener, number, escaped);
+    phonemgr_listener_queue_message (listener, number, escaped);
 
 #if 0
     if (type == TP_CHANNEL_TEXT_MESSAGE_TYPE_AUTO_REPLY) {

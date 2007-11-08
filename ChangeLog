@@ -1,3 +1,12 @@
+2007-11-08  Bastien Nocera  <hadess@hadess.net>
+
+	* telepathy/connection.c: (_sms_connection_create_handle_repos):
+	* telepathy/im-channel-factory.c:
+	(sms_im_channel_factory_iface_request):
+	* telepathy/im-channel.c: (sms_im_channel_send):
+	Fix utter stupidness in the contact repo, thanks to Simon McVittie,
+	and make sending work
+
 2007-11-07  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_poll):

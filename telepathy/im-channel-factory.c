@@ -335,6 +335,11 @@ sms_im_channel_factory_iface_request (TpChannelFactoryIface *iface,
         return TP_CHANNEL_FACTORY_REQUEST_STATUS_ERROR;
 
     g_message ("handle: %u", handle);
+
+    const char *number;
+    number = tp_handle_inspect (contact_repo, handle);
+    g_message ("number: %s", number);
+
     chan = get_im_channel (self, handle, &created);
     if (created)
     {

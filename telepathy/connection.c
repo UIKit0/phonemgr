@@ -94,25 +94,12 @@ _sms_connection_start_connecting (TpBaseConnection *base,
     return TRUE;
 }
 
-static gchar*
-_contact_normalize (TpHandleRepoIface *repo,
-                    const gchar *id,
-                    gpointer context,
-                    GError **error)
-{
-    SmsConnection *self = SMS_CONNECTION (context);
-    SmsConnectionPrivate *priv = SMS_CONNECTION_GET_PRIVATE(self);
-
-    return g_strdup (priv->bdaddr);
-}
-
 static void
 _sms_connection_create_handle_repos (TpBaseConnection *base,
 				     TpHandleRepoIface *repos[NUM_TP_HANDLE_TYPES])
 {
     repos[TP_HANDLE_TYPE_CONTACT] =
-        tp_dynamic_handle_repo_new (TP_HANDLE_TYPE_CONTACT, _contact_normalize,
-                                    base);
+        tp_dynamic_handle_repo_new (TP_HANDLE_TYPE_CONTACT, NULL, base);
     /* repos[TP_HANDLE_TYPE_ROOM] = XXX MUC */
 #if 0
     repos[TP_HANDLE_TYPE_GROUP] =
