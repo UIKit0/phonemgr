@@ -25,6 +25,7 @@
 #include <unistd.h>
 #include <string.h> 
 #include <glib.h>
+#include <glib/gstdio.h>
 #include <glib-object.h>
 #include <gnokii.h>
 
@@ -103,10 +104,21 @@ phonemgr_utils_gn_error_to_string (gn_error error, PhoneMgrError *perr)
 	}
 }
 
-gboolean
-phonemgr_utils_is_bluetooth (const char *addr)
+PhonemgrConnectionType
+phonemgr_utils_address_is (const char *addr)
 {
-	return (g_file_test (addr, G_FILE_TEST_EXISTS) == FALSE);
+	struct stat buf;
+
+	if (g_stat (addr, &buf) > 0 && S_ISCHR (buf.st_mode)) {
+		//FIXME this could also be IrDA
+		return PHONEMGR_CONNECTION_SERIAL;
+	} else if (strlen (addr) == 17) {
+		//FIXME find a better match
+		return PHONEMGR_CONNECTION_BLUETOOTH;
+	} else {
+		//FIXME find a better match
+		return PHONEMGR_CONNECTION_USB;
+	}
 }
 
 static int
@@ -210,12 +222,11 @@ phonemgr_utils_get_channel (const char *device)
 char *
 phonemgr_utils_write_config (const char *driver, const char *addr, int channel)
 {
-	if (phonemgr_utils_is_bluetooth (addr) == FALSE) {
-		return g_strdup_printf ("[global]\n"
-			"port = %s\n"
-			"model = %s\n"
-			"connection = serial\n", addr, driver);
-	} else {
+	PhonemgrConnectionType type;
+
+	type = phonemgr_utils_address_is (addr);
+
+	if (type == PHONEMGR_CONNECTION_BLUETOOTH) {
 		if (channel > 0) {
 			return g_strdup_printf ("[global]\n"
 						"port = %s\n"
@@ -231,6 +242,16 @@ phonemgr_utils_write_config (const char *driver, const char *addr, int channel)
 						"model = %s\n"
 						"connection = bluetooth\n", addr, driver);
 		}
+	} else if (type == PHONEMGR_CONNECTION_USB) {
+		return g_strdup_printf ("[global]\n"
+					"port = %s\n"
+					"model = %s\n"
+					"connection = dku2libusb\n", addr, driver);
+	} else {
+		return g_strdup_printf ("[global]\n"
+			"port = %s\n"
+			"model = %s\n"
+			"connection = serial\n", addr, driver);
 	}
 }
 
@@ -261,7 +282,7 @@ phonemgr_utils_driver_for_model (const char *model, const char *device)
 
 	/* Add it to the list if it's a bluetooth device */
 	//FIXME this should also go in GConf
-	if (phonemgr_utils_is_bluetooth (device) != FALSE) {
+	if (phonemgr_utils_address_is (device) == PHONEMGR_CONNECTION_BLUETOOTH) {
 		g_hash_table_insert (driver_device,
 				g_strdup (device),
 				driver);
@@ -273,9 +294,13 @@ phonemgr_utils_driver_for_model (const char *model, const char *device)
 static char *
 phonemgr_utils_driver_for_device (const char *device)
 {
+	PhonemgrConnectionType type;
 	char *driver;
 
-	if (phonemgr_utils_is_bluetooth (device) == FALSE)
+	type = phonemgr_utils_address_is (device);
+	if (type == PHONEMGR_CONNECTION_USB)
+		return PHONEMGR_DEFAULT_USB_DRIVER;
+	if (type != PHONEMGR_CONNECTION_BLUETOOTH)
 		return NULL;
 
 	if (driver_device == NULL)
@@ -421,19 +446,24 @@ PhonemgrState *
 phonemgr_utils_connect (const char *device, const char *driver, int channel, gboolean debug, GError **error)
 {
 	PhonemgrState *phone_state = NULL;
+	PhonemgrConnectionType type;
 	char *config, **lines;
+	const char *default_driver;
 	gn_data data;
 	struct gn_statemachine state;
 	gn_error err;
 
-	if (phonemgr_utils_is_bluetooth (device) != FALSE) {
-		if (phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE) {
-			//FIXME set the error message
-			return NULL;
-		}
+	type = phonemgr_utils_address_is (device);
+	if (phonemgr_utils_connection_is_supported (type) == FALSE) {
+		//FIXME set the error message
+		return NULL;
 	}
+	if (type == PHONEMGR_CONNECTION_USB)
+		default_driver = PHONEMGR_DEFAULT_USB_DRIVER;
+	else
+		default_driver = PHONEMGR_DEFAULT_DRIVER;
 
-	config = phonemgr_utils_write_config (driver ? driver : PHONEMGR_DEFAULT_DRIVER, device, channel);
+	config = phonemgr_utils_write_config (driver ? driver : default_driver, device, channel);
 	if (debug != FALSE) {
 		char *debug;
 

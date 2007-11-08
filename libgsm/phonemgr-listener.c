@@ -356,7 +356,7 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 
 	channel = -1;
 
-	if (phonemgr_utils_is_bluetooth (device) != FALSE) {
+	if (phonemgr_utils_address_is (device) == PHONEMGR_CONNECTION_BLUETOOTH) {
 		channel = phonemgr_utils_get_channel (device);
 		if (channel < 0) {
 			//FIXME
@@ -377,7 +377,8 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	}
 
 	/* Need a different driver? then reconnect */
-	if (strcmp (l->driver, PHONEMGR_DEFAULT_DRIVER) != 0) {
+	if (strcmp (l->driver, PHONEMGR_DEFAULT_DRIVER) != 0
+	    && strcmp (l->driver, PHONEMGR_DEFAULT_USB_DRIVER) != 0) {
 		phonemgr_utils_disconnect (l->phone_state);
 		phonemgr_utils_free (l->phone_state);
 		l->phone_state = phonemgr_utils_connect (device, l->driver, channel, l->debug, error);

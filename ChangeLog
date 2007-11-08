@@ -1,5 +1,15 @@
 2007-11-08  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/glibgsmtest.c: (main): Add commented test for dku2 USB cables
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect):
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_address_is),
+	(phonemgr_utils_write_config), (phonemgr_utils_driver_for_model),
+	(phonemgr_utils_driver_for_device), (phonemgr_utils_connect):
+	* libgsm/phonemgr-utils.h: Support DKU2 USB cables for Nokia phones,
+	no UI for it yet though
+
+2007-11-08  Bastien Nocera  <hadess@hadess.net>
+
 	* telepathy/connection.c: (_sms_connection_create_handle_repos):
 	* telepathy/im-channel-factory.c:
 	(sms_im_channel_factory_iface_request):

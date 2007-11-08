@@ -90,6 +90,7 @@ main (int argc, char **argv)
 	g_signal_connect (G_OBJECT (listener), "battery",
 			  G_CALLBACK (battery), (gpointer) listener);
 
+//	if (phonemgr_listener_connect (listener, "1", &err)) {
 	if (phonemgr_listener_connect (listener, "00:12:D2:79:B7:33", &err)) {
 //	if (phonemgr_listener_connect (listener, "/dev/rfcomm0", &err)) {
 		g_message ("Connected OK");

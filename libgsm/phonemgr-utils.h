@@ -31,6 +31,7 @@
 G_BEGIN_DECLS
 
 #define PHONEMGR_DEFAULT_DRIVER "AT"
+#define PHONEMGR_DEFAULT_USB_DRIVER "6510"
 #define PHONEMGR_CONDERR_STR(err) (err ? err->message : "No reason")
 
 typedef enum {
@@ -47,7 +48,7 @@ struct PhonemgrState {
 	struct gn_statemachine state;
 };
 
-gboolean phonemgr_utils_is_bluetooth (const char *addr);
+PhonemgrConnectionType phonemgr_utils_address_is (const char *addr);
 int phonemgr_utils_get_channel (const char *device);
 char *phonemgr_utils_write_config (const char *driver,
 				   const char *addr,
