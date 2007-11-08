@@ -48,6 +48,10 @@ main (int argc, char **argv)
 
 	g_thread_init (NULL);
 
+	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
+
 	app = g_new0 (MyApp, 1);
 
 	context = g_option_context_new (N_("- Manage your mobile phone"));

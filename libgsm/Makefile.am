@@ -1,7 +1,10 @@
-AM_CPPFLAGS = $(LIBGSM_CFLAGS)		\
-	      -DDATA_DIR="\"$(datadir)/$(PACKAGE)\""
 
-EXTRA_DIST = \
+AM_CPPFLAGS =					\
+	$(LIBGSM_CFLAGS)			\
+	-DDATA_DIR="\"$(datadir)/$(PACKAGE)\""	\
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"
+
+EXTRA_DIST =				\
 	phonemgr-marshal.list		\
 	phones.xml
 

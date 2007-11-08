@@ -27,6 +27,7 @@
 #include <signal.h>
 
 #include <glib.h>
+#include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
 #include <telepathy-glib/run.h>
@@ -57,6 +58,11 @@ main(int argc,
 
 	g_set_prgname("telepathy-phoney");
 	g_thread_init (NULL);
+
+	setlocale (LC_ALL, "");
+	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
 
 	context = g_option_context_new ("Telepathy SMS backend");
 	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);

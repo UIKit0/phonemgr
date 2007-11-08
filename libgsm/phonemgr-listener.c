@@ -862,10 +862,10 @@ phonemgr_listener_poll (PhonemgrListener *l)
 
 		if (g_rand_boolean (rand)) {
 			sender = "+09876 543-21";
-			text = "This is my other test, this is NOT a supa test";
+			text = "This is my other t\303\251st, this is NOT a supa test";
 		} else {
 			sender = "+01234 567-89";
-			text = "This is my test, this is my supa test";
+			text = "This is my test, this is my supa test with i18n chars: \303\270\317\216\307\252";
 		}
 		g_rand_free (rand);
 

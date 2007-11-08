@@ -19,8 +19,11 @@
  *
  */
 
+#include <config.h>
+
 #include <stdlib.h>
 #include <glib.h>
+#include <glib/gi18n.h>
 
 #include "phonemgr-listener.h"
 
@@ -73,13 +76,15 @@ main (int argc, char **argv)
 	GError *err = NULL;
 	PhonemgrListener *listener;
 
+	setlocale (LC_ALL, "");
+	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
+
 	g_thread_init (NULL);
 	g_type_init ();
 	
 	listener = phonemgr_listener_new (TRUE);
-
-	if (!listener)
-		g_error ("Couldn't make listener");
 
 	g_signal_connect (G_OBJECT (listener), "message",
 			G_CALLBACK (message), (gpointer) listener);

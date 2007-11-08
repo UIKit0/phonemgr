@@ -20,9 +20,12 @@
  *
  */
 
+#include <config.h>
+
 #include <telepathy-glib/channel-iface.h>
 #include <telepathy-glib/dbus.h>
 #include <telepathy-glib/interfaces.h>
+#include <glib/gi18n.h>
 
 #include <phonemgr-listener.h>
 
@@ -145,7 +148,7 @@ phoney_im_channel_send (TpSvcChannelTypeText *channel,
 	TpHandle handle;
 	GError *error = NULL;
 	PhonemgrListener *listener;
-	char *message, *escaped;
+	char *message;
 	const char *number;
 
 	if (type >= NUM_TP_CHANNEL_TEXT_MESSAGE_TYPES) {
@@ -158,28 +161,28 @@ phoney_im_channel_send (TpSvcChannelTypeText *channel,
 		return;
 	}
 
-	//FIXME no action stuff on text
 	if (type == TP_CHANNEL_TEXT_MESSAGE_TYPE_ACTION) {
-		/* XXX this is not good enough for prpl-irc, which has a slash-command
-		 *     for actions and doesn't do special stuff to messages which happen
-		 *     to start with "/me ".
+		/* Note to translators:
+		 * This is supposed to be an action. eg. in English, this would be:
+		 * /me does nothing
+		 * German:
+		 * /mich machts nichts
+		 * French:
+		 * /moi fait rien
 		 */
-		message = g_strconcat ("/me ", text, NULL);
+		message = g_strconcat (_("/me"), " ", text, NULL);
 	} else {
 		message = g_strdup (text);
 	}
-
-	escaped = g_markup_escape_text (message, -1);
 
 	contact_handles = tp_base_connection_get_handles (TP_BASE_CONNECTION (priv->conn),
 							  TP_HANDLE_TYPE_CONTACT);
 	number = tp_handle_inspect (contact_handles, priv->handle);
 
 	g_object_get (G_OBJECT (priv->conn), "listener", &listener, NULL);
-	DEBUG ("Sending message to '%s': '%s'", number, escaped);
-	phonemgr_listener_queue_message (listener, number, escaped);
+	DEBUG ("Sending message to '%s': '%s'", number, message);
+	phonemgr_listener_queue_message (listener, number, message);
 
-	g_free (escaped);
 	g_free (message);
 
 	tp_svc_channel_type_text_return_from_send (context);

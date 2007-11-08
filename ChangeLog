@@ -1,5 +1,20 @@
 2007-11-08  Bastien Nocera  <hadess@hadess.net>
 
+	* src/main.c: (main): Init the i18n functions
+
+	* telepathy/im-channel.c: (phoney_im_channel_send):
+	Don't escape the data coming from telepathy itself
+
+	* telepathy/main.c: (main): And init i18n
+
+	* libgsm/Makefile.am:
+	* libgsm/glibgsmtest.c: (main): more i18n
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_poll): add some
+	accents to the test messages sent
+
+2007-11-08  Bastien Nocera  <hadess@hadess.net>
+
 	* telepathy/sms.profile: Add a profile file for empathy, to be
 	copied to /usr/share/mission-control/profiles/ (doesn't actually work)
 
