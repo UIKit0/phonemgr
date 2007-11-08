@@ -112,8 +112,7 @@ phonemgr_utils_address_is (const char *addr)
 	if (g_stat (addr, &buf) > 0 && S_ISCHR (buf.st_mode)) {
 		//FIXME this could also be IrDA
 		return PHONEMGR_CONNECTION_SERIAL;
-	} else if (strlen (addr) == 17) {
-		//FIXME find a better match
+	} else if (bachk (addr) == 0) {
 		return PHONEMGR_CONNECTION_BLUETOOTH;
 	} else {
 		//FIXME find a better match
@@ -208,6 +207,10 @@ phonemgr_utils_get_channel (const char *device)
 {
 	bdaddr_t src, dst;
 	int channel;
+
+	/* If it's not a Bluetooth address */
+	if (bachk (device) < 0)
+		return -1;
 
 	bacpy (&src, BDADDR_ANY);
 	str2ba(device, &dst);
@@ -527,11 +530,26 @@ phonemgr_utils_tell_driver (const char *addr)
 {
 	GError *error = NULL;
 	PhonemgrState *phone_state;
+	PhonemgrConnectionType type;
 	const char *model;
 	char *driver;
 	int channel;
 
-	channel = phonemgr_utils_get_channel (addr);
+	channel = -1;
+	type = phonemgr_utils_address_is (addr);
+	if (phonemgr_utils_connection_is_supported (type) == FALSE) {
+		g_warning ("Connection type isn't support by your gnokii build");
+		return;
+	}
+
+	if (type == PHONEMGR_CONNECTION_BLUETOOTH) {
+		channel = phonemgr_utils_get_channel (addr);
+		if (channel < 0) {
+			g_warning ("Couldn't find the channel to connect to on Bluetooth device");
+			return;
+		}
+	}
+
 	phone_state = phonemgr_utils_connect (addr, NULL, channel, FALSE, &error);
 	if (phone_state == NULL) {
 		g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
@@ -543,9 +561,14 @@ phonemgr_utils_tell_driver (const char *addr)
 	model = gn_lib_get_phone_model (&phone_state->state);
 
 	g_print ("model: '%s'\n", model);
-	driver = phonemgr_utils_driver_for_model (model, addr);
-	g_print ("guessed driver: '%s'\n", driver);
-	g_free (driver);
+
+	if (type != PHONEMGR_CONNECTION_USB) {
+		driver = phonemgr_utils_driver_for_model (model, addr);
+		g_print ("guessed driver: '%s'\n", driver);
+		g_free (driver);
+	} else {
+		g_print ("guessed driver: '%s'\n", PHONEMGR_DEFAULT_USB_DRIVER);
+	}
 
 	phonemgr_utils_disconnect (phone_state);
 	phonemgr_utils_free (phone_state);
@@ -555,20 +578,43 @@ void
 phonemgr_utils_write_gnokii_config (const char *addr)
 {
 	GError *error = NULL;
-	PhonemgrState *phone_state;
+	PhonemgrConnectionType type;
 	char *driver, *config, *debug;
 	int channel;
 
-	channel = phonemgr_utils_get_channel (addr);
-	phone_state = phonemgr_utils_connect (addr, NULL, channel, FALSE, &error);
-	if (phone_state == NULL) {
-		g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
-		if (error != NULL)
-			g_error_free (error);
+	channel = -1;
+	type = phonemgr_utils_address_is (addr);
+	if (phonemgr_utils_connection_is_supported (type) == FALSE) {
+		g_warning ("Connection type isn't support by your gnokii build");
 		return;
 	}
 
-	driver = phonemgr_utils_guess_driver (phone_state, addr, NULL);
+	if (type == PHONEMGR_CONNECTION_BLUETOOTH) {
+		channel = phonemgr_utils_get_channel (addr);
+		if (channel < 0) {
+			g_warning ("Couldn't find the channel to connect to on Bluetooth device");
+			return;
+		}
+	}
+
+	if (type != PHONEMGR_CONNECTION_USB) {
+		PhonemgrState *phone_state;
+
+		phone_state = phonemgr_utils_connect (addr, NULL, channel, FALSE, &error);
+		if (phone_state == NULL) {
+			g_warning ("Couldn't connect to the '%s' phone: %s", addr, PHONEMGR_CONDERR_STR(error));
+			if (error != NULL)
+				g_error_free (error);
+			return;
+		}
+
+		driver = phonemgr_utils_guess_driver (phone_state, addr, NULL);
+
+		phonemgr_utils_disconnect (phone_state);
+		phonemgr_utils_free (phone_state);
+	} else {
+		driver = g_strdup (PHONEMGR_DEFAULT_USB_DRIVER);
+	}
 
 	config = phonemgr_utils_write_config (driver, addr, channel);
 	g_free (driver);
@@ -581,9 +627,6 @@ phonemgr_utils_write_gnokii_config (const char *addr)
 		g_print ("Move gnokiirc to ~/.gnokiirc to start debugging with gnokii\n");
 	}
 	g_free (debug);
-
-	phonemgr_utils_disconnect (phone_state);
-	phonemgr_utils_free (phone_state);
 }
 
 time_t
@@ -630,8 +673,6 @@ phonemgr_utils_connection_is_supported (PhonemgrConnectionType type)
 		break;
 	case PHONEMGR_CONNECTION_USB:
 		conntype = GN_CT_DKU2LIBUSB;
-		if (!gn_lib_is_connectiontype_supported (conntype))
-			conntype = GN_CT_DKU2;
 		break;
 	default:
 		g_assert_not_reached ();

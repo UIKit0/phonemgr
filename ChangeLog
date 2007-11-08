@@ -1,5 +1,17 @@
 2007-11-08  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_address_is),
+	(phonemgr_utils_get_channel), (phonemgr_utils_tell_driver),
+	(phonemgr_utils_write_gnokii_config),
+	(phonemgr_utils_connection_is_supported):
+	Add support for DKU2 in --config and --identify, check better
+	for Bluetooth addresses using bachk, remove support for DKU2
+	in kernel driver mode
+	* libgsm/phones.xml: Add the 6230i to the list, as used in
+	the Nokia 6230i in DKU2 mode
+
+2007-11-08  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/glibgsmtest.c: (main): Add commented test for dku2 USB cables
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect):
 	* libgsm/phonemgr-utils.c: (phonemgr_utils_address_is),
