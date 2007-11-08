@@ -1,5 +1,10 @@
 2007-11-08  Bastien Nocera  <hadess@hadess.net>
 
+	* telepathy/sms.profile: Add a profile file for empathy, to be
+	copied to /usr/share/mission-control/profiles/ (doesn't actually work)
+
+2007-11-08  Bastien Nocera  <hadess@hadess.net>
+
 	* telepathy/*: Rename the backend "Phoney", as in "phone", haha,
 	and add the telepathy manager file, as well as the D-Bus service
 	file, so it gets autostarted and discovered properly
