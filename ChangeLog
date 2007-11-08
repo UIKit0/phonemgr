@@ -1,5 +1,11 @@
 2007-11-08  Bastien Nocera  <hadess@hadess.net>
 
+	* telepathy/*: Rename the backend "Phoney", as in "phone", haha,
+	and add the telepathy manager file, as well as the D-Bus service
+	file, so it gets autostarted and discovered properly
+
+2007-11-08  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-utils.c: (phonemgr_utils_address_is),
 	(phonemgr_utils_get_channel), (phonemgr_utils_tell_driver),
 	(phonemgr_utils_write_gnokii_config),

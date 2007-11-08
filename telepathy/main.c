@@ -1,10 +1,8 @@
 /*
- * main.c - entry point and libpurple boilerplate for telepathy-sms
+ * main.c - entry point for telepathy-phoney
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Will Thompson
  * Copyright (C) 2007 Collabora Ltd.
- * Portions taken from libpurple/examples/nullclient.c:
- *   Copyright (C) 2007 Sadrul Habib Chowdhury, Sean Egan, Gary Kramlich,
- *                      Mark Doliner, Richard Laager
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +32,6 @@
 #include <telepathy-glib/run.h>
 #include <telepathy-glib/debug.h>
 
-//#include "defines.h"
 #include "debug.h"
 #include "connection-manager.h"
 
@@ -48,38 +45,38 @@ static const GOptionEntry entries[] = {
 static TpBaseConnectionManager *
 get_cm (void)
 {
-	return (TpBaseConnectionManager *) sms_connection_manager_get ();
+	return (TpBaseConnectionManager *) phoney_connection_manager_get ();
 }
 
 int
 main(int argc,
      char **argv)
 {
-    int ret = 0;
-    GOptionContext *context;
+	int ret = 0;
+	GOptionContext *context;
 
-    g_set_prgname("telepathy-sms");
-    g_thread_init (NULL);
+	g_set_prgname("telepathy-phoney");
+	g_thread_init (NULL);
 
-    context = g_option_context_new ("Telepathy SMS backend");
-    g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
+	context = g_option_context_new ("Telepathy SMS backend");
+	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
 
-    g_option_context_parse (context, &argc, &argv, NULL);
+	g_option_context_parse (context, &argc, &argv, NULL);
 
-    if (g_fatal_warnings) {
-	    GLogLevelFlags fatal_mask;
+	if (g_fatal_warnings) {
+		GLogLevelFlags fatal_mask;
 
-	    fatal_mask = g_log_set_always_fatal (G_LOG_FATAL_MASK);
-	    fatal_mask |= G_LOG_LEVEL_WARNING | G_LOG_LEVEL_CRITICAL;
-	    g_log_set_always_fatal (fatal_mask);
-    }
+		fatal_mask = g_log_set_always_fatal (G_LOG_FATAL_MASK);
+		fatal_mask |= G_LOG_LEVEL_WARNING | G_LOG_LEVEL_CRITICAL;
+		g_log_set_always_fatal (fatal_mask);
+	}
 
-    signal (SIGCHLD, SIG_IGN);
+	signal (SIGCHLD, SIG_IGN);
 
-    tp_debug_set_flags_from_env ("SMS_DEBUG");
-    ret = tp_run_connection_manager ("telepathy-sms", PACKAGE_VERSION,
-    				     get_cm, argc, argv);
+	tp_debug_set_flags_from_env ("PHONEY_DEBUG");
+	ret = tp_run_connection_manager ("telepathy-phoney", PACKAGE_VERSION,
+					 get_cm, argc, argv);
 
-    return ret;
+	return ret;
 }
 

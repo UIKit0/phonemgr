@@ -1,5 +1,6 @@
 /*
- * debug.c - sms's debug machinery for itself and libpurple
+ * debug.c - phoney's debug machinery for itself
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Collabora Ltd.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -24,12 +25,12 @@
 #include "debug.h"
 
 void
-sms_debug (const char *format, ...)
+phoney_debug (const char *format, ...)
 {
-    va_list args;
-    va_start (args, format);
+	va_list args;
+	va_start (args, format);
 
-    g_logv (G_LOG_DOMAIN, G_LOG_LEVEL_DEBUG, format, args);
+	g_logv (G_LOG_DOMAIN, G_LOG_LEVEL_DEBUG, format, args);
 
-    va_end (args);
+	va_end (args);
 }

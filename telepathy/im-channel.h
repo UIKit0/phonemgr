@@ -1,7 +1,8 @@
-#ifndef __SMS_IM_CHANNEL_H__
-#define __SMS_IM_CHANNEL_H__
+#ifndef __PHONEY_IM_CHANNEL_H__
+#define __PHONEY_IM_CHANNEL_H__
 /*
- * im-channel.h - SmsImChannel header
+ * im-channel.h - PhoneyImChannel header
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Will Thompson
  * Copyright (C) 2007 Collabora Ltd.
  *
@@ -27,55 +28,52 @@
 
 G_BEGIN_DECLS
 
-typedef struct _SmsIMChannel SmsIMChannel;
-typedef struct _SmsIMChannelClass SmsIMChannelClass;
+typedef struct _PhoneyIMChannel PhoneyIMChannel;
+typedef struct _PhoneyIMChannelClass PhoneyIMChannelClass;
 
-struct _SmsIMChannelClass {
-    GObjectClass parent_class;
+struct _PhoneyIMChannelClass {
+	GObjectClass parent_class;
 
-    TpTextMixinClass text_class;
+	TpTextMixinClass text_class;
 };
 
-struct _SmsIMChannel {
-    GObject parent;
+struct _PhoneyIMChannel {
+	GObject parent;
 
-    TpTextMixin text;
+	TpTextMixin text;
 
-    gpointer priv;
+	gpointer priv;
 };
 
-GType sms_im_channel_get_type (void);
+GType phoney_im_channel_get_type (void);
 
 /* TYPE MACROS */
-#define SMS_TYPE_IM_CHANNEL \
-  (sms_im_channel_get_type ())
-#define SMS_IM_CHANNEL(obj) \
-  (G_TYPE_CHECK_INSTANCE_CAST((obj), SMS_TYPE_IM_CHANNEL, \
-                              SmsIMChannel))
-#define SMS_IM_CHANNEL_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_CAST((klass), SMS_TYPE_IM_CHANNEL, \
-                           SmsIMChannelClass))
-#define SMS_IS_IM_CHANNEL(obj) \
-  (G_TYPE_CHECK_INSTANCE_TYPE((obj), SMS_TYPE_IM_CHANNEL))
-#define SMS_IS_IM_CHANNEL_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_TYPE((klass), SMS_TYPE_IM_CHANNEL))
-#define SMS_IM_CHANNEL_GET_CLASS(obj) \
-  (G_TYPE_INSTANCE_GET_CLASS ((obj), SMS_TYPE_IM_CHANNEL, \
-                              SmsIMChannelClass))
+#define PHONEY_TYPE_IM_CHANNEL \
+	(phoney_im_channel_get_type ())
+#define PHONEY_IM_CHANNEL(obj) \
+	(G_TYPE_CHECK_INSTANCE_CAST((obj), PHONEY_TYPE_IM_CHANNEL, \
+				    PhoneyIMChannel))
+#define PHONEY_IM_CHANNEL_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_CAST((klass), PHONEY_TYPE_IM_CHANNEL, \
+				 PhoneyIMChannelClass))
+#define PHONEY_IS_IM_CHANNEL(obj) \
+	(G_TYPE_CHECK_INSTANCE_TYPE((obj), PHONEY_TYPE_IM_CHANNEL))
+#define PHONEY_IS_IM_CHANNEL_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_TYPE((klass), PHONEY_TYPE_IM_CHANNEL))
+#define PHONEY_IM_CHANNEL_GET_CLASS(obj) \
+	(G_TYPE_INSTANCE_GET_CLASS ((obj), PHONEY_TYPE_IM_CHANNEL, \
+				    PhoneyIMChannelClass))
 
-typedef struct _SmsConversationUiData SmsConversationUiData;
+typedef struct _PhoneyConversationUiData PhoneyConversationUiData;
 
-struct _SmsConversationUiData
+struct _PhoneyConversationUiData
 {
-    TpHandle contact_handle;
-
-//    PurpleTypingState active_state;
-//    guint resend_typing_timeout_id;
+	TpHandle contact_handle;
 };
 
-#define PURPLE_CONV_GET_SMS_UI_DATA(conv) \
-    ((SmsConversationUiData *) conv->ui_data)
+#define PURPLE_CONV_GET_PHONEY_UI_DATA(conv) \
+	((PhoneyConversationUiData *) conv->ui_data)
 
 G_END_DECLS
 
-#endif /* #ifndef __SMS_IM_CHANNEL_H__*/
+#endif /* #ifndef __PHONEY_IM_CHANNEL_H__*/

@@ -1,7 +1,8 @@
-#ifndef __SMS_CONNECTION_H__
-#define __SMS_CONNECTION_H__
+#ifndef __PHONEY_CONNECTION_H__
+#define __PHONEY_CONNECTION_H__
 /*
- * connection.h - SmsConnection header
+ * connection.h - PhoneyConnection header
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Will Thompson
  * Copyright (C) 2007 Collabora Ltd.
  *
@@ -29,54 +30,52 @@
 
 G_BEGIN_DECLS
 
-typedef struct _SmsConnection SmsConnection;
-typedef struct _SmsConnectionClass SmsConnectionClass;
+typedef struct _PhoneyConnection PhoneyConnection;
+typedef struct _PhoneyConnectionClass PhoneyConnectionClass;
 
-struct _SmsConnectionClass {
-    TpBaseConnectionClass parent_class;
+struct _PhoneyConnectionClass {
+	TpBaseConnectionClass parent_class;
 };
 
-struct _SmsConnection {
-    TpBaseConnection parent;
+struct _PhoneyConnection {
+	TpBaseConnection parent;
 
-    SmsImChannelFactory *im_factory;
+	PhoneyImChannelFactory *im_factory;
 
-//    SmsContactList *contact_list;
-
-    gpointer priv;
+	gpointer priv;
 };
 
-#define ACCOUNT_GET_SMS_CONNECTION(account) \
-    (SMS_CONNECTION ((account)->ui_data))
+#define ACCOUNT_GET_PHONEY_CONNECTION(account) \
+	(PHONEY_CONNECTION ((account)->ui_data))
 #define ACCOUNT_GET_TP_BASE_CONNECTION(account) \
-    (TP_BASE_CONNECTION ((account)->ui_data))
-#define SMS_CONNECTION_GET_PRPL_INFO(conn) \
-    (PURPLE_PLUGIN_PROTOCOL_INFO (conn->account->gc->prpl))
+	(TP_BASE_CONNECTION ((account)->ui_data))
+#define PHONEY_CONNECTION_GET_PRPL_INFO(conn) \
+	(PURPLE_PLUGIN_PROTOCOL_INFO (conn->account->gc->prpl))
 
 const gchar *
-sms_connection_handle_inspect (SmsConnection *conn,
-                                TpHandleType handle_type,
-                                TpHandle handle);
+phoney_connection_handle_inspect (PhoneyConnection *conn,
+				  TpHandleType handle_type,
+				  TpHandle handle);
 
-GType sms_connection_get_type (void);
+GType phoney_connection_get_type (void);
 
 /* TYPE MACROS */
-#define SMS_TYPE_CONNECTION \
-  (sms_connection_get_type ())
-#define SMS_CONNECTION(obj) \
-  (G_TYPE_CHECK_INSTANCE_CAST((obj), SMS_TYPE_CONNECTION, \
-                              SmsConnection))
-#define SMS_CONNECTION_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_CAST((klass), SMS_TYPE_CONNECTION, \
-                           SmsConnectionClass))
-#define SMS_IS_CONNECTION(obj) \
-  (G_TYPE_CHECK_INSTANCE_TYPE((obj), SMS_TYPE_CONNECTION))
-#define SMS_IS_CONNECTION_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_TYPE((klass), SMS_TYPE_CONNECTION))
-#define SMS_CONNECTION_GET_CLASS(obj) \
-  (G_TYPE_INSTANCE_GET_CLASS ((obj), SMS_TYPE_CONNECTION, \
-                              SmsConnectionClass))
+#define PHONEY_TYPE_CONNECTION \
+	(phoney_connection_get_type ())
+#define PHONEY_CONNECTION(obj) \
+	(G_TYPE_CHECK_INSTANCE_CAST((obj), PHONEY_TYPE_CONNECTION, \
+				    PhoneyConnection))
+#define PHONEY_CONNECTION_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_CAST((klass), PHONEY_TYPE_CONNECTION, \
+				 PhoneyConnectionClass))
+#define PHONEY_IS_CONNECTION(obj) \
+	(G_TYPE_CHECK_INSTANCE_TYPE((obj), PHONEY_TYPE_CONNECTION))
+#define PHONEY_IS_CONNECTION_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_TYPE((klass), PHONEY_TYPE_CONNECTION))
+#define PHONEY_CONNECTION_GET_CLASS(obj) \
+	(G_TYPE_INSTANCE_GET_CLASS ((obj), PHONEY_TYPE_CONNECTION, \
+				    PhoneyConnectionClass))
 
 G_END_DECLS
 
-#endif /* #ifndef __SMS_CONNECTION_H__*/
+#endif /* #ifndef __PHONEY_CONNECTION_H__*/

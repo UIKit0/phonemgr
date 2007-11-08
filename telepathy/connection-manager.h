@@ -1,8 +1,9 @@
-#ifndef __SMS_CONNECTION_MANAGER_H__
-#define __SMS_CONNECTION_MANAGER_H__
+#ifndef __PHONEY_CONNECTION_MANAGER_H__
+#define __PHONEY_CONNECTION_MANAGER_H__
 
 /*
- * connection-manager.h - SmsConnectionManager header
+ * connection-manager.h - PhoneyConnectionManager header
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Will Thompson
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,43 +29,43 @@
 
 G_BEGIN_DECLS
 
-typedef struct _SmsConnectionManager SmsConnectionManager;
-typedef struct _SmsConnectionManagerClass SmsConnectionManagerClass;
+typedef struct _PhoneyConnectionManager PhoneyConnectionManager;
+typedef struct _PhoneyConnectionManagerClass PhoneyConnectionManagerClass;
 
-struct _SmsConnectionManagerClass {
-    TpBaseConnectionManagerClass parent_class;
+struct _PhoneyConnectionManagerClass {
+	TpBaseConnectionManagerClass parent_class;
 };
 
-struct _SmsConnectionManager {
-    TpBaseConnectionManager parent;
-    GList *connections;
+struct _PhoneyConnectionManager {
+	TpBaseConnectionManager parent;
+	GList *connections;
 };
 
-GType sms_connection_manager_get_type (void);
+GType phoney_connection_manager_get_type (void);
 
 /* TYPE MACROS */
-#define SMS_TYPE_CONNECTION_MANAGER \
-  (sms_connection_manager_get_type ())
-#define SMS_CONNECTION_MANAGER(obj) \
-  (G_TYPE_CHECK_INSTANCE_CAST((obj), SMS_TYPE_CONNECTION_MANAGER, \
-                              SmsConnectionManager))
-#define SMS_CONNECTION_MANAGER_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_CAST((klass), SMS_TYPE_CONNECTION_MANAGER, \
-                           SmsConnectionManagerClass))
-#define SMS_IS_CONNECTION_MANAGER(obj) \
-  (G_TYPE_CHECK_INSTANCE_TYPE((obj), SMS_TYPE_CONNECTION_MANAGER))
-#define SMS_IS_CONNECTION_MANAGER_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_TYPE((klass), SMS_TYPE_CONNECTION_MANAGER))
-#define SMS_CONNECTION_MANAGER_GET_CLASS(obj) \
-  (G_TYPE_INSTANCE_GET_CLASS ((obj), SMS_TYPE_CONNECTION_MANAGER, \
-                              SmsConnectionManagerClass))
+#define PHONEY_TYPE_CONNECTION_MANAGER \
+	(phoney_connection_manager_get_type ())
+#define PHONEY_CONNECTION_MANAGER(obj) \
+	(G_TYPE_CHECK_INSTANCE_CAST((obj), PHONEY_TYPE_CONNECTION_MANAGER, \
+				    PhoneyConnectionManager))
+#define PHONEY_CONNECTION_MANAGER_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_CAST((klass), PHONEY_TYPE_CONNECTION_MANAGER, \
+				 PhoneyConnectionManagerClass))
+#define PHONEY_IS_CONNECTION_MANAGER(obj) \
+	(G_TYPE_CHECK_INSTANCE_TYPE((obj), PHONEY_TYPE_CONNECTION_MANAGER))
+#define PHONEY_IS_CONNECTION_MANAGER_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_TYPE((klass), PHONEY_TYPE_CONNECTION_MANAGER))
+#define PHONEY_CONNECTION_MANAGER_GET_CLASS(obj) \
+	(G_TYPE_INSTANCE_GET_CLASS ((obj), PHONEY_TYPE_CONNECTION_MANAGER, \
+				    PhoneyConnectionManagerClass))
 
-SmsConnectionManager *sms_connection_manager_get (void);
+PhoneyConnectionManager *phoney_connection_manager_get (void);
 
-SmsConnection *
-sms_connection_manager_get_sms_connection (SmsConnectionManager *self,
-                                           const gchar *bdaddr);
+PhoneyConnection *
+phoney_connection_manager_get_phoney_connection (PhoneyConnectionManager *self,
+						 const gchar *bdaddr);
 
 G_END_DECLS
 
-#endif /* #ifndef __SMS_CONNECTION_MANAGER_H__*/
+#endif /* #ifndef __PHONEY_CONNECTION_MANAGER_H__*/

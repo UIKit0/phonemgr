@@ -1,0 +1,7 @@
+[ConnectionManager]
+BusName=org.freedesktop.Telepathy.ConnectionManager.phoney
+ObjectPath=/org/freedesktop/Telepathy/ConnectionManager/phoney
+
+[Protocol sms]
+param-bdaddr=s required
+

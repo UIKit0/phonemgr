@@ -1,5 +1,6 @@
 /*
- * connection-manager.c - SmsConnectionManager source
+ * connection-manager.c - PhoneyConnectionManager source
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Will Thompson
  * Copyright (C) 2007 Collabora Ltd.
  *
@@ -27,35 +28,35 @@
 #include "connection-manager.h"
 #include "debug.h"
 
-G_DEFINE_TYPE(SmsConnectionManager,
-    sms_connection_manager,
-    TP_TYPE_BASE_CONNECTION_MANAGER)
+G_DEFINE_TYPE(PhoneyConnectionManager,
+	      phoney_connection_manager,
+	      TP_TYPE_BASE_CONNECTION_MANAGER)
 
-typedef struct _SmsParams SmsParams;
+typedef struct _PhoneyParams PhoneyParams;
 
-struct _SmsParams {
-    gchar *bdaddr;
+struct _PhoneyParams {
+	gchar *bdaddr;
 };
 
 static const TpCMParamSpec params[] = {
-  { "bdaddr", DBUS_TYPE_STRING_AS_STRING, G_TYPE_STRING,
-    TP_CONN_MGR_PARAM_FLAG_REQUIRED, NULL,
-    G_STRUCT_OFFSET(SmsParams, bdaddr), NULL, NULL },
-  { NULL, NULL, 0, 0, NULL, 0, NULL, NULL }
+	{ "bdaddr", DBUS_TYPE_STRING_AS_STRING, G_TYPE_STRING,
+		TP_CONN_MGR_PARAM_FLAG_REQUIRED, NULL,
+		G_STRUCT_OFFSET(PhoneyParams, bdaddr), NULL, NULL },
+	{ NULL, NULL, 0, 0, NULL, 0, NULL, NULL }
 };
 
 static void *
 alloc_params (void)
 {
-  return g_new0 (SmsParams, 1);
+	return g_new0 (PhoneyParams, 1);
 }
 
 static void
 free_params (void *p)
 {
-    SmsParams *params = (SmsParams *)p;
-    g_free (params->bdaddr);
-    g_free (params);
+	PhoneyParams *params = (PhoneyParams *)p;
+	g_free (params->bdaddr);
+	g_free (params);
 }
 
 static const TpCMProtocolSpec protocol = {
@@ -66,95 +67,95 @@ static const TpCMProtocolSpec protocol = {
 };
 
 static TpCMProtocolSpec *
-get_protocols (SmsConnectionManagerClass *klass)
+get_protocols (PhoneyConnectionManagerClass *klass)
 {
-    TpCMProtocolSpec *protocols;
+	TpCMProtocolSpec *protocols;
 
-    protocols = g_slice_alloc0 (sizeof (TpCMProtocolSpec) * (1 + 1));
-    protocols[0] = protocol;
+	protocols = g_slice_alloc0 (sizeof (TpCMProtocolSpec) * (1 + 1));
+	protocols[0] = protocol;
 
-    return protocols;
+	return protocols;
 }
 
-SmsConnection *
-sms_connection_manager_get_sms_connection (SmsConnectionManager *self,
-                                           const gchar *bdaddr)
+PhoneyConnection *
+phoney_connection_manager_get_phoney_connection (PhoneyConnectionManager *self,
+						 const gchar *bdaddr)
 {
-    SmsConnection *conn;
-    GList *l = self->connections;
+	PhoneyConnection *conn;
+	GList *l = self->connections;
 
-    g_return_val_if_fail (bdaddr != NULL, NULL);
+	g_return_val_if_fail (bdaddr != NULL, NULL);
 
-    while (l != NULL) {
-    	    char *tmp;
+	while (l != NULL) {
+		char *tmp;
 
-	    conn = l->data;
-	    g_object_get (G_OBJECT (conn), "listener", &tmp, NULL);
-	    if(tmp != NULL && strcmp (tmp, bdaddr) == 0) {
-	    	    g_free (tmp);
-		    return conn;
-	    }
-	    g_free (tmp);
-    }
+		conn = l->data;
+		g_object_get (G_OBJECT (conn), "listener", &tmp, NULL);
+		if(tmp != NULL && strcmp (tmp, bdaddr) == 0) {
+			g_free (tmp);
+			return conn;
+		}
+		g_free (tmp);
+	}
 
-    return NULL;
+	return NULL;
 }
 
 static void
 connection_shutdown_finished_cb (TpBaseConnection *conn,
-                                 gpointer data)
+				 gpointer data)
 {
-    SmsConnectionManager *self = SMS_CONNECTION_MANAGER (data);
+	PhoneyConnectionManager *self = PHONEY_CONNECTION_MANAGER (data);
 
-    self->connections = g_list_remove(self->connections, conn);
+	self->connections = g_list_remove(self->connections, conn);
 }
 
 static TpBaseConnection *
-_sms_connection_manager_new_connection (TpBaseConnectionManager *base,
-                                         const gchar *proto,
-                                         TpIntSet *params_present,
-                                         void *parsed_params,
-                                         GError **error)
+_phoney_connection_manager_new_connection (TpBaseConnectionManager *base,
+					   const gchar *proto,
+					   TpIntSet *params_present,
+					   void *parsed_params,
+					   GError **error)
 {
-    SmsConnectionManager *cm = SMS_CONNECTION_MANAGER(base);
-    SmsConnectionManagerClass *klass = SMS_CONNECTION_MANAGER_GET_CLASS (cm);
-    SmsParams *params = (SmsParams *)parsed_params;
-    SmsConnection *conn = g_object_new (SMS_TYPE_CONNECTION,
-                                         "protocol",        proto,
-                                         "bdaddr",          params->bdaddr,
-                                         NULL);
+	PhoneyConnectionManager *cm = PHONEY_CONNECTION_MANAGER(base);
+	PhoneyConnectionManagerClass *klass = PHONEY_CONNECTION_MANAGER_GET_CLASS (cm);
+	PhoneyParams *params = (PhoneyParams *)parsed_params;
+	PhoneyConnection *conn = g_object_new (PHONEY_TYPE_CONNECTION,
+					       "protocol",        proto,
+					       "bdaddr",          params->bdaddr,
+					       NULL);
 
-    cm->connections = g_list_prepend(cm->connections, conn);
-    g_signal_connect (conn, "shutdown-finished",
-                      G_CALLBACK (connection_shutdown_finished_cb),
-                      cm);
+	cm->connections = g_list_prepend(cm->connections, conn);
+	g_signal_connect (conn, "shutdown-finished",
+			  G_CALLBACK (connection_shutdown_finished_cb),
+			  cm);
 
-    return (TpBaseConnection *) conn;
+	return (TpBaseConnection *) conn;
 }
 
 static void
-sms_connection_manager_class_init (SmsConnectionManagerClass *klass)
+phoney_connection_manager_class_init (PhoneyConnectionManagerClass *klass)
 {
-    TpBaseConnectionManagerClass *base_class =
-        (TpBaseConnectionManagerClass *)klass;
+	TpBaseConnectionManagerClass *base_class =
+		(TpBaseConnectionManagerClass *)klass;
 
-    base_class->new_connection = _sms_connection_manager_new_connection;
-    base_class->cm_dbus_name = "sms";
-    base_class->protocol_params = get_protocols (klass);
+	base_class->new_connection = _phoney_connection_manager_new_connection;
+	base_class->cm_dbus_name = "phoney";
+	base_class->protocol_params = get_protocols (klass);
 }
 
 static void
-sms_connection_manager_init (SmsConnectionManager *self)
+phoney_connection_manager_init (PhoneyConnectionManager *self)
 {
-    DEBUG ("Initializing (SmsConnectionManager *)%p", self);
+	DEBUG ("Initializing (PhoneyConnectionManager *)%p", self);
 }
 
-SmsConnectionManager *
-sms_connection_manager_get (void) {
-    static SmsConnectionManager *manager = NULL;
-    if (G_UNLIKELY(manager == NULL)) {
-        manager = g_object_new (SMS_TYPE_CONNECTION_MANAGER, NULL);
-    }
-    g_assert (manager != NULL);
-    return manager;
+PhoneyConnectionManager *
+phoney_connection_manager_get (void) {
+	static PhoneyConnectionManager *manager = NULL;
+	if (G_UNLIKELY(manager == NULL)) {
+		manager = g_object_new (PHONEY_TYPE_CONNECTION_MANAGER, NULL);
+	}
+	g_assert (manager != NULL);
+	return manager;
 }

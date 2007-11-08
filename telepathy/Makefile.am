@@ -8,10 +8,7 @@ AM_CPPFLAGS = \
 	-I$(srcdir)/../libgsm				\
 	-I$(builddir)/../libgsm
 
-if HAVE_TELEPATHY
-libexec_PROGRAMS = telepathy-sms
-
-telepathy_sms_SOURCES =			\
+BACKEND_FILES =				\
 	connection.c			\
 	connection.h			\
 	connection-manager.c		\
@@ -24,9 +21,32 @@ telepathy_sms_SOURCES =			\
 	im-channel.h			\
 	main.c
 
-telepathy_sms_LDADD =			\
+MANAGER_FILE = phoney.manager
+service_in_files = org.freedesktop.Telepathy.ConnectionManager.phoney.service.in
+
+EXTRA_DIST = $(BACKEND_FILES) $(MANAGER_FILE) $(service_in_files)
+CLEANFILES = $(BUILT_FILES)
+
+if HAVE_TELEPATHY
+libexec_PROGRAMS = telepathy-phoney
+
+telepathy_phoney_SOURCES = $(BACKEND_FILES)
+
+telepathy_phoney_LDADD =		\
 	$(TELEPATHY_LIBS)		\
 	../libgsm/libgsmwrap.la
+
+# Manager file
+managerdir = $(datadir)/telepathy/managers
+manager_DATA = $(MANAGER_FILE)
+
+# D-Bus file
+servicedir = $(datadir)/dbus-1/services
+service_DATA = $(service_in_files:.service.in=.service)
+
+# Rule to make the service file with libexecdir expanded
+$(service_DATA): $(service_in_files) Makefile
+	@sed -e "s|\@libexecdir\@|$(libexecdir)|" $< > $@
 
 endif
 

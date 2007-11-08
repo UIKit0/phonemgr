@@ -1,5 +1,6 @@
 /*
- * debug.h - header for sms's debug machinery for itself and libpurple
+ * debug.h - header for phoney's debug machinery for itself and libpurple
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Collabora Ltd.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -20,8 +21,9 @@
 
 #include <glib.h>
 
-void sms_debug (const gchar *format, ...)
-    G_GNUC_PRINTF (1,2);
+void phoney_debug (const gchar *format, ...)
+G_GNUC_PRINTF (1,2);
 
 #define DEBUG(format, ...) \
-    sms_debug ("%s: " format, G_STRFUNC, ##__VA_ARGS__)
+	phoney_debug ("%s: " format, G_STRFUNC, ##__VA_ARGS__)
+

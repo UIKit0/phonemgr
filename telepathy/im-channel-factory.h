@@ -1,7 +1,8 @@
-#ifndef __SMS_IM_CHANNEL_FACTORY_H__
-#define __SMS_IM_CHANNEL_FACTORY_H__
+#ifndef __PHONEY_IM_CHANNEL_FACTORY_H__
+#define __PHONEY_IM_CHANNEL_FACTORY_H__
 /*
- * im-channel-factory.h - SmsImChannelFactory header
+ * im-channel-factory.h - PhoneyImChannelFactory header
+ * Copyright © 2007 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2007 Will Thompson
  * Copyright (C) 2007 Collabora Ltd.
  *
@@ -25,35 +26,35 @@
 
 G_BEGIN_DECLS
 
-#define SMS_TYPE_IM_CHANNEL_FACTORY \
-    (sms_im_channel_factory_get_type())
-#define SMS_IM_CHANNEL_FACTORY(obj) \
-    (G_TYPE_CHECK_INSTANCE_CAST((obj), SMS_TYPE_IM_CHANNEL_FACTORY, \
-                                SmsImChannelFactory))
-#define SMS_IM_CHANNEL_FACTORY_CLASS(klass) \
-    (G_TYPE_CHECK_CLASS_CAST((klass), SMS_TYPE_IM_CHANNEL_FACTORY,GObject))
-#define SMS_IS_IM_CHANNEL_FACTORY(obj) \
-    (G_TYPE_CHECK_INSTANCE_TYPE((obj), SMS_TYPE_IM_CHANNEL_FACTORY))
-#define SMS_IS_IM_CHANNEL_FACTORY_CLASS(klass) \
-    (G_TYPE_CHECK_CLASS_TYPE((klass), SMS_TYPE_IM_CHANNEL_FACTORY))
-#define SMS_IM_CHANNEL_FACTORY_GET_CLASS(obj) \
-    (G_TYPE_INSTANCE_GET_CLASS((obj), SMS_TYPE_IM_CHANNEL_FACTORY, \
-                               SmsImChannelFactoryClass))
+#define PHONEY_TYPE_IM_CHANNEL_FACTORY \
+	(phoney_im_channel_factory_get_type())
+#define PHONEY_IM_CHANNEL_FACTORY(obj) \
+	(G_TYPE_CHECK_INSTANCE_CAST((obj), PHONEY_TYPE_IM_CHANNEL_FACTORY, \
+				    PhoneyImChannelFactory))
+#define PHONEY_IM_CHANNEL_FACTORY_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_CAST((klass), PHONEY_TYPE_IM_CHANNEL_FACTORY,GObject))
+#define PHONEY_IS_IM_CHANNEL_FACTORY(obj) \
+	(G_TYPE_CHECK_INSTANCE_TYPE((obj), PHONEY_TYPE_IM_CHANNEL_FACTORY))
+#define PHONEY_IS_IM_CHANNEL_FACTORY_CLASS(klass) \
+	(G_TYPE_CHECK_CLASS_TYPE((klass), PHONEY_TYPE_IM_CHANNEL_FACTORY))
+#define PHONEY_IM_CHANNEL_FACTORY_GET_CLASS(obj) \
+	(G_TYPE_INSTANCE_GET_CLASS((obj), PHONEY_TYPE_IM_CHANNEL_FACTORY, \
+				   PhoneyImChannelFactoryClass))
 
-typedef struct _SmsImChannelFactory      SmsImChannelFactory;
-typedef struct _SmsImChannelFactoryClass SmsImChannelFactoryClass;
+typedef struct _PhoneyImChannelFactory      PhoneyImChannelFactory;
+typedef struct _PhoneyImChannelFactoryClass PhoneyImChannelFactoryClass;
 
-struct _SmsImChannelFactory {
-    GObject parent;
+struct _PhoneyImChannelFactory {
+	GObject parent;
 };
 
-struct _SmsImChannelFactoryClass {
-    GObjectClass parent_class;
+struct _PhoneyImChannelFactoryClass {
+	GObjectClass parent_class;
 };
 
-GType        sms_im_channel_factory_get_type    (void) G_GNUC_CONST;
+GType        phoney_im_channel_factory_get_type    (void) G_GNUC_CONST;
 
 G_END_DECLS
 
-#endif /* __SMS_IM_CHANNEL_FACTORY_H__ */
+#endif /* __PHONEY_IM_CHANNEL_FACTORY_H__ */
 
