@@ -1,35 +1,288 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phone_entries>
 	<phone_entry
+		identifier="Nokia 6110"
+		driver="6110" />
+	<phone_entry
+		identifier="Nokia 6130"
+		driver="6130" />
+	<phone_entry
+		identifier="Nokia 6150"
+		driver="6150" />
+	<phone_entry
+		identifier="Nokia 6190"
+		driver="6190" />
+	<phone_entry
+		identifier="Nokia 5110"
+		driver="5110" />
+	<phone_entry
+		identifier="Nokia 5130"
+		driver="5130" />
+	<phone_entry
+		identifier="Nokia 5190"
+		driver="5190" />
+	<phone_entry
+		identifier="Nokia 3210"
+		driver="3210" />
+	<phone_entry
+		identifier="Nokia 3310"
+		driver="3310" />
+	<phone_entry
+		identifier="Nokia 3330"
+		driver="3330" />
+	<phone_entry
+		identifier="Nokia 3360"
+		driver="3360" />
+	<phone_entry
+		identifier="Nokia 3390"
+		driver="3390" />
+	<phone_entry
+		identifier="Nokia 3410"
+		driver="3410" />
+	<phone_entry
+		identifier="Nokia 8210"
+		driver="8210" />
+	<phone_entry
+		identifier="Nokia 8250"
+		driver="8250" />
+	<phone_entry
+		identifier="Nokia 8290"
+		driver="8290" />
+	<phone_entry
+		identifier="Nokia 8850"
+		driver="8850" />
+	<phone_entry
+		identifier="Nokia RPM-1"
+		driver="RPM-1" />
+	<phone_entry
+		identifier="Nokia 7110"
+		driver="7110" />
+	<phone_entry
+		identifier="Nokia 6210"
+		driver="6210" />
+	<phone_entry
+		identifier="Nokia 6250"
+		driver="6250" />
+	<phone_entry
+		identifier="Nokia 7190"
+		driver="7190" />
+	<phone_entry
+		identifier="Nokia 6510"
+		driver="6510" />
+	<phone_entry
+		identifier="Nokia 6310"
+		driver="6310" />
+	<phone_entry
+		identifier="Nokia 8310"
+		driver="8310" />
+	<phone_entry
 		identifier="Nokia 6310i"
 		driver="6310i" />
 	<phone_entry
-		identifier="Nokia 6230i"
-		driver="6230" />
+		identifier="Nokia 6360"
+		driver="6360" />
 	<phone_entry
-		identifier="Nokia 6021"
-		driver="6021" />
+		identifier="Nokia 6610"
+		driver="6610" />
+	<phone_entry
+		identifier="Nokia 6100"
+		driver="6100" />
+	<phone_entry
+		identifier="Nokia 5100"
+		driver="5100" />
+	<phone_entry
+		identifier="Nokia 3510"
+		driver="3510" />
+	<phone_entry
+		identifier="Nokia 3510i"
+		driver="3510i" />
+	<phone_entry
+		identifier="Nokia 3595"
+		driver="3595" />
+	<phone_entry
+		identifier="Nokia 6800"
+		driver="6800" />
+	<phone_entry
+		identifier="Nokia 6810"
+		driver="6810" />
+	<phone_entry
+		identifier="Nokia 6820"
+		driver="6820" />
+	<phone_entry
+		identifier="Nokia 6820b"
+		driver="6820b" />
+	<phone_entry
+		identifier="Nokia 6610i"
+		driver="6610i" />
 	<phone_entry
 		identifier="Nokia 6230"
 		driver="6230" />
 	<phone_entry
+		identifier="Nokia 6650"
+		driver="6650" />
+	<phone_entry
+		identifier="Nokia 7210"
+		driver="7210" />
+	<phone_entry
+		identifier="Nokia 7250"
+		driver="7250" />
+	<phone_entry
+		identifier="Nokia 7250i"
+		driver="7250i" />
+	<phone_entry
+		identifier="Nokia 7600"
+		driver="7600" />
+	<phone_entry
+		identifier="Nokia 6170"
+		driver="6170" />
+	<phone_entry
+		identifier="Nokia 6020"
+		driver="6020" />
+	<phone_entry
+		identifier="Nokia 6230i"
+		driver="6230i" />
+	<phone_entry
+		identifier="Nokia 5140"
+		driver="5140" />
+	<phone_entry
+		identifier="Nokia 5140i"
+		driver="5140i" />
+	<phone_entry
+		identifier="Nokia 6021"
+		driver="6021" />
+	<phone_entry
+		identifier="Nokia 6500"
+		driver="6500" />
+	<phone_entry
+		identifier="Nokia 6220"
+		driver="6220" />
+	<phone_entry
+		identifier="Nokia 3120b"
+		driver="3120b" />
+	<phone_entry
+		identifier="Nokia 3100"
+		driver="3100" />
+	<phone_entry
+		identifier="Nokia 3120"
+		driver="3120" />
+	<phone_entry
+		identifier="Nokia 6015i"
+		driver="6015i" />
+	<phone_entry
+		identifier="Nokia 6101"
+		driver="6101" />
+	<phone_entry
+		identifier="Nokia 6680"
+		driver="6680" />
+	<phone_entry
+		identifier="Nokia 6280"
+		driver="6280" />
+	<phone_entry
+		identifier="Nokia 3220"
+		driver="3220" />
+	<phone_entry
+		identifier="Nokia 6136"
+		driver="6136" />
+	<phone_entry
+		identifier="Nokia 6233"
+		driver="6233" />
+	<phone_entry
+		identifier="Nokia 6822"
+		driver="6822" />
+	<phone_entry
+		identifier="Nokia 6300"
+		driver="6300" />
+	<phone_entry
+		identifier="Nokia 6030"
+		driver="6030" />
+	<phone_entry
+		identifier="Nokia 6160"
+		driver="6160" />
+	<phone_entry
+		identifier="Nokia 5120"
+		driver="5120" />
+	<phone_entry
+		identifier="Nokia 6185"
+		driver="6185" />
+	<phone_entry
 		identifier="6230i"
 		driver="6230" />
 	<phone_entry
-		identifier="Nokia 6300"
-		driver="6510" />
-	<phone_entry
 		identifier="Nokia 3110c"
-		driver="3110" />
+		driver="6510" />
 	<phone_entry
 		identifier="myX-7 GPRS"
 		driver="AT" />
 	<phone_entry
+		identifier="Nokia 3650"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 3660"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 6600"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia N-Gage"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia N-Gage QD"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Sendo X"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Siemens SX1"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 3230"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 6260"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 6630"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 6670"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 6680"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 6681"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia 6682"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia N70"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia N72"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Nokia N90"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Panasonic X700"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Panasonic X800"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Samsung SGH-D710"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Samsung SGH-D720"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Samsung SGH-D730"
+		driver="gnapplet" />
+	<phone_entry
+		identifier="Samsung SGH-Z600"
+		driver="gnapplet" />
+	<phone_entry
 		identifier="AAD-3022031-BV"
 		driver="AT" />
-	<!-- That's the Nokia 5500, see http://bugzilla.gnome.org/show_bug.cgi?id=475795 -->
-	<phone_entry
-		identifier="Nokia"
-		driver="AT" />
 </phone_entries>
-

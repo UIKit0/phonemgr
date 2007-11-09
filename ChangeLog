@@ -1,5 +1,11 @@
 2007-11-09  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phones.xml: Big patch from Pawel Kot
+	<gnokii@gmail.com> to add all the phones from gnokii
+	to the phones.xml file (Closes: #454825)
+
+2007-11-09  Bastien Nocera  <hadess@hadess.net>
+
 	* telepathy/im-channel.c: (phoney_im_channel_send):
 	Fix the text we send not being echo'ed back in the UI
 
