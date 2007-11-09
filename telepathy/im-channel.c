@@ -22,6 +22,7 @@
 
 #include <config.h>
 
+#include <time.h>
 #include <telepathy-glib/channel-iface.h>
 #include <telepathy-glib/dbus.h>
 #include <telepathy-glib/interfaces.h>
@@ -182,6 +183,8 @@ phoney_im_channel_send (TpSvcChannelTypeText *channel,
 	g_object_get (G_OBJECT (priv->conn), "listener", &listener, NULL);
 	DEBUG ("Sending message to '%s': '%s'", number, message);
 	phonemgr_listener_queue_message (listener, number, message);
+	//FIXME use tp_svc_channel_type_text_emit_send_error on errors
+	tp_svc_channel_type_text_emit_sent (channel, time (NULL), type, message);
 
 	g_free (message);
 

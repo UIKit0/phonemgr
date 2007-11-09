@@ -1,3 +1,8 @@
+2007-11-09  Bastien Nocera  <hadess@hadess.net>
+
+	* telepathy/im-channel.c: (phoney_im_channel_send):
+	Fix the text we send not being echo'ed back in the UI
+
 2007-11-08  Bastien Nocera  <hadess@hadess.net>
 
 	* src/main.c: (main): Init the i18n functions
