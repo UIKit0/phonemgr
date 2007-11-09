@@ -1,4 +1,4 @@
-# translation gnome-phone-manager 0.6 to to Polish
+# translation gnome-phone-manager 0.30 to to Polish
 # This file is distributed under the same license as the gnome-phone-manager package.
 # Copyright (C) 2005 THE gnome-phone-manager'S COPYRIGHT HOLDER.
 # Michał Kastelik <mkastelik@gmail.com>, 2005.
@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-phone-manager 0.6\n"
+"Project-Id-Version: gnome-phone-manager 0.30\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-08-23 20:41+0200\n"
 "PO-Revision-Date: 2007-08-23 20:45+0100\n"
@@ -40,7 +40,7 @@ msgstr "Błąd GConf: %s"
 
 #: ../src/gconf-bridge.c:1228
 msgid "All further errors shown only on terminal."
-msgstr "Wszystkie dalsze błędy wyświetlane tylko w terminalu."
+msgstr "Wszystkie dalsze błędy będą wyświetlane tylko w terminalu."
 
 #: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:28
 msgid "Phone Manager"
@@ -106,11 +106,11 @@ msgstr "/dev/ttyS2"
 
 #: ../ui/phonemgr.glade.h:2
 msgid "Alerting"
-msgstr "Powiadamienie"
+msgstr "Powiadamianie"
 
 #: ../ui/phonemgr.glade.h:3
 msgid "Alternative device filename, e.g. /dev/ttyS3"
-msgstr "Alternatywna nazwa urządzenia, np. /dev/ttyS3"
+msgstr "Nazwa urządzenia, np. /dev/ttyS3"
 
 #: ../ui/phonemgr.glade.h:4
 msgid ""
@@ -132,21 +132,21 @@ msgstr "Pozostało znaków:"
 
 #: ../ui/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
-msgstr "Połączenie używając alternatywnego urządzenia szeregowego"
+msgstr "Połączenie używające innego urządzenia szeregowego"
 
 #: ../ui/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
-msgstr "Połączenie używając podczerwieni"
+msgstr "Połączenie używające podczerwieni"
 
 #: ../ui/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr ""
-"Połączenie używając portu szeregowego 1, zwanego także COM1 lub /dev/ttyS0"
+"Połączenie używające portu szeregowego 1, zwanego także COM1 lub /dev/ttyS0"
 
 #: ../ui/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr ""
-"Połączenie używając portu szeregowego 2, zwanego także COM2 lub /dev/ttyS1"
+"Połączenie używające portu szeregowego 2, zwanego także COM2 lub /dev/ttyS1"
 
 #: ../ui/phonemgr.glade.h:11
 msgid "Connection"
@@ -186,7 +186,7 @@ msgstr "Liczba pozostałych znaków w wiadomości"
 
 #: ../ui/phonemgr.glade.h:20
 msgid "Other _port"
-msgstr "Inny _port"
+msgstr "_Inny port"
 
 #: ../ui/phonemgr.glade.h:21
 msgid "Phone Connection"
@@ -218,7 +218,7 @@ msgstr "Port szeregowy _2 (/dev/ttyS1)"
 
 #: ../ui/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr "Używanie sieci Bluetooth do połączenie z telefonem"
+msgstr "Używanie sieci Bluetooth do połączenia z telefonem"
 
 #: ../ui/phonemgr.glade.h:29
 msgid "You have received a message"
@@ -273,8 +273,8 @@ msgid ""
 "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
 "1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
 msgstr ""
-"Typ połączenia używany przez gnome-phone-manager: Bluetooth - 0, szeregowe "
-"port 1 - 1, szeregowe port 2 - 2, podczerwień - 3, inny rodzaj - 4."
+"Typ połączenia używany przez gnome-phone-manager: Bluetooth - 0, port "
+"szeregowy 1 - 1, port szeregowy 2 - 2, podczerwień - 3, inny rodzaj - 4."
 
 #: ../ui/gnome-phone-manager.schemas.in.h:5
 msgid "The device node for the serial device to connect to"
@@ -302,7 +302,7 @@ msgstr ""
 
 #: ../ui/gnome-phone-manager.schemas.in.h:9
 msgid "Whether to popup new messages on the desktop"
-msgstr "Określa, czy wyświetlać nowe wyskakujące wiadomości na pulpicie"
+msgstr "Określa, czy wyświetlać nowe wiadomości na pulpicie"
 
 #: ../ui/gnome-phone-manager.schemas.in.h:10
 msgid ""
@@ -328,7 +328,7 @@ msgstr ""
 #: ../src/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
-msgstr "Nie można uzyskać kontaktu: %s"
+msgstr "Nie można pobrać kontaktu: %s"
 
 #: ../src/e-contact-entry.c:185
 #, c-format
