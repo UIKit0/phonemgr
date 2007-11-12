@@ -1,5 +1,11 @@
 2007-11-12  Bastien Nocera  <hadess@hadess.net>
 
+	* src/icon.c: (tray_icon_activate_cb): Make a single-click
+	on the tray icon popup the "new message" dialogue, when no
+	messages are waiting (Closes: #495384)
+
+2007-11-12  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c:
 	(phonemgr_listener_init), (phonemgr_listener_connect),
 	(phonemgr_listener_get_own_details): When connecting the first

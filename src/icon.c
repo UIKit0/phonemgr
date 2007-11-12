@@ -33,6 +33,8 @@ tray_icon_activate_cb (GtkStatusIcon *status_icon, MyApp *app)
 	   message on button 1 click */
 	if (app->messages && (! app->popup_cb)) {
 		dequeue_message (app);
+	} else {
+		create_send_dialog (app, NULL, NULL);
 	}
 }
 
