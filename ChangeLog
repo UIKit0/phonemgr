@@ -1,3 +1,11 @@
+2007-11-12  Bastien Nocera  <hadess@hadess.net>
+
+	* ui/phonemgr.glade: Make the icons used named icons, instead of
+	the stock ones. The stock icons didn't get themed, and didn't
+	load if GNOME and gnome-phone-manager were installed in different
+	prefixes. Remove "gnome" requires from the file as well
+	(Closes: #495229)
+
 2007-11-09  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phones.xml: Big patch from Pawel Kot
