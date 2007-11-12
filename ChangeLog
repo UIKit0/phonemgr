@@ -1,5 +1,11 @@
 2007-11-12  Bastien Nocera  <hadess@hadess.net>
 
+	* src/icon.c: (tray_icon_activate_cb): Don't allow showing the
+	new message dialogue if we're not connected to the phone
+	(Closes: #495384)
+
+2007-11-12  Bastien Nocera  <hadess@hadess.net>
+
 	* src/e-contact-entry.c: Update from contact-lookup-applet,
 	and remove the need to set the addressbook sources to
 	autocomplete
