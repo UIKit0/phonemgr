@@ -213,6 +213,8 @@ completion_match_cb (GtkEntryCompletion *completion, const gchar *key, GtkTreeIt
   }
 }
 
+/* This is the maximum number of entries that GTK+ will show */
+#define MAX_ENTRIES 15
 /**
  * Callback from the EBookView that more contacts matching the query have been found. Add these to
  * the model if we still want more contacts, or stop the view.
@@ -222,6 +224,7 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
 {
   EntryLookup *lookup;
   guint max_height;
+  int i;
 
   g_return_if_fail (user_data != NULL);
   g_return_if_fail (contacts != NULL);
@@ -229,8 +232,7 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
 
   max_height = entry_height (GTK_WIDGET (lookup->entry));
 
-  /* TODO: the completion only shows 15 results, so stop after that many. */
-  for (; contacts != NULL; contacts = g_list_next (contacts)) {
+  for (i = 0; contacts != NULL && i < MAX_ENTRIES; contacts = g_list_next (contacts)) {
     GtkTreeIter iter;
     EContact *contact;
     EContactPhoto *photo;
@@ -243,8 +245,8 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
       string = lookup->entry->priv->display_func (contact, lookup->entry->priv->display_data);
     } else {
 	/* Make sure that we actually have an email address to show */
-	if (e_contact_get_const (contact, E_CONTACT_EMAIL_1)) {
-      string = g_strdup_printf ("%s <%s>", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), (char*)e_contact_get_const (contact, E_CONTACT_EMAIL_1));
+        if (e_contact_get_const (contact, E_CONTACT_EMAIL_1)) {
+          string = g_strdup_printf ("%s <%s>", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), (char*)e_contact_get_const (contact, E_CONTACT_EMAIL_1));
     }
 	else {
 	    string = g_strdup_printf ("%s", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG));
@@ -461,35 +463,30 @@ e_contact_entry_set_source_list (EContactEntry *entry,
     for (m = sources; m != NULL; m = m->next) {
       ESource *source = m->data;
       const char *p;
+      ESource *s = e_source_copy (source);
+      EntryLookup *lookup;
+      char *uri;
 
-      p = e_source_get_property (source, "completion");
+      uri = g_strdup_printf("%s/%s", e_source_group_peek_base_uri (group), e_source_peek_relative_uri (source));
+      e_source_set_absolute_uri (s, uri);
+      g_free (uri);
 
-      if (p != NULL &&  strcmp (p, "true") == 0) {
-	ESource *s = e_source_copy (source);
-	EntryLookup *lookup;
-	char *uri;
+      /* Now add those to the lookup entries list */
+      lookup = g_new0 (EntryLookup, 1);
+      lookup->entry = entry;
+      lookup->open = FALSE;
 
-	uri = g_strdup_printf("%s/%s", e_source_group_peek_base_uri (group), e_source_peek_relative_uri (source));
-	e_source_set_absolute_uri (s, uri);
-	g_free (uri);
-
-	/* Now add those to the lookup entries list */
-	lookup = g_new0 (EntryLookup, 1);
-	lookup->entry = entry;
-	lookup->open = FALSE;
-
-	if ((lookup->book = e_book_new (s, &error)) == NULL) {
-	  /* TODO handle this better, fire the error signal I guess */
-	  g_warning (error->message);
-	  g_error_free (error);
-	  g_free (lookup);
-	} else {
-	  entry->priv->lookup_entries = g_list_append (entry->priv->lookup_entries, lookup);
-	  e_book_async_open(lookup->book, TRUE, (EBookCallback)book_opened_cb, lookup);
-	}
-
-	g_object_unref (s);
+      if ((lookup->book = e_book_new (s, &error)) == NULL) {
+        /* TODO handle this better, fire the error signal I guess */
+        g_warning (error->message);
+	g_error_free (error);
+	g_free (lookup);
+      } else {
+        entry->priv->lookup_entries = g_list_append (entry->priv->lookup_entries, lookup);
+	e_book_async_open(lookup->book, TRUE, (EBookCallback)book_opened_cb, lookup);
       }
+
+      g_object_unref (s);
     }
   }
 
