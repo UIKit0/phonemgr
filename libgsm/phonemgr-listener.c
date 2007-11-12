@@ -69,6 +69,7 @@ struct _PhonemgrListener
 	PhonemgrState *phone_state;
 
 	char *driver;
+	char *own_number;
 
 	/* The previous call status */
 	gn_call_status prev_call_status;
@@ -321,6 +322,7 @@ phonemgr_listener_init (PhonemgrListener *l)
 	l->queue = g_async_queue_new ();
 	l->mutex = g_mutex_new ();
 	l->driver = NULL;
+	l->own_number = NULL;
 	l->batterylevel = 1;
 	l->supports_power_source = TRUE;
 	l->powersource = GN_PS_BATTERY;
@@ -394,7 +396,7 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTED);
 
 	l->thread = g_thread_create ((GThreadFunc) phonemgr_listener_thread,
-			l, TRUE, NULL);
+				     l, TRUE, NULL);
 
 	return l->connected;
 }
@@ -598,6 +600,64 @@ phonemgr_listener_battery_poll (PhonemgrListener *l)
 }
 
 static void
+phonemgr_listener_get_own_details (PhonemgrListener *l)
+{
+	gn_memory_status memstat;
+	gn_phonebook_entry entry;
+	int count, start_entry, end_entry, num_entries;
+
+	start_entry = 1;
+	end_entry = num_entries = INT_MAX;
+
+	memstat.memory_type = gn_str2memory_type("ON");
+	l->phone_state->data.memory_status = &memstat;
+	if (gn_sm_functions(GN_OP_GetMemoryStatus, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
+		num_entries = memstat.used;
+		end_entry = memstat.used + memstat.free;
+	}
+
+	count = start_entry;
+	while (num_entries > 0 && count <= end_entry) {
+		gn_error error = GN_ERR_NONE;
+
+		memset(&entry, 0, sizeof(gn_phonebook_entry));
+		entry.memory_type = memstat.memory_type;
+		entry.location = count;
+
+		l->phone_state->data.phonebook_entry = &entry;
+		error = gn_sm_functions(GN_OP_ReadPhonebook, &l->phone_state->data, &l->phone_state->state);
+		if (error != GN_ERR_NONE && error != GN_ERR_EMPTYLOCATION)
+			break;
+		if (entry.empty != FALSE)
+			continue;
+		if (error == GN_ERR_NONE)
+			num_entries--;
+		count++;
+
+		if (!entry.subentries_count && entry.number) {
+			l->own_number = g_strdup (entry.number);
+		} else {
+			int i;
+
+			for (i = 0; i < entry.subentries_count; i++) {
+				if (entry.subentries[i].entry_type != GN_PHONEBOOK_ENTRY_Number)
+					continue;
+
+				l->own_number = g_strdup (entry.number);
+				break;
+			}
+		}
+
+		break;
+	}
+
+	if (l->own_number != NULL)
+		g_message ("Our own phone number is: %s", l->own_number);
+	else
+		g_message ("Couldn't get our own phone number");
+}
+
+static void
 phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 {
 	if (state != FALSE) {
@@ -643,6 +703,7 @@ static void
 phonemgr_listener_thread (PhonemgrListener *l)
 {
 	g_mutex_lock (l->mutex);
+	phonemgr_listener_get_own_details (l);
 	phonemgr_listener_set_sms_notification (l, TRUE);
 	phonemgr_listener_set_call_notification (l, TRUE);
 	g_mutex_unlock (l->mutex);
@@ -682,6 +743,8 @@ phonemgr_listener_disconnect (PhonemgrListener *l)
 
 	g_free (l->driver);
 	l->driver = NULL;
+	g_free (l->own_number);
+	l->own_number = NULL;
 
 	l->connected = FALSE;
 	//FIXME more to kill?

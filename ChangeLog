@@ -1,5 +1,13 @@
 2007-11-12  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c:
+	(phonemgr_listener_init), (phonemgr_listener_connect),
+	(phonemgr_listener_get_own_details): When connecting the first
+	time, try to get our own phone number, for use in the telepathy
+	backend, not exported yet, and only works on some phones
+
+2007-11-12  Bastien Nocera  <hadess@hadess.net>
+
 	* ui/phonemgr.glade: Make the icons used named icons, instead of
 	the stock ones. The stock icons didn't get themed, and didn't
 	load if GNOME and gnome-phone-manager were installed in different
