@@ -96,6 +96,7 @@ struct EContactEntryPriv {
 typedef struct _EntryLookup {
   EContactEntry *entry;
   gboolean open;
+  EBookStatus status;
   EBook *book;
   EBookView *bookview;
 } EntryLookup;
@@ -404,8 +405,21 @@ book_opened_cb (EBook *book, EBookStatus status, gpointer data)
   g_return_if_fail (data != NULL);
 
   lookup = (EntryLookup*)data;
-  
+
+  /* Don't error out if we're not the last one to open */
+  lookup->status = status;
   if (status != E_BOOK_ERROR_OK) {
+    GList *l;
+
+    for (l = lookup->entry->priv->lookup_entries; l != NULL; l = l->next) {
+      EntryLookup *e;
+      /* Not opened yet is ->open false && ->status not an error */
+      if (e->open != FALSE || e->status == E_BOOK_ERROR_OK) {
+        /* Don't error yet */
+        return;
+      }
+    }
+    
     g_signal_emit (lookup->entry, signals[STATE_CHANGE], 0, FALSE);
     g_signal_emit (lookup->entry, signals[ERROR], 0, stringify_ebook_error (status));
     return;
@@ -474,6 +488,7 @@ e_contact_entry_set_source_list (EContactEntry *entry,
       /* Now add those to the lookup entries list */
       lookup = g_new0 (EntryLookup, 1);
       lookup->entry = entry;
+      lookup->status = E_BOOK_ERROR_OK;
       lookup->open = FALSE;
 
       if ((lookup->book = e_book_new (s, &error)) == NULL) {
