@@ -50,6 +50,7 @@
 #include <libebook/e-contact.h>
 
 #include "e-contact-entry.h"
+#include "econtactentry-marshal.h"
 
 /* Signals */
 enum {
@@ -106,6 +107,7 @@ typedef struct _EntryLookup {
  */
 enum {
   COL_NAME,
+  COL_IDENTIFIER,
   COL_UID,
   COL_PHOTO,
   COL_LOOKUP,
@@ -117,7 +119,8 @@ G_DEFINE_TYPE(EContactEntry, e_contact_entry, GTK_TYPE_ENTRY);
 static void lookup_entry_free (EntryLookup *lookup);
 static EBookQuery* create_query (EContactEntry *entry, const char* s);
 static guint entry_height (GtkWidget *widget);
-static const char* stringify_ebook_error(const EBookStatus status);
+static const char* stringify_ebook_error (const EBookStatus status);
+static void e_contact_entry_item_free (EContactEntyItem *item);
 
 /**
  * The entry was activated.  Take the first contact found and signal the user.
@@ -140,12 +143,12 @@ entry_activate_cb (EContactEntry *entry, gpointer user_data)
      */
     gdk_beep ();
   } else {
-    char *uid;
+    char *uid, *identifier;
     EntryLookup *lookup;
     EContact *contact;
     GError *error = NULL;
 
-    gtk_tree_model_get (GTK_TREE_MODEL (entry->priv->store), &iter, COL_UID, &uid, COL_LOOKUP, &lookup, -1);
+    gtk_tree_model_get (GTK_TREE_MODEL (entry->priv->store), &iter, COL_UID, &uid, COL_LOOKUP, &lookup, COL_IDENTIFIER, &identifier, -1);
     g_return_if_fail (lookup != NULL);
 
     gtk_entry_set_text (GTK_ENTRY (entry), "");
@@ -157,11 +160,12 @@ entry_activate_cb (EContactEntry *entry, gpointer user_data)
       g_free (message);
       g_error_free (error);
     } else {
-      g_signal_emit (G_OBJECT (entry), signals[CONTACT_SELECTED], 0, contact);
+      g_signal_emit (G_OBJECT (entry), signals[CONTACT_SELECTED], 0, contact, identifier);
       g_object_unref (contact);
     }
     g_free (uid);
-    
+    g_free (identifier);
+
     gtk_list_store_clear (entry->priv->store);
   }
 }
@@ -174,14 +178,14 @@ completion_match_selected_cb (GtkEntryCompletion *completion, GtkTreeModel *mode
 {
   EContactEntry *entry;
   EntryLookup *lookup;
-  char *uid;
+  char *uid, *identifier;
   EContact *contact = NULL;
   GError *error = NULL;
 
   g_return_val_if_fail (user_data != NULL, TRUE);
   entry = (EContactEntry*)user_data;
-  
-  gtk_tree_model_get (model, iter, COL_UID, &uid, COL_LOOKUP, &lookup, -1);
+
+  gtk_tree_model_get (model, iter, COL_UID, &uid, COL_LOOKUP, &lookup, COL_IDENTIFIER, &identifier, -1);
   if (!e_book_get_contact (lookup->book, uid, &contact, &error)) {
     char *message;
     message = g_strdup_printf (_("Could not find contact: %s"), error->message);
@@ -190,9 +194,11 @@ completion_match_selected_cb (GtkEntryCompletion *completion, GtkTreeModel *mode
     return FALSE;
   }
   gtk_entry_set_text (GTK_ENTRY (entry), "");
-  g_signal_emit (G_OBJECT (entry), signals[CONTACT_SELECTED], 0, contact);
+  g_signal_emit (G_OBJECT (entry), signals[CONTACT_SELECTED], 0, contact, identifier);
   g_object_unref (contact);
-  
+  g_free (uid);
+  g_free (identifier);
+
   gtk_list_store_clear (entry->priv->store);
   return TRUE;
 }
@@ -212,6 +218,25 @@ completion_match_cb (GtkEntryCompletion *completion, const gchar *key, GtkTreeIt
     g_free (cell);
     return TRUE;
   }
+}
+
+static GList *
+e_contact_entry_display_func (EContact *contact)
+{
+  GList *items, *emails, *l;
+  EContactEntyItem *item;
+
+  items = NULL;
+  emails = e_contact_get (contact, E_CONTACT_EMAIL);
+  for (l = emails; l != NULL; l = l->next) {
+    item = g_new0 (EContactEntyItem, 1);
+    item->identifier = item->identifier = g_strdup (l->data);
+    item->display_string = g_strdup_printf ("%s <%s>", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), item->identifier);
+
+    items = g_list_prepend (items, item);
+  }
+
+  return g_list_reverse (items);
 }
 
 /* This is the maximum number of entries that GTK+ will show */
@@ -238,26 +263,20 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
     EContact *contact;
     EContactPhoto *photo;
     GdkPixbuf *pixbuf = NULL;
-    char *string;
+    GList *entries, *e;
 
+    entries = NULL;
     contact = E_CONTACT (contacts->data);
 
     if (lookup->entry->priv->display_func) {
-      string = lookup->entry->priv->display_func (contact, lookup->entry->priv->display_data);
+      entries = lookup->entry->priv->display_func (contact, lookup->entry->priv->display_data);
     } else {
-	/* Make sure that we actually have an email address to show */
-        if (e_contact_get_const (contact, E_CONTACT_EMAIL_1)) {
-          string = g_strdup_printf ("%s <%s>", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), (char*)e_contact_get_const (contact, E_CONTACT_EMAIL_1));
-    }
-	else {
-	    string = g_strdup_printf ("%s", (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG));
-	}
+      entries = e_contact_entry_display_func (contact);
     }
 
     /* Don't add the contact to the list if we don't have a string */
-    if (string == NULL) {
+    if (entries == NULL)
       return;
-    }
 
     photo = e_contact_get (contact, E_CONTACT_PHOTO);
 #ifndef HAVE_ECONTACTPHOTOTYPE
@@ -299,16 +318,22 @@ view_contacts_added_cb (EBook *book, GList *contacts, gpointer user_data)
     }
     if (photo)
       e_contact_photo_free (photo);
-    
-    gtk_list_store_append (lookup->entry->priv->store, &iter);
-    /* At this point the matcher callback gets called */
-    gtk_list_store_set (lookup->entry->priv->store, &iter,
-                        COL_NAME, string,
-                        COL_UID, e_contact_get_const (contact, E_CONTACT_UID),
-                        COL_PHOTO, pixbuf,
-                        COL_LOOKUP, lookup,
-                        -1);
-    g_free (string);
+
+    for (e = entries; e; e = e->next) {
+      EContactEntyItem *item = e->data;
+
+      gtk_list_store_append (lookup->entry->priv->store, &iter);
+      /* At this point the matcher callback gets called */
+      gtk_list_store_set (lookup->entry->priv->store, &iter,
+			  COL_NAME, item->display_string,
+			  COL_IDENTIFIER, item->identifier,
+			  COL_UID, e_contact_get_const (contact, E_CONTACT_UID),
+			  COL_PHOTO, pixbuf,
+			  COL_LOOKUP, lookup,
+			  -1);
+      e_contact_entry_item_free (item);
+    }
+    g_list_free (entries);
     if (pixbuf) g_object_unref (pixbuf);
   }
 }
@@ -654,7 +679,7 @@ e_contact_entry_init (EContactEntry *entry)
   g_signal_connect (entry, "activate", G_CALLBACK (entry_activate_cb), NULL);
   g_signal_connect (entry, "changed", G_CALLBACK (entry_changed_cb), NULL);
 
-  entry->priv->store = gtk_list_store_new (COL_TOTAL, G_TYPE_STRING, G_TYPE_STRING, GDK_TYPE_PIXBUF, G_TYPE_POINTER);
+  entry->priv->store = gtk_list_store_new (COL_TOTAL, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING, GDK_TYPE_PIXBUF, G_TYPE_POINTER);
 
   entry->priv->search_fields = NULL;
   reset_search_fields (entry);
@@ -713,8 +738,8 @@ e_contact_entry_class_init (EContactEntryClass *klass)
                                             G_SIGNAL_RUN_LAST,
                                             G_STRUCT_OFFSET (EContactEntryClass, contact_selected),
                                             NULL, NULL,
-                                            g_cclosure_marshal_VOID__OBJECT,
-                                            G_TYPE_NONE, 1, E_TYPE_CONTACT);
+                                            econtactentry_marshal_VOID__OBJECT_STRING,
+                                            G_TYPE_NONE, 2, E_TYPE_CONTACT, G_TYPE_STRING);
   
   signals[ERROR] = g_signal_new ("error",
                                  G_TYPE_FROM_CLASS (object_class),
@@ -843,6 +868,17 @@ entry_height (GtkWidget *widget)
   layout = gtk_widget_create_pango_layout (widget, NULL);
   pango_layout_get_pixel_size (layout, NULL, &bound);
   return bound;
+}
+
+/**
+ * Free a EContactEntyItem struct.
+ */
+static void
+e_contact_entry_item_free (EContactEntyItem *item)
+{
+  g_free (item->display_string);
+  g_free (item->identifier);
+  g_free (item);
 }
 
 /**

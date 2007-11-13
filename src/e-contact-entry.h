@@ -47,14 +47,20 @@ typedef struct {
 typedef struct {
   GtkEntryClass parent_class;
   /* Signal fired when a contact is selected. Use this over 'activate' */
-  void (*contact_selected) (GtkWidget *entry, EContact *contact);
+  void (*contact_selected) (GtkWidget *entry, EContact *contact, const char *identifier);
   /* Signal fired when an async error occured */
   void (*error) (GtkWidget *entry, const char* error);
   /* Signal fired when the widget's state should change */
   void (*state_change) (GtkWidget *entry, gboolean state);
 } EContactEntryClass;
 
-typedef char* (*EContactEntryDisplayFunc) (EContact *contact, gpointer data);
+typedef struct {
+  char *display_string;
+  char *identifier; /* a "unique" identifier */
+} EContactEntyItem;
+
+/* A GList of EContactEntyItems */
+typedef GList* (*EContactEntryDisplayFunc) (EContact *contact, gpointer data);
 
 GType e_contact_entry_get_type (void);
 

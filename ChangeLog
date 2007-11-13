@@ -1,5 +1,16 @@
 2007-11-13  Bastien Nocera  <hadess@hadess.net>
 
+	* src/Makefile.am:
+	* src/e-contact-entry.c: (entry_activate_cb),
+	(completion_match_selected_cb), (e_contact_entry_display_func):
+	* src/e-contact-entry.h:
+	* src/e-phone-entry.c: (contact_selected_cb), (test_display_func):
+	* src/econtactentry-marshal.list:
+	Display all the mobile phone entries for each contact in the
+	completion popup (Closes: #495236)
+
+2007-11-13  Bastien Nocera  <hadess@hadess.net>
+
 	* src/e-contact-entry.c: (completion_match_selected_cb):
 	Update from contact-lookup-applet, so we don't error out
 	if one of the sources isn't available

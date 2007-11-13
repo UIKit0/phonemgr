@@ -126,14 +126,13 @@ text_changed (GtkEditable *entry, gpointer user_data)
 }
 
 static void
-contact_selected_cb (GtkWidget *entry, EContact *contact)
+contact_selected_cb (GtkWidget *entry, EContact *contact, const char *identifier)
 {
 	EPhoneEntry *pentry = E_PHONE_ENTRY (entry);
 	char *text;
 
-	text = g_strdup_printf (CONTACT_FORMAT, (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), (char*)e_contact_get_const (contact, E_CONTACT_PHONE_MOBILE));
-	pentry->phone_number = cleanup_number (e_contact_get_const
-			(contact, E_CONTACT_PHONE_MOBILE));
+	text = g_strdup_printf (CONTACT_FORMAT, (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), identifier);
+	pentry->phone_number = cleanup_number (identifier);
 
 	emit_changed_signal (pentry, pentry->phone_number);
 
@@ -147,16 +146,31 @@ contact_selected_cb (GtkWidget *entry, EContact *contact)
 }
 
 static char *
-test_display_func (EContact *contact, gpointer data)
+test_display_func (EContact *contact, const char *identifier, gpointer data)
 {
-	const char *mobile;
+	GList *entries = NULL;
+	EVCard *card = E_VCARD (contact);
+	GList *attrs, *a;
 
-	/* No contacts without a mobile phone in the list */
-	mobile = e_contact_get_const (contact, E_CONTACT_PHONE_MOBILE);
-	if (mobile == NULL) {
-		return NULL;
+	attrs = e_vcard_get_attributes (card);
+	for (a = attrs; a; a = a->next) {
+		if (strcmp (e_vcard_attribute_get_name (a->data), EVC_TEL) == 0
+		    && e_vcard_attribute_has_type (a->data, "CELL")) {
+			GList *phones, *p;
+
+			phones = e_vcard_attribute_get_values (a->data);
+			for (p = phones; p; p = p->next) {
+				EContactEntyItem *item;
+
+				item = g_new0 (EContactEntyItem, 1);
+				item->display_string = g_strdup_printf (CONTACT_FORMAT, (char*) e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), (char*) p->data);
+				item->identifier = g_strdup (p->data);
+				entries = g_list_prepend (entries, item);
+			}
+		}
 	}
-	return g_strdup_printf (CONTACT_FORMAT, (char*)e_contact_get_const (contact, E_CONTACT_NAME_OR_ORG), mobile);
+
+	return g_list_reverse (entries);
 }
 
 static void
