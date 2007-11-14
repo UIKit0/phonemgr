@@ -1,3 +1,8 @@
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
+	* src/e-phone-entry.c: (test_display_func): Fix build
+	(Closes: #496676)
+
 2007-11-13  Diego Escalante Urrelo  <diegoe@gnome.org>
 
 	* ui/phonemgr.glade: Fix the expand property of the contact container 

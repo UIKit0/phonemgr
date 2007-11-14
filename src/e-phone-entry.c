@@ -145,8 +145,8 @@ contact_selected_cb (GtkWidget *entry, EContact *contact, const char *identifier
 	g_free (text);
 }
 
-static char *
-test_display_func (EContact *contact, const char *identifier, gpointer data)
+static GList *
+test_display_func (EContact *contact, gpointer data)
 {
 	GList *entries = NULL;
 	EVCard *card = E_VCARD (contact);
