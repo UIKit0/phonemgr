@@ -120,8 +120,6 @@ _phoney_connection_shut_down (TpBaseConnection *base)
 	if (phonemgr_listener_connected (priv->listener) != FALSE) {
 		DEBUG ("still open; calling phonemgr_listener_disconnect");
 		phonemgr_listener_disconnect (priv->listener);
-	} else {
-		DEBUG ("closed; emitting DISCONNECTED");
 		tp_base_connection_finish_shutdown (base);
 	}
 }

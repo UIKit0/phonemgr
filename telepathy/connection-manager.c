@@ -93,6 +93,11 @@ connection_shutdown_finished_cb (TpBaseConnection *conn,
 				 gpointer data)
 {
 	PhoneyConnectionManager *self = PHONEY_CONNECTION_MANAGER (data);
+	char *bdaddr;
+
+	g_object_get (G_OBJECT (conn), "bdaddr", &bdaddr, NULL);
+	DEBUG ("removing connection for %s", bdaddr);
+	g_free (bdaddr);
 
 	self->connections = g_list_remove(self->connections, conn);
 }

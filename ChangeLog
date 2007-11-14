@@ -1,5 +1,13 @@
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
 
+	* telepathy/connection-manager.c:
+	(connection_shutdown_finished_cb):
+	Emit DISCONNECTED when we've disconnected by hand
+	* telepathy/connection.c: (_phoney_connection_shut_down):
+	Add some debug here
+
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
 	(phonemgr_listener_connect), (phonemgr_listener_call_status),
 	(phonemgr_listener_thread): exit super-fast when asked to during
