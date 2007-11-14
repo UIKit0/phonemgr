@@ -800,9 +800,7 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 
 	/* Default GSM alphabet is a subset of ISO8859-1,
 	 * so try that */
-	iso = g_convert (message, -1,
-			 "ISO8859-1", "UTF-8",
-			 NULL, NULL, &err);
+	iso = g_convert (message, -1, "ISO8859-1", "UTF-8", NULL, NULL, &err);
 	if (err != NULL) {
 		g_clear_error (&err);
 		g_free (iso);
@@ -935,10 +933,10 @@ phonemgr_listener_poll (PhonemgrListener *l)
 
 		if (g_rand_boolean (rand)) {
 			sender = "+09876 543-21";
-			text = "This is my other t\303\251st, this is NOT a supa test";
+			text = "This is my other t\303\251st, this is NOT a supa test: http://live.gnome.org/PhoneManager";
 		} else {
 			sender = "+01234 567-89";
-			text = "This is my test, this is my supa test with i18n chars: \303\270\317\216\307\252";
+			text = "This is my test, this is my supa test with i18n chars: \303\270\317\216\307\252 (http://live.gnome.org/PhoneManager)";
 		}
 		g_rand_free (rand);
 

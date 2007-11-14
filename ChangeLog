@@ -1,5 +1,10 @@
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message),
+	(phonemgr_listener_poll): Add http links in the dummy messages
+
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
 	* telepathy/connection-manager.c:
 	(connection_shutdown_finished_cb):
 	Emit DISCONNECTED when we've disconnected by hand
