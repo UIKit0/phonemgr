@@ -174,7 +174,9 @@ phoney_im_channel_send (TpSvcChannelTypeText *channel,
 		 * French:
 		 * /moi fait rien
 		 */
-		message = g_strconcat (_("/me"), " ", text, NULL);
+		//FIXME
+//		message = g_strconcat (_("/me"), " ", text, NULL);
+		message = g_strconcat ("/me", " ", text, NULL);
 	} else {
 		message = g_strdup (text);
 	}

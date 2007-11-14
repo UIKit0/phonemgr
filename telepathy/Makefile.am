@@ -24,6 +24,7 @@ BACKEND_FILES =				\
 MANAGER_FILE = phoney.manager
 service_in_files = org.freedesktop.Telepathy.ConnectionManager.phoney.service.in
 
+BUILT_FILES = org.freedesktop.Telepathy.ConnectionManager.phoney.service
 EXTRA_DIST = $(BACKEND_FILES) $(MANAGER_FILE) $(service_in_files)
 CLEANFILES = $(BUILT_FILES)
 

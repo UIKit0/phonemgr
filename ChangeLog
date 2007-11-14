@@ -1,3 +1,13 @@
+============ Version 0.40
+
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: upd
+	* configure.in: 0.40
+	* telepathy/im-channel.c: (phoney_im_channel_send): Disable
+	translation of actions for now
+	* telepathy/Makefile.am: Remove built service file when cleaning up
+
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
 
 	* telepathy/connection-manager.c:
