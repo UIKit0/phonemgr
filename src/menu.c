@@ -35,28 +35,28 @@ prefs_activated (GtkMenuItem *item, MyApp *app)
 static gboolean
 about_activated(GtkMenuItem *item, gpointer data)
 {
-    const char *authors[] = { "Bastien Nocera <hadess@hadess.net>", "Edd Dumbill <edd@usefulinc.com>", NULL };
-    const char *documenters[] = { NULL };
-    const char *translator_credits = _("translator_credits");
+	const char *authors[] = { "Bastien Nocera <hadess@hadess.net>", "Edd Dumbill <edd@usefulinc.com>", NULL };
+	const char *documenters[] = { NULL };
+	const char *translator_credits = _("translator_credits");
 
-    gtk_show_about_dialog (NULL,
-			   "authors", authors,
-			   "comments", _("Send and receive messages from your mobile phone."),
-			   "copyright", "Copyright \xc2\xa9 2003-2004 Edd Dumbill\nCopyright \xc2\xa9 2005-2007 Bastien Nocera",
-			   "documenters", documenters,
-			   "logo-icon-name", "phone",
+	gtk_show_about_dialog (NULL,
+			       "authors", authors,
+			       "comments", _("Send and receive messages from your mobile phone."),
+			       "copyright", "Copyright \xc2\xa9 2003-2004 Edd Dumbill\nCopyright \xc2\xa9 2005-2007 Bastien Nocera",
+			       "documenters", documenters,
+			       "logo-icon-name", "phone",
 #if GTK_CHECK_VERSION (2, 11, 0)
-			   "program-name", _("Phone Manager"),
+			       "program-name", _("Phone Manager"),
 #else
-			   "name", _("Phone Manager"),
+			       "name", _("Phone Manager"),
 #endif /* GTK+ 2.11.0 */
-			   "version", VERSION,
-			   "translator-credits", strcmp (translator_credits, "translator_credits") != 0 ?  translator_credits : NULL,
-			   "website", "http://live.gnome.org/PhoneManager",
-			   "website-label", _("Phone Manager website"),
-			   NULL);
+			       "version", VERSION,
+			       "translator-credits", strcmp (translator_credits, "translator_credits") != 0 ?  translator_credits : NULL,
+			       "website", "http://live.gnome.org/PhoneManager",
+			       "website-label", _("Phone Manager website"),
+			       NULL);
 
-    return TRUE;
+	return TRUE;
 }
 
 static gboolean
@@ -86,37 +86,35 @@ construct_menu (MyApp *app)
 
 	item = gtk_image_menu_item_new_with_mnemonic (_("_Send Message"));
 	g_signal_connect (G_OBJECT(item), "activate",
-			G_CALLBACK (send_activated), (gpointer) app);
+			  G_CALLBACK (send_activated), (gpointer) app);
 	gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item),
-			GTK_WIDGET (gtk_image_new_from_icon_name ("mail-message-new",
-					GTK_ICON_SIZE_MENU)));
+				       GTK_WIDGET (gtk_image_new_from_icon_name ("mail-message-new",
+										 GTK_ICON_SIZE_MENU)));
 	gtk_widget_show (item);
 	gtk_menu_shell_append (GTK_MENU_SHELL (app->menu), item);
 	app->send_item = item;
 
 	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_PREFERENCES,
-			 NULL);
-    g_signal_connect (G_OBJECT(item), "activate",
-			G_CALLBACK (prefs_activated), (gpointer) app);
+						   NULL);
+	g_signal_connect (G_OBJECT(item), "activate",
+			  G_CALLBACK (prefs_activated), (gpointer) app);
 
-    gtk_widget_show (item);
-    gtk_menu_shell_append(GTK_MENU_SHELL(app->menu), item);
+	gtk_widget_show (item);
+	gtk_menu_shell_append(GTK_MENU_SHELL(app->menu), item);
 
-	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_ABOUT,
-			 NULL);
+	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_ABOUT, NULL);
 
-    g_signal_connect (G_OBJECT(item), "activate",
-			G_CALLBACK (about_activated), (gpointer) app);
+	g_signal_connect (G_OBJECT(item), "activate",
+			  G_CALLBACK (about_activated), (gpointer) app);
 
-    gtk_widget_show (item);
-    gtk_menu_shell_append (GTK_MENU_SHELL(app->menu), item);
+	gtk_widget_show (item);
+	gtk_menu_shell_append (GTK_MENU_SHELL(app->menu), item);
 
-    item = gtk_image_menu_item_new_from_stock (GTK_STOCK_QUIT,
-                                             NULL);
-    g_signal_connect (G_OBJECT(item), "activate",
-			G_CALLBACK (quit_activated), (gpointer) app);
+	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_QUIT, NULL);
+	g_signal_connect (G_OBJECT(item), "activate",
+			  G_CALLBACK (quit_activated), (gpointer) app);
 
-    gtk_widget_show (item);
-    gtk_menu_shell_append (GTK_MENU_SHELL(app->menu), item);
+	gtk_widget_show (item);
+	gtk_menu_shell_append (GTK_MENU_SHELL(app->menu), item);
 }
 

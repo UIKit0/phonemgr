@@ -1,5 +1,10 @@
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
 
+	* src/menu.c: (construct_menu): Better indentation, spotted
+	by Diego Escalante Urrelo (Closes: #496644)
+
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
 	* src/e-phone-entry.c: (test_display_func): Fix build
 	(Closes: #496676)
 
