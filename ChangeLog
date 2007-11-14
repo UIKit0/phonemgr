@@ -1,3 +1,7 @@
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
+	* telepathy/Makefile.am: Add sms.profile to the dist
+
 ============ Version 0.40
 
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
