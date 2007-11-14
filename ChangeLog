@@ -1,5 +1,19 @@
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
 
+	* telepathy/connection-manager.c:
+	(phoney_connection_manager_class_init):
+	* telepathy/connection.c: (_phoney_connection_start_connecting),
+	(_phoney_connection_shut_down):
+	* telepathy/im-channel-factory.c: (phoney_im_channel_factory_init),
+	(im_channel_closed_cb), (new_im_channel), (get_im_channel):
+	* telepathy/im-channel.c: (phoney_im_channel_close):
+	Use GUINT_TO/FROM_POINTER, as the handles are unsigned,
+	Fix crasher when closing a channel, as we need to use g_object_unref
+	not g_free (thanks to Simon McVittie) (Closes: #495099, #495274)
+	Try to avoid warning on double-disconnect checks
+
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
 	* src/menu.c: (construct_menu): Better indentation, spotted
 	by Diego Escalante Urrelo (Closes: #496644)
 

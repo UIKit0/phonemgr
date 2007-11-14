@@ -59,23 +59,10 @@ free_params (void *p)
 	g_free (params);
 }
 
-static const TpCMProtocolSpec protocol = {
-	"sms",
-	params,
-	alloc_params,
-	free_params
+const TpCMProtocolSpec phoney_protocols[] = {
+  { "sms", params, alloc_params, free_params },
+  { NULL, NULL }
 };
-
-static TpCMProtocolSpec *
-get_protocols (PhoneyConnectionManagerClass *klass)
-{
-	TpCMProtocolSpec *protocols;
-
-	protocols = g_slice_alloc0 (sizeof (TpCMProtocolSpec) * (1 + 1));
-	protocols[0] = protocol;
-
-	return protocols;
-}
 
 PhoneyConnection *
 phoney_connection_manager_get_phoney_connection (PhoneyConnectionManager *self,
@@ -141,7 +128,7 @@ phoney_connection_manager_class_init (PhoneyConnectionManagerClass *klass)
 
 	base_class->new_connection = _phoney_connection_manager_new_connection;
 	base_class->cm_dbus_name = "phoney";
-	base_class->protocol_params = get_protocols (klass);
+	base_class->protocol_params = phoney_protocols;
 }
 
 static void

@@ -68,7 +68,7 @@ phoney_im_channel_factory_init (PhoneyImChannelFactory *self)
 	PhoneyImChannelFactoryPrivate *priv =
 		PHONEY_IM_CHANNEL_FACTORY_GET_PRIVATE(self);
 
-	priv->channels = g_hash_table_new_full (g_direct_hash, g_direct_equal, NULL, g_free);
+	priv->channels = g_hash_table_new_full (g_direct_hash, g_direct_equal, NULL, g_object_unref);
 
 	priv->conn = NULL;
 	priv->dispose_has_run = FALSE;
@@ -172,7 +172,7 @@ im_channel_closed_cb (PhoneyIMChannel *chan, gpointer user_data)
 
 		DEBUG ("removing channel with handle %d", contact_handle);
 
-		g_hash_table_remove (priv->channels, GINT_TO_POINTER (contact_handle));
+		g_hash_table_remove (priv->channels, GUINT_TO_POINTER (contact_handle));
 	}
 }
 
@@ -190,7 +190,7 @@ new_im_channel (PhoneyImChannelFactory *self,
 	priv = PHONEY_IM_CHANNEL_FACTORY_GET_PRIVATE (self);
 	conn = (TpBaseConnection *)priv->conn;
 
-	g_assert (!g_hash_table_lookup (priv->channels, GINT_TO_POINTER (handle)));
+	g_assert (!g_hash_table_lookup (priv->channels, GUINT_TO_POINTER (handle)));
 
 	object_path = g_strdup_printf ("%s/ImChannel%u", conn->object_path, handle);
 
@@ -204,7 +204,7 @@ new_im_channel (PhoneyImChannelFactory *self,
 
 	g_signal_connect (chan, "closed", G_CALLBACK (im_channel_closed_cb), self);
 
-	g_hash_table_insert (priv->channels, GINT_TO_POINTER (handle), chan);
+	g_hash_table_insert (priv->channels, GUINT_TO_POINTER (handle), chan);
 
 	tp_channel_factory_iface_emit_new_channel (self, (TpChannelIface *)chan,
 						   NULL);
@@ -222,7 +222,7 @@ get_im_channel (PhoneyImChannelFactory *self,
 	PhoneyImChannelFactoryPrivate *priv =
 		PHONEY_IM_CHANNEL_FACTORY_GET_PRIVATE (self);
 	PhoneyIMChannel *chan =
-		g_hash_table_lookup (priv->channels, GINT_TO_POINTER (handle));
+		g_hash_table_lookup (priv->channels, GUINT_TO_POINTER (handle));
 
 	if (chan)
 	{

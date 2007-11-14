@@ -78,10 +78,13 @@ phoney_im_channel_close (TpSvcChannel *iface,
 	PhoneyIMChannel *self = PHONEY_IM_CHANNEL (iface);
 	PhoneyIMChannelPrivate *priv = PHONEY_IM_CHANNEL_GET_PRIVATE (self);
 
+	DEBUG ("Called with TpSvcChannel: %p", iface);
+
 	if (!priv->closed)
 	{
-		tp_svc_channel_emit_closed (iface);
 		priv->closed = TRUE;
+		//FIXME this is broken
+		tp_svc_channel_emit_closed (iface);
 	}
 
 	tp_svc_channel_return_from_close(context);

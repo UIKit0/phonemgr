@@ -73,6 +73,8 @@ _phoney_connection_start_connecting (TpBaseConnection *base,
 	TpHandleRepoIface *contact_handles =
 		tp_base_connection_get_handles (base, TP_HANDLE_TYPE_CONTACT);
 
+	//FIXME we shouldn't use the bdaddr, probably try to get our own phone number
+	//from somewhere instead
 	base->self_handle = tp_handle_ensure (contact_handles,
 					      priv->bdaddr, NULL, error);
 	if (!base->self_handle)
@@ -115,7 +117,13 @@ _phoney_connection_shut_down (TpBaseConnection *base)
 	PhoneyConnection *self = PHONEY_CONNECTION(base);
 	PhoneyConnectionPrivate *priv = PHONEY_CONNECTION_GET_PRIVATE(self);
 
-	phonemgr_listener_disconnect (priv->listener);
+	if (phonemgr_listener_connected (priv->listener) != FALSE) {
+		DEBUG ("still open; calling phonemgr_listener_disconnect");
+		phonemgr_listener_disconnect (priv->listener);
+	} else {
+		DEBUG ("closed; emitting DISCONNECTED");
+		tp_base_connection_finish_shutdown (base);
+	}
 }
 
 static void
