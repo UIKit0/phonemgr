@@ -1,5 +1,10 @@
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
 
+	* src/gnome-phone-manager.desktop.in: Remove unneeded Encoding key
+	(Closes: #496851)
+
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message),
 	(phonemgr_listener_poll): Add http links in the dummy messages
 
