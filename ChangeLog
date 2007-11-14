@@ -1,3 +1,8 @@
+2007-11-13  Diego Escalante Urrelo  <diegoe@gnome.org>
+
+	* ui/phonemgr.glade: Fix the expand property of the contact container 
+	entry (Closes #496331)
+
 2007-11-13  Bastien Nocera  <hadess@hadess.net>
 
 	* src/Makefile.am:

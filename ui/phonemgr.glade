@@ -765,6 +765,7 @@
 		      <property name="right_attach">2</property>
 		      <property name="top_attach">0</property>
 		      <property name="bottom_attach">1</property>
+		      <property name="y_options">fill</property>
 		    </packing>
 		  </child>
 		</widget>
