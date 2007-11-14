@@ -1,3 +1,8 @@
+2007-11-14  Diego Escalante Urrelo  <diegoe@gnome.org>
+
+	* src/Makefile.am: Fix BUILT_SOURCES being overwritten by MARSHALFILES
+	and thus not generating phone-manager-interface.h (Closes #496632).
+
 2007-11-14  Bastien Nocera  <hadess@hadess.net>
 
 	* telepathy/Makefile.am: Add sms.profile to the dist

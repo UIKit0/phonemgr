@@ -50,7 +50,7 @@ test_entry_SOURCES = test-entry.c e-phone-entry.c e-phone-entry.h $(CLA_FILES) $
 test_entry_LDADD = $(PHONEMGR_LIBS)
 
 MARSHALFILES = econtactentry-marshal.c econtactentry-marshal.h
-BUILT_SOURCES = $(MARSHALFILES)
+BUILT_SOURCES += $(MARSHALFILES)
 
 econtactentry-marshal.c: econtactentry-marshal.h
 	( $(GLIB_GENMARSHAL) --prefix=econtactentry_marshal $(srcdir)/econtactentry-marshal.list --header --body > econtactentry-marshal.c )
