@@ -36,6 +36,8 @@
 #define POLL_TIMEOUT 300
 #define TRYLOCK_TIMEOUT 50
 
+#define CHECK_EXIT { if (l->terminated != FALSE) { g_mutex_unlock (l->mutex); goto exit_thread; } }
+
 static gpointer		 parent_class = NULL;
 
 typedef struct {
@@ -703,16 +705,23 @@ static void
 phonemgr_listener_thread (PhonemgrListener *l)
 {
 	g_mutex_lock (l->mutex);
+	CHECK_EXIT;
 	phonemgr_listener_get_own_details (l);
+	CHECK_EXIT;
 	phonemgr_listener_set_sms_notification (l, TRUE);
+	CHECK_EXIT;
 	phonemgr_listener_set_call_notification (l, TRUE);
+	CHECK_EXIT;
 	g_mutex_unlock (l->mutex);
 
 	while (l->terminated == FALSE) {
 		if (g_mutex_trylock (l->mutex) != FALSE) {
+			CHECK_EXIT;
 			if (l->supports_sms_notif != FALSE)
 				phonemgr_listener_sms_notification_soft_poll (l);
+			CHECK_EXIT;
 			phonemgr_listener_call_notification_poll (l);
+			CHECK_EXIT;
 			phonemgr_listener_battery_poll (l);
 
 			g_mutex_unlock (l->mutex);
@@ -722,6 +731,7 @@ phonemgr_listener_thread (PhonemgrListener *l)
 		}
 	}
 
+exit_thread:
 	g_mutex_lock (l->mutex);
 	phonemgr_listener_set_sms_notification (l, FALSE);
 	phonemgr_listener_set_call_notification (l, FALSE);

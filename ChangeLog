@@ -1,3 +1,17 @@
+2007-11-14  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_emit_message),
+	(phonemgr_listener_connect), (phonemgr_listener_call_status),
+	(phonemgr_listener_thread): exit super-fast when asked to during
+	the initial setup
+
+	* libgsm/phonemgr-utils.c: (phonemgr_utils_driver_for_model),
+	(phonemgr_utils_driver_parse_start_tag),
+	(phonemgr_utils_start_parse), (phonemgr_utils_init_hash_tables),
+	(phonemgr_utils_tell_driver): Fix disconnecting and reconnecting
+	to a phone with a driver, only add the phone's driver to the list of
+	known devices when it's a known device
+
 2007-11-14  Diego Escalante Urrelo  <diegoe@gnome.org>
 
 	* src/Makefile.am: Fix BUILT_SOURCES being overwritten by MARSHALFILES

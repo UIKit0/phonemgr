@@ -281,15 +281,12 @@ phonemgr_utils_driver_for_model (const char *model, const char *device)
 		driver = g_strdup (PHONEMGR_DEFAULT_DRIVER);
 	} else {
 		driver = g_strdup (driver);
+		/* Add it to the list if it's a bluetooth device */
+		//FIXME this should also go in GConf
+		if (phonemgr_utils_address_is (device) == PHONEMGR_CONNECTION_BLUETOOTH)
+			g_hash_table_insert (driver_device, g_strdup (device), g_strdup (driver));
 	}
 
-	/* Add it to the list if it's a bluetooth device */
-	//FIXME this should also go in GConf
-	if (phonemgr_utils_address_is (device) == PHONEMGR_CONNECTION_BLUETOOTH) {
-		g_hash_table_insert (driver_device,
-				g_strdup (device),
-				driver);
-	}
 
 	return driver;
 }
@@ -407,8 +404,8 @@ phonemgr_utils_init_hash_tables (void)
 	if (driver_device != NULL && driver_model != NULL)
 		return;
 
-	driver_device = g_hash_table_new (g_str_hash, g_str_equal);
-	driver_model = g_hash_table_new (g_str_hash, g_str_equal);
+	driver_device = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+	driver_model = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
 	phonemgr_utils_start_parse ();
 }
