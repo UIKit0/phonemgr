@@ -77,7 +77,7 @@ phoney_connection_manager_get_phoney_connection (PhoneyConnectionManager *self,
 		char *tmp;
 
 		conn = l->data;
-		g_object_get (G_OBJECT (conn), "listener", &tmp, NULL);
+		g_object_get (G_OBJECT (conn), "bdaddr", &tmp, NULL);
 		if(tmp != NULL && strcmp (tmp, bdaddr) == 0) {
 			g_free (tmp);
 			return conn;
@@ -112,10 +112,23 @@ _phoney_connection_manager_new_connection (TpBaseConnectionManager *base,
 	PhoneyConnectionManager *cm = PHONEY_CONNECTION_MANAGER(base);
 	PhoneyConnectionManagerClass *klass = PHONEY_CONNECTION_MANAGER_GET_CLASS (cm);
 	PhoneyParams *params = (PhoneyParams *)parsed_params;
-	PhoneyConnection *conn = g_object_new (PHONEY_TYPE_CONNECTION,
-					       "protocol",        proto,
-					       "bdaddr",          params->bdaddr,
-					       NULL);
+	PhoneyConnection *conn;
+
+	/* Check if a connection already exists for that address, even if
+	 * it's not connected */
+	conn = phoney_connection_manager_get_phoney_connection (cm, params->bdaddr);
+	if (conn != NULL) {
+		DEBUG ("Already have a connection for '%s'", params->bdaddr);
+		*error = g_error_new (TP_ERRORS, TP_ERROR_NOT_AVAILABLE,
+				      "Connection to '%s' already exists, not creating a new one",
+				      params->bdaddr);
+		return NULL;
+	}
+
+	conn = g_object_new (PHONEY_TYPE_CONNECTION,
+			     "protocol",        proto,
+			     "bdaddr",          params->bdaddr,
+			     NULL);
 
 	cm->connections = g_list_prepend(cm->connections, conn);
 	g_signal_connect (conn, "shutdown-finished",
