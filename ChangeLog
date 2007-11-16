@@ -1,5 +1,12 @@
 2007-11-16  Bastien Nocera  <hadess@hadess.net>
 
+	* data/Makefile.am:
+	* data/gnome-phone-manager.1: Add man page from
+	Francesco Namuri <francesco@namuri.it>
+	(Closes: #496848)
+
+2007-11-16  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am:
 	* configure.in:
 	* src/ui.c: (get_resource):

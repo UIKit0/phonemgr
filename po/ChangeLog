@@ -1,8 +1,6 @@
 2007-11-16  Bastien Nocera  <hadess@hadess.net>
 
-	reviewed by: <delete if not using a buddy>
-
-	* POTFILES.in:
+	* POTFILES.in: upd for ui/ -> data/ changes
 
 2007-11-09  Bastien Nocera  <hadess@hadess.net>
 

@@ -1,6 +1,8 @@
 
 SUBDIRS = icons
 
+man_MANS = gnome-phone-manager.1
+
 uidir = $(datadir)/$(PACKAGE)
 ui_DATA = phonemgr.glade
 
