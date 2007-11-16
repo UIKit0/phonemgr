@@ -152,14 +152,14 @@ fi
 
 AC_CONFIG_FILES([
 Makefile
-ui/Makefile
-ui/icons/Makefile
-ui/icons/16x16/status/Makefile
-ui/icons/16x16/Makefile
-ui/icons/22x22/status/Makefile
-ui/icons/22x22/Makefile
-ui/icons/24x24/status/Makefile
-ui/icons/24x24/Makefile
+data/Makefile
+data/icons/Makefile
+data/icons/16x16/status/Makefile
+data/icons/16x16/Makefile
+data/icons/22x22/status/Makefile
+data/icons/22x22/Makefile
+data/icons/24x24/status/Makefile
+data/icons/24x24/Makefile
 libgsm/Makefile
 src/Makefile
 telepathy/Makefile

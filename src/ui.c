@@ -90,7 +90,7 @@ get_resource (MyApp *app, char *uiresname)
 {
 	char *fname;
 
-	fname = g_build_filename ("..", "ui", uiresname, NULL);
+	fname = g_build_filename ("..", "data", uiresname, NULL);
 
 	if (g_file_test (fname, G_FILE_TEST_EXISTS) == FALSE) {
 		g_free (fname);

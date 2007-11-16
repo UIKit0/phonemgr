@@ -1,3 +1,15 @@
+2007-11-16  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* configure.in:
+	* src/ui.c: (get_resource):
+	Move ...
+	* ui/*:
+	to:
+	* data/*:
+
+	And assorted fixes
+
 2007-11-15  Diego Escalante Urrelo  <diegoe@gnome.org>
 
 	* libgsm/glibgsmtest.c: Add a missing include for locale.h, this was

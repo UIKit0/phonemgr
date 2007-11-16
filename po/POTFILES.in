@@ -8,6 +8,6 @@ src/main.c
 src/menu.c
 src/phonemgr-chooser-button.c
 src/ui.c
-ui/phonemgr.glade
-ui/gnome-phone-manager.schemas.in
+data/phonemgr.glade
+data/gnome-phone-manager.schemas.in
 src/e-contact-entry.c
