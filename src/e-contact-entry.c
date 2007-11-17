@@ -685,9 +685,7 @@ e_contact_entry_init (EContactEntry *entry)
   reset_search_fields (entry);
 
   entry->priv->completion = gtk_entry_completion_new ();
-#if NEW_GTK
   gtk_entry_completion_set_popup_set_width (entry->priv->completion, FALSE);
-#endif
   gtk_entry_completion_set_model (entry->priv->completion, GTK_TREE_MODEL (entry->priv->store));
   gtk_entry_completion_set_match_func (entry->priv->completion, (GtkEntryCompletionMatchFunc)completion_match_cb, NULL, NULL);
   g_signal_connect (entry->priv->completion, "match-selected", G_CALLBACK (completion_match_selected_cb), entry);

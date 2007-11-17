@@ -1,3 +1,10 @@
+2007-11-17  Bastien Nocera  <hadess@hadess.net>
+
+	* src/e-contact-entry.c: Update from contact-lookup-applet,
+	don't force the width to be restricted to the width of the
+	entry, spotted by Diego Escalante Urrelo <diegoe@gnome.org>
+	(Closes: #496092)
+
 2007-11-16  Bastien Nocera  <hadess@hadess.net>
 
 	* data/Makefile.am:
