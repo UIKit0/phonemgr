@@ -208,6 +208,9 @@
 		identifier="6230i"
 		driver="6230" />
 	<phone_entry
+		identifier="Nokia 6111"
+		driver="6510" />
+	<phone_entry
 		identifier="Nokia 3110c"
 		driver="6510" />
 	<phone_entry

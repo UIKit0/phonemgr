@@ -1,3 +1,8 @@
+2007-11-19  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phones.xml: Make the Nokia 6111 use the 6510 driver
+	(Closes: #498062)
+
 2007-11-17  Bastien Nocera  <hadess@hadess.net>
 
 	* src/e-contact-entry.c: Update from contact-lookup-applet,
