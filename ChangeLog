@@ -1,5 +1,11 @@
 2007-11-19  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phones.xml: Add the Nokia E70 to the list of supported
+	phones, with the gnapplet driver (Closes: #498239)
+	* telepathy/im-channel.c: (phoney_im_channel_send): Fix build
+
+2007-11-19  Bastien Nocera  <hadess@hadess.net>
+
 	* data/phonemgr.glade:
 	* libgsm/glibgsmtest.c: (main):
 	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message):

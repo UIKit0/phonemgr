@@ -286,6 +286,9 @@
 		identifier="Samsung SGH-Z600"
 		driver="gnapplet" />
 	<phone_entry
+		identifier="Nokia E70-1"
+		driver="gnapplet" />
+	<phone_entry
 		identifier="AAD-3022031-BV"
 		driver="AT" />
 </phone_entries>
