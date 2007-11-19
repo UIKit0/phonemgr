@@ -1,5 +1,21 @@
 2007-11-19  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-utils.c: (get_rfcomm_channel),
+	(find_service_channel), (phonemgr_utils_get_serial_channel),
+	(phonemgr_utils_get_gnapplet_channel),
+	(phonemgr_utils_write_config), (phonemgr_utils_free),
+	(phonemgr_utils_tell_driver), (phonemgr_utils_write_gnokii_config):
+	* libgsm/phonemgr-utils.h: Add phonemgr_utils_get_gnapplet_channel
+	to detect the channel used by gnapplet running on remote phones
+
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_connect),
+	(phonemgr_listener_call_status):
+	Add support for gnapplet, detect if gnapplet is running, and
+	connect to the right channel if it's running, error out
+	if it's not running (Closes: #312127)
+
+2007-11-19  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phones.xml: Make the Nokia 6111 use the 6510 driver
 	(Closes: #498062)
 

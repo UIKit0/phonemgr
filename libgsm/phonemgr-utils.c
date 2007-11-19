@@ -121,7 +121,7 @@ phonemgr_utils_address_is (const char *addr)
 }
 
 static int
-get_rfcomm_channel (sdp_record_t *rec)
+get_rfcomm_channel (sdp_record_t *rec, gboolean only_gnapplet)
 {
 	int channel = -1;
 	sdp_list_t *protos = NULL;
@@ -134,6 +134,17 @@ get_rfcomm_channel (sdp_record_t *rec)
 	data = sdp_data_get(rec, SDP_ATTR_SVCNAME_PRIMARY);
 	if (data)
 		name = g_strdup_printf ("%.*s", data->unitSize, data->val.str);
+
+	if (name == NULL)
+		goto end;
+
+	/* If we're only supposed to check for gnapplet, do it here
+	 * We ignore it if we're not supposed to check for it */
+	if (strcmp (name, "gnapplet") == 0) {
+		if (only_gnapplet != FALSE)
+			channel = sdp_get_proto_port (protos, RFCOMM_UUID);
+		goto end;
+	}
 
 	/* We can't seem to connect to the PC Suite channel */
 	if (strstr (name, "Nokia PC Suite") != NULL)
@@ -158,7 +169,7 @@ end:
  * what the RFCOMM channel number for the service is.
  */
 static int
-find_service_channel (bdaddr_t *adapter, bdaddr_t *device, uint16_t svclass_id)
+find_service_channel (bdaddr_t *adapter, bdaddr_t *device, gboolean only_gnapplet, uint16_t svclass_id)
 {
 	sdp_session_t *sdp = NULL;
 	sdp_list_t *search = NULL, *attrs = NULL, *recs = NULL, *tmp;
@@ -188,7 +199,7 @@ find_service_channel (bdaddr_t *adapter, bdaddr_t *device, uint16_t svclass_id)
 		/* If this service is better than what we've
 		 * previously seen, try and get the channel number.
 		 */
-		channel = get_rfcomm_channel (rec);
+		channel = get_rfcomm_channel (rec, only_gnapplet);
 		if (channel > 0)
 			goto end;
 	}
@@ -203,7 +214,7 @@ end:
 }
 
 int
-phonemgr_utils_get_channel (const char *device)
+phonemgr_utils_get_serial_channel (const char *device)
 {
 	bdaddr_t src, dst;
 	int channel;
@@ -215,9 +226,27 @@ phonemgr_utils_get_channel (const char *device)
 	bacpy (&src, BDADDR_ANY);
 	str2ba(device, &dst);
 
-	channel = find_service_channel (&src, &dst, SERIAL_PORT_SVCLASS_ID);
+	channel = find_service_channel (&src, &dst, FALSE, SERIAL_PORT_SVCLASS_ID);
 	if (channel < 0)
-		channel = find_service_channel (&src, &dst, DIALUP_NET_SVCLASS_ID);
+		channel = find_service_channel (&src, &dst, FALSE, DIALUP_NET_SVCLASS_ID);
+
+	return channel;
+}
+
+int
+phonemgr_utils_get_gnapplet_channel (const char *device)
+{
+	bdaddr_t src, dst;
+	int channel;
+
+	/* If it's not a Bluetooth address */
+	if (bachk (device) < 0)
+		return -1;
+
+	bacpy (&src, BDADDR_ANY);
+	str2ba(device, &dst);
+
+	channel = find_service_channel (&src, &dst, TRUE, SERIAL_PORT_SVCLASS_ID);
 
 	return channel;
 }
@@ -518,7 +547,8 @@ phonemgr_utils_disconnect (PhonemgrState *phone_state)
 void
 phonemgr_utils_free (PhonemgrState *phone_state)
 {
-	g_return_if_fail (phone_state != NULL);
+	if (phone_state == NULL)
+		return;
 	g_free (phone_state);
 }
 
@@ -540,7 +570,7 @@ phonemgr_utils_tell_driver (const char *addr)
 	}
 
 	if (type == PHONEMGR_CONNECTION_BLUETOOTH) {
-		channel = phonemgr_utils_get_channel (addr);
+		channel = phonemgr_utils_get_serial_channel (addr);
 		if (channel < 0) {
 			g_warning ("Couldn't find the channel to connect to on Bluetooth device");
 			return;
@@ -587,7 +617,7 @@ phonemgr_utils_write_gnokii_config (const char *addr)
 	}
 
 	if (type == PHONEMGR_CONNECTION_BLUETOOTH) {
-		channel = phonemgr_utils_get_channel (addr);
+		channel = phonemgr_utils_get_serial_channel (addr);
 		if (channel < 0) {
 			g_warning ("Couldn't find the channel to connect to on Bluetooth device");
 			return;

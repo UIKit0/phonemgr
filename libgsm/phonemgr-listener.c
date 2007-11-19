@@ -361,23 +361,41 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	channel = -1;
 
 	if (phonemgr_utils_address_is (device) == PHONEMGR_CONNECTION_BLUETOOTH) {
-		channel = phonemgr_utils_get_channel (device);
+		channel = phonemgr_utils_get_serial_channel (device);
 		if (channel < 0) {
 			//FIXME
 			return FALSE;
 		}
 	}
 
+	phonemgr_utils_free (l->phone_state);
 	l->phone_state = phonemgr_utils_connect (device, NULL, channel, l->debug, error);
 	if (l->phone_state == NULL) {
 		//FIXME
 		return FALSE;
 	}
 
+	g_free (l->driver);
 	l->driver = phonemgr_utils_guess_driver (l->phone_state, device, error);
 	if (l->driver == NULL) {
 		//FIXME
+		phonemgr_utils_disconnect (l->phone_state);
+		phonemgr_utils_free (l->phone_state);
 		return FALSE;
+	}
+
+	/* Do we need to see gnapplet driver? */
+	if (strcmp (l->driver, PHONEMGR_DEFAULT_GNAPPLET_DRIVER) == 0) {
+		channel = phonemgr_utils_get_gnapplet_channel (device);
+		if (channel < 0) {
+			phonemgr_utils_disconnect (l->phone_state);
+			phonemgr_utils_free (l->phone_state);
+			g_free (l->driver);
+			l->driver = NULL;
+			//FIXME
+			g_message ("Couldn't connect to the device, gnapplet needed but not running");
+			return FALSE;
+		}
 	}
 
 	/* Need a different driver? then reconnect */
