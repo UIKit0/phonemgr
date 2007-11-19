@@ -799,7 +799,9 @@ phonemgr_listener_answer_call (PhonemgrListener *l)
 
 void
 phonemgr_listener_queue_message (PhonemgrListener *l,
-		const char *number, const char *message)
+				 const char *number,
+				 const char *message,
+				 gboolean delivery_report)
 {
 	char *mstr, *iso;
 	GError *err = NULL;
@@ -860,6 +862,9 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 		sms.smsc.type = l->phone_state->data.message_center->smsc.type;
 	}
 	g_free (l->phone_state->data.message_center);
+
+	/* Set whether to get a delivery report */
+	sms.delivery_report = delivery_report;
 
 	/* Set the message data */
 	sms.user_data[0].type = GN_SMS_DATA_Text;
@@ -996,9 +1001,12 @@ phonemgr_listener_disconnect (PhonemgrListener *l)
 
 void
 phonemgr_listener_queue_message (PhonemgrListener *listener,
-        const char *number, const char *message)
+				 const char *number,
+				 const char *message,
+				 gboolean delivery_report)
 {
-	g_message ("[DUMMY] sending message to %s: %s", number, message);
+	g_message ("[DUMMY] sending message to %s: %s (Delivery report: %s)",
+		   number, message, delivery_report ? "Yes" : "No");
 }
 
 gboolean

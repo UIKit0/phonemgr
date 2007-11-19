@@ -1,5 +1,14 @@
 2007-11-19  Bastien Nocera  <hadess@hadess.net>
 
+	* data/phonemgr.glade:
+	* libgsm/glibgsmtest.c: (main):
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_queue_message):
+	* libgsm/phonemgr-listener.h:
+	* src/ui.c: (send_message):
+	Add support for sending SMSes with delivery reports
+
+2007-11-19  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-utils.c: (get_rfcomm_channel),
 	(find_service_channel), (phonemgr_utils_get_serial_channel),
 	(phonemgr_utils_get_gnapplet_channel),

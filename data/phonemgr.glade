@@ -576,74 +576,11 @@
 	      <child>
 		<widget class="GtkTable" id="table2">
 		  <property name="visible">True</property>
-		  <property name="n_rows">4</property>
+		  <property name="n_rows">5</property>
 		  <property name="n_columns">2</property>
 		  <property name="homogeneous">False</property>
 		  <property name="row_spacing">6</property>
 		  <property name="column_spacing">6</property>
-
-		  <child>
-		    <widget class="GtkLabel" id="charsleft">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes"></property>
-		      <property name="use_underline">False</property>
-		      <property name="use_markup">False</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">False</property>
-		      <property name="xalign">0</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		      <property name="width_chars">-1</property>
-		      <property name="single_line_mode">False</property>
-		      <property name="angle">0</property>
-		      <accessibility>
-			<atkrelation target="label20" type="labelled-by"/>
-		      </accessibility>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">1</property>
-		      <property name="right_attach">2</property>
-		      <property name="top_attach">1</property>
-		      <property name="bottom_attach">2</property>
-		      <property name="x_options">fill</property>
-		      <property name="y_options"></property>
-		    </packing>
-		  </child>
-
-		  <child>
-		    <widget class="GtkLabel" id="label20">
-		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Characters left:</property>
-		      <property name="use_underline">False</property>
-		      <property name="use_markup">True</property>
-		      <property name="justify">GTK_JUSTIFY_LEFT</property>
-		      <property name="wrap">False</property>
-		      <property name="selectable">False</property>
-		      <property name="xalign">0</property>
-		      <property name="yalign">0.5</property>
-		      <property name="xpad">0</property>
-		      <property name="ypad">0</property>
-		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
-		      <property name="width_chars">-1</property>
-		      <property name="single_line_mode">False</property>
-		      <property name="angle">0</property>
-		      <accessibility>
-			<atkproperty name="AtkObject::accessible_description" translatable="yes">Number of characters left in the message</atkproperty>
-			<atkrelation target="charsleft" type="label-for"/>
-		      </accessibility>
-		    </widget>
-		    <packing>
-		      <property name="left_attach">0</property>
-		      <property name="right_attach">1</property>
-		      <property name="top_attach">1</property>
-		      <property name="bottom_attach">2</property>
-		      <property name="x_options">fill</property>
-		      <property name="y_options"></property>
-		    </packing>
-		  </child>
 
 		  <child>
 		    <widget class="GtkLabel" id="label21">
@@ -678,6 +615,45 @@
 		  </child>
 
 		  <child>
+		    <widget class="Custom" id="recipient">
+		      <property name="visible">True</property>
+		      <property name="creation_function">e_phone_entry_new_from_glade</property>
+		      <property name="int1">0</property>
+		      <property name="int2">0</property>
+		      <property name="last_modification_time">Sun, 12 Jun 2005 15:26:11 GMT</property>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">1</property>
+		      <property name="right_attach">2</property>
+		      <property name="top_attach">0</property>
+		      <property name="bottom_attach">1</property>
+		      <property name="y_options">fill</property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkCheckButton" id="delivery_report">
+		      <property name="visible">True</property>
+		      <property name="can_focus">True</property>
+		      <property name="label" translatable="yes">_Notify when message is delivered</property>
+		      <property name="use_underline">True</property>
+		      <property name="relief">GTK_RELIEF_NORMAL</property>
+		      <property name="focus_on_click">True</property>
+		      <property name="active">False</property>
+		      <property name="inconsistent">False</property>
+		      <property name="draw_indicator">True</property>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">0</property>
+		      <property name="right_attach">2</property>
+		      <property name="top_attach">1</property>
+		      <property name="bottom_attach">2</property>
+		      <property name="x_options">fill</property>
+		      <property name="y_options"></property>
+		    </packing>
+		  </child>
+
+		  <child>
 		    <widget class="GtkLabel" id="label23">
 		      <property name="visible">True</property>
 		      <property name="label" translatable="yes">_Message:</property>
@@ -695,13 +671,10 @@
 		      <property name="width_chars">-1</property>
 		      <property name="single_line_mode">False</property>
 		      <property name="angle">0</property>
-		      <accessibility>
-			<atkrelation target="messagebody" type="label-for"/>
-		      </accessibility>
 		    </widget>
 		    <packing>
 		      <property name="left_attach">0</property>
-		      <property name="right_attach">1</property>
+		      <property name="right_attach">2</property>
 		      <property name="top_attach">2</property>
 		      <property name="bottom_attach">3</property>
 		      <property name="x_options">fill</property>
@@ -737,10 +710,6 @@
 			  <property name="right_margin">2</property>
 			  <property name="indent">0</property>
 			  <property name="text" translatable="yes"></property>
-			  <accessibility>
-			    <atkproperty name="AtkObject::accessible_name" translatable="yes">message body</atkproperty>
-			    <atkrelation target="label23" type="labelled-by"/>
-			  </accessibility>
 			</widget>
 		      </child>
 		    </widget>
@@ -749,23 +718,63 @@
 		      <property name="right_attach">2</property>
 		      <property name="top_attach">3</property>
 		      <property name="bottom_attach">4</property>
+		      <property name="x_options">fill</property>
 		    </packing>
 		  </child>
 
 		  <child>
-		    <widget class="Custom" id="recipient">
+		    <widget class="GtkLabel" id="label20">
 		      <property name="visible">True</property>
-		      <property name="creation_function">e_phone_entry_new_from_glade</property>
-		      <property name="int1">0</property>
-		      <property name="int2">0</property>
-		      <property name="last_modification_time">Sun, 12 Jun 2005 15:26:11 GMT</property>
+		      <property name="label" translatable="yes">Characters left:</property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">True</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		      <property name="width_chars">-1</property>
+		      <property name="single_line_mode">False</property>
+		      <property name="angle">0</property>
+		    </widget>
+		    <packing>
+		      <property name="left_attach">0</property>
+		      <property name="right_attach">1</property>
+		      <property name="top_attach">4</property>
+		      <property name="bottom_attach">5</property>
+		      <property name="x_options">fill</property>
+		      <property name="y_options"></property>
+		    </packing>
+		  </child>
+
+		  <child>
+		    <widget class="GtkLabel" id="charsleft">
+		      <property name="visible">True</property>
+		      <property name="label" translatable="yes"></property>
+		      <property name="use_underline">False</property>
+		      <property name="use_markup">False</property>
+		      <property name="justify">GTK_JUSTIFY_LEFT</property>
+		      <property name="wrap">False</property>
+		      <property name="selectable">False</property>
+		      <property name="xalign">0</property>
+		      <property name="yalign">0.5</property>
+		      <property name="xpad">0</property>
+		      <property name="ypad">0</property>
+		      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+		      <property name="width_chars">-1</property>
+		      <property name="single_line_mode">False</property>
+		      <property name="angle">0</property>
 		    </widget>
 		    <packing>
 		      <property name="left_attach">1</property>
 		      <property name="right_attach">2</property>
-		      <property name="top_attach">0</property>
-		      <property name="bottom_attach">1</property>
-		      <property name="y_options">fill</property>
+		      <property name="top_attach">4</property>
+		      <property name="bottom_attach">5</property>
+		      <property name="x_options">fill</property>
+		      <property name="y_options"></property>
 		    </packing>
 		  </child>
 		</widget>

@@ -351,6 +351,7 @@ send_message (GtkWidget *w, GladeXML *ui)
 	GtkTextBuffer *buf;
 	GtkTextView *view;
 	EPhoneEntry *entry;
+	GtkToggleButton *delivery_report;
 	GtkDialog *dialog;
 	GtkTextIter s, e;
 	char *number;
@@ -361,13 +362,14 @@ send_message (GtkWidget *w, GladeXML *ui)
 	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
 	entry = E_PHONE_ENTRY (glade_xml_get_widget (ui, "recipient"));
+	delivery_report = GTK_TOGGLE_BUTTON (glade_xml_get_widget (ui, "delivery_report"));
 
 	gtk_text_buffer_get_start_iter (buf, &s);
 	gtk_text_buffer_get_end_iter (buf, &e);
 	number = e_phone_entry_get_number (entry);
-	phonemgr_listener_queue_message (app->listener,
-			number,
-			gtk_text_buffer_get_text (buf, &s, &e, FALSE));
+	phonemgr_listener_queue_message (app->listener, number,
+					 gtk_text_buffer_get_text (buf, &s, &e, FALSE),
+					 gtk_toggle_button_get_active (delivery_report));
 	g_free (number);
 
 	gtk_widget_hide (GTK_WIDGET (dialog));

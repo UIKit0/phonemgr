@@ -73,7 +73,8 @@ gboolean phonemgr_listener_connect	(PhonemgrListener *listener,
 void phonemgr_listener_disconnect	(PhonemgrListener *listener);
 void phonemgr_listener_queue_message	(PhonemgrListener *listener,
 					 const char *number,
-					 const char *message);
+					 const char *message,
+					 gboolean deliver_report);
 void phonemgr_listener_cancel_call	(PhonemgrListener *l);
 void phonemgr_listener_answer_call	(PhonemgrListener *l);
 void phonemgr_listener_set_time		(PhonemgrListener *l,

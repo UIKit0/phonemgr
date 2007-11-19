@@ -102,7 +102,7 @@ main (int argc, char **argv)
 		g_message ("Connected OK");
 
 		/* phonemgr_listener_queue_message (listener, "1234567",
-				"test message XXX"); */
+				"test message XXX", TRUE); */
 
 		loop = g_main_loop_new (NULL, FALSE);
 		g_main_loop_run (loop);
