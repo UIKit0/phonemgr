@@ -1,21 +1,24 @@
+# translation of oc.po to Occitan
 # Occitan translation of phonemgr.
 # Copyright (C) 2003-2007 The Free Software Foundation, Inc.
 # This file is distributed under the GNU General Public License Version 2.
 #
 # Yannig MARCHEGAY (yannig@marchegay.org) - 2006-2007
 #
+# Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr 0.4\n"
+"Project-Id-Version: oc\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-02-23 22:42+0100\n"
-"PO-Revision-Date: 2007-08-20 19:35+0200\n"
-"Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
-"Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
+"PO-Revision-Date: 2007-11-20 14:32+0100\n"
+"Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
+"Language-Team: Occitan <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../libegg/libegg/iconlist/eggiconlist.c:313
 msgid "Selection mode"
@@ -107,7 +110,7 @@ msgstr ""
 
 #: ../libegg/libegg/tray/eggstatusicon.c:162
 msgid "Filename"
-msgstr "Nom del fichièr"
+msgstr "Nom de fichièr"
 
 #: ../libegg/libegg/tray/eggstatusicon.c:163
 msgid "Filename to load and display"
@@ -261,8 +264,7 @@ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
 msgstr ""
 
 #: ../ui/phonemgr.glade.h:6
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+msgid "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
 msgstr ""
 
 #: ../ui/phonemgr.glade.h:7
@@ -390,7 +392,7 @@ msgstr "_Respondre"
 
 #: ../ui/phonemgr.glade.h:37
 msgid "_Send"
-msgstr "_Enviar"
+msgstr "_Velocitat :"
 
 #: ../ui/phonemgr.glade.h:38
 msgid "message body"
@@ -472,8 +474,7 @@ msgid "The address book authentication failed."
 msgstr ""
 
 #: ../src/e-contact-entry.c:860
-msgid ""
-"Authentication is required to access the address book and was not given."
+msgid "Authentication is required to access the address book and was not given."
 msgstr ""
 
 #: ../src/e-contact-entry.c:862
