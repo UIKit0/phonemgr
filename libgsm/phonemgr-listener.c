@@ -101,6 +101,7 @@ static void phonemgr_listener_thread (PhonemgrListener *l);
 
 enum {
 	MESSAGE_SIGNAL,
+	REPORT_STATUS_SIGNAL,
 	STATUS_SIGNAL,
 	CALL_STATUS_SIGNAL,
 	BATTERY_SIGNAL,
@@ -176,6 +177,17 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 			      3,
 			      G_TYPE_STRING, G_TYPE_ULONG, G_TYPE_STRING);
 
+	phonemgr_listener_signals[REPORT_STATUS_SIGNAL] =
+		g_signal_new ("report-status",
+			      G_OBJECT_CLASS_TYPE (klass),
+			      G_SIGNAL_RUN_FIRST,
+			      G_STRUCT_OFFSET (PhonemgrListenerClass, report_status),
+			      NULL, NULL,
+			      phonemgr_marshal_VOID__STRING_ULONG_INT,
+			      G_TYPE_NONE,
+			      3,
+			      G_TYPE_STRING, G_TYPE_ULONG, G_TYPE_INT);
+
 	phonemgr_listener_signals[STATUS_SIGNAL] =
 		g_signal_new ("status",
 			      G_OBJECT_CLASS_TYPE (klass),
@@ -235,6 +247,40 @@ phonemgr_listener_emit_status (PhonemgrListener *l, PhonemgrListenerStatus statu
 	g_signal_emit (G_OBJECT (l),
 		       phonemgr_listener_signals[STATUS_SIGNAL],
 		       0, status);
+}
+
+static void
+phonemgr_listener_emit_report_status (PhonemgrListener *l, gn_sms *message)
+{
+	time_t time;
+	char *sender;
+	PhonemgrListenerReportStatus status;
+
+	switch (message->user_data[0].dr_status) {
+	case GN_SMS_DR_Status_Delivered:
+		status = PHONEMGR_LISTENER_REPORT_DELIVERED;
+		break;
+	case GN_SMS_DR_Status_Pending:
+		status = PHONEMGR_LISTENER_REPORT_PENDING;
+		break;
+	case GN_SMS_DR_Status_Failed_Temporary:
+		status = PHONEMGR_LISTENER_REPORT_FAILED_TEMPORARY;
+		break;
+	case GN_SMS_DR_Status_Failed_Permanent:
+		status = PHONEMGR_LISTENER_REPORT_FAILED_PERMANENT;
+		break;
+	default:
+		return;
+	}
+
+	time = gn_timestamp_to_gtime (message->smsc_time);
+	sender = g_strdup (message->remote.number);
+
+	g_signal_emit (G_OBJECT (l),
+		       phonemgr_listener_signals[REPORT_STATUS_SIGNAL],
+		       0, sender, time, status);
+
+	g_free (sender);
 }
 
 static void
@@ -432,11 +478,18 @@ phonemgr_listener_push (PhonemgrListener *l)
 	if (signal == NULL)
 		return FALSE;
 
-	if (signal->type == MESSAGE_SIGNAL) {
+	switch (signal->type) {
+	case MESSAGE_SIGNAL:
 		g_message ("emitting message");
 		phonemgr_listener_emit_message (l, signal->message);
 		g_free (signal->message);
-	} else if (signal->type == CALL_STATUS_SIGNAL) {
+		break;
+	case REPORT_STATUS_SIGNAL:
+		g_message ("emitting delivery report status");
+		phonemgr_listener_emit_report_status (l, signal->message);
+		g_free (signal->message);
+		break;
+	case CALL_STATUS_SIGNAL:
 		g_message ("emitting call status");
 		phonemgr_listener_emit_call_status (l, signal->call->status,
 						    signal->call->number,
@@ -444,13 +497,15 @@ phonemgr_listener_push (PhonemgrListener *l)
 		g_free (signal->call->number);
 		g_free (signal->call->name);
 		g_free (signal->call);
-	} else if (signal->type == BATTERY_SIGNAL) {
+		break;
+	case BATTERY_SIGNAL:
 		g_message ("emitting battery");
 		phonemgr_listener_emit_battery (l,
 						(int) signal->battery->batterylevel,
 						signal->battery->powersource != GN_PS_BATTERY);
 		g_free (signal->battery);
-	} else {
+		break;
+	default:
 		g_assert_not_reached ();
 	}
 
@@ -464,9 +519,18 @@ phonemgr_listener_new_sms_cb (gn_sms *message, struct gn_statemachine *state, vo
 {
 	PhonemgrListener *l = (PhonemgrListener *) user_data;
 	AsyncSignal *signal;
+	int type;
+
+	/* Check that it's a type of message we support */
+	if (message->type == GN_SMS_MT_DeliveryReport)
+		type = REPORT_STATUS_SIGNAL;
+	else if (message->type == GN_SMS_MT_Deliver)
+		type = MESSAGE_SIGNAL;
+	else
+		return;
 
 	signal = g_new0 (AsyncSignal, 1);
-	signal->type = MESSAGE_SIGNAL;
+	signal->type = type;
 	/* The message is allocated on the stack in the driver, so copy it */
 	signal->message = g_memdup (message, sizeof (gn_sms));
 

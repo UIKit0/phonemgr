@@ -53,6 +53,13 @@ static char *call_statutes[] = {
 	"PHONEMGR_LISTENER_CALL_UNKNOWN"
 };
 
+static char *report_statuses[] = {
+	"PHONEMGR_LISTENER_REPORT_DELIVERED",
+	"PHONEMGR_LISTENER_REPORT_PENDING",
+	"PHONEMGR_LISTENER_REPORT_FAILED_TEMPORARY",
+	"PHONEMGR_LISTENER_REPORT_FAILED_PERMANENT"
+};
+
 static void
 call_status (PhonemgrListener *listener, PhonemgrListenerCallStatus status, const char *phone, const char *name, gpointer user_data)
 {
@@ -69,6 +76,12 @@ static void
 status (PhonemgrListener *listener, gint status, gpointer user_data)
 {
 	g_message ("Got status %s (%d)", statuses[status], status);
+}
+
+static void
+report_status (PhonemgrListener *l, char *phone, time_t timestamp, PhonemgrListenerReportStatus status, gpointer user_data)
+{
+	g_message ("Received delivery report status %s for %s", report_statuses[status], phone);
 }
 
 int
@@ -95,6 +108,8 @@ main (int argc, char **argv)
 			  G_CALLBACK (call_status), (gpointer) listener);
 	g_signal_connect (G_OBJECT (listener), "battery",
 			  G_CALLBACK (battery), (gpointer) listener);
+	g_signal_connect (G_OBJECT (listener), "report-status",
+			  G_CALLBACK (report_status), (gpointer) listener);
 
 //	if (phonemgr_listener_connect (listener, "1", &err)) {
 	if (phonemgr_listener_connect (listener, "00:12:D2:79:B7:33", &err)) {

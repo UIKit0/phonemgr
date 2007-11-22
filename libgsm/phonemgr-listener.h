@@ -43,6 +43,13 @@ typedef enum {
 } PhonemgrListenerStatus;
 
 typedef enum {
+	PHONEMGR_LISTENER_REPORT_DELIVERED,
+	PHONEMGR_LISTENER_REPORT_PENDING,
+	PHONEMGR_LISTENER_REPORT_FAILED_TEMPORARY,
+	PHONEMGR_LISTENER_REPORT_FAILED_PERMANENT
+} PhonemgrListenerReportStatus;
+
+typedef enum {
 	PHONEMGR_LISTENER_CALL_INCOMING,
 	PHONEMGR_LISTENER_CALL_ONGOING,
 	PHONEMGR_LISTENER_CALL_IDLE,
@@ -59,6 +66,7 @@ struct _PhonemgrListenerClass
 {
   GObjectClass	parent_class;
   void (* message) (PhonemgrListener *l, char *phone, time_t timestamp, char *message);
+  void (* report_status) (PhonemgrListener *l, char *phone, time_t timestamp, PhonemgrListenerReportStatus status);
   void (* status) (PhonemgrListener *l, PhonemgrListenerStatus status);
   void (* call_status) (PhonemgrListener *l, PhonemgrListenerCallStatus status, const char *phone, const char *name);
   void (* battery) (PhonemgrListener *l, int percent, gboolean on_ac);

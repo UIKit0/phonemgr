@@ -1,3 +1,18 @@
+2007-11-22  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: up the reqs to gnokii 0.6.22
+
+	* libgsm/glibgsmtest.c: (report_status), (main):
+	* libgsm/phonemgr-listener.c: (phonemgr_listener_class_init),
+	(phonemgr_listener_emit_report_status),
+	(phonemgr_listener_emit_message), (phonemgr_listener_connect),
+	(phonemgr_listener_push), (phonemgr_listener_new_sms_cb),
+	(phonemgr_listener_call_status):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-marshal.list: Add the "report-status" signal to
+	dispatch delivery report statuses, so they're better handled in
+	the UI
+
 2007-11-19  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phones.xml: Add the Nokia E70 to the list of supported
