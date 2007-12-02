@@ -7,13 +7,13 @@ AC_CONFIG_SRCDIR(src/main.c)
 AM_MAINTAINER_MODE
 AM_CONFIG_HEADER(config.h)
 
-AM_INIT_AUTOMAKE([1.8 dist-bzip2 no-dist-gzip check-news])
+AM_INIT_AUTOMAKE([1.9 dist-bzip2 no-dist-gzip check-news])
 
 dnl Initialize libtool
 AM_DISABLE_SHARED
 AM_PROG_LIBTOOL
 
-GNOKII_REQS="gnokii >= 0.6.22"
+GNOKII_REQS="gnokii >= 0.6.22 bluez >= 3.12"
 GNOME_BLUETOOTH_REQS="gnome-bluetooth > 0.8.0"
 
 AC_PROG_CC

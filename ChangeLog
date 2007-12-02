@@ -1,3 +1,9 @@
+2007-12-02  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: Add requirement for bluez, we would fail
+	building if bluez-libs wasn't new enough, or gnokii wasn't
+	built with Bluetooth support (Closes: #500941)
+
 2007-11-22  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in: up the reqs to gnokii 0.6.22
