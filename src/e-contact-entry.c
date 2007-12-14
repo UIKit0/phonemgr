@@ -437,7 +437,7 @@ book_opened_cb (EBook *book, EBookStatus status, gpointer data)
     GList *l;
 
     for (l = lookup->entry->priv->lookup_entries; l != NULL; l = l->next) {
-      EntryLookup *e;
+      EntryLookup *e = l->data;
       /* Not opened yet is ->open false && ->status not an error */
       if (e->open != FALSE || e->status == E_BOOK_ERROR_OK) {
         /* Don't error yet */

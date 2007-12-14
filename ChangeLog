@@ -1,3 +1,7 @@
+2007-12-14  Bastien Nocera  <hadess@hadess.net>
+
+	* src/e-contact-entry.c: Update from contact-lookup-applet
+
 2007-12-02  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in: Add requirement for bluez, we would fail
