@@ -1,3 +1,9 @@
+2008-01-07  Bastien Nocera  <hadess@hadess.net>
+
+	* telepathy/im-channel.c: (phoney_im_channel_set_property):
+	Patch from Simon McVittie <simon.mcvittie@collabora.co.uk>
+	to avoid warnings with telepathy >= 0.7.1 (Closes: #507258)
+
 2007-12-14  Bastien Nocera  <hadess@hadess.net>
 
 	* src/e-contact-entry.c: Update from contact-lookup-applet
