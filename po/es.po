@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr.HEAD.es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-19 15:07+0000\n"
+"POT-Creation-Date: 2007-11-21 19:41+0000\n"
 "PO-Revision-Date: 2007-11-21 15:04+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
@@ -149,11 +149,13 @@ msgstr "Conectar usando comunicación infrarroja"
 
 #: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr "Conectar usando el puerto serie 1, también conocido como COM1 o /dev/ttyS0"
+msgstr ""
+"Conectar usando el puerto serie 1, también conocido como COM1 o /dev/ttyS0"
 
 #: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr "Conectar usando el puerto serie 2, también conocido como COM2 o /dev/ttyS1"
+msgstr ""
+"Conectar usando el puerto serie 2, también conocido como COM2 o /dev/ttyS1"
 
 #: ../data/phonemgr.glade.h:11
 msgid "Connection"
@@ -366,7 +368,7 @@ msgstr "La libreta de direcciones no existe."
 
 #: ../src/e-contact-entry.c:900
 msgid "The \"Me\" contact does not exist."
-msgstr "El contacto «Yo» no existe"
+msgstr "El contacto «Yo» no existe."
 
 #: ../src/e-contact-entry.c:902
 msgid "The address book is not loaded."
@@ -405,14 +407,14 @@ msgid "The address book authentication failed."
 msgstr "La autenticación de la libreta de direcciones falló."
 
 #: ../src/e-contact-entry.c:920
-msgid "Authentication is required to access the address book and was not given."
+msgid ""
+"Authentication is required to access the address book and was not given."
 msgstr ""
-"Se requiere autenticación para acceder a la libreta de direcciones y no se "
-"dió."
+"Se requiere autenticación para acceder a la libreta de direcciones y no se proporcionó."
 
 #: ../src/e-contact-entry.c:922
 msgid "A secure connection is not available."
-msgstr "No hay disponible una conexión segura."
+msgstr "No está disponible una conexión segura."
 
 #: ../src/e-contact-entry.c:924
 msgid "A CORBA error occurred whilst accessing the address book."
@@ -425,4 +427,3 @@ msgstr "La fuente de la libreta de direcciones no existe."
 #: ../src/e-contact-entry.c:928 ../src/e-contact-entry.c:931
 msgid "An unknown error occurred."
 msgstr "Ocurrió un error desconocido."
-
