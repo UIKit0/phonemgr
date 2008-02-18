@@ -1,410 +1,314 @@
 # translation of phonemgr.HEAD.ne.po to Nepali
-# translation of phonemgr.HEAD.po to Nepali
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+#
 # Pawan Chitrakar <pawan@mpp.org.np>, 2005.
 # Shiva Prasad Pokharel <pokharelshiva@hotmail.com>, 2005.
 # Mahesh subedi <submanesh@hotmail.com>, 2006.
-#
+# Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr.HEAD.ne\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-15 12:31+0200\n"
-"PO-Revision-Date: 2006-06-15 13:58+0545\n"
-"Last-Translator: Mahesh subedi <submanesh@hotmail.com>\n"
+"POT-Creation-Date: 2007-08-14 04:05+0100\n"
+"PO-Revision-Date: 2007-11-13 15:15+0545\n"
+"Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
-"Plural-Forms: nplurals=2;plural=(n!=1)\n"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:313
-msgid "Selection mode"
-msgstr "चयन मोड"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:314
-msgid "The selection mode"
-msgstr "चयन मोड"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:322
-msgid "Sorted"
-msgstr "क्रमबद्ध गरिएको"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:323
-msgid "Icon list is sorted"
-msgstr "प्रतिमा सूची क्रमबद्ध गरियो"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:329
-msgid "Sort order"
-msgstr "आदेश क्रमबद्ध गर्नुहोस्"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:330
-msgid "Sort direction the icon list should use"
-msgstr "क्रमवद्ध डाइरेक्टरी छविचित्र सूची प्रयोग गर्नुपर्छ"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:344
-msgid "Icon padding"
-msgstr "प्रतिमा गद्दी"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:345
-msgid "Number of pixels between icons"
-msgstr "प्रतिमाहरू बिचका पिक्सेलको संङ्ख्या"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:352
-msgid "Top margin"
-msgstr "माथिल्लो सिमान्त"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:353
-msgid "Number of pixels in top margin"
-msgstr "माथिल्लो सिमान्तमा पिक्सेलको संङ्ख्या"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:360
-msgid "Bottom margin"
-msgstr "तल्लो सिमान्"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:361
-msgid "Number of pixels in bottom margin"
-msgstr "तल्लो सिमान्तमा पिक्सेलको संङ्ख्या"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:369
-msgid "Left margin"
-msgstr "बायाँ सिमान्त"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:370
-msgid "Number of pixels in left margin"
-msgstr "बायाँ सिमान्तमा पिक्सेलको संङ्ख्या"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:377
-msgid "Right margin"
-msgstr "दायाँ सिमान्त"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:378
-msgid "Number of pixels in right margin"
-msgstr "दायाँ सिमान्तमा पिक्सेलको संङ्ख्या"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:386
-msgid "Selection Box Color"
-msgstr "बाकस रङ चयन"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:387
-msgid "Color of the selection box"
-msgstr "चयन बाकसको रङ"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:393
-msgid "Selection Box Alpha"
-msgstr "बाकस अल्फा चयन"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:394
-msgid "Opacity of the selection box"
-msgstr "चयन बाकसको ओपासिटि"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:154
-msgid "Pixbuf"
-msgstr "पिक्सबफ"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:155
-msgid "A GdkPixbuf to display"
-msgstr "एउटा जिडिके पिक्सबफ देखाउनका लागि"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:162
-msgid "Filename"
-msgstr "फाइलनाम"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:163
-msgid "Filename to load and display"
-msgstr "लोडगर्न र देखाउनका लागि फाइलनाम "
-
-#: ../libegg/libegg/tray/eggstatusicon.c:170
-msgid "Stock ID"
-msgstr "स्टक आइडि"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:171
-msgid "Stock ID for a stock image to display"
-msgstr "स्टक छवि देखाउनलाई स्टक आईडी"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:178
-msgid "Animation"
-msgstr "एनिमेसन"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:179
-msgid "GdkPixbufAnimation to display"
-msgstr "जिडिके पिक्सबफ एनिमेशन देखाउनलाई"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:186
-msgid "Image type"
-msgstr "छवि प्रकार"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:187
-msgid "The representation being used for image data"
-msgstr "छवि डेटाका लागि प्रयोग गरिएको प्रतिनिधित्व"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:195
-msgid "Size"
-msgstr "साइज"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:196
-msgid "The size of the icon"
-msgstr "प्रतिमाको साइज"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:205
-msgid "Blinking"
-msgstr "झिमझिम गर्दै"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:206
-msgid "Whether or not the status icon is blinking"
-msgstr "वस्तुस्थिति प्रतिमा झिमझिम गरीराखेको छ कि छैन"
-
-#: ../libegg/libegg/tray/eggtrayicon.c:118
-#: ../libegg/libegg/tray/eggtraymanager.c:145
-msgid "Orientation"
-msgstr "अभिमुखीकरण"
-
-#: ../libegg/libegg/tray/eggtrayicon.c:119
-#: ../libegg/libegg/tray/eggtraymanager.c:146
-msgid "The orientation of the tray."
-msgstr "ट्रेको अभिमुखीकरण"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n !=1\n"
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:91
+#: ../src/connection.c:92
 #, c-format
 msgid "Connected to device on %s"
-msgstr "यन्त्रलाई %s मा सम्पर्क गरियो"
+msgstr "%s भित्र यन्त्रमा जडान गरियो"
 
 #. the ERROR signal will have been emitted, so we don't
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:100
+#: ../src/connection.c:98
 #, c-format
 msgid "Failed connection to device on %s"
-msgstr "%s मा यन्त्र सम्पर्क असफल"
+msgstr "%s भित्र यन्त्रमा जडान असफल भयो"
 
-#. When try icon is destroyed, recreate it.  This happens
-#. when the notification area is removed.
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:66 ../src/menu.c:30
+#: ../src/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "जीकन्फ त्रुटि: %s"
+
+#: ../src/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "अगाडिका सबै त्रुटिहरू टर्मिनलमा मात्र देखिन्छन् ।"
+
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:28
 msgid "Phone Manager"
 msgstr "फोन प्रबन्धक"
 
 #: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
-msgstr "तपाईँको मोवाईल फोनवाट पाठ सन्देशहरू पठाउने र प्राप्त गर्ने काम गर्नुहोस्"
+msgstr "तपाईँको मोबाइल फोनवाट पाठ सन्देशहरू पठाउने र प्राप्त गर्ने काम गर्नुहोस्"
 
-#: ../src/icon.c:168
+#: ../src/icon.c:37
 msgid "Message arrived"
 msgstr "सन्देश आईपुग्यो"
 
-#: ../src/icon.c:172
+#: ../src/icon.c:40
 msgid "Connected"
-msgstr "सम्पर्क गरियो"
+msgstr "जडान गरियो"
 
-#: ../src/icon.c:177
+#: ../src/icon.c:44
 msgid "Connecting to phone"
-msgstr "फोनमा सम्पर्क गरिँदैछ"
+msgstr "फोनमा जडान गर्दैछ"
 
-#: ../src/icon.c:182
+#: ../src/icon.c:48
 msgid "Not connected"
-msgstr "सम्पर्क भएन"
+msgstr "जडान भएन"
 
-#: ../src/icon.c:202
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
-"\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
-msgstr ""
-"<span weight=\"bold\" size=\"larger\">जानकारी क्षेत्र फेला पार्न सकेन</span> \n"
-"\n"
-"जानकारी क्षेत्रलाई फोन व्यावस्थापकले सन्देश निर्यात र छनौटहरूलाई जानकारी र पहुँच प्रदान "
-"गर्न प्रयोग गर्दछ। तपाईँ प्यानलमा दायाँ क्लिक गरेर यसलाई थप्न सक्नुहुन्छ र प्यानलमा थप गर्नुहोस् -> उपयोगिता ->जानकारी क्षेत्रह र<i> जोड लाई समूह "
-"युटिलिटि सूचना क्षेत्र</i> छनौट गर्दै।"
+#: ../src/main.c:14
+msgid "Show model name of a specific device"
+msgstr "विशिष्ट यन्त्रको नमूना नाम देखाउनुहोस्"
 
-#: ../src/main.c:36
-msgid "Couldn't create phone listener."
-msgstr "फोन श्रोता सिर्जना गर्न सकेन।"
+#: ../src/main.c:29
+msgid "- Manage your mobile phone"
+msgstr "- तपाईँको मोबाइल फोन प्रबन्ध गर्नुहोस्"
 
-#: ../src/menu.c:22
+#: ../src/menu.c:20
 msgid "translator_credits"
 msgstr ""
-"Shiva Prasad Pokharel <pokharelshiva@hotmail.com> "
-"Mahesh Subedi <submanesh@gmail.com>"
-"Pawan Chitrakar<pawan@mpp.org.np>"
+"Shiva Prasad Pokharel <pokharelshiva@hotmail.com> Mahesh Subedi "
+"<submanesh@gmail.com>Pawan Chitrakar<pawan@mpp.org.np>"
+
+#: ../src/menu.c:24
+msgid "Send and receive messages from your mobile phone."
+msgstr "तपाईँको मोबाइल फोनवाट सन्देशहरू पठाउनुहोस् र प्राप्त गर्नुहोस्।"
 
 #: ../src/menu.c:32
-msgid "Send and receive messages from your mobile phone."
-msgstr "तपाईँको मोवाईल फोनवाट सन्देशहरू पठाउनुहोस् र प्राप्त गर्नुहोस्।"
+msgid "Phone Manager website"
+msgstr "फोन प्रबन्धक वेबसाइट"
 
-#: ../src/menu.c:75
+#: ../src/menu.c:63
 msgid "_Send Message"
 msgstr "सन्देश पठाउनुहोस्"
 
-#: ../src/ui.c:89
-msgid "No Bluetooth device chosen."
-msgstr "कुनै पनि ब्लुटुथ यन्त्र छानिएन।"
+#: ../src/phonemgr-chooser-button.c:79 ../src/phonemgr-chooser-button.c:189
+msgid "Click to select device..."
+msgstr "यन्त्र चयन गर्न क्लिक गर्नुहोस्..."
 
-#: ../src/ui.c:324
+#: ../src/ui.c:313
 msgid "Message too long!"
-msgstr "निकै लामो सन्देश !"
+msgstr "सन्देश अति लामो छ!"
 
 #: ../ui/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
 #: ../ui/phonemgr.glade.h:2
-msgid "<b>Alerting</b>"
-msgstr "<b>सावधान गराउदै</b>"
+msgid "Alerting"
+msgstr "सावधान गराउदै"
 
 #: ../ui/phonemgr.glade.h:3
-msgid "<b>Error Handling</b>"
-msgstr "<b>ह्याण्डल गर्दा त्रुटि</b>"
-
-#: ../ui/phonemgr.glade.h:4
-msgid "<b>Phone Connection</b>"
-msgstr "<b>फोन सम्पर्क</b>"
-
-#: ../ui/phonemgr.glade.h:5
-msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">तपाईँको पाठ सन्देश प्रविष्ट गर्नुहोस्</span>"
-
-#: ../ui/phonemgr.glade.h:6
-msgid "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\"> तपाईँले एउटा सन्देश प्राप्त गर्नुभयो</span>"
-
-#: ../ui/phonemgr.glade.h:7
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "वैकल्पिक यन्त्र फाइलनाम, उदाहरण /dev/ttyS3"
 
-#: ../ui/phonemgr.glade.h:8
+#: ../ui/phonemgr.glade.h:4
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
 "range."
-msgstr "जहिले सम्पर्क तुरुन्त उपल्वध हुँदैन, कोशिस गर्नुहोस् र पुन: सम्पर्क गर्नुहोस्। जब यो सिमा दायरा भित्र हुन्छ फोन सम्पर्क निश्चित गर्नका लागि यो ब्लुटुथ् प्रयोग गर्नुहोस्।"
+msgstr ""
+"जहिले सम्पर्क तुरुन्त उपलब्ध हुँदैन, कोशिस गर्नुहोस् र पुन: सम्पर्क गर्नुहोस्। जब यो सिमा दायरा "
+"भित्र हुन्छ फोन सम्पर्क निश्चित गर्नका लागि यो ब्लुटुथ् प्रयोग गर्नुहोस्।"
 
-#: ../ui/phonemgr.glade.h:9
+#: ../ui/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
-msgstr "सम्पर्कहरू स्वत: प्रयास गर्नुहोस्"
+msgstr "जडानहरू स्वचालित रूपमा पुन: प्रयास गर्नुहोस्"
 
-#: ../ui/phonemgr.glade.h:10
+#: ../ui/phonemgr.glade.h:6
 msgid "Characters left:"
 msgstr "छुटेको क्यारेक्टरहरू:"
 
+#: ../ui/phonemgr.glade.h:7
+msgid "Connect using an alternative serial device"
+msgstr "एउटा वैकल्पिक क्रमिक यन्त्र प्रयोग गरेर जडान गर्नुहोस्"
+
+#: ../ui/phonemgr.glade.h:8
+msgid "Connect using infrared communication"
+msgstr "ईन्फरेर्ड सञ्चार प्रयोग गरेर जडान गर्नुहोस्"
+
+#: ../ui/phonemgr.glade.h:9
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr "क्रमिक पोर्ट १, तथा COM1 or /dev/ttyS0 को रूपमा परिचित प्रयोग गरेर जडान गर्नुहोस्"
+
+#: ../ui/phonemgr.glade.h:10
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr "क्रमिक पोर्ट २, तथा COM2 or /dev/ttyS1 को रूपमा परिचित प्रयोग गरेर जडान गर्नुहोस्"
+
 #: ../ui/phonemgr.glade.h:11
-msgid "Choo_se"
-msgstr "छान्नुहोस्"
+msgid "Connection"
+msgstr "जडान"
 
 #: ../ui/phonemgr.glade.h:12
-msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr "मा सम्पर्क गर्नका लागि ब्लुटुथ-सक्षम पारिएको मोवाईल छान्नुहोस्।"
-
-#: ../ui/phonemgr.glade.h:13
-msgid "Connect using an alternative serial device"
-msgstr "एउटा वैकल्पिक क्रमिक यन्त्र प्रयोग गर्दै सम्पर्क गर्नुहोस्"
-
-#: ../ui/phonemgr.glade.h:14
-msgid "Connect using infrared communication"
-msgstr "ईन्फरेर्ड सञ्चार प्रयोग गरेर सम्पर्क गर्नुहोस्"
-
-#: ../ui/phonemgr.glade.h:15
-msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr "क्रमिक पोर्ट १, तथा COM1 or /dev/ttyS0 को रूपमा परिचित प्रयोग गर्दै सम्पर्क गर्नुहोस्"
-
-#: ../ui/phonemgr.glade.h:16
-msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr "क्रमिक पोर्ट २, तथा COM2 or /dev/ttyS1 को रूपमा परिचित प्रयोग गर्दै सम्पर्क गर्नुहोस्"
-
-#: ../ui/phonemgr.glade.h:17
-msgid "Connection"
-msgstr "सम्बन्ध"
-
-#: ../ui/phonemgr.glade.h:18
 msgid "Date:"
 msgstr "मिति:"
 
-#: ../ui/phonemgr.glade.h:19
+#: ../ui/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
 msgstr "तपाईँ सन्देश पठाउन चाहनुभएको पाठ सन्देश प्रविष्ट गर्नुहोस्।"
 
-#: ../ui/phonemgr.glade.h:20
+#: ../ui/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "तपाईँको पाठ सन्देश प्रविष्ट गर्नुहोस्"
+
+#: ../ui/phonemgr.glade.h:15
+msgid "Error Handling"
+msgstr "त्रुटि ह्यान्डल गर्दै"
+
+#: ../ui/phonemgr.glade.h:16
+msgid "I_nfra red (/dev/ircomm)"
+msgstr "इन्फ्रारेड (/dev/ircomm)"
+
+#: ../ui/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "इन्टरफेस"
 
-#: ../ui/phonemgr.glade.h:21
+#: ../ui/phonemgr.glade.h:18
 msgid "Message Received"
 msgstr "सन्देश प्राप्त भयो"
 
-#: ../ui/phonemgr.glade.h:22
+#: ../ui/phonemgr.glade.h:19
 msgid "Number of characters left in the message"
 msgstr "सन्देशमा छुटेका क्यारेक्टरहको संङ्ख्या"
 
-#: ../ui/phonemgr.glade.h:23
+#: ../ui/phonemgr.glade.h:20
 msgid "Other _port"
 msgstr "अन्य पोर्ट"
 
-#: ../ui/phonemgr.glade.h:24
+#: ../ui/phonemgr.glade.h:21
+msgid "Phone Connection"
+msgstr "फोन जडान"
+
+#: ../ui/phonemgr.glade.h:22
 msgid "Phone Manager Preferences"
 msgstr "फोन प्रबन्धक प्राथमिकताहरू"
 
-#: ../ui/phonemgr.glade.h:25
+#: ../ui/phonemgr.glade.h:23
 msgid "Play _sound when messages arrive"
 msgstr "सन्देश प्राप्त भएको बेलामा आवाज बजाउनुहोस्"
 
-#: ../ui/phonemgr.glade.h:26
+#: ../ui/phonemgr.glade.h:24
 msgid "Send Message"
 msgstr "सन्देश पठाउनुहोस्"
 
-#: ../ui/phonemgr.glade.h:27
+#: ../ui/phonemgr.glade.h:25
 msgid "Sender:"
 msgstr "प्रेषक:"
 
-#: ../ui/phonemgr.glade.h:28
+#: ../ui/phonemgr.glade.h:26
 msgid "Serial port _1 (/dev/ttyS0)"
-msgstr "क्रमिक पोर्ट १(/डिईभि/टिटिवाई एस०)"
+msgstr "क्रमिक पोर्ट १ (/dev/ttyS0)"
 
-#: ../ui/phonemgr.glade.h:29
+#: ../ui/phonemgr.glade.h:27
 msgid "Serial port _2 (/dev/ttyS1)"
-msgstr "क्रमिक पोर्ट २(/डिईभि/टिटिवाई एस१)"
+msgstr "क्रमिक पोर्ट २ (/dev/ttyS1)"
 
-#: ../ui/phonemgr.glade.h:30
+#: ../ui/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "तपाईँको फोनमा सम्पर्क गर्न ब्लुटुथ् ताररहित सञ्जाल प्रयोग गर्नुहोस्"
 
-#: ../ui/phonemgr.glade.h:31
+#: ../ui/phonemgr.glade.h:29
+msgid "You have received a message"
+msgstr "तपाईँले सन्देश प्राप्त गर्नुभयो"
+
+#: ../ui/phonemgr.glade.h:30
 msgid "_Bluetooth"
 msgstr "ब्लुटुथ्"
 
-#: ../ui/phonemgr.glade.h:32
-msgid "_Infra red (/dev/ircomm)"
-msgstr "इन्फ्रारेड (/डिईभि/आईआर कम)"
-
-#: ../ui/phonemgr.glade.h:33
+#: ../ui/phonemgr.glade.h:31
 msgid "_Message:"
 msgstr "सन्देश:"
 
-#: ../ui/phonemgr.glade.h:34
+#: ../ui/phonemgr.glade.h:32
 msgid "_Pop-up window for new messages"
 msgstr "नयाँ सन्देशका लागि पप-अप सञ्झ्याल"
 
-#: ../ui/phonemgr.glade.h:35
+#: ../ui/phonemgr.glade.h:33
 msgid "_Recipient:"
 msgstr "प्रापक:"
 
-#: ../ui/phonemgr.glade.h:36
+#: ../ui/phonemgr.glade.h:34
 msgid "_Reply"
 msgstr "जवाफ पठाउनुहोस्"
 
-#: ../ui/phonemgr.glade.h:37
+#: ../ui/phonemgr.glade.h:35
 msgid "_Send"
 msgstr "पठाउनुहोस्"
 
-#: ../ui/phonemgr.glade.h:38
+#: ../ui/phonemgr.glade.h:36
 msgid "message body"
 msgstr "सन्देश मुख्य भाग"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "यसमा जडान गर्नका लागि ब्लुटुथ ठेगाना"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr "यसमा जडान गर्न यन्त्रको ब्लुटुथ ठेगाना । प्रयोग गर्नका लागि  १ प्रकारको जडान आवश्यक पर्दछ ।"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "जीनोम फोन प्रबन्धकले प्रयोग गरेको जडान प्रकार"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr "जीनोम फोन प्रबन्धकले प्रयोग गरेको जडान प्रकार: ब्लुटुथ ० क्रमिक १ हो १ क्रमिक २ हो २ आईआरडीए ३ हो अन्य जडान प्रकारहरू ४ हुन्"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "यसमा जडान गर्न क्रमिक यन्त्रका लागि यन्त्र नोड"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr "यसमा जडान गर्न क्रमिक यन्त्रका लागि यन्त्र नोड । प्रयोग गर्नका लागि जडान प्रकार ४ को आवश्यक पर्दछ ।"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "नयाँ सन्देश आउँदा ध्वनि सावधानी बजाउने या नबजाउँने"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "नयाँ सन्देश आउँदा ध्वनि सावधानी बजाउने या नबजाउने"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "डेस्कटपमा नयाँ सन्देशहरू पपअप गर्ने या नगर्ने"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr "ट्रे प्रतिमामा क्लिक गर्दा सन्देशहरूलाई नदेखाइकन, नयाँ सन्देशहरू प्राप्त हुने वितिकै डेस्कटपमा पपअप गर्ने या नगर्ने ।"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "मोबाइल फोनमा जडान गर्दा पुन: प्रयास गर्ने या नगर्ने"
+
+#: ../ui/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr "यदि जडान एउटै बिन्दुमा असफल हुन्छ भने मोबाइल फोनमा जडान गर्दा पुन: प्रयास गर्ने या नगर्ने ।"
 
 #: ../src/e-contact-entry.c:153
 #, c-format
@@ -416,87 +320,87 @@ msgstr "सम्पर्क गर्न सकिएन: %s"
 msgid "Could not find contact: %s"
 msgstr "सम्पर्क फेला परेन: %s"
 
-#: ../src/e-contact-entry.c:367
+#: ../src/e-contact-entry.c:383
 msgid "Cannot create searchable view."
 msgstr "खोजीयोग्य दृश्य सिर्जना गर्न सकिँदैन।"
 
-#: ../src/e-contact-entry.c:820
+#: ../src/e-contact-entry.c:836
 msgid "Success"
-msgstr "सफल"
+msgstr "सफलता"
 
-#: ../src/e-contact-entry.c:822
+#: ../src/e-contact-entry.c:838
 msgid "An argument was invalid."
-msgstr "एउटा तर्क अवैध थियो।"
+msgstr "एउटा तर्क अवैध थियो ।"
 
-#: ../src/e-contact-entry.c:824
+#: ../src/e-contact-entry.c:840
 msgid "The address book is busy."
-msgstr "ठगाना पुस्तक व्यस्त छ।"
+msgstr "ठगाना पुस्तक व्यस्त छ ।"
 
-#: ../src/e-contact-entry.c:826
+#: ../src/e-contact-entry.c:842
 msgid "The address book is offline."
-msgstr "ठगाना पुस्तक अफलाइन छ।"
+msgstr "ठगाना पुस्तक अफलाइन छ ।"
 
-#: ../src/e-contact-entry.c:828
+#: ../src/e-contact-entry.c:844
 msgid "The address book does not exist."
-msgstr "ठेगाना पुस्तक अवस्थित छैन।"
+msgstr "ठेगाना पुस्तक अवस्थित छैन ।"
 
-#: ../src/e-contact-entry.c:830
+#: ../src/e-contact-entry.c:846
 msgid "The \"Me\" contact does not exist."
-msgstr "\"Me\" सम्पर्क अवस्थित छैन।"
+msgstr "\"Me\" सम्पर्क अवस्थित छैन ।"
 
-#: ../src/e-contact-entry.c:832
+#: ../src/e-contact-entry.c:848
 msgid "The address book is not loaded."
 msgstr "ठेगाना पुस्तक लोड गरिएको छैन।"
 
-#: ../src/e-contact-entry.c:834
+#: ../src/e-contact-entry.c:850
 msgid "The address book is already loaded."
 msgstr "ठेगाना पुस्तक पहिले नै लोड गरिएको छ।"
 
-#: ../src/e-contact-entry.c:836
-msgid "Permission was denied when accessing the address book."
-msgstr "ठेगाना पुस्तकमा पहुँच गर्न खोज्दा अनुमति अस्विकार गरियो।"
-
-#: ../src/e-contact-entry.c:838
-msgid "The contact was not found."
-msgstr "सम्पर्क फेला परेन।"
-
-#: ../src/e-contact-entry.c:840
-msgid "This contact ID already exists."
-msgstr "यो सम्पर्क आइ डि पहिल्यै अवस्थित छ।"
-
-#: ../src/e-contact-entry.c:842
-msgid "The protocol is not supported."
-msgstr "प्रोटोकल समर्थित छैन।"
-
-#: ../src/e-contact-entry.c:844
-msgid "The operation was cancelled."
-msgstr "सञ्चालन रद्द गरियो।"
-
-#: ../src/e-contact-entry.c:846
-msgid "The operation could not be cancelled."
-msgstr "सञ्चालन रद्द गर्न सकिँदैन।"
-
-#: ../src/e-contact-entry.c:848
-msgid "The address book authentication failed."
-msgstr "ठेगाना पुस्तक प्रमाणीकरण असफल।"
-
-#: ../src/e-contact-entry.c:850
-msgid "Authentication is required to access the address book and was not given."
-msgstr "ठेगाना पुस्तकको पहुँचका लागि प्रमाणीकरण आवश्यक पर्दछ र दिइएको छैन।"
-
 #: ../src/e-contact-entry.c:852
-msgid "A secure connection is not available."
-msgstr "एउटा सुरक्षित जडान उपलब्ध छैन।"
+msgid "Permission was denied when accessing the address book."
+msgstr "ठेगाना पुस्तकमा पहुँच गर्न खोज्दा अनुमति अस्वीकार गरियो ।"
 
 #: ../src/e-contact-entry.c:854
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "ठेगाना पुस्तक पहुँच गर्दा एउटा कोब्रा त्रुटि भयो।"
+msgid "The contact was not found."
+msgstr "सम्पर्क फेला परेन ।"
 
 #: ../src/e-contact-entry.c:856
-msgid "The address book source does not exist."
-msgstr "ठेगाना पुस्तक स्रोत अवस्थित छैन।"
+msgid "This contact ID already exists."
+msgstr "यो सम्पर्क आईडी पहिल्यै अवस्थित छ ।"
 
-#: ../src/e-contact-entry.c:858 ../src/e-contact-entry.c:861
+#: ../src/e-contact-entry.c:858
+msgid "The protocol is not supported."
+msgstr "प्रोटोकल समर्थित छैन ।"
+
+#: ../src/e-contact-entry.c:860
+msgid "The operation was cancelled."
+msgstr "सञ्चालन रद्द गरियो ।"
+
+#: ../src/e-contact-entry.c:862
+msgid "The operation could not be cancelled."
+msgstr "सञ्चालन रद्द गर्न सकिँदैन ।"
+
+#: ../src/e-contact-entry.c:864
+msgid "The address book authentication failed."
+msgstr "ठेगाना पुस्तक प्रमाणीकरण असफल ।"
+
+#: ../src/e-contact-entry.c:866
+msgid "Authentication is required to access the address book and was not given."
+msgstr "ठेगाना पुस्तकको पहुँचका लागि प्रमाणीकरण आवश्यक पर्दछ र दिइएको छैन ।"
+
+#: ../src/e-contact-entry.c:868
+msgid "A secure connection is not available."
+msgstr "एउटा सुरक्षित जडान उपलब्ध छैन ।"
+
+#: ../src/e-contact-entry.c:870
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "ठेगाना पुस्तक पहुँच गर्दा एउटा कोब्रा त्रुटि भयो ।"
+
+#: ../src/e-contact-entry.c:872
+msgid "The address book source does not exist."
+msgstr "ठेगाना पुस्तक स्रोत अवस्थित छैन ।"
+
+#: ../src/e-contact-entry.c:874 ../src/e-contact-entry.c:877
 msgid "An unknown error occurred."
-msgstr "एउटा अज्ञात त्रुटि भयो।"
+msgstr "एउटा अज्ञात त्रुटि भयो ।"
 
