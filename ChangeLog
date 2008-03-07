@@ -1,3 +1,9 @@
+2008-03-07  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-utils.c (phonemgr_utils_driver_for_model):
+	Change message when no driver is mentioned in the phones.xml
+	to be less scary
+
 2008-01-07  Bastien Nocera  <hadess@hadess.net>
 
 	* telepathy/im-channel.c: (phoney_im_channel_set_property):

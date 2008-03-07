@@ -306,7 +306,7 @@ phonemgr_utils_driver_for_model (const char *model, const char *device)
 
 	driver = g_hash_table_lookup (driver_model, model);
 	if (driver == NULL) {
-		g_message ("Model %s not supported natively", model);
+		g_message ("Model %s using default driver", model);
 		driver = g_strdup (PHONEMGR_DEFAULT_DRIVER);
 	} else {
 		driver = g_strdup (driver);
