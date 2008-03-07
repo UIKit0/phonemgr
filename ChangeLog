@@ -1,5 +1,11 @@
 2008-03-07  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-utils.c (phonemgr_utils_get_serial_channel),
+	(phonemgr_utils_get_gnapplet_channel): Add debug for which
+	channel ends up being selected
+
+2008-03-07  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-utils.c (phonemgr_utils_driver_for_model):
 	Change message when no driver is mentioned in the phones.xml
 	to be less scary

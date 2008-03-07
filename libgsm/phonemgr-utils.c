@@ -230,6 +230,8 @@ phonemgr_utils_get_serial_channel (const char *device)
 	if (channel < 0)
 		channel = find_service_channel (&src, &dst, FALSE, DIALUP_NET_SVCLASS_ID);
 
+	g_message ("Using serial channel %d for device %s", channel, device);
+
 	return channel;
 }
 
@@ -247,6 +249,8 @@ phonemgr_utils_get_gnapplet_channel (const char *device)
 	str2ba(device, &dst);
 
 	channel = find_service_channel (&src, &dst, TRUE, SERIAL_PORT_SVCLASS_ID);
+
+	g_message ("Using gnapplet channel %d for %s", channel, device);
 
 	return channel;
 }
