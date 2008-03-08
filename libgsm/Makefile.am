@@ -8,7 +8,7 @@ EXTRA_DIST =				\
 	phonemgr-marshal.list		\
 	phones.xml
 
-noinst_PROGRAMS = glibgsmtest
+noinst_PROGRAMS = glibgsmtest test-sdp-search
 
 noinst_LTLIBRARIES = libgsmwrap.la
 
@@ -22,6 +22,9 @@ libgsmwrap_la_LIBADD = $(LIBGSM_LIBS)
 
 glibgsmtest_SOURCES = glibgsmtest.c
 glibgsmtest_LDADD = libgsmwrap.la
+
+test_sdp_search_SOURCES = test-sdp-search.c
+test_sdp_search_LDADD = libgsmwrap.la
 
 phones_DATA = phones.xml
 phonesdir = $(datadir)/$(PACKAGE)

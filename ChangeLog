@@ -1,3 +1,9 @@
+2008-03-08  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/Makefile.am:
+	* libgsm/test-sdp-search.c (main): Add a test program for
+	finding out the serial channel on a remote device
+
 2008-03-07  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-utils.c (phonemgr_utils_get_serial_channel),
