@@ -181,17 +181,17 @@ find_service_channel (bdaddr_t *adapter, bdaddr_t *device, gboolean only_gnapple
 	if (!sdp)
 		goto end;
 
-	sdp_uuid16_create(&browse_uuid, PUBLIC_BROWSE_GROUP);
 	sdp_uuid16_create(&service_id, svclass_id);
-	search = sdp_list_append (NULL, &browse_uuid);
-	search = sdp_list_append (search, &service_id);
+	attrs = sdp_list_append(0, &range);
+	search = sdp_list_append(0, &service_id);
 
-	attrs = sdp_list_append (NULL, &range);
+	g_message ("starting search");
 
 	if (sdp_service_search_attr_req (sdp, search,
 					 SDP_ATTR_REQ_RANGE, attrs,
-					 &recs))
+					 &recs)) {
 		goto end;
+	}
 
 	for (tmp = recs; tmp != NULL; tmp = tmp->next) {
 		sdp_record_t *rec = tmp->data;
