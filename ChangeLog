@@ -1,3 +1,11 @@
+============ Version 0.50
+
+2008-03-10  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: upd
+	* configure.in: 0.50
+	* data/Makefile.am: Fix distcheck
+
 2008-03-08  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-utils.c (find_service_channel):

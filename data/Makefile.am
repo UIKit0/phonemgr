@@ -37,5 +37,5 @@ update-icon-cache:
 	fi
 
 CLEANFILES = $(schema_DATA)
-EXTRA_DIST = $(ui_DATA) $(sound_DATA) $(schema_in_files)
+EXTRA_DIST = $(ui_DATA) $(sound_DATA) $(schema_in_files) $(man_MANS)
 

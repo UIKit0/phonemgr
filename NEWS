@@ -1,3 +1,21 @@
+gnome-phone-manager 0.50
+========================
+
+ * Add support for phones requiring gnapplet
+
+ * Fix detection of the channel for phones that don't advertise
+ Serial Profile or Dial-Up Network profiles in the Public Browse
+
+ * Add backend support for delivery reports
+
+ * Add man page
+
+ * Fix a few build problems
+
+ * Fix disconnecting and reconnecting to a phone with a driver
+
+ * Telepathy backend fixes
+
 gnome-phone-manager 0.40
 ========================
 
