@@ -22,6 +22,8 @@
 #include <glib/gi18n.h>
 #include <stdlib.h>
 #include <glade/glade.h>
+#include <gtk/gtk.h>
+#include <gtkspell/gtkspell.h>
 #include <time.h>
 #include <string.h>
 
@@ -378,6 +380,7 @@ send_message (GtkWidget *w, GladeXML *ui)
 void
 create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 {
+        GError *err = NULL;
 	GtkTextBuffer *buf;
 	GtkTextView *view;
 	GtkEntry *entry;
@@ -397,6 +400,12 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
 	gtk_text_buffer_set_text (buf, "", 0);
+
+        if (!gtkspell_new_attach (view, NULL, &err)) {
+        	g_warning ("Couldn't initialise spell checking: %s", err->message);
+                g_error_free (err);
+        }
+
 	entry = GTK_ENTRY (glade_xml_get_widget (ui, "recipient"));
 	if (recip)
 		gtk_entry_set_text (entry, recip);

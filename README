@@ -33,11 +33,10 @@ You need:
 * gnome-bluetooth and libbtctl, from
   http://live.gnome.org/GnomeBluetooth
 
-* These GNOME 2 packages:
-    glib-2.0 libgnomeui-2.0 >= 1.110.0
-    libgnome-2.0 gtk-2.0 gconf-2.0
+* Evolution-data-server
+* GtkSpell
 
-* gnokii 0.6.18 or better
+* gnokii
   gnokii's homepage is at http://gnokii.org/
 
- -- Edd Dumbill <edd@usefulinc.com>, 2003-03-01
+ -- Edd Dumbill <edd@usefulinc.com>, 2008-03-13

@@ -1,3 +1,12 @@
+2008-03-13  Bastien Nocera  <hadess@hadess.net>
+
+	* README: update build dependencies
+	* configure.in:
+	* src/ui.c (create_send_dialog): Add spell checking
+	to the "Send message" text area, based on patch by
+	Daniel Schierbeck <daniel.schierbeck@gmail.com>
+	(Closes: #508816)
+
 ============ Version 0.50
 
 2008-03-10  Bastien Nocera  <hadess@hadess.net>
