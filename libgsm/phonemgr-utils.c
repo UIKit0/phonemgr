@@ -109,7 +109,7 @@ phonemgr_utils_address_is (const char *addr)
 {
 	struct stat buf;
 
-	if (g_stat (addr, &buf) > 0 && S_ISCHR (buf.st_mode)) {
+	if (g_stat (addr, &buf) == 0 && S_ISCHR (buf.st_mode)) {
 		//FIXME this could also be IrDA
 		return PHONEMGR_CONNECTION_SERIAL;
 	} else if (bachk (addr) == 0) {

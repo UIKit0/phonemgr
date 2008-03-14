@@ -1,3 +1,9 @@
+2008-03-14  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-utils.c (phonemgr_utils_address_is):
+	Fix utter stupidness checking whether an address is
+	actually a device path
+
 2008-03-13  Bastien Nocera  <hadess@hadess.net>
 
 	* README: update build dependencies
