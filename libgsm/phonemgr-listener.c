@@ -33,8 +33,8 @@
 #include "phonemgr-utils.h"
 
 /* #define DUMMY 1 */
-#define POLL_TIMEOUT 300
-#define TRYLOCK_TIMEOUT 50
+#define POLL_TIMEOUT 300 * 1000
+#define TRYLOCK_TIMEOUT 50 * 1000
 
 #define CHECK_EXIT { if (l->terminated != FALSE) { g_mutex_unlock (l->mutex); goto exit_thread; } }
 
@@ -606,7 +606,7 @@ phonemgr_listener_new_call_cb (gn_call_status call_status, gn_call_info *call_in
 static void
 phonemgr_listener_sms_notification_soft_poll (PhonemgrListener *l)
 {
-	gn_sm_loop (1, &l->phone_state->state);
+	gn_sm_loop (10, &l->phone_state->state);
 	/* Some phones may not be able to notify us, thus we give
 	 * lowlevel chance to poll them */
 	gn_sm_functions (GN_OP_PollSMS, &l->phone_state->data, &l->phone_state->state);
