@@ -2,175 +2,22 @@
 # Copyright (C) 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the phonemgr package.
 # Taco Witte <tcwitte@cs.uu.nl>, 2004.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-21 12:55+0200\n"
-"PO-Revision-Date: 2004-10-29 22:23+0200\n"
-"Last-Translator: Taco Witte <tcwitte@cs.uu.nl>\n"
+"POT-Creation-Date: 2007-11-19 15:07+0000\n"
+"PO-Revision-Date: 2008-03-19 02:18+0100\n"
+"Last-Translator: Reinout van Schouwen <reinouts@gnome.org>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libegg/libegg/iconlist/eggiconlist.c:313
-msgid "Selection mode"
-msgstr "Selectiemodus"
-
-#: libegg/libegg/iconlist/eggiconlist.c:314
-msgid "The selection mode"
-msgstr "De selectiemodus"
-
-#: libegg/libegg/iconlist/eggiconlist.c:322
-msgid "Sorted"
-msgstr "Gesorteerd"
-
-#: libegg/libegg/iconlist/eggiconlist.c:323
-msgid "Icon list is sorted"
-msgstr "Pictogrammenlijst is gesorteerd"
-
-#: libegg/libegg/iconlist/eggiconlist.c:329
-msgid "Sort order"
-msgstr "Sorteervolgorde"
-
-#: libegg/libegg/iconlist/eggiconlist.c:330
-msgid "Sort direction the icon list should use"
-msgstr "Sorteerrichting die de pictogrammenlijst moete gebruiken"
-
-#: libegg/libegg/iconlist/eggiconlist.c:344
-msgid "Icon padding"
-msgstr "Pictogramopvulling"
-
-#: libegg/libegg/iconlist/eggiconlist.c:345
-msgid "Number of pixels between icons"
-msgstr "Aantal beeldpunten tussen pictogrammen"
-
-#: libegg/libegg/iconlist/eggiconlist.c:352
-msgid "Top margin"
-msgstr "Marge bovenkant"
-
-#: libegg/libegg/iconlist/eggiconlist.c:353
-msgid "Number of pixels in top margin"
-msgstr "Aantal beeldpunten marge bovenaan"
-
-#: libegg/libegg/iconlist/eggiconlist.c:360
-msgid "Bottom margin"
-msgstr "Marge onderkant"
-
-#: libegg/libegg/iconlist/eggiconlist.c:361
-msgid "Number of pixels in bottom margin"
-msgstr "Aantal beeldpunten marge onderaan"
-
-#: libegg/libegg/iconlist/eggiconlist.c:369
-msgid "Left margin"
-msgstr "Marge links"
-
-#: libegg/libegg/iconlist/eggiconlist.c:370
-msgid "Number of pixels in left margin"
-msgstr "Aantal beeldpunten marge aan linkerkant"
-
-#: libegg/libegg/iconlist/eggiconlist.c:377
-msgid "Right margin"
-msgstr "Marge rechts"
-
-#: libegg/libegg/iconlist/eggiconlist.c:378
-msgid "Number of pixels in right margin"
-msgstr "Aantal beeldpunten marge aan rechterkant"
-
-#: libegg/libegg/iconlist/eggiconlist.c:386
-msgid "Selection Box Color"
-msgstr "Keuzevak kleur"
-
-#: libegg/libegg/iconlist/eggiconlist.c:387
-msgid "Color of the selection box"
-msgstr "Kleur van het keuzevak"
-
-#: libegg/libegg/iconlist/eggiconlist.c:393
-msgid "Selection Box Alpha"
-msgstr "Keuzevak alfa"
-
-#: libegg/libegg/iconlist/eggiconlist.c:394
-msgid "Opacity of the selection box"
-msgstr "Ondoorzichtigheid van het keuzevak"
-
-#: libegg/libegg/tray/eggstatusicon.c:154
-msgid "Pixbuf"
-msgstr "Afbeelding"
-
-#: libegg/libegg/tray/eggstatusicon.c:155
-msgid "A GdkPixbuf to display"
-msgstr "Een GdkPixbuf om weer te geven"
-
-#: libegg/libegg/tray/eggstatusicon.c:162
-msgid "Filename"
-msgstr "Bestandsnaam"
-
-#: libegg/libegg/tray/eggstatusicon.c:163
-msgid "Filename to load and display"
-msgstr "Bestandsnaam om te laden en weer te geven"
-
-#: libegg/libegg/tray/eggstatusicon.c:170
-msgid "Stock ID"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:171
-msgid "Stock ID for a stock image to display"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:178
-msgid "Animation"
-msgstr "Animatie"
-
-#: libegg/libegg/tray/eggstatusicon.c:179
-msgid "GdkPixbufAnimation to display"
-msgstr "GdkPixbufAnimation om weer te geven"
-
-#: libegg/libegg/tray/eggstatusicon.c:186
-msgid "Image type"
-msgstr "Afbeeldingssoort"
-
-#: libegg/libegg/tray/eggstatusicon.c:187
-msgid "The representation being used for image data"
-msgstr "De representatie die wordt gebruikt voor afbeeldingsgegevens"
-
-#: libegg/libegg/tray/eggstatusicon.c:195
-msgid "Size"
-msgstr "Grootte"
-
-#: libegg/libegg/tray/eggstatusicon.c:196
-msgid "The size of the icon"
-msgstr "De grootte van het pictogram"
-
-#: libegg/libegg/tray/eggstatusicon.c:205
-msgid "Blinking"
-msgstr "Oplichten"
-
-#: libegg/libegg/tray/eggstatusicon.c:206
-msgid "Whether or not the status icon is blinking"
-msgstr "Of het statuspictogram oplicht"
-
-#: libegg/libegg/tray/eggtrayicon.c:118
-#: libegg/libegg/tray/eggtraymanager.c:145
-msgid "Orientation"
-msgstr "Oriëntatie"
-
-#: libegg/libegg/tray/eggtrayicon.c:119
-#: libegg/libegg/tray/eggtraymanager.c:146
-msgid "The orientation of the tray."
-msgstr "De oriëntatie van het vak."
-
-#. translators: the %d is substituted for a number
-#. which can be used for diagnostic purposes
-#: src/connection.c:40
-#, c-format
-msgid "Unable to obtain RFCOMM connection (%d)"
-msgstr "Kan geen RFCOMM-verbinding verkrijgen (%d)"
-
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:110
+#: ../src/connection.c:112
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Verbonden met apparaat %s"
@@ -179,249 +26,476 @@ msgstr "Verbonden met apparaat %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:119
+#: ../src/connection.c:118
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Verbinding met apparaat %s mislukt"
 
-#. When try icon is destroyed, recreate it.  This happens
-#. when the notification area is removed.
-#: src/gnome-phone-manager.desktop.in.h:1 src/icon.c:66 src/menu.c:30
+#: ../src/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf fout: %s"
+
+#: ../src/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Alle verdere fouten worden alleen op een terminal weergegeven."
+
+#: ../src/gnome-phone-manager.desktop.in.h:1
+#: ../src/menu.c:49
+#: ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "Telefoonbeheer"
 
-#: src/gnome-phone-manager.desktop.in.h:2
+#: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Tekstberichten via uw mobiele telefoon ontvangen en verzenden"
 
-#: src/icon.c:162
+#: ../src/icon.c:59
 msgid "Message arrived"
 msgstr "Bericht ontvangen"
 
-#: src/icon.c:166
+#: ../src/icon.c:62
 msgid "Connected"
 msgstr "Verbonden"
 
-#: src/icon.c:171
+#: ../src/icon.c:66
 msgid "Connecting to phone"
 msgstr "Verbonden met telefoon"
 
-#: src/icon.c:176
+#: ../src/icon.c:70
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#: src/icon.c:196
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
-"\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
-msgstr ""
-"<span weight=\"bold\" size=\"larger\">Kon mededelingengebied niet vinden</"
-"span>\n"
-"\n"
-"Telefoonbeheer gebruikt het mededelingengebied om informatie weer te geven, "
-"om berichten mee te verzenden en voor voorkeuren. U kunt het toevoegen door "
-"rechts te klikken op het paneel en <i>Toevoegen aan paneel -> "
-"Mededelingengebied</i> te kiezen."
+#: ../src/main.c:36
+msgid "Show model name of a specific device"
+msgstr "Modelnaam van een bepaald apparaat tonen"
 
-#: src/main.c:36
-msgid "Couldn't create phone listener."
-msgstr "Kon geen telefoonluisteraar maken."
+#: ../src/main.c:37
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Configuratiebestand wegschrijven voor het debuggen van gnokii"
 
-#: src/menu.c:22
+#: ../src/main.c:38
+msgid "Enable debug"
+msgstr "Debuggen aanzetten"
+
+#: ../src/main.c:57
+msgid "- Manage your mobile phone"
+msgstr "- Uw mobiele telefoon beheren"
+
+#: ../src/menu.c:40
 msgid "translator_credits"
-msgstr "Elros Cyriatan"
+msgstr ""
+"Elros Cyriatan\n"
+"Reinout van Schouwen <reinouts@gnome.org>"
 
-#: src/menu.c:32
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "Berichten verzenden en ontvangen via uw mobiele telefoon."
 
-#: src/menu.c:75
+#: ../src/menu.c:56
+msgid "Phone Manager website"
+msgstr "Telefoonbeheer-webstek"
+
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "Bericht _verzenden"
 
-#: src/ui.c:88
-msgid "No Bluetooth device chosen."
-msgstr "Geen Bluetooth-apparaat gekozen."
+#: ../src/phonemgr-chooser-button.c:80
+#: ../src/phonemgr-chooser-button.c:190
+msgid "Click to select device..."
+msgstr "Klik om een apparaat te selecteren…"
 
-#: src/ui.c:321
+#: ../src/ui.c:333
 msgid "Message too long!"
 msgstr "Bericht is te lang!"
 
-#: ui/phonemgr.glade.h:1 ui/strings.c:31 ui/strings.c:44
-msgid "*"
-msgstr "*"
-
-#: ui/phonemgr.glade.h:2 ui/strings.c:30
+#: ../data/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
-#: ui/phonemgr.glade.h:3 ui/strings.c:15
-msgid "<b>Alerting</b>"
-msgstr "<b>Waarschuwen</b>"
+#: ../data/phonemgr.glade.h:2
+msgid "Alerting"
+msgstr "Waarschuwen"
 
-#: ui/phonemgr.glade.h:4 ui/strings.c:35
-msgid "<b>Error Handling</b>"
-msgstr "<b>Foutafhandeling</b>"
-
-#: ui/phonemgr.glade.h:5 ui/strings.c:32
-msgid "<b>Phone Connection</b>"
-msgstr "<b>Telefoonverbinding</b>"
-
-#: ui/phonemgr.glade.h:6 ui/strings.c:39
-msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Voer uw tekst in</span>"
-
-#: ui/phonemgr.glade.h:7 ui/strings.c:9
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr ""
-"<span weight=\"bold\" size=\"larger\">U heeft een bericht ontvangen</span>"
-
-#: ui/phonemgr.glade.h:8 ui/strings.c:29
+#: ../data/phonemgr.glade.h:3
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Alternatief apparaatbestandsnaam, bijv. /dev/ttyS3"
 
-#: ui/phonemgr.glade.h:9 ui/strings.c:33
-msgid ""
-"Always try and reconnect whenever a connection is not immediately available. "
-"Use this with Bluetooth to ensure your phone connects whenever it comes in "
-"range."
-msgstr ""
-"Altijd opnieuw proberen te verbinden als er niet direct een verbinding "
-"beschikbaar is. Gebruik dit met Bluetooth om te zorgen dat uw telefoon "
-"verbinding maakt zodra die binnen bereik komt."
+#: ../data/phonemgr.glade.h:4
+msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgstr "Altijd opnieuw proberen te verbinden als er niet direct een verbinding beschikbaar is. Gebruik dit met Bluetooth om te zorgen dat uw telefoon verbinding maakt zodra die binnen bereik komt."
 
-#: ui/phonemgr.glade.h:10 ui/strings.c:34
+#: ../data/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
 msgstr "Automatisch _opnieuw proberen te verbinden"
 
-#: ui/phonemgr.glade.h:11 ui/strings.c:40
+#: ../data/phonemgr.glade.h:6
 msgid "Characters left:"
 msgstr "Tekens over:"
 
-#: ui/phonemgr.glade.h:12 ui/strings.c:20
-msgid "Choo_se"
-msgstr "_Kiezen"
-
-#: ui/phonemgr.glade.h:13 ui/strings.c:19
-msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr ""
-"Kies een mobiele telefoon die Bluetooth ondersteunt om mee te verbinden."
-
-#: ui/phonemgr.glade.h:14 ui/strings.c:27
+#: ../data/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
 msgstr "Verbinden met een alternatief serieel apparaat"
 
-#: ui/phonemgr.glade.h:15 ui/strings.c:25
+#: ../data/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
 msgstr "Verbinden met infraroodverbinding"
 
-#: ui/phonemgr.glade.h:16 ui/strings.c:21
+#: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr "Verbinden met seriële poort 1, ook bekend als COM1 of /dev/ttyS0"
 
-#: ui/phonemgr.glade.h:17 ui/strings.c:23
+#: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr "Verbinden met seriële poort 2, ook bekend als COM2 of /dev/ttyS1"
 
-#: ui/phonemgr.glade.h:18 ui/strings.c:36
+#: ../data/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "Verbinding"
 
-#: ui/phonemgr.glade.h:19 ui/strings.c:11
+#: ../data/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "Datum:"
 
-#: ui/phonemgr.glade.h:20 ui/strings.c:43
-msgid "Enter the number you wish to send a message to."
-msgstr "Geef het nummer waarnaar u een bericht wil sturen."
-
-#: ui/phonemgr.glade.h:21 ui/strings.c:46
+#: ../data/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
 msgstr "Voer het tekstbericht in dat u wilt verzenden."
 
-#: ui/phonemgr.glade.h:22 ui/strings.c:16
+#: ../data/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "Voer uw tekstbericht in"
+
+#: ../data/phonemgr.glade.h:15
+msgid "Error Handling"
+msgstr "Foutafhandeling"
+
+#: ../data/phonemgr.glade.h:16
+msgid "I_nfra red (/dev/ircomm)"
+msgstr "I_nfrarood (/dev/ircomm)"
+
+#: ../data/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "Interface"
 
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
-#: ui/phonemgr.glade.h:23 ui/strings.c:7
+#: ../data/phonemgr.glade.h:18
 msgid "Message Received"
 msgstr "Bericht ontvangen"
 
-#: ui/phonemgr.glade.h:24 ui/strings.c:41
-msgid "Number of characters left in the message"
-msgstr "Aantal tekens over in het bericht"
-
-#: ui/phonemgr.glade.h:25 ui/strings.c:28
+#: ../data/phonemgr.glade.h:19
 msgid "Other _port"
 msgstr "Andere _poort"
 
-#: ui/phonemgr.glade.h:26 ui/strings.c:12
+#: ../data/phonemgr.glade.h:20
+msgid "Phone Connection"
+msgstr "Telefoonverbinding"
+
+#: ../data/phonemgr.glade.h:21
 msgid "Phone Manager Preferences"
 msgstr "Telefoonbeheer Voorkeuren"
 
-#: ui/phonemgr.glade.h:27 ui/strings.c:14
+#: ../data/phonemgr.glade.h:22
 msgid "Play _sound when messages arrive"
 msgstr "_Geluid afspelen bij nieuwe berichten"
 
-#: ui/phonemgr.glade.h:28 ui/strings.c:37
+#: ../data/phonemgr.glade.h:23
 msgid "Send Message"
 msgstr "Bericht verzenden"
 
-#: ui/phonemgr.glade.h:29 ui/strings.c:10
+#: ../data/phonemgr.glade.h:24
 msgid "Sender:"
 msgstr "Verzender:"
 
-#: ui/phonemgr.glade.h:30 ui/strings.c:22
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Seriële poort _1 (/dev/ttyS0)"
 
-#: ui/phonemgr.glade.h:31 ui/strings.c:24
+#: ../data/phonemgr.glade.h:26
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Seriële poort _2 (/dev/ttyS1)"
 
-#: ui/phonemgr.glade.h:32 ui/strings.c:17
+#: ../data/phonemgr.glade.h:27
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Bluetooth-draadloos netwerk gebruiken om met uw telefoon te verbinden"
 
-#: ui/phonemgr.glade.h:33 ui/strings.c:18
+#: ../data/phonemgr.glade.h:28
+msgid "You have received a message"
+msgstr "U heeft een bericht ontvangen"
+
+#: ../data/phonemgr.glade.h:29
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ui/phonemgr.glade.h:34 ui/strings.c:26
-msgid "_Infra red (/dev/ircomm)"
-msgstr "_Infrarood (/dev/ircomm)"
-
-#: ui/phonemgr.glade.h:35 ui/strings.c:45
+#: ../data/phonemgr.glade.h:30
 msgid "_Message:"
 msgstr "_Bericht:"
 
-#: ui/phonemgr.glade.h:36 ui/strings.c:13
+#: ../data/phonemgr.glade.h:31
+msgid "_Notify when message is delivered"
+msgstr "_Mededeling weergeven als bericht is afgeleverd"
+
+#: ../data/phonemgr.glade.h:32
 msgid "_Pop-up window for new messages"
 msgstr "_Opduikvenster bij nieuwe berichten"
 
-#: ui/phonemgr.glade.h:37 ui/strings.c:42
+#: ../data/phonemgr.glade.h:33
 msgid "_Recipient:"
 msgstr "_Ontvanger:"
 
-#: ui/phonemgr.glade.h:38 ui/strings.c:8
+#: ../data/phonemgr.glade.h:34
 msgid "_Reply"
 msgstr "_Antwoorden"
 
-#: ui/phonemgr.glade.h:39 ui/strings.c:38
+#: ../data/phonemgr.glade.h:35
 msgid "_Send"
 msgstr "_Verzenden"
 
-#: ui/phonemgr.glade.h:40 ui/strings.c:47
-msgid "message body"
-msgstr "berichtsinhoud"
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Bluetooth-adres van het apparaat om mee te verbinden"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
+msgstr "Bluetooth-adres van het apparaat om mee te verbinden. Vereist dat connection_type 1 is om te kunnen gebruiken."
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Het verbindingstype dat gnome-phone-manager gebruikt"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr "Het verbindingstype dat gnome-phone-manager gebruikt: Bluetooth is 0 Serieel 1 is 1 Serieel 2 is 2 IrDa is 3 Andere verbindingstypes zijn 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "De apparaatnode waarmee het seriële apparaat verbindt"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
+msgstr "De apparaatnode waarmee het seriële apparaat verbindt. Vereist gebruik van connection_type 4."
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Of een geluidseffect gespeeld dient te worden wanneer een bericht binnenkomt"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Of een geluidseffect gespeeld dient te worden wanneer een bericht binnenkomt."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Of nieuwe berichten op moeten duiken op het bureaublad"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
+msgstr "Of nieuwe berichten moeten opduiken op het bureaublad zodra zij ontvangen zijn, in tegenstelling tot het tonen ervan bij het klikken op het mededelingspictogram."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Of opnieuw geprobeerd moet worden te verbinden met de mobiele telefoon"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
+msgstr "Of verbinden met de mobiele telefoon opnieuw moet worden geprobeerd als de verbinding op een bepaald moment faalt."
+
+#: ../src/e-contact-entry.c:158
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Kan contactpersoon niet ophalen: %s"
+
+#: ../src/e-contact-entry.c:191
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Kan contactpersoon niet vinden: %s"
+
+#: ../src/e-contact-entry.c:417
+msgid "Cannot create searchable view."
+msgstr "Kan geen doorzoekbare weergave aanmaken."
+
+#: ../src/e-contact-entry.c:890
+msgid "Success"
+msgstr "Succes"
+
+#: ../src/e-contact-entry.c:892
+msgid "An argument was invalid."
+msgstr "Een argument was ongeldig."
+
+#: ../src/e-contact-entry.c:894
+msgid "The address book is busy."
+msgstr "Het adresboek is bezig."
+
+#: ../src/e-contact-entry.c:896
+msgid "The address book is offline."
+msgstr "Het adresboek is off-line."
+
+#: ../src/e-contact-entry.c:898
+msgid "The address book does not exist."
+msgstr "Het adresboek bestaat niet."
+
+#: ../src/e-contact-entry.c:900
+msgid "The \"Me\" contact does not exist."
+msgstr "De contactpersoon ‘Mijzelf’ bestaat niet."
+
+#: ../src/e-contact-entry.c:902
+msgid "The address book is not loaded."
+msgstr "Het adresboek is niet geladen."
+
+#: ../src/e-contact-entry.c:904
+msgid "The address book is already loaded."
+msgstr "Het adresboek is reeds geladen."
+
+#: ../src/e-contact-entry.c:906
+msgid "Permission was denied when accessing the address book."
+msgstr "De toegang werd geweigerd bij het benaderen van het adresboek."
+
+#: ../src/e-contact-entry.c:908
+msgid "The contact was not found."
+msgstr "De contactpersoon is niet gevonden."
+
+#: ../src/e-contact-entry.c:910
+msgid "This contact ID already exists."
+msgstr "Dit contact-ID bestaat al."
+
+#: ../src/e-contact-entry.c:912
+msgid "The protocol is not supported."
+msgstr "Het protocol wordt niet ondersteund."
+
+#: ../src/e-contact-entry.c:914
+msgid "The operation was cancelled."
+msgstr "De bewerking is geannuleerd."
+
+#: ../src/e-contact-entry.c:916
+msgid "The operation could not be cancelled."
+msgstr "De bewerking kon niet worden geannuleerd."
+
+#: ../src/e-contact-entry.c:918
+msgid "The address book authentication failed."
+msgstr "De authenticatie van het adresboek is mislukt."
+
+#: ../src/e-contact-entry.c:920
+msgid "Authentication is required to access the address book and was not given."
+msgstr "Aanmelding is vereist om het adresboek te benaderen en dit is niet gebeurd."
+
+#: ../src/e-contact-entry.c:922
+msgid "A secure connection is not available."
+msgstr "Een beveiligde verbinding is niet beschikbaar"
+
+#: ../src/e-contact-entry.c:924
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Een CORBA-fout is opgetreden bij het benaderen van het adresboek."
+
+#: ../src/e-contact-entry.c:926
+msgid "The address book source does not exist."
+msgstr "De adresboekbron bestaat niet."
+
+#: ../src/e-contact-entry.c:928
+#: ../src/e-contact-entry.c:931
+msgid "An unknown error occurred."
+msgstr "Er deed zich een onbekende fout voor"
+
+#~ msgid "Selection mode"
+#~ msgstr "Selectiemodus"
+#~ msgid "The selection mode"
+#~ msgstr "De selectiemodus"
+#~ msgid "Sorted"
+#~ msgstr "Gesorteerd"
+#~ msgid "Icon list is sorted"
+#~ msgstr "Pictogrammenlijst is gesorteerd"
+#~ msgid "Sort order"
+#~ msgstr "Sorteervolgorde"
+#~ msgid "Sort direction the icon list should use"
+#~ msgstr "Sorteerrichting die de pictogrammenlijst moete gebruiken"
+#~ msgid "Icon padding"
+#~ msgstr "Pictogramopvulling"
+#~ msgid "Number of pixels between icons"
+#~ msgstr "Aantal beeldpunten tussen pictogrammen"
+#~ msgid "Top margin"
+#~ msgstr "Marge bovenkant"
+#~ msgid "Number of pixels in top margin"
+#~ msgstr "Aantal beeldpunten marge bovenaan"
+#~ msgid "Bottom margin"
+#~ msgstr "Marge onderkant"
+#~ msgid "Number of pixels in bottom margin"
+#~ msgstr "Aantal beeldpunten marge onderaan"
+#~ msgid "Left margin"
+#~ msgstr "Marge links"
+#~ msgid "Number of pixels in left margin"
+#~ msgstr "Aantal beeldpunten marge aan linkerkant"
+#~ msgid "Right margin"
+#~ msgstr "Marge rechts"
+#~ msgid "Number of pixels in right margin"
+#~ msgstr "Aantal beeldpunten marge aan rechterkant"
+#~ msgid "Selection Box Color"
+#~ msgstr "Keuzevak kleur"
+#~ msgid "Color of the selection box"
+#~ msgstr "Kleur van het keuzevak"
+#~ msgid "Selection Box Alpha"
+#~ msgstr "Keuzevak alfa"
+#~ msgid "Opacity of the selection box"
+#~ msgstr "Ondoorzichtigheid van het keuzevak"
+#~ msgid "Pixbuf"
+#~ msgstr "Afbeelding"
+#~ msgid "A GdkPixbuf to display"
+#~ msgstr "Een GdkPixbuf om weer te geven"
+#~ msgid "Filename"
+#~ msgstr "Bestandsnaam"
+#~ msgid "Filename to load and display"
+#~ msgstr "Bestandsnaam om te laden en weer te geven"
+#~ msgid "Animation"
+#~ msgstr "Animatie"
+#~ msgid "GdkPixbufAnimation to display"
+#~ msgstr "GdkPixbufAnimation om weer te geven"
+#~ msgid "Image type"
+#~ msgstr "Afbeeldingssoort"
+#~ msgid "The representation being used for image data"
+#~ msgstr "De representatie die wordt gebruikt voor afbeeldingsgegevens"
+#~ msgid "Size"
+#~ msgstr "Grootte"
+#~ msgid "The size of the icon"
+#~ msgstr "De grootte van het pictogram"
+#~ msgid "Blinking"
+#~ msgstr "Oplichten"
+#~ msgid "Whether or not the status icon is blinking"
+#~ msgstr "Of het statuspictogram oplicht"
+#~ msgid "Orientation"
+#~ msgstr "Oriëntatie"
+#~ msgid "The orientation of the tray."
+#~ msgstr "De oriëntatie van het vak."
+#~ msgid "Unable to obtain RFCOMM connection (%d)"
+#~ msgstr "Kan geen RFCOMM-verbinding verkrijgen (%d)"
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+#~ "span>\n"
+#~ "\n"
+#~ "Phone Manager uses the notification area to display information and "
+#~ "provide access to message sending and preferences. You can add it by "
+#~ "right-clicking on your panel and choosing <i>Add to Panel -> Utility -> "
+#~ "Notification Area</i>."
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Kon mededelingengebied niet vinden</"
+#~ "span>\n"
+#~ "\n"
+#~ "Telefoonbeheer gebruikt het mededelingengebied om informatie weer te "
+#~ "geven, om berichten mee te verzenden en voor voorkeuren. U kunt het "
+#~ "toevoegen door rechts te klikken op het paneel en <i>Toevoegen aan paneel "
+#~ "-> Mededelingengebied</i> te kiezen."
+#~ msgid "Couldn't create phone listener."
+#~ msgstr "Kon geen telefoonluisteraar maken."
+#~ msgid "No Bluetooth device chosen."
+#~ msgstr "Geen Bluetooth-apparaat gekozen."
+#~ msgid "*"
+#~ msgstr "*"
+#~ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+#~ msgstr "<span weight=\"bold\" size=\"larger\">Voer uw tekst in</span>"
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">U heeft een bericht ontvangen</span>"
+#~ msgid "Choo_se"
+#~ msgstr "_Kiezen"
+#~ msgid "Enter the number you wish to send a message to."
+#~ msgstr "Geef het nummer waarnaar u een bericht wil sturen."
+#~ msgid "Number of characters left in the message"
+#~ msgstr "Aantal tekens over in het bericht"
+#~ msgid "message body"
+#~ msgstr "berichtsinhoud"
+
