@@ -84,6 +84,13 @@ report_status (PhonemgrListener *l, char *phone, time_t timestamp, PhonemgrListe
 	g_message ("Received delivery report status %s for %s", report_statuses[status], phone);
 }
 
+static gboolean
+send_message (PhonemgrListener *l)
+{
+	phonemgr_listener_queue_message (l, "+447736665138",
+					 "test message XXX", TRUE);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -116,8 +123,7 @@ main (int argc, char **argv)
 //	if (phonemgr_listener_connect (listener, "/dev/rfcomm0", &err)) {
 		g_message ("Connected OK");
 
-		/* phonemgr_listener_queue_message (listener, "1234567",
-				"test message XXX", TRUE); */
+		g_timeout_add_seconds (1, (GSourceFunc) send_message, listener);
 
 		loop = g_main_loop_new (NULL, FALSE);
 		g_main_loop_run (loop);

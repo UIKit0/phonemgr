@@ -1,3 +1,16 @@
+============ Version 0.51
+
+2008-03-21  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: upd
+	* configure.in: 0.51
+	* libgsm/phonemgr-listener.c (phonemgr_listener_get_own_details):
+	Abort straight away if we can't change to the ON address book
+	folder
+	* libgsm/glibgsmtest.c (send_message), (main):
+	Send a message after a little timeout, to avoid behaving differently
+	from gnome-phone-manager
+
 2008-03-18  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c

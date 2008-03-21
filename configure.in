@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ(2.52)
 
-AC_INIT([GNOME Phone Manager],[0.50],[http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-phone-manager],[gnome-phone-manager])
+AC_INIT([GNOME Phone Manager],[0.51],[http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-phone-manager],[gnome-phone-manager])
 AC_CONFIG_SRCDIR(src/main.c)
 
 AM_MAINTAINER_MODE
@@ -13,7 +13,7 @@ dnl Initialize libtool
 AM_DISABLE_SHARED
 AM_PROG_LIBTOOL
 
-GNOKII_REQS="gnokii >= 0.6.22 bluez >= 3.12"
+GNOKII_REQS="gnokii >= 0.6.24 bluez >= 3.12"
 GNOME_BLUETOOTH_REQS="gnome-bluetooth > 0.8.0"
 
 AC_PROG_CC

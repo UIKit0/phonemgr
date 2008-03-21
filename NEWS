@@ -1,3 +1,12 @@
+gnome-phone-manager 0.51
+========================
+
+ * Add spell checking in the "Send message" entry
+
+ * Fix accessing devices connecting via IrDa, or USB or serial cables
+
+ * Require newer gnokii to get AT driver bug fixes
+
 gnome-phone-manager 0.50
 ========================
 

@@ -689,15 +689,20 @@ phonemgr_listener_get_own_details (PhonemgrListener *l)
 	gn_memory_status memstat;
 	gn_phonebook_entry entry;
 	int count, start_entry, end_entry, num_entries;
+	gn_error err;
 
 	start_entry = 1;
 	end_entry = num_entries = INT_MAX;
 
 	memstat.memory_type = gn_str2memory_type("ON");
 	l->phone_state->data.memory_status = &memstat;
-	if (gn_sm_functions(GN_OP_GetMemoryStatus, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
+	err = gn_sm_functions(GN_OP_GetMemoryStatus, &l->phone_state->data, &l->phone_state->state);
+	if (err == GN_ERR_NONE) {
 		num_entries = memstat.used;
 		end_entry = memstat.used + memstat.free;
+	} else if (err == GN_ERR_INVALIDMEMORYTYPE) {
+		g_message ("Couldn't get our own phone number (no Own Number phonebook)");
+		return;
 	}
 
 	count = start_entry;
