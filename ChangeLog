@@ -1,3 +1,8 @@
+2008-04-11  Bastien Nocera  <hadess@hadess.net>
+
+	* telepathy/main.c: Add an include for locale.h, spotted by
+	Baptiste Mille-Mathias <bmm80@free.fr> (Closes: #527410)
+
 ============ Version 0.51
 
 2008-03-21  Bastien Nocera  <hadess@hadess.net>
