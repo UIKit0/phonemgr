@@ -7,17 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-11 13:05+0300\n"
-"PO-Revision-Date: 2007-08-11 13:00+0300\n"
-"Last-Translator: Charalambos Paschalides <already.late@gmail.com>\n"
+"POT-Creation-Date: 2007-11-19 15:07+0000\n"
+"PO-Revision-Date: 2008-04-29 16:15+0200\n"
+"Last-Translator: nikosCharonitakis <nikosx@gmail.com>\n"
 "Language-Team: **Greek** <**team@gnome.gr**>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Greek\n"
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:92
+#: ../src/connection.c:112
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Σύνδεση με συσκευή στο %s"
@@ -26,308 +27,372 @@ msgstr "Σύνδεση με συσκευή στο %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:98
+#: ../src/connection.c:118
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Αποτυχία σύνδεσης με την συσκευή στο %s"
 
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:28
+#: ../src/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "Σφάλμα GConf: %s"
+
+#: ../src/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Όλα τα επιπλέον σφάλματα εμφανίζονται μόνο σε τερματικό."
+
+#: ../src/gnome-phone-manager.desktop.in.h:1
+#: ../src/menu.c:49
+#: ../src/menu.c:51
 msgid "Phone Manager"
-msgstr "Διαχειριστής Τηλεφώνου"
+msgstr "Διαχειριστής τηλεφώνου"
 
 #: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Λήψη και αποστολή γραπτών μηνυμάτων από το κινητό σας τηλέφωνο"
 
-#: ../src/icon.c:37
+#: ../src/icon.c:59
 msgid "Message arrived"
-msgstr "Μήνυμα ελήφθη"
+msgstr "Ελήφθη μήνυμα"
 
-#: ../src/icon.c:40
+#: ../src/icon.c:62
 msgid "Connected"
 msgstr "Συνδέθηκε"
 
-#: ../src/icon.c:44
+#: ../src/icon.c:66
 msgid "Connecting to phone"
 msgstr "Σύνδεση με τηλέφωνο"
 
-#: ../src/icon.c:48
+#: ../src/icon.c:70
 msgid "Not connected"
 msgstr "Μη συνδεδεμένο"
 
-#: ../src/main.c:14
+#: ../src/main.c:36
 msgid "Show model name of a specific device"
 msgstr "Εμφάνιση ονόματος μοντέλου μιας συγκεκριμένης συσκευής"
 
-#: ../src/main.c:29
+#: ../src/main.c:37
+msgid "Write the configuration file for gnokii debugging"
+msgstr ""
+
+#: ../src/main.c:38
+msgid "Enable debug"
+msgstr "Ενεργοποίηση αποσφαλμάτωσης"
+
+#: ../src/main.c:57
 msgid "- Manage your mobile phone"
 msgstr "- Διαχείριση του κινητού σας τηλεφώνου"
 
-#: ../src/menu.c:20
+#: ../src/menu.c:40
 msgid "translator_credits"
 msgstr "Χαράλαμπος Πασχαλίδης <already.late@gmail.com>"
 
-#: ../src/menu.c:24
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "Αποστολή και λήψη μηνυμάτων από το κινητό σας τηλέφωνο"
 
-#: ../src/menu.c:32
+#: ../src/menu.c:56
 msgid "Phone Manager website"
 msgstr "Ιστοσελίδα Διαχειριστή τηλεφώνου"
 
-#: ../src/menu.c:63
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "_Αποστολή Μηνύματος"
 
-#: ../src/ui.c:313
+#: ../src/phonemgr-chooser-button.c:80
+#: ../src/phonemgr-chooser-button.c:190
+msgid "Click to select device..."
+msgstr "Κάντε κλικ για να επιλέξετε συσκευή..."
+
+#: ../src/ui.c:333
 msgid "Message too long!"
 msgstr "Υπερβολικά μεγάλο μήνυμα!"
 
-#: ../ui/phonemgr.glade.h:1
+#: ../data/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
-#: ../ui/phonemgr.glade.h:2
+#: ../data/phonemgr.glade.h:2
 msgid "Alerting"
 msgstr "Ειδοποίηση"
 
-#: ../ui/phonemgr.glade.h:3
+#: ../data/phonemgr.glade.h:3
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Όνομα αρχείου εναλλακτικής συσκευής, π.χ. /dev/ttyS3"
 
-#: ../ui/phonemgr.glade.h:4
-msgid ""
-"Always try and reconnect whenever a connection is not immediately available. "
-"Use this with Bluetooth to ensure your phone connects whenever it comes in "
-"range."
-msgstr ""
-"Πάντα να γίνεται προσπάθεια επανασύνδεσης όταν μία σύνδεση δεν είναι άμεσα "
-"διαθέσιμη. Να το χρησιμοποιείται με Bluetooth για να σιγουρευτείτε ότι το "
-"τηλέφωνο σας συνδέεται όταν βρίσκεται εντός ακτίνας."
+#: ../data/phonemgr.glade.h:4
+msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgstr "Πάντα να γίνεται προσπάθεια επανασύνδεσης όταν μία σύνδεση δεν είναι άμεσα διαθέσιμη. Να το χρησιμοποιείται με Bluetooth για να σιγουρευτείτε ότι το τηλέφωνο σας συνδέεται όταν βρίσκεται εντός ακτίνας."
 
-#: ../ui/phonemgr.glade.h:5
+#: ../data/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
-msgstr "Αυτόματη _επαναπροσπάθεια σύνδεσης"
+msgstr "Αυτόματη _προσπάθεια επανασύνδεσης"
 
-#: ../ui/phonemgr.glade.h:6
+#: ../data/phonemgr.glade.h:6
 msgid "Characters left:"
 msgstr "Εναπομείναντες χαρακτήρες:"
 
-#: ../ui/phonemgr.glade.h:7
+#: ../data/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
 msgstr "Σύνδεση με χρήση εναλλακτικής σειριακής συσκευής"
 
-#: ../ui/phonemgr.glade.h:8
+#: ../data/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
 msgstr "Σύνδεση με χρήση υπέρυθρης επικοινωνίας"
 
-#: ../ui/phonemgr.glade.h:9
+#: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
-"Σύνδεση με χρήση της σειριακής θύρας 1, γνωστής και ως COM1 ή /dev/ttyS0"
+msgstr "Σύνδεση με χρήση της σειριακής θύρας 1, γνωστής και ως COM1 ή /dev/ttyS0"
 
-#: ../ui/phonemgr.glade.h:10
+#: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
-"Σύνδεση με χρήση της σειριακής θύρας 2, γνωστής και ως COM2 ή /dev/ttyS1"
+msgstr "Σύνδεση με χρήση της σειριακής θύρας 2, γνωστής και ως COM2 ή /dev/ttyS1"
 
-#: ../ui/phonemgr.glade.h:11
+#: ../data/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "Σύνδεση"
 
-#: ../ui/phonemgr.glade.h:12
+#: ../data/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "Ημερομηνία:"
 
-#: ../ui/phonemgr.glade.h:13
+#: ../data/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
-msgstr "Πληκτρολογήστε το γραπτό μήνυμα που επιθυμείτε να στείλετε."
+msgstr "Εισάγετε το γραπτό μήνυμα που επιθυμείτε να στείλετε."
 
-#: ../ui/phonemgr.glade.h:14
+#: ../data/phonemgr.glade.h:14
 msgid "Enter your text message"
-msgstr "Πληκτρολογείστε το γραπτό σας μήνυμα"
+msgstr "Εισάγετε το γραπτό σας μήνυμα"
 
-#: ../ui/phonemgr.glade.h:15
+#: ../data/phonemgr.glade.h:15
 msgid "Error Handling"
-msgstr "Διαχείριση λαθών"
+msgstr "Διαχείριση σφαλμάτων"
 
-#: ../ui/phonemgr.glade.h:16
+#: ../data/phonemgr.glade.h:16
 msgid "I_nfra red (/dev/ircomm)"
 msgstr "_Υπέρυθρη (/dev/ircomm)"
 
-#: ../ui/phonemgr.glade.h:17
+#: ../data/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "Διεπαφή"
 
-#: ../ui/phonemgr.glade.h:18
+#: ../data/phonemgr.glade.h:18
 msgid "Message Received"
 msgstr "Λήφθηκε μήνυμα"
 
-#: ../ui/phonemgr.glade.h:19
-msgid "Number of characters left in the message"
-msgstr "Εναπομείναντες χαρακτήρες μηνύματος"
-
-#: ../ui/phonemgr.glade.h:20
+#: ../data/phonemgr.glade.h:19
 msgid "Other _port"
 msgstr "Άλλη _θύρα"
 
-#: ../ui/phonemgr.glade.h:21
+#: ../data/phonemgr.glade.h:20
 msgid "Phone Connection"
 msgstr "Σύνδεση τηλεφώνου"
 
-#: ../ui/phonemgr.glade.h:22
+#: ../data/phonemgr.glade.h:21
 msgid "Phone Manager Preferences"
-msgstr "Προτιμήσεις Διαχειριστή Τηλεφώνου"
+msgstr "Προτιμήσεις διαχειριστή τηλεφώνου"
 
-#: ../ui/phonemgr.glade.h:23
+#: ../data/phonemgr.glade.h:22
 msgid "Play _sound when messages arrive"
 msgstr "Αναπαραγωγή ή_χου όταν ληφθούν μηνύματα"
 
-#: ../ui/phonemgr.glade.h:24
+#: ../data/phonemgr.glade.h:23
 msgid "Send Message"
-msgstr "Αποστολή Μηνύματος"
+msgstr "Αποστολή μηνύματος"
 
-#: ../ui/phonemgr.glade.h:25
+#: ../data/phonemgr.glade.h:24
 msgid "Sender:"
 msgstr "Αποστολέας:"
 
-#: ../ui/phonemgr.glade.h:26
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Σειριακή θύρα _1 (/dev/ttyS0)"
 
-#: ../ui/phonemgr.glade.h:27
+#: ../data/phonemgr.glade.h:26
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Σειριακή θύρα _2 (/dev/ttyS1)"
 
-#: ../ui/phonemgr.glade.h:28
+#: ../data/phonemgr.glade.h:27
 msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr "Χρήση ασύρματης Bluetooth δικτύωσης για σύνδεση στο τηλέφωνο σας"
+msgstr "Χρήση ασύρματης δικτύωσης Bluetooth για σύνδεση στο τηλέφωνο σας"
 
-#: ../ui/phonemgr.glade.h:29
+#: ../data/phonemgr.glade.h:28
 msgid "You have received a message"
 msgstr "Έχετε λάβει ένα μήνυμα"
 
-#: ../ui/phonemgr.glade.h:30
+#: ../data/phonemgr.glade.h:29
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../ui/phonemgr.glade.h:31
+#: ../data/phonemgr.glade.h:30
 msgid "_Message:"
 msgstr "_Μήνυμα:"
 
-#: ../ui/phonemgr.glade.h:32
+#: ../data/phonemgr.glade.h:31
+msgid "_Notify when message is delivered"
+msgstr "Ειδο_ποίηση όταν λαμβάνεται μήνυμα"
+
+#: ../data/phonemgr.glade.h:32
 msgid "_Pop-up window for new messages"
 msgstr "_Αναδυόμενο παράθυρο για νέα μηνύματα"
 
-#: ../ui/phonemgr.glade.h:33
+#: ../data/phonemgr.glade.h:33
 msgid "_Recipient:"
 msgstr "_Παραλήπτης:"
 
-#: ../ui/phonemgr.glade.h:34
+#: ../data/phonemgr.glade.h:34
 msgid "_Reply"
 msgstr "_Απάντηση"
 
-#: ../ui/phonemgr.glade.h:35
+#: ../data/phonemgr.glade.h:35
 msgid "_Send"
 msgstr "_Αποστολή"
 
-#: ../ui/phonemgr.glade.h:36
-msgid "message body"
-msgstr "σώμα μηνύματος"
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Διεύθυνση Bluetooth της συσκευής που θα γίνει η σύνδεση"
 
-#: ../src/e-contact-entry.c:153
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
+msgstr "Διεύθυνση της συσκευής Bluetooth που θα γίνει η σύνδεση. Απαιτείται να χρησιμοποιηθεί connection_type με τιμή 1"
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Ο τύπος της σύνδεσης που χρησιμοποιείται από τον  gnome-phone-manager"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr "Ο τύπος της σύνδεσης που χρησιμοποιείται από τον  gnome-phone-manager. To Bluetooth είναι 0 Serial 1 είναι 1 Serial 2 είναι 2 IrDa είναι 3 Άλλοι τύποι σύνδεσης είναι 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
+msgstr ""
+
+#: ../src/e-contact-entry.c:158
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Αδυναμία λήψης επαφής: %s"
 
-#: ../src/e-contact-entry.c:185
+#: ../src/e-contact-entry.c:191
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Αδυναμία εύρεσης επαφής: %s"
 
-#: ../src/e-contact-entry.c:383
+#: ../src/e-contact-entry.c:417
 msgid "Cannot create searchable view."
 msgstr "Αδυναμία δημιουργίας προβολής με δυνατότητα αναζήτησης."
 
-#: ../src/e-contact-entry.c:836
+#: ../src/e-contact-entry.c:890
 msgid "Success"
 msgstr "Επιτυχία"
 
-#: ../src/e-contact-entry.c:838
+#: ../src/e-contact-entry.c:892
 msgid "An argument was invalid."
 msgstr "Μία παράμετρος ήταν άκυρη."
 
-#: ../src/e-contact-entry.c:840
+#: ../src/e-contact-entry.c:894
 msgid "The address book is busy."
-msgstr "Το βιβλιάριο διευθύνσεων είναι απασχολημένο."
+msgstr "Το βιβλίο διευθύνσεων είναι απασχολημένο."
 
-#: ../src/e-contact-entry.c:842
+#: ../src/e-contact-entry.c:896
 msgid "The address book is offline."
-msgstr "Το βιβλιάριο διευθύνσεων είναι εκτός σύνδεσης."
+msgstr "Το βιβλίο διευθύνσεων είναι εκτός σύνδεσης."
 
-#: ../src/e-contact-entry.c:844
+#: ../src/e-contact-entry.c:898
 msgid "The address book does not exist."
-msgstr "Το βιβλιάριο διευθύνσεων δεν υπάρχει."
+msgstr "Το βιβλίο διευθύνσεων δεν υπάρχει."
 
-#: ../src/e-contact-entry.c:846
+#: ../src/e-contact-entry.c:900
 msgid "The \"Me\" contact does not exist."
 msgstr "Η επαφή \"Εγώ\" δεν υπάρχει."
 
-#: ../src/e-contact-entry.c:848
+#: ../src/e-contact-entry.c:902
 msgid "The address book is not loaded."
-msgstr "Το βιβλιάριο διευθύνσεων δεν έχει φορτωθεί."
+msgstr "Το βιβλίο διευθύνσεων δεν έχει φορτωθεί."
 
-#: ../src/e-contact-entry.c:850
+#: ../src/e-contact-entry.c:904
 msgid "The address book is already loaded."
 msgstr "Το βιβλίο διευθύνσεων  έχει ήδη φορτωθεί."
 
-#: ../src/e-contact-entry.c:852
+#: ../src/e-contact-entry.c:906
 msgid "Permission was denied when accessing the address book."
 msgstr "Άρνηση άδειας πρόσβασης στο βιβλίο διευθύνσεων."
 
-#: ../src/e-contact-entry.c:854
+#: ../src/e-contact-entry.c:908
 msgid "The contact was not found."
 msgstr "Η επαφή δεν βρέθηκε."
 
-#: ../src/e-contact-entry.c:856
+#: ../src/e-contact-entry.c:910
 msgid "This contact ID already exists."
 msgstr "Αυτό το ID επαφής υπάρχει ήδη."
 
-#: ../src/e-contact-entry.c:858
+#: ../src/e-contact-entry.c:912
 msgid "The protocol is not supported."
 msgstr "Το πρωτόκολλο δεν υποστηρίζεται."
 
-#: ../src/e-contact-entry.c:860
+#: ../src/e-contact-entry.c:914
 msgid "The operation was cancelled."
-msgstr "Η διεργασία ακυρώθηκε."
+msgstr "Η λειτουργία ακυρώθηκε."
 
-#: ../src/e-contact-entry.c:862
+#: ../src/e-contact-entry.c:916
 msgid "The operation could not be cancelled."
 msgstr "Η διεργασία δεν μπορούσε να ακυρωθεί."
 
-#: ../src/e-contact-entry.c:864
+#: ../src/e-contact-entry.c:918
 msgid "The address book authentication failed."
-msgstr "Η πιστοποίηση του βιβλιαρίου διευθύνσεων απέτυχε."
+msgstr "Η πιστοποίηση του βιβλίου διευθύνσεων απέτυχε."
 
-#: ../src/e-contact-entry.c:866
-msgid ""
-"Authentication is required to access the address book and was not given."
-msgstr ""
-"Απαιτείται πιστοποίηση για πρόσβαση στο βιβλιάριο διευθύνσεων η οποία δεν "
-"δόθηκε."
+#: ../src/e-contact-entry.c:920
+msgid "Authentication is required to access the address book and was not given."
+msgstr "Απαιτείται πιστοποίηση για πρόσβαση στο βιβλίο διευθύνσεων και η οποία δεν δόθηκε."
 
-#: ../src/e-contact-entry.c:868
+#: ../src/e-contact-entry.c:922
 msgid "A secure connection is not available."
 msgstr "Δεν υπάρχει διαθέσιμη ασφαλής σύνδεση."
 
-#: ../src/e-contact-entry.c:870
+#: ../src/e-contact-entry.c:924
 msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "Προκλήθηκε σφάλμα CORBA κατά την πρόσβαση στο βιβλιάριο διευθύνσεων."
+msgstr "Προκλήθηκε σφάλμα CORBA κατά την πρόσβαση στο βιβλίο διευθύνσεων."
 
-#: ../src/e-contact-entry.c:872
+#: ../src/e-contact-entry.c:926
 msgid "The address book source does not exist."
 msgstr "Η πηγή του βιβλίου διευθύνσεων δεν υπάρχει."
 
-#: ../src/e-contact-entry.c:874 ../src/e-contact-entry.c:877
+#: ../src/e-contact-entry.c:928
+#: ../src/e-contact-entry.c:931
 msgid "An unknown error occurred."
 msgstr "Προκλήθηκε άγνωστο σφάλμα."
+
+#~ msgid "Number of characters left in the message"
+#~ msgstr "Εναπομείναντες χαρακτήρες μηνύματος"
+#~ msgid "message body"
+#~ msgstr "σώμα μηνύματος"
+
