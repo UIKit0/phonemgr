@@ -110,8 +110,10 @@ phonemgr_utils_address_is (const char *addr)
 	struct stat buf;
 
 	if (g_stat (addr, &buf) == 0 && S_ISCHR (buf.st_mode)) {
-		//FIXME this could also be IrDA
-		return PHONEMGR_CONNECTION_SERIAL;
+		if (strstr (addr, "ircomm") == NULL)
+			return PHONEMGR_CONNECTION_SERIAL;
+		else
+			return PHONEMGR_CONNECTION_IRDA;
 	} else if (bachk (addr) == 0) {
 		return PHONEMGR_CONNECTION_BLUETOOTH;
 	} else {
@@ -283,6 +285,11 @@ phonemgr_utils_write_config (const char *driver, const char *addr, int channel)
 					"port = %s\n"
 					"model = %s\n"
 					"connection = dku2libusb\n", addr, driver);
+	} else if (type == PHONEMGR_CONNECTION_IRDA) {
+		return g_strdup_printf ("[global]\n"
+					"port = %s\n"
+					"model = %s\n"
+					"connection = irda\n", addr, driver);
 	} else {
 		return g_strdup_printf ("[global]\n"
 			"port = %s\n"

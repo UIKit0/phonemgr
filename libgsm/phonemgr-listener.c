@@ -396,6 +396,7 @@ phonemgr_listener_finalize(GObject *obj)
 gboolean
 phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 {
+	PhonemgrConnectionType type;
 	int channel;
 
 	g_return_val_if_fail (PHONEMGR_IS_LISTENER (l), FALSE);
@@ -406,7 +407,8 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 
 	channel = -1;
 
-	if (phonemgr_utils_address_is (device) == PHONEMGR_CONNECTION_BLUETOOTH) {
+	type = phonemgr_utils_address_is (device);
+	if (type == PHONEMGR_CONNECTION_BLUETOOTH) {
 		channel = phonemgr_utils_get_serial_channel (device);
 		if (channel < 0) {
 			//FIXME
@@ -449,6 +451,8 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	    && strcmp (l->driver, PHONEMGR_DEFAULT_USB_DRIVER) != 0) {
 		phonemgr_utils_disconnect (l->phone_state);
 		phonemgr_utils_free (l->phone_state);
+		if (type == PHONEMGR_CONNECTION_IRDA)
+			g_usleep (G_USEC_PER_SEC);
 		l->phone_state = phonemgr_utils_connect (device, l->driver, channel, l->debug, error);
 		if (l->phone_state == NULL) {
 			//FIXME

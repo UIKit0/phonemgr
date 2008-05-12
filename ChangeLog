@@ -1,3 +1,14 @@
+2008-05-12  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-utils.c (phonemgr_utils_address_is),
+	(phonemgr_utils_write_config): Use the irda connection type when
+	connecting to a phone via IrDA, so that the driver knows the
+	connection init is different
+
+	* libgsm/phonemgr-listener.c (phonemgr_listener_connect):
+	Sleep for a second after disconnecting from IrDA devices because
+	they suck
+
 2008-04-11  Bastien Nocera  <hadess@hadess.net>
 
 	* telepathy/main.c: Add an include for locale.h, spotted by
