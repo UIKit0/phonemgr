@@ -1178,7 +1178,7 @@
 			      <property name="visible">True</property>
 			      <property name="tooltip" translatable="yes">Connect using infrared communication</property>
 			      <property name="can_focus">True</property>
-			      <property name="label" translatable="yes">I_nfra red (/dev/ircomm)</property>
+			      <property name="label" translatable="yes">I_nfra red (/dev/ircomm0)</property>
 			      <property name="use_underline">True</property>
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
 			      <property name="focus_on_click">True</property>

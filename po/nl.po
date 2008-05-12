@@ -170,8 +170,8 @@ msgid "Error Handling"
 msgstr "Foutafhandeling"
 
 #: ../data/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm)"
-msgstr "I_nfrarood (/dev/ircomm)"
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfrarood (/dev/ircomm0)"
 
 #: ../data/phonemgr.glade.h:17
 msgid "Interface"

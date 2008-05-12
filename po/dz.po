@@ -368,8 +368,8 @@ msgid "_Bluetooth"
 msgstr "བུ་ལུ་ཊུཏ་(_B)"
 
 #: ../ui/phonemgr.glade.h:32
-msgid "_Infra red (/dev/ircomm)"
-msgstr "མ་མཐོང་པའི་དམརཔོ་ (/dev/ircomm)(_I)"
+msgid "_Infra red (/dev/ircomm0)"
+msgstr "མ་མཐོང་པའི་དམརཔོ་ (/dev/ircomm0)(_I)"
 
 #: ../ui/phonemgr.glade.h:33
 msgid "_Message:"

@@ -1,3 +1,35 @@
+2008-05-12  Bastien Nocera  <hadess@hadess.net>
+
+	* ar.po:
+	* ca.po:
+	* cs.po:
+	* de.po:
+	* dz.po:
+	* el.po:
+	* en_CA.po:
+	* en_GB.po:
+	* es.po:
+	* fi.po:
+	* fr.po:
+	* gu.po:
+	* hu.po:
+	* it.po:
+	* nb.po:
+	* ne.po:
+	* nl.po:
+	* oc.po:
+	* pa.po:
+	* pl.po:
+	* pt.po:
+	* pt_BR.po:
+	* rw.po:
+	* sk.po:
+	* sv.po:
+	* uk.po:
+	* vi.po:
+	* zh_CN.po: Update for string changes, patch by
+	Daniele Forsi <dforsi@gmail.com> (Closes: #532342)
+
 2008-04-29  Nikos Charonitakis  <nikosx@gmail.com>
 
 	* el.po: Updated Greek translation.

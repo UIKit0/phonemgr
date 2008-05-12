@@ -1,5 +1,11 @@
 2008-05-12  Bastien Nocera  <hadess@hadess.net>
 
+	* data/phonemgr.glade: Infrared actually uses /dev/ircomm0, not
+	/dev/ircomm as mentioned in the UI, patch from Daniele Forsi
+	<dforsi@gmail.com> (Closes: #532342)
+
+2008-05-12  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-utils.c (phonemgr_utils_address_is),
 	(phonemgr_utils_write_config): Use the irda connection type when
 	connecting to a phone via IrDA, so that the driver knows the

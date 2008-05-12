@@ -169,8 +169,8 @@ msgid "Error Handling"
 msgstr "त्रुटि ह्यान्डल गर्दै"
 
 #: ../ui/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm)"
-msgstr "इन्फ्रारेड (/dev/ircomm)"
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "इन्फ्रारेड (/dev/ircomm0)"
 
 #: ../ui/phonemgr.glade.h:17
 msgid "Interface"

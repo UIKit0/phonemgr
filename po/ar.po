@@ -416,7 +416,7 @@ msgid "_Bluetooth"
 msgstr "عنوان البلوتوث"
 
 #: ../ui/phonemgr.glade.h:32
-msgid "_Infra red (/dev/ircomm)"
+msgid "_Infra red (/dev/ircomm0)"
 msgstr ""
 
 #: ../ui/phonemgr.glade.h:33

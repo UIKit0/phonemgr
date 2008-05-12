@@ -170,7 +170,7 @@ msgid "Error Handling"
 msgstr ""
 
 #: ../data/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm)"
+msgid "I_nfra red (/dev/ircomm0)"
 msgstr ""
 
 #: ../data/phonemgr.glade.h:17

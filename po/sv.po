@@ -175,8 +175,8 @@ msgid "Error Handling"
 msgstr "Felhantering"
 
 #: ../data/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm)"
-msgstr "I_nfrarött (/dev/ircomm)"
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfrarött (/dev/ircomm0)"
 
 #: ../data/phonemgr.glade.h:17
 msgid "Interface"
@@ -546,8 +546,8 @@ msgstr "Ett okänt fel inträffade."
 #~ msgstr "Avsändare"
 #~ msgid "Bluetooth"
 #~ msgstr "Bluetooth"
-#~ msgid "_Infrared (/dev/ircomm)"
-#~ msgstr "_Infrarött (/dev/ircomm)"
+#~ msgid "_Infrared (/dev/ircomm0)"
+#~ msgstr "_Infrarött (/dev/ircomm0)"
 #~ msgid "Message:"
 #~ msgstr "Meddelande:"
 #~ msgid "_Popup window for new messages"

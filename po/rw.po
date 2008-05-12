@@ -498,7 +498,7 @@ msgstr ""
 
 #: ui/phonemgr.glade.h:34 ui/strings.c:26
 #, fuzzy
-msgid "_Infra red (/dev/ircomm)"
+msgid "_Infra red (/dev/ircomm0)"
 msgstr "Umutuku"
 
 #: ui/phonemgr.glade.h:35 ui/strings.c:45

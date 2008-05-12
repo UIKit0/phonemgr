@@ -154,8 +154,8 @@ msgid "Error Handling"
 msgstr "Hibakezelés"
 
 #: ../ui/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm)"
-msgstr "_Infravörös (/dev/ircomm)"
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "_Infravörös (/dev/ircomm0)"
 
 #: ../ui/phonemgr.glade.h:17
 msgid "Interface"

@@ -169,8 +169,8 @@ msgid "Error Handling"
 msgstr "Διαχείριση σφαλμάτων"
 
 #: ../data/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm)"
-msgstr "_Υπέρυθρη (/dev/ircomm)"
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "_Υπέρυθρη (/dev/ircomm0)"
 
 #: ../data/phonemgr.glade.h:17
 msgid "Interface"

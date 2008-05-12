@@ -174,8 +174,8 @@ msgid "Error Handling"
 msgstr "Gestione degli errori"
 
 #: ../data/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm)"
-msgstr "I_nfrarossi (/dev/ircomm)"
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfrarossi (/dev/ircomm0)"
 
 #: ../data/phonemgr.glade.h:17
 msgid "Interface"
