@@ -31,11 +31,13 @@
 static char *bdaddr_ident = NULL;
 static char *bdaddr_config = NULL;
 static gboolean debug = FALSE;
+static gboolean version = FALSE;
 
 const GOptionEntry options[] = {
 	{ "identify", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_ident, N_("Show model name of a specific device"), NULL },
 	{ "config", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_config, N_("Write the configuration file for gnokii debugging"), NULL },
 	{ "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, N_("Enable debug"), NULL},
+	{ "version", 'v', 0, G_OPTION_ARG_NONE, &version, N_("Show version information and exit"), NULL },
 	{ NULL }
 };
 
@@ -64,6 +66,11 @@ main (int argc, char **argv)
 		g_error ("Couldn't parse options: %s", error->message);
 		g_error_free (error);
 		return 1;
+	}
+
+	if (version != FALSE) {
+		g_print (_("gnome-phone-manager version %s\n"), VERSION);
+		return 0;
 	}
 
 	if (bdaddr_ident != NULL) {

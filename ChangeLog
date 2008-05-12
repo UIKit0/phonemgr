@@ -1,5 +1,10 @@
 2008-05-12  Bastien Nocera  <hadess@hadess.net>
 
+	* src/main.c (main): Add -v/--version to display the program's
+	version (Closes: #524360)
+
+2008-05-12  Bastien Nocera  <hadess@hadess.net>
+
 	* data/phonemgr.glade: Infrared actually uses /dev/ircomm0, not
 	/dev/ircomm as mentioned in the UI, patch from Daniele Forsi
 	<dforsi@gmail.com> (Closes: #532342)
