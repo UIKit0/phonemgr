@@ -1,17 +1,18 @@
+# translation of phonemgr.HEAD.po to Español
 # Spanish translation for phonemgr
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr.HEAD.es\n"
+"Project-Id-Version: phonemgr.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-21 19:41+0000\n"
-"PO-Revision-Date: 2007-11-21 15:04+0100\n"
+"POT-Creation-Date: 2008-05-12 19:58+0000\n"
+"PO-Revision-Date: 2008-05-24 10:58+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Spanish <traductores@es.gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -67,21 +68,30 @@ msgstr "Conectando con el teléfono"
 msgid "Not connected"
 msgstr "No conectado"
 
-#: ../src/main.c:36
+#: ../src/main.c:37
 msgid "Show model name of a specific device"
 msgstr "Mostrar el nombre del modelo de un dispositivo específico"
 
-#: ../src/main.c:37
+#: ../src/main.c:38
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Escriba el archivo de configuración para la depuración de gnokii"
 
-#: ../src/main.c:38
+#: ../src/main.c:39
 msgid "Enable debug"
 msgstr "Activar depuración"
 
-#: ../src/main.c:57
+#: ../src/main.c:40
+msgid "Show version information and exit"
+msgstr "Mostrar información de la versión y salir"
+
+#: ../src/main.c:59
 msgid "- Manage your mobile phone"
 msgstr " - Gestionar su teléfono móvil"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager versión %s\n"
 
 #: ../src/menu.c:40
 msgid "translator_credits"
@@ -105,7 +115,7 @@ msgstr "_Enviar mensaje"
 msgid "Click to select device..."
 msgstr "Pulse para seleccionar el dispositivo..."
 
-#: ../src/ui.c:333
+#: ../src/ui.c:335
 msgid "Message too long!"
 msgstr "El mensaje es demasiado largo."
 
@@ -149,13 +159,11 @@ msgstr "Conectar usando comunicación infrarroja"
 
 #: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
-"Conectar usando el puerto serie 1, también conocido como COM1 o /dev/ttyS0"
+msgstr "Conectar usando el puerto serie 1, también conocido como COM1 o /dev/ttyS0"
 
 #: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
-"Conectar usando el puerto serie 2, también conocido como COM2 o /dev/ttyS1"
+msgstr "Conectar usando el puerto serie 2, también conocido como COM2 o /dev/ttyS1"
 
 #: ../data/phonemgr.glade.h:11
 msgid "Connection"
@@ -407,10 +415,10 @@ msgid "The address book authentication failed."
 msgstr "La autenticación de la libreta de direcciones falló."
 
 #: ../src/e-contact-entry.c:920
-msgid ""
-"Authentication is required to access the address book and was not given."
+msgid "Authentication is required to access the address book and was not given."
 msgstr ""
-"Se requiere autenticación para acceder a la libreta de direcciones y no se proporcionó."
+"Se requiere autenticación para acceder a la libreta de direcciones y no se "
+"proporcionó."
 
 #: ../src/e-contact-entry.c:922
 msgid "A secure connection is not available."
@@ -427,3 +435,4 @@ msgstr "La fuente de la libreta de direcciones no existe."
 #: ../src/e-contact-entry.c:928 ../src/e-contact-entry.c:931
 msgid "An unknown error occurred."
 msgstr "Ocurrió un error desconocido."
+
