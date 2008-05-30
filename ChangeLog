@@ -1,5 +1,21 @@
 2008-05-30  Bastien Nocera  <hadess@hadess.net>
 
+	* configure.in: require glib 2.13 and newer
+
+	* src/app.h:
+	* src/connection.c (on_status), (on_network),
+	(initialise_connection):
+	* src/org_gnome_phone_Manager.xml:
+	* src/phonemgr-object.c (phonemgr_object_class_init),
+	(phonemgr_object_emit_network_registration_changed),
+	(phonemgr_object_coldplug):
+	* src/phonemgr-object.h: Add the NetworkRegistrationChanged
+	signal on the org.gnome.phone.Manager interface, for the purpose
+	of looking up location based on network and cell IDs
+	(Closes: #533283)
+
+2008-05-30  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/glibgsmtest.c (network_status), (main):
 	* libgsm/phonemgr-listener.c (phonemgr_listener_class_init),
 	(phonemgr_listener_push), (phonemgr_listener_cell_not_cb),

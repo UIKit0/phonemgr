@@ -11,5 +11,11 @@
     <signal name="NumberBatteriesChanged">
       <arg type="u" name="NumBatteries" />
     </signal>
+    <signal name="NetworkRegistrationChanged">
+      <arg type="i" name="mcc" />
+      <arg type="i" name="mnc" />
+      <arg type="i" name="lac" />
+      <arg type="i" name="cid" />
+    </signal>
   </interface>
 </node>

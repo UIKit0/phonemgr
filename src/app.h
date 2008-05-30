@@ -67,6 +67,7 @@ typedef struct _appinfo {
 	gulong  reconnector;
 	gulong  popup_cb;
 	gulong  battery_cb;
+	gulong  network_cb;
 } MyApp;
 
 typedef struct _message {

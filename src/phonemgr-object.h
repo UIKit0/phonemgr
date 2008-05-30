@@ -35,11 +35,20 @@ struct _PhonemgrObjectClass {
 					guint battery_index,
 					guint percentage,
 					gboolean on_ac);
+	void (* network_registration_changed) (PhonemgrObject *o,
+					       int mcc, int mnc, int lac, int cid);
 };
 
 struct _PhonemgrObject {
 	GObject parent;
 
+	/* Network registration */
+	int mcc;
+	int mnc;
+	int lac;
+	int cid;
+
+	/* Battery */
 	guint percentage;
 	guint on_ac : 1;
 	/* We can only have one battery */
@@ -48,6 +57,7 @@ struct _PhonemgrObject {
 
 void phonemgr_object_emit_number_batteries_changed (PhonemgrObject *o, guint num_batteries);
 void phonemgr_object_emit_battery_state_changed (PhonemgrObject *o, guint index, guint percentage, gboolean on_ac);
+void phonemgr_object_emit_network_registration_changed (PhonemgrObject *o, int mcc, int mnc, int lac, int cid);
 
 gboolean phonemgr_object_coldplug (PhonemgrObject *o, GError **error);
 

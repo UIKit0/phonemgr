@@ -30,6 +30,7 @@
 enum {
 	NUMBER_BATTERIES_CHANGED,
 	BATTERY_STATE_CHANGED,
+	NETWORK_REGISTRATION_CHANGED,
 	LAST_SIGNAL
 };
 
@@ -70,6 +71,15 @@ phonemgr_object_class_init (PhonemgrObjectClass *klass)
 			      G_TYPE_NONE,
 			      3,
 			      G_TYPE_UINT, G_TYPE_UINT, G_TYPE_BOOLEAN);
+	phonemgr_object_signals[NETWORK_REGISTRATION_CHANGED] =
+		g_signal_new ("network-registration-changed",
+			      G_OBJECT_CLASS_TYPE (klass),
+			      G_SIGNAL_RUN_FIRST,
+			      G_STRUCT_OFFSET (PhonemgrObjectClass, network_registration_changed),
+			      NULL, NULL,
+			      phonemgr_marshal_VOID__INT_INT_INT_INT,
+			      G_TYPE_NONE, 4,
+			      G_TYPE_INT, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT);
 
 	dbus_g_object_type_install_info (phonemgr_object_get_type (),
 					 &dbus_glib_phonemgr_object_object_info);
@@ -99,6 +109,19 @@ phonemgr_object_emit_battery_state_changed (PhonemgrObject *o, guint index, guin
 		       0, index, percentage, on_ac);
 }
 
+void
+phonemgr_object_emit_network_registration_changed (PhonemgrObject *o, int mcc, int mnc, int lac, int cid)
+{
+	o->mcc = mcc;
+	o->mnc = mnc;
+	o->lac = lac;
+	o->cid = cid;
+
+	g_signal_emit (G_OBJECT (o),
+		       phonemgr_object_signals[NETWORK_REGISTRATION_CHANGED],
+		       0, mcc, mnc, lac, cid);
+}
+
 gboolean
 phonemgr_object_coldplug (PhonemgrObject *o, GError **error)
 {
@@ -109,6 +132,11 @@ phonemgr_object_coldplug (PhonemgrObject *o, GError **error)
 		g_signal_emit (G_OBJECT (o),
 			       phonemgr_object_signals[BATTERY_STATE_CHANGED],
 			       0, 0, o->percentage, o->on_ac);
+	}
+	if (o->mcc != 0) {
+		g_signal_emit (G_OBJECT (o),
+			       phonemgr_object_signals[NETWORK_REGISTRATION_CHANGED],
+			       0, o->mcc, o->mnc, o->lac, o->cid);
 	}
 	return TRUE;
 }

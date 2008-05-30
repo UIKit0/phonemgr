@@ -183,6 +183,7 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 		case PHONEMGR_LISTENER_DISCONNECTING:
 			g_message ("Closing serial port connection");
 			phonemgr_object_emit_number_batteries_changed (app->object, 0);
+			phonemgr_object_emit_network_registration_changed (app->object, 0, 0, 0, 0);
 			break;
 		case PHONEMGR_LISTENER_ERROR:
 			set_icon_state (app);
@@ -221,6 +222,12 @@ static void
 on_battery (PhonemgrListener *listener, int percent, gboolean on_ac, MyApp *app)
 {
 	phonemgr_object_emit_battery_state_changed (app->object, 0, percent, on_ac);
+}
+
+static void
+on_network (PhonemgrListener *listener, int mcc, int mnc, int lac, int cid, MyApp *app)
+{
+	phonemgr_object_emit_network_registration_changed (app->object, mcc, mnc, lac, cid);
 }
 
 void
@@ -271,13 +278,10 @@ initialise_connection (MyApp *app)
 			G_CALLBACK (on_message), (gpointer) app);
 	app->battery_cb = g_signal_connect (G_OBJECT (app->listener), "battery",
 						G_CALLBACK (on_battery), (gpointer) app);
-#if GLIB_CHECK_VERSION(2,13,0)
+	app->network_cb = g_signal_connect (G_OBJECT (app->listener), "network",
+					    G_CALLBACK (on_network), app);
 	app->reconnector = g_timeout_add_seconds (20, (GSourceFunc)attempt_reconnect,
 						  (gpointer)app);
-#else
-	app->reconnector = g_timeout_add (20 * 1000, (GSourceFunc)attempt_reconnect,
-					  (gpointer)app);
-#endif
 
 	gdk_threads_init ();
 	app->connecting_mutex = g_mutex_new ();
