@@ -1,3 +1,15 @@
+2008-05-30  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/glibgsmtest.c (network_status), (main):
+	* libgsm/phonemgr-listener.c (phonemgr_listener_class_init),
+	(phonemgr_listener_push), (phonemgr_listener_cell_not_cb),
+	(phonemgr_listener_set_cell_notification),
+	(phonemgr_listener_thread):
+	* libgsm/phonemgr-listener.h:
+	* libgsm/phonemgr-marshal.list: Add "network" signal to the backend
+	which will push out the network code, and LAC and Cell ID to the
+	front-end, for use with gsmloc.org and opencellid.org
+
 2008-05-12  Bastien Nocera  <hadess@hadess.net>
 
 	* src/main.c (main): Add -v/--version to display the program's

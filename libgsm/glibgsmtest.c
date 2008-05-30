@@ -84,6 +84,12 @@ report_status (PhonemgrListener *l, char *phone, time_t timestamp, PhonemgrListe
 	g_message ("Received delivery report status %s for %s", report_statuses[status], phone);
 }
 
+static void
+network_status (PhonemgrListener *l, int mcc, int mnc, int lac, int cid)
+{
+	g_message ("Updated network: mcc: %d mnc: %d lac: %d cid: %d", mcc, mnc, lac, cid);
+}
+
 static gboolean
 send_message (PhonemgrListener *l)
 {
@@ -117,6 +123,8 @@ main (int argc, char **argv)
 			  G_CALLBACK (battery), (gpointer) listener);
 	g_signal_connect (G_OBJECT (listener), "report-status",
 			  G_CALLBACK (report_status), (gpointer) listener);
+	g_signal_connect (G_OBJECT (listener), "network",
+			  G_CALLBACK (network_status), (gpointer) listener);
 
 //	if (phonemgr_listener_connect (listener, "1", &err)) {
 	if (phonemgr_listener_connect (listener, "00:12:D2:79:B7:33", &err)) {

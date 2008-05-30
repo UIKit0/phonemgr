@@ -70,6 +70,7 @@ struct _PhonemgrListenerClass
   void (* status) (PhonemgrListener *l, PhonemgrListenerStatus status);
   void (* call_status) (PhonemgrListener *l, PhonemgrListenerCallStatus status, const char *phone, const char *name);
   void (* battery) (PhonemgrListener *l, int percent, gboolean on_ac);
+  void (* network) (PhonemgrListener *l, int mcc, int mnc, int lac, int cid);
 };
 
 GQuark phonemgr_listener_error_quark	(void) G_GNUC_CONST;

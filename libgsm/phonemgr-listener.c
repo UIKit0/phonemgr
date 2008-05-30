@@ -52,11 +52,16 @@ typedef struct {
 } PhoneMgrBattery;
 
 typedef struct {
+	int mcc, mnc, lac, cid;
+} PhoneMgrNetwork;
+
+typedef struct {
 	int type;
 	union {
 		gn_sms *message;
 		PhoneMgrCall *call;
 		PhoneMgrBattery *battery;
+		PhoneMgrNetwork *network;
 	};
 } AsyncSignal;
 
@@ -80,6 +85,11 @@ struct _PhonemgrListener
 	/* Battery info */
 	float batterylevel;
 	gn_power_source powersource;
+
+	/* Network info cache */
+	int cid;
+	int lac;
+	char network_code[10];
 
 	guint connected : 1;
 	guint terminated : 1;
@@ -105,6 +115,7 @@ enum {
 	STATUS_SIGNAL,
 	CALL_STATUS_SIGNAL,
 	BATTERY_SIGNAL,
+	NETWORK_SIGNAL,
 	LAST_SIGNAL
 };
 
@@ -220,6 +231,17 @@ phonemgr_listener_class_init (PhonemgrListenerClass *klass)
 			      G_TYPE_NONE,
 			      2,
 			      G_TYPE_INT, G_TYPE_BOOLEAN);
+
+	phonemgr_listener_signals[NETWORK_SIGNAL] =
+		g_signal_new ("network",
+			      G_OBJECT_CLASS_TYPE (klass),
+			      G_SIGNAL_RUN_FIRST,
+			      G_STRUCT_OFFSET (PhonemgrListenerClass, network),
+			      NULL, NULL,
+			      phonemgr_marshal_VOID__INT_INT_INT_INT,
+			      G_TYPE_NONE,
+			      4,
+			      G_TYPE_INT, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT);
 
 	g_object_class_install_property (object_class,
 					 PROP_DEBUG,
@@ -509,6 +531,16 @@ phonemgr_listener_push (PhonemgrListener *l)
 						signal->battery->powersource != GN_PS_BATTERY);
 		g_free (signal->battery);
 		break;
+	case NETWORK_SIGNAL:
+		g_message ("emitting network info");
+		g_signal_emit (G_OBJECT (l),
+			       phonemgr_listener_signals[NETWORK_SIGNAL], 0,
+			       signal->network->mcc,
+			       signal->network->mnc,
+			       signal->network->lac,
+			       signal->network->cid);
+		g_free (signal->network);
+		break;
 	default:
 		g_assert_not_reached ();
 	}
@@ -605,6 +637,66 @@ phonemgr_listener_new_call_cb (gn_call_status call_status, gn_call_info *call_in
 	gn_call_notifier (call_status, call_info, state);
 
 	phonemgr_listener_call_status (l, call_status, call_info->number, call_info->name);
+}
+static void
+phonemgr_listener_cell_not_cb (gn_network_info *info, void *user_data)
+{
+	PhonemgrListener *l = (PhonemgrListener *) user_data;
+	AsyncSignal *signal;
+	int cid, lac, mcc, mnc;
+	char *end;
+
+	if (info->cell_id[2] == 0 && info->cell_id[3] == 0)
+		cid = (info->cell_id[0] << 8) + info->cell_id[1];
+	else
+		cid = (info->cell_id[0] << 24) + (info->cell_id[1] << 16) + (info->cell_id[2] << 8) + info->cell_id[3];
+
+	lac = info->LAC[0] << 8 + info->LAC[1];
+
+	/* Is it the same cells? */
+	if (lac == l->lac && cid == l->cid)
+		return;
+
+	/* Only call GN_OP_GetNetworkInfo if we actually need it */
+	if (info->network_code == NULL ||
+	    info->network_code[0] == '\0') {
+		gn_network_info new_info;
+
+		l->phone_state->data.network_info = &new_info;
+		l->phone_state->data.reg_notification = phonemgr_listener_cell_not_cb;
+		l->phone_state->data.callback_data = l;
+
+		if (gn_sm_functions (GN_OP_GetNetworkInfo, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+			return;
+		g_stpcpy (info->network_code, new_info.network_code);
+	}
+
+	if (info->network_code == NULL ||
+	    info->network_code[0] == '\0' ||
+	    strstr (info->network_code, " ") == NULL)
+	    	return;
+
+	mcc = g_ascii_strtoll (info->network_code, &end, 0);
+	if (mcc == 0)
+		return;
+	mnc = g_ascii_strtoll (end, NULL, 0);
+
+	/* Save all that */
+	g_stpcpy (l->network_code, info->network_code);
+	l->lac = lac;
+	l->cid = cid;
+
+	/* And push all that to a signal */
+	signal = g_new0 (AsyncSignal, 1);
+	signal->type = NETWORK_SIGNAL;
+	signal->network = g_new0 (PhoneMgrNetwork, 1);
+	signal->network->mcc = mcc;
+	signal->network->mnc = mnc;
+	signal->network->lac = lac;
+	signal->network->cid = cid;
+
+	g_async_queue_push (l->queue, signal);
+	g_idle_add ((GSourceFunc) phonemgr_listener_push, l);
 }
 
 static void
@@ -793,6 +885,28 @@ phonemgr_listener_set_call_notification (PhonemgrListener *l, gboolean state)
 }
 
 static void
+phonemgr_listener_set_cell_notification (PhonemgrListener *l, gboolean state)
+{
+	if (state != FALSE) {
+		gn_network_info info;
+
+		/* Set up cell notification using GN_OP_GetNetworkInfo */
+		gn_data_clear (&l->phone_state->data);
+		l->phone_state->data.network_info = &info;
+		l->phone_state->data.reg_notification = phonemgr_listener_cell_not_cb;
+		l->phone_state->data.callback_data = l;
+		gn_sm_functions (GN_OP_GetNetworkInfo, &l->phone_state->data, &l->phone_state->state);
+
+		phonemgr_listener_cell_not_cb (&info, l);
+	} else {
+		/* Disable cell notification */
+		gn_data_clear (&l->phone_state->data);
+		l->phone_state->data.reg_notification = NULL;
+		gn_sm_functions (GN_OP_GetNetworkInfo, &l->phone_state->data, &l->phone_state->state);
+	}
+}
+
+static void
 phonemgr_listener_thread (PhonemgrListener *l)
 {
 	g_mutex_lock (l->mutex);
@@ -802,6 +916,8 @@ phonemgr_listener_thread (PhonemgrListener *l)
 	phonemgr_listener_set_sms_notification (l, TRUE);
 	CHECK_EXIT;
 	phonemgr_listener_set_call_notification (l, TRUE);
+	CHECK_EXIT;
+	phonemgr_listener_set_cell_notification (l, TRUE);
 	CHECK_EXIT;
 	g_mutex_unlock (l->mutex);
 
@@ -826,6 +942,7 @@ exit_thread:
 	g_mutex_lock (l->mutex);
 	phonemgr_listener_set_sms_notification (l, FALSE);
 	phonemgr_listener_set_call_notification (l, FALSE);
+	phonemgr_listener_set_cell_notification (l, FALSE);
 	g_mutex_unlock (l->mutex);
 
 	g_thread_exit (NULL);
