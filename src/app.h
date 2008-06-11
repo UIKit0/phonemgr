@@ -60,6 +60,7 @@ typedef struct _appinfo {
 	GThread *disconnecting_thread;
 	GMutex *connecting_mutex;
 	gboolean connecting;
+	gint status;
 
 	/* signal handlers and timeouts */
 	gulong  status_cb;

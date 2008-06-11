@@ -263,6 +263,20 @@ phonemgr_listener_error_quark (void)
 	return q;
 }
 
+/* Only for use within the polling thread */
+static gn_error
+phonemgr_listener_gnokii_func (gn_operation op, PhonemgrListener *l)
+{
+	gn_error retval;
+
+	retval = gn_sm_functions(op, &l->phone_state->data, &l->phone_state->state);
+	if (retval == GN_ERR_NOTREADY) {
+		l->terminated = TRUE;
+		l->connected = FALSE;
+	}
+	return retval;
+}
+
 static void
 phonemgr_listener_emit_status (PhonemgrListener *l, PhonemgrListenerStatus status)
 {
@@ -424,6 +438,8 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	g_return_val_if_fail (PHONEMGR_IS_LISTENER (l), FALSE);
 	g_return_val_if_fail (l->connected == FALSE, FALSE);
 	g_return_val_if_fail (l->phone_state == NULL, FALSE);
+
+	l->terminated = FALSE;
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);
 
@@ -666,7 +682,7 @@ phonemgr_listener_cell_not_cb (gn_network_info *info, void *user_data)
 		l->phone_state->data.reg_notification = phonemgr_listener_cell_not_cb;
 		l->phone_state->data.callback_data = l;
 
-		if (gn_sm_functions (GN_OP_GetNetworkInfo, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+		if (phonemgr_listener_gnokii_func (GN_OP_GetNetworkInfo, l) != GN_ERR_NONE)
 			return;
 		g_stpcpy (info->network_code, new_info.network_code);
 	}
@@ -705,7 +721,7 @@ phonemgr_listener_sms_notification_soft_poll (PhonemgrListener *l)
 	gn_sm_loop (10, &l->phone_state->state);
 	/* Some phones may not be able to notify us, thus we give
 	 * lowlevel chance to poll them */
-	gn_sm_functions (GN_OP_PollSMS, &l->phone_state->data, &l->phone_state->state);
+	phonemgr_listener_gnokii_func (GN_OP_PollSMS, l);
 }
 
 static void
@@ -743,11 +759,16 @@ phonemgr_listener_battery_poll (PhonemgrListener *l)
 
 	/* Some drivers will use the same function for battery level and power source, so optimise.
 	 * Make sure to get the battery level first, as most drivers implement only this one */
-	if (gn_sm_functions(GN_OP_GetBatteryLevel, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE)
+	if (phonemgr_listener_gnokii_func (GN_OP_GetBatteryLevel, l) == GN_ERR_NOTREADY)
 		return;
 
 	if (powersource == -1 && l->supports_power_source != FALSE) {
-		if (gn_sm_functions(GN_OP_GetPowersource, &l->phone_state->data, &l->phone_state->state) != GN_ERR_NONE) {
+		gn_error error;
+
+		error = phonemgr_listener_gnokii_func (GN_OP_GetPowersource, l);
+		if (error == GN_ERR_NOTREADY) {
+			return;
+		} else if (error != GN_ERR_NONE) {
 			g_message ("driver or phone doesn't support getting the power source");
 			l->supports_power_source = FALSE;
 			powersource = GN_PS_BATTERY;
@@ -785,32 +806,34 @@ phonemgr_listener_get_own_details (PhonemgrListener *l)
 	gn_memory_status memstat;
 	gn_phonebook_entry entry;
 	int count, start_entry, end_entry, num_entries;
-	gn_error err;
+	gn_error error;
 
 	start_entry = 1;
 	end_entry = num_entries = INT_MAX;
 
 	memstat.memory_type = gn_str2memory_type("ON");
 	l->phone_state->data.memory_status = &memstat;
-	err = gn_sm_functions(GN_OP_GetMemoryStatus, &l->phone_state->data, &l->phone_state->state);
-	if (err == GN_ERR_NONE) {
+	error = phonemgr_listener_gnokii_func (GN_OP_GetMemoryStatus, l);
+	if (error == GN_ERR_NONE) {
 		num_entries = memstat.used;
 		end_entry = memstat.used + memstat.free;
-	} else if (err == GN_ERR_INVALIDMEMORYTYPE) {
+	} else if (error == GN_ERR_INVALIDMEMORYTYPE) {
 		g_message ("Couldn't get our own phone number (no Own Number phonebook)");
+		return;
+	} else if (error == GN_ERR_NOTREADY) {
 		return;
 	}
 
 	count = start_entry;
 	while (num_entries > 0 && count <= end_entry) {
-		gn_error error = GN_ERR_NONE;
+		error = GN_ERR_NONE;
 
 		memset(&entry, 0, sizeof(gn_phonebook_entry));
 		entry.memory_type = memstat.memory_type;
 		entry.location = count;
 
 		l->phone_state->data.phonebook_entry = &entry;
-		error = gn_sm_functions(GN_OP_ReadPhonebook, &l->phone_state->data, &l->phone_state->state);
+		error = phonemgr_listener_gnokii_func (GN_OP_ReadPhonebook, l);
 		if (error != GN_ERR_NONE && error != GN_ERR_EMPTYLOCATION)
 			break;
 		if (entry.empty != FALSE)
@@ -846,13 +869,17 @@ static void
 phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 {
 	if (state != FALSE) {
+		gn_error error;
 		/* Try to set up SMS notification using GN_OP_OnSMS */
 		gn_data_clear (&l->phone_state->data);
 		l->phone_state->data.on_sms = phonemgr_listener_new_sms_cb;
 		l->phone_state->data.callback_data = l;
-		if (gn_sm_functions (GN_OP_OnSMS, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
+		error = phonemgr_listener_gnokii_func (GN_OP_OnSMS, l);
+		if (error == GN_ERR_NONE) {
 			l->supports_sms_notif = TRUE;
 			g_message ("driver and phone support sms notifications");
+		} else if (error == GN_ERR_NOTREADY) {
+			return;
 		} else {
 			g_message ("driver or phone doesn't support sms notifications");
 		}
@@ -862,7 +889,7 @@ phonemgr_listener_set_sms_notification (PhonemgrListener *l, gboolean state)
 		/* Disable the SMS callback on exit */
 		if (l->supports_sms_notif != FALSE) {
 			l->phone_state->data.on_sms = NULL;
-			gn_sm_functions (GN_OP_OnSMS, &l->phone_state->data, &l->phone_state->state);
+			phonemgr_listener_gnokii_func (GN_OP_OnSMS, l);
 		}
 	}
 }
@@ -875,12 +902,12 @@ phonemgr_listener_set_call_notification (PhonemgrListener *l, gboolean state)
 		gn_data_clear (&l->phone_state->data);
 		l->phone_state->data.call_notification = phonemgr_listener_new_call_cb;
 		l->phone_state->data.callback_data = l;
-		gn_sm_functions (GN_OP_SetCallNotification, &l->phone_state->data, &l->phone_state->state);
+		phonemgr_listener_gnokii_func (GN_OP_SetCallNotification, l);
 	} else {
 		/* Disable call notification */
 		gn_data_clear (&l->phone_state->data);
 		l->phone_state->data.call_notification = NULL;
-		gn_sm_functions (GN_OP_SetCallNotification, &l->phone_state->data, &l->phone_state->state);
+		phonemgr_listener_gnokii_func (GN_OP_SetCallNotification, l);
 	}
 }
 
@@ -895,15 +922,36 @@ phonemgr_listener_set_cell_notification (PhonemgrListener *l, gboolean state)
 		l->phone_state->data.network_info = &info;
 		l->phone_state->data.reg_notification = phonemgr_listener_cell_not_cb;
 		l->phone_state->data.callback_data = l;
-		gn_sm_functions (GN_OP_GetNetworkInfo, &l->phone_state->data, &l->phone_state->state);
+		if (phonemgr_listener_gnokii_func (GN_OP_GetNetworkInfo, l) != GN_ERR_NONE)
+			return;
 
 		phonemgr_listener_cell_not_cb (&info, l);
 	} else {
 		/* Disable cell notification */
 		gn_data_clear (&l->phone_state->data);
 		l->phone_state->data.reg_notification = NULL;
-		gn_sm_functions (GN_OP_GetNetworkInfo, &l->phone_state->data, &l->phone_state->state);
+		phonemgr_listener_gnokii_func (GN_OP_GetNetworkInfo, l);
 	}
+}
+
+static void
+phonemgr_listener_disconnect_cleanup (PhonemgrListener *l)
+{
+	g_free (l->driver);
+	l->driver = NULL;
+	g_free (l->own_number);
+	l->own_number = NULL;
+	l->batterylevel = 1;
+	l->supports_power_source = TRUE;
+	l->powersource = GN_PS_BATTERY;
+
+	l->connected = FALSE;
+	//FIXME more to kill?
+	phonemgr_utils_disconnect (l->phone_state);
+	phonemgr_utils_free (l->phone_state);
+	l->phone_state = NULL;
+
+	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_IDLE);
 }
 
 static void
@@ -930,6 +978,7 @@ phonemgr_listener_thread (PhonemgrListener *l)
 			phonemgr_listener_call_notification_poll (l);
 			CHECK_EXIT;
 			phonemgr_listener_battery_poll (l);
+			CHECK_EXIT;
 
 			g_mutex_unlock (l->mutex);
 			g_usleep (POLL_TIMEOUT);
@@ -940,9 +989,14 @@ phonemgr_listener_thread (PhonemgrListener *l)
 
 exit_thread:
 	g_mutex_lock (l->mutex);
-	phonemgr_listener_set_sms_notification (l, FALSE);
-	phonemgr_listener_set_call_notification (l, FALSE);
-	phonemgr_listener_set_cell_notification (l, FALSE);
+	if (l->connected != FALSE) {
+		phonemgr_listener_set_sms_notification (l, FALSE);
+		phonemgr_listener_set_call_notification (l, FALSE);
+		phonemgr_listener_set_cell_notification (l, FALSE);
+	} else {
+		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_DISCONNECTING);
+		phonemgr_listener_disconnect_cleanup (l);
+	}
 	g_mutex_unlock (l->mutex);
 
 	g_thread_exit (NULL);
@@ -952,25 +1006,13 @@ void
 phonemgr_listener_disconnect (PhonemgrListener *l)
 {
 	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
-	g_return_if_fail (l->connected != FALSE);
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_DISCONNECTING);
 
 	l->terminated = TRUE;
 	g_thread_join (l->thread);
 
-	g_free (l->driver);
-	l->driver = NULL;
-	g_free (l->own_number);
-	l->own_number = NULL;
-
-	l->connected = FALSE;
-	//FIXME more to kill?
-	phonemgr_utils_disconnect (l->phone_state);
-	phonemgr_utils_free (l->phone_state);
-	l->phone_state = NULL;
-
-	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_IDLE);
+	phonemgr_listener_disconnect_cleanup (l);
 }
 
 void
@@ -997,6 +1039,7 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	GError *err = NULL;
 	gn_sms sms;
 	gn_error error;
+	gn_sms_message_center center;
 
 	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
 	g_return_if_fail (l->connected != FALSE);
@@ -1045,13 +1088,20 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 		sms.remote.type = GN_GSM_NUMBER_Unknown;
 
 	/* Get the SMS Center number */
-	l->phone_state->data.message_center = g_new (gn_sms_message_center, 1);
-	l->phone_state->data.message_center->id = 1;
-	if (gn_sm_functions(GN_OP_GetSMSCenter, &l->phone_state->data, &l->phone_state->state) == GN_ERR_NONE) {
-		g_strlcpy (sms.smsc.number, l->phone_state->data.message_center->smsc.number, sizeof (sms.smsc.number));
-		sms.smsc.type = l->phone_state->data.message_center->smsc.type;
+	l->phone_state->data.message_center = &center;
+	center.id = 1;
+	error = gn_sm_functions (GN_OP_GetSMSCenter, &l->phone_state->data, &l->phone_state->state);
+	if (error == GN_ERR_NONE) {
+		g_strlcpy (sms.smsc.number, center.smsc.number, sizeof (sms.smsc.number));
+		sms.smsc.type = center.smsc.type;
+	} else if (error == GN_ERR_NOTREADY) {
+		g_message ("Can't send message, phone disconnected");
+		g_mutex_unlock (l->mutex);
+		return;
 	}
-	g_free (l->phone_state->data.message_center);
+
+	if (!sms.smsc.type)
+		sms.smsc.type = GN_GSM_NUMBER_Unknown;
 
 	/* Set whether to get a delivery report */
 	sms.delivery_report = delivery_report;
@@ -1103,7 +1153,7 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 	/* Set the time and date */
 	gn_data_clear(&l->phone_state->data);
 	l->phone_state->data.datetime = &date;
-	error = gn_sm_functions (GN_OP_SetDateTime, &l->phone_state->data, &l->phone_state->state);
+	error = phonemgr_listener_gnokii_func (GN_OP_SetDateTime, l);
 
 	/* Unlock the phone */
 	g_mutex_unlock (l->mutex);

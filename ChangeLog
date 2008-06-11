@@ -1,3 +1,27 @@
+2008-06-11  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c (phonemgr_listener_gnokii_func),
+	(phonemgr_listener_connect), (phonemgr_listener_cell_not_cb),
+	(phonemgr_listener_sms_notification_soft_poll),
+	(phonemgr_listener_battery_poll),
+	(phonemgr_listener_get_own_details),
+	(phonemgr_listener_set_sms_notification),
+	(phonemgr_listener_set_call_notification),
+	(phonemgr_listener_set_cell_notification),
+	(phonemgr_listener_disconnect_cleanup), (phonemgr_listener_thread),
+	(phonemgr_listener_disconnect), (phonemgr_listener_queue_message),
+	(phonemgr_listener_set_time): Add phonemgr_listener_gnokii_func for
+	use in the polling thread, which will mark the connection as
+	terminated, terminate cleanly when the phone is disconnected during
+	an operation. Fix reconnecting using the same PhonemgrListener
+	object
+
+	* src/app.h:
+	* src/connection.c (attempt_reconnect), (connect_phone),
+	(on_status): Don't try to reconnect if we're not idle
+
+	(Closes: #495278)
+
 2008-05-31  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in: Update the gnokii requirements for the
