@@ -1,3 +1,10 @@
+============ Version 0.60
+
+2008-06-11  Bastien Nocera  <hadess@hadess.net>
+
+	* NEWS: upd
+	* configure.in: 0.60
+
 2008-06-11  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c (phonemgr_listener_gnokii_func),
