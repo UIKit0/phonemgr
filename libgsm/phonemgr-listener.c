@@ -77,6 +77,7 @@ struct _PhonemgrListener
 
 	char *driver;
 	char *own_number;
+	char *imei;
 
 	/* The previous call status */
 	gn_call_status prev_call_status;
@@ -807,7 +808,14 @@ phonemgr_listener_get_own_details (PhonemgrListener *l)
 	gn_phonebook_entry entry;
 	int count, start_entry, end_entry, num_entries;
 	gn_error error;
+	const char *imei;
 
+	/* Get the IMEI of the phone */
+	imei = gn_lib_get_phone_imei(&l->phone_state->state);
+	if (imei != NULL)
+		l->imei = g_strdup (imei);
+
+	/* Get the own number from the phone */
 	start_entry = 1;
 	end_entry = num_entries = INT_MAX;
 
@@ -941,6 +949,8 @@ phonemgr_listener_disconnect_cleanup (PhonemgrListener *l)
 	l->driver = NULL;
 	g_free (l->own_number);
 	l->own_number = NULL;
+	g_free (l->imei);
+	l->imei = NULL;
 	l->batterylevel = 1;
 	l->supports_power_source = TRUE;
 	l->powersource = GN_PS_BATTERY;

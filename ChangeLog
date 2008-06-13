@@ -1,3 +1,9 @@
+2008-06-13  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c (phonemgr_listener_get_own_details),
+	(phonemgr_listener_disconnect_cleanup): Save the IMEI of the
+	phone on connect
+
 ============ Version 0.60
 
 2008-06-11  Bastien Nocera  <hadess@hadess.net>
