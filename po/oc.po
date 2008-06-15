@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-07 10:23+0100\n"
+"POT-Creation-Date: 2008-06-09 15:21+0200\n"
 "PO-Revision-Date: 2007-12-29 15:36+0100\n"
 "Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan <ubuntu-l10n-oci@lists.ubuntu.com>\n"
@@ -66,20 +66,29 @@ msgstr ""
 msgid "Not connected"
 msgstr "Pas connectat"
 
-#: ../src/main.c:36
+#: ../src/main.c:37
 msgid "Show model name of a specific device"
 msgstr ""
 
-#: ../src/main.c:37
+#: ../src/main.c:38
 msgid "Write the configuration file for gnokii debugging"
 msgstr ""
 
-#: ../src/main.c:38
+#: ../src/main.c:39
 msgid "Enable debug"
 msgstr ""
 
-#: ../src/main.c:57
+#: ../src/main.c:40
+msgid "Show version information and exit"
+msgstr ""
+
+#: ../src/main.c:59
 msgid "- Manage your mobile phone"
+msgstr ""
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
 msgstr ""
 
 #: ../src/menu.c:40
@@ -102,7 +111,7 @@ msgstr "_Enviar un messatge"
 msgid "Click to select device..."
 msgstr ""
 
-#: ../src/ui.c:333
+#: ../src/ui.c:335
 msgid "Message too long!"
 msgstr ""
 
