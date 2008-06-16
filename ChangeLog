@@ -1,3 +1,8 @@
+2008-06-16  Bastien Nocera  <hadess@hadess.net>
+
+	* data/Makefile.am: Use pkgdatadir, as src/Makefile.am does,
+	to install the glade file
+
 2008-06-13  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c (phonemgr_listener_get_own_details),
