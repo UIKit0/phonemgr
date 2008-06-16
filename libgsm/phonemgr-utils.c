@@ -53,29 +53,34 @@ phonemgr_utils_gn_statemachine_clear (struct gn_statemachine *state)
 const char *
 phonemgr_utils_gn_error_to_string (gn_error error, PhoneMgrError *perr)
 {
-	g_return_val_if_fail (perr != NULL, NULL);
-	*perr = -1;
+	if (perr != NULL)
+		*perr = -1;
 
 	switch (error) {
 	/* General codes */
 	case GN_ERR_NONE:
 		return NULL;
 	case GN_ERR_FAILED:
-		*perr = PHONEMGR_ERROR_COMMAND_FAILED;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_COMMAND_FAILED;
 		return "Command failed";
 	case GN_ERR_UNKNOWNMODEL:
-		*perr = PHONEMGR_ERROR_UNKNOWN_MODEL;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_UNKNOWN_MODEL;
 		return "Model specified isn't known/supported.";
 	case GN_ERR_INVALIDSECURITYCODE:
 		return "Invalid Security code.";
 	case GN_ERR_INTERNALERROR:
-		*perr = PHONEMGR_ERROR_INTERNAL_ERROR;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_INTERNAL_ERROR;
 		return "Problem occured internal to model specific code.";
 	case GN_ERR_NOTIMPLEMENTED:
-		*perr = PHONEMGR_ERROR_NOT_IMPLEMENTED;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_NOT_IMPLEMENTED;
 		return "Command called isn't implemented in model.";
 	case GN_ERR_NOTSUPPORTED:
-		*perr = PHONEMGR_ERROR_NOT_SUPPORTED;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_NOT_SUPPORTED;
 		return "Function not supported by the phone";
 	case GN_ERR_USERCANCELED:
 		return "User aborted the action.";
@@ -85,17 +90,20 @@ phonemgr_utils_gn_error_to_string (gn_error error, PhoneMgrError *perr)
 		return "The specified memory is full.";
 	/* Statemachine */
 	case GN_ERR_NOLINK:
-		*perr = PHONEMGR_ERROR_NO_LINK;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_NO_LINK;
 		return "Couldn't establish link with phone.";
 	case GN_ERR_TIMEOUT:
-		*perr = PHONEMGR_ERROR_TIME_OUT;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_TIME_OUT;
 		return "Command timed out.";
 	case GN_ERR_TRYAGAIN:
 		return "Try again.";
 	case GN_ERR_WAITING:
 		return "Waiting for the next part of the message.";
 	case GN_ERR_NOTREADY:
-		*perr = PHONEMGR_ERROR_NOT_READY;
+		if (perr != NULL)
+			*perr = PHONEMGR_ERROR_NOT_READY;
 		return "Device not ready.";
 	case GN_ERR_BUSY:
 		return "Command is still being executed.";
