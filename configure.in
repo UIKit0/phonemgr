@@ -162,6 +162,9 @@ data/icons/22x22/Makefile
 data/icons/24x24/status/Makefile
 data/icons/24x24/Makefile
 libgsm/Makefile
+cut-n-paste/Makefile
+cut-n-paste/e-contact-entry/Makefile
+cut-n-paste/gconf-bridge/Makefile
 src/Makefile
 telepathy/Makefile
 po/Makefile.in
