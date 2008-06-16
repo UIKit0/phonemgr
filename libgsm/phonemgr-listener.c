@@ -973,8 +973,6 @@ phonemgr_listener_thread (PhonemgrListener *l)
 {
 	g_mutex_lock (l->mutex);
 	CHECK_EXIT;
-	phonemgr_listener_get_own_details (l);
-	CHECK_EXIT;
 	phonemgr_listener_set_sms_notification (l, TRUE);
 	CHECK_EXIT;
 	phonemgr_listener_set_call_notification (l, TRUE);

@@ -1,5 +1,10 @@
 2008-06-16  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c (phonemgr_listener_thread):
+	Don't get the own details twice
+
+2008-06-16  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c (phonemgr_listener_gnokii_func),
 	(phonemgr_listener_connect): More error output when we
 	get disconnected because the device has gone away,
