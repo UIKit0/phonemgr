@@ -105,6 +105,7 @@ struct _PhonemgrListener
 static void phonemgr_listener_class_init (PhonemgrListenerClass *klass);
 static void phonemgr_listener_init (PhonemgrListener *bc);
 static void phonemgr_listener_finalize (GObject *obj);
+static void phonemgr_listener_get_own_details (PhonemgrListener *l);
 
 #ifndef DUMMY
 static void phonemgr_listener_thread (PhonemgrListener *l);
@@ -272,6 +273,8 @@ phonemgr_listener_gnokii_func (gn_operation op, PhonemgrListener *l)
 
 	retval = gn_sm_functions(op, &l->phone_state->data, &l->phone_state->state);
 	if (retval == GN_ERR_NOTREADY) {
+		g_message ("Operation failed with error: %s",
+			   phonemgr_utils_gn_error_to_string (retval, NULL));
 		l->terminated = TRUE;
 		l->connected = FALSE;
 	}
@@ -503,6 +506,7 @@ phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
 	l->connected = TRUE;
 
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTED);
+	phonemgr_listener_get_own_details (l);
 
 	l->thread = g_thread_create ((GThreadFunc) phonemgr_listener_thread,
 				     l, TRUE, NULL);
