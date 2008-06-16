@@ -273,8 +273,8 @@ phonemgr_listener_gnokii_func (gn_operation op, PhonemgrListener *l)
 
 	retval = gn_sm_functions(op, &l->phone_state->data, &l->phone_state->state);
 	if (retval == GN_ERR_NOTREADY) {
-		g_message ("Operation failed with error: %s",
-			   phonemgr_utils_gn_error_to_string (retval, NULL));
+		g_message ("Operation '%d' failed with error: %s",
+			   op, phonemgr_utils_gn_error_to_string (retval, NULL));
 		l->terminated = TRUE;
 		l->connected = FALSE;
 	}

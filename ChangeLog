@@ -1,5 +1,10 @@
 2008-06-16  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c (phonemgr_listener_gnokii_func):
+	Mention the operation as well
+
+2008-06-16  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-utils.c (phonemgr_utils_gn_error_to_string):
 	Fix call to phonemgr_utils_gn_error_to_string() failing
 	when perr is NULL
