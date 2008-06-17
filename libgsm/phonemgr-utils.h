@@ -74,6 +74,7 @@ void phonemgr_utils_write_gnokii_config (const char *addr);
 char *phonemgr_utils_config_append_debug (const char *config);
 gboolean phonemgr_utils_connection_is_supported (PhonemgrConnectionType type);
 time_t gn_timestamp_to_gtime (gn_timestamp stamp);
+gboolean vcard_to_phonebook_entry (const char *vcard, gn_phonebook_entry *entry);
 
 G_END_DECLS
 

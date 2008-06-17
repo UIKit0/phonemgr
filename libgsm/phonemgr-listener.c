@@ -832,7 +832,7 @@ phonemgr_listener_get_own_details (PhonemgrListener *l)
 	} else if (error == GN_ERR_INVALIDMEMORYTYPE) {
 		g_message ("Couldn't get our own phone number (no Own Number phonebook)");
 		return;
-	} else if (error == GN_ERR_NOTREADY) {
+	} else {
 		return;
 	}
 
@@ -1172,6 +1172,251 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 
 	if (error != GN_ERR_NONE)
 		g_warning ("Can't set date: %s", phonemgr_utils_gn_error_to_string (error, &perr));
+}
+
+char **
+phonemgr_listener_list_all_data (PhonemgrListener *l,
+				 PhonemgrListenerDataType type)
+{
+	switch (type) {
+	case PHONEMGR_LISTENER_DATA_CONTACT:
+		{
+			GPtrArray *a;
+			gn_memory_status memstat;
+			gn_error error;
+			guint i;
+
+			g_mutex_lock (l->mutex);
+			memstat.memory_type = gn_str2memory_type("ME");
+			l->phone_state->data.memory_status = &memstat;
+			error = phonemgr_listener_gnokii_func (GN_OP_GetMemoryStatus, l);
+			//FIXME better error?
+			if (error != GN_ERR_NONE) {
+				g_mutex_unlock (l->mutex);
+				break;
+			}
+			a = g_ptr_array_sized_new (memstat.used);
+			//FIXME there might be holes in the addressbook :/
+			for (i = 1; i <= memstat.used; i++) {
+				char *uuid;
+				uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "ME", i);
+				g_ptr_array_add (a, uuid);
+			}
+
+			memstat.memory_type = gn_str2memory_type("SM");
+			l->phone_state->data.memory_status = &memstat;
+			error = phonemgr_listener_gnokii_func (GN_OP_GetMemoryStatus, l);
+			//FIXME better error?
+			if (error != GN_ERR_NONE) {
+				g_ptr_array_add (a, NULL);
+				g_mutex_unlock (l->mutex);
+				return (char **) g_ptr_array_free (a, FALSE);
+			}
+
+			for (i = 1; i <= memstat.used; i++) {
+				char *uuid;
+				uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "SM", i);
+				g_ptr_array_add (a, uuid);
+			}
+			g_ptr_array_add (a, NULL);
+			g_mutex_unlock (l->mutex);
+
+			return (char **) g_ptr_array_free (a, FALSE);
+		}
+	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		break;
+	case PHONEMGR_LISTENER_DATA_TODO:
+		break;
+	default:
+		g_assert_not_reached ();
+	}
+
+	return NULL;
+}
+
+static gboolean
+phonemgr_listener_parse_data_uuid (const char *dataid,
+				   char **memory_type,
+				   int *index)
+{
+	char *s;
+
+	g_return_val_if_fail (dataid != NULL, FALSE);
+
+	if (g_str_has_prefix (dataid, "GPM-UUID-") == FALSE)
+		return FALSE;
+	s = strchr (dataid + strlen ("GPM-UUID-") + 1, '-');
+	if (s == NULL)
+		return FALSE;
+	if (strlen(s) < 5)
+		return FALSE;
+	*memory_type = g_strndup (s + 1, 2);
+	*index = atoi (s + 4);
+	return TRUE;
+}
+
+char *
+phonemgr_listener_get_data (PhonemgrListener *l,
+			    PhonemgrListenerDataType type,
+			    const char *dataid)
+{
+	switch (type) {
+	case PHONEMGR_LISTENER_DATA_CONTACT:
+		{
+			gn_phonebook_entry entry;
+			char *memory_type, *retval;
+			gn_error error;
+			int index;
+
+			if (phonemgr_listener_parse_data_uuid (dataid, &memory_type, &index) == FALSE)
+				return NULL;
+
+			g_mutex_lock (l->mutex);
+
+			memset(&entry, 0, sizeof(gn_phonebook_entry));
+			entry.memory_type = gn_str2memory_type(memory_type);
+			entry.location = index;
+
+			l->phone_state->data.phonebook_entry = &entry;
+			error = phonemgr_listener_gnokii_func (GN_OP_ReadPhonebook, l);
+			if (error != GN_ERR_NONE || entry.empty != FALSE) {
+				g_mutex_unlock (l->mutex);
+				return NULL;
+			}
+
+			retval = gn_phonebook2vcardstr (&entry);
+			g_free (memory_type);
+
+			g_mutex_unlock (l->mutex);
+
+			return retval;
+		}
+		break;
+	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		break;
+	case PHONEMGR_LISTENER_DATA_TODO:
+		break;
+	default:
+		g_assert_not_reached ();
+	}
+
+	return NULL;
+}
+
+gboolean
+phonemgr_listener_delete_data (PhonemgrListener *l,
+			       PhonemgrListenerDataType type,
+			       const char *dataid)
+{
+	switch (type) {
+	case PHONEMGR_LISTENER_DATA_CONTACT:
+		{
+			gn_phonebook_entry entry;
+			char *memory_type, *retval;
+			gn_error error;
+			int index;
+
+			if (phonemgr_listener_parse_data_uuid (dataid, &memory_type, &index) == FALSE)
+				return FALSE;
+
+			g_mutex_lock (l->mutex);
+
+			memset(&entry, 0, sizeof(gn_phonebook_entry));
+			entry.memory_type = gn_str2memory_type(memory_type);
+			entry.location = index;
+			entry.empty = TRUE;
+
+			l->phone_state->data.phonebook_entry = &entry;
+			error = phonemgr_listener_gnokii_func (GN_OP_DeletePhonebook, l);
+			g_free (memory_type);
+
+			g_mutex_unlock (l->mutex);
+
+			return (error != GN_ERR_NONE);
+		}
+		break;
+	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		break;
+	case PHONEMGR_LISTENER_DATA_TODO:
+		break;
+	default:
+		g_assert_not_reached ();
+	}
+
+	return FALSE;
+}
+
+char *
+phonemgr_listener_put_data (PhonemgrListener *l,
+			    PhonemgrListenerDataType type,
+			    const char *data)
+{
+	switch (type) {
+	case PHONEMGR_LISTENER_DATA_CONTACT:
+		{
+			gn_phonebook_entry entry;
+			char *retval;
+			gn_error error;
+			guint i;
+
+			g_mutex_lock (l->mutex);
+
+			memset(&entry, 0, sizeof(gn_phonebook_entry));
+			if (vcard_to_phonebook_entry (data, &entry) == FALSE) {
+				g_message ("Couldn't parse the data...");
+				return NULL;
+			}
+			entry.memory_type = GN_MT_ME;
+
+			/* Find an empty spot */
+			for (i = 1; ; i++) {
+				gn_phonebook_entry aux;
+
+				memcpy(&aux, &entry, sizeof(gn_phonebook_entry));
+				l->phone_state->data.phonebook_entry = &aux;
+				l->phone_state->data.phonebook_entry->location = i;
+				error = phonemgr_listener_gnokii_func (GN_OP_ReadPhonebook, l);
+				if (error != GN_ERR_NONE && error != GN_ERR_EMPTYLOCATION)
+					break;
+				if (aux.empty || error == GN_ERR_EMPTYLOCATION) {
+					entry.location = aux.location;
+					error = GN_ERR_NONE;
+					break;
+				}
+			}
+
+			if (error != GN_ERR_NONE) {
+				g_mutex_unlock (l->mutex);
+				return NULL;
+			}
+
+			//FIXME This should sanitise the phone numbers
+			gn_phonebook_entry_sanitize(&entry);
+
+			l->phone_state->data.phonebook_entry = &entry;
+			error = phonemgr_listener_gnokii_func (GN_OP_WritePhonebook, l);
+
+			if (error != GN_ERR_NONE) {
+				g_mutex_unlock (l->mutex);
+				return NULL;
+			}
+
+			retval = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "ME", entry.location);
+
+			g_mutex_unlock (l->mutex);
+
+			return retval;
+		}
+		break;
+	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		break;
+	case PHONEMGR_LISTENER_DATA_TODO:
+		break;
+	default:
+		g_assert_not_reached ();
+	}
+
+	return FALSE;
 }
 
 gboolean

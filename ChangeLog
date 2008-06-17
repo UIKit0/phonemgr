@@ -1,3 +1,18 @@
+2008-06-17  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: Require evolution-data-server in the backend as
+	well, so we can parse vCards
+	* libgsm/phonemgr-utils.c (vcard_to_phonebook_entry):
+	* libgsm/phonemgr-utils.h: vCard to phonebook entry parsing
+
+	* libgsm/phonemgr-listener.c (phonemgr_listener_get_own_details),
+	(phonemgr_listener_list_all_data),
+	(phonemgr_listener_parse_data_uuid), (phonemgr_listener_get_data),
+	(phonemgr_listener_delete_data), (phonemgr_listener_put_data):
+	* libgsm/phonemgr-listener.h: Add _list_all_data, _get_data,
+	_delete_data, and _put_data functions, that should be exported
+	for Conduit's use (see #456259)
+
 2008-06-16  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c (phonemgr_listener_gnokii_func):

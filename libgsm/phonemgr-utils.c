@@ -27,6 +27,7 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <glib-object.h>
+#include <libebook/e-contact.h>
 #include <gnokii.h>
 
 #include <bluetooth/bluetooth.h>
@@ -725,5 +726,62 @@ phonemgr_utils_connection_is_supported (PhonemgrConnectionType type)
 	}
 
 	return gn_lib_is_connectiontype_supported (conntype);
+}
+
+#define SET_ENTRY(field, string) {				\
+	const char *s;						\
+	s = e_contact_get_const (contact, field);		\
+	if (s)							\
+		strncpy (string, s, sizeof (string));	\
+}
+
+#define SET_SUB_ENTRY(field, type) {						\
+	if (entry->subentries_count < GN_PHONEBOOK_SUBENTRIES_MAX_NUMBER) {	\
+		entry->subentries[entry->subentries_count].entry_type = type;	\
+		SET_ENTRY (field, entry->subentries[entry->subentries_count++].data.number); \
+	}									\
+}
+
+gboolean
+vcard_to_phonebook_entry (const char *vcard, gn_phonebook_entry *entry)
+{
+	EContact *contact;
+
+	contact = e_contact_new_from_vcard (vcard);
+	SET_ENTRY(E_CONTACT_FULL_NAME, entry->name);
+	if (entry->name == NULL)
+		return FALSE;
+
+	SET_ENTRY (E_CONTACT_PHONE_PRIMARY, entry->number);
+	if (entry->number == NULL)
+		SET_ENTRY(E_CONTACT_PHONE_HOME, entry->number);
+	if (entry->number == NULL)
+		SET_ENTRY(E_CONTACT_PHONE_MOBILE, entry->number);
+	if (entry->number == NULL)
+		return FALSE;
+
+	SET_ENTRY(E_CONTACT_FAMILY_NAME, entry->person.family_name);
+	SET_ENTRY(E_CONTACT_GIVEN_NAME, entry->person.given_name);
+	SET_ENTRY(E_CONTACT_TITLE, entry->person.honorific_prefixes);
+	SET_SUB_ENTRY (E_CONTACT_HOMEPAGE_URL, GN_PHONEBOOK_ENTRY_URL);
+	if (entry->subentries_count == 0)
+		SET_SUB_ENTRY (E_CONTACT_BLOG_URL, GN_PHONEBOOK_ENTRY_URL);
+	SET_SUB_ENTRY (E_CONTACT_EMAIL_1, GN_PHONEBOOK_ENTRY_Email);
+	SET_SUB_ENTRY (E_CONTACT_EMAIL_2, GN_PHONEBOOK_ENTRY_Email);
+	SET_SUB_ENTRY (E_CONTACT_EMAIL_3, GN_PHONEBOOK_ENTRY_Email);
+	SET_SUB_ENTRY (E_CONTACT_EMAIL_4, GN_PHONEBOOK_ENTRY_Email);
+	SET_SUB_ENTRY (E_CONTACT_ADDRESS_LABEL_HOME, GN_PHONEBOOK_ENTRY_Postal);
+	SET_SUB_ENTRY (E_CONTACT_ADDRESS_LABEL_WORK, GN_PHONEBOOK_ENTRY_Postal);
+	SET_SUB_ENTRY (E_CONTACT_ADDRESS_LABEL_OTHER, GN_PHONEBOOK_ENTRY_Postal);
+	SET_SUB_ENTRY (E_CONTACT_NOTE, GN_PHONEBOOK_ENTRY_Note);
+	SET_SUB_ENTRY (E_CONTACT_PHONE_BUSINESS, GN_PHONEBOOK_NUMBER_Work);
+	SET_SUB_ENTRY (E_CONTACT_PHONE_BUSINESS_2, GN_PHONEBOOK_NUMBER_Work);
+	SET_SUB_ENTRY (E_CONTACT_PHONE_HOME, GN_PHONEBOOK_NUMBER_Home);
+	SET_SUB_ENTRY (E_CONTACT_PHONE_HOME_2, GN_PHONEBOOK_NUMBER_Home);
+	SET_SUB_ENTRY (E_CONTACT_PHONE_MOBILE, GN_PHONEBOOK_NUMBER_Mobile);
+	SET_SUB_ENTRY (E_CONTACT_PHONE_BUSINESS_FAX, GN_PHONEBOOK_NUMBER_Fax);
+	SET_SUB_ENTRY (E_CONTACT_PHONE_HOME_FAX, GN_PHONEBOOK_NUMBER_Fax);
+
+	return TRUE;
 }
 
