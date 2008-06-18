@@ -193,7 +193,6 @@ main (int argc, char **argv)
 			char **array;
 			guint i;
 
-			g_message ("listing all data of type %d", type);
 			array = phonemgr_listener_list_all_data (listener, type);
 			if (array == NULL) {
 				g_message ("BLEEEEEEH");

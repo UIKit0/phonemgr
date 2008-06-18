@@ -1296,7 +1296,6 @@ phonemgr_listener_list_all_data (PhonemgrListener *l,
 			for (i = 1, found = 0; found <= memstat.used; i++) {
 				gn_phonebook_entry entry;
 				if (phonemgr_listener_get_phonebook_entry (l, memstat.memory_type, i, &entry) == FALSE) {
-					g_mutex_unlock (l->mutex);
 					break;
 				} else if (entry.empty == FALSE) {
 					char *uuid;

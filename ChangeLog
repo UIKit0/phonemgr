@@ -1,5 +1,11 @@
 2008-06-18  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/glibgsmtest.c (main): Remove debug
+	* libgsm/phonemgr-listener.c (phonemgr_listener_list_all_data):
+	Fixed another wrongly placed g_mutex_unlock()
+
+2008-06-18  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/glibgsmtest.c (main): Add support for setting the type
 	of data required on the command-line
 
