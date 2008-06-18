@@ -1215,7 +1215,7 @@ phonemgr_listener_get_phonebook_entry (PhonemgrListener *l,
 		return TRUE;
 	}
 
-	return (error != GN_ERR_NONE);
+	return (error == GN_ERR_NONE);
 }
 
 char *
@@ -1292,6 +1292,7 @@ phonemgr_listener_list_all_data (PhonemgrListener *l,
 				g_mutex_unlock (l->mutex);
 				break;
 			}
+
 			a = g_ptr_array_sized_new (memstat.used);
 			for (i = 1, found = 0; found <= memstat.used; i++) {
 				gn_phonebook_entry entry;
@@ -1299,7 +1300,7 @@ phonemgr_listener_list_all_data (PhonemgrListener *l,
 					break;
 				} else if (entry.empty == FALSE) {
 					char *uuid;
-					uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "ME", i);
+					uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "ME", entry.location);
 					g_ptr_array_add (a, uuid);
 					found++;
 				}

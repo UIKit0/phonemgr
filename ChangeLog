@@ -1,5 +1,13 @@
 2008-06-18  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c
+	(phonemgr_listener_get_phonebook_entry),
+	(phonemgr_listener_list_all_data): Fix reversed retval in
+	_get_phonebook_entry, Use the entry location to create the UUID,
+	avoids problems with memory offsets in drivers
+
+2008-06-18  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/glibgsmtest.c (main): Remove debug
 	* libgsm/phonemgr-listener.c (phonemgr_listener_list_all_data):
 	Fixed another wrongly placed g_mutex_unlock()
