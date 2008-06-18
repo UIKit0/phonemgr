@@ -532,6 +532,7 @@ phonemgr_utils_connect (const char *device, const char *driver, int channel, gbo
 	}
 	g_strfreev (lines);
 
+	memset (&data, 0, sizeof (data));
 	phonemgr_utils_gn_statemachine_clear (&state);
 
 	if (gn_cfg_phone_load("", &state) < 0) {
@@ -547,7 +548,7 @@ phonemgr_utils_connect (const char *device, const char *driver, int channel, gbo
 		return NULL;
 	}
 
-	phone_state = g_new (PhonemgrState, 1);
+	phone_state = g_new0 (PhonemgrState, 1);
 	phone_state->data = data;
 	phone_state->state = state;
 

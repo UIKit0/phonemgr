@@ -1,5 +1,19 @@
 2008-06-18  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/glibgsmtest.c (main): Add support for setting the type
+	of data required on the command-line
+
+	* libgsm/phonemgr-listener.c
+	(phonemgr_listener_set_cell_notification): Fix valgrind warning
+	(phonemgr_listener_get_data), (phonemgr_listener_list_all_data):
+	Add start of support for CALENDAR data in list_all_data, fix
+	spurious mutex unlock in the get_data code
+
+	* libgsm/phonemgr-utils.c (phonemgr_utils_connect): Fix some
+	more valgrind warnings
+
+2008-06-18  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c (phonemgr_listener_connect),
 	(phonemgr_listener_get_phonebook_entry),
 	(phonemgr_listener_get_data), (phonemgr_listener_list_all_data):

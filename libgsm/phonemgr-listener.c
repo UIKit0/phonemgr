@@ -931,6 +931,7 @@ phonemgr_listener_set_cell_notification (PhonemgrListener *l, gboolean state)
 
 		/* Set up cell notification using GN_OP_GetNetworkInfo */
 		gn_data_clear (&l->phone_state->data);
+		memset (&info, 0, sizeof(info));
 		l->phone_state->data.network_info = &info;
 		l->phone_state->data.reg_notification = phonemgr_listener_cell_not_cb;
 		l->phone_state->data.callback_data = l;
@@ -1254,6 +1255,11 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 		}
 		break;
 	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		{
+			gn_calnote_list calnote_list;
+			gn_calnote calnote;
+
+		}
 		break;
 	case PHONEMGR_LISTENER_DATA_TODO:
 		break;
@@ -1314,7 +1320,6 @@ phonemgr_listener_list_all_data (PhonemgrListener *l,
 			for (i = 1, found = 0; found <= memstat.used; i++) {
 				gn_phonebook_entry entry;
 				if (phonemgr_listener_get_phonebook_entry (l, memstat.memory_type, i, &entry) == FALSE) {
-					g_mutex_unlock (l->mutex);
 					break;
 				} else if (entry.empty == FALSE) {
 					char *uuid;
@@ -1329,6 +1334,41 @@ phonemgr_listener_list_all_data (PhonemgrListener *l,
 			return (char **) g_ptr_array_free (a, FALSE);
 		}
 	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		{
+			GPtrArray *a;
+			gn_calnote_list calnote_list;
+			gn_calnote calnote;
+			gn_error error;
+			guint i;
+
+			g_mutex_lock (l->mutex);
+
+			memset (&calnote, 0, sizeof (calnote));
+			memset (&calnote_list, 0, sizeof (calnote_list));
+			l->phone_state->data.calnote = &calnote;
+			l->phone_state->data.calnote_list = &calnote_list;
+
+			a = g_ptr_array_new ();
+
+			for (i = 0; i < INT_MAX; i++) {
+				calnote.location = i;
+				error = phonemgr_listener_gnokii_func (GN_OP_GetCalendarNote, l);
+				if (error != GN_ERR_NONE) {
+					if (error == GN_ERR_EMPTYLOCATION || error == GN_ERR_INVALIDLOCATION)
+						continue;
+					break;
+				} else {
+					char *uuid;
+					uuid = g_strdup_printf ("GPM-UUID-%s-%d", l->imei, i);
+					g_ptr_array_add (a, uuid);
+				}
+			}
+
+			g_ptr_array_add (a, NULL);
+			g_mutex_unlock (l->mutex);
+
+			return (char **) g_ptr_array_free (a, FALSE);
+		}
 		break;
 	case PHONEMGR_LISTENER_DATA_TODO:
 		break;

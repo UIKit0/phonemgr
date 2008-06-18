@@ -104,6 +104,7 @@ static const char *delete_uuid = NULL;
 static const char *put_card = NULL;
 static gboolean send_test_msg = FALSE;
 static const char *bdaddr = NULL;
+static const char *data_type = NULL;
 
 static const GOptionEntry entries[] = {
 	{ "address", 'a', 0, G_OPTION_ARG_STRING, &bdaddr, "Address of the device to connect to", NULL },
@@ -112,6 +113,7 @@ static const GOptionEntry entries[] = {
 	{ "get-data", 'g', 0, G_OPTION_ARG_STRING, &get_uuid, "Retrieve the PIM data with the given UUID", NULL },
 	{ "delete-data", 'd', 0, G_OPTION_ARG_STRING, &delete_uuid, "Delete the PIM data with the given UUID", NULL },
 	{ "put-data", 'p', 0, G_OPTION_ARG_FILENAME, &put_card, "Upload the given vCard file", NULL },
+	{ "type", 't', 0, G_OPTION_ARG_STRING, &data_type, "Data type for the above functions. One of \"contact\", \"calendar\" and \"todo\"", NULL },
 	{ "send-msg", 's', 0, G_OPTION_ARG_NONE, &send_test_msg, "Send a test message", NULL },
 	{ NULL }
 };
@@ -123,6 +125,7 @@ main (int argc, char **argv)
 	GOptionContext *context;
 	GError *err = NULL;
 	PhonemgrListener *listener;
+	PhonemgrListenerDataType type;
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
@@ -161,6 +164,24 @@ main (int argc, char **argv)
 		return 1;
 	}
 
+	/* An action? Get the data type */
+	if (list_all != FALSE || get_uuid != NULL || put_card != NULL || delete_uuid != NULL) {
+		if (data_type == NULL) {
+			g_print ("Please use --type to pass a type of data to manipulate\n");
+			return 1;
+		}
+		if (g_str_equal (data_type, "contact") != FALSE) {
+			type = PHONEMGR_LISTENER_DATA_CONTACT;
+		} else if (g_str_equal (data_type, "calendar") != FALSE) {
+			type = PHONEMGR_LISTENER_DATA_CALENDAR;
+		} else if (g_str_equal (data_type, "todo") != FALSE) {
+			type = PHONEMGR_LISTENER_DATA_TODO;
+		} else {
+			g_print ("Invalid data type passed. It must be one of \"contact\", \"calendar\" and \"todo\"\n");
+			return 1;
+		}
+	}
+
 	if (phonemgr_listener_connect (listener, bdaddr, &err)) {
 		g_message ("Connected OK");
 
@@ -172,26 +193,20 @@ main (int argc, char **argv)
 			char **array;
 			guint i;
 
-			array = phonemgr_listener_list_all_data (listener, PHONEMGR_LISTENER_DATA_CONTACT);
+			g_message ("listing all data of type %d", type);
+			array = phonemgr_listener_list_all_data (listener, type);
 			if (array == NULL) {
 				g_message ("BLEEEEEEH");
 				return 1;
 			}
-			for (i = 0; array[i] != NULL; i++) {
-				char *vcard;
-
-				vcard = phonemgr_listener_get_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, array[i]);
-				if (vcard != NULL) {
-					g_print ("UUID: %s\n", array[i]);
-					g_print ("%s\n", vcard);
-				}
-			}
+			for (i = 0; array[i] != NULL; i++)
+				g_print ("UUID: %s\n", array[i]);
 
 			g_strfreev (array);
 		} else if (get_uuid != NULL) {
 			char *vcard;
 
-			vcard = phonemgr_listener_get_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, get_uuid);
+			vcard = phonemgr_listener_get_data (listener, type, get_uuid);
 			if (vcard != NULL) {
 				g_print ("%s\n", vcard);
 				g_free (vcard);
@@ -208,7 +223,7 @@ main (int argc, char **argv)
 				return 1;
 			}
 
-			uuid = phonemgr_listener_put_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, contents);
+			uuid = phonemgr_listener_put_data (listener, type, contents);
 			if (uuid != NULL) {
 				g_print ("Added vCard at location '%s'\n", uuid);
 				g_free (uuid);
@@ -216,7 +231,7 @@ main (int argc, char **argv)
 				g_message ("Failed to add data from '%s' to the device", put_card);
 			}
 		} else if (delete_uuid != NULL) {
-			phonemgr_listener_delete_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, delete_uuid);
+			phonemgr_listener_delete_data (listener, type, delete_uuid);
 		} else {
 			g_message ("Nothing to do!");
 		}
