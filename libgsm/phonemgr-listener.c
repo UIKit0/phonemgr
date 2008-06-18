@@ -434,7 +434,7 @@ phonemgr_listener_finalize(GObject *obj)
 }
 
 gboolean
-phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **error)
+phonemgr_listener_connect (PhonemgrListener *l, const char *device, GError **error)
 {
 	PhonemgrConnectionType type;
 	int channel;
@@ -1174,66 +1174,6 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 		g_warning ("Can't set date: %s", phonemgr_utils_gn_error_to_string (error, &perr));
 }
 
-char **
-phonemgr_listener_list_all_data (PhonemgrListener *l,
-				 PhonemgrListenerDataType type)
-{
-	switch (type) {
-	case PHONEMGR_LISTENER_DATA_CONTACT:
-		{
-			GPtrArray *a;
-			gn_memory_status memstat;
-			gn_error error;
-			guint i;
-
-			g_mutex_lock (l->mutex);
-			memstat.memory_type = gn_str2memory_type("ME");
-			l->phone_state->data.memory_status = &memstat;
-			error = phonemgr_listener_gnokii_func (GN_OP_GetMemoryStatus, l);
-			//FIXME better error?
-			if (error != GN_ERR_NONE) {
-				g_mutex_unlock (l->mutex);
-				break;
-			}
-			a = g_ptr_array_sized_new (memstat.used);
-			//FIXME there might be holes in the addressbook :/
-			for (i = 1; i <= memstat.used; i++) {
-				char *uuid;
-				uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "ME", i);
-				g_ptr_array_add (a, uuid);
-			}
-
-			memstat.memory_type = gn_str2memory_type("SM");
-			l->phone_state->data.memory_status = &memstat;
-			error = phonemgr_listener_gnokii_func (GN_OP_GetMemoryStatus, l);
-			//FIXME better error?
-			if (error != GN_ERR_NONE) {
-				g_ptr_array_add (a, NULL);
-				g_mutex_unlock (l->mutex);
-				return (char **) g_ptr_array_free (a, FALSE);
-			}
-
-			for (i = 1; i <= memstat.used; i++) {
-				char *uuid;
-				uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "SM", i);
-				g_ptr_array_add (a, uuid);
-			}
-			g_ptr_array_add (a, NULL);
-			g_mutex_unlock (l->mutex);
-
-			return (char **) g_ptr_array_free (a, FALSE);
-		}
-	case PHONEMGR_LISTENER_DATA_CALENDAR:
-		break;
-	case PHONEMGR_LISTENER_DATA_TODO:
-		break;
-	default:
-		g_assert_not_reached ();
-	}
-
-	return NULL;
-}
-
 static gboolean
 phonemgr_listener_parse_data_uuid (const char *dataid,
 				   char **memory_type,
@@ -1255,6 +1195,28 @@ phonemgr_listener_parse_data_uuid (const char *dataid,
 	return TRUE;
 }
 
+static gboolean
+phonemgr_listener_get_phonebook_entry (PhonemgrListener *l,
+				       gn_memory_type type,
+				       guint index,
+				       gn_phonebook_entry *entry)
+{
+	gn_error error;
+
+	memset(entry, 0, sizeof(gn_phonebook_entry));
+	entry->memory_type = type;
+	entry->location = index;
+
+	l->phone_state->data.phonebook_entry = entry;
+	error = phonemgr_listener_gnokii_func (GN_OP_ReadPhonebook, l);
+	if (error == GN_ERR_EMPTYLOCATION) {
+		entry->empty = TRUE;
+		return TRUE;
+	}
+
+	return (error != GN_ERR_NONE);
+}
+
 char *
 phonemgr_listener_get_data (PhonemgrListener *l,
 			    PhonemgrListenerDataType type,
@@ -1273,13 +1235,12 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 
 			g_mutex_lock (l->mutex);
 
-			memset(&entry, 0, sizeof(gn_phonebook_entry));
-			entry.memory_type = gn_str2memory_type(memory_type);
-			entry.location = index;
+			if (phonemgr_listener_get_phonebook_entry (l, gn_str2memory_type (memory_type), index, &entry) == FALSE) {
+				g_mutex_unlock (l->mutex);
+				return NULL;
+			}
 
-			l->phone_state->data.phonebook_entry = &entry;
-			error = phonemgr_listener_gnokii_func (GN_OP_ReadPhonebook, l);
-			if (error != GN_ERR_NONE || entry.empty != FALSE) {
+			if (entry.empty != FALSE) {
 				g_mutex_unlock (l->mutex);
 				return NULL;
 			}
@@ -1292,6 +1253,81 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 			return retval;
 		}
 		break;
+	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		break;
+	case PHONEMGR_LISTENER_DATA_TODO:
+		break;
+	default:
+		g_assert_not_reached ();
+	}
+
+	return NULL;
+}
+
+char **
+phonemgr_listener_list_all_data (PhonemgrListener *l,
+				 PhonemgrListenerDataType type)
+{
+	switch (type) {
+	case PHONEMGR_LISTENER_DATA_CONTACT:
+		{
+			GPtrArray *a;
+			gn_memory_status memstat;
+			gn_error error;
+			guint i, found;
+
+			g_mutex_lock (l->mutex);
+			memset (&memstat, 0, sizeof (memstat));
+			memstat.memory_type = gn_str2memory_type("ME");
+			l->phone_state->data.memory_status = &memstat;
+			error = phonemgr_listener_gnokii_func (GN_OP_GetMemoryStatus, l);
+			if (error != GN_ERR_NONE) {
+				g_message ("GN_OP_GetMemoryStatus on ME failed");
+				g_mutex_unlock (l->mutex);
+				break;
+			}
+			a = g_ptr_array_sized_new (memstat.used);
+			for (i = 1, found = 0; found <= memstat.used; i++) {
+				gn_phonebook_entry entry;
+				if (phonemgr_listener_get_phonebook_entry (l, memstat.memory_type, i, &entry) == FALSE) {
+					g_mutex_unlock (l->mutex);
+					break;
+				} else if (entry.empty == FALSE) {
+					char *uuid;
+					uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "ME", i);
+					g_ptr_array_add (a, uuid);
+					found++;
+				}
+			}
+
+			memset (&memstat, 0, sizeof (memstat));
+			memstat.memory_type = gn_str2memory_type("SM");
+			l->phone_state->data.memory_status = &memstat;
+			error = phonemgr_listener_gnokii_func (GN_OP_GetMemoryStatus, l);
+			if (error != GN_ERR_NONE) {
+				g_message ("GN_OP_GetMemoryStatus on SM failed");
+				g_ptr_array_add (a, NULL);
+				g_mutex_unlock (l->mutex);
+				return (char **) g_ptr_array_free (a, FALSE);
+			}
+
+			for (i = 1, found = 0; found <= memstat.used; i++) {
+				gn_phonebook_entry entry;
+				if (phonemgr_listener_get_phonebook_entry (l, memstat.memory_type, i, &entry) == FALSE) {
+					g_mutex_unlock (l->mutex);
+					break;
+				} else if (entry.empty == FALSE) {
+					char *uuid;
+					uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "SM", i);
+					g_ptr_array_add (a, uuid);
+					found++;
+				}
+			}
+			g_ptr_array_add (a, NULL);
+			g_mutex_unlock (l->mutex);
+
+			return (char **) g_ptr_array_free (a, FALSE);
+		}
 	case PHONEMGR_LISTENER_DATA_CALENDAR:
 		break;
 	case PHONEMGR_LISTENER_DATA_TODO:
@@ -1473,7 +1509,7 @@ phonemgr_listener_poll (PhonemgrListener *l)
 }
 
 gboolean
-phonemgr_listener_connect (PhonemgrListener *l, char *device, GError **err)
+phonemgr_listener_connect (PhonemgrListener *l, const char *device, GError **err)
 {
 	g_message ("[DUMMY] connecting to %s", device);
 	phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_CONNECTING);

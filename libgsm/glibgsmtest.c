@@ -97,9 +97,30 @@ send_message (PhonemgrListener *l)
 					 "test message XXX", TRUE);
 }
 
+static gboolean debug = FALSE;
+static gboolean list_all = FALSE;
+static const char *get_uuid = NULL;
+static const char *delete_uuid = NULL;
+static const char *put_card = NULL;
+static gboolean send_test_msg = FALSE;
+static const char *bdaddr = NULL;
+
+static const GOptionEntry entries[] = {
+	{ "address", 'a', 0, G_OPTION_ARG_STRING, &bdaddr, "Address of the device to connect to", NULL },
+	{ "verbose", 'v', 0, G_OPTION_ARG_NONE, &debug, "Whether to enable verbose output from gnokii", NULL },
+	{ "list-all-data", 'l',  0, G_OPTION_ARG_NONE, &list_all, "List all the PIM data", NULL },
+	{ "get-data", 'g', 0, G_OPTION_ARG_STRING, &get_uuid, "Retrieve the PIM data with the given UUID", NULL },
+	{ "delete-data", 'd', 0, G_OPTION_ARG_STRING, &delete_uuid, "Delete the PIM data with the given UUID", NULL },
+	{ "put-data", 'p', 0, G_OPTION_ARG_FILENAME, &put_card, "Upload the given vCard file", NULL },
+	{ "send-msg", 's', 0, G_OPTION_ARG_NONE, &send_test_msg, "Send a test message", NULL },
+	{ NULL }
+};
+
 int
 main (int argc, char **argv)
 {
+	GOptionGroup *options;
+	GOptionContext *context;
 	GError *err = NULL;
 	PhonemgrListener *listener;
 
@@ -108,10 +129,19 @@ main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
+	context = g_option_context_new ("Manage mobile phone");
+	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
+
 	g_thread_init (NULL);
 	g_type_init ();
+
+	if (g_option_context_parse (context, &argc, &argv, &err) == FALSE) {
+		g_print ("couldn't parse command-line options: %s\n", err->message);
+		g_error_free (err);
+		return 1;
+	}
 	
-	listener = phonemgr_listener_new (TRUE);
+	listener = phonemgr_listener_new (debug);
 
 	g_signal_connect (G_OBJECT (listener), "message",
 			G_CALLBACK (message), (gpointer) listener);
@@ -126,20 +156,74 @@ main (int argc, char **argv)
 	g_signal_connect (G_OBJECT (listener), "network",
 			  G_CALLBACK (network_status), (gpointer) listener);
 
-//	if (phonemgr_listener_connect (listener, "1", &err)) {
-	if (phonemgr_listener_connect (listener, "00:12:D2:79:B7:33", &err)) {
-//	if (phonemgr_listener_connect (listener, "/dev/rfcomm0", &err)) {
+	if (bdaddr == NULL) {
+		g_print ("Please pass a device address to connect to\n");
+		return 1;
+	}
+
+	if (phonemgr_listener_connect (listener, bdaddr, &err)) {
 		g_message ("Connected OK");
 
-		g_timeout_add_seconds (1, (GSourceFunc) send_message, listener);
+		if (send_test_msg != FALSE) {
+			g_timeout_add_seconds (1, (GSourceFunc) send_message, listener);
+			loop = g_main_loop_new (NULL, FALSE);
+			g_main_loop_run (loop);
+		} else if (list_all != FALSE) {
+			char **array;
+			guint i;
 
-		loop = g_main_loop_new (NULL, FALSE);
-		g_main_loop_run (loop);
+			array = phonemgr_listener_list_all_data (listener, PHONEMGR_LISTENER_DATA_CONTACT);
+			if (array == NULL) {
+				g_message ("BLEEEEEEH");
+				return 1;
+			}
+			for (i = 0; array[i] != NULL; i++) {
+				char *vcard;
+
+				vcard = phonemgr_listener_get_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, array[i]);
+				if (vcard != NULL) {
+					g_print ("UUID: %s\n", array[i]);
+					g_print ("%s\n", vcard);
+				}
+			}
+
+			g_strfreev (array);
+		} else if (get_uuid != NULL) {
+			char *vcard;
+
+			vcard = phonemgr_listener_get_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, get_uuid);
+			if (vcard != NULL) {
+				g_print ("%s\n", vcard);
+				g_free (vcard);
+			} else {
+				g_message ("Failed to get data at location %s", get_uuid);
+			}
+		} else if (put_card != NULL) {
+			char *contents;
+			char *uuid;
+
+			if (g_file_get_contents (put_card, &contents, NULL, &err) == FALSE) {
+				g_message ("Getting the data from '%s' failed: %s", put_card, err->message);
+				g_error_free (err);
+				return 1;
+			}
+
+			uuid = phonemgr_listener_put_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, contents);
+			if (uuid != NULL) {
+				g_print ("Added vCard at location '%s'\n", uuid);
+				g_free (uuid);
+			} else {
+				g_message ("Failed to add data from '%s' to the device", put_card);
+			}
+		} else if (delete_uuid != NULL) {
+			phonemgr_listener_delete_data (listener, PHONEMGR_LISTENER_DATA_CONTACT, delete_uuid);
+		} else {
+			g_message ("Nothing to do!");
+		}
 
 		phonemgr_listener_disconnect (listener);
 	} else {
-		g_error ("Couldn't connect to the phone: %s\n",
-				err ? err->message : "No reason");
+		g_error ("Couldn't connect to the phone: %s\n", err ? err->message : "No reason");
 		if (err)
 			g_error_free (err);
 	}

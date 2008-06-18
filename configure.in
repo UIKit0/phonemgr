@@ -38,14 +38,12 @@ AM_GLIB_GNU_GETTEXT
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 AM_GCONF_SOURCE_2
 
-PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 $GNOKII_REQS gthread-2.0 bluez)
-AC_SUBST(LIBGSM_CFLAGS)
-AC_SUBST(LIBGSM_LIBS)
-
 dnl Evolution address book
 PKG_CHECK_MODULES(TMP_EVO, libebook-1.2,
 		evo_pc_file="libebook-1.2",
 		evo_pc_file="libebook-1.0")
+
+PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 $GNOKII_REQS gthread-2.0 bluez $evo_pc_file)
 
 PKG_CHECK_MODULES(PHONEMGR, gtk+-2.0 >= 2.10 glib-2.0 >= 2.13.0
 	gstreamer-0.10 gdk-pixbuf-2.0 gconf-2.0

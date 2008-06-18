@@ -83,7 +83,7 @@ GQuark phonemgr_listener_error_quark	(void) G_GNUC_CONST;
 GType	phonemgr_listener_get_type	(void);
 PhonemgrListener* phonemgr_listener_new	(gboolean debug);
 gboolean phonemgr_listener_connect	(PhonemgrListener *listener,
-					 char *device,
+					 const char *device,
 					 GError **error);
 void phonemgr_listener_disconnect	(PhonemgrListener *listener);
 void phonemgr_listener_queue_message	(PhonemgrListener *listener,

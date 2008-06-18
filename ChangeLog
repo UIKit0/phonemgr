@@ -1,3 +1,18 @@
+2008-06-18  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c (phonemgr_listener_connect),
+	(phonemgr_listener_get_phonebook_entry),
+	(phonemgr_listener_get_data), (phonemgr_listener_list_all_data):
+	Fix problem with phonebooks entries not being all consecutive
+
+	* libgsm/phonemgr-listener.h: Fix a warning
+
+	* configure.in: Require evolution-data-server in the backend as
+	well
+
+	* libgsm/glibgsmtest.c (main): Add options to make the debugging
+	tool more flexible, add delete/add/list/put support
+
 2008-06-17  Bastien Nocera  <hadess@hadess.net>
 
 	* configure.in: Require evolution-data-server in the backend as
