@@ -1,5 +1,18 @@
 2008-06-18  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c (phonemgr_listener_parse_data_uuid),
+	(phonemgr_listener_get_data), (phonemgr_listener_list_all_data),
+	(phonemgr_listener_delete_data): Change the retval from
+	_parse_data_uuid() to avoid having to free the memory_type
+	(fixes memory leaks)
+	Use the same UUID format for calendar entries, but ignore the
+	folder location element
+	Fix getting the list of calendar items
+	Implement getting calendar data (missing a function to transform
+	the data into a vCal)
+
+2008-06-18  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c
 	(phonemgr_listener_get_phonebook_entry),
 	(phonemgr_listener_list_all_data): Fix reversed retval in

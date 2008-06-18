@@ -1177,10 +1177,10 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 
 static gboolean
 phonemgr_listener_parse_data_uuid (const char *dataid,
-				   char **memory_type,
+				   gn_memory_type *type,
 				   int *index)
 {
-	char *s;
+	char *s, *memory_type;
 
 	g_return_val_if_fail (dataid != NULL, FALSE);
 
@@ -1191,7 +1191,13 @@ phonemgr_listener_parse_data_uuid (const char *dataid,
 		return FALSE;
 	if (strlen(s) < 5)
 		return FALSE;
-	*memory_type = g_strndup (s + 1, 2);
+
+	if (memory_type != NULL) {
+		memory_type = g_strndup (s + 1, 2);
+		*type = gn_str2memory_type (memory_type);
+		g_free (memory_type);
+	}
+
 	*index = atoi (s + 4);
 	return TRUE;
 }
@@ -1227,7 +1233,8 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 	case PHONEMGR_LISTENER_DATA_CONTACT:
 		{
 			gn_phonebook_entry entry;
-			char *memory_type, *retval;
+			gn_memory_type memory_type;
+			char *retval;
 			gn_error error;
 			int index;
 
@@ -1236,7 +1243,7 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 
 			g_mutex_lock (l->mutex);
 
-			if (phonemgr_listener_get_phonebook_entry (l, gn_str2memory_type (memory_type), index, &entry) == FALSE) {
+			if (phonemgr_listener_get_phonebook_entry (l, memory_type, index, &entry) == FALSE) {
 				g_mutex_unlock (l->mutex);
 				return NULL;
 			}
@@ -1247,7 +1254,6 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 			}
 
 			retval = gn_phonebook2vcardstr (&entry);
-			g_free (memory_type);
 
 			g_mutex_unlock (l->mutex);
 
@@ -1258,7 +1264,32 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 		{
 			gn_calnote_list calnote_list;
 			gn_calnote calnote;
+			char *memory_type, *retval;
+			gn_error error;
+			int index;
 
+			if (phonemgr_listener_parse_data_uuid (dataid, NULL, &index) == FALSE)
+				return NULL;
+
+			g_mutex_lock (l->mutex);
+
+			memset (&calnote, 0, sizeof (calnote));
+			memset (&calnote_list, 0, sizeof (calnote_list));
+			l->phone_state->data.calnote = &calnote;
+			l->phone_state->data.calnote_list = &calnote_list;
+
+			calnote.location = index;
+			error = phonemgr_listener_gnokii_func (GN_OP_GetCalendarNote, l);
+			if (error != GN_ERR_NONE) {
+				g_mutex_unlock (l->mutex);
+				return NULL;
+			}
+			//retval = gn_phonebook2vcardstr (&calnote);
+
+			g_mutex_unlock (l->mutex);
+
+			return NULL;
+			//return retval;
 		}
 		break;
 	case PHONEMGR_LISTENER_DATA_TODO:
@@ -1350,16 +1381,17 @@ phonemgr_listener_list_all_data (PhonemgrListener *l,
 
 			a = g_ptr_array_new ();
 
-			for (i = 0; i < INT_MAX; i++) {
+			for (i = 1; i < INT_MAX; i++) {
 				calnote.location = i;
 				error = phonemgr_listener_gnokii_func (GN_OP_GetCalendarNote, l);
 				if (error != GN_ERR_NONE) {
-					if (error == GN_ERR_EMPTYLOCATION || error == GN_ERR_INVALIDLOCATION)
-						continue;
+					if ((i > 1) && ((error == GN_ERR_EMPTYLOCATION) || (error == GN_ERR_INVALIDLOCATION))) {
+						g_message ("error %s", phonemgr_utils_gn_error_to_string (error, NULL));
+					}
 					break;
 				} else {
 					char *uuid;
-					uuid = g_strdup_printf ("GPM-UUID-%s-%d", l->imei, i);
+					uuid = g_strdup_printf ("GPM-UUID-%s-%s-%d", l->imei, "XX", i);
 					g_ptr_array_add (a, uuid);
 				}
 			}
@@ -1388,7 +1420,8 @@ phonemgr_listener_delete_data (PhonemgrListener *l,
 	case PHONEMGR_LISTENER_DATA_CONTACT:
 		{
 			gn_phonebook_entry entry;
-			char *memory_type, *retval;
+			gn_memory_type memory_type;
+			char *retval;
 			gn_error error;
 			int index;
 
@@ -1398,13 +1431,12 @@ phonemgr_listener_delete_data (PhonemgrListener *l,
 			g_mutex_lock (l->mutex);
 
 			memset(&entry, 0, sizeof(gn_phonebook_entry));
-			entry.memory_type = gn_str2memory_type(memory_type);
+			entry.memory_type = memory_type;
 			entry.location = index;
 			entry.empty = TRUE;
 
 			l->phone_state->data.phonebook_entry = &entry;
 			error = phonemgr_listener_gnokii_func (GN_OP_DeletePhonebook, l);
-			g_free (memory_type);
 
 			g_mutex_unlock (l->mutex);
 
