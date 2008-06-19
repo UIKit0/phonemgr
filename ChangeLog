@@ -1,3 +1,8 @@
+2008-06-19  Bastien Nocera  <hadess@hadess.net>
+
+	* data/phonemgr.glade: Move the delivery report checkbox below
+	the message entry (Closes: #538375)
+
 2008-06-18  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/phonemgr-listener.c (phonemgr_listener_parse_data_uuid),
