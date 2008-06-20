@@ -1,3 +1,11 @@
+2008-06-20  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/glibgsmtest.c (main): Print out an error if a delete failed
+	* libgsm/phonemgr-listener.c (phonemgr_listener_get_data),
+	(phonemgr_listener_delete_data): Finish implementing _get_data
+	for calendar data, implement _delete_data for calendar,
+	Fix retvals for deletion
+
 2008-06-19  Bastien Nocera  <hadess@hadess.net>
 
 	* data/phonemgr.glade: Move the delivery report checkbox below

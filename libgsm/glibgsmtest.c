@@ -224,13 +224,15 @@ main (int argc, char **argv)
 
 			uuid = phonemgr_listener_put_data (listener, type, contents);
 			if (uuid != NULL) {
-				g_print ("Added vCard at location '%s'\n", uuid);
+				g_print ("Added data at location '%s'\n", uuid);
 				g_free (uuid);
 			} else {
 				g_message ("Failed to add data from '%s' to the device", put_card);
 			}
 		} else if (delete_uuid != NULL) {
-			phonemgr_listener_delete_data (listener, type, delete_uuid);
+			if (phonemgr_listener_delete_data (listener, type, delete_uuid) == FALSE) {
+				g_print ("Failed to delete data at location '%s'\n", delete_uuid);
+			}
 		} else {
 			g_message ("Nothing to do!");
 		}

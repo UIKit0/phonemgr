@@ -1284,12 +1284,11 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 				g_mutex_unlock (l->mutex);
 				return NULL;
 			}
-			//retval = gn_phonebook2vcardstr (&calnote);
+			retval = gn_calnote2icalstr (&calnote);
 
 			g_mutex_unlock (l->mutex);
 
-			return NULL;
-			//return retval;
+			return retval;
 		}
 		break;
 	case PHONEMGR_LISTENER_DATA_TODO:
@@ -1440,10 +1439,34 @@ phonemgr_listener_delete_data (PhonemgrListener *l,
 
 			g_mutex_unlock (l->mutex);
 
-			return (error != GN_ERR_NONE);
+			return (error == GN_ERR_NONE);
 		}
 		break;
 	case PHONEMGR_LISTENER_DATA_CALENDAR:
+		{
+			gn_calnote_list calnote_list;
+			gn_calnote calnote;
+			char *memory_type;
+			gn_error error;
+			int index;
+
+			if (phonemgr_listener_parse_data_uuid (dataid, NULL, &index) == FALSE)
+				return FALSE;
+
+			g_mutex_lock (l->mutex);
+
+			memset (&calnote, 0, sizeof (calnote));
+			memset (&calnote_list, 0, sizeof (calnote_list));
+			l->phone_state->data.calnote = &calnote;
+			l->phone_state->data.calnote_list = &calnote_list;
+
+			calnote.location = index;
+			error = phonemgr_listener_gnokii_func (GN_OP_DeleteCalendarNote, l);
+
+			g_mutex_unlock (l->mutex);
+
+			return (error == GN_ERR_NONE);
+		}
 		break;
 	case PHONEMGR_LISTENER_DATA_TODO:
 		break;
