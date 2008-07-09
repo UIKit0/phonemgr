@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager 0.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-07 17:25+0200\n"
+"POT-Creation-Date: 2008-07-09 23:26+0200\n"
 "PO-Revision-Date: 2008-06-07 17:26+0200\n"
 "Last-Translator: Espen Stefansen <espens@svn.gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
@@ -15,9 +15,114 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:158
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Kan ikke hente kontakt: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:191
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Kunne ikke finne kontakt: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:417
+msgid "Cannot create searchable view."
+msgstr "Kan ikke opprette søkbar visning."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "Success"
+msgstr "Suksess"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "An argument was invalid."
+msgstr "Ugyldig argument oppgitt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book is busy."
+msgstr "Adresseboken er opptatt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+msgid "The address book is offline."
+msgstr "Adresseboken er frakoblet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+msgid "The address book does not exist."
+msgstr "Adresseboken eksisterer ikke."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+msgid "The \"Me\" contact does not exist."
+msgstr "Kontakten «Meg» eksisterer ikke."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+msgid "The address book is not loaded."
+msgstr "Adresseboken er ikke lastet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+msgid "The address book is already loaded."
+msgstr "Adresseboken er allerede lastet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+msgid "Permission was denied when accessing the address book."
+msgstr "Nektet tilgang til adresseboken ."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The contact was not found."
+msgstr "Kontakten ble ikke funnet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "This contact ID already exists."
+msgstr "Denne kontakt-IDen finnes allerede."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+msgid "The protocol is not supported."
+msgstr "Protokollen er ikke støttet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+msgid "The operation was cancelled."
+msgstr "Operavsjonen ble avbrutt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+msgid "The operation could not be cancelled."
+msgstr "Handlingen kunne ikke avbrytes"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "The address book authentication failed."
+msgstr "Autentisering mot adresseboken feilet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr "Autentisering mot adresseboken er nødvendig og ble ikke angitt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+msgid "A secure connection is not available."
+msgstr "En sikker tilkobling er ikke tilgjengelig."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "En CORBA-feil oppsto under tilgang til adresseboken."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:926
+msgid "The address book source does not exist."
+msgstr "Adressebokskilden finnes ikke"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:928
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:931
+msgid "An unknown error occurred."
+msgstr "En ukjent feil oppsto."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf-feil: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Alle feil heretter vises bare på terminalen."
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:112
+#: ../src/connection.c:113
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Koblet til enhet på %s"
@@ -26,19 +131,10 @@ msgstr "Koblet til enhet på %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:118
+#: ../src/connection.c:119
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Tilkobling til enhet på %s feilet"
-
-#: ../src/gconf-bridge.c:1218
-#, c-format
-msgid "GConf error: %s"
-msgstr "GConf-feil: %s"
-
-#: ../src/gconf-bridge.c:1228
-msgid "All further errors shown only on terminal."
-msgstr "Alle feil heretter vises bare på terminalen."
 
 #: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
@@ -328,98 +424,3 @@ msgid ""
 msgstr ""
 "Hvorvidt å forsøke å koble til mobiltelefonen på nytt, hvis tilkoblingen "
 "feiler på et tidspunkt."
-
-#: ../src/e-contact-entry.c:158
-#, c-format
-msgid "Cannot get contact: %s"
-msgstr "Kan ikke hente kontakt: %s"
-
-#: ../src/e-contact-entry.c:191
-#, c-format
-msgid "Could not find contact: %s"
-msgstr "Kunne ikke finne kontakt: %s"
-
-#: ../src/e-contact-entry.c:417
-msgid "Cannot create searchable view."
-msgstr "Kan ikke opprette søkbar visning."
-
-#: ../src/e-contact-entry.c:890
-msgid "Success"
-msgstr "Suksess"
-
-#: ../src/e-contact-entry.c:892
-msgid "An argument was invalid."
-msgstr "Ugyldig argument oppgitt."
-
-#: ../src/e-contact-entry.c:894
-msgid "The address book is busy."
-msgstr "Adresseboken er opptatt."
-
-#: ../src/e-contact-entry.c:896
-msgid "The address book is offline."
-msgstr "Adresseboken er frakoblet."
-
-#: ../src/e-contact-entry.c:898
-msgid "The address book does not exist."
-msgstr "Adresseboken eksisterer ikke."
-
-#: ../src/e-contact-entry.c:900
-msgid "The \"Me\" contact does not exist."
-msgstr "Kontakten «Meg» eksisterer ikke."
-
-#: ../src/e-contact-entry.c:902
-msgid "The address book is not loaded."
-msgstr "Adresseboken er ikke lastet."
-
-#: ../src/e-contact-entry.c:904
-msgid "The address book is already loaded."
-msgstr "Adresseboken er allerede lastet."
-
-#: ../src/e-contact-entry.c:906
-msgid "Permission was denied when accessing the address book."
-msgstr "Nektet tilgang til adresseboken ."
-
-#: ../src/e-contact-entry.c:908
-msgid "The contact was not found."
-msgstr "Kontakten ble ikke funnet."
-
-#: ../src/e-contact-entry.c:910
-msgid "This contact ID already exists."
-msgstr "Denne kontakt-IDen finnes allerede."
-
-#: ../src/e-contact-entry.c:912
-msgid "The protocol is not supported."
-msgstr "Protokollen er ikke støttet."
-
-#: ../src/e-contact-entry.c:914
-msgid "The operation was cancelled."
-msgstr "Operavsjonen ble avbrutt."
-
-#: ../src/e-contact-entry.c:916
-msgid "The operation could not be cancelled."
-msgstr "Handlingen kunne ikke avbrytes"
-
-#: ../src/e-contact-entry.c:918
-msgid "The address book authentication failed."
-msgstr "Autentisering mot adresseboken feilet."
-
-#: ../src/e-contact-entry.c:920
-msgid ""
-"Authentication is required to access the address book and was not given."
-msgstr "Autentisering mot adresseboken er nødvendig og ble ikke angitt."
-
-#: ../src/e-contact-entry.c:922
-msgid "A secure connection is not available."
-msgstr "En sikker tilkobling er ikke tilgjengelig."
-
-#: ../src/e-contact-entry.c:924
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "En CORBA-feil oppsto under tilgang til adresseboken."
-
-#: ../src/e-contact-entry.c:926
-msgid "The address book source does not exist."
-msgstr "Adressebokskilden finnes ikke"
-
-#: ../src/e-contact-entry.c:928 ../src/e-contact-entry.c:931
-msgid "An unknown error occurred."
-msgstr "En ukjent feil oppsto."

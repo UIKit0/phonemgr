@@ -1,7 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+cut-n-paste/e-contact-entry/e-contact-entry.c
+cut-n-paste/gconf-bridge/gconf-bridge.c
 src/connection.c
-src/gconf-bridge.c
 src/gnome-phone-manager.desktop.in
 src/icon.c
 src/main.c
@@ -10,4 +11,3 @@ src/phonemgr-chooser-button.c
 src/ui.c
 data/phonemgr.glade
 data/gnome-phone-manager.schemas.in
-src/e-contact-entry.c
