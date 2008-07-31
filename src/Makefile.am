@@ -11,7 +11,8 @@ AM_CPPFLAGS = \
 	-I$(builddir)/../cut-n-paste/e-contact-entry    \
 	-I$(srcdir)/../cut-n-paste/gconf-bridge         \
 	-I$(builddir)/../cut-n-paste/gconf-bridge       \
-	-I$(builddir)/src
+	-I$(builddir)/src				\
+	$(WARN_CFLAGS)
 
 bin_PROGRAMS = gnome-phone-manager
 
