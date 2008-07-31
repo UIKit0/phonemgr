@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-21 22:52+0100\n"
+"POT-Creation-Date: 2008-07-31 11:08+0100\n"
 "PO-Revision-Date: 2007-04-14 18:49+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabeyes <doc@arabeyes.org>\n"
@@ -15,171 +15,136 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:313
-msgid "Selection mode"
-msgstr "نمط الانتقاء"
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:158
+#, fuzzy, c-format
+msgid "Cannot get contact: %s"
+msgstr "لا يمكن نقل المراسل."
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:314
-msgid "The selection mode"
-msgstr "نمط الانتقاء"
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:191
+#, fuzzy, c-format
+msgid "Could not find contact: %s"
+msgstr "تعذّر العثور على '%s'"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:322
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:417
 #, fuzzy
-msgid "Sorted"
-msgstr "المرتّب"
+msgid "Cannot create searchable view."
+msgstr "لا يمكن إنشاء معاينة"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:323
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "Success"
+msgstr "نجاح"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 #, fuzzy
-msgid "Icon list is sorted"
-msgstr "حجم الأيقونات محدّد"
+msgid "An argument was invalid."
+msgstr "قيمة معامل غير صالحة"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:329
-msgid "Sort order"
-msgstr "ترتيب الفرز"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:330
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 #, fuzzy
-msgid "Sort direction the icon list should use"
-msgstr "اتجاه الفرز الذي يتوجب على مؤشر الفرز أن يشير إليه"
+msgid "The address book is busy."
+msgstr "أفتح دفتر العناوين"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:344
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 #, fuzzy
-msgid "Icon padding"
-msgstr "تَبَاعُد الأيقونة"
+msgid "The address book is offline."
+msgstr "العنوان الذي أدخلته غير صحيح."
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:345
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 #, fuzzy
-msgid "Number of pixels between icons"
-msgstr "عدد البكسلات بين أعمدة أيقونات"
+msgid "The address book does not exist."
+msgstr "دفتر العناوين غير موجود"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:352
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 #, fuzzy
-msgid "Top margin"
-msgstr "الهامش ا?يسر"
+msgid "The \"Me\" contact does not exist."
+msgstr "المستند غير موجود."
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:353
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 #, fuzzy
-msgid "Number of pixels in top margin"
-msgstr "عدد البكسلات في الهامش الأيسر"
+msgid "The address book is not loaded."
+msgstr "العنوان الذي أدخلته غير صحيح."
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:360
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 #, fuzzy
-msgid "Bottom margin"
-msgstr "الحشو الأسفل"
+msgid "The address book is already loaded."
+msgstr "هذا الملف تم تنزيله من قبل"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:361
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 #, fuzzy
-msgid "Number of pixels in bottom margin"
-msgstr "عدد البكسلات في الهامش الأيسر"
+msgid "Permission was denied when accessing the address book."
+msgstr "رُفض التّصريح بفتح التقويم"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:369
-msgid "Left margin"
-msgstr "الهامش ا?يسر"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:370
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 #, fuzzy
-msgid "Number of pixels in left margin"
-msgstr "عدد البكسلات في الهامش الأيسر"
+msgid "The contact was not found."
+msgstr "لم يوجد المراسَل"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:377
-msgid "Right margin"
-msgstr "الهامش ا?يمن"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:378
+# checked, typed but the nchanged: you add a new ID and the other exists
+# the meaning of this dialog is more" you can't add a newone cz another one exists"
+#
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 #, fuzzy
-msgid "Number of pixels in right margin"
-msgstr "عدد البكسلات في الهامش الأيمن"
+msgid "This contact ID already exists."
+msgstr "هويّة المراسَل موجودة مسبقاً"
 
-#: ../libegg/libegg/iconlist/eggiconlist.c:386
-msgid "Selection Box Color"
-msgstr "لون علبة الإختيار"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:387
-msgid "Color of the selection box"
-msgstr "لون صندوق الإختيار"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:393
-msgid "Selection Box Alpha"
-msgstr "ألفا علبة الإختيار"
-
-#: ../libegg/libegg/iconlist/eggiconlist.c:394
-msgid "Opacity of the selection box"
-msgstr "شفافية علبة الإختيار"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:154
-msgid "Pixbuf"
-msgstr "بكسبف"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:155
-msgid "A GdkPixbuf to display"
-msgstr "GdkPixbuf لعرضه"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:162
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 #, fuzzy
-msgid "Filename"
-msgstr "اسم الملف:"
+msgid "The protocol is not supported."
+msgstr "البروتوكول “%s” غير مدعوم."
 
-#: ../libegg/libegg/tray/eggstatusicon.c:163
-msgid "Filename to load and display"
-msgstr "اسم الملف للتحميل و العرض"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:170
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 #, fuzzy
-msgid "Stock ID"
-msgstr "هوية المخزون"
+msgid "The operation was cancelled."
+msgstr "تم إلغاء العملية من طرف المستخدم."
 
-#: ../libegg/libegg/tray/eggstatusicon.c:171
-msgid "Stock ID for a stock image to display"
-msgstr "هوية المخزون لصورة مخزون للعرض"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:178
-msgid "Animation"
-msgstr "رسوم متحركة"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:179
-msgid "GdkPixbufAnimation to display"
-msgstr "GdkPixbufAnimation لعرضها"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:186
-msgid "Image type"
-msgstr "نوع الصورة"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:187
-msgid "The representation being used for image data"
-msgstr "التقديم المستعمل لبيانات الرسوم"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:195
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 #, fuzzy
-msgid "Size"
-msgstr "الحجم:"
+msgid "The operation could not be cancelled."
+msgstr "لا يمكن تغيير التصاريح."
 
-#: ../libegg/libegg/tray/eggstatusicon.c:196
-msgid "The size of the icon"
-msgstr "حجم الأيقونة"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:205
-msgid "Blinking"
-msgstr "ومّاض"
-
-#: ../libegg/libegg/tray/eggstatusicon.c:206
-msgid "Whether or not the status icon is blinking"
-msgstr "فيما إذا كانت أيقونة الحالة وامضة"
-
-#: ../libegg/libegg/tray/eggtrayicon.c:118
-#: ../libegg/libegg/tray/eggtraymanager.c:145
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 #, fuzzy
-msgid "Orientation"
-msgstr "الإتجاه:"
+msgid "The address book authentication failed."
+msgstr "فشل مؤقّت في التّوثّق"
 
-#: ../libegg/libegg/tray/eggtrayicon.c:119
-#: ../libegg/libegg/tray/eggtraymanager.c:146
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 #, fuzzy
-msgid "The orientation of the tray."
-msgstr "إتجاه الطبق."
+msgid "A secure connection is not available."
+msgstr "خيارات الإرسال غير متوفرة."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#, fuzzy
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "حدث خطأ خلال النفاذ للجهاز !"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:926
+#, fuzzy
+msgid "The address book source does not exist."
+msgstr "دفتر العناوين غير موجود"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:928
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:931
+#, fuzzy
+msgid "An unknown error occurred."
+msgstr "حدث خطأ مجهول"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr ""
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr ""
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:91
+#: ../src/connection.c:113
 #, fuzzy, c-format
 msgid "Connected to device on %s"
 msgstr "اتّصل بالخادم %s"
@@ -188,14 +153,12 @@ msgstr "اتّصل بالخادم %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:100
+#: ../src/connection.c:119
 #, fuzzy, c-format
 msgid "Failed connection to device on %s"
 msgstr "فشل ايجاد عقدة للجهاز %s"
 
-#. When try icon is destroyed, recreate it.  This happens
-#. when the notification area is removed.
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:66 ../src/menu.c:30
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 #, fuzzy
 msgid "Phone Manager"
 msgstr "مدير الطاقة"
@@ -204,363 +167,465 @@ msgstr "مدير الطاقة"
 msgid "Receive and send text messages from your mobile phone"
 msgstr ""
 
-#: ../src/icon.c:168
+#: ../src/icon.c:59
 #, fuzzy
 msgid "Message arrived"
 msgstr "ترويسة الرّسالة"
 
-#: ../src/icon.c:172
+#: ../src/icon.c:62
 #, fuzzy
 msgid "Connected"
 msgstr "اتصل"
 
-#: ../src/icon.c:177
+#: ../src/icon.c:66
 #, fuzzy
 msgid "Connecting to phone"
 msgstr "جاري الاتصال بـ{0}"
 
-#: ../src/icon.c:182
+#: ../src/icon.c:70
 #, fuzzy
 msgid "Not connected"
 msgstr "غير متّصِل."
 
-#: ../src/icon.c:202
-#, fuzzy
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
-"\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
+#: ../src/main.c:37
+msgid "Show model name of a specific device"
 msgstr ""
-"يستعمل الدكتور ورايت مساحة التبليغ لعرض معلومات. يبدو انك لا تملك مساحة "
-"للتبليغ على شريطك. الرجاء اضافتها."
 
-#: ../src/main.c:36
+#: ../src/main.c:38
+msgid "Write the configuration file for gnokii debugging"
+msgstr ""
+
+#: ../src/main.c:39
+msgid "Enable debug"
+msgstr ""
+
+#: ../src/main.c:40
+msgid "Show version information and exit"
+msgstr ""
+
+#: ../src/main.c:59
 #, fuzzy
-msgid "Couldn't create phone listener."
-msgstr "لا يمكن إنشاء عميل GConf.\n"
+msgid "- Manage your mobile phone"
+msgstr "    يرسل رسائل خاصة لمستخدم على الشبكة."
 
-#: ../src/menu.c:22
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr ""
+
+#: ../src/menu.c:40
 #, fuzzy
 msgid "translator_credits"
 msgstr "المترجمون:"
 
-#: ../src/menu.c:32
+#: ../src/menu.c:44
 #, fuzzy
 msgid "Send and receive messages from your mobile phone."
 msgstr "    يرسل رسائل خاصة لمستخدم على الشبكة."
 
-#: ../src/menu.c:75
+#: ../src/menu.c:56
+#, fuzzy
+msgid "Phone Manager website"
+msgstr "مدير الطاقة"
+
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "إر_سال رسالة"
 
-#: ../src/ui.c:89
-#, fuzzy
-msgid "No Bluetooth device chosen."
-msgstr "إدارة أجهزة البلوتوث"
+#: ../src/phonemgr-chooser-button.c:80 ../src/phonemgr-chooser-button.c:190
+msgid "Click to select device..."
+msgstr ""
 
-#: ../src/ui.c:324
+#: ../src/ui.c:335
 #, fuzzy
 msgid "Message too long!"
 msgstr "حوار رسالة"
 
-#: ../ui/phonemgr.glade.h:1
+#: ../data/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:2
+#: ../data/phonemgr.glade.h:2
 #, fuzzy
-msgid "<b>Alerting</b>"
+msgid "Alerting"
 msgstr "<b>الإعدادات</b>"
 
-#: ../ui/phonemgr.glade.h:3
-#, fuzzy
-msgid "<b>Error Handling</b>"
-msgstr "التعامل مع الأخطاء"
-
-#: ../ui/phonemgr.glade.h:4
-#, fuzzy
-msgid "<b>Phone Connection</b>"
-msgstr "<b>الإتصال</b>"
-
-#: ../ui/phonemgr.glade.h:5
-#, fuzzy
-msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">رجاء أدخل كلمة سر الجذر</span>"
-
-#: ../ui/phonemgr.glade.h:6
-#, fuzzy
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr "<spanWeight=\"bold\" size=\"larger\">بحاجة لكلمة سر الجذر </span>"
-
-#: ../ui/phonemgr.glade.h:7
+#: ../data/phonemgr.glade.h:3
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:8
+#: ../data/phonemgr.glade.h:4
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
 "range."
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:9
+#: ../data/phonemgr.glade.h:5
 #, fuzzy
 msgid "Automatically _retry connections"
 msgstr "مكتشف تلقائيا"
 
-#: ../ui/phonemgr.glade.h:10
+#: ../data/phonemgr.glade.h:6
 #, fuzzy
 msgid "Characters left:"
 msgstr "ال_محرف:"
 
-#: ../ui/phonemgr.glade.h:11
-#, fuzzy
-msgid "Choo_se"
-msgstr "اختر..."
-
-#: ../ui/phonemgr.glade.h:12
-#, fuzzy
-msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr "أختر مستضيفا للإت_صال به:"
-
-#: ../ui/phonemgr.glade.h:13
+#: ../data/phonemgr.glade.h:7
 #, fuzzy
 msgid "Connect using an alternative serial device"
 msgstr "اكتب و ابحر في تطبيقات باستعمال اجهزة ادخال بديلة"
 
-#: ../ui/phonemgr.glade.h:14
+#: ../data/phonemgr.glade.h:8
 #, fuzzy
 msgid "Connect using infrared communication"
 msgstr "مقبس لاتصالات xdm"
 
-#: ../ui/phonemgr.glade.h:15
+#: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:16
+#: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:17
+#: ../data/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "الإتصال"
 
-#: ../ui/phonemgr.glade.h:18
+#: ../data/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "التّاريخ:"
 
-#: ../ui/phonemgr.glade.h:19
+#: ../data/phonemgr.glade.h:13
 #, fuzzy
 msgid "Enter the text message you want to send."
 msgstr "ا_نتقي الألعاب التي تريد حفظها:"
 
-#: ../ui/phonemgr.glade.h:20
+#: ../data/phonemgr.glade.h:14
+#, fuzzy
+msgid "Enter your text message"
+msgstr "ا_نتقي الألعاب التي تريد حفظها:"
+
+#: ../data/phonemgr.glade.h:15
+#, fuzzy
+msgid "Error Handling"
+msgstr "التعامل مع الأخطاء"
+
+#: ../data/phonemgr.glade.h:16
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr ""
+
+#: ../data/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "الواجهة"
 
-#: ../ui/phonemgr.glade.h:21
+#: ../data/phonemgr.glade.h:18
 #, fuzzy
 msgid "Message Received"
 msgstr "تاريخ الاستلام:"
 
-#: ../ui/phonemgr.glade.h:22
-#, fuzzy
-msgid "Number of characters left in the message"
-msgstr "عدد البكسلات في الهامش الأيسر"
-
-#: ../ui/phonemgr.glade.h:23
+#: ../data/phonemgr.glade.h:19
 #, fuzzy
 msgid "Other _port"
 msgstr "مغاير، تهيئة"
 
-#: ../ui/phonemgr.glade.h:24
+#: ../data/phonemgr.glade.h:20
+#, fuzzy
+msgid "Phone Connection"
+msgstr "<b>الإتصال</b>"
+
+#: ../data/phonemgr.glade.h:21
 #, fuzzy
 msgid "Phone Manager Preferences"
 msgstr "تفضيلات إدارة الطاقة"
 
-#: ../ui/phonemgr.glade.h:25
+#: ../data/phonemgr.glade.h:22
 #, fuzzy
 msgid "Play _sound when messages arrive"
 msgstr "فيما إذا سيصدر صوت عند وصول الرَّسائل."
 
-#: ../ui/phonemgr.glade.h:26
+#: ../data/phonemgr.glade.h:23
 #, fuzzy
 msgid "Send Message"
 msgstr "إر_سال رسالة"
 
-#: ../ui/phonemgr.glade.h:27
+#: ../data/phonemgr.glade.h:24
 #, fuzzy
 msgid "Sender:"
 msgstr "المرسِل"
 
-#: ../ui/phonemgr.glade.h:28
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:29
+#: ../data/phonemgr.glade.h:26
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:30
+#: ../data/phonemgr.glade.h:27
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr ""
 
-#: ../ui/phonemgr.glade.h:31
+#: ../data/phonemgr.glade.h:28
+msgid "You have received a message"
+msgstr ""
+
+#: ../data/phonemgr.glade.h:29
 #, fuzzy
 msgid "_Bluetooth"
 msgstr "عنوان البلوتوث"
 
-#: ../ui/phonemgr.glade.h:32
-msgid "_Infra red (/dev/ircomm0)"
-msgstr ""
-
-#: ../ui/phonemgr.glade.h:33
+#: ../data/phonemgr.glade.h:30
 #, fuzzy
 msgid "_Message:"
 msgstr "الرسالة:"
 
-#: ../ui/phonemgr.glade.h:34
+#: ../data/phonemgr.glade.h:31
+#, fuzzy
+msgid "_Notify when message is delivered"
+msgstr "فيما إذا سيصدر صوت عند وصول الرَّسائل."
+
+#: ../data/phonemgr.glade.h:32
 #, fuzzy
 msgid "_Pop-up window for new messages"
 msgstr "إلعب صوتاً في حال رسالة جديدة"
 
-#: ../ui/phonemgr.glade.h:35
+#: ../data/phonemgr.glade.h:33
 #, fuzzy
 msgid "_Recipient:"
 msgstr "المستلِمون"
 
-#: ../ui/phonemgr.glade.h:36
+#: ../data/phonemgr.glade.h:34
 msgid "_Reply"
 msgstr "_رد"
 
-#: ../ui/phonemgr.glade.h:37
+#: ../data/phonemgr.glade.h:35
 msgid "_Send"
 msgstr "أر_سل"
 
-#: ../ui/phonemgr.glade.h:38
+#: ../data/gnome-phone-manager.schemas.in.h:1
 #, fuzzy
-msgid "message body"
-msgstr "متن الرّسالة"
+msgid "Bluetooth address of the device to connect to"
+msgstr "أختر مستضيفا للإت_صال به:"
 
-#: ../src/e-contact-entry.c:153
-#, fuzzy, c-format
-msgid "Cannot get contact: %s"
-msgstr "لا يمكن نقل المراسل."
-
-#: ../src/e-contact-entry.c:185
-#, fuzzy, c-format
-msgid "Could not find contact: %s"
-msgstr "تعذّر العثور على '%s'"
-
-#: ../src/e-contact-entry.c:377
-#, fuzzy
-msgid "Cannot create searchable view."
-msgstr "لا يمكن إنشاء معاينة"
-
-#: ../src/e-contact-entry.c:830
-msgid "Success"
-msgstr "نجاح"
-
-#: ../src/e-contact-entry.c:832
-#, fuzzy
-msgid "An argument was invalid."
-msgstr "قيمة معامل غير صالحة"
-
-#: ../src/e-contact-entry.c:834
-#, fuzzy
-msgid "The address book is busy."
-msgstr "أفتح دفتر العناوين"
-
-#: ../src/e-contact-entry.c:836
-#, fuzzy
-msgid "The address book is offline."
-msgstr "العنوان الذي أدخلته غير صحيح."
-
-#: ../src/e-contact-entry.c:838
-#, fuzzy
-msgid "The address book does not exist."
-msgstr "دفتر العناوين غير موجود"
-
-#: ../src/e-contact-entry.c:840
-#, fuzzy
-msgid "The \"Me\" contact does not exist."
-msgstr "المستند غير موجود."
-
-#: ../src/e-contact-entry.c:842
-#, fuzzy
-msgid "The address book is not loaded."
-msgstr "العنوان الذي أدخلته غير صحيح."
-
-#: ../src/e-contact-entry.c:844
-#, fuzzy
-msgid "The address book is already loaded."
-msgstr "هذا الملف تم تنزيله من قبل"
-
-#: ../src/e-contact-entry.c:846
-#, fuzzy
-msgid "Permission was denied when accessing the address book."
-msgstr "رُفض التّصريح بفتح التقويم"
-
-#: ../src/e-contact-entry.c:848
-#, fuzzy
-msgid "The contact was not found."
-msgstr "لم يوجد المراسَل"
-
-# checked, typed but the nchanged: you add a new ID and the other exists
-# the meaning of this dialog is more" you can't add a newone cz another one exists"
-#
-#: ../src/e-contact-entry.c:850
-#, fuzzy
-msgid "This contact ID already exists."
-msgstr "هويّة المراسَل موجودة مسبقاً"
-
-#: ../src/e-contact-entry.c:852
-#, fuzzy
-msgid "The protocol is not supported."
-msgstr "البروتوكول “%s” غير مدعوم."
-
-#: ../src/e-contact-entry.c:854
-#, fuzzy
-msgid "The operation was cancelled."
-msgstr "تم إلغاء العملية من طرف المستخدم."
-
-#: ../src/e-contact-entry.c:856
-#, fuzzy
-msgid "The operation could not be cancelled."
-msgstr "لا يمكن تغيير التصاريح."
-
-#: ../src/e-contact-entry.c:858
-#, fuzzy
-msgid "The address book authentication failed."
-msgstr "فشل مؤقّت في التّوثّق"
-
-#: ../src/e-contact-entry.c:860
+#: ../data/gnome-phone-manager.schemas.in.h:2
 msgid ""
-"Authentication is required to access the address book and was not given."
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
 msgstr ""
 
-#: ../src/e-contact-entry.c:862
-#, fuzzy
-msgid "A secure connection is not available."
-msgstr "خيارات الإرسال غير متوفرة."
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr ""
 
-#: ../src/e-contact-entry.c:864
-#, fuzzy
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "حدث خطأ خلال النفاذ للجهاز !"
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
 
-#: ../src/e-contact-entry.c:866
-#, fuzzy
-msgid "The address book source does not exist."
-msgstr "دفتر العناوين غير موجود"
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr ""
 
-#: ../src/e-contact-entry.c:868 ../src/e-contact-entry.c:871
-#, fuzzy
-msgid "An unknown error occurred."
-msgstr "حدث خطأ مجهول"
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
 
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+
+#~ msgid "Selection mode"
+#~ msgstr "نمط الانتقاء"
+
+#~ msgid "The selection mode"
+#~ msgstr "نمط الانتقاء"
+
+#, fuzzy
+#~ msgid "Sorted"
+#~ msgstr "المرتّب"
+
+#, fuzzy
+#~ msgid "Icon list is sorted"
+#~ msgstr "حجم الأيقونات محدّد"
+
+#~ msgid "Sort order"
+#~ msgstr "ترتيب الفرز"
+
+#, fuzzy
+#~ msgid "Sort direction the icon list should use"
+#~ msgstr "اتجاه الفرز الذي يتوجب على مؤشر الفرز أن يشير إليه"
+
+#, fuzzy
+#~ msgid "Icon padding"
+#~ msgstr "تَبَاعُد الأيقونة"
+
+#, fuzzy
+#~ msgid "Number of pixels between icons"
+#~ msgstr "عدد البكسلات بين أعمدة أيقونات"
+
+#, fuzzy
+#~ msgid "Top margin"
+#~ msgstr "الهامش ا?يسر"
+
+#, fuzzy
+#~ msgid "Number of pixels in top margin"
+#~ msgstr "عدد البكسلات في الهامش الأيسر"
+
+#, fuzzy
+#~ msgid "Bottom margin"
+#~ msgstr "الحشو الأسفل"
+
+#, fuzzy
+#~ msgid "Number of pixels in bottom margin"
+#~ msgstr "عدد البكسلات في الهامش الأيسر"
+
+#~ msgid "Left margin"
+#~ msgstr "الهامش ا?يسر"
+
+#, fuzzy
+#~ msgid "Number of pixels in left margin"
+#~ msgstr "عدد البكسلات في الهامش الأيسر"
+
+#~ msgid "Right margin"
+#~ msgstr "الهامش ا?يمن"
+
+#, fuzzy
+#~ msgid "Number of pixels in right margin"
+#~ msgstr "عدد البكسلات في الهامش الأيمن"
+
+#~ msgid "Selection Box Color"
+#~ msgstr "لون علبة الإختيار"
+
+#~ msgid "Color of the selection box"
+#~ msgstr "لون صندوق الإختيار"
+
+#~ msgid "Selection Box Alpha"
+#~ msgstr "ألفا علبة الإختيار"
+
+#~ msgid "Opacity of the selection box"
+#~ msgstr "شفافية علبة الإختيار"
+
+#~ msgid "Pixbuf"
+#~ msgstr "بكسبف"
+
+#~ msgid "A GdkPixbuf to display"
+#~ msgstr "GdkPixbuf لعرضه"
+
+#, fuzzy
+#~ msgid "Filename"
+#~ msgstr "اسم الملف:"
+
+#~ msgid "Filename to load and display"
+#~ msgstr "اسم الملف للتحميل و العرض"
+
+#, fuzzy
+#~ msgid "Stock ID"
+#~ msgstr "هوية المخزون"
+
+#~ msgid "Stock ID for a stock image to display"
+#~ msgstr "هوية المخزون لصورة مخزون للعرض"
+
+#~ msgid "Animation"
+#~ msgstr "رسوم متحركة"
+
+#~ msgid "GdkPixbufAnimation to display"
+#~ msgstr "GdkPixbufAnimation لعرضها"
+
+#~ msgid "Image type"
+#~ msgstr "نوع الصورة"
+
+#~ msgid "The representation being used for image data"
+#~ msgstr "التقديم المستعمل لبيانات الرسوم"
+
+#, fuzzy
+#~ msgid "Size"
+#~ msgstr "الحجم:"
+
+#~ msgid "The size of the icon"
+#~ msgstr "حجم الأيقونة"
+
+#~ msgid "Blinking"
+#~ msgstr "ومّاض"
+
+#~ msgid "Whether or not the status icon is blinking"
+#~ msgstr "فيما إذا كانت أيقونة الحالة وامضة"
+
+#, fuzzy
+#~ msgid "Orientation"
+#~ msgstr "الإتجاه:"
+
+#, fuzzy
+#~ msgid "The orientation of the tray."
+#~ msgstr "إتجاه الطبق."
+
+#, fuzzy
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+#~ "span>\n"
+#~ "\n"
+#~ "Phone Manager uses the notification area to display information and "
+#~ "provide access to message sending and preferences. You can add it by "
+#~ "right-clicking on your panel and choosing <i>Add to Panel -> Utility -> "
+#~ "Notification Area</i>."
+#~ msgstr ""
+#~ "يستعمل الدكتور ورايت مساحة التبليغ لعرض معلومات. يبدو انك لا تملك مساحة "
+#~ "للتبليغ على شريطك. الرجاء اضافتها."
+
+#, fuzzy
+#~ msgid "Couldn't create phone listener."
+#~ msgstr "لا يمكن إنشاء عميل GConf.\n"
+
+#, fuzzy
+#~ msgid "No Bluetooth device chosen."
+#~ msgstr "إدارة أجهزة البلوتوث"
+
+#, fuzzy
+#~ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">رجاء أدخل كلمة سر الجذر</span>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">You have received a message</span>"
+#~ msgstr "<spanWeight=\"bold\" size=\"larger\">بحاجة لكلمة سر الجذر </span>"
+
+#, fuzzy
+#~ msgid "Choo_se"
+#~ msgstr "اختر..."
+
+#, fuzzy
+#~ msgid "Number of characters left in the message"
+#~ msgstr "عدد البكسلات في الهامش الأيسر"
+
+#, fuzzy
+#~ msgid "message body"
+#~ msgstr "متن الرّسالة"
