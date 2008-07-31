@@ -1653,4 +1653,36 @@ phonemgr_listener_finalize(GObject *obj)
 {
 }
 
+char *
+phonemgr_listener_get_data (PhonemgrListener *l,
+			    PhonemgrListenerDataType type,
+			    const char *dataid)
+{
+	return NULL;
+}
+
+char **
+phonemgr_listener_list_all_data (PhonemgrListener *l,
+				 PhonemgrListenerDataType type)
+{
+	return NULL;
+}
+
+gboolean
+phonemgr_listener_delete_data (PhonemgrListener *l,
+			       PhonemgrListenerDataType type,
+			       const char *dataid)
+{
+	return FALSE;
+}
+
+char *
+phonemgr_listener_put_data (PhonemgrListener *l,
+			    PhonemgrListenerDataType type,
+			    const char *dataid,
+			    const char *data)
+{
+	return NULL;
+}
+
 #endif /* !DUMMY */

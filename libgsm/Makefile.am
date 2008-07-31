@@ -2,7 +2,8 @@
 AM_CPPFLAGS =					\
 	$(LIBGSM_CFLAGS)			\
 	-DDATA_DIR="\"$(datadir)/$(PACKAGE)\""	\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"\
+	$(WARN_CFLAGS)
 
 EXTRA_DIST =				\
 	phonemgr-marshal.list		\

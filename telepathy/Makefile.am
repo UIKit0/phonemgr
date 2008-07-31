@@ -6,7 +6,8 @@ AM_CPPFLAGS = \
 	-DVERSION="\"$(VERSION)\""			\
 	-DPACKAGE="\"$(PACKAGE)\""			\
 	-I$(srcdir)/../libgsm				\
-	-I$(builddir)/../libgsm
+	-I$(builddir)/../libgsm				\
+	$(WARN_CFLAGS)
 
 BACKEND_FILES =				\
 	connection.c			\

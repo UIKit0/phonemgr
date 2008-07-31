@@ -1,5 +1,14 @@
 2008-07-31  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/Makefile.am:
+	* telepathy/Makefile.am: More warnings
+
+	* libgsm/phonemgr-listener.c (phonemgr_listener_get_data),
+	(phonemgr_listener_list_all_data), (phonemgr_listener_delete_data),
+	(phonemgr_listener_put_data): Fix dummy build
+
+2008-07-31  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in:
 	* src/Makefile.am: Enable warnings, yay for time wasting!
 
