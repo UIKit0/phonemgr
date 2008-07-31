@@ -1,3 +1,8 @@
+2008-07-31  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
+	* src/Makefile.am: Enable warnings, yay for time wasting!
+
 2008-06-20  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/glibgsmtest.c (main): Print out an error if a delete failed
