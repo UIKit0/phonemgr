@@ -1,0 +1,405 @@
+# translation of gnome-phone-manager.po to Latvian
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Raivis Dejus <orvils@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-phone-manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-11 00:58+0300\n"
+"PO-Revision-Date: 2008-08-11 13:18+0300\n"
+"Last-Translator: Raivis Dejus <orvils@gmail.com>\n"
+"Language-Team: Latvian <locale@laka.lv>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Latvian\n"
+"X-Poedit-Country: LATVIA\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:113
+#, c-format
+msgid "Connected to device on %s"
+msgstr "Savienots ar iekārtu %s"
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:119
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr "Neizdevās savienoties ar iekārtu %s"
+
+#: ../src/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf kļūda: %s"
+
+#: ../src/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Visas turpmākās kļūdas tiks parādītas tikai terminālī."
+
+#: ../src/gnome-phone-manager.desktop.in.h:1
+#: ../src/menu.c:49
+#: ../src/menu.c:51
+msgid "Phone Manager"
+msgstr "Tālruņa pārvaldnieks"
+
+#: ../src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr "Saņem un nosūta īsziņas no jūsu mobilā tālruņa"
+
+#: ../src/icon.c:59
+msgid "Message arrived"
+msgstr "Saņemta īsziņa"
+
+#: ../src/icon.c:62
+msgid "Connected"
+msgstr "Savienots"
+
+#: ../src/icon.c:66
+msgid "Connecting to phone"
+msgstr "Savienojos ar tālruni"
+
+#: ../src/icon.c:70
+msgid "Not connected"
+msgstr "Nav savienots"
+
+#: ../src/main.c:37
+msgid "Show model name of a specific device"
+msgstr "Rādīt iekārtas modeli"
+
+#: ../src/main.c:38
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Rakstīt konfigurācijas failu gnokii lāgošanai"
+
+#: ../src/main.c:39
+msgid "Enable debug"
+msgstr "Ieslēgt lāgošanu"
+
+#: ../src/main.c:40
+msgid "Show version information and exit"
+msgstr "Skatīt versijas informāciju un iziet"
+
+#: ../src/main.c:59
+msgid "- Manage your mobile phone"
+msgstr "- Pārvalda jūsu mobilo tālruni"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager versija %s\n"
+
+#: ../src/menu.c:40
+msgid "translator_credits"
+msgstr "Ivars Strazdiņš <ivars.strazdins@gmail.com>"
+
+#: ../src/menu.c:44
+msgid "Send and receive messages from your mobile phone."
+msgstr "Nosūta un saņem īsziņas no jūsu mobilā tālruņa."
+
+#: ../src/menu.c:56
+msgid "Phone Manager website"
+msgstr "Tālruņa pārvaldnieka mājas lapa"
+
+#: ../src/menu.c:87
+msgid "_Send Message"
+msgstr "_Sūtīt īsziņu"
+
+#: ../src/phonemgr-chooser-button.c:80
+#: ../src/phonemgr-chooser-button.c:190
+msgid "Click to select device..."
+msgstr "Klikšķiniet, lai izvēlētos iekārtu..."
+
+#: ../src/ui.c:335
+msgid "Message too long!"
+msgstr "Īsziņa ir pārāk gara!"
+
+#: ../data/phonemgr.glade.h:1
+msgid "/dev/ttyS2"
+msgstr "/dev/ttyS2"
+
+#: ../data/phonemgr.glade.h:2
+msgid "Alerting"
+msgstr "Brīdināšana"
+
+#: ../data/phonemgr.glade.h:3
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "Alternatīvs ierīces faila nosaukums, piem. /dev/ttyS3"
+
+#: ../data/phonemgr.glade.h:4
+msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgstr "Vienmēr censties atjaunot zaudētu savienojumu. Lietojiet Bluetooth, lai nodrošinātu savienojumu, tikko tālrunis ir parādījies pieejamajā diapazonā."
+
+#: ../data/phonemgr.glade.h:5
+msgid "Automatically _retry connections"
+msgstr "Automātiski mēģināt pieslēgties vēl_reiz"
+
+#: ../data/phonemgr.glade.h:6
+msgid "Characters left:"
+msgstr "Atlikušais zīmju skaits:"
+
+#: ../data/phonemgr.glade.h:7
+msgid "Connect using an alternative serial device"
+msgstr "Savienoties ar tālruni, izmantojot citu seriālo iekārtu"
+
+#: ../data/phonemgr.glade.h:8
+msgid "Connect using infrared communication"
+msgstr "Savienoties ar tālruni, izmantojot infrasarkanos sakarus"
+
+#: ../data/phonemgr.glade.h:9
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr "Savienoties ar tālruni, izmantojot pirmo seriālo portu, zināmu arī kā COM1 vai /dev/ttyS0"
+
+#: ../data/phonemgr.glade.h:10
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr "Savienoties ar tālruni, izmantojot otro seriālo portu, zināmu arī kā COM2 vai /dev/ttyS1"
+
+#: ../data/phonemgr.glade.h:11
+msgid "Connection"
+msgstr "Savienojums"
+
+#: ../data/phonemgr.glade.h:12
+msgid "Date:"
+msgstr "Datums:"
+
+#: ../data/phonemgr.glade.h:13
+msgid "Enter the text message you want to send."
+msgstr "Ievadiet īsziņas tekstu, kuru vēlaties nosūtīt."
+
+#: ../data/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "Ievadiet īsziņas tekstu"
+
+#: ../data/phonemgr.glade.h:15
+msgid "Error Handling"
+msgstr "Kļūdu apstrāde"
+
+#: ../data/phonemgr.glade.h:16
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfrasarkanais (/dev/ircomm0)"
+
+#: ../data/phonemgr.glade.h:17
+msgid "Interface"
+msgstr "Saskarne"
+
+#: ../data/phonemgr.glade.h:18
+msgid "Message Received"
+msgstr "Saņemta īsziņa"
+
+#: ../data/phonemgr.glade.h:19
+msgid "Other _port"
+msgstr "Cits _ports"
+
+#: ../data/phonemgr.glade.h:20
+msgid "Phone Connection"
+msgstr "Tālruņa savienojums"
+
+#: ../data/phonemgr.glade.h:21
+msgid "Phone Manager Preferences"
+msgstr "Tālruņa pārvaldnieka iestatījumi"
+
+#: ../data/phonemgr.glade.h:22
+msgid "Play _sound when messages arrive"
+msgstr "_Saņemot īsziņu, atskaņot signālu"
+
+#: ../data/phonemgr.glade.h:23
+msgid "Send Message"
+msgstr "Sūtīt īsziņu"
+
+#: ../data/phonemgr.glade.h:24
+msgid "Sender:"
+msgstr "Sūtītājs:"
+
+#: ../data/phonemgr.glade.h:25
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "Pirmais seriālais ports ( _1 /dev/ttyS0) "
+
+#: ../data/phonemgr.glade.h:26
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "Otrais seriālais ports ( _2 /dev/ttyS1) "
+
+#: ../data/phonemgr.glade.h:27
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "Savienoties ar tālruni, izmantojot Bluetooth bezvadu savienojumu"
+
+#: ../data/phonemgr.glade.h:28
+msgid "You have received a message"
+msgstr "Saņemta jauna īsziņa"
+
+#: ../data/phonemgr.glade.h:29
+msgid "_Bluetooth"
+msgstr "_Bluetooth"
+
+#: ../data/phonemgr.glade.h:30
+msgid "_Message:"
+msgstr "Īs_ziņa:"
+
+#: ../data/phonemgr.glade.h:31
+msgid "_Notify when message is delivered"
+msgstr "Saņemt īsziņas piegādes paziņojumu"
+
+#: ../data/phonemgr.glade.h:32
+msgid "_Pop-up window for new messages"
+msgstr "Jaunās īsziņas _parādīt uznirstošā logā"
+
+#: ../data/phonemgr.glade.h:33
+msgid "_Recipient:"
+msgstr "_Saņēmējs:"
+
+#: ../data/phonemgr.glade.h:34
+msgid "_Reply"
+msgstr "_Atbildēt"
+
+#: ../data/phonemgr.glade.h:35
+msgid "_Send"
+msgstr "_Sūtīt"
+
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Iekārtas ar kuru savienoties, Bluetooth adrese"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
+msgstr "Bluetooth adrese iekārtai, kurai pieslēgties. Pieprasa izmantot savienojuma veidu 1."
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Savienojuma veids, kuru izmanto Gnome tālruņa pārvaldnieks"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr "Gnome tālruņa pārvaldnieka savienojuma veidi: Bluetooth - 0, seriālais ports 1 ir 1, seriālais ports2 ir 2, IrDA (infrasarkanais) - 3, citi savienojumi - 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Seriālās iekārtas fails pieslēgumam"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
+msgstr "Seriālās iekārtas fails pieslēgumam. Pieprasa izmantot savienojuma tipu 4."
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Jaunas īsziņas paziņojumam izmantot skaņas brīdinājumu"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Vai jaunas īsziņas paziņojumam izmantot skaņas brīdinājumu."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Jaunas īsziņas izmanto uznirstošu logu darbvirsmā"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
+msgstr "Vai jaunas īsziņas, tikko saņemtas, izmanto uznirstošu logu darbvirsmā, pretējā gadījumā parādot tās noklišķinot uz paneļa ikonas."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Vai mēģināt atkārtoti savienoties ar tālruni"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
+msgstr "Vai mēģināt atkārtoti atjaunot pārtrauktu savienojumu."
+
+#: ../src/e-contact-entry.c:158
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Nevaru dabūt kontaktinformāciju: %s"
+
+#: ../src/e-contact-entry.c:191
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Nevaru atrast kontaktinformāciju: %s"
+
+#: ../src/e-contact-entry.c:417
+msgid "Cannot create searchable view."
+msgstr "Nevaru izveidot meklējamu skatu."
+
+#: ../src/e-contact-entry.c:890
+msgid "Success"
+msgstr "Veiksmīgi"
+
+#: ../src/e-contact-entry.c:892
+msgid "An argument was invalid."
+msgstr "Nepareiza argumenta vērtība."
+
+#: ../src/e-contact-entry.c:894
+msgid "The address book is busy."
+msgstr "Pieslēgums adrešu grāmatai ir aizņemts."
+
+#: ../src/e-contact-entry.c:896
+msgid "The address book is offline."
+msgstr "Adrešu grāmata ir atsaistē."
+
+#: ../src/e-contact-entry.c:898
+msgid "The address book does not exist."
+msgstr "Adrešu grāmata neeksistē."
+
+#: ../src/e-contact-entry.c:900
+msgid "The \"Me\" contact does not exist."
+msgstr "\"Mana\" kontaktinformācija nav atrodama."
+
+#: ../src/e-contact-entry.c:902
+msgid "The address book is not loaded."
+msgstr "Adrešu grāmata nav ielādēta."
+
+#: ../src/e-contact-entry.c:904
+msgid "The address book is already loaded."
+msgstr "Adrešu grāmata jau ir ielādēta."
+
+#: ../src/e-contact-entry.c:906
+msgid "Permission was denied when accessing the address book."
+msgstr "Pieeja adrešu grāmatai liegta."
+
+#: ../src/e-contact-entry.c:908
+msgid "The contact was not found."
+msgstr "Kontaktinformācija nav atrasta."
+
+#: ../src/e-contact-entry.c:910
+msgid "This contact ID already exists."
+msgstr "Kontaktinformācijas ID jau eksistē."
+
+#: ../src/e-contact-entry.c:912
+msgid "The protocol is not supported."
+msgstr "Protokols netiek atbalstīts."
+
+#: ../src/e-contact-entry.c:914
+msgid "The operation was cancelled."
+msgstr "Darbība tika atcelta."
+
+#: ../src/e-contact-entry.c:916
+msgid "The operation could not be cancelled."
+msgstr "Pieprasīto operāciju nevar atcelt."
+
+#: ../src/e-contact-entry.c:918
+msgid "The address book authentication failed."
+msgstr "Adrešu grāmatas autentifikācija neizdevās."
+
+#: ../src/e-contact-entry.c:920
+msgid "Authentication is required to access the address book and was not given."
+msgstr "Lai lasītu adrešu grāmatu, bija nepieciešama autentificēšanās, kura netika nodrošināta."
+
+#: ../src/e-contact-entry.c:922
+msgid "A secure connection is not available."
+msgstr "Drošs savienojums nav pieejams."
+
+#: ../src/e-contact-entry.c:924
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Lasot adrešu grāmatu, notikusi CORBA kļūda."
+
+#: ../src/e-contact-entry.c:926
+msgid "The address book source does not exist."
+msgstr "Adrešu grāmatas primārais dokuments neeksistē."
+
+#: ../src/e-contact-entry.c:928
+#: ../src/e-contact-entry.c:931
+msgid "An unknown error occurred."
+msgstr "Atgadījās nezināma kļūda."
+
