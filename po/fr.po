@@ -5,23 +5,131 @@
 # Gaël Chamoulaud (strider) <strider@freespiders.org>, 2003.
 # Audrey Simons <asimons@redhat.com>, 2004.
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2006.
-# Robert-André Mauchin <zebob.m@pengzone.org>, 2007.
+# Robert-André Mauchin <zebob.m@pengzone.org>, 2007-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr 0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-29 21:40+0100\n"
-"PO-Revision-Date: 2007-11-29 14:27:13+0100\n"
+"POT-Creation-Date: 2008-09-21 22:07+0200\n"
+"PO-Revision-Date: 2008-09-21 22:05+0200\n"
 "Last-Translator: Robert-André Mauchin <zebob.m@pengzone.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:158
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Impossible de récupérer le contact : %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:191
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Impossible de trouver le contact : %s"
+
+# pourrait être amélioré...
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:417
+msgid "Cannot create searchable view."
+msgstr "Impossible de créer un affichage de recherche."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "Success"
+msgstr "Opération réussie"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "An argument was invalid."
+msgstr "Un paramètre était incorrect."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book is busy."
+msgstr "Le carnet d'adresses est occupé."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+msgid "The address book is offline."
+msgstr "Le carnet d'adresses est hors ligne."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+msgid "The address book does not exist."
+msgstr "Le carnet d'adresses n'existe pas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+msgid "The \"Me\" contact does not exist."
+msgstr "Le contact « Moi » n'existe pas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+msgid "The address book is not loaded."
+msgstr "Le carnet d'adresses n'est pas chargé."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+msgid "The address book is already loaded."
+msgstr "Le carnet d'adresses est déjà chargé."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+msgid "Permission was denied when accessing the address book."
+msgstr "Permission refusée lors de l'accès au carnet d'adresses."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The contact was not found."
+msgstr "Le contact n'a pas été trouvé."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "This contact ID already exists."
+msgstr "L'identifiant du contact existe déjà."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+msgid "The protocol is not supported."
+msgstr "Le protocole n'est pas pris en charge."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+msgid "The operation was cancelled."
+msgstr "L'opération a été annulée."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+msgid "The operation could not be cancelled."
+msgstr "L'opération n'a pas pu être annulée."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "The address book authentication failed."
+msgstr "L'authentification au carnet d'adresses a échoué."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+"Une authentification est nécessaire pour accéder au carnet d'adresses, mais "
+"celle-ci n'a pas été fournie."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+msgid "A secure connection is not available."
+msgstr "Une connexion sécurisée n'est pas disponible."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Une erreur CORBA est survenue lors de l'accès au carnet d'adresses."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:926
+msgid "The address book source does not exist."
+msgstr "La source de carnet d'adresses n'existe pas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:928
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:931
+msgid "An unknown error occurred."
+msgstr "Une erreur inconnue est survenue."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "Erreur GConf : %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Toutes les futures erreurs apparaissent uniquement dans le terminal."
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:112
+#: ../src/connection.c:113
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Connecté au périphérique sur %s"
@@ -30,19 +138,10 @@ msgstr "Connecté au périphérique sur %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:118
+#: ../src/connection.c:119
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "La connexion au périphérique sur %s a échoué"
-
-#: ../src/gconf-bridge.c:1218
-#, c-format
-msgid "GConf error: %s"
-msgstr "Erreur GConf : %s"
-
-#: ../src/gconf-bridge.c:1228
-msgid "All further errors shown only on terminal."
-msgstr "Toutes les futures erreurs apparaissent uniquement dans le terminal."
 
 #: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
@@ -69,21 +168,30 @@ msgstr "Connexion au téléphone"
 msgid "Not connected"
 msgstr "Non connecté"
 
-#: ../src/main.c:36
+#: ../src/main.c:37
 msgid "Show model name of a specific device"
 msgstr "Afficher le modèle d'un périphérique spécifique"
 
-#: ../src/main.c:37
+#: ../src/main.c:38
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Écrire le fichier de configuration pour le débogage de gnokii"
 
-#: ../src/main.c:38
+#: ../src/main.c:39
 msgid "Enable debug"
 msgstr "Activer le débogage"
 
-#: ../src/main.c:57
+#: ../src/main.c:40
+msgid "Show version information and exit"
+msgstr "Afficher les informations de version et quitter"
+
+#: ../src/main.c:59
 msgid "- Manage your mobile phone"
 msgstr "- Gestion de votre téléphone portable"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager version %s\n"
 
 #: ../src/menu.c:40
 msgid "translator_credits"
@@ -91,7 +199,7 @@ msgstr ""
 "Gaël Chamoulaud (strider) <strider@freespiders.org>\n"
 "Audrey Simons <asimons@redhat.com>\n"
 "Jonathan Ernst <jonathan@ernstfamily.ch>\n"
-"Robert-André Mauchin wzebob.m@pengzone.org>"
+"Robert-André Mauchin <zebob.m@pengzone.org>"
 
 #: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
@@ -109,7 +217,7 @@ msgstr "Envoyer le me_ssage"
 msgid "Click to select device..."
 msgstr "Cliquez pour sélectionner le périphérique..."
 
-#: ../src/ui.c:333
+#: ../src/ui.c:335
 msgid "Message too long!"
 msgstr "Message trop long !"
 
@@ -123,7 +231,7 @@ msgstr "Avertir"
 
 #: ../data/phonemgr.glade.h:3
 msgid "Alternative device filename, e.g. /dev/ttyS3"
-msgstr "Autre périphérique, par exemple /dev/ttyS3"
+msgstr "Autre fichier de périphérique, par exemple /dev/ttyS3"
 
 #: ../data/phonemgr.glade.h:4
 msgid ""
@@ -242,11 +350,11 @@ msgstr "_Message :"
 
 #: ../data/phonemgr.glade.h:31
 msgid "_Notify when message is delivered"
-msgstr "_Notifier à l'arrivée d'un message"
+msgstr "_Demander un accusé de réception"
 
 #: ../data/phonemgr.glade.h:32
 msgid "_Pop-up window for new messages"
-msgstr "Fenêtre _contextuelle pour les nouveaux messages"
+msgstr "Afficher les nouveaux messages dans une fenêtre _pop-up"
 
 #: ../data/phonemgr.glade.h:33
 msgid "_Recipient:"
@@ -333,104 +441,6 @@ msgid ""
 msgstr ""
 "Indique s'il faut tenter de se reconnecter au téléphone mobile si la "
 "connexion échoue."
-
-#: ../src/e-contact-entry.c:158
-#, c-format
-msgid "Cannot get contact: %s"
-msgstr "Impossible de récupérer le contact : %s"
-
-#: ../src/e-contact-entry.c:191
-#, c-format
-msgid "Could not find contact: %s"
-msgstr "Impossible de trouver le contact : %s"
-
-# pourrait être amélioré...
-#: ../src/e-contact-entry.c:417
-msgid "Cannot create searchable view."
-msgstr "Impossible de créer un affichage de recherche."
-
-#: ../src/e-contact-entry.c:890
-msgid "Success"
-msgstr "Opération réussie"
-
-#: ../src/e-contact-entry.c:892
-msgid "An argument was invalid."
-msgstr "Un paramètre était incorrect."
-
-#: ../src/e-contact-entry.c:894
-msgid "The address book is busy."
-msgstr "Le carnet d'adresses est occupé."
-
-#: ../src/e-contact-entry.c:896
-msgid "The address book is offline."
-msgstr "Le carnet d'adresses est hors ligne."
-
-#: ../src/e-contact-entry.c:898
-msgid "The address book does not exist."
-msgstr "Le carnet d'adresses n'existe pas."
-
-#: ../src/e-contact-entry.c:900
-msgid "The \"Me\" contact does not exist."
-msgstr "Le contact « Moi » n'existe pas."
-
-#: ../src/e-contact-entry.c:902
-msgid "The address book is not loaded."
-msgstr "Le carnet d'adresses n'est pas chargé."
-
-#: ../src/e-contact-entry.c:904
-msgid "The address book is already loaded."
-msgstr "Le carnet d'adresses est déjà chargé."
-
-#: ../src/e-contact-entry.c:906
-msgid "Permission was denied when accessing the address book."
-msgstr "Permission refusée lors de l'accès au carnet d'adresses."
-
-#: ../src/e-contact-entry.c:908
-msgid "The contact was not found."
-msgstr "Le contact n'a pas été trouvé."
-
-#: ../src/e-contact-entry.c:910
-msgid "This contact ID already exists."
-msgstr "L'identifiant du contact existe déjà."
-
-#: ../src/e-contact-entry.c:912
-msgid "The protocol is not supported."
-msgstr "Le protocole n'est pas pris en charge."
-
-#: ../src/e-contact-entry.c:914
-msgid "The operation was cancelled."
-msgstr "L'opération a été annulée."
-
-#: ../src/e-contact-entry.c:916
-msgid "The operation could not be cancelled."
-msgstr "L'opération n'a pas pu être annulée."
-
-#: ../src/e-contact-entry.c:918
-msgid "The address book authentication failed."
-msgstr "L'authentification au carnet d'adresses a échoué."
-
-#: ../src/e-contact-entry.c:920
-msgid ""
-"Authentication is required to access the address book and was not given."
-msgstr ""
-"Une authentification est nécessaire pour accéder au carnet d'adresses, mais "
-"celle-ci n'a pas été fournie."
-
-#: ../src/e-contact-entry.c:922
-msgid "A secure connection is not available."
-msgstr "Une connexion sécurisée n'est pas disponible."
-
-#: ../src/e-contact-entry.c:924
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "Une erreur CORBA est survenue lors de l'accès au carnet d'adresses."
-
-#: ../src/e-contact-entry.c:926
-msgid "The address book source does not exist."
-msgstr "La source de carnet d'adresses n'existe pas."
-
-#: ../src/e-contact-entry.c:928 ../src/e-contact-entry.c:931
-msgid "An unknown error occurred."
-msgstr "Une erreur inconnue est survenue."
 
 #~ msgid "Selection mode"
 #~ msgstr "Mode de sélection"
