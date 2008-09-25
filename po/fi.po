@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-19 10:05+0300\n"
-"PO-Revision-Date: 2006-05-03 21:11+0300\n"
+"POT-Creation-Date: 2008-09-25 06:13+0300\n"
+"PO-Revision-Date: 2008-09-25 06:10+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,115 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:158
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Yhteystietoa ei voi hakea: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:191
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Yhteystietoa ei löydy: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:417
+msgid "Cannot create searchable view."
+msgstr "Etsintänäkymää ei voi luoda."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "Success"
+msgstr "Onnistui"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "An argument was invalid."
+msgstr "Argumentti oli virheellinen."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book is busy."
+msgstr "Osoitekirja on käytössä."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+msgid "The address book is offline."
+msgstr "Osoitekirja ei ole käytettävissä."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+msgid "The address book does not exist."
+msgstr "Osoitekirjaa ei ole olemassa."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+msgid "The \"Me\" contact does not exist."
+msgstr "Yhteystietoa \"Minä\" ei löydy."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+msgid "The address book is not loaded."
+msgstr "Osoitekirjaa ei ole ladattu."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+msgid "The address book is already loaded."
+msgstr "Osoitekirja on jo ladattu."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+msgid "Permission was denied when accessing the address book."
+msgstr "Pääsy evättiin yritettäessä avata osoitekirjaa."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The contact was not found."
+msgstr "Yhteystietoa ei löydy."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "This contact ID already exists."
+msgstr "Yhteystiedon tunniste on jo olemassa."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+msgid "The protocol is not supported."
+msgstr "Protokolla ei ole tuettu."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+msgid "The operation was cancelled."
+msgstr "Toiminto peruttiin."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+msgid "The operation could not be cancelled."
+msgstr "Toimintoa ei voitu perua."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "The address book authentication failed."
+msgstr "Todentaminen osoitekirjaan epäonnistui."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+"Todentaminen vaaditaan osoitekirjan käyttöön, eikä todennusta määritelty."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+msgid "A secure connection is not available."
+msgstr "Turvallinen yhteys ei ole käytettävissä."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Tapahtui CORBA-virhe käytettäessä osoitekirjaa."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:926
+msgid "The address book source does not exist."
+msgstr "Osoitekirjan lähdettä ei löydy."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:928
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:931
+msgid "An unknown error occurred."
+msgstr "Tapahtui tuntematon virhe."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf-virhe: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Kaikki jatkossa tulevat virheet näytetään vain päätteessä."
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:112
+#: ../src/connection.c:113
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Yhteys laitteeseen %s"
@@ -27,19 +133,10 @@ msgstr "Yhteys laitteeseen %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:118
+#: ../src/connection.c:119
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Yhteyttä laitteseen %s ei saatu"
-
-#: ../src/gconf-bridge.c:1218
-#, c-format
-msgid "GConf error: %s"
-msgstr "GConf-virhe: %s"
-
-#: ../src/gconf-bridge.c:1228
-msgid "All further errors shown only on terminal."
-msgstr "Kaikki jatkossa tulevat virheet näytetään vain päätteessä."
 
 #: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
@@ -65,21 +162,30 @@ msgstr "Otetaan yhteyttä Puhelimeen"
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: ../src/main.c:36
+#: ../src/main.c:37
 msgid "Show model name of a specific device"
 msgstr "Näytä määritellyn laitteen mallinimi"
 
-#: ../src/main.c:37
+#: ../src/main.c:38
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Kirjoita asetustiedosto gnokiin-vianetsintää varten"
 
-#: ../src/main.c:38
+#: ../src/main.c:39
 msgid "Enable debug"
 msgstr "Käytä vianetsintää"
 
-#: ../src/main.c:57
+#: ../src/main.c:40
+msgid "Show version information and exit"
+msgstr "Näytä versiotiedot ja lopeta"
+
+#: ../src/main.c:59
 msgid "- Manage your mobile phone"
 msgstr "- Hallitse matkapuhelintasi"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager versio %s\n"
 
 #: ../src/menu.c:40
 msgid "translator_credits"
@@ -104,7 +210,7 @@ msgstr "_Lähetä viesti"
 msgid "Click to select device..."
 msgstr "Valise laite napsauttamalla..."
 
-#: ../src/ui.c:333
+#: ../src/ui.c:335
 msgid "Message too long!"
 msgstr "Viesti on liian pitkä!"
 
@@ -321,102 +427,6 @@ msgid ""
 msgstr ""
 "Yritetäänkö yhteyttä matkapuhelimeen uudestaan, jos yhteys katkeaa jossain "
 "vaiheessa."
-
-#: ../src/e-contact-entry.c:158
-#, c-format
-msgid "Cannot get contact: %s"
-msgstr "Yhteystietoa ei voi hakea: %s"
-
-#: ../src/e-contact-entry.c:191
-#, c-format
-msgid "Could not find contact: %s"
-msgstr "Yhteystietoa ei löydy: %s"
-
-#: ../src/e-contact-entry.c:417
-msgid "Cannot create searchable view."
-msgstr "Etsintänäkymää ei voi luoda."
-
-#: ../src/e-contact-entry.c:890
-msgid "Success"
-msgstr "Onnistui"
-
-#: ../src/e-contact-entry.c:892
-msgid "An argument was invalid."
-msgstr "Argumentti oli virheellinen."
-
-#: ../src/e-contact-entry.c:894
-msgid "The address book is busy."
-msgstr "Osoitekirja on käytössä."
-
-#: ../src/e-contact-entry.c:896
-msgid "The address book is offline."
-msgstr "Osoitekirja ei ole käytettävissä."
-
-#: ../src/e-contact-entry.c:898
-msgid "The address book does not exist."
-msgstr "Osoitekirjaa ei ole olemassa."
-
-#: ../src/e-contact-entry.c:900
-msgid "The \"Me\" contact does not exist."
-msgstr "Yhteystietoa \"Minä\" ei löydy."
-
-#: ../src/e-contact-entry.c:902
-msgid "The address book is not loaded."
-msgstr "Osoitekirjaa ei ole ladattu."
-
-#: ../src/e-contact-entry.c:904
-msgid "The address book is already loaded."
-msgstr "Osoitekirja on jo ladattu."
-
-#: ../src/e-contact-entry.c:906
-msgid "Permission was denied when accessing the address book."
-msgstr "Pääsy evättiin yritettäessä avata osoitekirjaa."
-
-#: ../src/e-contact-entry.c:908
-msgid "The contact was not found."
-msgstr "Yhteystietoa ei löydy."
-
-#: ../src/e-contact-entry.c:910
-msgid "This contact ID already exists."
-msgstr "Yhteystiedon tunniste on jo olemassa."
-
-#: ../src/e-contact-entry.c:912
-msgid "The protocol is not supported."
-msgstr "Protokolla ei ole tuettu."
-
-#: ../src/e-contact-entry.c:914
-msgid "The operation was cancelled."
-msgstr "Toiminto peruttiin."
-
-#: ../src/e-contact-entry.c:916
-msgid "The operation could not be cancelled."
-msgstr "Toimintoa ei voitu perua."
-
-#: ../src/e-contact-entry.c:918
-msgid "The address book authentication failed."
-msgstr "Todentaminen osoitekirjaan epäonnistui."
-
-#: ../src/e-contact-entry.c:920
-msgid ""
-"Authentication is required to access the address book and was not given."
-msgstr ""
-"Todentaminen vaaditaan osoitekirjan käyttöön, eikä todennusta määritelty."
-
-#: ../src/e-contact-entry.c:922
-msgid "A secure connection is not available."
-msgstr "Turvallinen yhteys ei ole käytettävissä."
-
-#: ../src/e-contact-entry.c:924
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "Tapahtui CORBA-virhe käytettäessä osoitekirjaa."
-
-#: ../src/e-contact-entry.c:926
-msgid "The address book source does not exist."
-msgstr "Osoitekirjan lähdettä ei löydy."
-
-#: ../src/e-contact-entry.c:928 ../src/e-contact-entry.c:931
-msgid "An unknown error occurred."
-msgstr "Tapahtui tuntematon virhe."
 
 #~ msgid "Number of characters left in the message"
 #~ msgstr "Viestissä jäljellä olevien merkkien lukumäärä"
