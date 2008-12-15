@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA.
  *
  * Authors: Ross Burton <ross@burtonini.com>
  */
@@ -37,12 +37,6 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-
-#include <gtk/gtkentry.h>
-#include <gtk/gtkentrycompletion.h>
-#include <gtk/gtkcelllayout.h>
-#include <gtk/gtkcellrenderertext.h>
-#include <gtk/gtkcellrendererpixbuf.h>
 
 #include <libedataserver/e-source.h>
 #include <libebook/e-book.h>
@@ -501,7 +495,6 @@ e_contact_entry_set_source_list (EContactEntry *entry,
     sources = e_source_group_peek_sources (group);
     for (m = sources; m != NULL; m = m->next) {
       ESource *source = m->data;
-      const char *p;
       ESource *s = e_source_copy (source);
       EntryLookup *lookup;
       char *uri;
@@ -518,7 +511,7 @@ e_contact_entry_set_source_list (EContactEntry *entry,
 
       if ((lookup->book = e_book_new (s, &error)) == NULL) {
         /* TODO handle this better, fire the error signal I guess */
-        g_warning (error->message);
+        g_warning ("%s", error->message);
 	g_error_free (error);
 	g_free (lookup);
       } else {

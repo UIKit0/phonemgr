@@ -1,3 +1,8 @@
+2008-12-15  Bastien Nocera  <hadess@hadess.net>
+
+	* cut-n-paste/e-contact-entry/e-contact-entry.c:
+	* cut-n-paste/e-contact-entry/e-contact-entry.h: Update from SVN
+
 2008-07-31  Bastien Nocera  <hadess@hadess.net>
 
 	* libgsm/Makefile.am:
