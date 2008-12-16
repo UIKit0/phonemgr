@@ -405,14 +405,14 @@ msgstr "Új üzenet érkezésekor lejátszandó-e hang."
 
 #: ../data/gnome-phone-manager.schemas.in.h:9
 msgid "Whether to popup new messages on the desktop"
-msgstr "Az új üzenetek felbukkanjanak-e a munkaasztalon"
+msgstr "Az új üzenetek felbukkanjanak-e az asztalon"
 
 #: ../data/gnome-phone-manager.schemas.in.h:10
 msgid ""
 "Whether to popup new messages on the desktop as soon as they're received, as "
 "opposed to showing them when clicking on the tray icon."
 msgstr ""
-"Az új üzenetek felbukkanjanak-e a munkaasztalon fogadásukkor, szemben a "
+"Az új üzenetek felbukkanjanak-e az asztalon fogadásukkor, szemben a "
 "tálcaikonra kattintáskor történő megjelenítéssel."
 
 #: ../data/gnome-phone-manager.schemas.in.h:11
