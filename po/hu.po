@@ -1,25 +1,129 @@
 # Hungarian translation of phonemgr
 # This file is distributed under the same license as the phonemgr package.
-# Copyright (C) 2005, 2007, Free Software Foundation, Inc.
+# Copyright (C) 2005, 2007, 2008, Free Software Foundation, Inc.
 #
-# Gabor Kelemen <kelemeng@gnome.hu>, 2005, 2007.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2005, 2007, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: HEAD\n"
+"Project-Id-Version: phonemgr HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-12 22:50+0200\n"
-"PO-Revision-Date: 2007-08-13 09:51+0200\n"
+"POT-Creation-Date: 2008-11-07 15:32+0100\n"
+"PO-Revision-Date: 2008-12-16 22:18+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Hungarian <gnome@gnome.hu>\n"
+"Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:158
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Nem érhető el a névjegy: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:191
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Nem található a névjegy: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:417
+msgid "Cannot create searchable view."
+msgstr "Nem hozható létre kereshető nézet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "Success"
+msgstr "Sikerült"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "An argument was invalid."
+msgstr "Egy paraméter érvénytelen volt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book is busy."
+msgstr "A címjegyzék foglalt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+msgid "The address book is offline."
+msgstr "A címjegyzék offline."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+msgid "The address book does not exist."
+msgstr "A címjegyzék nem létezik."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+msgid "The \"Me\" contact does not exist."
+msgstr "Az „Én” névjegy nem létezik."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+msgid "The address book is not loaded."
+msgstr "A címjegyzék nincs betöltve."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+msgid "The address book is already loaded."
+msgstr "A címjegyzék már be van töltve."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+msgid "Permission was denied when accessing the address book."
+msgstr "Engedély megtagadva a címjegyzékhez való hozzáférés közben."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The contact was not found."
+msgstr "A névjegy nem található."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "This contact ID already exists."
+msgstr "Ez a névjegyazonosító már létezik."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+msgid "The protocol is not supported."
+msgstr "A protokoll nem támogatott."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+msgid "The operation was cancelled."
+msgstr "A művelet megszakítva."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+msgid "The operation could not be cancelled."
+msgstr "A műveletet nem lehet megszakítani."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "The address book authentication failed."
+msgstr "A címjegyzék azonosítása sikertelen."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid "Authentication is required to access the address book and was not given."
+msgstr "Azonosítás szükséges a címjegyzékhez való hozzáféréshez, de nem adta azt meg."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+msgid "A secure connection is not available."
+msgstr "Biztonságos kapcsolat nem áll rendelkezésre."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "CORBA hiba lépett fel a címjegyzékhez való hozzáférés közben."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:926
+msgid "The address book source does not exist."
+msgstr "A címjegyzék forrása nem létezik."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:928
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:931
+msgid "An unknown error occurred."
+msgstr "Ismeretlen hiba lépett fel."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1218
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf-hiba: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1228
+msgid "All further errors shown only on terminal."
+msgstr "Minden további hiba csak a terminálon jelenik meg."
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:92
+#: ../src/connection.c:113
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Kapcsolódva az eszközhöz a következőn: %s"
@@ -28,12 +132,12 @@ msgstr "Kapcsolódva az eszközhöz a következőn: %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:98
+#: ../src/connection.c:119
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Nem sikerült kapcsolódni az eszközhöz a következőn: %s"
 
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:28
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "Telefonkezelő"
 
@@ -41,63 +145,84 @@ msgstr "Telefonkezelő"
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Szöveges üzenetek fogadása és küldése mobiltelefonról"
 
-#: ../src/icon.c:37
+#: ../src/icon.c:59
 msgid "Message arrived"
 msgstr "Üzenete érkezett"
 
-#: ../src/icon.c:40
+#: ../src/icon.c:62
 msgid "Connected"
 msgstr "Kapcsolódva"
 
-#: ../src/icon.c:44
+#: ../src/icon.c:66
 msgid "Connecting to phone"
 msgstr "Kapcsolódás a telefonhoz"
 
-#: ../src/icon.c:48
+#: ../src/icon.c:70
 msgid "Not connected"
 msgstr "Nincs kapcsolat"
 
-#: ../src/main.c:14
+#: ../src/main.c:37
 msgid "Show model name of a specific device"
 msgstr "Adott eszköz típusnevének megjelenítése"
 
-#: ../src/main.c:29
+#: ../src/main.c:38
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Konfigurációs fájl kiírása a gnokii hibakereséséhez"
+
+#: ../src/main.c:39
+msgid "Enable debug"
+msgstr "Hibakeresés engedélyezése"
+
+#: ../src/main.c:40
+msgid "Show version information and exit"
+msgstr "Verzióinformáció megjelenítése, majd kilépés"
+
+#: ../src/main.c:59
 msgid "- Manage your mobile phone"
 msgstr "- A mobiltelefon kezelése"
 
-#: ../src/menu.c:20
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager %s verzió\n"
+
+#: ../src/menu.c:40
 msgid "translator_credits"
 msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
 
-#: ../src/menu.c:24
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "Üzenetek fogadása és küldése mobiltelefonról."
 
-#: ../src/menu.c:32
+#: ../src/menu.c:56
 msgid "Phone Manager website"
 msgstr "A Telefonkezelő webhelye"
 
-#: ../src/menu.c:63
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "Ü_zenet küldése"
 
-#: ../src/ui.c:313
+#: ../src/phonemgr-chooser-button.c:80 ../src/phonemgr-chooser-button.c:190
+msgid "Click to select device..."
+msgstr "Kattintson az eszköz kiválasztásához…"
+
+#: ../src/ui.c:335
 msgid "Message too long!"
 msgstr "Az üzenet túl hosszú!"
 
-#: ../ui/phonemgr.glade.h:1
+#: ../data/phonemgr.glade.h:1
 msgid "/dev/ttyS2"
 msgstr "/dev/ttyS2"
 
-#: ../ui/phonemgr.glade.h:2
+#: ../data/phonemgr.glade.h:2
 msgid "Alerting"
 msgstr "Riasztás"
 
-#: ../ui/phonemgr.glade.h:3
+#: ../data/phonemgr.glade.h:3
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Alternatív eszközfájl-név, például /dev/ttyS3"
 
-#: ../ui/phonemgr.glade.h:4
+#: ../data/phonemgr.glade.h:4
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -107,296 +232,194 @@ msgstr ""
 "azonnal. Használja ezt Bluetooth-szal, hogy a telefonja biztosan "
 "kapcsolódjon, ha hatósugáron belülre kerül."
 
-#: ../ui/phonemgr.glade.h:5
+#: ../data/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
 msgstr "_Automatikus újrakapcsolódás"
 
-#: ../ui/phonemgr.glade.h:6
+#: ../data/phonemgr.glade.h:6
 msgid "Characters left:"
 msgstr "Hátralévő karakterek száma:"
 
-#: ../ui/phonemgr.glade.h:7
+#: ../data/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
 msgstr "Kapcsolódás egy alternatív soros eszközön keresztül"
 
-#: ../ui/phonemgr.glade.h:8
+#: ../data/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
 msgstr "Kapcsolódás infravörös kommunikáció használatával"
 
-#: ../ui/phonemgr.glade.h:9
+#: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr "Kapcsolódás az első soros port, más néven COM1 vagy /dev/ttyS0 használatával"
 
-#: ../ui/phonemgr.glade.h:10
+#: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr ""
 "Kapcsolódás a második soros port, más néven COM2 vagy /dev/ttyS1 "
 "használatával"
 
-#: ../ui/phonemgr.glade.h:11
+#: ../data/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "Kapcsolat"
 
-#: ../ui/phonemgr.glade.h:12
+#: ../data/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "Dátum:"
 
-#: ../ui/phonemgr.glade.h:13
+#: ../data/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
 msgstr "Írja be a szöveges üzenetet, amit el szeretne küldeni."
 
-#: ../ui/phonemgr.glade.h:14
+#: ../data/phonemgr.glade.h:14
 msgid "Enter your text message"
 msgstr "Írja be a szöveges üzenetet"
 
-#: ../ui/phonemgr.glade.h:15
+#: ../data/phonemgr.glade.h:15
 msgid "Error Handling"
 msgstr "Hibakezelés"
 
-#: ../ui/phonemgr.glade.h:16
+#: ../data/phonemgr.glade.h:16
 msgid "I_nfra red (/dev/ircomm0)"
 msgstr "_Infravörös (/dev/ircomm0)"
 
-#: ../ui/phonemgr.glade.h:17
+#: ../data/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "Felület"
 
-#: ../ui/phonemgr.glade.h:18
+#: ../data/phonemgr.glade.h:18
 msgid "Message Received"
 msgstr "Üzenet érkezett"
 
-#: ../ui/phonemgr.glade.h:19
-msgid "Number of characters left in the message"
-msgstr "Az üzenetben hátralévő karakterek száma"
-
-#: ../ui/phonemgr.glade.h:20
+#: ../data/phonemgr.glade.h:19
 msgid "Other _port"
 msgstr "_Másik port:"
 
-#: ../ui/phonemgr.glade.h:21
+#: ../data/phonemgr.glade.h:20
 msgid "Phone Connection"
 msgstr "Telefonos kapcsolat"
 
-#: ../ui/phonemgr.glade.h:22
+#: ../data/phonemgr.glade.h:21
 msgid "Phone Manager Preferences"
 msgstr "Telefonkezelő tulajdonságai"
 
-#: ../ui/phonemgr.glade.h:23
+#: ../data/phonemgr.glade.h:22
 msgid "Play _sound when messages arrive"
 msgstr "_Hang lejátszása üzenet érkezésekor"
 
-#: ../ui/phonemgr.glade.h:24
+#: ../data/phonemgr.glade.h:23
 msgid "Send Message"
 msgstr "Üzenet küldése"
 
-#: ../ui/phonemgr.glade.h:25
+#: ../data/phonemgr.glade.h:24
 msgid "Sender:"
 msgstr "Küldő:"
 
-#: ../ui/phonemgr.glade.h:26
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "_1. soros port (/dev/ttyS0)"
 
-#: ../ui/phonemgr.glade.h:27
+#: ../data/phonemgr.glade.h:26
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "_2. soros port (/dev/ttyS1)"
 
-#: ../ui/phonemgr.glade.h:28
+#: ../data/phonemgr.glade.h:27
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Bluetooth vezeték nélküli hálózat használata a telefonhoz való kapcsolódáshoz"
 
-#: ../ui/phonemgr.glade.h:29
+#: ../data/phonemgr.glade.h:28
 msgid "You have received a message"
 msgstr "Üzenete érkezett"
 
-#: ../ui/phonemgr.glade.h:30
+#: ../data/phonemgr.glade.h:29
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../ui/phonemgr.glade.h:31
+#: ../data/phonemgr.glade.h:30
 msgid "_Message:"
 msgstr "_Üzenet:"
 
-#: ../ui/phonemgr.glade.h:32
+#: ../data/phonemgr.glade.h:31
+#, fuzzy
+msgid "_Notify when message is delivered"
+msgstr "_Hang lejátszása üzenet érkezésekor"
+
+#: ../data/phonemgr.glade.h:32
 msgid "_Pop-up window for new messages"
 msgstr "_Felugró ablak az új üzeneteknek"
 
-#: ../ui/phonemgr.glade.h:33
+#: ../data/phonemgr.glade.h:33
 msgid "_Recipient:"
 msgstr "_Címzett:"
 
-#: ../ui/phonemgr.glade.h:34
+#: ../data/phonemgr.glade.h:34
 msgid "_Reply"
 msgstr "_Válasz"
 
-#: ../ui/phonemgr.glade.h:35
+#: ../data/phonemgr.glade.h:35
 msgid "_Send"
 msgstr "_Küldés"
 
-#: ../ui/phonemgr.glade.h:36
-msgid "message body"
-msgstr "üzenet törzse"
-
-#: ../src/e-contact-entry.c:153
-#, c-format
-msgid "Cannot get contact: %s"
-msgstr "Nem érhető el a névjegy: %s"
-
-#: ../src/e-contact-entry.c:185
-#, c-format
-msgid "Could not find contact: %s"
-msgstr "Nem található a névjegy: %s"
-
-#: ../src/e-contact-entry.c:383
-msgid "Cannot create searchable view."
-msgstr "Nem hozható létre kereshető nézet."
-
-#: ../src/e-contact-entry.c:836
-msgid "Success"
-msgstr "Sikerült"
-
-#: ../src/e-contact-entry.c:838
-msgid "An argument was invalid."
-msgstr "Egy paraméter érvénytelen volt."
-
-#: ../src/e-contact-entry.c:840
-msgid "The address book is busy."
-msgstr "A címjegyzék foglalt."
-
-#: ../src/e-contact-entry.c:842
-msgid "The address book is offline."
-msgstr "A címjegyzék offline."
-
-#: ../src/e-contact-entry.c:844
-msgid "The address book does not exist."
-msgstr "A címjegyzék nem létezik."
-
-#: ../src/e-contact-entry.c:846
-msgid "The \"Me\" contact does not exist."
-msgstr "Az \"Én\" névjegy nem létezik."
-
-#: ../src/e-contact-entry.c:848
-msgid "The address book is not loaded."
-msgstr "A címjegyzék nincs betöltve."
-
-#: ../src/e-contact-entry.c:850
-msgid "The address book is already loaded."
-msgstr "A címjegyzék már be van töltve."
-
-#: ../src/e-contact-entry.c:852
-msgid "Permission was denied when accessing the address book."
-msgstr "Engedély megtagadva a címjegyzékhez való hozzáférés közben."
-
-#: ../src/e-contact-entry.c:854
-msgid "The contact was not found."
-msgstr "A névjegy nem található."
-
-#: ../src/e-contact-entry.c:856
-msgid "This contact ID already exists."
-msgstr "Ez a névjegyazonosító már létezik."
-
-#: ../src/e-contact-entry.c:858
-msgid "The protocol is not supported."
-msgstr "A protokoll nem támogatott."
-
-#: ../src/e-contact-entry.c:860
-msgid "The operation was cancelled."
-msgstr "A művelet megszakítva."
-
-#: ../src/e-contact-entry.c:862
-msgid "The operation could not be cancelled."
-msgstr "A műveletet nem lehet megszakítani."
-
-#: ../src/e-contact-entry.c:864
-msgid "The address book authentication failed."
-msgstr "A címjegyzék azonosítása sikertelen."
-
-#: ../src/e-contact-entry.c:866
-msgid "Authentication is required to access the address book and was not given."
-msgstr "Azonosítás szükséges a címjegyzékhez való hozzáféréshez, de nem adta azt meg."
-
-#: ../src/e-contact-entry.c:868
-msgid "A secure connection is not available."
-msgstr "Biztonságos kapcsolat nem áll rendelkezésre."
-
-#: ../src/e-contact-entry.c:870
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "CORBA hiba lépett fel a címjegyzékhez való hozzáférés közben."
-
-#: ../src/e-contact-entry.c:872
-msgid "The address book source does not exist."
-msgstr "A címjegyzék forrása nem létezik."
-
-#: ../src/e-contact-entry.c:874 ../src/e-contact-entry.c:877
-msgid "An unknown error occurred."
-msgstr "Ismeretlen hiba lépett fel."
-
-#: ../src/gconf-bridge.c:1218
-#, c-format
-msgid "GConf error: %s"
-msgstr "GConf-hiba: %s"
-
-#: ../src/gconf-bridge.c:1228
-msgid "All further errors shown only on terminal."
-msgstr "Minden további hiba csak a terminálon jelenik meg."
-
-#: ../src/phonemgr-chooser-button.c:79 ../src/phonemgr-chooser-button.c:189
-msgid "Click to select device..."
-msgstr "Kattintson az eszköz kiválasztásához..."
-
-#: ../ui/gnome-phone-manager.schemas.in.h:1
+#: ../data/gnome-phone-manager.schemas.in.h:1
 msgid "Bluetooth address of the device to connect to"
 msgstr "A csatlakoztatni kívánt eszköz Bluetooth címe"
 
-#: ../ui/gnome-phone-manager.schemas.in.h:2
+#: ../data/gnome-phone-manager.schemas.in.h:2
 msgid ""
 "Bluetooth address of the device to connect to. Requires connection_type to "
 "be 1 to be used."
-msgstr "A csatlakoztatni kívánt eszköz Bluetooth címe. Használatához a connection_type értékének 1-nek kell lennie."
+msgstr ""
+"A csatlakoztatni kívánt eszköz Bluetooth címe. Használatához a "
+"connection_type értékének 1-nek kell lennie."
 
-#: ../ui/gnome-phone-manager.schemas.in.h:3
+#: ../data/gnome-phone-manager.schemas.in.h:3
 msgid "The connection type used by gnome-phone-manager"
 msgstr "A Telefonkezelő által használt kapcsolattípus"
 
-#: ../ui/gnome-phone-manager.schemas.in.h:4
+#: ../data/gnome-phone-manager.schemas.in.h:4
 msgid ""
 "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
 "1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
-msgstr "A Telefonkezelő által használt kapcsolattípus: Bluetooth esetén 0, soros 1 esetén 1, soros 2 esetén 2, IrDa esetén 3, más kapcsolattípus esetén 4."
+msgstr ""
+"A Telefonkezelő által használt kapcsolattípus: Bluetooth esetén 0, soros 1 "
+"esetén 1, soros 2 esetén 2, IrDa esetén 3, más kapcsolattípus esetén 4."
 
-#: ../ui/gnome-phone-manager.schemas.in.h:5
+#: ../data/gnome-phone-manager.schemas.in.h:5
 msgid "The device node for the serial device to connect to"
 msgstr "A csatolandó soros eszköz eszközcsomópontja"
 
-#: ../ui/gnome-phone-manager.schemas.in.h:6
+#: ../data/gnome-phone-manager.schemas.in.h:6
 msgid ""
 "The device node for the serial device to connect to. Requires "
 "connection_type to be 4 to be used."
-msgstr "A csatolandó soros eszköz eszközcsomópontja. Használatához a connection_type értékének 4-nek kell lennie."
+msgstr ""
+"A csatolandó soros eszköz eszközcsomópontja. Használatához a connection_type "
+"értékének 4-nek kell lennie."
 
-#: ../ui/gnome-phone-manager.schemas.in.h:7
+#: ../data/gnome-phone-manager.schemas.in.h:7
 msgid "Whether to play a sound alert when a new message comes in"
 msgstr "Új üzenet érkezésekor lejátszandó-e hang"
 
-#: ../ui/gnome-phone-manager.schemas.in.h:8
+#: ../data/gnome-phone-manager.schemas.in.h:8
 msgid "Whether to play a sound alert when a new message comes in."
 msgstr "Új üzenet érkezésekor lejátszandó-e hang."
 
-#: ../ui/gnome-phone-manager.schemas.in.h:9
+#: ../data/gnome-phone-manager.schemas.in.h:9
 msgid "Whether to popup new messages on the desktop"
 msgstr "Az új üzenetek felbukkanjanak-e a munkaasztalon"
 
-#: ../ui/gnome-phone-manager.schemas.in.h:10
+#: ../data/gnome-phone-manager.schemas.in.h:10
 msgid ""
 "Whether to popup new messages on the desktop as soon as they're received, as "
 "opposed to showing them when clicking on the tray icon."
-msgstr "Az új üzenetek felbukkanjanak-e a munkaasztalon fogadásukkor, szemben a tálcaikonra kattintáskor történő megjelenítéssel."
+msgstr ""
+"Az új üzenetek felbukkanjanak-e a munkaasztalon fogadásukkor, szemben a "
+"tálcaikonra kattintáskor történő megjelenítéssel."
 
-#: ../ui/gnome-phone-manager.schemas.in.h:11
+#: ../data/gnome-phone-manager.schemas.in.h:11
 msgid "Whether to retry connecting to the mobile phone"
 msgstr "Újrapróbálkozzon-e a mobiltelefonhoz csatlakozással"
 
-#: ../ui/gnome-phone-manager.schemas.in.h:12
+#: ../data/gnome-phone-manager.schemas.in.h:12
 msgid ""
 "Whether to retry connecting to the mobile phone if the connection fails at "
 "some point."
