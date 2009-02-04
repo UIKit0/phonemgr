@@ -26,6 +26,7 @@
 #include <glib/gi18n.h>
 
 #include "phonemgr-object.h"
+#include "phonemgr-utils.h"
 #include "app.h"
 
 static char *bdaddr_ident = NULL;

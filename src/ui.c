@@ -216,7 +216,7 @@ static void
 populate_prefs (MyApp *app)
 {
 	GtkWidget *w;
-	char *c, *bdaddr;
+	char *c;
 	int ctype;
 	
 	ctype = gconf_client_get_int (app->client,

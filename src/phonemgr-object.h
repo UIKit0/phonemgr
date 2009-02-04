@@ -55,6 +55,8 @@ struct _PhonemgrObject {
 	guint num_batteries : 1;
 };
 
+GType phonemgr_object_get_type (void);
+
 void phonemgr_object_emit_number_batteries_changed (PhonemgrObject *o, guint num_batteries);
 void phonemgr_object_emit_battery_state_changed (PhonemgrObject *o, guint index, guint percentage, gboolean on_ac);
 void phonemgr_object_emit_network_registration_changed (PhonemgrObject *o, int mcc, int mnc, int lac, int cid);

@@ -519,7 +519,7 @@ phonemgr_listener_push (PhonemgrListener *l)
 {
 	AsyncSignal *signal;
 
-	g_return_if_fail (l->connected != FALSE);
+	g_return_val_if_fail (l->connected != FALSE, FALSE);
 
 	signal = g_async_queue_try_pop (l->queue);
 	if (signal == NULL)
@@ -584,7 +584,7 @@ phonemgr_listener_new_sms_cb (gn_sms *message, struct gn_statemachine *state, vo
 	else if (message->type == GN_SMS_MT_Deliver)
 		type = MESSAGE_SIGNAL;
 	else
-		return;
+		return GN_ERR_NONE;
 
 	signal = g_new0 (AsyncSignal, 1);
 	signal->type = type;
@@ -649,7 +649,6 @@ static void
 phonemgr_listener_new_call_cb (gn_call_status call_status, gn_call_info *call_info, struct gn_statemachine *state, void *user_data)
 {
 	PhonemgrListener *l = (PhonemgrListener *) user_data;
-	PhonemgrListenerCallStatus status;
 
 	/* We should ignore things that aren't the first call, but we have no idea of what
 	 * call ID the drivers might be using */
@@ -672,7 +671,7 @@ phonemgr_listener_cell_not_cb (gn_network_info *info, void *user_data)
 	else
 		cid = (info->cell_id[0] << 24) + (info->cell_id[1] << 16) + (info->cell_id[2] << 8) + info->cell_id[3];
 
-	lac = info->LAC[0] << 8 + info->LAC[1];
+	lac = (info->LAC[0] << 8) + info->LAC[1];
 
 	/* Is it the same cells? */
 	if (lac == l->lac && cid == l->cid)
@@ -1192,7 +1191,7 @@ phonemgr_listener_parse_data_uuid (const char *dataid,
 	if (strlen(s) < 5)
 		return FALSE;
 
-	if (memory_type != NULL) {
+	if (type != NULL) {
 		memory_type = g_strndup (s + 1, 2);
 		*type = gn_str2memory_type (memory_type);
 		g_free (memory_type);
@@ -1235,7 +1234,6 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 			gn_phonebook_entry entry;
 			gn_memory_type memory_type;
 			char *retval;
-			gn_error error;
 			int index;
 
 			if (phonemgr_listener_parse_data_uuid (dataid, &memory_type, &index) == FALSE)
@@ -1264,7 +1262,7 @@ phonemgr_listener_get_data (PhonemgrListener *l,
 		{
 			gn_calnote_list calnote_list;
 			gn_calnote calnote;
-			char *memory_type, *retval;
+			char *retval;
 			gn_error error;
 			int index;
 
@@ -1420,7 +1418,6 @@ phonemgr_listener_delete_data (PhonemgrListener *l,
 		{
 			gn_phonebook_entry entry;
 			gn_memory_type memory_type;
-			char *retval;
 			gn_error error;
 			int index;
 
@@ -1446,7 +1443,6 @@ phonemgr_listener_delete_data (PhonemgrListener *l,
 		{
 			gn_calnote_list calnote_list;
 			gn_calnote calnote;
-			char *memory_type;
 			gn_error error;
 			int index;
 

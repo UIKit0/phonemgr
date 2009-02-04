@@ -1,5 +1,18 @@
 2009-02-04  Bastien Nocera  <hadess@hadess.net>
 
+	* libgsm/phonemgr-listener.c (phonemgr_listener_push),
+	(phonemgr_listener_new_sms_cb), (phonemgr_listener_new_call_cb),
+	(phonemgr_listener_cell_not_cb),
+	(phonemgr_listener_parse_data_uuid), (phonemgr_listener_get_data),
+	(phonemgr_listener_delete_data):
+	* src/main.c:
+	* src/phonemgr-chooser-button.c (set_btdevname),
+	(phonemgr_chooser_button_class_init):
+	* src/phonemgr-object.h:
+	* src/ui.c (populate_prefs): Loads of warning fixes
+
+2009-02-04  Bastien Nocera  <hadess@hadess.net>
+
 	* src/e-phone-entry.h:
 	* src/phonemgr-chooser-button.h:
 	Patch from Przemysław Grzegorczyk <pgrzegorczyk@gmail.com>

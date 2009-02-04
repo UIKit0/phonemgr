@@ -63,7 +63,6 @@ get_current_btname (PhonemgrChooserButton *button, const char *bdaddr)
 static void
 set_btdevname (PhonemgrChooserButton *button, const char *bdaddr)
 {
-	GtkWidget *w;
 	char *c;
 
 	if (bdaddr != NULL && bdaddr[0] != '\0') {
@@ -171,7 +170,6 @@ static void
 phonemgr_chooser_button_class_init (PhonemgrChooserButtonClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
 	parent_class = g_type_class_peek_parent (klass);
 
