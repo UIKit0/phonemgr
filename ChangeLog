@@ -1,5 +1,11 @@
 2009-02-04  Bastien Nocera  <hadess@hadess.net>
 
+	* telepathy/im-channel.c (phoney_im_channel_get_interfaces),
+	(chat_state_iface_init), (phoney_im_channel_send): A few more
+	warning fixes
+
+2009-02-04  Bastien Nocera  <hadess@hadess.net>
+
 	* libgsm/phonemgr-listener.c (phonemgr_listener_push),
 	(phonemgr_listener_new_sms_cb), (phonemgr_listener_new_call_cb),
 	(phonemgr_listener_cell_not_cb),

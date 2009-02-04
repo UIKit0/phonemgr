@@ -113,7 +113,6 @@ static void
 phoney_im_channel_get_interfaces (TpSvcChannel *iface,
 				  DBusGMethodInvocation *context)
 {
-	const char *no_interfaces[] = { NULL };
 	const char *chat_state_ifaces[] =
 	{ TP_IFACE_CHANNEL_INTERFACE_CHAT_STATE, NULL };
 	tp_svc_channel_return_from_get_interfaces (context, chat_state_ifaces);
@@ -136,8 +135,6 @@ channel_iface_init (gpointer g_iface, gpointer iface_data)
 static void
 chat_state_iface_init (gpointer g_iface, gpointer iface_data)
 {
-	TpSvcChannelInterfaceChatStateClass *klass =
-		(TpSvcChannelInterfaceChatStateClass *)g_iface;
 }
 
 void
@@ -149,7 +146,6 @@ phoney_im_channel_send (TpSvcChannelTypeText *channel,
 	PhoneyIMChannel *self = PHONEY_IM_CHANNEL (channel);
 	PhoneyIMChannelPrivate *priv = PHONEY_IM_CHANNEL_GET_PRIVATE (self);
 	TpHandleRepoIface *contact_handles;
-	TpHandle handle;
 	GError *error = NULL;
 	PhonemgrListener *listener;
 	char *message;
