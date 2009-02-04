@@ -25,7 +25,6 @@
 #include <gtk/gtk.h>
 #include <glade/glade.h>
 #include <gconf/gconf-client.h>
-#include <gst/gst.h>
 #include <gnomebt-controller.h>
 
 #include "phonemgr-listener.h"
@@ -45,7 +44,6 @@ typedef struct _appinfo {
 	GConfClient *client;
 	PhonemgrListener    *listener;
 	PhonemgrObject      *object;
-	GstElement *playbin;
 
 	/* connection state */
 	char   *devname;

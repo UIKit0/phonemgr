@@ -24,6 +24,7 @@
 #include <glade/glade.h>
 #include <gtk/gtk.h>
 #include <gtkspell/gtkspell.h>
+#include <canberra-gtk.h>
 #include <time.h>
 #include <string.h>
 
@@ -127,48 +128,16 @@ GladeXML *get_ui (MyApp *app, char *widget)
 	return ui;
 }
 
-static void
-play_sound (MyApp *app, const char *filename)
-{
-	GstElement *audio_sink;
-	char *uri;
-
-	/* Setup the playbin */
-	if (app->playbin == NULL) {
-		audio_sink = gst_element_factory_make ("gconfaudiosink", "audio-sink");
-		if (audio_sink == NULL)
-			audio_sink = gst_element_factory_make ("autoaudiosink", "audio-sink");
-		if (audio_sink == NULL) {
-			g_warning ("Couldn't create audio sink");
-			return;
-		}
-		if (g_object_class_find_property (G_OBJECT_GET_CLASS (audio_sink), "profile"))
-			g_object_set (G_OBJECT (audio_sink), "profile", 0, NULL);
-		app->playbin = gst_element_factory_make ("playbin", "play");
-		g_object_set (app->playbin, "audio-sink", audio_sink, NULL);
-	}
-
-	/* Play the file */
-	uri = g_filename_to_uri (filename, NULL, NULL);
-	gst_element_set_state (app->playbin, GST_STATE_NULL);
-	g_object_set (G_OBJECT (app->playbin), "uri", uri, NULL);
-	gst_element_set_state (app->playbin, GST_STATE_PLAYING);
-	g_free (uri);
-}
-
 static gboolean
 idle_play_alert (MyApp *app)
 {
-	char *fname;
-
 	if (gconf_client_get_bool (app->client, CONFBASE"/sound_alert", NULL)) {
-		fname = g_build_filename (DATA_DIR, "alert.wav", NULL);
-		if (fname) {
-			play_sound (app, fname);
-			g_free (fname);
-		} else {
-			g_warning ("Couldn't find sound file %s", fname);
-		}
+		ca_context *ctx;
+		ctx = ca_gtk_context_get ();
+		ca_context_play (ctx, 0,
+				 CA_PROP_EVENT_ID, "message-new-instant",
+				 CA_PROP_EVENT_DESCRIPTION, _("New text message received"),
+				 NULL);
 	}
 	return FALSE;
 }

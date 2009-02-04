@@ -6,9 +6,6 @@ man_MANS = gnome-phone-manager.1
 uidir = $(pkgdatadir)
 ui_DATA = phonemgr.glade
 
-sounddir = $(datadir)/$(PACKAGE)
-sound_DATA = alert.wav
-
 schema_in_files = gnome-phone-manager.schemas.in
 schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
@@ -37,5 +34,5 @@ update-icon-cache:
 	fi
 
 CLEANFILES = $(schema_DATA)
-EXTRA_DIST = $(ui_DATA) $(sound_DATA) $(schema_in_files) $(man_MANS)
+EXTRA_DIST = $(ui_DATA) $(schema_in_files) $(man_MANS)
 

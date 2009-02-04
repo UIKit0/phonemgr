@@ -1,3 +1,13 @@
+2009-02-04  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
+	* data/Makefile.am:
+	* src/app.h:
+	* src/main.c (main):
+	* src/ui.c (idle_play_alert): Code removal galore, use
+	libcanberra to play back sounds instead of GStreamer
+	(Closes: #558285)
+
 2008-12-15  Bastien Nocera  <hadess@hadess.net>
 
 	* cut-n-paste/e-contact-entry/e-contact-entry.c:
