@@ -1,5 +1,10 @@
 2009-02-04  Bastien Nocera  <hadess@hadess.net>
 
+	* cut-n-paste/e-contact-entry/Makefile.am: Add code
+	to update EContactEntry
+
+2009-02-04  Bastien Nocera  <hadess@hadess.net>
+
 	* cut-n-paste/gconf-bridge/Makefile.am:
 	* cut-n-paste/gconf-bridge/gconf-bridge.c
 	(gconf_bridge_bind_window), (window_binding_unbind),
