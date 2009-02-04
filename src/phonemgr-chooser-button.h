@@ -21,7 +21,7 @@
 #ifndef __PHONEMGR_CHOOSER_BUTTON_H__
 #define __PHONEMGR_CHOOSER_BUTTON_H__
 
-#include <gtk/gtkbutton.h>
+#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 

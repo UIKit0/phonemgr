@@ -1,5 +1,12 @@
 2009-02-04  Bastien Nocera  <hadess@hadess.net>
 
+	* src/e-phone-entry.h:
+	* src/phonemgr-chooser-button.h:
+	Patch from Przemysław Grzegorczyk <pgrzegorczyk@gmail.com>
+	to fix build with a single include GTK+ (Closes: #565036)
+
+2009-02-04  Bastien Nocera  <hadess@hadess.net>
+
 	* cut-n-paste/e-contact-entry/Makefile.am: Add code
 	to update EContactEntry
 

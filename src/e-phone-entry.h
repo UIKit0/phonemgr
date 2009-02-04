@@ -24,7 +24,7 @@
 #ifndef PHONE_ENTRY_H
 #define PHONE_ENTRY_H
 
-#include <gtk/gtkentry.h>
+#include <gtk/gtk.h>
 #include "e-contact-entry.h"
 
 G_BEGIN_DECLS
