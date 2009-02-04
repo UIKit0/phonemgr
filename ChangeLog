@@ -1,5 +1,11 @@
 2009-02-04  Bastien Nocera  <hadess@hadess.net>
 
+	* data/phonemgr.glade: Don't translate the text
+	in the otherportentry widget, it's overwritten anyway,
+	patch from Daniele Forsi <dforsi@gmail.com> (Closes: #565357)
+
+2009-02-04  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in:
 	* data/Makefile.am:
 	* src/app.h:
