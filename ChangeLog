@@ -1,5 +1,14 @@
 2009-02-04  Bastien Nocera  <hadess@hadess.net>
 
+	* cut-n-paste/gconf-bridge/Makefile.am:
+	* cut-n-paste/gconf-bridge/gconf-bridge.c
+	(gconf_bridge_bind_window), (window_binding_unbind),
+	(gconf_bridge_bind_string_list_store):
+	* cut-n-paste/gconf-bridge/gconf-bridge.h: Update from
+	libgconf-bridge
+
+2009-02-04  Bastien Nocera  <hadess@hadess.net>
+
 	* data/phonemgr.glade: Don't translate the text
 	in the otherportentry widget, it's overwritten anyway,
 	patch from Daniele Forsi <dforsi@gmail.com> (Closes: #565357)
