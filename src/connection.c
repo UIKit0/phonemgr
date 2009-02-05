@@ -94,6 +94,18 @@ attempt_reconnect (MyApp *app)
 	return TRUE;
 }
 
+static gboolean
+sync_clock (MyApp *app)
+{
+	if (gconf_client_get_bool (app->client,
+				CONFBASE"/sync_clock", NULL)) {
+		g_message ("Syncing phone clock");
+		phonemgr_listener_set_time (app->listener,
+					    time(NULL));
+	}
+	return TRUE;
+}
+
 static gpointer
 connect_phone_thread (gpointer data)
 {
@@ -183,6 +195,7 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 		case PHONEMGR_LISTENER_CONNECTED:
 			g_message ("Serial port connected");
 			phonemgr_object_emit_number_batteries_changed (app->object, 1);
+			sync_clock (app);
 			break;
 		case PHONEMGR_LISTENER_DISCONNECTING:
 			g_message ("Closing serial port connection");

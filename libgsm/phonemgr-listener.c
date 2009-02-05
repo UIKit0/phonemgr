@@ -1147,17 +1147,16 @@ phonemgr_listener_set_time (PhonemgrListener *l,
 	PhoneMgrError perr;
 
 	g_return_if_fail (PHONEMGR_IS_LISTENER (l));
-	g_return_if_fail (l->connected == FALSE);
-	g_return_if_fail (l->phone_state == NULL);
+	g_return_if_fail (l->connected != FALSE);
+	g_return_if_fail (l->phone_state != NULL);
 
 	t = localtime(&time);
-	date.year = t->tm_year;
+	date.year = t->tm_year + 1900;
 	date.month = t->tm_mon + 1;
 	date.day = t->tm_mday;
 	date.hour = t->tm_hour;
 	date.minute = t->tm_min;
 	date.second = t->tm_sec;
-	free (t);
 
 	/* Lock the phone */
 	g_mutex_lock (l->mutex);

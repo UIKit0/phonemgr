@@ -1,3 +1,13 @@
+2009-02-05  Bastien Nocera  <hadess@hadess.net>
+
+	* data/gnome-phone-manager.schemas.in:
+	* data/phonemgr.glade:
+	* libgsm/phonemgr-listener.c (phonemgr_listener_set_time):
+	* src/connection.c (sync_clock), (on_status):
+	* src/ui.c (get_ui), (ui_init): Patch from Daniele Forsi
+	<dforsi@gmail.com> to allow setting the phone's time on
+	connect (Closes: #456606)
+
 2009-02-04  Bastien Nocera  <hadess@hadess.net>
 
 	* data/phonemgr.glade: Add comment for translators about the

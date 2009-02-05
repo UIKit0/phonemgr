@@ -121,7 +121,7 @@ GladeXML *get_ui (MyApp *app, char *widget)
 
 	boldify_label (ui, "alerting_label");
 	boldify_label (ui, "phone_connection_label");
-	boldify_label (ui, "error_handling_label");
+	boldify_label (ui, "automated_tasks_label");
 	bigger_label (ui, "new_message_label");
 	bigger_label (ui, "enter_message_label");
 
@@ -457,6 +457,10 @@ ui_init (MyApp *app)
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/auto_retry",
 				    G_OBJECT (glade_xml_get_widget (app->ui, "auto_retry")),
+				    "active");
+	gconf_bridge_bind_property (bridge,
+				    CONFBASE"/sync_clock",
+				    G_OBJECT (glade_xml_get_widget (app->ui, "sync_clock")),
 				    "active");
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/popup_messages",

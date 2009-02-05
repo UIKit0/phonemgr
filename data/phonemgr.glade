@@ -1283,15 +1283,15 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkVBox" id="errorframe">
+		<widget class="GtkVBox" id="automatedframe">
 		  <property name="visible">True</property>
 		  <property name="homogeneous">False</property>
 		  <property name="spacing">6</property>
 
 		  <child>
-		    <widget class="GtkLabel" id="error_handling_label">
+		    <widget class="GtkLabel" id="automated_tasks_label">
 		      <property name="visible">True</property>
-		      <property name="label" translatable="yes">Error Handling</property>
+		      <property name="label" translatable="yes">Automated Tasks</property>
 		      <property name="use_underline">False</property>
 		      <property name="use_markup">False</property>
 		      <property name="justify">GTK_JUSTIFY_LEFT</property>
@@ -1306,7 +1306,7 @@
 		      <property name="single_line_mode">False</property>
 		      <property name="angle">0</property>
 		      <accessibility>
-			<atkrelation target="error_handling_box" type="label-for"/>
+			<atkrelation target="automated_tasks_box" type="label-for"/>
 		      </accessibility>
 		    </widget>
 		    <packing>
@@ -1329,12 +1329,12 @@
 		      <property name="right_padding">0</property>
 
 		      <child>
-			<widget class="GtkVBox" id="error_handling_box">
+			<widget class="GtkVBox" id="automated_tasks_box">
 			  <property name="visible">True</property>
 			  <property name="homogeneous">False</property>
 			  <property name="spacing">0</property>
 			  <accessibility>
-			    <atkrelation target="error_handling_label" type="labelled-by"/>
+			    <atkrelation target="automated_tasks_label" type="labelled-by"/>
 			  </accessibility>
 
 			  <child>
@@ -1356,6 +1356,20 @@
 			      <property name="fill">False</property>
 			    </packing>
 			  </child>
+			    <child>
+			      <widget class="GtkCheckButton" id="sync_clock">
+			        <property name="visible">True</property>
+			        <property name="can_focus">True</property>
+			        <property name="tooltip" translatable="yes">Synchronise phone's time and date with the computer's clock</property>
+			        <property name="label" translatable="yes">Synchronise phone's _time and date</property>
+			        <property name="use_underline">True</property>
+			        <property name="response_id">0</property>
+			        <property name="draw_indicator">True</property>
+			      </widget>
+			      <packing>
+			        <property name="position">1</property>
+			      </packing>
+			    </child>
 			</widget>
 		      </child>
 		    </widget>

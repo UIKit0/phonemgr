@@ -66,6 +66,20 @@
       </schema>
 
       <schema>
+        <key>/schemas/apps/gnome-phone-manager/sync_clock</key>
+	<applyto>/apps/gnome-phone-manager/sync_clock</applyto>
+	<owner>gnome-phone-manager</owner>
+	<type>bool</type>
+	<default>true</default>
+	<locale name="C">
+	  <short>Whether to synchronise the phone clock with the computer's</short>
+	  <long>
+	    Whether to synchronise the phone clock with the computer's.
+	  </long>
+	</locale>
+      </schema>
+
+      <schema>
         <key>/schemas/apps/gnome-phone-manager/popup_messages</key>
 	<applyto>/apps/gnome-phone-manager/popup_messages</applyto>
 	<owner>gnome-phone-manager</owner>
