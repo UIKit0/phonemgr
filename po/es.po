@@ -4,13 +4,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-12 19:58+0000\n"
-"PO-Revision-Date: 2008-05-24 10:58+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&component=general\n"
+"POT-Creation-Date: 2009-02-05 11:29+0000\n"
+"PO-Revision-Date: 2009-02-13 21:43+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,9 +20,116 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "No se puede obtener el contacto: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "No se puede encontrar el contacto: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+msgid "Cannot create searchable view."
+msgstr "No se puede crear una vista buscable."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+msgid "Success"
+msgstr "Éxito"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+msgid "An argument was invalid."
+msgstr "Un argumento era inválido."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+msgid "The address book is busy."
+msgstr "La libreta de direcciones está ocupada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+msgid "The address book is offline."
+msgstr "La libreta de direcciones está desconectada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+msgid "The address book does not exist."
+msgstr "La libreta de direcciones no existe."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+msgid "The \"Me\" contact does not exist."
+msgstr "El contacto «Yo» no existe."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+msgid "The address book is not loaded."
+msgstr "La libreta de dirección no está cargada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+msgid "The address book is already loaded."
+msgstr "La libreta de dirección ya está cargada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+msgid "Permission was denied when accessing the address book."
+msgstr "Se denegó el permiso al acceder a la libreta de direcciones."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+msgid "The contact was not found."
+msgstr "No se encontró el contacto."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+msgid "This contact ID already exists."
+msgstr "Este ID de contacto ya existe."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+msgid "The protocol is not supported."
+msgstr "El protocolo no está soportado."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+msgid "The operation was cancelled."
+msgstr "La operación fue cancelada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+msgid "The operation could not be cancelled."
+msgstr "La operación no se pudo cancelar."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+msgid "The address book authentication failed."
+msgstr "La autenticación de la libreta de direcciones falló."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+"Se requiere autenticación para acceder a la libreta de direcciones y no se "
+"proporcionó."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+msgid "A secure connection is not available."
+msgstr "No está disponible una conexión segura."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Ocurrió un error CORBA durante el acceso a la libreta de direcciones."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+msgid "The address book source does not exist."
+msgstr "La fuente de la libreta de direcciones no existe."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "An unknown error occurred."
+msgstr "Ocurrió un error desconocido."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#, c-format
+msgid "GConf error: %s"
+msgstr "Error de GConf:  %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+msgid "All further errors shown only on terminal."
+msgstr "Todos los demás errores se muestran sólo en el terminal."
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:112
+#: ../src/connection.c:125
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Conectado con el dispositivo en %s"
@@ -30,19 +138,10 @@ msgstr "Conectado con el dispositivo en %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:118
+#: ../src/connection.c:131
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Ha fallado la conexión con el dispositivo %s"
-
-#: ../src/gconf-bridge.c:1218
-#, c-format
-msgid "GConf error: %s"
-msgstr "Error de GConf:  %s"
-
-#: ../src/gconf-bridge.c:1228
-msgid "All further errors shown only on terminal."
-msgstr "Todos los demás errores se muestran sólo en el terminal."
 
 #: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
@@ -68,23 +167,23 @@ msgstr "Conectando con el teléfono"
 msgid "Not connected"
 msgstr "No conectado"
 
-#: ../src/main.c:37
+#: ../src/main.c:38
 msgid "Show model name of a specific device"
 msgstr "Mostrar el nombre del modelo de un dispositivo específico"
 
-#: ../src/main.c:38
+#: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Escriba el archivo de configuración para la depuración de gnokii"
 
-#: ../src/main.c:39
+#: ../src/main.c:40
 msgid "Enable debug"
 msgstr "Activar depuración"
 
-#: ../src/main.c:40
+#: ../src/main.c:41
 msgid "Show version information and exit"
 msgstr "Mostrar información de la versión y salir"
 
-#: ../src/main.c:59
+#: ../src/main.c:60
 msgid "- Manage your mobile phone"
 msgstr " - Gestionar su teléfono móvil"
 
@@ -96,7 +195,7 @@ msgstr "gnome-phone-manager versión %s\n"
 #: ../src/menu.c:40
 msgid "translator_credits"
 msgstr ""
-"Jorge González <jorgegonz@svn.gnome.org>, 2007\n"
+"Jorge González <jorgegonz@svn.gnome.org>, 2007-2009\n"
 "Francisco Javier F. Serrador <serrador@gnome.org>, 2004, 2005"
 
 #: ../src/menu.c:44
@@ -111,27 +210,28 @@ msgstr "Página web del Gestor de teléfonos"
 msgid "_Send Message"
 msgstr "_Enviar mensaje"
 
-#: ../src/phonemgr-chooser-button.c:80 ../src/phonemgr-chooser-button.c:190
+#: ../src/phonemgr-chooser-button.c:79 ../src/phonemgr-chooser-button.c:188
 msgid "Click to select device..."
 msgstr "Pulse para seleccionar el dispositivo..."
 
-#: ../src/ui.c:335
+#: ../src/ui.c:139
+#| msgid "Message Received"
+msgid "New text message received"
+msgstr "Nuevo mensaje de texto recibido"
+
+#: ../src/ui.c:304
 msgid "Message too long!"
 msgstr "El mensaje es demasiado largo."
 
 #: ../data/phonemgr.glade.h:1
-msgid "/dev/ttyS2"
-msgstr "/dev/ttyS2"
-
-#: ../data/phonemgr.glade.h:2
 msgid "Alerting"
 msgstr "Alerta"
 
-#: ../data/phonemgr.glade.h:3
+#: ../data/phonemgr.glade.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Nombre de dispositivo alternativo, ej: /dev/ttyS3"
 
-#: ../data/phonemgr.glade.h:4
+#: ../data/phonemgr.glade.h:3
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -140,6 +240,10 @@ msgstr ""
 "Siempre intentar y reconectar cuando una conexión no esté disponible "
 "inmediatamente. Use esto con Bluetooth para asegurarse de que su teléfono "
 "conecta en cuento entre en el rango."
+
+#: ../data/phonemgr.glade.h:4
+msgid "Automated Tasks"
+msgstr "Tareas automáticas"
 
 #: ../data/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
@@ -159,11 +263,13 @@ msgstr "Conectar usando comunicación infrarroja"
 
 #: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr "Conectar usando el puerto serie 1, también conocido como COM1 o /dev/ttyS0"
+msgstr ""
+"Conectar usando el puerto serie 1, también conocido como COM1 o /dev/ttyS0"
 
 #: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr "Conectar usando el puerto serie 2, también conocido como COM2 o /dev/ttyS1"
+msgstr ""
+"Conectar usando el puerto serie 2, también conocido como COM2 o /dev/ttyS1"
 
 #: ../data/phonemgr.glade.h:11
 msgid "Connection"
@@ -182,86 +288,91 @@ msgid "Enter your text message"
 msgstr "Introduzca el mensaje de texto"
 
 #: ../data/phonemgr.glade.h:15
-msgid "Error Handling"
-msgstr "Gestión de errores"
-
-#: ../data/phonemgr.glade.h:16
 msgid "I_nfra red (/dev/ircomm0)"
 msgstr "I_nfrarrojo (/dev/ircomm0)"
 
-#: ../data/phonemgr.glade.h:17
+#: ../data/phonemgr.glade.h:16
 msgid "Interface"
 msgstr "Interfaz"
 
-#: ../data/phonemgr.glade.h:18
+#: ../data/phonemgr.glade.h:17
 msgid "Message Received"
 msgstr "Mensaje recibido"
 
-#: ../data/phonemgr.glade.h:19
+#: ../data/phonemgr.glade.h:18
 msgid "Other _port"
 msgstr "Otro _puerto"
 
-#: ../data/phonemgr.glade.h:20
+#: ../data/phonemgr.glade.h:19
 msgid "Phone Connection"
 msgstr "Conexión telefónica"
 
-#: ../data/phonemgr.glade.h:21
+#: ../data/phonemgr.glade.h:20
 msgid "Phone Manager Preferences"
 msgstr "Preferencias del Administrador de teléfonos"
 
-#: ../data/phonemgr.glade.h:22
+#: ../data/phonemgr.glade.h:21
 msgid "Play _sound when messages arrive"
 msgstr "Reproducir _sonido cuando llegan los mensajes"
 
-#: ../data/phonemgr.glade.h:23
+#: ../data/phonemgr.glade.h:22
 msgid "Send Message"
 msgstr "Enviar mensaje"
 
-#: ../data/phonemgr.glade.h:24
+#: ../data/phonemgr.glade.h:23
 msgid "Sender:"
 msgstr "Remitente:"
 
-#: ../data/phonemgr.glade.h:25
+#: ../data/phonemgr.glade.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Puerto serie _1 (dev/ttyS0)"
 
-#: ../data/phonemgr.glade.h:26
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Puerto serie _2 (dev/ttyS1)"
 
+#: ../data/phonemgr.glade.h:26
+msgid "Synchronise phone's _time and date"
+msgstr "Sincronizar la _hora y fecha del teléfono"
+
 #: ../data/phonemgr.glade.h:27
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "Sincroniza la hora y fecha del teléfono con el reloj del equipo"
+
+#: ../data/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Usar redes inalámbricas Bluetooth para conectarse a su teléfono"
 
-#: ../data/phonemgr.glade.h:28
+#: ../data/phonemgr.glade.h:29
 msgid "You have received a message"
 msgstr "Ha recibido un mensaje"
 
-#: ../data/phonemgr.glade.h:29
+#: ../data/phonemgr.glade.h:30
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../data/phonemgr.glade.h:30
+#: ../data/phonemgr.glade.h:31
 msgid "_Message:"
 msgstr "_Mensaje:"
 
-#: ../data/phonemgr.glade.h:31
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.glade.h:33
 msgid "_Notify when message is delivered"
 msgstr "_Notificar cuando se entrega un mensaje"
 
-#: ../data/phonemgr.glade.h:32
+#: ../data/phonemgr.glade.h:34
 msgid "_Pop-up window for new messages"
 msgstr "_Emerger una ventana para los mensajes nuevos"
 
-#: ../data/phonemgr.glade.h:33
+#: ../data/phonemgr.glade.h:35
 msgid "_Recipient:"
 msgstr "_Destinatario:"
 
-#: ../data/phonemgr.glade.h:34
+#: ../data/phonemgr.glade.h:36
 msgid "_Reply"
 msgstr "_Responder"
 
-#: ../data/phonemgr.glade.h:35
+#: ../data/phonemgr.glade.h:37
 msgid "_Send"
 msgstr "_Enviar"
 
@@ -340,99 +451,16 @@ msgstr ""
 "Indica si se debe reintentar la conexión con el teléfono móvil si la "
 "conexión falla en algún punto."
 
-#: ../src/e-contact-entry.c:158
-#, c-format
-msgid "Cannot get contact: %s"
-msgstr "No se puede obtener el contacto: %s"
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "Indica si se debe sincronizar el reloj del teléfono con el del equipo"
 
-#: ../src/e-contact-entry.c:191
-#, c-format
-msgid "Could not find contact: %s"
-msgstr "No se puede encontrar el contacto: %s"
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "Indica si se debe sincronizar el reloj del teléfono con el del equipo."
 
-#: ../src/e-contact-entry.c:417
-msgid "Cannot create searchable view."
-msgstr "No se puede crear una vista buscable."
+#~ msgid "/dev/ttyS2"
+#~ msgstr "/dev/ttyS2"
 
-#: ../src/e-contact-entry.c:890
-msgid "Success"
-msgstr "Éxito"
-
-#: ../src/e-contact-entry.c:892
-msgid "An argument was invalid."
-msgstr "Un argumento era inválido."
-
-#: ../src/e-contact-entry.c:894
-msgid "The address book is busy."
-msgstr "La libreta de direcciones está ocupada."
-
-#: ../src/e-contact-entry.c:896
-msgid "The address book is offline."
-msgstr "La libreta de direcciones está desconectada."
-
-#: ../src/e-contact-entry.c:898
-msgid "The address book does not exist."
-msgstr "La libreta de direcciones no existe."
-
-#: ../src/e-contact-entry.c:900
-msgid "The \"Me\" contact does not exist."
-msgstr "El contacto «Yo» no existe."
-
-#: ../src/e-contact-entry.c:902
-msgid "The address book is not loaded."
-msgstr "La libreta de dirección no está cargada."
-
-#: ../src/e-contact-entry.c:904
-msgid "The address book is already loaded."
-msgstr "La libreta de dirección ya está cargada."
-
-#: ../src/e-contact-entry.c:906
-msgid "Permission was denied when accessing the address book."
-msgstr "Se denegó el permiso al acceder a la libreta de direcciones."
-
-#: ../src/e-contact-entry.c:908
-msgid "The contact was not found."
-msgstr "No se encontró el contacto."
-
-#: ../src/e-contact-entry.c:910
-msgid "This contact ID already exists."
-msgstr "Este ID de contacto ya existe."
-
-#: ../src/e-contact-entry.c:912
-msgid "The protocol is not supported."
-msgstr "El protocolo no está soportado."
-
-#: ../src/e-contact-entry.c:914
-msgid "The operation was cancelled."
-msgstr "La operación fue cancelada."
-
-#: ../src/e-contact-entry.c:916
-msgid "The operation could not be cancelled."
-msgstr "La operación no se pudo cancelar."
-
-#: ../src/e-contact-entry.c:918
-msgid "The address book authentication failed."
-msgstr "La autenticación de la libreta de direcciones falló."
-
-#: ../src/e-contact-entry.c:920
-msgid "Authentication is required to access the address book and was not given."
-msgstr ""
-"Se requiere autenticación para acceder a la libreta de direcciones y no se "
-"proporcionó."
-
-#: ../src/e-contact-entry.c:922
-msgid "A secure connection is not available."
-msgstr "No está disponible una conexión segura."
-
-#: ../src/e-contact-entry.c:924
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "Ocurrió un error CORBA durante el acceso a la libreta de direcciones."
-
-#: ../src/e-contact-entry.c:926
-msgid "The address book source does not exist."
-msgstr "La fuente de la libreta de direcciones no existe."
-
-#: ../src/e-contact-entry.c:928 ../src/e-contact-entry.c:931
-msgid "An unknown error occurred."
-msgstr "Ocurrió un error desconocido."
-
+#~ msgid "Error Handling"
+#~ msgstr "Gestión de errores"
