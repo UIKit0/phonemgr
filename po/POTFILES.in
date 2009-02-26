@@ -7,7 +7,6 @@ src/gnome-phone-manager.desktop.in
 src/icon.c
 src/main.c
 src/menu.c
-src/phonemgr-chooser-button.c
 src/ui.c
 data/phonemgr.glade
 data/gnome-phone-manager.schemas.in

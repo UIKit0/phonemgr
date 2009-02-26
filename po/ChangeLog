@@ -1,3 +1,7 @@
+2009-02-26  Bastien Nocera  <hadess@hadess.net>
+
+	* POTFILES.in: Remove chooser button
+
 2009-02-13 Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
 	* es.po: Updated Spanish translation 
