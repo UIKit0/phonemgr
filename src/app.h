@@ -25,7 +25,6 @@
 #include <gtk/gtk.h>
 #include <glade/glade.h>
 #include <gconf/gconf-client.h>
-#include <gnomebt-controller.h>
 
 #include "phonemgr-listener.h"
 #include "phonemgr-object.h"

@@ -27,11 +27,12 @@
 #include <canberra-gtk.h>
 #include <time.h>
 #include <string.h>
+#include <bluetooth-chooser.h>
+#include <bluetooth-chooser-button.h>
 
 #include "app.h"
 #include "e-phone-entry.h"
 #include "gconf-bridge.h"
-#include "phonemgr-chooser-button.h"
 #include "phonemgr-utils.h"
 
 #define MAX_MESSAGE_LENGTH 160
@@ -108,6 +109,32 @@ get_resource (MyApp *app, char *uiresname)
 	return fname;
 }
 
+static void
+chooser_created (BluetoothChooserButton *button, BluetoothChooser *chooser, gpointer data)
+{
+	g_object_set(chooser,
+		     "show-search", FALSE,
+		     "show-pairing", FALSE,
+		     "show-device-type", FALSE,
+		     "device-type-filter", BLUETOOTH_TYPE_PHONE,
+		     "show-device-category", FALSE,
+		     "device-category-filter", BLUETOOTH_CATEGORY_PAIRED,
+		     NULL);
+}
+
+GtkWidget *
+bluetooth_chooser_button_create (void)
+{
+	GtkWidget *widget;
+	
+	widget = bluetooth_chooser_button_new ();
+	g_signal_connect (G_OBJECT (widget), "chooser-created",
+			  G_CALLBACK (chooser_created), NULL);
+	gtk_widget_show (widget);
+	
+	return widget;
+}
+
 static
 GladeXML *get_ui (MyApp *app, char *widget)
 {
@@ -156,7 +183,7 @@ set_dependent_widget (MyApp *app, int conn_type, gboolean active)
 		case CONNECTION_BLUETOOTH:
 			/* only set sensitive if bluetooth available */
 			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "btchooser"));
-			if (phonemgr_chooser_button_available (PHONEMGR_CHOOSER_BUTTON (w)) == FALSE
+			if (bluetooth_chooser_button_available (BLUETOOTH_CHOOSER_BUTTON (w)) == FALSE
 			    || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
 				active = FALSE;
 			gtk_widget_set_sensitive (w, active);

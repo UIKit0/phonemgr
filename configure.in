@@ -14,7 +14,7 @@ AM_DISABLE_SHARED
 AM_PROG_LIBTOOL
 
 GNOKII_REQS="gnokii >= 0.6.27cvs bluez >= 3.12"
-GNOME_BLUETOOTH_REQS="gnome-bluetooth > 0.8.0"
+GNOME_BLUETOOTH_REQS="gnome-bluetooth-1.0"
 
 AC_PROG_CC
 AC_PROG_INSTALL

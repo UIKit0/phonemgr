@@ -1,3 +1,17 @@
+2009-02-26  Bastien Nocera  <hadess@hadess.net>
+
+	* src/phonemgr-chooser-button.c:
+	* src/phonemgr-chooser-button.h: Remove
+
+	* configure.in:
+	* data/phonemgr.glade:
+	* src/Makefile.am:
+	* src/app.h:
+	* src/ui.c (chooser_created), (bluetooth_chooser_button_create),
+	(set_dependent_widget): Remove use of the old gnome-bluetooth,
+	and require the new one, which has its own Bluetooth device
+	chooser button (Closes: #455838)
+
 2009-02-05  Bastien Nocera  <hadess@hadess.net>
 
 	* data/gnome-phone-manager.schemas.in:

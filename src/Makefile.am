@@ -27,9 +27,7 @@ gnome_phone_manager_SOURCES =		\
 	e-phone-entry.c			\
 	e-phone-entry.h			\
 	phonemgr-object.c		\
-	phonemgr-object.h		\
-	phonemgr-chooser-button.c	\
-	phonemgr-chooser-button.h
+	phonemgr-object.h
 
 gnome_phone_manager_LDADD = \
 	$(PHONEMGR_LIBS) \
