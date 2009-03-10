@@ -21,3 +21,4 @@ regenerate-built-sources:
 	EGGFILES="$(EGGFILES)" EGGDIR="$(EGGDIR)" $(srcdir)/../update-from-egg.sh || true
 
 CLEANFILES = $(BUILT_SOURCES)
+EXTRA_DIST = econtactentry-marshal.list

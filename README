@@ -30,13 +30,14 @@ Building
 
 You need:
 
-* gnome-bluetooth and libbtctl, from
+* gnome-bluetooth 2.27.0 or newer from
   http://live.gnome.org/GnomeBluetooth
 
 * Evolution-data-server
 * GtkSpell
+* libcanberra
+* dbus-glib
 
 * gnokii
   gnokii's homepage is at http://gnokii.org/
 
- -- Edd Dumbill <edd@usefulinc.com>, 2008-03-13

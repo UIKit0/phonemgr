@@ -54,6 +54,6 @@ test_entry_LDADD = $(PHONEMGR_LIBS)	\
 
 BUILT_SOURCES += $(MARSHALFILES)
 
-EXTRA_DIST = gnome-phone-manager.desktop.in org_gnome_phone_Manager.xml econtactentry-marshal.list
+EXTRA_DIST = gnome-phone-manager.desktop.in org_gnome_phone_Manager.xml
 CLEANFILES = $(BUILT_SOURCES) $(desktop_DATA)
 
