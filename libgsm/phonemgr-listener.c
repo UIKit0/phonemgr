@@ -454,6 +454,7 @@ phonemgr_listener_connect (PhonemgrListener *l, const char *device, GError **err
 		channel = phonemgr_utils_get_serial_channel (device);
 		if (channel < 0) {
 			//FIXME
+			phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
 			return FALSE;
 		}
 	}
@@ -462,6 +463,7 @@ phonemgr_listener_connect (PhonemgrListener *l, const char *device, GError **err
 	l->phone_state = phonemgr_utils_connect (device, NULL, channel, l->debug, error);
 	if (l->phone_state == NULL) {
 		//FIXME
+		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
 		return FALSE;
 	}
 
@@ -471,6 +473,7 @@ phonemgr_listener_connect (PhonemgrListener *l, const char *device, GError **err
 		//FIXME
 		phonemgr_utils_disconnect (l->phone_state);
 		phonemgr_utils_free (l->phone_state);
+		phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
 		return FALSE;
 	}
 
@@ -484,6 +487,7 @@ phonemgr_listener_connect (PhonemgrListener *l, const char *device, GError **err
 			l->driver = NULL;
 			//FIXME
 			g_message ("Couldn't connect to the device, gnapplet needed but not running");
+			phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
 			return FALSE;
 		}
 	}
@@ -498,6 +502,7 @@ phonemgr_listener_connect (PhonemgrListener *l, const char *device, GError **err
 		l->phone_state = phonemgr_utils_connect (device, l->driver, channel, l->debug, error);
 		if (l->phone_state == NULL) {
 			//FIXME
+			phonemgr_listener_emit_status (l, PHONEMGR_LISTENER_ERROR);
 			return FALSE;
 		}
 	}

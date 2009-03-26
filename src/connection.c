@@ -85,9 +85,8 @@ attempt_reconnect (MyApp *app)
 {
 	if (gconf_client_get_bool (app->client,
 				CONFBASE"/auto_retry", NULL) &&
-			! phonemgr_listener_connected (app->listener) &&
-			! app->connecting &&
-			app->status == PHONEMGR_LISTENER_IDLE) {
+			phonemgr_listener_connected (app->listener) == FALSE &&
+			app->connecting == FALSE) {
 		g_message ("Auto-retrying the connection");
 		reconnect_phone (app);
 	}
@@ -152,8 +151,7 @@ connect_phone (MyApp *app)
 {
 	g_mutex_lock (app->connecting_mutex);
 	if (phonemgr_listener_connected (app->listener) == FALSE
-	    && app->connecting == FALSE
-	    && app->status == PHONEMGR_LISTENER_IDLE) {
+	    && app->connecting == FALSE) {
 		app->connecting = TRUE;
 		g_mutex_unlock (app->connecting_mutex);
 		/* we're neither connected, nor connecting */

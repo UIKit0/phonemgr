@@ -1,3 +1,12 @@
+2009-03-26  Bastien Nocera  <hadess@hadess.net>
+
+	* libgsm/phonemgr-listener.c (phonemgr_listener_connect):
+	* src/connection.c (attempt_reconnect), (connect_phone):
+	Patch from Daniele Forsi <dforsi@gmail.com> to really
+	fix reconnecting when a connection fails. Otherwise
+	devices that go out of range will never be reconnected
+	to (Closes: #495278)
+
 ============ Version 0.65
 
 2009-03-10  Bastien Nocera  <hadess@hadess.net>
