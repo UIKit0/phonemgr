@@ -13,7 +13,7 @@ dnl Initialize libtool
 AM_DISABLE_SHARED
 AM_PROG_LIBTOOL
 
-GNOKII_REQS="gnokii >= 0.6.27 bluez >= 3.12"
+GNOKII_REQS="gnokii >= 0.6.28"
 GNOME_BLUETOOTH_REQS="gnome-bluetooth-1.0"
 
 AC_PROG_CC

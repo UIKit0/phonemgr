@@ -554,7 +554,7 @@ phonemgr_listener_push (PhonemgrListener *l)
 		g_message ("emitting battery");
 		phonemgr_listener_emit_battery (l,
 						(int) signal->battery->batterylevel,
-						signal->battery->powersource != GN_PS_BATTERY);
+						signal->battery->powersource == GN_PS_ACDC);
 		g_free (signal->battery);
 		break;
 	case NETWORK_SIGNAL:
@@ -1136,6 +1136,8 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	error = gn_sms_send (&l->phone_state->data, &l->phone_state->state);
 
 	/* Remove the reference to SMS */
+	if (l->phone_state->data.sms.reference != NULL)
+		free (l->phone_state->data.sms.reference);
 	l->phone_state->data.sms = NULL;
 
 	/* Unlock the phone */
