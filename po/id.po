@@ -1,0 +1,445 @@
+# Translation of phonemgr into Indonesian
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the phonemgr package.
+# Imam Musthaqim <userindesign@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phonemgr.HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&component=general\n"
+"POT-Creation-Date: 2009-03-27 10:10+0000\n"
+"PO-Revision-Date: 2009-04-02 18:23+0700\n"
+"Last-Translator: Imam Musthaqim <userindesign@gmail.com>\n"
+"Language-Team: INDONESIA <userindesign@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Indonesian\n"
+"X-Poedit-Country: INDONESIA\n"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Tidak bisa mendapatkan kontak: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Tidak dapat menemukan kontak: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+msgid "Cannot create searchable view."
+msgstr "Tidak dapat membuat tampilan yang dapat dicari."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+msgid "Success"
+msgstr "Berhasil"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+msgid "An argument was invalid."
+msgstr "Sebuah argumen tidak sah."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+msgid "The address book is busy."
+msgstr "Buku alamat sibuk."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+msgid "The address book is offline."
+msgstr "Buku alamat offline."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+msgid "The address book does not exist."
+msgstr "Buku alamat tidak ada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+msgid "The \"Me\" contact does not exist."
+msgstr "Kontak \"Saya\" tidak ada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+msgid "The address book is not loaded."
+msgstr "Buku alamat dimuat."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+msgid "The address book is already loaded."
+msgstr "Buku alamat sudah dimuat."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+msgid "Permission was denied when accessing the address book."
+msgstr "Izin ditolak saat mengakses buku alamat."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+msgid "The contact was not found."
+msgstr "Kontak tidak ditemukan."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+msgid "This contact ID already exists."
+msgstr "ID kontak ini sudah ada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+msgid "The protocol is not supported."
+msgstr "Protokol tidak didukung."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+msgid "The operation was cancelled."
+msgstr "Operasi dibatalkan."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+msgid "The operation could not be cancelled."
+msgstr "Operasi tidak dapat dibatalkan."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+msgid "The address book authentication failed."
+msgstr "Pengesahan buku alamat gagal."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+"Diperlukan pengesahan untuk mengakses buku alamat tapi pengesahan tidak "
+"diberikan."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+msgid "A secure connection is not available."
+msgstr "Tidak tersedia koneksi yang aman."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Terjadi kesalahan CORBA saat mengakses buku alamat."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+msgid "The address book source does not exist."
+msgstr "Sumber buku alamat tidak ada."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "An unknown error occurred."
+msgstr "Terjadi kesalahan yang tidak diketahui."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#, c-format
+msgid "GConf error: %s"
+msgstr "Kesalahan GConf: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+msgid "All further errors shown only on terminal."
+msgstr "Semua kesalahan lainnya ditampilkan hanya pada terminal."
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:124
+#, c-format
+msgid "Connected to device on %s"
+msgstr "Terhubung ke perangkat pada %s"
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:130
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr "Koneksi ke perangkat pada %s gagal"
+
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
+msgid "Phone Manager"
+msgstr "Manajer Telepon"
+
+#: ../src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr "Terima dan kirim pesan dari ponsel Anda"
+
+#: ../src/icon.c:59
+msgid "Message arrived"
+msgstr "Pesan tiba"
+
+#: ../src/icon.c:62
+msgid "Connected"
+msgstr "Terhubung"
+
+#: ../src/icon.c:66
+msgid "Connecting to phone"
+msgstr "Menghubungkan ke telepon"
+
+#: ../src/icon.c:70
+msgid "Not connected"
+msgstr "Tidak terhubung"
+
+#: ../src/main.c:38
+msgid "Show model name of a specific device"
+msgstr "Tampilkan nama model dari suatu perangkat spesifik"
+
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Tulis file konfigurasi untuk perunutan gnokii"
+
+#: ../src/main.c:40
+msgid "Enable debug"
+msgstr "Aktifkan perunutan"
+
+#: ../src/main.c:41
+msgid "Show version information and exit"
+msgstr "Tampilkan informasi versi dan tutup"
+
+#: ../src/main.c:60
+msgid "- Manage your mobile phone"
+msgstr "- Kelola ponsel Anda"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager versi %s\n"
+
+#: ../src/menu.c:40
+msgid "translator_credits"
+msgstr "Imam Musthaqim <userindesign@gmail.com>"
+
+#: ../src/menu.c:44
+msgid "Send and receive messages from your mobile phone."
+msgstr "Terima dan kirim pesan dari ponsel Anda."
+
+#: ../src/menu.c:56
+msgid "Phone Manager website"
+msgstr "Situs Web Manajer Telepon"
+
+#: ../src/menu.c:87
+msgid "_Send Message"
+msgstr "_Kirim Pesan"
+
+#: ../src/ui.c:166
+msgid "New text message received"
+msgstr "Pesan teks baru diterima"
+
+#: ../src/ui.c:331
+msgid "Message too long!"
+msgstr "Pesan terlalu panjang!"
+
+#: ../data/phonemgr.glade.h:1
+msgid "Alerting"
+msgstr "Memperingatkan"
+
+#: ../data/phonemgr.glade.h:2
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "Nama file perangkat alternatif, mis. /dev/ttyS3"
+
+#: ../data/phonemgr.glade.h:3
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+"Selalu coba dan hubungkan kembali setiap kali koneksi tidak tersedia secara "
+"langsung. Gunakan ini dengan Bluetooth untuk memastikan telepon Anda "
+"terhubung bila berada dalam jangkauan."
+
+#: ../data/phonemgr.glade.h:4
+msgid "Automated Tasks"
+msgstr "Tugas Otomatis"
+
+#: ../data/phonemgr.glade.h:5
+msgid "Automatically _retry connections"
+msgstr "_Coba kembali koneksi secara otomatis"
+
+#: ../data/phonemgr.glade.h:6
+msgid "Characters left:"
+msgstr "Karakter yang tersisa:"
+
+#: ../data/phonemgr.glade.h:7
+msgid "Connect using an alternative serial device"
+msgstr "Hubungkan dengan menggunakan perangkat serial alternatif"
+
+#: ../data/phonemgr.glade.h:8
+msgid "Connect using infrared communication"
+msgstr "Hubungkan dengan menggunakan komunikasi infra merah"
+
+#: ../data/phonemgr.glade.h:9
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+"Hubungkan dengan menggunakan port serial 1, disebut juga COM1 atau /dev/ttyS0"
+
+#: ../data/phonemgr.glade.h:10
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+"HUbungkan dengan menggunakan port serial 2, disebut juga COM2 atau /dev/ttyS1"
+
+#: ../data/phonemgr.glade.h:11
+msgid "Connection"
+msgstr "Koneksi"
+
+#: ../data/phonemgr.glade.h:12
+msgid "Date:"
+msgstr "Tanggal:"
+
+#: ../data/phonemgr.glade.h:13
+msgid "Enter the text message you want to send."
+msgstr "Masukkan pesan teks yang ingin Anda kirimkan"
+
+#: ../data/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "Masukkan pesan teks Anda"
+
+#: ../data/phonemgr.glade.h:15
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfra merah (/dev/ircomm0)"
+
+#: ../data/phonemgr.glade.h:16
+msgid "Interface"
+msgstr "Antarmuka"
+
+#: ../data/phonemgr.glade.h:17
+msgid "Message Received"
+msgstr "Pesan Diterima"
+
+#: ../data/phonemgr.glade.h:18
+msgid "Other _port"
+msgstr "_Port lain"
+
+#: ../data/phonemgr.glade.h:19
+msgid "Phone Connection"
+msgstr "Koneksi Telepon"
+
+#: ../data/phonemgr.glade.h:20
+msgid "Phone Manager Preferences"
+msgstr "Preferensi Manajer Telepon"
+
+#: ../data/phonemgr.glade.h:21
+msgid "Play _sound when messages arrive"
+msgstr "Mainkan _suara saat pesan masuk"
+
+#: ../data/phonemgr.glade.h:22
+msgid "Send Message"
+msgstr "Kirim Pesan"
+
+#: ../data/phonemgr.glade.h:23
+msgid "Sender:"
+msgstr "Pengirim:"
+
+#: ../data/phonemgr.glade.h:24
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "Port serial _1 (/dev/ttyS0)"
+
+#: ../data/phonemgr.glade.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "Port serial _2 (/dev/ttyS1)"
+
+#: ../data/phonemgr.glade.h:26
+msgid "Synchronise phone's _time and date"
+msgstr "Sinkronkan _waktu dan tanggal telepon"
+
+#: ../data/phonemgr.glade.h:27
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "Sinkronkan waktu dan tanggal telepon dengan jam komputer"
+
+#: ../data/phonemgr.glade.h:28
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr ""
+"Gunakan jaringan nirkabel Bluetooth untuk menghubungkan ke telepon Anda"
+
+#: ../data/phonemgr.glade.h:29
+msgid "You have received a message"
+msgstr "Anda telah menerima pesan"
+
+#: ../data/phonemgr.glade.h:30
+msgid "_Bluetooth"
+msgstr "_Bluetooth"
+
+#: ../data/phonemgr.glade.h:31
+msgid "_Message:"
+msgstr "_Pesan:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.glade.h:33
+msgid "_Notify when message is delivered"
+msgstr "_Beritahu bila pesan terkirim"
+
+#: ../data/phonemgr.glade.h:34
+msgid "_Pop-up window for new messages"
+msgstr "_Jendela pop-up untuk pesan baru"
+
+#: ../data/phonemgr.glade.h:35
+msgid "_Recipient:"
+msgstr "_Penerima:"
+
+#: ../data/phonemgr.glade.h:36
+msgid "_Reply"
+msgstr "_Balas"
+
+#: ../data/phonemgr.glade.h:37
+msgid "_Send"
+msgstr "_Kirim"
+
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Alamat Bluetooth dari perangkat yang akan dihubungi"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+"Alamat Bluetooth dari perangkat yang akan dihubungi. Memerlukan _jenis "
+"koneksi 1 untuk digunakan."
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Jenis koneksi yang digunakan oleh gnome-phone-manager"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+"Jenis koneksi yang digunakan oleh gnome-phone-manager: Bluetooth adalah 0 "
+"Serial 1 adalah 1 Serial 2 adalah 2 IrDa adalah 3 jenis koneksi lain adalah 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Simpul perangkat untuk perangkat serial yang akan dihubungi"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
+"Simpul perangkat untuk perangkat serial yang akan dihubungi. Memerlukan "
+"_jenis koneksi 4 untuk digunakan."
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Apakah perlu memainkan peringatan suara saat pesan baru masuk"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Apakah perlu memainkan peringatan suara saat pesan baru masuk."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Apakah perlu memunculkan pesan baru pada desktop"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"Apakah perlu memunculkan pesan baru pada desktop begitu diterima, sebagai "
+"kebalikan dari menampilkan pesan saat diklik pada ikon baki."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Apakah perlu mencoba lagi menghubungkan ke ponsel"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+"Apakah perlu mencoba lagi menghubungkan ke ponsel jika koneksi gagal pada "
+"tahap tertentu."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "Apakah perlu menyinkronkan jam telepon dengan jam komputer"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "Apakah perlu menyinkronkan jam telepon dengan jam komputer."
