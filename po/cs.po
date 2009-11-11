@@ -3,412 +3,575 @@
 # Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
 # This file is distributed under the same license as the phonemgr package.
 # Miloslav Trmac <mitr@volny.cz>, 2004.
+# Marek Černocký <marek@manet.cz>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-08 20:20+0200\n"
-"PO-Revision-Date: 2004-08-08 23:53+0200\n"
-"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"Project-Id-Version: phonemgr master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&component=general\n"
+"POT-Creation-Date: 2009-10-26 23:00+0000\n"
+"PO-Revision-Date: 2009-11-07 20:10+0100\n"
+"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
-#: libegg/libegg/iconlist/eggiconlist.c:313
-msgid "Selection mode"
-msgstr "Režim výběru"
-
-#: libegg/libegg/iconlist/eggiconlist.c:314
-msgid "The selection mode"
-msgstr "Režim výběru"
-
-#: libegg/libegg/iconlist/eggiconlist.c:322
-msgid "Sorted"
-msgstr "Seřazen"
-
-#: libegg/libegg/iconlist/eggiconlist.c:323
-msgid "Icon list is sorted"
-msgstr "Seznam ikon je seřazen"
-
-#: libegg/libegg/iconlist/eggiconlist.c:329
-msgid "Sort order"
-msgstr "Pořadí řazení"
-
-#: libegg/libegg/iconlist/eggiconlist.c:330
-msgid "Sort direction the icon list should use"
-msgstr "Smer řazení, který má seznam ikon používat"
-
-#: libegg/libegg/iconlist/eggiconlist.c:344
-msgid "Icon padding"
-msgstr "Rozestup ikon"
-
-#: libegg/libegg/iconlist/eggiconlist.c:345
-msgid "Number of pixels between icons"
-msgstr "Počet pixelů mezi ikonami"
-
-#: libegg/libegg/iconlist/eggiconlist.c:352
-msgid "Top margin"
-msgstr "Horní okraj"
-
-#: libegg/libegg/iconlist/eggiconlist.c:353
-msgid "Number of pixels in top margin"
-msgstr "Počet pixelů na horním okraji"
-
-#: libegg/libegg/iconlist/eggiconlist.c:360
-msgid "Bottom margin"
-msgstr "Spodní okraj"
-
-#: libegg/libegg/iconlist/eggiconlist.c:361
-msgid "Number of pixels in bottom margin"
-msgstr "Počet pixelů na dolním okraji"
-
-#: libegg/libegg/iconlist/eggiconlist.c:369
-msgid "Left margin"
-msgstr "Levý okraj"
-
-#: libegg/libegg/iconlist/eggiconlist.c:370
-msgid "Number of pixels in left margin"
-msgstr "Počet pixelů na levém okraji"
-
-#: libegg/libegg/iconlist/eggiconlist.c:377
-msgid "Right margin"
-msgstr "Pravý okraj"
-
-#: libegg/libegg/iconlist/eggiconlist.c:378
-msgid "Number of pixels in right margin"
-msgstr "Počet pixelů na pravém okraji"
-
-#: libegg/libegg/iconlist/eggiconlist.c:386
-msgid "Selection Box Color"
-msgstr "Barva obdélníku výběru"
-
-#: libegg/libegg/iconlist/eggiconlist.c:387
-msgid "Color of the selection box"
-msgstr "Barva obdélníku výběru"
-
-#: libegg/libegg/iconlist/eggiconlist.c:393
-msgid "Selection Box Alpha"
-msgstr "Alfa obdélníku výběru"
-
-#: libegg/libegg/iconlist/eggiconlist.c:394
-msgid "Opacity of the selection box"
-msgstr "Neprůhlednost obdélníku výběru"
-
-#: libegg/libegg/tray/eggstatusicon.c:154
-msgid "Pixbuf"
-msgstr "Pixbuf"
-
-#: libegg/libegg/tray/eggstatusicon.c:155
-msgid "A GdkPixbuf to display"
-msgstr "GdkPixbuf, který zobrazovat"
-
-#: libegg/libegg/tray/eggstatusicon.c:162
-msgid "Filename"
-msgstr "Název souboru"
-
-#: libegg/libegg/tray/eggstatusicon.c:163
-msgid "Filename to load and display"
-msgstr "Název souboru, který načíst a zobrazovat"
-
-#: libegg/libegg/tray/eggstatusicon.c:170
-msgid "Stock ID"
-msgstr "Standardní ID"
-
-#: libegg/libegg/tray/eggstatusicon.c:171
-msgid "Stock ID for a stock image to display"
-msgstr "ID standardního obrázku, který zobrazovat"
-
-#: libegg/libegg/tray/eggstatusicon.c:178
-msgid "Animation"
-msgstr "Animace"
-
-#: libegg/libegg/tray/eggstatusicon.c:179
-msgid "GdkPixbufAnimation to display"
-msgstr "GdkPixbufAnimation, kterou zobrazovat"
-
-#: libegg/libegg/tray/eggstatusicon.c:186
-msgid "Image type"
-msgstr "Typ obrázku"
-
-#: libegg/libegg/tray/eggstatusicon.c:187
-msgid "The representation being used for image data"
-msgstr "Reprezentace používaná pro data obrázku"
-
-#: libegg/libegg/tray/eggstatusicon.c:195
-msgid "Size"
-msgstr "Velikost"
-
-#: libegg/libegg/tray/eggstatusicon.c:196
-msgid "The size of the icon"
-msgstr "Velikost ikony"
-
-#: libegg/libegg/tray/eggstatusicon.c:205
-msgid "Blinking"
-msgstr "Bliká"
-
-#: libegg/libegg/tray/eggstatusicon.c:206
-msgid "Whether or not the status icon is blinking"
-msgstr "Jestli ikona stavu bliká"
-
-#: libegg/libegg/tray/eggtrayicon.c:118
-#: libegg/libegg/tray/eggtraymanager.c:145
-msgid "Orientation"
-msgstr "Orientace"
-
-#: libegg/libegg/tray/eggtrayicon.c:119
-#: libegg/libegg/tray/eggtraymanager.c:146
-msgid "The orientation of the tray."
-msgstr "Orientace oznamovací oblasti."
-
-#: src/connection.c:38
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
 #, c-format
-msgid "Unable to obtain RFCOMM connection (%d)"
-msgstr "Nemohu získat spojení RFCOMM (%d)"
+msgid "Cannot get contact: %s"
+msgstr "Nelze získat kontakt: %s"
 
-#: src/connection.c:106
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Nelze najít kontakt: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+msgid "Cannot create searchable view."
+msgstr "Nelze vytvořit prohledávatelné zobrazení."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+msgid "Success"
+msgstr "V pořádku"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+msgid "An argument was invalid."
+msgstr "Některý z přepínačů je neplatný."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+msgid "The address book is busy."
+msgstr "Adresář je zaneprázdněn."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+msgid "The address book is offline."
+msgstr "Adresář je off-line."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+msgid "The address book does not exist."
+msgstr "Adresář neexistuje."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+msgid "The \"Me\" contact does not exist."
+msgstr "Kontakt „Já“ neexistuje."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+msgid "The address book is not loaded."
+msgstr "Adresář není načtený."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+msgid "The address book is already loaded."
+msgstr "Adresář je již načtený."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+msgid "Permission was denied when accessing the address book."
+msgstr "Nedostatečná oprávnění při přístupu k adresáři."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+msgid "The contact was not found."
+msgstr "Kontakt nebyl nalezen."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+msgid "This contact ID already exists."
+msgstr "ID kontaktu již existuje."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+msgid "The protocol is not supported."
+msgstr "Protokol není podporován."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+msgid "The operation was cancelled."
+msgstr "Operace byla zrušena."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+msgid "The operation could not be cancelled."
+msgstr "Operaci nelze zrušit."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+msgid "The address book authentication failed."
+msgstr "Ověření přístupu k adresáři selhalo."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr "Pro přístup k adresáři je vyžadováno ověření, ale nebylo použito."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+msgid "A secure connection is not available."
+msgstr "Bezpečné připojení není k dispozici."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Během přístupu k adresáři se vyskytla chyba architektury CORBA."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+msgid "The address book source does not exist."
+msgstr "Neexistuje zdroj adresáře."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "An unknown error occurred."
+msgstr "Vyskytla se neznámá chyba."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#, c-format
+msgid "GConf error: %s"
+msgstr "Chyba GConf: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+msgid "All further errors shown only on terminal."
+msgstr "Všechny další chyby se zobrazují pouze v terminálu."
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:124
 #, c-format
 msgid "Connected to device on %s"
-msgstr "Připojen k zařízení %s"
+msgstr "Připojeno k zařízení na %s"
 
 #. the ERROR signal will have been emitted, so we don't
 #. bother changing the icon ourselves at this point
-#: src/connection.c:113
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:130
 #, c-format
 msgid "Failed connection to device on %s"
-msgstr "Nemohu se připojit k zařízení na %s"
+msgstr "Nelze se připojit k zařízení na %s"
 
-#. When try icon is destroyed, recreate it.  This happens
-#. when the notification area is removed.
-#: src/gnome-phone-manager.desktop.in.h:1 src/icon.c:66 src/menu.c:30
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "Správce telefonu"
 
-#: src/gnome-phone-manager.desktop.in.h:2
+#: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
 msgstr "Přijímat a odesílat zprávy z vašeho mobilního telefonu"
 
-#: src/icon.c:162
+#: ../src/icon.c:59
 msgid "Message arrived"
 msgstr "Přišla zpráva"
 
-#: src/icon.c:166
+#: ../src/icon.c:62
 msgid "Connected"
-msgstr "Připojen"
+msgstr "Připojeno"
 
-#: src/icon.c:171
+#: ../src/icon.c:66
 msgid "Connecting to phone"
-msgstr "Připojuji se k telefonu"
+msgstr "Připojuje se k telefonu"
 
-#: src/icon.c:176
+#: ../src/icon.c:70
 msgid "Not connected"
-msgstr "Nepřipojen"
+msgstr "Nepřipojeno"
 
-#: src/icon.c:196
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
-"\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
-msgstr ""
-"<span weight=\"bold\" size=\"larger\">Nemohu najít oznamovací oblast</span>\n"
-"\n"
-"Správce telefonu používá oznamovací oblast pro zobrazování informací a poskytování přístupu k odesílání zpráv a nastavení. Můžete ji přidat kliknutím pravým tlačítkem na panel a zvolením <i>Přidat na panel -> Nástroj -> Oznamovací oblast</i>"
+#: ../src/main.c:38
+msgid "Show model name of a specific device"
+msgstr "Zobrazit název modelu určeného zařízení"
 
-# :-)
-#: src/main.c:36
-msgid "Couldn't create phone listener."
-msgstr "Nemohu vytvořit naslouchač telefonu."
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Zapsat soubor s nastavením pro potřeby ladění projektu gnokii"
 
-#: src/menu.c:22
+#: ../src/main.c:40
+msgid "Enable debug"
+msgstr "Zapnout ladění"
+
+#: ../src/main.c:41
+msgid "Show version information and exit"
+msgstr "Zobrazit informace o verzi a skončit"
+
+#: ../src/main.c:60
+msgid "- Manage your mobile phone"
+msgstr "- Spravovat svůj mobilní telefon"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager verze %s\n"
+
+#: ../src/menu.c:40
 msgid "translator_credits"
-msgstr "Miloslav Trmač <mitr@volny.cz>"
+msgstr ""
+"Miloslav Trmač <mitr@volny.cz>\n"
+"Marek Černocký <marek@manet.cz>"
 
-#: src/menu.c:32
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
-msgstr "Odesílat a přijímat zprávy z vašeho mobilního telefonu."
+msgstr "Odesílání a příjem zpráv z vašeho mobilního telefonu."
 
-#: src/menu.c:75
+#: ../src/menu.c:56
+msgid "Phone Manager website"
+msgstr "Webové stránky Správce telefonu"
+
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "_Odeslat zprávu"
 
-#: src/ui.c:88
-msgid "No Bluetooth device chosen."
-msgstr "Nezvoleno žádné zařízení Bluetooth"
+#: ../src/ui.c:166
+msgid "New text message received"
+msgstr "Přijata nová textová zpráva"
 
-#: src/ui.c:321
+#: ../src/ui.c:331
 msgid "Message too long!"
 msgstr "Zpráva je příliš dlouhá!"
 
-#: ui/phonemgr.glade.h:1 ui/strings.c:31 ui/strings.c:44
-msgid "*"
-msgstr "*"
+#: ../data/phonemgr.glade.h:1
+msgid "Alerting"
+msgstr "Upozorňování"
 
-#: ui/phonemgr.glade.h:2 ui/strings.c:30
-msgid "/dev/ttyS2"
-msgstr "/dev/ttyS2"
-
-#: ui/phonemgr.glade.h:3 ui/strings.c:15
-msgid "<b>Alerting</b>"
-msgstr "<b>Upozorňování</b>"
-
-#: ui/phonemgr.glade.h:4 ui/strings.c:35
-msgid "<b>Error Handling</b>"
-msgstr "<b>Obsluha chyb</b>"
-
-#: ui/phonemgr.glade.h:5 ui/strings.c:32
-msgid "<b>Phone Connection</b>"
-msgstr "<b>Připojení k telefonu</b>"
-
-#: ui/phonemgr.glade.h:6 ui/strings.c:39
-msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Zadejte textovou zprávu</span>"
-
-#: ui/phonemgr.glade.h:7 ui/strings.c:9
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Přijali jste zprávu</span>"
-
-#: ui/phonemgr.glade.h:8 ui/strings.c:29
+#: ../data/phonemgr.glade.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Alternativní název souboru zařízení, např. /dev/ttyS3"
 
-#: ui/phonemgr.glade.h:9 ui/strings.c:33
+#: ../data/phonemgr.glade.h:3
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
 "range."
-msgstr "Vždy se pokusit znovu připojit, kdykoli spojení není okamžitě k dispozici. Použijte toto s Bluetooth, abyste zajistili, že se váš telefon připojí, kdykoli je v dosahu."
+msgstr ""
+"Kdykoli spojení není okamžitě k dispozici, pokoušet se znovu připojit. Toto "
+"použijte s Bluetooth, abyste zajistili, že se váš telefon připojí, kdykoli "
+"je v dosahu."
 
-#: ui/phonemgr.glade.h:10 ui/strings.c:34
+#: ../data/phonemgr.glade.h:4
+msgid "Automated Tasks"
+msgstr "Automatizované úlohy"
+
+#: ../data/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
-msgstr "_Automaticky znovu zkoušet připojení"
+msgstr "_Automaticky se znovu zkoušet připojit"
 
-#: ui/phonemgr.glade.h:11 ui/strings.c:40
+#: ../data/phonemgr.glade.h:6
 msgid "Characters left:"
 msgstr "Zbývající znaky:"
 
-#: ui/phonemgr.glade.h:12 ui/strings.c:20
-msgid "Choo_se"
-msgstr "Z_volit"
-
-#: ui/phonemgr.glade.h:13 ui/strings.c:19
-msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr "Zvolte mobilní telefon podporující Bluetooth, ke kterému se připojit."
-
-#: ui/phonemgr.glade.h:14 ui/strings.c:27
+#: ../data/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
 msgstr "Připojit se pomocí jiného sériového zařízení"
 
-#: ui/phonemgr.glade.h:15 ui/strings.c:25
+#: ../data/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
 msgstr "Připojit se pomocí infračervené komunikace"
 
-#: ui/phonemgr.glade.h:16 ui/strings.c:21
+#: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr "Připojit se pomocí sériového portu 1, také známého jako COM1 nebo /dev/ttyS0"
+msgstr ""
+"Připojit se pomocí sériového portu 1, známého také jako COM1 nebo /dev/ttyS0"
 
-#: ui/phonemgr.glade.h:17 ui/strings.c:23
+#: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr "Připojit se pomocí sériového portu 1, také známého jako COM1 nebo /dev/ttyS1"
+msgstr ""
+"Připojit se pomocí sériového portu 2, známého také jako COM2 nebo /dev/ttyS1"
 
-#: ui/phonemgr.glade.h:18 ui/strings.c:36
+#: ../data/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "Připojení"
 
-#: ui/phonemgr.glade.h:19 ui/strings.c:11
+#: ../data/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "Datum:"
 
-#: ui/phonemgr.glade.h:20 ui/strings.c:43
-msgid "Enter the number you wish to send a message to."
-msgstr "Zadejte číslo, kterému chcete odeslat zprávu."
-
-#: ui/phonemgr.glade.h:21 ui/strings.c:46
+#: ../data/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
 msgstr "Zadejte textovou zprávu, kterou chcete odeslat."
 
-#: ui/phonemgr.glade.h:22 ui/strings.c:16
+#: ../data/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "Zadejte svoji textovou zprávu"
+
+#: ../data/phonemgr.glade.h:15
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "_Infračervené (/dev/ircomm0)"
+
+#: ../data/phonemgr.glade.h:16
 msgid "Interface"
 msgstr "Rozhraní"
 
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
-#: ui/phonemgr.glade.h:23 ui/strings.c:7
+#: ../data/phonemgr.glade.h:17
 msgid "Message Received"
-msgstr "Přijata zpráva"
+msgstr "Zpráva přijata"
 
-#: ui/phonemgr.glade.h:24 ui/strings.c:41
-msgid "Number of characters left in the message"
-msgstr "Počet znaků zbývajících ve zprávě"
-
-#: ui/phonemgr.glade.h:25 ui/strings.c:28
+#: ../data/phonemgr.glade.h:18
 msgid "Other _port"
 msgstr "Jiný _port"
 
-#: ui/phonemgr.glade.h:26 ui/strings.c:12
-msgid "Phone Manager Preferences"
-msgstr "Nastavení správce telefonu"
+#: ../data/phonemgr.glade.h:19
+msgid "Phone Connection"
+msgstr "Připojení telefonu"
 
-#: ui/phonemgr.glade.h:27 ui/strings.c:14
+#: ../data/phonemgr.glade.h:20
+msgid "Phone Manager Preferences"
+msgstr "Předvolby správce telefonu"
+
+#: ../data/phonemgr.glade.h:21
 msgid "Play _sound when messages arrive"
 msgstr "Přehrát _zvuk, když přijde zpráva"
 
-#: ui/phonemgr.glade.h:28 ui/strings.c:37
+#: ../data/phonemgr.glade.h:22
 msgid "Send Message"
 msgstr "Odeslat zprávu"
 
-#: ui/phonemgr.glade.h:29 ui/strings.c:10
+#: ../data/phonemgr.glade.h:23
 msgid "Sender:"
 msgstr "Odesílatel:"
 
-#: ui/phonemgr.glade.h:30 ui/strings.c:22
+#: ../data/phonemgr.glade.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Sériový port _1 (/dev/ttyS0)"
 
-#: ui/phonemgr.glade.h:31 ui/strings.c:24
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Sériový port _2 (/dev/ttyS1)"
 
-#: ui/phonemgr.glade.h:32 ui/strings.c:17
-msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr "Používat pro připojení k vašemu mobilnímu telefonu bezdrátovou síť Bluetooth"
+#: ../data/phonemgr.glade.h:26
+msgid "Synchronise phone's _time and date"
+msgstr "Synchronizovat čas a da_tum telefonu"
 
-#: ui/phonemgr.glade.h:33 ui/strings.c:18
+#: ../data/phonemgr.glade.h:27
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "Synchronizovat čas a datum telefonu s hodinami v počítači"
+
+#: ../data/phonemgr.glade.h:28
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr ""
+"Pro připojení k vašemu mobilnímu telefonu používat bezdrátovou síť Bluetooth"
+
+#: ../data/phonemgr.glade.h:29
+msgid "You have received a message"
+msgstr "Máte přijatou zprávu"
+
+#: ../data/phonemgr.glade.h:30
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ui/phonemgr.glade.h:34 ui/strings.c:26
-msgid "_Infra red (/dev/ircomm0)"
-msgstr "_Infračervené (/dev/ircomm0)"
-
-#: ui/phonemgr.glade.h:35 ui/strings.c:45
+#: ../data/phonemgr.glade.h:31
 msgid "_Message:"
 msgstr "_Zpráva:"
 
-#: ui/phonemgr.glade.h:36 ui/strings.c:13
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.glade.h:33
+msgid "_Notify when message is delivered"
+msgstr "Upozor_nit, když je zpráva doručena"
+
+#: ../data/phonemgr.glade.h:34
 msgid "_Pop-up window for new messages"
 msgstr "Zobrazit _okno s novými zprávami"
 
-#: ui/phonemgr.glade.h:37 ui/strings.c:42
+#: ../data/phonemgr.glade.h:35
 msgid "_Recipient:"
 msgstr "_Příjemce:"
 
-#: ui/phonemgr.glade.h:38 ui/strings.c:8
+#: ../data/phonemgr.glade.h:36
 msgid "_Reply"
 msgstr "_Odpovědět"
 
-#: ui/phonemgr.glade.h:39 ui/strings.c:38
+#: ../data/phonemgr.glade.h:37
 msgid "_Send"
 msgstr "_Odeslat"
 
-#: ui/phonemgr.glade.h:40 ui/strings.c:47
-msgid "message body"
-msgstr "tělo zprávy"
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Adresa Bluetooth připojeného zařízení"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+"Adresa Bluetooth připojeného zařízení. Aby byla použita, musí být "
+"connection_type nastaveno na 1."
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Typ připojení použitý aplikací gnome-phone-manager"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+"Typ připojení použitý aplikací gnome-phone-manager: Bluetooth je 0, sériový "
+"port 1 je 1, sériový port 2 je 2 a IrDa je 3. Jiný typ připojení je 4."
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Uzel zařízení pro sériové zařízení, které je do něj připojeno"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
+"Uzel zařízení pro sériové zařízení, které je do něj připojeno. Aby byla "
+"použita, musí být connection_type nastaveno na 4."
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Zda přehrát zvukové upozornění, když přijde nová zpráva"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Zda přehrát zvukové upozornění, když přijde nová zpráva."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Zda zobrazit novou zprávu v pracovním prostředí"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"Zda zobrazit novou zprávu v pracovním prostředí bezprostředně po jejím "
+"přijetí. Opakem je její zobrazení až po kliknutí na ikonu na panelu."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Zda se znovu zkoušet připojit k mobilnímu telefonu"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+"Zda se znovu zkoušet připojit k mobilnímu telefonu v případě, že připojení z "
+"nějakého důvodu selže."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "Zda synchronizovat hodiny telefonu s počítačem."
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "Zda synchronizovat hodiny telefonu s počítačem."
+
+#~ msgid "Selection mode"
+#~ msgstr "Režim výběru"
+
+#~ msgid "The selection mode"
+#~ msgstr "Režim výběru"
+
+#~ msgid "Sorted"
+#~ msgstr "Seřazen"
+
+#~ msgid "Icon list is sorted"
+#~ msgstr "Seznam ikon je seřazen"
+
+#~ msgid "Sort order"
+#~ msgstr "Pořadí řazení"
+
+#~ msgid "Sort direction the icon list should use"
+#~ msgstr "Smer řazení, který má seznam ikon používat"
+
+#~ msgid "Icon padding"
+#~ msgstr "Rozestup ikon"
+
+#~ msgid "Number of pixels between icons"
+#~ msgstr "Počet pixelů mezi ikonami"
+
+#~ msgid "Top margin"
+#~ msgstr "Horní okraj"
+
+#~ msgid "Number of pixels in top margin"
+#~ msgstr "Počet pixelů na horním okraji"
+
+#~ msgid "Bottom margin"
+#~ msgstr "Spodní okraj"
+
+#~ msgid "Number of pixels in bottom margin"
+#~ msgstr "Počet pixelů na dolním okraji"
+
+#~ msgid "Left margin"
+#~ msgstr "Levý okraj"
+
+#~ msgid "Number of pixels in left margin"
+#~ msgstr "Počet pixelů na levém okraji"
+
+#~ msgid "Right margin"
+#~ msgstr "Pravý okraj"
+
+#~ msgid "Number of pixels in right margin"
+#~ msgstr "Počet pixelů na pravém okraji"
+
+#~ msgid "Selection Box Color"
+#~ msgstr "Barva obdélníku výběru"
+
+#~ msgid "Color of the selection box"
+#~ msgstr "Barva obdélníku výběru"
+
+#~ msgid "Selection Box Alpha"
+#~ msgstr "Alfa obdélníku výběru"
+
+#~ msgid "Opacity of the selection box"
+#~ msgstr "Neprůhlednost obdélníku výběru"
+
+#~ msgid "Pixbuf"
+#~ msgstr "Pixbuf"
+
+#~ msgid "A GdkPixbuf to display"
+#~ msgstr "GdkPixbuf, který zobrazovat"
+
+#~ msgid "Filename"
+#~ msgstr "Název souboru"
+
+#~ msgid "Filename to load and display"
+#~ msgstr "Název souboru, který načíst a zobrazovat"
+
+#~ msgid "Stock ID"
+#~ msgstr "Standardní ID"
+
+#~ msgid "Stock ID for a stock image to display"
+#~ msgstr "ID standardního obrázku, který zobrazovat"
+
+#~ msgid "Animation"
+#~ msgstr "Animace"
+
+#~ msgid "GdkPixbufAnimation to display"
+#~ msgstr "GdkPixbufAnimation, kterou zobrazovat"
+
+#~ msgid "Image type"
+#~ msgstr "Typ obrázku"
+
+#~ msgid "The representation being used for image data"
+#~ msgstr "Reprezentace používaná pro data obrázku"
+
+#~ msgid "Size"
+#~ msgstr "Velikost"
+
+#~ msgid "The size of the icon"
+#~ msgstr "Velikost ikony"
+
+#~ msgid "Blinking"
+#~ msgstr "Bliká"
+
+#~ msgid "Whether or not the status icon is blinking"
+#~ msgstr "Jestli ikona stavu bliká"
+
+#~ msgid "Orientation"
+#~ msgstr "Orientace"
+
+#~ msgid "The orientation of the tray."
+#~ msgstr "Orientace oznamovací oblasti."
+
+#~ msgid "Unable to obtain RFCOMM connection (%d)"
+#~ msgstr "Nemohu získat spojení RFCOMM (%d)"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
+#~ "span>\n"
+#~ "\n"
+#~ "Phone Manager uses the notification area to display information and "
+#~ "provide access to message sending and preferences. You can add it by "
+#~ "right-clicking on your panel and choosing <i>Add to Panel -> Utility -> "
+#~ "Notification Area</i>."
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Nemohu najít oznamovací oblast</"
+#~ "span>\n"
+#~ "\n"
+#~ "Správce telefonu používá oznamovací oblast pro zobrazování informací a "
+#~ "poskytování přístupu k odesílání zpráv a nastavení. Můžete ji přidat "
+#~ "kliknutím pravým tlačítkem na panel a zvolením <i>Přidat na panel -> "
+#~ "Nástroj -> Oznamovací oblast</i>"
+
