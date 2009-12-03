@@ -1,0 +1,442 @@
+# Danish translation for phonemgr.
+# Copyright (C) 2009 phonemgr & Joe Hansen.
+# This file is distributed under the same license as the phonemgr package.
+# Joe Hansen <joedalton2@yahoo.dk>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phonemgr master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 23:46+0100\n"
+"PO-Revision-Date: 2009-12-01 22:41+0200\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Kan ikke få kontakt: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Kunne ikke finde kontakt: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+msgid "Cannot create searchable view."
+msgstr "Kan ikke oprette søgbar visning."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+msgid "Success"
+msgstr "Succes"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+msgid "An argument was invalid."
+msgstr "Et argument var ugyldigt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+msgid "The address book is busy."
+msgstr "Adressebogen er optaget."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+msgid "The address book is offline."
+msgstr "Adressebogen er offline."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+msgid "The address book does not exist."
+msgstr "Adressebogen eksisterer ikke."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+msgid "The \"Me\" contact does not exist."
+msgstr "Kontakten \"Mig\" eksisterer ikke."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+msgid "The address book is not loaded."
+msgstr "Adressebogen er ikke indlæst."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+msgid "The address book is already loaded."
+msgstr "Adressebogen er allerede indlæst."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+msgid "Permission was denied when accessing the address book."
+msgstr "Adgang blev nægtet under tilgang til adressebogen."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+msgid "The contact was not found."
+msgstr "Kontakten blev ikke fundet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+msgid "This contact ID already exists."
+msgstr "Dette kontakt-id eksisterer allerede."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+msgid "The protocol is not supported."
+msgstr "Protokollen er ikke understøttet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+msgid "The operation was cancelled."
+msgstr "Handlingen blev afbrudt."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+msgid "The operation could not be cancelled."
+msgstr "Handlingen kunne ikke afbrydes."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+msgid "The address book authentication failed."
+msgstr "Godkendelse af adressebogen mislykkedes."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+"Godkendelse er krævet for at tilgå adressebogen og denne blev ikke givet."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+msgid "A secure connection is not available."
+msgstr "En sikker forbindelse er ikke tilgængelig."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "En CORBA-fejl opstod under tilgang til adressebogen."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+msgid "The address book source does not exist."
+msgstr "Adressebogkilden eksisterer ikke."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "An unknown error occurred."
+msgstr "En ukendt fejl opstod."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf-fejl: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+msgid "All further errors shown only on terminal."
+msgstr "Alle yderligere fejl vises kun i terminal."
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:124
+#, c-format
+msgid "Connected to device on %s"
+msgstr "Forbundet til enhed på %s"
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:130
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr "Mislykket forbindelse til enhed på %s"
+
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
+msgid "Phone Manager"
+msgstr "Telefonhåndtering"
+
+#: ../src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr "Modtag og send tekstbeskeder fra din mobiltelefon"
+
+#: ../src/icon.c:59
+msgid "Message arrived"
+msgstr "Besked ankommet"
+
+#: ../src/icon.c:62
+msgid "Connected"
+msgstr "Forbundet"
+
+#: ../src/icon.c:66
+msgid "Connecting to phone"
+msgstr "Forbindelse til telefon"
+
+#: ../src/icon.c:70
+msgid "Not connected"
+msgstr "Ikke forbundet"
+
+#: ../src/main.c:38
+msgid "Show model name of a specific device"
+msgstr "Vis modelnavn på en specifik enhed"
+
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Skriv konfigurationsfilen for fejlsøgning i gnokii"
+
+#: ../src/main.c:40
+msgid "Enable debug"
+msgstr "Slå fejlsøgning til"
+
+#: ../src/main.c:41
+msgid "Show version information and exit"
+msgstr "Vis versionsinformation og afslut"
+
+#: ../src/main.c:60
+msgid "- Manage your mobile phone"
+msgstr "- Håndter din mobiltelefon"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager version %s\n"
+
+#: ../src/menu.c:40
+msgid "translator_credits"
+msgstr ""
+"Joe Hansen <joedalton2@yahoo.dk>, 2009.\n"
+"\n"
+"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
+"Mere info: http://www.dansk-gruppen.dk"
+
+#: ../src/menu.c:44
+msgid "Send and receive messages from your mobile phone."
+msgstr "Send og modtag beskeder fra din mobiltelefon."
+
+#: ../src/menu.c:56
+msgid "Phone Manager website"
+msgstr "Telefonhåndteringens hjemmeside"
+
+#: ../src/menu.c:87
+msgid "_Send Message"
+msgstr "_Send besked"
+
+#: ../src/ui.c:166
+msgid "New text message received"
+msgstr "Ny tekstbesked modtaget"
+
+#: ../src/ui.c:331
+msgid "Message too long!"
+msgstr "Besked for lang!"
+
+#: ../data/phonemgr.glade.h:1
+msgid "Alerting"
+msgstr "Alarmerer"
+
+#: ../data/phonemgr.glade.h:2
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "Alternativt enhedsfilnavn, for eksempel /dev/ttyS3"
+
+#: ../data/phonemgr.glade.h:3
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+"Forsøg altid at forbinde igen når en forbindelse ikke umiddelbart er "
+"tilgængelig. Brug denne med Bluetooth for at sikre at din telefon forbinder "
+"så snart den er inden for rækkevidde."
+
+#: ../data/phonemgr.glade.h:4
+msgid "Automated Tasks"
+msgstr "Automatiske opgaver"
+
+#: ../data/phonemgr.glade.h:5
+msgid "Automatically _retry connections"
+msgstr "Forsøg automatisk at forbinde _igen"
+
+#: ../data/phonemgr.glade.h:6
+msgid "Characters left:"
+msgstr "Tegn tilbage:"
+
+#: ../data/phonemgr.glade.h:7
+msgid "Connect using an alternative serial device"
+msgstr "Forbind med brug af en alternativ serielenhed"
+
+#: ../data/phonemgr.glade.h:8
+msgid "Connect using infrared communication"
+msgstr "Forbind med brug af infrarød kommunikation"
+
+#: ../data/phonemgr.glade.h:9
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr "Forbind med brug af serielport 1, også kendt som COM1 eller /dev/ttyS0"
+
+#: ../data/phonemgr.glade.h:10
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr "Forbind med brug af serielport 2, også kendt som COM2 eller /dev/ttyS1"
+
+#: ../data/phonemgr.glade.h:11
+msgid "Connection"
+msgstr "Forbindelse"
+
+#: ../data/phonemgr.glade.h:12
+msgid "Date:"
+msgstr "Dato:"
+
+#: ../data/phonemgr.glade.h:13
+msgid "Enter the text message you want to send."
+msgstr "Indtast tekstbeskeden du ønsker at sende."
+
+#: ../data/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "Indtast din tekstbesked"
+
+#: ../data/phonemgr.glade.h:15
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfrarød (/dev/ircomm0)"
+
+#: ../data/phonemgr.glade.h:16
+msgid "Interface"
+msgstr "Grænseflade"
+
+#: ../data/phonemgr.glade.h:17
+msgid "Message Received"
+msgstr "Besked modtaget"
+
+#: ../data/phonemgr.glade.h:18
+msgid "Other _port"
+msgstr "Anden _port"
+
+#: ../data/phonemgr.glade.h:19
+msgid "Phone Connection"
+msgstr "Telefonforbindelse"
+
+#: ../data/phonemgr.glade.h:20
+msgid "Phone Manager Preferences"
+msgstr "Indstillinger for telefonhåndtering"
+
+#: ../data/phonemgr.glade.h:21
+msgid "Play _sound when messages arrive"
+msgstr "Afspil _lyd når beskeder ankommer"
+
+#: ../data/phonemgr.glade.h:22
+msgid "Send Message"
+msgstr "Send besked"
+
+#: ../data/phonemgr.glade.h:23
+msgid "Sender:"
+msgstr "Afsender:"
+
+#: ../data/phonemgr.glade.h:24
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "Serielport _1 (/dev/ttyS0)"
+
+#: ../data/phonemgr.glade.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "Serielport _2 (/dev/ttyS1)"
+
+#: ../data/phonemgr.glade.h:26
+msgid "Synchronise phone's _time and date"
+msgstr "Synkroniser telefonens _tid og dato"
+
+#: ../data/phonemgr.glade.h:27
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "Synkroniser telefonens tid og dato med computerens ur"
+
+#: ../data/phonemgr.glade.h:28
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "Brug Bluetooths trådløse netværk til at forbinde til din telefon"
+
+#: ../data/phonemgr.glade.h:29
+msgid "You have received a message"
+msgstr "Du har modtaget en besked"
+
+#: ../data/phonemgr.glade.h:30
+msgid "_Bluetooth"
+msgstr "_Bluetooth"
+
+#: ../data/phonemgr.glade.h:31
+msgid "_Message:"
+msgstr "_Besked:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.glade.h:33
+msgid "_Notify when message is delivered"
+msgstr "_Giv besked når besked er leveret"
+
+#: ../data/phonemgr.glade.h:34
+msgid "_Pop-up window for new messages"
+msgstr "_Pop op-vindue til nye beskeder"
+
+#: ../data/phonemgr.glade.h:35
+msgid "_Recipient:"
+msgstr "_Modtager:"
+
+#: ../data/phonemgr.glade.h:36
+msgid "_Reply"
+msgstr "_Svar"
+
+#: ../data/phonemgr.glade.h:37
+msgid "_Send"
+msgstr "_Send"
+
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "Bluetoothadresse på enheden der skal forbindes til"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+"Bluetoothadresse på enheden der skal forbindes til. Kræver at "
+"connection_type er 1."
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Forbindelsestypen brugt af gnome-phone-manager"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+"Forbindelsestypen brugt af gnome-phone-manager: Bluetooth er 0 seriel 1 er 1 "
+"seriel 2 er 2 IrDa er 3 andre forbindelsestyper er 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Enhedsknuden serielenheden skal forbinde til"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
+"Enhedsknuden serielenheden skal forbinde til. Kræver connection_type 4."
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Hvorvidt der skal afspilles en alarmlyd, når en ny besked ankommer"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Hvorvidt der skal afspilles en alarmlyd, når en ny besked ankommer."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "Hvorvidt nye beskeder skal poppe op på skrivebordet"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"Hvorvidt nye beskeder skal poppe op på skrivebordet så snart de modtages, "
+"til forskel fra at vise dem når der klikkes på statusikonet."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Hvorvidt der skal genforbindes til mobiltelefonen"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+"Hvorvidt der skal genforbindes til mobiltelefonen, hvis forbindelsen fejler "
+"et sted."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "Hvorvidt telefonuret skal synkroniseres med computerens"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "Hvorvidt telefonuret skal synkroniseres med computerens."
