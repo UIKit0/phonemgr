@@ -1136,8 +1136,8 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	error = gn_sms_send (&l->phone_state->data, &l->phone_state->state);
 
 	/* Remove the reference to SMS */
-	if (l->phone_state->data.sms.reference != NULL)
-		free (l->phone_state->data.sms.reference);
+	if (l->phone_state->data.sms->reference != NULL)
+		free (l->phone_state->data.sms->reference);
 	l->phone_state->data.sms = NULL;
 
 	/* Unlock the phone */
