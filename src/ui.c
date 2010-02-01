@@ -113,7 +113,7 @@ static void
 chooser_created (BluetoothChooserButton *button, BluetoothChooser *chooser, gpointer data)
 {
 	g_object_set(chooser,
-		     "show-search", FALSE,
+		     "show-searching", FALSE,
 		     "show-pairing", FALSE,
 		     "show-device-type", FALSE,
 		     "device-type-filter", BLUETOOTH_TYPE_PHONE,
