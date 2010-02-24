@@ -1,176 +1,130 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Simplified Chinese translation of phonemgr
+# Copyright (C) 2004, 2010 Free Software Foundation, Inc,
+# This file is distributed under the same license as the phonemgr package.
 # Funda Wang <fundawang@linux.net.cn>, 2004.
+# YunQiang Su <wzssyqa@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-03 12:01+0100\n"
-"PO-Revision-Date: 2004-12-04 01:45+0800\n"
-"Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
-"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"Project-Id-Version: phonemgr master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&component=general\n"
+"POT-Creation-Date: 2010-02-05 17:50+0000\n"
+"PO-Revision-Date: 2010-02-24 16:31+0800\n"
+"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: libegg/libegg/iconlist/eggiconlist.c:313
-msgid "Selection mode"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:314
-msgid "The selection mode"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:322
-msgid "Sorted"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:323
-msgid "Icon list is sorted"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:329
-msgid "Sort order"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:330
-msgid "Sort direction the icon list should use"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:344
-msgid "Icon padding"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:345
-msgid "Number of pixels between icons"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:352
-msgid "Top margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:353
-msgid "Number of pixels in top margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:360
-msgid "Bottom margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:361
-msgid "Number of pixels in bottom margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:369
-msgid "Left margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:370
-msgid "Number of pixels in left margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:377
-msgid "Right margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:378
-msgid "Number of pixels in right margin"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:386
-msgid "Selection Box Color"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:387
-msgid "Color of the selection box"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:393
-msgid "Selection Box Alpha"
-msgstr ""
-
-#: libegg/libegg/iconlist/eggiconlist.c:394
-msgid "Opacity of the selection box"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:154
-msgid "Pixbuf"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:155
-msgid "A GdkPixbuf to display"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:162
-msgid "Filename"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:163
-msgid "Filename to load and display"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:170
-msgid "Stock ID"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:171
-msgid "Stock ID for a stock image to display"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:178
-msgid "Animation"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:179
-msgid "GdkPixbufAnimation to display"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:186
-msgid "Image type"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:187
-msgid "The representation being used for image data"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:195
-msgid "Size"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:196
-msgid "The size of the icon"
-msgstr ""
-
-#: libegg/libegg/tray/eggstatusicon.c:205
-msgid "Blinking"
-msgstr "闪烁"
-
-#: libegg/libegg/tray/eggstatusicon.c:206
-msgid "Whether or not the status icon is blinking"
-msgstr ""
-
-#: libegg/libegg/tray/eggtrayicon.c:118
-#: libegg/libegg/tray/eggtraymanager.c:145
-msgid "Orientation"
-msgstr ""
-
-#: libegg/libegg/tray/eggtrayicon.c:119
-#: libegg/libegg/tray/eggtraymanager.c:146
-msgid "The orientation of the tray."
-msgstr ""
-
-#. translators: the %d is substituted for a number
-#. which can be used for diagnostic purposes
-#: src/connection.c:40
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
 #, c-format
-msgid "Unable to obtain RFCOMM connection (%d)"
-msgstr "无法获得 RFCOMM 连接(%d)"
+msgid "Cannot get contact: %s"
+msgstr "无法获取联系人：%s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "无法找到联系人：%s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+msgid "Cannot create searchable view."
+msgstr "无法创建可搜索视图。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+msgid "Success"
+msgstr "成功"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+msgid "An argument was invalid."
+msgstr "一个参数无效。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+msgid "The address book is busy."
+msgstr "地址簿忙。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+msgid "The address book is offline."
+msgstr "地址簿离线"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+msgid "The address book does not exist."
+msgstr "地址簿不存在。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+msgid "The \"Me\" contact does not exist."
+msgstr "“Me”联系人不存在。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+msgid "The address book is not loaded."
+msgstr "地址簿未加载。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+msgid "The address book is already loaded."
+msgstr "地址簿已经加载。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+msgid "Permission was denied when accessing the address book."
+msgstr "访问地址簿时许可被拒绝。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+msgid "The contact was not found."
+msgstr "联系人未找到。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+msgid "This contact ID already exists."
+msgstr "联系人 ID 已经存在。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+msgid "The protocol is not supported."
+msgstr "协议不受支持。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+msgid "The operation was cancelled."
+msgstr "操作被取消。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+msgid "The operation could not be cancelled."
+msgstr "操作无法取消。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+msgid "The address book authentication failed."
+msgstr "地址簿认证失败。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr "访问地址簿需要认证但是没有给出。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+msgid "A secure connection is not available."
+msgstr "安全连接不可用。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "访问地址簿时发生 CORBA 错误。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+msgid "The address book source does not exist."
+msgstr "地址簿源不存在。"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+msgid "An unknown error occurred."
+msgstr "发生了一个未知错误。"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#, c-format
+msgid "GConf error: %s"
+msgstr "GConf 错误：%s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+msgid "All further errors shown only on terminal."
+msgstr "进一步的错误只在终端中显示。"
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:110
+#: ../src/connection.c:124
 #, c-format
 msgid "Connected to device on %s"
 msgstr "已连接到 %s 上的设备"
@@ -179,237 +133,329 @@ msgstr "已连接到 %s 上的设备"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: src/connection.c:119
+#: ../src/connection.c:130
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "连接到 %s 上的设备失败"
 
-#. When try icon is destroyed, recreate it.  This happens
-#. when the notification area is removed.
-#: src/gnome-phone-manager.desktop.in.h:1 src/icon.c:66 src/menu.c:30
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "电话管理器"
 
-#: src/gnome-phone-manager.desktop.in.h:2
+#: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
 msgstr "从您的移动电话收发文字消息"
 
-#: src/icon.c:162
+#: ../src/icon.c:59
 msgid "Message arrived"
 msgstr "收到了消息"
 
-#: src/icon.c:166
+#: ../src/icon.c:62
 msgid "Connected"
 msgstr "已连接"
 
-#: src/icon.c:171
+#: ../src/icon.c:66
 msgid "Connecting to phone"
 msgstr "已连接到电话"
 
-#: src/icon.c:176
+#: ../src/icon.c:70
 msgid "Not connected"
 msgstr "未连接"
 
-#: src/icon.c:196
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-"span>\n"
-"\n"
-"Phone Manager uses the notification area to display information and provide "
-"access to message sending and preferences. You can add it by right-clicking "
-"on your panel and choosing <i>Add to Panel -> Utility -> Notification Area</"
-"i>."
-msgstr ""
+#: ../src/main.c:38
+msgid "Show model name of a specific device"
+msgstr "显示指定设备的型号名"
 
-#: src/main.c:36
-msgid "Couldn't create phone listener."
-msgstr "无法创建电话监听器。"
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr "为 gnokii 调试写配置文件"
 
-#: src/menu.c:22
+#: ../src/main.c:40
+msgid "Enable debug"
+msgstr "启用调试"
+
+#: ../src/main.c:41
+msgid "Show version information and exit"
+msgstr "显示版本信息然后退出"
+
+#: ../src/main.c:60
+msgid "- Manage your mobile phone"
+msgstr " - 管理您的移动电话"
+
+#: ../src/main.c:72
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager 版本 %s\n"
+
+#: ../src/menu.c:40
 msgid "translator_credits"
-msgstr "开源软件国际化之简体中文组"
+msgstr "YunQiang Su <wzssyqa@gmail.com>"
 
-#: src/menu.c:32
+#: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "从您的移动电话收发短消息。"
 
-#: src/menu.c:75
+#: ../src/menu.c:56
+msgid "Phone Manager website"
+msgstr "电话管理器网站"
+
+#: ../src/menu.c:87
 msgid "_Send Message"
 msgstr "发送消息(_S)"
 
-#: src/ui.c:88
-msgid "No Bluetooth device chosen."
-msgstr "没有选择蓝牙设备。"
+#: ../src/ui.c:166
+msgid "New text message received"
+msgstr "收到了新文本消息"
 
-#: src/ui.c:321
+#: ../src/ui.c:331
 msgid "Message too long!"
 msgstr "消息太长！"
 
-#: ui/phonemgr.glade.h:1 ui/strings.c:31 ui/strings.c:44
-msgid "*"
-msgstr "*"
+#: ../data/phonemgr.glade.h:1
+msgid "Alerting"
+msgstr "提醒"
 
-#: ui/phonemgr.glade.h:2 ui/strings.c:30
-msgid "/dev/ttyS2"
-msgstr ""
-
-#: ui/phonemgr.glade.h:3 ui/strings.c:15
-msgid "<b>Alerting</b>"
-msgstr ""
-
-#: ui/phonemgr.glade.h:4 ui/strings.c:35
-msgid "<b>Error Handling</b>"
-msgstr "<b>错误处理</b>"
-
-#: ui/phonemgr.glade.h:5 ui/strings.c:32
-msgid "<b>Phone Connection</b>"
-msgstr "<b>电话连接</b>"
-
-#: ui/phonemgr.glade.h:6 ui/strings.c:39
-msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">输入您的文字消息</span>"
-
-#: ui/phonemgr.glade.h:7 ui/strings.c:9
-msgid ""
-"<span weight=\"bold\" size=\"larger\">You have received a message</span>"
-msgstr ""
-
-#: ui/phonemgr.glade.h:8 ui/strings.c:29
+#: ../data/phonemgr.glade.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
-msgstr ""
+msgstr "其它设备文件名，例如 /dev/ttyS3"
 
-#: ui/phonemgr.glade.h:9 ui/strings.c:33
+#: ../data/phonemgr.glade.h:3
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
 "range."
 msgstr ""
+"每当连接不立即可用时，总使尝试重新连接。对蓝牙使用此选项可以确保，每当手机进"
+"入可用区域，自动连接。"
 
-#: ui/phonemgr.glade.h:10 ui/strings.c:34
+#: ../data/phonemgr.glade.h:4
+msgid "Automated Tasks"
+msgstr "自动任务"
+
+#: ../data/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
 msgstr "自动重试连接(_R)"
 
-#: ui/phonemgr.glade.h:11 ui/strings.c:40
+#: ../data/phonemgr.glade.h:6
 msgid "Characters left:"
 msgstr "所剩字符数："
 
-#: ui/phonemgr.glade.h:12 ui/strings.c:20
-msgid "Choo_se"
-msgstr "选择(_S)"
-
-#: ui/phonemgr.glade.h:13 ui/strings.c:19
-msgid "Choose a Bluetooth-enabled mobile phone to connect to."
-msgstr "选择要连接的蓝牙移动电话。"
-
-#: ui/phonemgr.glade.h:14 ui/strings.c:27
+#: ../data/phonemgr.glade.h:7
 msgid "Connect using an alternative serial device"
 msgstr "使用另外的串行设备连接"
 
-#: ui/phonemgr.glade.h:15 ui/strings.c:25
+#: ../data/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
 msgstr "使用红外连接"
 
-#: ui/phonemgr.glade.h:16 ui/strings.c:21
+#: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
+msgstr "使用串口 1 连接，也就是 COM1 或 /dev/ttyS0"
 
-#: ui/phonemgr.glade.h:17 ui/strings.c:23
+#: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
+msgstr "使用串口 2 连接，也就是 COM2 或 /dev/ttyS1"
 
-#: ui/phonemgr.glade.h:18 ui/strings.c:36
+#: ../data/phonemgr.glade.h:11
 msgid "Connection"
 msgstr "连接"
 
-#: ui/phonemgr.glade.h:19 ui/strings.c:11
+#: ../data/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "日期："
 
-#: ui/phonemgr.glade.h:20 ui/strings.c:43
-msgid "Enter the number you wish to send a message to."
-msgstr "输入您想要发送的电话号码。"
-
-#: ui/phonemgr.glade.h:21 ui/strings.c:46
+#: ../data/phonemgr.glade.h:13
 msgid "Enter the text message you want to send."
 msgstr "输入您想要发送的文字消息。"
 
-#: ui/phonemgr.glade.h:22 ui/strings.c:16
+#: ../data/phonemgr.glade.h:14
+msgid "Enter your text message"
+msgstr "输入您的文本消息。"
+
+#: ../data/phonemgr.glade.h:15
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "红外(/dev/ircomm0)(_N)"
+
+#: ../data/phonemgr.glade.h:16
 msgid "Interface"
 msgstr "界面"
 
-#.
-#. * Translatable strings file generated by Glade.
-#. * Add this file to your project's POTFILES.in.
-#. * DO NOT compile it as part of your application.
-#.
-#: ui/phonemgr.glade.h:23 ui/strings.c:7
+#: ../data/phonemgr.glade.h:17
 msgid "Message Received"
 msgstr "收到了消息"
 
-#: ui/phonemgr.glade.h:24 ui/strings.c:41
-msgid "Number of characters left in the message"
-msgstr "消息中所剩字符数"
-
-#: ui/phonemgr.glade.h:25 ui/strings.c:28
+#: ../data/phonemgr.glade.h:18
 msgid "Other _port"
 msgstr "其它端口(_P)"
 
-#: ui/phonemgr.glade.h:26 ui/strings.c:12
+#: ../data/phonemgr.glade.h:19
+msgid "Phone Connection"
+msgstr "电话连接"
+
+#: ../data/phonemgr.glade.h:20
 msgid "Phone Manager Preferences"
 msgstr "电话管理器首选项"
 
-#: ui/phonemgr.glade.h:27 ui/strings.c:14
+#: ../data/phonemgr.glade.h:21
 msgid "Play _sound when messages arrive"
 msgstr "收到消息时播放声音(_S)"
 
-#: ui/phonemgr.glade.h:28 ui/strings.c:37
+#: ../data/phonemgr.glade.h:22
 msgid "Send Message"
 msgstr "发送消息"
 
-#: ui/phonemgr.glade.h:29 ui/strings.c:10
+#: ../data/phonemgr.glade.h:23
 msgid "Sender:"
 msgstr "发送人："
 
-#: ui/phonemgr.glade.h:30 ui/strings.c:22
+#: ../data/phonemgr.glade.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "串口1(/dev/ttyS0)(_1)"
 
-#: ui/phonemgr.glade.h:31 ui/strings.c:24
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "串口2(/dev/ttyS1)(_2)"
 
-#: ui/phonemgr.glade.h:32 ui/strings.c:17
+#: ../data/phonemgr.glade.h:26
+msgid "Synchronise phone's _time and date"
+msgstr "同步电话的时间和日期(_T)"
+
+#: ../data/phonemgr.glade.h:27
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "使用计算机时钟同步电话时间和日期"
+
+#: ../data/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "使用蓝牙无线网络连接到您的电话"
 
-#: ui/phonemgr.glade.h:33 ui/strings.c:18
+#: ../data/phonemgr.glade.h:29
+msgid "You have received a message"
+msgstr "您收到了一条消息"
+
+#: ../data/phonemgr.glade.h:30
 msgid "_Bluetooth"
 msgstr "蓝牙(_B)"
 
-#: ui/phonemgr.glade.h:34 ui/strings.c:26
-msgid "_Infra red (/dev/ircomm0)"
-msgstr "红外(/dev/ircomm0)(_I)"
-
-#: ui/phonemgr.glade.h:35 ui/strings.c:45
+#: ../data/phonemgr.glade.h:31
 msgid "_Message:"
 msgstr "消息(_M)："
 
-#: ui/phonemgr.glade.h:36 ui/strings.c:13
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.glade.h:33
+msgid "_Notify when message is delivered"
+msgstr "消息成功传送时通知(_N)"
+
+#: ../data/phonemgr.glade.h:34
 msgid "_Pop-up window for new messages"
 msgstr "新消息弹出窗口(_P)"
 
-#: ui/phonemgr.glade.h:37 ui/strings.c:42
+#: ../data/phonemgr.glade.h:35
 msgid "_Recipient:"
 msgstr "收件人(_R)："
 
-#: ui/phonemgr.glade.h:38 ui/strings.c:8
+#: ../data/phonemgr.glade.h:36
 msgid "_Reply"
 msgstr "回复(_R)"
 
-#: ui/phonemgr.glade.h:39 ui/strings.c:38
+#: ../data/phonemgr.glade.h:37
 msgid "_Send"
 msgstr "发送(_S)"
 
-#: ui/phonemgr.glade.h:40 ui/strings.c:47
-msgid "message body"
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr "要连接到设备的蓝牙地址"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr "要连接到设备的蓝牙地址。要使用，要求 connection_type 为 1。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr "gnome-phone-manager 使用的连接类型"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
 msgstr ""
+"gnome-phone-manager 使用的连接类型：蓝牙是 0，串口 1 是 1，串口 2 是 2，红外"
+"是 3，其它是 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "要连接到的串口设备的设备节点"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr "要连接到的串口设备的设备节点。要使用，要求 connection_type 为 4。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "新消息到达时是否播放声音提示"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "新消息到达时是否播放声音提示。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr "是否在桌面上弹出新消息"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"消息到达时，是否在桌面上立即弹出新消息，与之相对的是点击托盘图标时显示。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "是否重新尝试连接到移动电话"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr "如果连接在某些点失败，是否重新尝试连接到移动电话。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "是否使用计算机时钟同步手机"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "是否使用计算机时钟同步手机。"
+
+#~ msgid "Blinking"
+#~ msgstr "闪烁"
+
+#~ msgid "Unable to obtain RFCOMM connection (%d)"
+#~ msgstr "无法获得 RFCOMM 连接(%d)"
+
+#~ msgid "Couldn't create phone listener."
+#~ msgstr "无法创建电话监听器。"
+
+#~ msgid "No Bluetooth device chosen."
+#~ msgstr "没有选择蓝牙设备。"
+
+#~ msgid "*"
+#~ msgstr "*"
+
+#~ msgid "<b>Error Handling</b>"
+#~ msgstr "<b>错误处理</b>"
+
+#~ msgid "<span weight=\"bold\" size=\"larger\">Enter your text message</span>"
+#~ msgstr "<span weight=\"bold\" size=\"larger\">输入您的文字消息</span>"
+
+#~ msgid "Choo_se"
+#~ msgstr "选择(_S)"
+
+#~ msgid "Enter the number you wish to send a message to."
+#~ msgstr "输入您想要发送的电话号码。"
+
+#~ msgid "Number of characters left in the message"
+#~ msgstr "消息中所剩字符数"
