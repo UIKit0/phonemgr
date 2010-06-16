@@ -1,14 +1,15 @@
-# Slovenian translation of phone manager package.
+# Slovenian translations for phonemgr.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the package.
-# Andrej Žnidaršič, <andrej.znidarsic@gmail.com>, 2009.
+# This file is distributed under the same license as the phonemgr package.
+#
+# Andrej Žnidaršič <andrej.znidarsic@gmail.com>, 2009 - 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Phone manager\n"
+"Project-Id-Version: phonemgr master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-phone-manager&component=general\n"
 "POT-Creation-Date: 2009-11-11 17:17+0000\n"
-"PO-Revision-Date: 2009-11-30 22:01+0100\n"
+"PO-Revision-Date: 2010-06-16 20:22+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -22,12 +23,12 @@ msgstr ""
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
 #, c-format
 msgid "Cannot get contact: %s"
-msgstr "Stika ni mogoče dobiti: %s"
+msgstr "Ni mogoče pridobiti stika: %s"
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
 #, c-format
 msgid "Could not find contact: %s"
-msgstr "Stika ni mogoče najti: %s"
+msgstr "Ni mogoče najti stika: %s"
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
 msgid "Cannot create searchable view."
@@ -95,7 +96,7 @@ msgstr "Overitev dostopa do imenika je spodletela."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
 msgid "Authentication is required to access the address book and was not given."
-msgstr "Zahtevana overitev za dostop do imenika ni bila dana."
+msgstr "Zahtevana overitev za dostop do imenika ni bila podana."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
 msgid "A secure connection is not available."
@@ -152,11 +153,11 @@ msgstr "Prejemanje in pošiljanje kratkih sporočil z vašega mobilnega telefona
 
 #: ../src/icon.c:59
 msgid "Message arrived"
-msgstr "Sporočilo je prispelo"
+msgstr "Prispelo je sporočilo"
 
 #: ../src/icon.c:62
 msgid "Connected"
-msgstr "Povezan"
+msgstr "Povezano"
 
 #: ../src/icon.c:66
 msgid "Connecting to phone"
@@ -168,11 +169,11 @@ msgstr "Ni povezave"
 
 #: ../src/main.c:38
 msgid "Show model name of a specific device"
-msgstr "Prikaži ime modela določene naprave"
+msgstr "Pokaži ime modela določene naprave"
 
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
-msgstr "Napiši nastavitveno datoteko za gnokii razhroščevanje"
+msgstr "Zapiši nastavitveno datoteko za gnokii razhroščevanje"
 
 #: ../src/main.c:40
 msgid "Enable debug"
@@ -180,7 +181,7 @@ msgstr "Omogoči razhroščevanje"
 
 #: ../src/main.c:41
 msgid "Show version information and exit"
-msgstr "Prikaži podrobnosti različice in končaj"
+msgstr "Pokaži podrobnosti različice in končaj"
 
 #: ../src/main.c:60
 msgid "- Manage your mobile phone"
@@ -226,7 +227,7 @@ msgstr "Ime dodatne naprave, na primer /dev/ttyS3"
 # Samodejen se tukaj sliši boljše kot vedno.
 #: ../data/phonemgr.glade.h:3
 msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
-msgstr "Samodejen poskus ponovne povezave, ko povezava ni takoj dostopna. Uporabite z Bluetooth za zagotovitev, da se telefon poveže, kadarkoli pride v doseg."
+msgstr "Ko povezava ni takoj dostopna, samodejno ponovi postopek povezave. Možnost se uporablja z napravo Bluetooth za zagotavljanje telefonske povezave, kadarkoli je ta v dosegu."
 
 #: ../data/phonemgr.glade.h:4
 msgid "Automated Tasks"
@@ -246,15 +247,15 @@ msgstr "Povezava preko dodatne zaporedne naprave"
 
 #: ../data/phonemgr.glade.h:8
 msgid "Connect using infrared communication"
-msgstr "Povezava z uporabo infrardeče komunikacije"
+msgstr "Povezava preko infrardečega vmesnika"
 
 #: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr "Povezava preko zaporednih vrat 1, poznanih tudi kot COM1 ali /dev/ttyS0"
+msgstr "Povezava preko zaporednih vrat 1, poimenovanih tudi COM1 ali /dev/ttyS0"
 
 #: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr "Povezava preko zaporednih vrat 2, poznanih tudi kot COM2 ali /dev/ttyS1"
+msgstr "Povezava preko zaporednih vrat 2, poimenovanih tudi COM2 ali /dev/ttyS1"
 
 #: ../data/phonemgr.glade.h:11
 msgid "Connection"
@@ -282,7 +283,7 @@ msgstr "Vmesnik"
 
 #: ../data/phonemgr.glade.h:17
 msgid "Message Received"
-msgstr "Sporočilo je prejeto"
+msgstr "Prejeto je sporočilo"
 
 #: ../data/phonemgr.glade.h:18
 msgid "Other _port"
@@ -290,7 +291,7 @@ msgstr "Druga _vrata"
 
 #: ../data/phonemgr.glade.h:19
 msgid "Phone Connection"
-msgstr "Povezava telefona"
+msgstr "Povezava s telefonom"
 
 #: ../data/phonemgr.glade.h:20
 msgid "Phone Manager Preferences"
@@ -343,7 +344,7 @@ msgstr "_Sporočilo:"
 #. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
 #: ../data/phonemgr.glade.h:33
 msgid "_Notify when message is delivered"
-msgstr "_Obvesti ko je sporočilo dostavljeno"
+msgstr "_Obvesti, ko je sporočilo dostavljeno"
 
 #: ../data/phonemgr.glade.h:34
 msgid "_Pop-up window for new messages"
@@ -403,17 +404,16 @@ msgstr "Ali naj bodo pojavna okna novih sporočil prikazana na namizju, takoj ko
 
 #: ../data/gnome-phone-manager.schemas.in.h:11
 msgid "Whether to retry connecting to the mobile phone"
-msgstr "Ali naj se ponovno poskusi povezati na mobilni telefon"
+msgstr "Ali naj se ponovni poskus povezave z mobilnim telefonom"
 
 #: ../data/gnome-phone-manager.schemas.in.h:12
 msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
-msgstr "Ali naj se ponovno poskusi povezati na mobilni telefon, če povezava spodleti."
+msgstr "Ali naj se ponovi poskus povezave z mobilnim telefonom, kadar se povezava prekine."
 
 #: ../data/gnome-phone-manager.schemas.in.h:13
 msgid "Whether to synchronise the phone clock with the computer's"
-msgstr "Ali naj bo ura telefona usklajena z računalnikovo"
+msgstr "Ali naj se ura telefona uskladi z uro računalnika"
 
 #: ../data/gnome-phone-manager.schemas.in.h:14
 msgid "Whether to synchronise the phone clock with the computer's."
-msgstr "Ali naj bo ura telefona usklajena z računalnikovo."
-
+msgstr "Ali naj bo ura telefona usklajena z uro računalnika."
