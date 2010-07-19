@@ -115,6 +115,7 @@ static EBookQuery* create_query (EContactEntry *entry, const char* s);
 static guint entry_height (GtkWidget *widget);
 static const char* stringify_ebook_error (const EBookStatus status);
 static void e_contact_entry_item_free (EContactEntyItem *item);
+static void entry_changed_cb (GtkEditable *editable, gpointer user_data);
 
 /**
  * The entry was activated.  Take the first contact found and signal the user.
@@ -187,8 +188,10 @@ completion_match_selected_cb (GtkEntryCompletion *completion, GtkTreeModel *mode
     g_free (message);
     return FALSE;
   }
+  g_signal_handlers_block_by_func (G_OBJECT (entry), entry_changed_cb, NULL);
   gtk_entry_set_text (GTK_ENTRY (entry), "");
   g_signal_emit (G_OBJECT (entry), signals[CONTACT_SELECTED], 0, contact, identifier);
+  g_signal_handlers_unblock_by_func (G_OBJECT (entry), entry_changed_cb, NULL);
   g_object_unref (contact);
   g_free (uid);
   g_free (identifier);
@@ -382,7 +385,7 @@ entry_changed_cb (GtkEditable *editable, gpointer user_data)
   EContactEntry *entry;
   entry = E_CONTACT_ENTRY (editable);
 
-  if (GTK_ENTRY (editable)->text_length >= entry->priv->lookup_length) {
+  if (gtk_entry_get_text_length (GTK_ENTRY (editable)) >= entry->priv->lookup_length) {
     GList *l;
     EBookQuery *query;
 
