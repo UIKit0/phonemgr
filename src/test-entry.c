@@ -56,7 +56,7 @@ int main (int argc, char **argv)
 	g_signal_connect (G_OBJECT (entry), "phone_changed",
 			G_CALLBACK (phone_changed_cb), NULL);
 
-	gtk_container_add (GTK_CONTAINER (GTK_DIALOG (window)->vbox), entry);
+	gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), entry);
 
 	gtk_widget_show_all (window);
 
