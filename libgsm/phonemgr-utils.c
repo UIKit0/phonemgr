@@ -586,7 +586,7 @@ phonemgr_utils_tell_driver (const char *addr)
 	channel = -1;
 	type = phonemgr_utils_address_is (addr);
 	if (phonemgr_utils_connection_is_supported (type) == FALSE) {
-		g_warning ("Connection type isn't support by your gnokii build");
+		g_warning ("Connection type isn't supported by your libgnokii build");
 		return;
 	}
 
@@ -633,7 +633,7 @@ phonemgr_utils_write_gnokii_config (const char *addr)
 	channel = -1;
 	type = phonemgr_utils_address_is (addr);
 	if (phonemgr_utils_connection_is_supported (type) == FALSE) {
-		g_warning ("Connection type isn't support by your gnokii build");
+		g_warning ("Connection type isn't supported by your libgnokii build");
 		return;
 	}
 
