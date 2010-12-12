@@ -36,7 +36,7 @@ static gboolean version = FALSE;
 
 const GOptionEntry options[] = {
 	{ "identify", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_ident, N_("Show model name of a specific device"), NULL },
-	{ "config", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_config, N_("Write the configuration file for gnokii debugging"), NULL },
+	{ "config", '\0', 0, G_OPTION_ARG_STRING, &bdaddr_config, N_("Write the configuration file for gnokii debugging"), N_("PORT") },
 	{ "debug", 'd', 0, G_OPTION_ARG_NONE, &debug, N_("Enable debug"), NULL},
 	{ "version", 'v', 0, G_OPTION_ARG_NONE, &version, N_("Show version information and exit"), NULL },
 	{ NULL }
