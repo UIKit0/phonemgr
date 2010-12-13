@@ -3,15 +3,15 @@
 # Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
 # This file is distributed under the same license as the phonemgr package.
 # Miloslav Trmac <mitr@volny.cz>, 2004.
-# Marek Černocký <marek@manet.cz>, 2009.
+# Marek Černocký <marek@manet.cz>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "phone-manager&component=general\n"
-"POT-Creation-Date: 2009-10-26 23:00+0000\n"
-"PO-Revision-Date: 2009-11-07 20:10+0100\n"
+"POT-Creation-Date: 2010-12-12 19:24+0000\n"
+"PO-Revision-Date: 2010-12-13 12:19+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,108 +21,108 @@ msgstr ""
 "X-Poedit-Language: Czech\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Nelze získat kontakt: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Nelze najít kontakt: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "Nelze vytvořit prohledávatelné zobrazení."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "V pořádku"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Některý z přepínačů je neplatný."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "Adresář je zaneprázdněn."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "Adresář je off-line."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "Adresář neexistuje."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "Kontakt „Já“ neexistuje."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "Adresář není načtený."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "Adresář je již načtený."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "Nedostatečná oprávnění při přístupu k adresáři."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "Kontakt nebyl nalezen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "ID kontaktu již existuje."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "Protokol není podporován."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "Operace byla zrušena."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "Operaci nelze zrušit."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "Ověření přístupu k adresáři selhalo."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr "Pro přístup k adresáři je vyžadováno ověření, ale nebylo použito."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "Bezpečné připojení není k dispozici."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Během přístupu k adresáři se vyskytla chyba architektury CORBA."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "Neexistuje zdroj adresáře."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Vyskytla se neznámá chyba."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "Chyba GConf: %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Všechny další chyby se zobrazují pouze v terminálu."
 
@@ -173,6 +173,10 @@ msgstr "Zobrazit název modelu určeného zařízení"
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Zapsat soubor s nastavením pro potřeby ladění projektu gnokii"
+
+#: ../src/main.c:39
+msgid "PORT"
+msgstr "PORT"
 
 #: ../src/main.c:40
 msgid "Enable debug"
@@ -446,132 +450,4 @@ msgstr "Zda synchronizovat hodiny telefonu s počítačem."
 #: ../data/gnome-phone-manager.schemas.in.h:14
 msgid "Whether to synchronise the phone clock with the computer's."
 msgstr "Zda synchronizovat hodiny telefonu s počítačem."
-
-#~ msgid "Selection mode"
-#~ msgstr "Režim výběru"
-
-#~ msgid "The selection mode"
-#~ msgstr "Režim výběru"
-
-#~ msgid "Sorted"
-#~ msgstr "Seřazen"
-
-#~ msgid "Icon list is sorted"
-#~ msgstr "Seznam ikon je seřazen"
-
-#~ msgid "Sort order"
-#~ msgstr "Pořadí řazení"
-
-#~ msgid "Sort direction the icon list should use"
-#~ msgstr "Smer řazení, který má seznam ikon používat"
-
-#~ msgid "Icon padding"
-#~ msgstr "Rozestup ikon"
-
-#~ msgid "Number of pixels between icons"
-#~ msgstr "Počet pixelů mezi ikonami"
-
-#~ msgid "Top margin"
-#~ msgstr "Horní okraj"
-
-#~ msgid "Number of pixels in top margin"
-#~ msgstr "Počet pixelů na horním okraji"
-
-#~ msgid "Bottom margin"
-#~ msgstr "Spodní okraj"
-
-#~ msgid "Number of pixels in bottom margin"
-#~ msgstr "Počet pixelů na dolním okraji"
-
-#~ msgid "Left margin"
-#~ msgstr "Levý okraj"
-
-#~ msgid "Number of pixels in left margin"
-#~ msgstr "Počet pixelů na levém okraji"
-
-#~ msgid "Right margin"
-#~ msgstr "Pravý okraj"
-
-#~ msgid "Number of pixels in right margin"
-#~ msgstr "Počet pixelů na pravém okraji"
-
-#~ msgid "Selection Box Color"
-#~ msgstr "Barva obdélníku výběru"
-
-#~ msgid "Color of the selection box"
-#~ msgstr "Barva obdélníku výběru"
-
-#~ msgid "Selection Box Alpha"
-#~ msgstr "Alfa obdélníku výběru"
-
-#~ msgid "Opacity of the selection box"
-#~ msgstr "Neprůhlednost obdélníku výběru"
-
-#~ msgid "Pixbuf"
-#~ msgstr "Pixbuf"
-
-#~ msgid "A GdkPixbuf to display"
-#~ msgstr "GdkPixbuf, který zobrazovat"
-
-#~ msgid "Filename"
-#~ msgstr "Název souboru"
-
-#~ msgid "Filename to load and display"
-#~ msgstr "Název souboru, který načíst a zobrazovat"
-
-#~ msgid "Stock ID"
-#~ msgstr "Standardní ID"
-
-#~ msgid "Stock ID for a stock image to display"
-#~ msgstr "ID standardního obrázku, který zobrazovat"
-
-#~ msgid "Animation"
-#~ msgstr "Animace"
-
-#~ msgid "GdkPixbufAnimation to display"
-#~ msgstr "GdkPixbufAnimation, kterou zobrazovat"
-
-#~ msgid "Image type"
-#~ msgstr "Typ obrázku"
-
-#~ msgid "The representation being used for image data"
-#~ msgstr "Reprezentace používaná pro data obrázku"
-
-#~ msgid "Size"
-#~ msgstr "Velikost"
-
-#~ msgid "The size of the icon"
-#~ msgstr "Velikost ikony"
-
-#~ msgid "Blinking"
-#~ msgstr "Bliká"
-
-#~ msgid "Whether or not the status icon is blinking"
-#~ msgstr "Jestli ikona stavu bliká"
-
-#~ msgid "Orientation"
-#~ msgstr "Orientace"
-
-#~ msgid "The orientation of the tray."
-#~ msgstr "Orientace oznamovací oblasti."
-
-#~ msgid "Unable to obtain RFCOMM connection (%d)"
-#~ msgstr "Nemohu získat spojení RFCOMM (%d)"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Couldn't find notification area</"
-#~ "span>\n"
-#~ "\n"
-#~ "Phone Manager uses the notification area to display information and "
-#~ "provide access to message sending and preferences. You can add it by "
-#~ "right-clicking on your panel and choosing <i>Add to Panel -> Utility -> "
-#~ "Notification Area</i>."
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Nemohu najít oznamovací oblast</"
-#~ "span>\n"
-#~ "\n"
-#~ "Správce telefonu používá oznamovací oblast pro zobrazování informací a "
-#~ "poskytování přístupu k odesílání zpráv a nastavení. Můžete ji přidat "
-#~ "kliknutím pravým tlačítkem na panel a zvolením <i>Přidat na panel -> "
-#~ "Nástroj -> Oznamovací oblast</i>"
 
