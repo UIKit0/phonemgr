@@ -1,135 +1,136 @@
-# translation of phonemgr.HEAD.po to Español
+# translation of phonemgr.master.po to Español
 # Spanish translation for phonemgr
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2009, 2010.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr.HEAD\n"
+"Project-Id-Version: phonemgr.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "phone-manager&component=general\n"
-"POT-Creation-Date: 2009-02-05 11:29+0000\n"
-"PO-Revision-Date: 2009-02-13 21:43+0100\n"
+"POT-Creation-Date: 2010-12-12 15:33+0000\n"
+"PO-Revision-Date: 2010-12-13 19:57+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "No se puede obtener el contacto: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "No se puede encontrar el contacto: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "No se puede crear una vista buscable."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "Éxito"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Un argumento era inválido."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "La libreta de direcciones está ocupada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "La libreta de direcciones está desconectada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "La libreta de direcciones no existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "El contacto «Yo» no existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "La libreta de dirección no está cargada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "La libreta de dirección ya está cargada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "Se denegó el permiso al acceder a la libreta de direcciones."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "No se encontró el contacto."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "Este ID de contacto ya existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "El protocolo no está soportado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "La operación fue cancelada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "La operación no se pudo cancelar."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "La autenticación de la libreta de direcciones falló."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr ""
 "Se requiere autenticación para acceder a la libreta de direcciones y no se "
 "proporcionó."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "No está disponible una conexión segura."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Ocurrió un error CORBA durante el acceso a la libreta de direcciones."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "La fuente de la libreta de direcciones no existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Ocurrió un error desconocido."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "Error de GConf:  %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Todos los demás errores se muestran sólo en el terminal."
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:125
+#: ../src/connection.c:124
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Conectado con el dispositivo en %s"
@@ -138,7 +139,7 @@ msgstr "Conectado con el dispositivo en %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:131
+#: ../src/connection.c:130
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Ha fallado la conexión con el dispositivo %s"
@@ -175,6 +176,10 @@ msgstr "Mostrar el nombre del modelo de un dispositivo específico"
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Escriba el archivo de configuración para la depuración de gnokii"
 
+#: ../src/main.c:39
+msgid "PORT"
+msgstr "PUERTO"
+
 #: ../src/main.c:40
 msgid "Enable debug"
 msgstr "Activar depuración"
@@ -210,16 +215,11 @@ msgstr "Página web del Gestor de teléfonos"
 msgid "_Send Message"
 msgstr "_Enviar mensaje"
 
-#: ../src/phonemgr-chooser-button.c:79 ../src/phonemgr-chooser-button.c:188
-msgid "Click to select device..."
-msgstr "Pulse para seleccionar el dispositivo..."
-
-#: ../src/ui.c:139
-#| msgid "Message Received"
+#: ../src/ui.c:166
 msgid "New text message received"
 msgstr "Nuevo mensaje de texto recibido"
 
-#: ../src/ui.c:304
+#: ../src/ui.c:331
 msgid "Message too long!"
 msgstr "El mensaje es demasiado largo."
 
@@ -458,6 +458,9 @@ msgstr "Indica si se debe sincronizar el reloj del teléfono con el del equipo"
 #: ../data/gnome-phone-manager.schemas.in.h:14
 msgid "Whether to synchronise the phone clock with the computer's."
 msgstr "Indica si se debe sincronizar el reloj del teléfono con el del equipo."
+
+#~ msgid "Click to select device..."
+#~ msgstr "Pulse para seleccionar el dispositivo..."
 
 #~ msgid "/dev/ttyS2"
 #~ msgstr "/dev/ttyS2"
