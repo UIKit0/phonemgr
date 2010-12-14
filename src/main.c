@@ -65,8 +65,10 @@ main (int argc, char **argv)
 	if (g_option_context_parse (context, &argc, &argv, &error) == FALSE) {
 		g_error ("Couldn't parse options: %s", error->message);
 		g_error_free (error);
+		g_option_context_free (context);
 		return 1;
 	}
+	g_option_context_free (context);
 
 	if (version != FALSE) {
 		g_print (_("gnome-phone-manager version %s\n"), VERSION);
