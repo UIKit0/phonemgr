@@ -95,6 +95,8 @@ send_message (PhonemgrListener *l)
 {
 	phonemgr_listener_queue_message (l, "+447736665138",
 					 "test message XXX", TRUE);
+
+	return FALSE;
 }
 
 static gboolean debug = FALSE;
@@ -121,7 +123,6 @@ static const GOptionEntry entries[] = {
 int
 main (int argc, char **argv)
 {
-	GOptionGroup *options;
 	GOptionContext *context;
 	GError *err = NULL;
 	PhonemgrListener *listener;

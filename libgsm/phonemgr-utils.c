@@ -184,7 +184,7 @@ find_service_channel (bdaddr_t *adapter, bdaddr_t *device, gboolean only_gnapple
 {
 	sdp_session_t *sdp = NULL;
 	sdp_list_t *search = NULL, *attrs = NULL, *recs = NULL, *tmp;
-	uuid_t browse_uuid, service_id, obex_uuid;
+	uuid_t service_id;
 	uint32_t range = 0x0000ffff;
 	int channel = -1;
 
@@ -465,7 +465,6 @@ phonemgr_utils_guess_driver (PhonemgrState *phone_state, const char *device,
 {
 	const char *model;
 	char *driver;
-	gn_error err;
 
 	driver = phonemgr_utils_driver_for_device (device);
 	if (driver != NULL)
@@ -475,9 +474,7 @@ phonemgr_utils_guess_driver (PhonemgrState *phone_state, const char *device,
 		return NULL;
 
 	model = gn_lib_get_phone_model (&phone_state->state);
-
 	if (model == NULL) {
-		PhoneMgrError perr;
 		g_warning ("gn_lib_get_phone_model failed");
 		goto bail;
 	}

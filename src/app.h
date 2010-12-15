@@ -85,6 +85,7 @@ void create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip);
 void enable_flasher (MyApp *app);
 void play_alert (MyApp *app);
 void ui_hide (MyApp *app);
+GtkWidget *bluetooth_chooser_button_create (void);
 
 /* connection functions */
 void free_connection (MyApp *app);
