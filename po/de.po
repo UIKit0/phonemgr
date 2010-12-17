@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the phonemgr package.
 # Hendrik Brandt <heb@gnome-de.org>, 2004-2005.
 # Jens Seidel <jseidel@cvs.gnome.org>, 2005.
-# Mario Blättermann <mariobl@gnome.org>, 2009.
+# Mario Blättermann <mariobl@gnome.org>, 2009, 2010.
 #
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-21 22:33+0200\n"
-"PO-Revision-Date: 2009-04-21 22:53+0100\n"
+"Project-Id-Version: phonemgr master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&component=general\n"
+"POT-Creation-Date: 2010-12-12 15:33+0000\n"
+"PO-Revision-Date: 2010-12-17 14:50+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,111 +20,111 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Kontakt konnte nicht geholt werden: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Kontakt konnte nicht gefunden werden: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "Durchsuchbare Ansicht konnte nicht erstellt werden."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "Erfolg"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Ein Argument war ungültig."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "Das Adressbuch ist beschäftigt."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "Das Adressbuch ist inaktiv."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "Das Adressbuch existiert nicht."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "Der Kontakt »Ich« existiert nicht."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "Das Adressbuch ist nicht geladen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "Das Adressbuch ist bereits geladen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr ""
 "Der Zugriff wurde beim Versuch verweigert, auf das Adressbuch zuzugreifen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "Der Kontakt wurde nicht gefunden."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "Diese Kontaktkennung existiert bereits."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "Das Protokoll wird nicht unterstützt."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "Der Vorgang wurde abgebrochen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "Der Vorgang konnte nicht abgebrochen werden."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "Die Legitimierung am Adressbuch ist fehlgeschlagen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid "Authentication is required to access the address book and was not given."
 msgstr ""
 "Um auf das Adressbuch zuzugreifen, ist eine Legitimierung nötig, diese wurde "
 "nicht übergeben."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "Eine sichere Verbindung steht nicht zur Verfügung."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr ""
 "Während des Zugriffs auf das Adressbuch ist ein CORBA-Fehler aufgetreten."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "Die Adressbuchquelle existiert nicht."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Es ist ein unbekannter Fehler aufgetreten."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "GConf-Fehler: %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Alle weiteren Fehlermeldungen werden nur im Terminal angezeigt."
 
@@ -174,6 +175,10 @@ msgstr "Modellname eines bestimmten Geräts anzeigen"
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Konfigurationsdatei für gnokii-Debugging schreiben"
+
+#: ../src/main.c:39
+msgid "PORT"
+msgstr "PORT"
 
 #: ../src/main.c:40
 msgid "Enable debug"
@@ -386,8 +391,8 @@ msgid ""
 "Bluetooth address of the device to connect to. Requires connection_type to be "
 "1 to be used."
 msgstr ""
-"Bluetooth-Adresse des zu verbindenden Geräts. »connection_type« muss dafür auf "
-"1 gesetzt werden."
+"Bluetooth-Adresse des zu verbindenden Geräts. »connection_type« muss dafür "
+"auf 1 gesetzt werden."
 
 #: ../data/gnome-phone-manager.schemas.in.h:3
 msgid "The connection type used by gnome-phone-manager"
@@ -424,16 +429,16 @@ msgstr ""
 
 #: ../data/gnome-phone-manager.schemas.in.h:9
 msgid "Whether to popup new messages on the desktop"
-msgstr "Desktop-Benachrichtigungen"
+msgstr "Arbeitsflächen-Benachrichtigungen"
 
 #: ../data/gnome-phone-manager.schemas.in.h:10
 msgid ""
 "Whether to popup new messages on the desktop as soon as they're received, as "
 "opposed to showing them when clicking on the tray icon."
 msgstr ""
-"Legt fest, ob auf dem Desktop Benachrichtigungen erscheinen sollen, sobald "
-"diese empfangen werden, im Gegensatz zum Aufruf der Nachricht über das Symbol "
-"im Benachrichtigungsfeld."
+"Legt fest, ob auf der Arbeitsfläche Benachrichtigungen erscheinen sollen, "
+"sobald diese empfangen werden, im Gegensatz zum Aufruf der Nachricht über das "
+"Symbol im Benachrichtigungsfeld."
 
 #: ../data/gnome-phone-manager.schemas.in.h:11
 msgid "Whether to retry connecting to the mobile phone"
@@ -539,7 +544,7 @@ msgstr ""
 #~ msgstr "Animation"
 
 #~ msgid "GdkPixbufAnimation to display"
-#~ msgstr "Eine anzuzeigende GdkPixbufAnimation to display"
+#~ msgstr "Eine anzuzeigende GdkPixbufAnimation"
 
 #~ msgid "Image type"
 #~ msgstr "Bildtyp"
