@@ -3,411 +3,382 @@
 # This file is distributed under the same license as THIS package.
 # Automatically generated, 2007.
 # Djihed Afifi <djihed@gmail.com>, 2007
+# Khaled Hosny <khaledhosny@eglug.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-31 11:08+0100\n"
-"PO-Revision-Date: 2007-04-14 18:49+0100\n"
-"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
-"Language-Team: Arabeyes <doc@arabeyes.org>\n"
+"POT-Creation-Date: 2010-12-20 02:13+0200\n"
+"PO-Revision-Date: 2010-12-20 02:50+0300\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.6.1\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:158
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, fuzzy, c-format
 msgid "Cannot get contact: %s"
 msgstr "لا يمكن نقل المراسل."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:191
-#, fuzzy, c-format
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
+#, c-format
 msgid "Could not find contact: %s"
-msgstr "تعذّر العثور على '%s'"
+msgstr "تعذّر العثور على المتراسل: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:417
-#, fuzzy
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
-msgstr "لا يمكن إنشاء معاينة"
+msgstr "تعذّر إنشاء منظور يمكن البحث فيه."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "نجاح"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 #, fuzzy
 msgid "An argument was invalid."
 msgstr "قيمة معامل غير صالحة"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
-#, fuzzy
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
-msgstr "أفتح دفتر العناوين"
+msgstr "دفتر العناوين مشغول."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "The address book is offline."
+msgstr "دفتر العناوين غير متّصل."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book does not exist."
+msgstr "دفتر العناوين غير موجود."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
-#, fuzzy
-msgid "The address book is offline."
-msgstr "العنوان الذي أدخلته غير صحيح."
-
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
-#, fuzzy
-msgid "The address book does not exist."
-msgstr "دفتر العناوين غير موجود"
-
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 #, fuzzy
 msgid "The \"Me\" contact does not exist."
 msgstr "المستند غير موجود."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
-#, fuzzy
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
-msgstr "العنوان الذي أدخلته غير صحيح."
+msgstr "دفتر العناوين غير مُحمّل."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
-#, fuzzy
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
-msgstr "هذا الملف تم تنزيله من قبل"
+msgstr "دفتر العناوين مُحمّل فعلا."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 #, fuzzy
 msgid "Permission was denied when accessing the address book."
 msgstr "رُفض التّصريح بفتح التقويم"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
-#, fuzzy
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
-msgstr "لم يوجد المراسَل"
+msgstr "لم يُعثر على المُتراسل."
 
 # checked, typed but the nchanged: you add a new ID and the other exists
 # the meaning of this dialog is more" you can't add a newone cz another one exists"
 #
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
-#, fuzzy
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
-msgstr "هويّة المراسَل موجودة مسبقاً"
+msgstr "معرّف المراسَل موجود مسبقًا."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The protocol is not supported."
+msgstr "البروتوكول غير مدعوم."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "The operation was cancelled."
+msgstr "أُلغيت العملية."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
-#, fuzzy
-msgid "The protocol is not supported."
-msgstr "البروتوكول “%s” غير مدعوم."
+msgid "The operation could not be cancelled."
+msgstr "تعذّر إلغاء العملية."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
-#, fuzzy
-msgid "The operation was cancelled."
-msgstr "تم إلغاء العملية من طرف المستخدم."
+msgid "The address book authentication failed."
+msgstr "فشل استيثاق دفتر العناوين."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
-#, fuzzy
-msgid "The operation could not be cancelled."
-msgstr "لا يمكن تغيير التصاريح."
-
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
-#, fuzzy
-msgid "The address book authentication failed."
-msgstr "فشل مؤقّت في التّوثّق"
-
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid ""
 "Authentication is required to access the address book and was not given."
-msgstr ""
+msgstr "الاستيثاق مطلوب للوصل إلى دفتر العناوين لكنه لم يُعطَ."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "A secure connection is not available."
+msgstr "لا يتوفر اتصال آمن."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "حدث خطأ CORBA أثناء محاولة الوصول إلى دفتر العناوين."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
-#, fuzzy
-msgid "A secure connection is not available."
-msgstr "خيارات الإرسال غير متوفرة."
+msgid "The address book source does not exist."
+msgstr "لا وجود لمصدر دفتر العناوين."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
-#, fuzzy
-msgid "A CORBA error occurred whilst accessing the address book."
-msgstr "حدث خطأ خلال النفاذ للجهاز !"
-
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:926
-#, fuzzy
-msgid "The address book source does not exist."
-msgstr "دفتر العناوين غير موجود"
-
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:928
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:931
-#, fuzzy
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
-msgstr "حدث خطأ مجهول"
+msgstr "حدث خطأ مجهول."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1218
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
-msgstr ""
+msgstr "خطأ ‪GConf‬‏: %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1228
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
-msgstr ""
+msgstr "ستعرض جميع الأخطاء القادمة في الطّرفيّة فقط."
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:113
-#, fuzzy, c-format
+#: ../src/connection.c:124
+#, c-format
 msgid "Connected to device on %s"
-msgstr "اتّصل بالخادم %s"
+msgstr "اتّصَل بالجهاز في %s"
 
 #. the ERROR signal will have been emitted, so we don't
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:119
-#, fuzzy, c-format
+#: ../src/connection.c:130
+#, c-format
 msgid "Failed connection to device on %s"
-msgstr "فشل ايجاد عقدة للجهاز %s"
+msgstr "فشل الاتصال بالجهاز في %s"
 
 #: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
-#, fuzzy
 msgid "Phone Manager"
-msgstr "مدير الطاقة"
+msgstr "مدير الهاتف"
 
 #: ../src/gnome-phone-manager.desktop.in.h:2
 msgid "Receive and send text messages from your mobile phone"
-msgstr ""
+msgstr "أرسل واستقبل الرسائل النصية من هاتفك المحمول"
 
 #: ../src/icon.c:59
-#, fuzzy
 msgid "Message arrived"
-msgstr "ترويسة الرّسالة"
+msgstr "وصلت رسالة"
 
 #: ../src/icon.c:62
-#, fuzzy
 msgid "Connected"
-msgstr "اتصل"
+msgstr "مُتصل"
 
 #: ../src/icon.c:66
-#, fuzzy
 msgid "Connecting to phone"
-msgstr "جاري الاتصال بـ{0}"
+msgstr "يتصل بالهاتف"
 
 #: ../src/icon.c:70
-#, fuzzy
 msgid "Not connected"
-msgstr "غير متّصِل."
+msgstr "غير متّصِل"
 
-#: ../src/main.c:37
+#: ../src/main.c:38
 msgid "Show model name of a specific device"
 msgstr ""
 
-#: ../src/main.c:38
+#: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr ""
 
 #: ../src/main.c:39
-msgid "Enable debug"
+msgid "PORT"
 msgstr ""
 
 #: ../src/main.c:40
+msgid "Enable debug"
+msgstr ""
+
+#: ../src/main.c:41
 msgid "Show version information and exit"
 msgstr ""
 
-#: ../src/main.c:59
-#, fuzzy
+#: ../src/main.c:60
 msgid "- Manage your mobile phone"
-msgstr "    يرسل رسائل خاصة لمستخدم على الشبكة."
+msgstr " - أدِر هاتفك المحمول"
 
-#: ../src/main.c:72
+#: ../src/main.c:74
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr ""
 
 #: ../src/menu.c:40
-#, fuzzy
 msgid "translator_credits"
-msgstr "المترجمون:"
+msgstr ""
+"فريق عربآيز للترجمة http://www.arabeyes.org :\n"
+"خالد حسني\t<khaledhosny@eglug.org>"
 
 #: ../src/menu.c:44
-#, fuzzy
 msgid "Send and receive messages from your mobile phone."
-msgstr "    يرسل رسائل خاصة لمستخدم على الشبكة."
+msgstr "أرسل واستقبل الرسائل النصية من هاتفك المحمول."
 
 #: ../src/menu.c:56
-#, fuzzy
 msgid "Phone Manager website"
-msgstr "مدير الطاقة"
+msgstr "موقع مدير الهاتف"
 
 #: ../src/menu.c:87
 msgid "_Send Message"
-msgstr "إر_سال رسالة"
+msgstr "أر_سل رسالة"
 
-#: ../src/phonemgr-chooser-button.c:80 ../src/phonemgr-chooser-button.c:190
-msgid "Click to select device..."
-msgstr ""
+#: ../src/ui.c:166
+msgid "New text message received"
+msgstr "وصلت رسالة جديدة"
 
-#: ../src/ui.c:335
-#, fuzzy
+#: ../src/ui.c:331
 msgid "Message too long!"
-msgstr "حوار رسالة"
+msgstr "الرسالة طويلة جدا"
 
 #: ../data/phonemgr.glade.h:1
-msgid "/dev/ttyS2"
-msgstr ""
+msgid "Alerting"
+msgstr "التنبيه"
 
 #: ../data/phonemgr.glade.h:2
-#, fuzzy
-msgid "Alerting"
-msgstr "<b>الإعدادات</b>"
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "اسم ملف بديل للجهاز، مثلا: ‪/dev/ttyS3‬"
 
 #: ../data/phonemgr.glade.h:3
-msgid "Alternative device filename, e.g. /dev/ttyS3"
-msgstr ""
-
-#: ../data/phonemgr.glade.h:4
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
 "range."
 msgstr ""
+"دائما ما يحاول إعادة الاتصال عندما لا يكون الاتصال متاحا. استخدم هذا مع "
+"البلوتوث لتضمن الاتصال بهاتفك كلما كان في مدى الاتصال."
+
+#: ../data/phonemgr.glade.h:4
+msgid "Automated Tasks"
+msgstr "المهام الآلية"
 
 #: ../data/phonemgr.glade.h:5
-#, fuzzy
 msgid "Automatically _retry connections"
-msgstr "مكتشف تلقائيا"
+msgstr "أعِد الا_تصال تلقائيا"
 
 #: ../data/phonemgr.glade.h:6
-#, fuzzy
 msgid "Characters left:"
-msgstr "ال_محرف:"
+msgstr "عدد الحروف المتبقية:"
 
 #: ../data/phonemgr.glade.h:7
-#, fuzzy
 msgid "Connect using an alternative serial device"
-msgstr "اكتب و ابحر في تطبيقات باستعمال اجهزة ادخال بديلة"
+msgstr "اتصل عبر جهاز متسلسل بديل"
 
 #: ../data/phonemgr.glade.h:8
-#, fuzzy
 msgid "Connect using infrared communication"
-msgstr "مقبس لاتصالات xdm"
+msgstr "اتصل عبر وصلة أشعة تحت حمراء"
 
 #: ../data/phonemgr.glade.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
+msgstr "اتصل عبر المنفذ التسلسلي 1، ما يعرف أيضا باسم COM1 أو ‪/dev/ttyS0‬"
 
 #: ../data/phonemgr.glade.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
+msgstr "اتصل عبر المنفذ التسلسلي 2، ما يعرف أيضا باسم COM2 أو ‪/dev/ttyS1‬"
 
 #: ../data/phonemgr.glade.h:11
 msgid "Connection"
-msgstr "الإتصال"
+msgstr "الاتصال"
 
 #: ../data/phonemgr.glade.h:12
 msgid "Date:"
 msgstr "التّاريخ:"
 
 #: ../data/phonemgr.glade.h:13
-#, fuzzy
 msgid "Enter the text message you want to send."
-msgstr "ا_نتقي الألعاب التي تريد حفظها:"
+msgstr "أدخل الرسالة النصية التي تريد إرسالها."
 
 #: ../data/phonemgr.glade.h:14
-#, fuzzy
 msgid "Enter your text message"
-msgstr "ا_نتقي الألعاب التي تريد حفظها:"
+msgstr "أدخل الرسالة النصية"
 
 #: ../data/phonemgr.glade.h:15
-#, fuzzy
-msgid "Error Handling"
-msgstr "التعامل مع الأخطاء"
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "أ_شعة تحت حمراء (‪/dev/ircomm0‬)"
 
 #: ../data/phonemgr.glade.h:16
-msgid "I_nfra red (/dev/ircomm0)"
-msgstr ""
-
-#: ../data/phonemgr.glade.h:17
 msgid "Interface"
 msgstr "الواجهة"
 
-#: ../data/phonemgr.glade.h:18
-#, fuzzy
+#: ../data/phonemgr.glade.h:17
 msgid "Message Received"
-msgstr "تاريخ الاستلام:"
+msgstr "استُلِمت الرسالة"
+
+#: ../data/phonemgr.glade.h:18
+msgid "Other _port"
+msgstr "م_نفذ آخر"
 
 #: ../data/phonemgr.glade.h:19
-#, fuzzy
-msgid "Other _port"
-msgstr "مغاير، تهيئة"
+msgid "Phone Connection"
+msgstr "الاتصال بالهاتف"
 
 #: ../data/phonemgr.glade.h:20
-#, fuzzy
-msgid "Phone Connection"
-msgstr "<b>الإتصال</b>"
+msgid "Phone Manager Preferences"
+msgstr "تفضيلات مدير الهاتف"
 
 #: ../data/phonemgr.glade.h:21
-#, fuzzy
-msgid "Phone Manager Preferences"
-msgstr "تفضيلات إدارة الطاقة"
+msgid "Play _sound when messages arrive"
+msgstr "_شغل صوت عند وصول الرسائل"
 
 #: ../data/phonemgr.glade.h:22
-#, fuzzy
-msgid "Play _sound when messages arrive"
-msgstr "فيما إذا سيصدر صوت عند وصول الرَّسائل."
+msgid "Send Message"
+msgstr "أرسل رسالة"
 
 #: ../data/phonemgr.glade.h:23
-#, fuzzy
-msgid "Send Message"
-msgstr "إر_سال رسالة"
+msgid "Sender:"
+msgstr "المرسِل:"
 
 #: ../data/phonemgr.glade.h:24
-#, fuzzy
-msgid "Sender:"
-msgstr "المرسِل"
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "المنفذ التسلسلي _1 (‪/dev/ttyS0‬)"
 
 #: ../data/phonemgr.glade.h:25
-msgid "Serial port _1 (/dev/ttyS0)"
-msgstr ""
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "المنفذ التسلسلي _2 (‪/dev/ttyS1‬)"
 
 #: ../data/phonemgr.glade.h:26
-msgid "Serial port _2 (/dev/ttyS1)"
-msgstr ""
+msgid "Synchronise phone's _time and date"
+msgstr "زامن و_قت وتاريخ الهاتف"
 
 #: ../data/phonemgr.glade.h:27
-msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr ""
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "زامن وت وتاريخ الهاتف مع ساعة الحاسوب"
 
 #: ../data/phonemgr.glade.h:28
-msgid "You have received a message"
-msgstr ""
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "استخدم شبكة بلوتوث لاسلكية للاتصال بهاتفك"
 
 #: ../data/phonemgr.glade.h:29
-#, fuzzy
-msgid "_Bluetooth"
-msgstr "عنوان البلوتوث"
+msgid "You have received a message"
+msgstr "وصلتك رسالة"
 
 #: ../data/phonemgr.glade.h:30
-#, fuzzy
-msgid "_Message:"
-msgstr "الرسالة:"
+msgid "_Bluetooth"
+msgstr "_بلوتوث"
 
 #: ../data/phonemgr.glade.h:31
-#, fuzzy
-msgid "_Notify when message is delivered"
-msgstr "فيما إذا سيصدر صوت عند وصول الرَّسائل."
+msgid "_Message:"
+msgstr "الر_سالة:"
 
-#: ../data/phonemgr.glade.h:32
-#, fuzzy
-msgid "_Pop-up window for new messages"
-msgstr "إلعب صوتاً في حال رسالة جديدة"
-
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
 #: ../data/phonemgr.glade.h:33
-#, fuzzy
-msgid "_Recipient:"
-msgstr "المستلِمون"
+msgid "_Notify when message is delivered"
+msgstr "أعلمني عند ت_سليم الرَّسالة"
 
 #: ../data/phonemgr.glade.h:34
+msgid "_Pop-up window for new messages"
+msgstr "أ_ظهر نافذة عند وصول رسائل جديدة"
+
+#: ../data/phonemgr.glade.h:35
+msgid "_Recipient:"
+msgstr "المستلِم:"
+
+#: ../data/phonemgr.glade.h:36
 msgid "_Reply"
 msgstr "_رد"
 
-#: ../data/phonemgr.glade.h:35
+#: ../data/phonemgr.glade.h:37
 msgid "_Send"
 msgstr "أر_سل"
 
 #: ../data/gnome-phone-manager.schemas.in.h:1
-#, fuzzy
 msgid "Bluetooth address of the device to connect to"
-msgstr "أختر مستضيفا للإت_صال به:"
+msgstr "عنوان جهاز بلوتوث الذي سيتصل به"
 
 #: ../data/gnome-phone-manager.schemas.in.h:2
 msgid ""
@@ -462,6 +433,18 @@ msgid ""
 "Whether to retry connecting to the mobile phone if the connection fails at "
 "some point."
 msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr ""
+
+#, fuzzy
+#~ msgid "Error Handling"
+#~ msgstr "التعامل مع الأخطاء"
 
 #~ msgid "Selection mode"
 #~ msgstr "نمط الانتقاء"
