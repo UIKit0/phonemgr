@@ -1,123 +1,124 @@
 # Hungarian translation of phonemgr
 # This file is distributed under the same license as the phonemgr package.
-# Copyright (C) 2005, 2007, 2008, 2009, Free Software Foundation, Inc.
+# Copyright (C) 2005, 2007, 2008, 2009, 2010, Free Software Foundation, Inc.
 #
-# Gabor Kelemen <kelemeng@gnome.hu>, 2005, 2007, 2008, 2009.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2007, 2008, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phonemgr HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-phone-manager&component=general\n"
-"POT-Creation-Date: 2009-04-17 12:10+0000\n"
-"PO-Revision-Date: 2009-05-15 13:22+0200\n"
-"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Hungarian <gnome@fsf.hu>\n"
+"Project-Id-Version: phonemgr master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-26 02:40+0100\n"
+"PO-Revision-Date: 2010-12-26 02:42+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome at fsf dot hu>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Nem érhető el a névjegy: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Nem található a névjegy: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "Nem hozható létre kereshető nézet."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "Sikerült"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Egy paraméter érvénytelen volt."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "A címjegyzék foglalt."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "A címjegyzék offline."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "A címjegyzék nem létezik."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "Az „Én” névjegy nem létezik."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "A címjegyzék nincs betöltve."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "A címjegyzék már be van töltve."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "Engedély megtagadva a címjegyzékhez való hozzáférés közben."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "A névjegy nem található."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
-msgstr "Ez a névjegyazonosító már létezik."
+msgstr "Ez a névjegy-azonosító már létezik."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "A protokoll nem támogatott."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "A művelet megszakítva."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "A műveletet nem lehet megszakítani."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "A címjegyzék azonosítása sikertelen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid "Authentication is required to access the address book and was not given."
 msgstr "Azonosítás szükséges a címjegyzékhez való hozzáféréshez, de nem adta azt meg."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "Biztonságos kapcsolat nem áll rendelkezésre."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "CORBA hiba lépett fel a címjegyzékhez való hozzáférés közben."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "A címjegyzék forrása nem létezik."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Ismeretlen hiba lépett fel."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "GConf-hiba: %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Minden további hiba csak a terminálon jelenik meg."
 
@@ -169,6 +170,10 @@ msgstr "Adott eszköz típusnevének megjelenítése"
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Konfigurációs fájl kiírása a gnokii hibakereséséhez"
 
+#: ../src/main.c:39
+msgid "PORT"
+msgstr "PORT"
+
 #: ../src/main.c:40
 msgid "Enable debug"
 msgstr "Hibakeresés engedélyezése"
@@ -181,14 +186,14 @@ msgstr "Verzióinformáció megjelenítése, majd kilépés"
 msgid "- Manage your mobile phone"
 msgstr "- A mobiltelefon kezelése"
 
-#: ../src/main.c:72
+#: ../src/main.c:74
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnome-phone-manager %s verzió\n"
 
 #: ../src/menu.c:40
 msgid "translator_credits"
-msgstr "Kelemen Gábor <kelemeng@gnome.hu>"
+msgstr "Kelemen Gábor <kelemeng at gnome dot hu>"
 
 #: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
@@ -203,7 +208,6 @@ msgid "_Send Message"
 msgstr "Ü_zenet küldése"
 
 #: ../src/ui.c:166
-#| msgid "Message Received"
 msgid "New text message received"
 msgstr "Új szöveges üzenet érkezett"
 
