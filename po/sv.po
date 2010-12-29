@@ -1,7 +1,7 @@
 # Swedish messages for phonemgr.
-# Copyright (C) 2004-2009 Free Software Foundation, Inc.
+# Copyright (C) 2004-2010 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004.
-# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010.
 #
 # $Id: sv.po,v 1.2 2006/04/12 18:56:30 dnylande Exp $
 #
@@ -9,121 +9,122 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 12:33+0100\n"
-"PO-Revision-Date: 2009-02-11 12:34+0100\n"
+"POT-Creation-Date: 2010-12-29 15:05+0100\n"
+"PO-Revision-Date: 2010-12-29 18:35+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Kan inte hämta kontakt: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Kunde inte hitta kontakt: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "Kan inte skapa sökbar vy."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "Lyckades"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Ett argument var ogiltigt."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "Adressboken är upptagen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "Adressboken är offline."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "Adressboken finns inte."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "Kontakten \"Jag\" finns inte."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "Adressboken är inte inläst."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "Adressboken är redan inläst."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "Åtkomst till adressboken nekades."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "Kontakten hittades inte."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "Detta kontakt-id finns redan."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "Protokollet stöds inte."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "Operationen avbröts."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "Operationen kunde inte avbrytas."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "Autentisering för adressboken misslyckades."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid "Authentication is required to access the address book and was not given."
 msgstr "Autentisering krävs för att komma åt adressboken och den angavs inte."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "En säker anslutning är inte tillgänglig."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Ett CORBA-fel inträffade vid åtkomst till adressboken."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "Adressbokskällan finns inte."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Ett okänt fel inträffade."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "GConf-fel: %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Alla ytterligare fel visas endast på terminalen."
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:125
+#: ../src/connection.c:124
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Ansluten till enhet på %s"
@@ -132,7 +133,7 @@ msgstr "Ansluten till enhet på %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:131
+#: ../src/connection.c:130
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Anslutning till enhet på %s misslyckades"
@@ -171,6 +172,10 @@ msgstr "Visa modellnamn för en specifik enhet"
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Skriv konfigurationsfilen för gnokii-felsökning"
 
+#: ../src/main.c:39
+msgid "PORT"
+msgstr "PORT"
+
 #: ../src/main.c:40
 msgid "Enable debug"
 msgstr "Aktivera felsökning"
@@ -183,7 +188,7 @@ msgstr "Visa versionsinformation och avsluta"
 msgid "- Manage your mobile phone"
 msgstr "- Hantera din mobiltelefon"
 
-#: ../src/main.c:72
+#: ../src/main.c:74
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnome-phone-manager version %s\n"
@@ -209,16 +214,11 @@ msgstr "Webbplatsen för Telefonhanterare"
 msgid "_Send Message"
 msgstr "_Skicka meddelande"
 
-#: ../src/phonemgr-chooser-button.c:79
-#: ../src/phonemgr-chooser-button.c:188
-msgid "Click to select device..."
-msgstr "Klicka för att välja enhet..."
-
-#: ../src/ui.c:139
+#: ../src/ui.c:166
 msgid "New text message received"
 msgstr "Nytt textmeddelande har mottagits"
 
-#: ../src/ui.c:304
+#: ../src/ui.c:331
 msgid "Message too long!"
 msgstr "Meddelandet är för långt!"
 
@@ -423,6 +423,8 @@ msgstr "Huruvida telefonen klocka ska synkroniseras med datorns"
 msgid "Whether to synchronise the phone clock with the computer's."
 msgstr "Huruvida telefonen klocka ska synkroniseras med datorns."
 
+#~ msgid "Click to select device..."
+#~ msgstr "Klicka för att välja enhet..."
 #~ msgid "/dev/ttyS2"
 #~ msgstr "/dev/ttyS2"
 #~ msgid "Error Handling"
