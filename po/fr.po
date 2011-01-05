@@ -10,8 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr 0.4\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-16 23:34+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&component=general\n"
+"POT-Creation-Date: 2010-12-12 15:33+0000\n"
 "PO-Revision-Date: 2009-10-16 23:38+0200\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -19,111 +20,111 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Impossible de récupérer le contact : %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Impossible de trouver le contact : %s"
 
 # pourrait être amélioré...
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "Impossible de créer un affichage de recherche."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "Opération réussie"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Un paramètre était incorrect."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "Le carnet d'adresses est occupé."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "Le carnet d'adresses est hors ligne."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "Le carnet d'adresses n'existe pas."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "Le contact « Moi » n'existe pas."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "Le carnet d'adresses n'est pas chargé."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "Le carnet d'adresses est déjà chargé."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "Permission refusée lors de l'accès au carnet d'adresses."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "Le contact n'a pas été trouvé."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "L'identifiant du contact existe déjà."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "Le protocole n'est pas pris en charge."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "L'opération a été annulée."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "L'opération n'a pas pu être annulée."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "L'authentification au carnet d'adresses a échoué."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr ""
 "Une authentification est nécessaire pour accéder au carnet d'adresses, mais "
 "celle-ci n'a pas été fournie."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "Une connexion sécurisée n'est pas disponible."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Une erreur CORBA est survenue lors de l'accès au carnet d'adresses."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "La source de carnet d'adresses n'existe pas."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Une erreur inconnue est survenue."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "Erreur GConf : %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Toutes les futures erreurs apparaissent uniquement dans le terminal."
 
@@ -175,6 +176,10 @@ msgstr "Afficher le modèle d'un périphérique spécifique"
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Écrire le fichier de configuration pour le débogage de gnokii"
+
+#: ../src/main.c:39
+msgid "PORT"
+msgstr "PORT"
 
 #: ../src/main.c:40
 msgid "Enable debug"
@@ -333,7 +338,8 @@ msgstr "Synchroniser l'_heure et la date du téléphone"
 
 #: ../data/phonemgr.glade.h:27
 msgid "Synchronise phone's time and date with the computer's clock"
-msgstr "Synchronise l'heure et la date du téléphone avec celles de l'ordinateur"
+msgstr ""
+"Synchronise l'heure et la date du téléphone avec celles de l'ordinateur"
 
 #: ../data/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
@@ -450,9 +456,11 @@ msgstr ""
 #: ../data/gnome-phone-manager.schemas.in.h:13
 msgid "Whether to synchronise the phone clock with the computer's"
 msgstr ""
-"Indique s'il faut synchroniser l'horloge du téléphone avec celle de l'ordinateur"
+"Indique s'il faut synchroniser l'horloge du téléphone avec celle de "
+"l'ordinateur"
 
 #: ../data/gnome-phone-manager.schemas.in.h:14
 msgid "Whether to synchronise the phone clock with the computer's."
 msgstr ""
-"Indique s'il faut synchroniser l'horloge du téléphone avec celle de l'ordinateur."
+"Indique s'il faut synchroniser l'horloge du téléphone avec celle de "
+"l'ordinateur."
