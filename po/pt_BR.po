@@ -1,131 +1,132 @@
 # Brazilian Portuguese translation of phonemgr.
 # Copyright (C) 2004 Free Software Foundation, Inc.
 # This file is distributed under the same license as the phonemgr package.
-# Raphael Higino <raphaelh@uai.com.br>, 2004.
+# Raphael Higino <In Memorian>, 2004.
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-22 17:02-0300\n"
-"PO-Revision-Date: 2008-07-15 21:09-0300\n"
-"Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&component=general\n"
+"POT-Creation-Date: 2010-12-26 01:41+0000\n"
+"PO-Revision-Date: 2010-12-29 14:15-0300\n"
+"Last-Translator: Mateus Zenaide <matzenh@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:158
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Não foi possível obter o contato: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:191
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Não foi possível encontrar o contato: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:417
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "Não foi possível criar visão pesquisável."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "Sucesso"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Um argumento foi inválido."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "O catálogo de endereços está ocupado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "O catálogo de endereços está desconectado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "O catálogo de endereços não existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "O contato \"Me\" não existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "O catálogo de endereços não foi carregado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "O catálogo de endereços já está carregado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "Permissão negada ao acessar o catálogo de endereços."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "O contato não foi encontrado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "Este ID do contato já existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "O protocolo não é suportado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "A operação foi cancelada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "A operação não pôde ser cancelada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "Falha na autenticação do catálogo de endereços."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr ""
 "A autenticação é necessária e não foi dada para acessar o catálogo de "
 "endereços."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "Uma conexão segura não está disponível."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Ocorreu um erro CORBA enquanto acessava o catálogo de endereços."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:926
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "O catálogo de endereços não existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:928
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:931
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Ocorreu um erro desconhecido."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1218
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "Erro do gconf: %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1228
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Os próximos erros serão exibidos apenas no terminal."
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:113
+#: ../src/connection.c:124
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Conectado no dispositivo em %s"
@@ -134,7 +135,7 @@ msgstr "Conectado no dispositivo em %s"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:119
+#: ../src/connection.c:130
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Falha ao conectar no dispositivo em %s"
@@ -163,27 +164,31 @@ msgstr "Conectando ao telefone"
 msgid "Not connected"
 msgstr "Desconectado"
 
-#: ../src/main.c:37
+#: ../src/main.c:38
 msgid "Show model name of a specific device"
 msgstr "Mostra o nome do modelo de um dispositivo específico"
 
-#: ../src/main.c:38
+#: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Escreve o arquivo de configuração para depuração gnokii"
 
 #: ../src/main.c:39
+msgid "PORT"
+msgstr "PORTA"
+
+#: ../src/main.c:40
 msgid "Enable debug"
 msgstr "Habilita depuração"
 
-#: ../src/main.c:40
+#: ../src/main.c:41
 msgid "Show version information and exit"
 msgstr "Mostra informações da versão e sai"
 
-#: ../src/main.c:59
+#: ../src/main.c:60
 msgid "- Manage your mobile phone"
 msgstr "- Gerencia o seu telefone celular"
 
-#: ../src/main.c:72
+#: ../src/main.c:74
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "Gerenciador de telefones do GNOME versão %s\n"
@@ -206,27 +211,23 @@ msgstr "Site do gerenciador de telefones"
 msgid "_Send Message"
 msgstr "_Enviar mensagem"
 
-#: ../src/phonemgr-chooser-button.c:80 ../src/phonemgr-chooser-button.c:190
-msgid "Click to select device..."
-msgstr "Clique para selecionar o dispositivo..."
+#: ../src/ui.c:166
+msgid "New text message received"
+msgstr "Nova mensagem recebida"
 
-#: ../src/ui.c:335
+#: ../src/ui.c:331
 msgid "Message too long!"
 msgstr "Mensagem longa demais!"
 
 #: ../data/phonemgr.glade.h:1
-msgid "/dev/ttyS2"
-msgstr "/dev/ttyS2"
-
-#: ../data/phonemgr.glade.h:2
 msgid "Alerting"
 msgstr "Alertas"
 
-#: ../data/phonemgr.glade.h:3
+#: ../data/phonemgr.glade.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Nome do arquivo de dispositivo alternativo, p. ex. /dev/ttyS3"
 
-#: ../data/phonemgr.glade.h:4
+#: ../data/phonemgr.glade.h:3
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -235,6 +236,10 @@ msgstr ""
 "Sempre tenta e reconecta sempre que uma conexão não está disponível "
 "imediatamente. Use isso com Bluetooth para garantir que o seu telefone se "
 "conecte sempre que ele estiver na área do sinal."
+
+#: ../data/phonemgr.glade.h:4
+msgid "Automated Tasks"
+msgstr "Tarefas automatizadas"
 
 #: ../data/phonemgr.glade.h:5
 msgid "Automatically _retry connections"
@@ -279,86 +284,91 @@ msgid "Enter your text message"
 msgstr "Digite a mensagem de texto"
 
 #: ../data/phonemgr.glade.h:15
-msgid "Error Handling"
-msgstr "Manipulação de erros"
-
-#: ../data/phonemgr.glade.h:16
 msgid "I_nfra red (/dev/ircomm0)"
 msgstr "I_nfra vermelho (/dev/ircomm0)"
 
-#: ../data/phonemgr.glade.h:17
+#: ../data/phonemgr.glade.h:16
 msgid "Interface"
 msgstr "Interface"
 
-#: ../data/phonemgr.glade.h:18
+#: ../data/phonemgr.glade.h:17
 msgid "Message Received"
 msgstr "Mensagem recebida"
 
-#: ../data/phonemgr.glade.h:19
+#: ../data/phonemgr.glade.h:18
 msgid "Other _port"
 msgstr "Outra _porta"
 
-#: ../data/phonemgr.glade.h:20
+#: ../data/phonemgr.glade.h:19
 msgid "Phone Connection"
 msgstr "Conexão com o telefone"
 
-#: ../data/phonemgr.glade.h:21
+#: ../data/phonemgr.glade.h:20
 msgid "Phone Manager Preferences"
 msgstr "Preferências do gerenciador de telefones"
 
-#: ../data/phonemgr.glade.h:22
+#: ../data/phonemgr.glade.h:21
 msgid "Play _sound when messages arrive"
 msgstr "Reproduzir um _som quando chegar uma mensagem"
 
-#: ../data/phonemgr.glade.h:23
+#: ../data/phonemgr.glade.h:22
 msgid "Send Message"
 msgstr "Enviar Mensagem"
 
-#: ../data/phonemgr.glade.h:24
+#: ../data/phonemgr.glade.h:23
 msgid "Sender:"
 msgstr "Remetente:"
 
-#: ../data/phonemgr.glade.h:25
+#: ../data/phonemgr.glade.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Porta serial _1 (/dev/ttyS0)"
 
-#: ../data/phonemgr.glade.h:26
+#: ../data/phonemgr.glade.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Porta serial _2 (/dev/ttyS1)"
 
+#: ../data/phonemgr.glade.h:26
+msgid "Synchronise phone's _time and date"
+msgstr "Sincronizar a _hora e data do telefone"
+
 #: ../data/phonemgr.glade.h:27
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "Sincronizar a hora e data do telefone com o relógio do computador"
+
+#: ../data/phonemgr.glade.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Use rede sem fio Bluetooth para conectar no seu telefone"
 
-#: ../data/phonemgr.glade.h:28
+#: ../data/phonemgr.glade.h:29
 msgid "You have received a message"
 msgstr "Você recebeu uma mensagem"
 
-#: ../data/phonemgr.glade.h:29
+#: ../data/phonemgr.glade.h:30
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../data/phonemgr.glade.h:30
+#: ../data/phonemgr.glade.h:31
 msgid "_Message:"
 msgstr "_Mensagem:"
 
-#: ../data/phonemgr.glade.h:31
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.glade.h:33
 msgid "_Notify when message is delivered"
 msgstr "_Informar quando a mensagem for entregue "
 
-#: ../data/phonemgr.glade.h:32
+#: ../data/phonemgr.glade.h:34
 msgid "_Pop-up window for new messages"
 msgstr "Janela _instantânea para novas mensagens"
 
-#: ../data/phonemgr.glade.h:33
+#: ../data/phonemgr.glade.h:35
 msgid "_Recipient:"
 msgstr "_Destinatário:"
 
-#: ../data/phonemgr.glade.h:34
+#: ../data/phonemgr.glade.h:36
 msgid "_Reply"
 msgstr "_Responder"
 
-#: ../data/phonemgr.glade.h:35
+#: ../data/phonemgr.glade.h:37
 msgid "_Send"
 msgstr "_Enviar"
 
@@ -431,3 +441,20 @@ msgid ""
 msgstr ""
 "Se deve ou não tentar reconectar ao telefone celular se a conexão falhar em "
 "algum ponto."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "Sincronizar o relógio do telefone com o computador"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "Sincronizar o relógio do telefone com o computador."
+
+#~ msgid "Click to select device..."
+#~ msgstr "Clique para selecionar o dispositivo..."
+
+#~ msgid "/dev/ttyS2"
+#~ msgstr "/dev/ttyS2"
+
+#~ msgid "Error Handling"
+#~ msgstr "Manipulação de erros"
