@@ -8,5 +8,5 @@ src/icon.c
 src/main.c
 src/menu.c
 src/ui.c
-data/phonemgr.glade
+[type: gettext/glade] data/phonemgr.ui
 data/gnome-phone-manager.schemas.in

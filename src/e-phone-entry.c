@@ -269,14 +269,3 @@ e_phone_entry_get_number (EPhoneEntry *pentry)
 	return cleanup_number (pentry->phone_number);
 }
 
-GtkWidget *
-e_phone_entry_new_from_glade (char *widget_name,
-			      char *string1, char *string2,
-			      int int1, int int2)
-{
-	GtkWidget *w = e_phone_entry_new ();
-	gtk_widget_set_name (w, widget_name);
-	gtk_widget_show (w);
-	return w;
-}
-

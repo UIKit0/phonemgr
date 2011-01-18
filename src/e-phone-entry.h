@@ -54,9 +54,6 @@ GType e_phone_entry_get_type (void);
 
 GtkWidget *e_phone_entry_new (void);
 char *e_phone_entry_get_number (EPhoneEntry *pentry);
-GtkWidget *e_phone_entry_new_from_glade (char *widget_name,
-					 char *string1, char *string2,
-					 int int1, int int2);
 
 G_END_DECLS
 

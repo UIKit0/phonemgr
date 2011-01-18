@@ -1,0 +1,9 @@
+<glade-catalog name="ephone" depends="gtk+">
+	<glade-widget-classes>
+		<glade-widget-class name="EPhoneEntry" parent="GtkEntry" generic-name="ephoneentry" title="EPhone Entry">
+		</glade-widget-class>
+	</glade-widget-classes>
+	<glade-widget-group name="ephone-widgets" title="EPhone Widgets">
+		<glade-widget-class-ref name="EPhoneEntry"/>
+	</glade-widget-group>
+</glade-catalog>

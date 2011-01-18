@@ -21,7 +21,6 @@
 
 #include <glib/gi18n.h>
 #include <stdlib.h>
-#include <glade/glade.h>
 #include <gtk/gtk.h>
 #include <gtkspell/gtkspell.h>
 #include <canberra-gtk.h>
@@ -36,58 +35,6 @@
 #include "phonemgr-utils.h"
 
 #define MAX_MESSAGE_LENGTH 160
-
-static void
-boldify_label (GladeXML *xml, const char *name)
-{
-	GtkWidget *widget;
-
-	widget = glade_xml_get_widget (xml, name);
-
-	if (widget == NULL) {
-		/* g_warning ("widget '%s' not found", name); */
-		return;
-	}
-
-	/* this way is probably better, but for some reason doesn't work with
-	 * labels with mnemonics.
-
-	static PangoAttrList *pattrlist = NULL;
-
-	if (pattrlist == NULL) {
-		PangoAttribute *attr;
-
-		pattrlist = pango_attr_list_new ();
-		attr = pango_attr_weight_new (PANGO_WEIGHT_BOLD);
-		attr->start_index = 0;
-		attr->end_index = G_MAXINT;
-		pango_attr_list_insert (pattrlist, attr);
-	}
-	gtk_label_set_attributes (GTK_LABEL (widget), pattrlist);*/
-
-	char *str_final;
-	str_final = g_strdup_printf ("<b>%s</b>", gtk_label_get_label (GTK_LABEL (widget)));
-	gtk_label_set_markup_with_mnemonic (GTK_LABEL (widget), str_final);
-	g_free (str_final);
-}
-
-static void
-bigger_label (GladeXML *xml, const char *name)
-{
-	GtkWidget *widget;
-
-	widget = glade_xml_get_widget (xml, name);
-
-	if (widget == NULL) {
-		/* g_warning ("widget '%s' not found", name); */
-		return;
-	}
-
-	char *str_final;
-	str_final = g_strdup_printf ("<span weight=\"bold\" size=\"larger\">%s</span>", gtk_label_get_label (GTK_LABEL (widget)));
-	gtk_label_set_markup_with_mnemonic (GTK_LABEL (widget), str_final);
-	g_free (str_final);
-}
 
 static char *
 get_resource (MyApp *app, char *uiresname)
@@ -122,35 +69,33 @@ chooser_created (BluetoothChooserButton *button, BluetoothChooser *chooser, gpoi
 		     NULL);
 }
 
-GtkWidget *
-bluetooth_chooser_button_create (void)
-{
-	GtkWidget *widget;
-	
-	widget = bluetooth_chooser_button_new ();
-	g_signal_connect (G_OBJECT (widget), "chooser-created",
-			  G_CALLBACK (chooser_created), NULL);
-	gtk_widget_show (widget);
-	
-	return widget;
-}
-
 static
-GladeXML *get_ui (MyApp *app, char *widget)
+GtkBuilder *get_ui (MyApp *app, char *widget)
 {
 	char *fname;
-	GladeXML *ui;
+	GError* error = NULL;
+	GtkBuilder *ui;
 
-	fname = get_resource (app, "phonemgr.glade");
+	fname = get_resource (app, "phonemgr.ui");
 
-	ui = glade_xml_new (fname, widget, NULL);
+	ui = gtk_builder_new ();
+
+	if (widget != NULL) {
+		char **widgets[2] = { NULL, NULL };
+		widgets[0] = widget;
+
+		if (!gtk_builder_add_objects_from_file (ui, fname, widgets, &error)) {
+			g_warning ("Couldn't load builder file: %s", error->message);
+			g_error_free (error);
+		}
+	} else {
+		if (!gtk_builder_add_from_file (ui, fname, &error)) {
+			g_warning ("Couldn't load builder file: %s", error->message);
+			g_error_free (error);
+		}
+	}
+
 	g_free (fname);
-
-	boldify_label (ui, "alerting_label");
-	boldify_label (ui, "phone_connection_label");
-	boldify_label (ui, "automated_tasks_label");
-	bigger_label (ui, "new_message_label");
-	bigger_label (ui, "enter_message_label");
 
 	return ui;
 }
@@ -182,14 +127,14 @@ set_dependent_widget (MyApp *app, int conn_type, gboolean active)
 	switch (conn_type) {
 		case CONNECTION_BLUETOOTH:
 			/* only set sensitive if bluetooth available */
-			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "btchooser"));
+			w = GTK_WIDGET (gtk_builder_get_object (app->ui, "btchooser"));
 			if (bluetooth_chooser_button_available (BLUETOOTH_CHOOSER_BUTTON (w)) == FALSE
 			    || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
 				active = FALSE;
 			gtk_widget_set_sensitive (w, active);
 			break;
 		case CONNECTION_OTHER:
-			w = GTK_WIDGET (glade_xml_get_widget (app->ui, "otherportentry"));
+			w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
 			gtk_widget_set_sensitive (w, active);
 			break;
 	}
@@ -213,12 +158,12 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 }
 
 static gboolean
-message_dialog_reply (GladeXML *ui)
+message_dialog_reply (GtkBuilder *ui)
 {
 	MyApp *app;
-	GtkWidget *dialog = glade_xml_get_widget (ui, "sms_dialog");
+	GtkWidget *dialog = GTK_WIDGET (gtk_builder_get_object (ui, "sms_dialog"));
 	GtkLabel *sender = GTK_LABEL (
-			glade_xml_get_widget (ui, "senderlabel"));
+			gtk_builder_get_object (ui, "senderlabel"));
 	
 	app = (MyApp *) g_object_get_data (G_OBJECT (dialog),
 			"app");
@@ -230,13 +175,13 @@ message_dialog_reply (GladeXML *ui)
 }
 
 #define S_CONNECT(x, y) 	\
-	w = glade_xml_get_widget (app->ui, (x)); \
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, (x))); \
 	g_object_set_data (G_OBJECT (w), "port", GINT_TO_POINTER (y)); \
 	g_signal_connect (G_OBJECT (w), "toggled", \
 			G_CALLBACK (on_conn_port_change), (gpointer)app)
 					
 #define S_ACTIVE(x, y) \
-	w = glade_xml_get_widget (app->ui, (x)); \
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, (x))); \
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w), ctype==y);
 
 static void
@@ -245,7 +190,7 @@ populate_prefs (MyApp *app)
 	GtkWidget *w;
 	char *c;
 	int ctype;
-	
+
 	ctype = gconf_client_get_int (app->client,
 				      CONFBASE"/connection_type", NULL);
 
@@ -254,7 +199,7 @@ populate_prefs (MyApp *app)
 	set_dependent_widget (app, CONNECTION_OTHER,
 			ctype == CONNECTION_OTHER);
 
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "otherportentry"));
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
 	c  = gconf_client_get_string (app->client,
 				      CONFBASE"/other_serial", NULL);
 	if (c != NULL) {
@@ -277,7 +222,7 @@ apply_prefs (MyApp *app)
 {
 	GtkWidget *w;
 
-	w = GTK_WIDGET (glade_xml_get_widget (app->ui, "otherportentry"));
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
 	gconf_client_set_string (app->client,
 				 CONFBASE"/other_serial",
 				 gtk_entry_get_text (GTK_ENTRY (w)), NULL);
@@ -295,7 +240,7 @@ prefs_dialog_response (GtkWidget *dialog,
 }
 
 static gboolean
-destroy_send_dialog (GtkDialog *dialog, GladeXML *ui)
+destroy_send_dialog (GtkDialog *dialog, GtkBuilder *ui)
 {
 	g_object_unref (ui);
 	gtk_widget_destroy (GTK_WIDGET (dialog));
@@ -303,7 +248,7 @@ destroy_send_dialog (GtkDialog *dialog, GladeXML *ui)
 }
 
 static void
-set_send_sensitivity (GtkWidget *w, GladeXML *ui)
+set_send_sensitivity (GtkWidget *w, GtkBuilder *ui)
 {
 	EPhoneEntry *entry;
 	GtkTextView *view;
@@ -314,11 +259,11 @@ set_send_sensitivity (GtkWidget *w, GladeXML *ui)
 	char *work;
 	char *text;
 
-	left = GTK_LABEL (glade_xml_get_widget (ui, "charsleft"));
-	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
+	left = GTK_LABEL (gtk_builder_get_object (ui, "charsleft"));
+	view = GTK_TEXT_VIEW (gtk_builder_get_object (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
-	entry = E_PHONE_ENTRY (glade_xml_get_widget (ui, "recipient"));
-	sendbutton = GTK_WIDGET (glade_xml_get_widget (ui, "sendbutton"));
+	entry = E_PHONE_ENTRY (gtk_builder_get_object (ui, "recipient"));
+	sendbutton = GTK_WIDGET (gtk_builder_get_object (ui, "sendbutton"));
 
 	l = gtk_text_buffer_get_char_count (buf);
 	text = e_phone_entry_get_number (entry);
@@ -338,13 +283,13 @@ set_send_sensitivity (GtkWidget *w, GladeXML *ui)
 }
 
 static void
-phone_number_changed (GtkWidget *entry, char *phone_number, GladeXML *ui)
+phone_number_changed (GtkWidget *entry, char *phone_number, GtkBuilder *ui)
 {
 	set_send_sensitivity (entry, ui);
 }
 
 static void
-send_message (GtkWidget *w, GladeXML *ui)
+send_message (GtkWidget *w, GtkBuilder *ui)
 {
 	GtkTextBuffer *buf;
 	GtkTextView *view;
@@ -356,11 +301,11 @@ send_message (GtkWidget *w, GladeXML *ui)
 
 	MyApp *app = (MyApp *) g_object_get_data (G_OBJECT (ui), "app");
 
-	dialog = GTK_DIALOG (glade_xml_get_widget (ui, "send_dialog"));
-	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
+	dialog = GTK_DIALOG (gtk_builder_get_object (ui, "send_dialog"));
+	view = GTK_TEXT_VIEW (gtk_builder_get_object (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
-	entry = E_PHONE_ENTRY (glade_xml_get_widget (ui, "recipient"));
-	delivery_report = GTK_TOGGLE_BUTTON (glade_xml_get_widget (ui, "delivery_report"));
+	entry = E_PHONE_ENTRY (gtk_builder_get_object (ui, "recipient"));
+	delivery_report = GTK_TOGGLE_BUTTON (gtk_builder_get_object (ui, "delivery_report"));
 
 	gtk_text_buffer_get_start_iter (buf, &s);
 	gtk_text_buffer_get_end_iter (buf, &e);
@@ -381,19 +326,19 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 	GtkTextView *view;
 	GtkEntry *entry;
 	GtkDialog *dialog;
-	GladeXML *ui;
+	GtkBuilder *ui;
 	GtkWidget *w;
 
 	ui = get_ui (app, "send_dialog");
 
-	dialog = GTK_DIALOG (glade_xml_get_widget (ui, "send_dialog"));
+	dialog = GTK_DIALOG (gtk_builder_get_object (ui, "send_dialog"));
 
 	if (parent) {
 		gtk_window_set_transient_for (GTK_WINDOW (dialog),
 			GTK_WINDOW (parent));
 	}
 
-	view = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagebody"));
+	view = GTK_TEXT_VIEW (gtk_builder_get_object (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
 	gtk_text_buffer_set_text (buf, "", 0);
 
@@ -402,7 +347,7 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
                 g_error_free (err);
         }
 
-	entry = GTK_ENTRY (glade_xml_get_widget (ui, "recipient"));
+	entry = GTK_ENTRY (gtk_builder_get_object (ui, "recipient"));
 	if (recip)
 		gtk_entry_set_text (entry, recip);
 	else
@@ -419,7 +364,7 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 	g_signal_connect (G_OBJECT (dialog), "hide",
 			  G_CALLBACK (destroy_send_dialog), (gpointer) ui);
 
-	w = GTK_WIDGET (glade_xml_get_widget (ui, "msgcancelbutton"));
+	w = GTK_WIDGET (gtk_builder_get_object (ui, "msgcancelbutton"));
 	g_signal_connect_swapped (G_OBJECT (w), "clicked",
 				  G_CALLBACK (gtk_widget_hide), (gpointer) dialog);
 
@@ -428,7 +373,7 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 	g_signal_connect (G_OBJECT (buf), "changed",
 			  G_CALLBACK (set_send_sensitivity), (gpointer) ui);
 
-	w = GTK_WIDGET (glade_xml_get_widget (ui, "sendbutton"));
+	w = GTK_WIDGET (gtk_builder_get_object (ui, "sendbutton"));
 	g_signal_connect (G_OBJECT (w), "clicked",
 			  G_CALLBACK (send_message), (gpointer) ui);
 
@@ -454,6 +399,7 @@ ui_init (MyApp *app)
 {
 	GConfBridge *bridge;
 	GtkWidget *w;
+	GtkWidget *ep = e_phone_entry_new ();
 
 	app->ui = get_ui (app, NULL);
 	bridge = gconf_bridge_get ();
@@ -463,15 +409,19 @@ ui_init (MyApp *app)
 
 	/* close button and windowframe close button just hide the
 	   prefs panel */
-	g_signal_connect_swapped (G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")),
+	g_signal_connect_swapped (G_OBJECT (gtk_builder_get_object (app->ui, "prefs_dialog")),
 				  "delete-event", G_CALLBACK (gtk_widget_hide),
-				  G_OBJECT (glade_xml_get_widget (app->ui, "prefs_dialog")));
+				  G_OBJECT (gtk_builder_get_object (app->ui, "prefs_dialog")));
 
 	/* response */
-	g_signal_connect (glade_xml_get_widget (app->ui, "prefs_dialog"),
+	g_signal_connect (gtk_builder_get_object (app->ui, "prefs_dialog"),
 			  "response",
      			  G_CALLBACK (prefs_dialog_response),
 			  app);
+
+	w = G_OBJECT (gtk_builder_get_object (app->ui, "btchooser"));
+	g_signal_connect (G_OBJECT (w), "chooser-created",
+			  G_CALLBACK (chooser_created), NULL);
 
 	/* connect signal handlers for radio buttons */
 	S_CONNECT("btdevice",  CONNECTION_BLUETOOTH);
@@ -483,25 +433,25 @@ ui_init (MyApp *app)
 	/* Connect a few toggle buttons */
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/auto_retry",
-				    G_OBJECT (glade_xml_get_widget (app->ui, "auto_retry")),
+				    G_OBJECT (gtk_builder_get_object (app->ui, "auto_retry")),
 				    "active");
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/sync_clock",
-				    G_OBJECT (glade_xml_get_widget (app->ui, "sync_clock")),
+				    G_OBJECT (gtk_builder_get_object (app->ui, "sync_clock")),
 				    "active");
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/popup_messages",
-				    G_OBJECT (glade_xml_get_widget (app->ui, "prefs_popup")),
+				    G_OBJECT (gtk_builder_get_object (app->ui, "prefs_popup")),
 				    "active");
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/sound_alert",
-				    G_OBJECT (glade_xml_get_widget (app->ui, "prefs_sound")),
+				    G_OBJECT (gtk_builder_get_object (app->ui, "prefs_sound")),
 				    "active");
 
 	/* And the address chooser */
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/bluetooth_addr",
-				    G_OBJECT (glade_xml_get_widget (app->ui, "btchooser")),
+				    G_OBJECT (gtk_builder_get_object (app->ui, "btchooser")),
 				    "device");
 
 	/* set up popup on message */
@@ -519,11 +469,11 @@ ui_hide (MyApp *app)
 	GtkWidget *w;
 	GdkDisplay *display;
 
-	w = glade_xml_get_widget (app->ui, "prefs_dialog");
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "prefs_dialog"));
 	display = gtk_widget_get_display (w);
 	gtk_widget_hide (w);
 
-	w = glade_xml_get_widget (app->ui, "send_dialog");
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "send_dialog"));
 	gtk_widget_hide (w);
 
 	gdk_display_sync (display);
@@ -532,7 +482,7 @@ ui_hide (MyApp *app)
 void
 show_prefs_window (MyApp *app)
 {
-	GtkWidget *prefs = glade_xml_get_widget (app->ui, "prefs_dialog");
+	GtkWidget *prefs = GTK_WIDGET (gtk_builder_get_object (app->ui, "prefs_dialog"));
 	populate_prefs (app);
 	gtk_widget_show (prefs);
 }
@@ -555,7 +505,7 @@ dequeue_message (MyApp *app)
 	GtkLabel *l_sender, *l_sent;
 	GtkTextBuffer *buf;
 	char *time;
-	GladeXML *ui;
+	GtkBuilder *ui;
 	GtkWidget *w;
 
 	g_mutex_lock (app->message_mutex);
@@ -574,7 +524,7 @@ dequeue_message (MyApp *app)
 
 	ui = get_ui (app, "sms_dialog");
 
-	w = GTK_WIDGET (glade_xml_get_widget (ui, "sms_dialog"));
+	w = GTK_WIDGET (gtk_builder_get_object (ui, "sms_dialog"));
 	g_signal_connect_swapped (G_OBJECT (w), "delete-event",
 			G_CALLBACK (gtk_widget_destroy), (gpointer) w);
 
@@ -582,17 +532,17 @@ dequeue_message (MyApp *app)
 
 	dialog = GTK_DIALOG (w);
 
-	w = GTK_WIDGET (glade_xml_get_widget (ui, "okbutton"));
+	w = GTK_WIDGET (gtk_builder_get_object (ui, "okbutton"));
 	g_signal_connect_swapped(G_OBJECT (w), "clicked",
 			G_CALLBACK (gtk_widget_destroy), (gpointer) dialog);
 
-	w = GTK_WIDGET (glade_xml_get_widget (ui, "replybutton"));
+	w = GTK_WIDGET (gtk_builder_get_object (ui, "replybutton"));
 	g_signal_connect_swapped (G_OBJECT (w), "clicked",
 			G_CALLBACK (message_dialog_reply), (gpointer) ui);
 
-	l_sender = GTK_LABEL (glade_xml_get_widget (ui, "senderlabel"));
-	l_sent = GTK_LABEL (glade_xml_get_widget (ui, "datelabel"));
-	textview = GTK_TEXT_VIEW (glade_xml_get_widget (ui, "messagecontents"));
+	l_sender = GTK_LABEL (gtk_builder_get_object (ui, "senderlabel"));
+	l_sent = GTK_LABEL (gtk_builder_get_object (ui, "datelabel"));
+	textview = GTK_TEXT_VIEW (gtk_builder_get_object (ui, "messagecontents"));
 
 	buf = gtk_text_view_get_buffer (textview);
 	gtk_text_buffer_set_text (buf, msg->message, strlen (msg->message));

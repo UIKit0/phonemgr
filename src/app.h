@@ -23,7 +23,6 @@
 #define _APP_H
 
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include <gconf/gconf-client.h>
 
 #include "phonemgr-listener.h"
@@ -33,7 +32,7 @@ typedef struct _appinfo {
 	/* gui stuff */
 	GtkStatusIcon *tray_icon;
 	GtkMenu *menu;
-	GladeXML    *ui;
+	GtkBuilder    *ui;
 	int    iconstate;
 	int    chars;
 	GtkWidget *send_item;

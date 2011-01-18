@@ -4,7 +4,7 @@ SUBDIRS = icons
 man_MANS = gnome-phone-manager.1
 
 uidir = $(pkgdatadir)
-ui_DATA = phonemgr.glade
+ui_DATA = phonemgr.ui
 
 schema_in_files = gnome-phone-manager.schemas.in
 schemadir = $(GCONF_SCHEMA_FILE_DIR)
