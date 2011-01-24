@@ -111,6 +111,7 @@ main (int argc, char **argv)
 	g_object_unref (app->listener);
 	g_object_unref (app->client);
 	g_object_unref (app->object);
+	g_free (app);
 
 	return 0;
 }
