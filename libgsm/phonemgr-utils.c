@@ -404,7 +404,7 @@ phonemgr_utils_driver_parse_start_tag (GMarkupParseContext *ctx,
 }
 
 static void
-totem_driver_model_free (void)
+phonemgr_driver_model_free (void)
 {
 	g_hash_table_destroy (driver_model);
 	driver_model = NULL;
@@ -420,7 +420,7 @@ phonemgr_utils_start_parse (void)
 	driver_model = g_hash_table_new_full
 		(g_str_hash, g_str_equal, g_free, g_free);
 
-	g_atexit (totem_driver_model_free);
+	g_atexit (phonemgr_driver_model_free);
 
 	if (g_file_get_contents (DATA_DIR"/phones.xml",
 				&buf, &buf_len, &err))
