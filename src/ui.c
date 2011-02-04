@@ -81,8 +81,7 @@ GtkBuilder *get_ui (MyApp *app, char *widget)
 	ui = gtk_builder_new ();
 
 	if (widget != NULL) {
-		char **widgets[2] = { NULL, NULL };
-		widgets[0] = widget;
+		char *widgets[] = { widget, NULL };
 
 		if (!gtk_builder_add_objects_from_file (ui, fname, widgets, &error)) {
 			g_warning ("Couldn't load builder file: %s", error->message);
@@ -419,9 +418,10 @@ ui_init (MyApp *app)
      			  G_CALLBACK (prefs_dialog_response),
 			  app);
 
-	w = G_OBJECT (gtk_builder_get_object (app->ui, "btchooser"));
-	g_signal_connect (G_OBJECT (w), "chooser-created",
-			  G_CALLBACK (chooser_created), NULL);
+	g_signal_connect (gtk_builder_get_object (app->ui, "btchooser"),
+			  "chooser-created",
+			  G_CALLBACK (chooser_created),
+			  NULL);
 
 	/* connect signal handlers for radio buttons */
 	S_CONNECT("btdevice",  CONNECTION_BLUETOOTH);
@@ -533,7 +533,7 @@ dequeue_message (MyApp *app)
 	dialog = GTK_DIALOG (w);
 
 	w = GTK_WIDGET (gtk_builder_get_object (ui, "okbutton"));
-	g_signal_connect_swapped(G_OBJECT (w), "clicked",
+	g_signal_connect_swapped (G_OBJECT (w), "clicked",
 			G_CALLBACK (gtk_widget_destroy), (gpointer) dialog);
 
 	w = GTK_WIDGET (gtk_builder_get_object (ui, "replybutton"));
