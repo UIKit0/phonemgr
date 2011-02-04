@@ -77,6 +77,7 @@ GtkBuilder *get_ui (MyApp *app, char *widget)
 	GtkBuilder *ui;
 
 	fname = get_resource (app, "phonemgr.ui");
+	g_return_val_if_fail (fname, NULL);
 
 	ui = gtk_builder_new ();
 
