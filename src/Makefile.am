@@ -33,7 +33,7 @@ gnome_phone_manager_LDADD = \
 	$(PHONEMGR_LIBS) \
 	../libgsm/libgsmwrap.la		\
 	../cut-n-paste/e-contact-entry/libecontact-entry.la	\
-	../cut-n-paste/gconf-bridge//libgconf-bridge.la
+	../cut-n-paste/gconf-bridge/libgconf-bridge.la
 
 BUILT_SOURCES = phone-manager-interface.h
 
