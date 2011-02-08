@@ -230,13 +230,14 @@ apply_prefs (MyApp *app)
 	reconnect_phone (app);
 }
 
-static void
+static gboolean
 prefs_dialog_response (GtkWidget *dialog,
 		       int response,
 		       MyApp *app)
 {
 	apply_prefs (app);
 	gtk_widget_hide (dialog);
+	return TRUE;
 }
 
 static gboolean
@@ -407,18 +408,18 @@ ui_init (MyApp *app)
 	if (!app->ui)
 		g_error ("Couldn't load user interface.");
 
-	/* close button and windowframe close button just hide the
-	   prefs panel */
-	g_signal_connect_swapped (G_OBJECT (gtk_builder_get_object (app->ui, "prefs_dialog")),
-				  "delete-event", G_CALLBACK (gtk_widget_hide),
-				  G_OBJECT (gtk_builder_get_object (app->ui, "prefs_dialog")));
-
-	/* response */
+	/* Close button and windowframe close button apply the settings
+	   and hide the prefs panel */
+	g_signal_connect (gtk_builder_get_object (app->ui, "prefs_dialog"),
+			  "delete-event",
+			  G_CALLBACK (prefs_dialog_response),
+			  app);
 	g_signal_connect (gtk_builder_get_object (app->ui, "prefs_dialog"),
 			  "response",
-     			  G_CALLBACK (prefs_dialog_response),
+			  G_CALLBACK (prefs_dialog_response),
 			  app);
 
+	/* Set Bluetooth options */
 	g_signal_connect (gtk_builder_get_object (app->ui, "btchooser"),
 			  "chooser-created",
 			  G_CALLBACK (chooser_created),
@@ -491,7 +492,7 @@ show_prefs_window (MyApp *app)
 {
 	GtkWidget *prefs = GTK_WIDGET (gtk_builder_get_object (app->ui, "prefs_dialog"));
 	populate_prefs (app);
-	gtk_widget_show (prefs);
+	gtk_window_present (GTK_WINDOW (prefs));
 }
 
 static char *
