@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = po libgsm cut-n-paste src telepathy data
+SUBDIRS = po libgsm cut-n-paste src gnome-bluetooth telepathy data
 
 EXTRA_DIST = \
 	autogen.sh \

@@ -97,23 +97,6 @@ void set_icon_state (MyApp *app);
 void tray_icon_init (MyApp *app);
 void tray_icon_hide (MyApp *app);
 
-enum {
-    ICON_IDLE,
-    ICON_CONNECTING,
-    ICON_MESSAGE,
-    ICON_ERROR
-};
-
-#define CONFBASE "/apps/gnome-phone-manager"
-
-enum {
-	CONNECTION_BLUETOOTH,
-	CONNECTION_SERIAL1,
-	CONNECTION_SERIAL2,
-	CONNECTION_IRCOMM,
-	CONNECTION_OTHER,
-	CONNECTION_LAST
-};
-
+#include "phonemgr-conf.h"
 
 #endif

@@ -63,7 +63,7 @@ chooser_created (BluetoothChooserButton *button, BluetoothChooser *chooser, gpoi
 		     "show-searching", FALSE,
 		     "show-pairing", FALSE,
 		     "show-device-type", FALSE,
-		     "device-type-filter", BLUETOOTH_TYPE_PHONE,
+		     "device-type-filter", PHONEMGR_DEVICE_TYPE_FILTER,
 		     "show-device-category", FALSE,
 		     "device-category-filter", BLUETOOTH_CATEGORY_PAIRED,
 		     NULL);

@@ -10,7 +10,6 @@ AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE([1.9 dist-bzip2 no-dist-gzip check-news])
 
 dnl Initialize libtool
-AM_DISABLE_SHARED
 AM_PROG_LIBTOOL
 
 GNOKII_REQS="gnokii >= 0.6.28"
@@ -86,6 +85,25 @@ if test x$HAVE_TELEPATHY = "xyes"; then
 fi
 AM_CONDITIONAL(HAVE_TELEPATHY, test x$HAVE_TELEPATHY = "xyes")
 
+dnl Check for gnome-bluetooth plugin build
+AC_ARG_ENABLE(bluetooth-plugin,
+	AC_HELP_STRING([--enable-bluetooth-plugin],[compile the gnome-bluetooth plugin]),
+	[case "${enableval}" in
+	yes) ENABLE_BLUETOOTH_PLUGIN=yes ;;
+	no) ENABLE_BLUETOOTH_PLUGIN=no ;;
+	*) AC_MSG_ERROR(bad value ${enableval} for --enable-bluetooth-plugin) ;;
+	esac],
+	[ENABLE_BLUETOOTH_PLUGIN=yes]) dnl Default value
+
+if test x$ENABLE_BLUETOOTH_PLUGIN = "xyes" ; then
+	PKG_CHECK_MODULES(BLUETOOTH_PLUGIN, gnome-bluetooth-1.0 >= 2.27.6 gconf-2.0,
+			[HAVE_BLUETOOTH_PLUGIN=yes], [HAVE_BLUETOOTH_PLUGIN=no])
+fi
+if test x$HAVE_BLUETOOTH_PLUGIN = "xyes"; then
+	AC_DEFINE(HAVE_BLUETOOTH_PLUGIN, 1, [Defined to 1 if you build the gnome-bluetooth plugin.])
+fi
+AM_CONDITIONAL(HAVE_BLUETOOTH_PLUGIN, test x$HAVE_BLUETOOTH_PLUGIN = "xyes")
+
 AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal, no)
 AC_SUBST(GLIB_GENMARSHAL)
 
@@ -128,6 +146,7 @@ cut-n-paste/Makefile
 cut-n-paste/e-contact-entry/Makefile
 cut-n-paste/gconf-bridge/Makefile
 src/Makefile
+gnome-bluetooth/Makefile
 telepathy/Makefile
 po/Makefile.in
 ])

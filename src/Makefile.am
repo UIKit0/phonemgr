@@ -21,6 +21,7 @@ gnome_phone_manager_SOURCES =		\
 	main.c				\
 	icon.c				\
 	app.h				\
+	phonemgr-conf.h			\
 	menu.c				\
 	ui.c				\
 	connection.c			\

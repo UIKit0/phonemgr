@@ -2,6 +2,7 @@
 # Please keep this file sorted alphabetically.
 cut-n-paste/e-contact-entry/e-contact-entry.c
 cut-n-paste/gconf-bridge/gconf-bridge.c
+gnome-bluetooth/phonemgr.c
 src/connection.c
 src/gnome-phone-manager.desktop.in
 src/icon.c
