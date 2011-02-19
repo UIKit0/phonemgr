@@ -5,15 +5,16 @@
 #
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2004, 2005.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2009, 2010.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "phone-manager&component=general\n"
-"POT-Creation-Date: 2010-12-12 15:33+0000\n"
-"PO-Revision-Date: 2010-12-13 19:57+0100\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"POT-Creation-Date: 2011-02-15 20:00+0000\n"
+"PO-Revision-Date: 2011-02-18 12:36+0100\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,6 +129,11 @@ msgstr "Error de GConf:  %s"
 msgid "All further errors shown only on terminal."
 msgstr "Todos los demás errores se muestran sólo en el terminal."
 
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr "Usar este dispositivo con el Gestor de teléfonos"
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
 #: ../src/connection.c:124
@@ -172,13 +178,13 @@ msgstr "No conectado"
 msgid "Show model name of a specific device"
 msgstr "Mostrar el nombre del modelo de un dispositivo específico"
 
+#: ../src/main.c:38 ../src/main.c:39
+msgid "PORT"
+msgstr "PUERTO"
+
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Escriba el archivo de configuración para la depuración de gnokii"
-
-#: ../src/main.c:39
-msgid "PORT"
-msgstr "PUERTO"
 
 #: ../src/main.c:40
 msgid "Enable debug"
@@ -192,7 +198,7 @@ msgstr "Mostrar información de la versión y salir"
 msgid "- Manage your mobile phone"
 msgstr " - Gestionar su teléfono móvil"
 
-#: ../src/main.c:72
+#: ../src/main.c:74
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnome-phone-manager versión %s\n"
@@ -215,23 +221,23 @@ msgstr "Página web del Gestor de teléfonos"
 msgid "_Send Message"
 msgstr "_Enviar mensaje"
 
-#: ../src/ui.c:166
+#: ../src/ui.c:111
 msgid "New text message received"
 msgstr "Nuevo mensaje de texto recibido"
 
-#: ../src/ui.c:331
+#: ../src/ui.c:277
 msgid "Message too long!"
 msgstr "El mensaje es demasiado largo."
 
-#: ../data/phonemgr.glade.h:1
+#: ../data/phonemgr.ui.h:1
 msgid "Alerting"
 msgstr "Alerta"
 
-#: ../data/phonemgr.glade.h:2
+#: ../data/phonemgr.ui.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Nombre de dispositivo alternativo, ej: /dev/ttyS3"
 
-#: ../data/phonemgr.glade.h:3
+#: ../data/phonemgr.ui.h:3
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -241,138 +247,138 @@ msgstr ""
 "inmediatamente. Use esto con Bluetooth para asegurarse de que su teléfono "
 "conecta en cuento entre en el rango."
 
-#: ../data/phonemgr.glade.h:4
+#: ../data/phonemgr.ui.h:4
 msgid "Automated Tasks"
 msgstr "Tareas automáticas"
 
-#: ../data/phonemgr.glade.h:5
+#: ../data/phonemgr.ui.h:5
 msgid "Automatically _retry connections"
 msgstr "_Reintentar conexiones automáticamente"
 
-#: ../data/phonemgr.glade.h:6
+#: ../data/phonemgr.ui.h:6
 msgid "Characters left:"
 msgstr "Caracteres que faltan:"
 
-#: ../data/phonemgr.glade.h:7
+#: ../data/phonemgr.ui.h:7
 msgid "Connect using an alternative serial device"
 msgstr "Conectar usando un dispositivo serie alternativo"
 
-#: ../data/phonemgr.glade.h:8
+#: ../data/phonemgr.ui.h:8
 msgid "Connect using infrared communication"
 msgstr "Conectar usando comunicación infrarroja"
 
-#: ../data/phonemgr.glade.h:9
+#: ../data/phonemgr.ui.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr ""
 "Conectar usando el puerto serie 1, también conocido como COM1 o /dev/ttyS0"
 
-#: ../data/phonemgr.glade.h:10
+#: ../data/phonemgr.ui.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr ""
 "Conectar usando el puerto serie 2, también conocido como COM2 o /dev/ttyS1"
 
-#: ../data/phonemgr.glade.h:11
+#: ../data/phonemgr.ui.h:11
 msgid "Connection"
 msgstr "Conexión"
 
-#: ../data/phonemgr.glade.h:12
+#: ../data/phonemgr.ui.h:12
 msgid "Date:"
 msgstr "Fecha:"
 
-#: ../data/phonemgr.glade.h:13
+#: ../data/phonemgr.ui.h:13
 msgid "Enter the text message you want to send."
 msgstr "Introduzca el mensaje de texto que quiere enviar."
 
-#: ../data/phonemgr.glade.h:14
+#: ../data/phonemgr.ui.h:14
 msgid "Enter your text message"
 msgstr "Introduzca el mensaje de texto"
 
-#: ../data/phonemgr.glade.h:15
+#: ../data/phonemgr.ui.h:15
 msgid "I_nfra red (/dev/ircomm0)"
 msgstr "I_nfrarrojo (/dev/ircomm0)"
 
-#: ../data/phonemgr.glade.h:16
+#: ../data/phonemgr.ui.h:16
 msgid "Interface"
 msgstr "Interfaz"
 
-#: ../data/phonemgr.glade.h:17
+#: ../data/phonemgr.ui.h:17
 msgid "Message Received"
 msgstr "Mensaje recibido"
 
-#: ../data/phonemgr.glade.h:18
+#: ../data/phonemgr.ui.h:18
 msgid "Other _port"
 msgstr "Otro _puerto"
 
-#: ../data/phonemgr.glade.h:19
+#: ../data/phonemgr.ui.h:19
 msgid "Phone Connection"
 msgstr "Conexión telefónica"
 
-#: ../data/phonemgr.glade.h:20
+#: ../data/phonemgr.ui.h:20
 msgid "Phone Manager Preferences"
 msgstr "Preferencias del Administrador de teléfonos"
 
-#: ../data/phonemgr.glade.h:21
+#: ../data/phonemgr.ui.h:21
 msgid "Play _sound when messages arrive"
 msgstr "Reproducir _sonido cuando llegan los mensajes"
 
-#: ../data/phonemgr.glade.h:22
+#: ../data/phonemgr.ui.h:22
 msgid "Send Message"
 msgstr "Enviar mensaje"
 
-#: ../data/phonemgr.glade.h:23
+#: ../data/phonemgr.ui.h:23
 msgid "Sender:"
 msgstr "Remitente:"
 
-#: ../data/phonemgr.glade.h:24
+#: ../data/phonemgr.ui.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Puerto serie _1 (dev/ttyS0)"
 
-#: ../data/phonemgr.glade.h:25
+#: ../data/phonemgr.ui.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Puerto serie _2 (dev/ttyS1)"
 
-#: ../data/phonemgr.glade.h:26
+#: ../data/phonemgr.ui.h:26
 msgid "Synchronise phone's _time and date"
 msgstr "Sincronizar la _hora y fecha del teléfono"
 
-#: ../data/phonemgr.glade.h:27
+#: ../data/phonemgr.ui.h:27
 msgid "Synchronise phone's time and date with the computer's clock"
 msgstr "Sincroniza la hora y fecha del teléfono con el reloj del equipo"
 
-#: ../data/phonemgr.glade.h:28
+#: ../data/phonemgr.ui.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Usar redes inalámbricas Bluetooth para conectarse a su teléfono"
 
-#: ../data/phonemgr.glade.h:29
+#: ../data/phonemgr.ui.h:29
 msgid "You have received a message"
 msgstr "Ha recibido un mensaje"
 
-#: ../data/phonemgr.glade.h:30
+#: ../data/phonemgr.ui.h:30
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../data/phonemgr.glade.h:31
+#: ../data/phonemgr.ui.h:31
 msgid "_Message:"
 msgstr "_Mensaje:"
 
 #. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.glade.h:33
+#: ../data/phonemgr.ui.h:33
 msgid "_Notify when message is delivered"
 msgstr "_Notificar cuando se entrega un mensaje"
 
-#: ../data/phonemgr.glade.h:34
+#: ../data/phonemgr.ui.h:34
 msgid "_Pop-up window for new messages"
 msgstr "_Emerger una ventana para los mensajes nuevos"
 
-#: ../data/phonemgr.glade.h:35
+#: ../data/phonemgr.ui.h:35
 msgid "_Recipient:"
 msgstr "_Destinatario:"
 
-#: ../data/phonemgr.glade.h:36
+#: ../data/phonemgr.ui.h:36
 msgid "_Reply"
 msgstr "_Responder"
 
-#: ../data/phonemgr.glade.h:37
+#: ../data/phonemgr.ui.h:37
 msgid "_Send"
 msgstr "_Enviar"
 
