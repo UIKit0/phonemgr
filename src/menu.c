@@ -42,7 +42,9 @@ about_activated(GtkMenuItem *item, gpointer data)
 	gtk_show_about_dialog (NULL,
 			       "authors", authors,
 			       "comments", _("Send and receive messages from your mobile phone."),
-			       "copyright", "Copyright \xc2\xa9 2003-2004 Edd Dumbill\nCopyright \xc2\xa9 2005-2007 Bastien Nocera",
+			       "copyright", "Copyright \xc2\xa9 2003-2004 Edd Dumbill\n" \
+			                    "Copyright \xc2\xa9 2005-2010 Bastien Nocera\n" \
+			                    "Copyright \xc2\xa9 2011 Daniele Forsi",
 			       "documenters", documenters,
 			       "logo-icon-name", "phone",
 #if GTK_CHECK_VERSION (2, 11, 0)
