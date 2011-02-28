@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-phone-manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-26 17:39+0200\n"
-"PO-Revision-Date: 2011-01-26 18:02+0200\n"
+"POT-Creation-Date: 2011-02-28 19:27+0200\n"
+"PO-Revision-Date: 2011-02-28 19:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Gezer (Hebrew) <gezer@lists.launchpad.net>\n"
-"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.7.0-beta4\n"
 "X-Project-Style: gnome\n"
@@ -126,6 +126,11 @@ msgstr "שגיאת GConf:‏ %s"
 msgid "All further errors shown only on terminal."
 msgstr "כל שאר השגיאות מופיעות רק במסוף."
 
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr "שימוש בהתקן זה עם Phone Manager"
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
 #: ../src/connection.c:124
@@ -142,7 +147,7 @@ msgstr "מחובר להתקן שב־%s"
 msgid "Failed connection to device on %s"
 msgstr "החיבור להתקן שב־%s נכשל"
 
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:51 ../src/menu.c:53
 msgid "Phone Manager"
 msgstr "מנהל הטלפונים"
 
@@ -203,31 +208,31 @@ msgstr "ירון שהרבני <sh.yaron@gmail.com>"
 msgid "Send and receive messages from your mobile phone."
 msgstr "קבלה ושליחה של הודעות טקסט אל ומהטלפון הנייד שלך."
 
-#: ../src/menu.c:56
+#: ../src/menu.c:58
 msgid "Phone Manager website"
 msgstr "האתר של מנהל הטלפונים"
 
-#: ../src/menu.c:87
+#: ../src/menu.c:89
 msgid "_Send Message"
 msgstr "_שליחת הודעה"
 
-#: ../src/ui.c:166
+#: ../src/ui.c:111
 msgid "New text message received"
 msgstr "התקבלה הודעת טקסט חדשה"
 
-#: ../src/ui.c:331
+#: ../src/ui.c:277
 msgid "Message too long!"
 msgstr "ההודעה ארוכה מדי!"
 
-#: ../data/phonemgr.glade.h:1
+#: ../data/phonemgr.ui.h:1
 msgid "Alerting"
 msgstr "התרעה"
 
-#: ../data/phonemgr.glade.h:2
+#: ../data/phonemgr.ui.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "שם חלופי להתקן, לדוגמה ‎/dev/ttyS3"
 
-#: ../data/phonemgr.glade.h:3
+#: ../data/phonemgr.ui.h:3
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -236,136 +241,136 @@ msgstr ""
 "תמיד יש לנסות להתחבר מחדש כאשר החיבור אינו זמין באותו הרגע. יש להשתמש "
 "בבלוטות׳ כדי לוודא שהטלפון שלך מתחבר מתי שהוא נכנס לטווח."
 
-#: ../data/phonemgr.glade.h:4
+#: ../data/phonemgr.ui.h:4
 msgid "Automated Tasks"
 msgstr "משימות אוטומטיות"
 
-#: ../data/phonemgr.glade.h:5
+#: ../data/phonemgr.ui.h:5
 msgid "Automatically _retry connections"
 msgstr "ני_סיון התחברות חוזר"
 
-#: ../data/phonemgr.glade.h:6
+#: ../data/phonemgr.ui.h:6
 msgid "Characters left:"
 msgstr "תווים שנותרו:"
 
-#: ../data/phonemgr.glade.h:7
+#: ../data/phonemgr.ui.h:7
 msgid "Connect using an alternative serial device"
 msgstr "התחברות באמצעות התקן טורי חלופי"
 
-#: ../data/phonemgr.glade.h:8
+#: ../data/phonemgr.ui.h:8
 msgid "Connect using infrared communication"
 msgstr "התחברות באמצעות תקשורת אינפרא אדום"
 
-#: ../data/phonemgr.glade.h:9
+#: ../data/phonemgr.ui.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr "התחברות באמצעות היציאה הטורית 1, הידועה גם בשם COM1 או ‎/dev/ttyS0"
 
-#: ../data/phonemgr.glade.h:10
+#: ../data/phonemgr.ui.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr "התחברות באמצעות היציאה הטורית 2, הידועה גם בשם COM2 או ‎/dev/ttyS1"
 
-#: ../data/phonemgr.glade.h:11
+#: ../data/phonemgr.ui.h:11
 msgid "Connection"
 msgstr "חיבור"
 
-#: ../data/phonemgr.glade.h:12
+#: ../data/phonemgr.ui.h:12
 msgid "Date:"
 msgstr "תאריך:"
 
-#: ../data/phonemgr.glade.h:13
+#: ../data/phonemgr.ui.h:13
 msgid "Enter the text message you want to send."
 msgstr "נא להזין את הודעה הטקסט אותה ברצונך לשלוח."
 
-#: ../data/phonemgr.glade.h:14
+#: ../data/phonemgr.ui.h:14
 msgid "Enter your text message"
 msgstr "נא להזין את הודעה הטקסט שלך"
 
-#: ../data/phonemgr.glade.h:15
+#: ../data/phonemgr.ui.h:15
 msgid "I_nfra red (/dev/ircomm0)"
 msgstr "_אינפרא אדום (‎/dev/ircomm0)"
 
-#: ../data/phonemgr.glade.h:16
+#: ../data/phonemgr.ui.h:16
 msgid "Interface"
 msgstr "מנשק"
 
-#: ../data/phonemgr.glade.h:17
+#: ../data/phonemgr.ui.h:17
 msgid "Message Received"
 msgstr "התקבלה הודעה"
 
-#: ../data/phonemgr.glade.h:18
+#: ../data/phonemgr.ui.h:18
 msgid "Other _port"
 msgstr "_פתחה אחרת"
 
-#: ../data/phonemgr.glade.h:19
+#: ../data/phonemgr.ui.h:19
 msgid "Phone Connection"
 msgstr "חיבור טלפון"
 
-#: ../data/phonemgr.glade.h:20
+#: ../data/phonemgr.ui.h:20
 msgid "Phone Manager Preferences"
 msgstr "העדפות מנהל הטלפונים"
 
-#: ../data/phonemgr.glade.h:21
+#: ../data/phonemgr.ui.h:21
 msgid "Play _sound when messages arrive"
 msgstr "השמעת _צליל בעת קבלת הודעות"
 
-#: ../data/phonemgr.glade.h:22
+#: ../data/phonemgr.ui.h:22
 msgid "Send Message"
 msgstr "שליחת הודעה"
 
-#: ../data/phonemgr.glade.h:23
+#: ../data/phonemgr.ui.h:23
 msgid "Sender:"
 msgstr "שולח"
 
-#: ../data/phonemgr.glade.h:24
+#: ../data/phonemgr.ui.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "יציאה טורית _1 (‎/dev/ttyS0)"
 
-#: ../data/phonemgr.glade.h:25
+#: ../data/phonemgr.ui.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "יציאה טורית _2 (‎/dev/ttyS1)"
 
-#: ../data/phonemgr.glade.h:26
+#: ../data/phonemgr.ui.h:26
 msgid "Synchronise phone's _time and date"
 msgstr "סנכרון ה_זמן והתאריך של הטלפון"
 
-#: ../data/phonemgr.glade.h:27
+#: ../data/phonemgr.ui.h:27
 msgid "Synchronise phone's time and date with the computer's clock"
 msgstr "סנכרון השעה והתאריך של הטלפון שלך עם אלו של שעון המחשב"
 
-#: ../data/phonemgr.glade.h:28
+#: ../data/phonemgr.ui.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "שימוש ברשת בלוטות׳ אלחוטית כדי להתחבר לטלפון שלך"
 
-#: ../data/phonemgr.glade.h:29
+#: ../data/phonemgr.ui.h:29
 msgid "You have received a message"
 msgstr "קיבלת הודעה"
 
-#: ../data/phonemgr.glade.h:30
+#: ../data/phonemgr.ui.h:30
 msgid "_Bluetooth"
 msgstr "_בלוטות׳"
 
-#: ../data/phonemgr.glade.h:31
+#: ../data/phonemgr.ui.h:31
 msgid "_Message:"
 msgstr "הו_דעה:"
 
 #. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.glade.h:33
+#: ../data/phonemgr.ui.h:33
 msgid "_Notify when message is delivered"
 msgstr "ה_צגת התרעה בעת קבלת הודעה"
 
-#: ../data/phonemgr.glade.h:34
+#: ../data/phonemgr.ui.h:34
 msgid "_Pop-up window for new messages"
 msgstr "ה_קפצת חלון עם קבלת הודעות חדשות"
 
-#: ../data/phonemgr.glade.h:35
+#: ../data/phonemgr.ui.h:35
 msgid "_Recipient:"
 msgstr "_נמען:"
 
-#: ../data/phonemgr.glade.h:36
+#: ../data/phonemgr.ui.h:36
 msgid "_Reply"
 msgstr "ת_גובה"
 
-#: ../data/phonemgr.glade.h:37
+#: ../data/phonemgr.ui.h:37
 msgid "_Send"
 msgstr "_שליחה"
 
