@@ -1,7 +1,7 @@
 # Swedish messages for phonemgr.
-# Copyright (C) 2004-2010 Free Software Foundation, Inc.
+# Copyright (C) 2004-2011 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004.
-# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011.
 #
 # $Id: sv.po,v 1.2 2006/04/12 18:56:30 dnylande Exp $
 #
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-29 15:05+0100\n"
-"PO-Revision-Date: 2010-12-29 18:35+0100\n"
+"POT-Creation-Date: 2011-03-01 01:09+0100\n"
+"PO-Revision-Date: 2011-03-01 08:54+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -122,6 +122,11 @@ msgstr "GConf-fel: %s"
 msgid "All further errors shown only on terminal."
 msgstr "Alla ytterligare fel visas endast på terminalen."
 
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr "Använd denna enhet med Telefonhanterare"
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
 #: ../src/connection.c:124
@@ -139,8 +144,8 @@ msgid "Failed connection to device on %s"
 msgstr "Anslutning till enhet på %s misslyckades"
 
 #: ../src/gnome-phone-manager.desktop.in.h:1
-#: ../src/menu.c:49
 #: ../src/menu.c:51
+#: ../src/menu.c:53
 msgid "Phone Manager"
 msgstr "Telefonhanterare"
 
@@ -168,13 +173,14 @@ msgstr "Inte ansluten"
 msgid "Show model name of a specific device"
 msgstr "Visa modellnamn för en specifik enhet"
 
-#: ../src/main.c:39
-msgid "Write the configuration file for gnokii debugging"
-msgstr "Skriv konfigurationsfilen för gnokii-felsökning"
-
+#: ../src/main.c:38
 #: ../src/main.c:39
 msgid "PORT"
 msgstr "PORT"
+
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Skriv konfigurationsfilen för gnokii-felsökning"
 
 #: ../src/main.c:40
 msgid "Enable debug"
@@ -196,174 +202,174 @@ msgstr "gnome-phone-manager version %s\n"
 #: ../src/menu.c:40
 msgid "translator_credits"
 msgstr ""
-"Daniel Nylander\n"
+"Daniel Nylander <po@danielnylander.se>\n"
 "Christian Rose\n"
 "\n"
 "Skicka synpunkter på översättningen till\n"
-"tp-sv@listor.tp-sv.se"
+"<tp-sv@listor.tp-sv.se>."
 
 #: ../src/menu.c:44
 msgid "Send and receive messages from your mobile phone."
 msgstr "Skicka och mottag meddelanden från din mobiltelefon."
 
-#: ../src/menu.c:56
+#: ../src/menu.c:58
 msgid "Phone Manager website"
 msgstr "Webbplatsen för Telefonhanterare"
 
-#: ../src/menu.c:87
+#: ../src/menu.c:89
 msgid "_Send Message"
 msgstr "_Skicka meddelande"
 
-#: ../src/ui.c:166
+#: ../src/ui.c:111
 msgid "New text message received"
 msgstr "Nytt textmeddelande har mottagits"
 
-#: ../src/ui.c:331
+#: ../src/ui.c:277
 msgid "Message too long!"
 msgstr "Meddelandet är för långt!"
 
-#: ../data/phonemgr.glade.h:1
+#: ../data/phonemgr.ui.h:1
 msgid "Alerting"
 msgstr "Varnar"
 
-#: ../data/phonemgr.glade.h:2
+#: ../data/phonemgr.ui.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Alternativt enhetsfilnamn, t.ex. /dev/ttyS3"
 
-#: ../data/phonemgr.glade.h:3
+#: ../data/phonemgr.ui.h:3
 msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
 msgstr "Försök alltid att ansluta igen när en anslutning inte är omedelbart tillgänglig. Använd detta tillsammans med Bluetooth för att försäkra dig om att din telefon ansluter när den är inom räckhåll."
 
-#: ../data/phonemgr.glade.h:4
+#: ../data/phonemgr.ui.h:4
 msgid "Automated Tasks"
 msgstr "Automatiserade funktioner"
 
-#: ../data/phonemgr.glade.h:5
+#: ../data/phonemgr.ui.h:5
 msgid "Automatically _retry connections"
 msgstr "_Försök ansluta igen automatiskt"
 
-#: ../data/phonemgr.glade.h:6
+#: ../data/phonemgr.ui.h:6
 msgid "Characters left:"
 msgstr "Tecken kvar:"
 
-#: ../data/phonemgr.glade.h:7
+#: ../data/phonemgr.ui.h:7
 msgid "Connect using an alternative serial device"
 msgstr "Anslut genom att använda en alternativ seriell enhet"
 
-#: ../data/phonemgr.glade.h:8
+#: ../data/phonemgr.ui.h:8
 msgid "Connect using infrared communication"
 msgstr "Anslut genom att använda infraröd kommunikation"
 
-#: ../data/phonemgr.glade.h:9
+#: ../data/phonemgr.ui.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr "Anslut genom att använda serieport 1, även känd som COM1 eller /dev/ttyS0"
 
-#: ../data/phonemgr.glade.h:10
+#: ../data/phonemgr.ui.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr "Anslut genom att använda serieport 2, även känd som COM2 eller /dev/ttyS1"
 
-#: ../data/phonemgr.glade.h:11
+#: ../data/phonemgr.ui.h:11
 msgid "Connection"
 msgstr "Anslutning"
 
-#: ../data/phonemgr.glade.h:12
+#: ../data/phonemgr.ui.h:12
 msgid "Date:"
 msgstr "Datum:"
 
-#: ../data/phonemgr.glade.h:13
+#: ../data/phonemgr.ui.h:13
 msgid "Enter the text message you want to send."
 msgstr "Ange det textmeddelande som du vill skicka."
 
-#: ../data/phonemgr.glade.h:14
+#: ../data/phonemgr.ui.h:14
 msgid "Enter your text message"
 msgstr "Ange ditt textmeddelande"
 
-#: ../data/phonemgr.glade.h:15
+#: ../data/phonemgr.ui.h:15
 msgid "I_nfra red (/dev/ircomm0)"
 msgstr "I_nfrarött (/dev/ircomm0)"
 
-#: ../data/phonemgr.glade.h:16
+#: ../data/phonemgr.ui.h:16
 msgid "Interface"
 msgstr "Gränssnitt"
 
-#: ../data/phonemgr.glade.h:17
+#: ../data/phonemgr.ui.h:17
 msgid "Message Received"
 msgstr "Meddelande har mottagits"
 
-#: ../data/phonemgr.glade.h:18
+#: ../data/phonemgr.ui.h:18
 msgid "Other _port"
 msgstr "Annan _port"
 
-#: ../data/phonemgr.glade.h:19
+#: ../data/phonemgr.ui.h:19
 msgid "Phone Connection"
 msgstr "Telefonanslutning"
 
-#: ../data/phonemgr.glade.h:20
+#: ../data/phonemgr.ui.h:20
 msgid "Phone Manager Preferences"
 msgstr "Inställningar för telefonhanteraren"
 
-#: ../data/phonemgr.glade.h:21
+#: ../data/phonemgr.ui.h:21
 msgid "Play _sound when messages arrive"
 msgstr "Spela _ljudfil när meddelanden ankommer"
 
-#: ../data/phonemgr.glade.h:22
+#: ../data/phonemgr.ui.h:22
 msgid "Send Message"
 msgstr "Skicka meddelande"
 
-#: ../data/phonemgr.glade.h:23
+#: ../data/phonemgr.ui.h:23
 msgid "Sender:"
 msgstr "Avsändare:"
 
-#: ../data/phonemgr.glade.h:24
+#: ../data/phonemgr.ui.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "Serieport _1 (/dev/ttyS0)"
 
-#: ../data/phonemgr.glade.h:25
+#: ../data/phonemgr.ui.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "Serieport _2 (/dev/ttyS1)"
 
-#: ../data/phonemgr.glade.h:26
+#: ../data/phonemgr.ui.h:26
 msgid "Synchronise phone's _time and date"
 msgstr "Synkronisera telefonens _tid och datum"
 
-#: ../data/phonemgr.glade.h:27
+#: ../data/phonemgr.ui.h:27
 msgid "Synchronise phone's time and date with the computer's clock"
 msgstr "Synkronisera telefonens tid och datum med datorns klocka"
 
-#: ../data/phonemgr.glade.h:28
+#: ../data/phonemgr.ui.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "Använd trådlöst blåtandsnätverk för att ansluta till din telefon"
 
-#: ../data/phonemgr.glade.h:29
+#: ../data/phonemgr.ui.h:29
 msgid "You have received a message"
 msgstr "Du har fått ett meddelande"
 
-#: ../data/phonemgr.glade.h:30
+#: ../data/phonemgr.ui.h:30
 msgid "_Bluetooth"
 msgstr "_Bluetooth"
 
-#: ../data/phonemgr.glade.h:31
+#: ../data/phonemgr.ui.h:31
 msgid "_Message:"
 msgstr "_Meddelande:"
 
 #. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.glade.h:33
+#: ../data/phonemgr.ui.h:33
 msgid "_Notify when message is delivered"
 msgstr "_Notifiera när meddelanden ankommer"
 
-#: ../data/phonemgr.glade.h:34
+#: ../data/phonemgr.ui.h:34
 msgid "_Pop-up window for new messages"
 msgstr "_Popupfönster för nya meddelanden"
 
-#: ../data/phonemgr.glade.h:35
+#: ../data/phonemgr.ui.h:35
 msgid "_Recipient:"
 msgstr "_Mottagare:"
 
-#: ../data/phonemgr.glade.h:36
+#: ../data/phonemgr.ui.h:36
 msgid "_Reply"
 msgstr "_Svara"
 
-#: ../data/phonemgr.glade.h:37
+#: ../data/phonemgr.ui.h:37
 msgid "_Send"
 msgstr "_Skicka"
 
