@@ -37,7 +37,6 @@ about_activated(GtkMenuItem *item, gpointer data)
 {
 	const char *authors[] = { "Bastien Nocera <hadess@hadess.net>", "Edd Dumbill <edd@usefulinc.com>", NULL };
 	const char *documenters[] = { NULL };
-	const char *translator_credits = _("translator_credits");
 
 	gtk_show_about_dialog (NULL,
 			       "authors", authors,
@@ -53,7 +52,7 @@ about_activated(GtkMenuItem *item, gpointer data)
 			       "name", _("Phone Manager"),
 #endif /* GTK+ 2.11.0 */
 			       "version", VERSION,
-			       "translator-credits", strcmp (translator_credits, "translator_credits") != 0 ?  translator_credits : NULL,
+			       "translator-credits", _("translator_credits"),
 			       "website", "http://live.gnome.org/PhoneManager",
 			       "website-label", _("Phone Manager website"),
 			       NULL);
