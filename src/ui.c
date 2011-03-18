@@ -451,12 +451,6 @@ ui_init (MyApp *app)
 				    "active");
 
 	/* And the address chooser */
-	/* XXX Force a value to the device property else if there is no valid value in gconf
-	   and the Bluetooth chooser button won't show any label
-	 */
-	g_object_set (G_OBJECT (gtk_builder_get_object (app->ui, "btchooser")),
-		      "device", NULL,
-		      NULL);
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/bluetooth_addr",
 				    G_OBJECT (gtk_builder_get_object (app->ui, "btchooser")),
