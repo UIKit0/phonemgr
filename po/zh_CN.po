@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phonemgr master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "phone-manager&component=general\n"
-"POT-Creation-Date: 2010-02-05 17:50+0000\n"
+"POT-Creation-Date: 2011-02-15 20:00+0000\n"
 "PO-Revision-Date: 2010-02-24 16:31+0800\n"
 "Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -17,110 +17,115 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "无法获取联系人：%s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "无法找到联系人：%s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "无法创建可搜索视图。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "成功"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "一个参数无效。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "地址簿忙。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "地址簿离线"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "地址簿不存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "“Me”联系人不存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "地址簿未加载。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "地址簿已经加载。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "访问地址簿时许可被拒绝。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "联系人未找到。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "联系人 ID 已经存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "协议不受支持。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "操作被取消。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "操作无法取消。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "地址簿认证失败。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr "访问地址簿需要认证但是没有给出。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "安全连接不可用。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "访问地址簿时发生 CORBA 错误。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "地址簿源不存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "发生了一个未知错误。"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "GConf 错误：%s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "进一步的错误只在终端中显示。"
+
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr ""
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
@@ -166,6 +171,10 @@ msgstr "未连接"
 msgid "Show model name of a specific device"
 msgstr "显示指定设备的型号名"
 
+#: ../src/main.c:38 ../src/main.c:39
+msgid "PORT"
+msgstr ""
+
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "为 gnokii 调试写配置文件"
@@ -182,7 +191,7 @@ msgstr "显示版本信息然后退出"
 msgid "- Manage your mobile phone"
 msgstr " - 管理您的移动电话"
 
-#: ../src/main.c:72
+#: ../src/main.c:74
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnome-phone-manager 版本 %s\n"
@@ -203,23 +212,23 @@ msgstr "电话管理器网站"
 msgid "_Send Message"
 msgstr "发送消息(_S)"
 
-#: ../src/ui.c:166
+#: ../src/ui.c:111
 msgid "New text message received"
 msgstr "收到了新文本消息"
 
-#: ../src/ui.c:331
+#: ../src/ui.c:277
 msgid "Message too long!"
 msgstr "消息太长！"
 
-#: ../data/phonemgr.glade.h:1
+#: ../data/phonemgr.ui.h:1
 msgid "Alerting"
 msgstr "提醒"
 
-#: ../data/phonemgr.glade.h:2
+#: ../data/phonemgr.ui.h:2
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "其它设备文件名，例如 /dev/ttyS3"
 
-#: ../data/phonemgr.glade.h:3
+#: ../data/phonemgr.ui.h:3
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -228,136 +237,136 @@ msgstr ""
 "每当连接不立即可用时，总使尝试重新连接。对蓝牙使用此选项可以确保，每当手机进"
 "入可用区域，自动连接。"
 
-#: ../data/phonemgr.glade.h:4
+#: ../data/phonemgr.ui.h:4
 msgid "Automated Tasks"
 msgstr "自动任务"
 
-#: ../data/phonemgr.glade.h:5
+#: ../data/phonemgr.ui.h:5
 msgid "Automatically _retry connections"
 msgstr "自动重试连接(_R)"
 
-#: ../data/phonemgr.glade.h:6
+#: ../data/phonemgr.ui.h:6
 msgid "Characters left:"
 msgstr "所剩字符数："
 
-#: ../data/phonemgr.glade.h:7
+#: ../data/phonemgr.ui.h:7
 msgid "Connect using an alternative serial device"
 msgstr "使用另外的串行设备连接"
 
-#: ../data/phonemgr.glade.h:8
+#: ../data/phonemgr.ui.h:8
 msgid "Connect using infrared communication"
 msgstr "使用红外连接"
 
-#: ../data/phonemgr.glade.h:9
+#: ../data/phonemgr.ui.h:9
 msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
 msgstr "使用串口 1 连接，也就是 COM1 或 /dev/ttyS0"
 
-#: ../data/phonemgr.glade.h:10
+#: ../data/phonemgr.ui.h:10
 msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
 msgstr "使用串口 2 连接，也就是 COM2 或 /dev/ttyS1"
 
-#: ../data/phonemgr.glade.h:11
+#: ../data/phonemgr.ui.h:11
 msgid "Connection"
 msgstr "连接"
 
-#: ../data/phonemgr.glade.h:12
+#: ../data/phonemgr.ui.h:12
 msgid "Date:"
 msgstr "日期："
 
-#: ../data/phonemgr.glade.h:13
+#: ../data/phonemgr.ui.h:13
 msgid "Enter the text message you want to send."
 msgstr "输入您想要发送的文字消息。"
 
-#: ../data/phonemgr.glade.h:14
+#: ../data/phonemgr.ui.h:14
 msgid "Enter your text message"
 msgstr "输入您的文本消息。"
 
-#: ../data/phonemgr.glade.h:15
+#: ../data/phonemgr.ui.h:15
 msgid "I_nfra red (/dev/ircomm0)"
 msgstr "红外(/dev/ircomm0)(_N)"
 
-#: ../data/phonemgr.glade.h:16
+#: ../data/phonemgr.ui.h:16
 msgid "Interface"
 msgstr "界面"
 
-#: ../data/phonemgr.glade.h:17
+#: ../data/phonemgr.ui.h:17
 msgid "Message Received"
 msgstr "收到了消息"
 
-#: ../data/phonemgr.glade.h:18
+#: ../data/phonemgr.ui.h:18
 msgid "Other _port"
 msgstr "其它端口(_P)"
 
-#: ../data/phonemgr.glade.h:19
+#: ../data/phonemgr.ui.h:19
 msgid "Phone Connection"
 msgstr "电话连接"
 
-#: ../data/phonemgr.glade.h:20
+#: ../data/phonemgr.ui.h:20
 msgid "Phone Manager Preferences"
 msgstr "电话管理器首选项"
 
-#: ../data/phonemgr.glade.h:21
+#: ../data/phonemgr.ui.h:21
 msgid "Play _sound when messages arrive"
 msgstr "收到消息时播放声音(_S)"
 
-#: ../data/phonemgr.glade.h:22
+#: ../data/phonemgr.ui.h:22
 msgid "Send Message"
 msgstr "发送消息"
 
-#: ../data/phonemgr.glade.h:23
+#: ../data/phonemgr.ui.h:23
 msgid "Sender:"
 msgstr "发送人："
 
-#: ../data/phonemgr.glade.h:24
+#: ../data/phonemgr.ui.h:24
 msgid "Serial port _1 (/dev/ttyS0)"
 msgstr "串口1(/dev/ttyS0)(_1)"
 
-#: ../data/phonemgr.glade.h:25
+#: ../data/phonemgr.ui.h:25
 msgid "Serial port _2 (/dev/ttyS1)"
 msgstr "串口2(/dev/ttyS1)(_2)"
 
-#: ../data/phonemgr.glade.h:26
+#: ../data/phonemgr.ui.h:26
 msgid "Synchronise phone's _time and date"
 msgstr "同步电话的时间和日期(_T)"
 
-#: ../data/phonemgr.glade.h:27
+#: ../data/phonemgr.ui.h:27
 msgid "Synchronise phone's time and date with the computer's clock"
 msgstr "使用计算机时钟同步电话时间和日期"
 
-#: ../data/phonemgr.glade.h:28
+#: ../data/phonemgr.ui.h:28
 msgid "Use Bluetooth wireless networking to connect to your phone"
 msgstr "使用蓝牙无线网络连接到您的电话"
 
-#: ../data/phonemgr.glade.h:29
+#: ../data/phonemgr.ui.h:29
 msgid "You have received a message"
 msgstr "您收到了一条消息"
 
-#: ../data/phonemgr.glade.h:30
+#: ../data/phonemgr.ui.h:30
 msgid "_Bluetooth"
 msgstr "蓝牙(_B)"
 
-#: ../data/phonemgr.glade.h:31
+#: ../data/phonemgr.ui.h:31
 msgid "_Message:"
 msgstr "消息(_M)："
 
 #. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.glade.h:33
+#: ../data/phonemgr.ui.h:33
 msgid "_Notify when message is delivered"
 msgstr "消息成功传送时通知(_N)"
 
-#: ../data/phonemgr.glade.h:34
+#: ../data/phonemgr.ui.h:34
 msgid "_Pop-up window for new messages"
 msgstr "新消息弹出窗口(_P)"
 
-#: ../data/phonemgr.glade.h:35
+#: ../data/phonemgr.ui.h:35
 msgid "_Recipient:"
 msgstr "收件人(_R)："
 
-#: ../data/phonemgr.glade.h:36
+#: ../data/phonemgr.ui.h:36
 msgid "_Reply"
 msgstr "回复(_R)"
 
-#: ../data/phonemgr.glade.h:37
+#: ../data/phonemgr.ui.h:37
 msgid "_Send"
 msgstr "发送(_S)"
 
