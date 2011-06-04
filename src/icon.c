@@ -56,18 +56,18 @@ set_icon_state (MyApp *app)
 		gtk_widget_set_sensitive (app->send_item, TRUE);
 		if (app->messages) {
 			gtk_status_icon_set_from_icon_name (app->tray_icon, "phone-message");
-			gtk_status_icon_set_tooltip (app->tray_icon, _("Message arrived"));
+			gtk_status_icon_set_tooltip_text (app->tray_icon, _("Message arrived"));
 		} else {
 			gtk_status_icon_set_from_icon_name (app->tray_icon, "phone");
-			gtk_status_icon_set_tooltip (app->tray_icon, _("Connected"));
+			gtk_status_icon_set_tooltip_text (app->tray_icon, _("Connected"));
 		}
 	} else if (app->connecting) {
 		gtk_status_icon_set_from_icon_name (app->tray_icon, "phone-connecting");
-		gtk_status_icon_set_tooltip (app->tray_icon, _("Connecting to phone"));
+		gtk_status_icon_set_tooltip_text (app->tray_icon, _("Connecting to phone"));
 		gtk_widget_set_sensitive (app->send_item, FALSE);
 	} else {
 		gtk_status_icon_set_from_icon_name (app->tray_icon, "phone-error");
-		gtk_status_icon_set_tooltip (app->tray_icon, _("Not connected"));
+		gtk_status_icon_set_tooltip_text (app->tray_icon, _("Not connected"));
 		gtk_widget_set_sensitive (app->send_item, FALSE);
 	}
 }
