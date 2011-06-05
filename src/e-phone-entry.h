@@ -29,10 +29,10 @@
 
 G_BEGIN_DECLS
 
-#define E_PHONE_ENTRY(obj) (GTK_CHECK_CAST ((obj), e_phone_entry_get_type (), EPhoneEntry))
-#define E_PHONE_ENTRY_CLASS(klass) (GTK_CHECK_CLASS_CAST ((klass), e_phone_entry_get_type (), EPhoneEntryClass))
-#define E_IS_PHONE_ENTRY(obj) (GTK_CHECK_TYPE (obj, e_phone_entry_get_type ()))
-#define E_IS_PHONE_ENTRY_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), e_phone_entry_get_type ()))
+#define E_PHONE_ENTRY(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), e_phone_entry_get_type (), EPhoneEntry))
+#define E_PHONE_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), e_phone_entry_get_type (), EPhoneEntryClass))
+#define E_IS_PHONE_ENTRY(obj) (G_TYPE_CHECK_INSTANCE_TYPE (obj, e_phone_entry_get_type ()))
+#define E_IS_PHONE_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), e_phone_entry_get_type ()))
 #define E_PHONE_ENTRY_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), E_PHONE_ENTRY_TYPE, EPhoneEntryClass))
 
 typedef struct EPhoneEntry EPhoneEntry;
