@@ -13,7 +13,7 @@ dnl Initialize libtool
 AM_PROG_LIBTOOL
 
 GNOKII_REQS="gnokii >= 0.6.28"
-GNOME_BLUETOOTH_REQS="gnome-bluetooth-1.0"
+GNOME_BLUETOOTH_REQS="gnome-bluetooth-1.0 >= 3.0"
 
 AC_PROG_CC
 AC_PROG_INSTALL
@@ -44,11 +44,10 @@ PKG_CHECK_MODULES(TMP_EVO, libebook-1.2,
 
 PKG_CHECK_MODULES(LIBGSM, glib-2.0 gobject-2.0 $GNOKII_REQS gthread-2.0 bluez $evo_pc_file)
 
-PKG_CHECK_MODULES(PHONEMGR, gtk+-2.0 >= 2.18 glib-2.0 >= 2.25.0
-	libcanberra-gtk gconf-2.0
+PKG_CHECK_MODULES(PHONEMGR, gtk+-3.0 >= 3.0 glib-2.0 >= 2.25.0
+	libcanberra-gtk3 gconf-2.0
 	$GNOME_BLUETOOTH_REQS $evo_pc_file
 	gmodule-2.0 dbus-glib-1 gnome-icon-theme >= 2.19.1
-	gtkspell-2.0
 )
 
 DBUSLIBDIR="`$PKG_CONFIG dbus-glib-1 --variable=libdir`"

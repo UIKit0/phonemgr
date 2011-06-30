@@ -22,7 +22,6 @@
 #include <glib/gi18n.h>
 #include <stdlib.h>
 #include <gtk/gtk.h>
-#include <gtkspell/gtkspell.h>
 #include <canberra-gtk.h>
 #include <time.h>
 #include <string.h>
@@ -342,11 +341,6 @@ create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 	view = GTK_TEXT_VIEW (gtk_builder_get_object (ui, "messagebody"));
 	buf = gtk_text_view_get_buffer (view);
 	gtk_text_buffer_set_text (buf, "", 0);
-
-        if (!gtkspell_new_attach (view, NULL, &err)) {
-        	g_warning ("Couldn't initialise spell checking: %s", err->message);
-                g_error_free (err);
-        }
 
 	entry = GTK_ENTRY (gtk_builder_get_object (ui, "recipient"));
 	if (recip)
