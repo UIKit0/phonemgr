@@ -321,7 +321,6 @@ send_message (GtkWidget *w, GtkBuilder *ui)
 void
 create_send_dialog (MyApp *app, GtkDialog *parent, const char *recip)
 {
-        GError *err = NULL;
 	GtkTextBuffer *buf;
 	GtkTextView *view;
 	GtkEntry *entry;
