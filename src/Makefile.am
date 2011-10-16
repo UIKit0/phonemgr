@@ -31,9 +31,9 @@ gnome_phone_manager_SOURCES =		\
 	phonemgr-object.h
 
 gnome_phone_manager_LDADD = \
+	../cut-n-paste/e-contact-entry/libecontact-entry.la	\
 	$(PHONEMGR_LIBS) \
 	../libgsm/libgsmwrap.la		\
-	../cut-n-paste/e-contact-entry/libecontact-entry.la	\
 	../cut-n-paste/gconf-bridge/libgconf-bridge.la
 
 BUILT_SOURCES = phone-manager-interface.h
@@ -49,8 +49,9 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 # The test program
 noinst_PROGRAMS = test-entry
 test_entry_SOURCES = test-entry.c e-phone-entry.c e-phone-entry.h 
-test_entry_LDADD = $(PHONEMGR_LIBS)	\
+test_entry_LDADD = \
 		   ../cut-n-paste/e-contact-entry/libecontact-entry.la	\
+		   $(PHONEMGR_LIBS) \
 		   ../cut-n-paste/gconf-bridge/libgconf-bridge.la
 
 BUILT_SOURCES += $(MARSHALFILES)
