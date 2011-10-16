@@ -7,7 +7,7 @@ AC_CONFIG_SRCDIR(src/main.c)
 AM_MAINTAINER_MODE
 AM_CONFIG_HEADER(config.h)
 
-AM_INIT_AUTOMAKE([1.9 dist-bzip2 no-dist-gzip check-news])
+AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz check-news])
 
 dnl Initialize libtool
 AM_PROG_LIBTOOL
