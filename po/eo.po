@@ -1,0 +1,437 @@
+# Esperanto translation for phonemgr.
+# Copyright (C) 2011 Free Software Foundation, Inc.
+# This file is distributed under the same license as the phonemgr package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phonemgr master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-10-16 20:35+0000\n"
+"PO-Revision-Date: 2011-11-12 19:13+0100\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Ne eblas akiri kontakton: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Ne povas trovi kontakton: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
+msgid "Cannot create searchable view."
+msgstr "Ne povas krei serĉeblan vidon."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
+msgid "Success"
+msgstr "Sukceso"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
+msgid "An argument was invalid."
+msgstr "Argomento estis nevalida."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "The address book is busy."
+msgstr "La adresaro estas okupita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "The address book is offline."
+msgstr "La adresaro estas malkonektita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book does not exist."
+msgstr "La adresaro ne ekzistas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+msgid "The \"Me\" contact does not exist."
+msgstr "La \"Mi\"-kontakto ne ekzistas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+msgid "The address book is not loaded."
+msgstr "La adresaro ne estas ŝarĝita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+msgid "The address book is already loaded."
+msgstr "La adresro estas jam ŝarĝita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+msgid "Permission was denied when accessing the address book."
+msgstr "Permespeto estis malpermesita kiam aliranta al adresaro."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+msgid "The contact was not found."
+msgstr "La kontakto ne estis trovita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+msgid "This contact ID already exists."
+msgstr "La kontakt-identigilo jam ekzistas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The protocol is not supported."
+msgstr "La protokolo ne estas subtenata."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "The operation was cancelled."
+msgstr "La ago estis nuligita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+msgid "The operation could not be cancelled."
+msgstr "La ago ne povas esti nuligita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+msgid "The address book authentication failed."
+msgstr "La adresara aŭtentigkontrolo fiaskis."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr ""
+"Aŭtentokontrolo, kiu estas necesa por aliri al adresaro, ne estas donita."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "A secure connection is not available."
+msgstr "Sekura konektado ne disponeblas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "CORBA-eraro okazis dum aliro al la adresaro."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+msgid "The address book source does not exist."
+msgstr "La adresara fonto ne ekzistas."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
+msgid "An unknown error occurred."
+msgstr "Okazis nekonata eraro."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
+#, c-format
+msgid "GConf error: %s"
+msgstr "Eraro de GConf: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
+msgid "All further errors shown only on terminal."
+msgstr "Ĉiuj pliaj eraroj estos montritaj nur en terminalo."
+
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr ""
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:124
+#, c-format
+msgid "Connected to device on %s"
+msgstr ""
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:130
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr ""
+
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:50 ../src/menu.c:52
+msgid "Phone Manager"
+msgstr ""
+
+#: ../src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr ""
+
+#: ../src/icon.c:59
+msgid "Message arrived"
+msgstr "Masaĝo alvenis"
+
+#: ../src/icon.c:62
+msgid "Connected"
+msgstr "Konektite"
+
+#: ../src/icon.c:66
+msgid "Connecting to phone"
+msgstr ""
+
+#: ../src/icon.c:70
+msgid "Not connected"
+msgstr "Ne konekite"
+
+#: ../src/main.c:38
+msgid "Show model name of a specific device"
+msgstr ""
+
+#: ../src/main.c:38 ../src/main.c:39
+msgid "PORT"
+msgstr "PORDO"
+
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr ""
+
+#: ../src/main.c:40
+msgid "Enable debug"
+msgstr "Enŝalti sencimigon"
+
+#: ../src/main.c:41
+msgid "Show version information and exit"
+msgstr "Montri informojn pri versio kaj eliri"
+
+#: ../src/main.c:60
+msgid "- Manage your mobile phone"
+msgstr ""
+
+#: ../src/main.c:74
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr ""
+
+#: ../src/menu.c:43
+msgid "Send and receive messages from your mobile phone."
+msgstr ""
+
+#: ../src/menu.c:55
+msgid "translator_credits"
+msgstr "Kristjan SCHMIDT, 2011."
+
+#: ../src/menu.c:57
+msgid "Phone Manager website"
+msgstr ""
+
+#: ../src/menu.c:88
+msgid "_Send Message"
+msgstr "_Sendi mesaĝon"
+
+#: ../src/ui.c:110
+msgid "New text message received"
+msgstr ""
+
+#: ../src/ui.c:276
+msgid "Message too long!"
+msgstr "Tro longa mesaĝo!"
+
+#: ../data/phonemgr.ui.h:1
+msgid "Alerting"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:2
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:3
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+
+#: ../data/phonemgr.ui.h:4
+msgid "Automated Tasks"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:5
+msgid "Automatically _retry connections"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:6
+msgid "Characters left:"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:7
+msgid "Connect using an alternative serial device"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:8
+msgid "Connect using infrared communication"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:9
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:10
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:11
+msgid "Connection"
+msgstr "Konekto"
+
+#: ../data/phonemgr.ui.h:12
+msgid "Date:"
+msgstr "Dato:"
+
+#: ../data/phonemgr.ui.h:13
+msgid "Enter the text message you want to send."
+msgstr "Enigu la tekstmesaĝon kiun vi volas sendi."
+
+#: ../data/phonemgr.ui.h:14
+msgid "Enter your text message"
+msgstr "Enigu vian tekstmesaĝon"
+
+#: ../data/phonemgr.ui.h:15
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:16
+msgid "Interface"
+msgstr "Interfaco"
+
+#: ../data/phonemgr.ui.h:17
+msgid "Message Received"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:18
+msgid "Other _port"
+msgstr "Alia _pordo"
+
+#: ../data/phonemgr.ui.h:19
+msgid "Phone Connection"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:20
+msgid "Phone Manager Preferences"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:21
+msgid "Play _sound when messages arrive"
+msgstr "Ludi _sonon pro alvenintaj mesaĝoj"
+
+#: ../data/phonemgr.ui.h:22
+msgid "Send Message"
+msgstr "Sendi mesaĝon"
+
+#: ../data/phonemgr.ui.h:23
+msgid "Sender:"
+msgstr "Sendinto:"
+
+#: ../data/phonemgr.ui.h:24
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:26
+msgid "Synchronise phone's _time and date"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:27
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:28
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:29
+msgid "You have received a message"
+msgstr "Vi ricevis mesaĝon"
+
+#: ../data/phonemgr.ui.h:30
+msgid "_Bluetooth"
+msgstr "_Bludento"
+
+#: ../data/phonemgr.ui.h:31
+msgid "_Message:"
+msgstr "_Mesaĝo:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.ui.h:33
+msgid "_Notify when message is delivered"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:34
+msgid "_Pop-up window for new messages"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:35
+msgid "_Recipient:"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:36
+msgid "_Reply"
+msgstr "_Respondi"
+
+#: ../data/phonemgr.ui.h:37
+msgid "_Send"
+msgstr "_Sendi"
+
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "Bluetooth address of the device to connect to"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "The connection type used by gnome-phone-manager"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to popup new messages on the desktop"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to retry connecting to the mobile phone"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr ""
