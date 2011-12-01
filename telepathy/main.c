@@ -59,7 +59,6 @@ main(int argc,
 	GOptionContext *context;
 
 	g_set_prgname("telepathy-phoney");
-	g_thread_init (NULL);
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
