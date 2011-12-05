@@ -13,7 +13,7 @@ dnl Initialize libtool
 AM_PROG_LIBTOOL
 
 GNOKII_REQS="gnokii >= 0.6.28"
-GNOME_BLUETOOTH_REQS="gnome-bluetooth-1.0 >= 3.0"
+GNOME_BLUETOOTH_REQS="gnome-bluetooth-1.0 >= 3.3"
 
 AC_PROG_CC
 AC_PROG_INSTALL

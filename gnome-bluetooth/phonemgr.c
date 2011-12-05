@@ -44,7 +44,7 @@ get_type (const char *address)
 	gboolean cont;
 
 	client = bluetooth_client_new (); 
-	model = bluetooth_client_get_device_model (client, NULL);
+	model = bluetooth_client_get_device_model (client);
 	if (model == NULL) {
 		g_object_unref (client);
 		return type;
