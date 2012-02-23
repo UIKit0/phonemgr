@@ -522,8 +522,11 @@ phonemgr_utils_connect (const char *device, const char *driver, int channel, gbo
 		g_free (config);
 	}
 
-	if (gn_cfg_memory_read ((const char **)lines) < 0) {
-		g_warning ("gn_cfg_memory_read");
+	err = gn_cfg_memory_read ((const char **)lines);
+	if (err != GN_ERR_NONE) {
+		PhoneMgrError perr;
+		g_warning ("gn_cfg_memory_read: %s",
+			   phonemgr_utils_gn_error_to_string (err, &perr));
 		g_strfreev (lines);
 		return NULL;
 	}
@@ -532,8 +535,11 @@ phonemgr_utils_connect (const char *device, const char *driver, int channel, gbo
 	memset (&data, 0, sizeof (data));
 	phonemgr_utils_gn_statemachine_clear (&state);
 
-	if (gn_cfg_phone_load("", &state) < 0) {
-		g_warning ("gn_cfg_phone_load");
+	err = gn_cfg_phone_load ("", &state);
+	if (err != GN_ERR_NONE) {
+		PhoneMgrError perr;
+		g_warning ("gn_cfg_phone_load: %s",
+			   phonemgr_utils_gn_error_to_string (err, &perr));
 		return NULL;
 	}
 
