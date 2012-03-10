@@ -1,0 +1,441 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Anish A <anish.nl@gmail.com>, 2010.
+# Anish A <aneesh.nl@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-02-23 14:45+0000\n"
+"PO-Revision-Date: 2011-01-23 14:21+0530\n"
+"Last-Translator: Anish A <aneesh.nl@gmail.com>\n"
+"Language-Team: Swatantra Malayalam Computing<discuss@lists.smc.org.in>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ml\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.5.2\n"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "%s: ഈ വിലാസം ലഭിച്ചില്ല"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "%s: ഈ വിലാസം കണ്ടെത്തിയില്ല"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
+msgid "Cannot create searchable view."
+msgstr "തെരയാന്‍ അനുയോജ്യമായ കാഴ്ച ഒരുക്കാന്‍ സാധിച്ചില്ല."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
+msgid "Success"
+msgstr "വിജയിച്ചിരിക്കുന്നു"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
+msgid "An argument was invalid."
+msgstr "ഒരു ആര്‍ഗ്യുമെന്റ് അസാധുവായിരുന്നു."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "The address book is busy."
+msgstr "വിലാസപുസ്തകം മറ്റൊരുപയോഗത്തിലാണ്."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "The address book is offline."
+msgstr "വിലാസപുസ്തകം ഓഫ്‌‌ലൈന്‍ ആണ്."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book does not exist."
+msgstr "ഈ വിലാസപുസ്തകം നിലവിലില്ല."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+msgid "The \"Me\" contact does not exist."
+msgstr "\"ഞാന്‍\" എന്ന വിലാസം  നിലവിലില്ല."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+msgid "The address book is not loaded."
+msgstr "വിലാസപുസ്തകം തുറന്നിട്ടില്ല."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+msgid "The address book is already loaded."
+msgstr "വിലാസപുസ്തകം ഇപ്പൊഴേ നിലവിലുണ്ട്."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+msgid "Permission was denied when accessing the address book."
+msgstr "വിലാസപുസ്തകം നോക്കുന്നതിനുള്ള അനുവാദമില്ല."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+msgid "The contact was not found."
+msgstr "ഈ വിലാസം കണ്ടെത്തിയില്ല"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+msgid "This contact ID already exists."
+msgstr "ഈ വിലാസത്തിന്റെ ഐഡി നിലവിലുണ്ട്."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The protocol is not supported."
+msgstr "ഈ പ്രോട്ടോകോള്‍ പിന്തുണയില്ലാത്തതാണ്."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "The operation was cancelled."
+msgstr "ഈ നടപടി നിര്‍ത്തിയിരിക്കുന്നു"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+msgid "The operation could not be cancelled."
+msgstr "ഈ നടപടി നിറുത്താന്‍ സാധ്യമല്ല"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+msgid "The address book authentication failed."
+msgstr "വിലാസപുസ്തകത്തിലേക്കുള്ള തിരിച്ചറിയല്‍ പരിശോധന പരാജയപ്പെട്ടു"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr "വിലാസപുസ്തകം പരിശോധിക്കാന്‍ ആവശ്യമായ തിരിച്ചറിയല്‍ നല്കിയിട്ടില്ല"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "A secure connection is not available."
+msgstr "സുരക്ഷിതമായ ഒരു ബന്ധം ലഭ്യമല്ല."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "വിലാസപുസ്തകം നോക്കുന്നതിനിടയില്‍ ഒരു കോര്‍ബ പിശക് സംഭവിച്ചു."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+msgid "The address book source does not exist."
+msgstr "വിലാസപുസ്തകത്തിന്റെ ഉറവിടം നിലവിലില്ല."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
+msgid "An unknown error occurred."
+msgstr "അറിയപ്പെടാത്ത എന്തോ ഒരു തെറ്റ് സംഭവിച്ചു."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
+#, c-format
+msgid "GConf error: %s"
+msgstr "%s ജീകോണ്‍ഫ് പിഴവ്"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
+msgid "All further errors shown only on terminal."
+msgstr "ഇനിയുള്ള എല്ലാ പിഴവുകളും ടെര്‍മിനലില്‍ മാത്രമേ കാണിക്കു."
+
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr ""
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:124
+#, c-format
+msgid "Connected to device on %s"
+msgstr "%s -ല്‍ ഉപകരണം ബന്ധിപ്പിച്ചു"
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:130
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr "%s ലേയ്ക്കുള്ള ബന്ധം സ്ഥാപിക്കല്‍ പരാജയപ്പെട്ടു"
+
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:50 ../src/menu.c:52
+msgid "Phone Manager"
+msgstr "ഫോണ്‍ നടത്തിയിപ്പുകാരന്‍"
+
+#: ../src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr "താങ്കളുടെ മൊബൈല്‍ ഫോണില്‍ നിന്ന് സന്ദേശങ്ങള്‍ അയയ്കുകയോ സ്വീകരിക്കുകയോ ചെയ്യുന്നു"
+
+#: ../src/icon.c:59
+msgid "Message arrived"
+msgstr "സന്ദേശം എത്തി"
+
+#: ../src/icon.c:62
+msgid "Connected"
+msgstr "ബന്ധിപ്പിച്ചു"
+
+#: ../src/icon.c:66
+msgid "Connecting to phone"
+msgstr "ഫോണിലേയ്ക്ക് ബന്ധിപ്പിക്കുന്നു"
+
+#: ../src/icon.c:70
+msgid "Not connected"
+msgstr "ബന്ധിപ്പിച്ചിട്ടില്ല"
+
+#: ../src/main.c:38
+msgid "Show model name of a specific device"
+msgstr ""
+
+#: ../src/main.c:38 ../src/main.c:39
+msgid "PORT"
+msgstr "പോര്‍ട്ട്"
+
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr ""
+
+#: ../src/main.c:40
+msgid "Enable debug"
+msgstr "ഡീബഗ്ഗ് പ്രാപ്തമാക്കുക"
+
+#: ../src/main.c:41
+msgid "Show version information and exit"
+msgstr "പതിപ്പിന്റെ വിവരം ലഭ്യമാക്കി പുറത്തു് കടക്കുക"
+
+#: ../src/main.c:60
+msgid "- Manage your mobile phone"
+msgstr "- താങ്കളുടെ മൊബൈലിന്റെ നടത്തിപ്പ്കാരന്‍"
+
+#: ../src/main.c:74
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "gnome-phone-manager %s പതിപ്പ്\n"
+
+#: ../src/menu.c:43
+msgid "Send and receive messages from your mobile phone."
+msgstr "താങ്കളുടെ മൊബൈല്‍ ഫോണില്‍ നിന്ന് സന്ദേശങ്ങള്‍ അയയ്കുകയോ സ്വീകരിക്കുകയോ ചെയ്യുക."
+
+#: ../src/menu.c:55
+msgid "translator_credits"
+msgstr "അനീഷ് എ (Anish A)<aneesh.nl@gmail.com>"
+
+#: ../src/menu.c:57
+msgid "Phone Manager website"
+msgstr "ഫോണ്‍ നടത്തിപ്പ്കാരന്‍ വെബ്സൈറ്റ്"
+
+#: ../src/menu.c:88
+msgid "_Send Message"
+msgstr "സന്ദേശം _അയയ്ക്കു"
+
+#: ../src/ui.c:110
+msgid "New text message received"
+msgstr "പുതിയ സന്ദേശം ലഭിച്ചു"
+
+#: ../src/ui.c:276
+msgid "Message too long!"
+msgstr "സന്ദേശം തീരെ വലുത്"
+
+#: ../data/phonemgr.ui.h:1
+msgid "Message Received"
+msgstr "സന്ദേശം ലഭിച്ചു"
+
+#: ../data/phonemgr.ui.h:2
+msgid "You have received a message"
+msgstr "താങ്കള്‍ക്ക് ഒരു സന്ദേശം ലഭിച്ചു"
+
+#: ../data/phonemgr.ui.h:3
+msgid "Sender:"
+msgstr "പ്രേക്ഷിതന്‍:"
+
+#: ../data/phonemgr.ui.h:4
+msgid "Date:"
+msgstr "തിയതി:"
+
+#: ../data/phonemgr.ui.h:5
+msgid "_Reply"
+msgstr "_മറുപടി"
+
+#: ../data/phonemgr.ui.h:6
+msgid "Send Message"
+msgstr "അയച്ച സന്ദേശം"
+
+#: ../data/phonemgr.ui.h:7
+msgid "Enter your text message"
+msgstr "താങ്കളുടെ സന്ദേശം നല്‍കു"
+
+#: ../data/phonemgr.ui.h:8
+msgid "_Recipient:"
+msgstr "_സ്വീകര്‍ത്താവ്:"
+
+#: ../data/phonemgr.ui.h:9
+msgid "_Message:"
+msgstr "_സന്ദേശം:"
+
+#: ../data/phonemgr.ui.h:10
+msgid "Enter the text message you want to send."
+msgstr "താങ്കള്‍ക്ക് അയയ്കേണ്ട സന്ദേശം നല്‍കുക."
+
+#: ../data/phonemgr.ui.h:11
+msgid "Characters left:"
+msgstr "ബാക്കിയുള്ള അക്ഷരങ്ങള്‍:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.ui.h:13
+msgid "_Notify when message is delivered"
+msgstr "സന്ദേശം സ്വികര്‍ത്താവിന് കിട്ടുമ്പോള്‍ _അറിയിയ്ക്കുക"
+
+#: ../data/phonemgr.ui.h:14
+msgid "_Send"
+msgstr "_അയക്കുക"
+
+#: ../data/phonemgr.ui.h:15
+msgid "Phone Manager Preferences"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:16
+msgid "Alerting"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:17
+msgid "_Pop-up window for new messages"
+msgstr "പുതിയ സന്ദേശങ്ങള്‍ക്ക്_പൊങ്ങിവരുന്ന ജാലകം"
+
+#: ../data/phonemgr.ui.h:18
+msgid "Play _sound when messages arrive"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:19
+msgid "Interface"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:20
+msgid "Phone Connection"
+msgstr "ഫോണ്‍ ബന്ധം"
+
+#: ../data/phonemgr.ui.h:21
+msgid "_Bluetooth"
+msgstr "_ബ്ളുടൂത്ത്"
+
+#: ../data/phonemgr.ui.h:22
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:23
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:24
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:26
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:27
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "_ഇന്‍ഫ്രാറെഡ് (/dev/ircomm0)"
+
+#: ../data/phonemgr.ui.h:28
+msgid "Connect using infrared communication"
+msgstr "ഇന്‍ഫ്രാറെഡ് ഉപയോഗിച്ച് ബന്ധം സ്ഥാപിക്കുക"
+
+#: ../data/phonemgr.ui.h:29
+msgid "Other _port"
+msgstr "വേറെ _പോര്‍ട്ട്"
+
+#: ../data/phonemgr.ui.h:30
+msgid "Connect using an alternative serial device"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:31
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:32
+msgid "Automated Tasks"
+msgstr "യാന്ത്രികമായ ജോലികള്‍"
+
+#: ../data/phonemgr.ui.h:33
+msgid "Automatically _retry connections"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:34
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+
+#: ../data/phonemgr.ui.h:35
+msgid "Synchronise phone's _time and date"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:36
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr ""
+
+#: ../data/phonemgr.ui.h:37
+msgid "Connection"
+msgstr "ബന്ധം"
+
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "The connection type used by gnome-phone-manager"
+msgstr "ഗ്നോം ഫോണ്‍ നടത്തിപ്പുകാരന്‍ ഉപയോഗിക്കുന്ന ബന്ധത്തിന്റെ തരം"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "Bluetooth address of the device to connect to"
+msgstr "ബന്ധിപ്പിക്കേണ്ട ഉപകരണത്തിന്റെ ബ്ളുടൂത്ത് വിലാസം"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr "ബന്ധിപ്പിക്കേണ്ട ഉപകരണത്തിന്റെ ബ്ളുടൂത്ത് വിലാസം. ബന്ധത്തിന്റെ തരം ഒന്ന് ആവശ്യമാണ്."
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "മൊബൈല്‍ ഫോണിലേയ്ക്ക് ബന്ധം സ്ഥാപിക്കാന്‍ വീണ്ടും ശ്രമിക്കണോ എന്ന്"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+"ബന്ധം എവിടെയെങ്കിലും വെച്ച് പരാജയപ്പെട്ടാല്‍ മൊബൈല്‍ ഫോണിലേയ്ക്ക് ബന്ധം സ്ഥാപിക്കാന്‍ വീണ്ടും "
+"ശ്രമിക്കണോ എന്ന്."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "കമ്പ്യുട്ടറിന്റെയും ഫോണിന്റെയും ഘടികാരങ്ങള്‍ ഒന്നാക്കണമോ എന്ന്"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "കമ്പ്യുട്ടറിന്റെയും ഫോണിന്റെയും ഘടികാരങ്ങള്‍ ഒന്നാക്കണമോ എന്ന്."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to popup new messages on the desktop"
+msgstr "പണിയിടത്തില്‍ പുതിയ സന്ദേശങ്ങള്‍ പൊങ്ങിവരുന്ന തരത്തില്‍ കാണിക്കണമോ എന്ന്"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"സിസ്സത്തിന്റെ തളിക ചിഹ്നത്തില്‍ ക്ലിക്ക് ചെയ്യുമ്പോള്‍ ക്ഷണിക്കുന്നതിനു പകരം പണിയിടത്തില്‍ പുതിയ "
+"സന്ദേശങ്ങള്‍  വരുമ്പോള്‍ തന്നെ പൊങ്ങിവരുന്ന തരത്തില്‍ കാണിക്കണമോ എന്ന്."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "പുതിയ സന്ദേശം വരുമ്പോള്‍ ശബ്ദ അറിയിപ്പ് നല്‍കണമോ എന്ന്"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "പുതിയ സന്ദേശം വരുമ്പോള്‍ ശബ്ദ അറിയിപ്പ് നല്‍കണമോ എന്ന്."
