@@ -213,10 +213,8 @@ static void
 e_phone_entry_class_init (EPhoneEntryClass *klass)
 {
   GObjectClass *object_class;
-  GtkWidgetClass *widget_class;
   
   object_class = (GObjectClass *) klass;
-  widget_class = (GtkWidgetClass *) klass;
   
   /* GObject */
   object_class->finalize = e_phone_entry_finalize;
