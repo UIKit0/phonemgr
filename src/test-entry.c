@@ -22,9 +22,6 @@
 #include <string.h>
 #include "e-phone-entry.h"
 
-#define GCONF_COMPLETION "/apps/evolution/addressbook"
-#define GCONF_COMPLETION_SOURCES GCONF_COMPLETION "/sources"
-
 #define CONTACT_FORMAT "%s (%s)"
 
 static char *phone_number = NULL;
