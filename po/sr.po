@@ -1,0 +1,455 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: phonemgr\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"phone-manager&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-03-10 15:43+0000\n"
+"PO-Revision-Date: 2012-03-18 17:26+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <gnom@prevod.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Project-Style: gnome\n"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
+#, c-format
+msgid "Cannot get contact: %s"
+msgstr "Не могу да добавим контакт: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
+#, c-format
+msgid "Could not find contact: %s"
+msgstr "Не могу да нађем контакт: %s"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
+msgid "Cannot create searchable view."
+msgstr "Не могу да прикажем претрагу."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
+msgid "Success"
+msgstr "Успешно"
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
+msgid "An argument was invalid."
+msgstr "Није исправан аргумент."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+msgid "The address book is busy."
+msgstr "Адресар је заузет."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+msgid "The address book is offline."
+msgstr "Адресар је ван мреже."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+msgid "The address book does not exist."
+msgstr "Адресар не постоји."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+msgid "The \"Me\" contact does not exist."
+msgstr "Не постоји контакт са подацима о вама."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+msgid "The address book is not loaded."
+msgstr "Адресар није учитан."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+msgid "The address book is already loaded."
+msgstr "Адресар је већ учитан."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+msgid "Permission was denied when accessing the address book."
+msgstr "Немате овлашћења за приступ адресару."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+msgid "The contact was not found."
+msgstr "Контакт није пронађен."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+msgid "This contact ID already exists."
+msgstr "Већ постоји овај ИБ контакта."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+msgid "The protocol is not supported."
+msgstr "Протокол није подржан."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+msgid "The operation was cancelled."
+msgstr "Радња је прекинута."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+msgid "The operation could not be cancelled."
+msgstr "Не можете да прекинете ову радњу."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+msgid "The address book authentication failed."
+msgstr "Не могу да се пријавим у адресар."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+msgid ""
+"Authentication is required to access the address book and was not given."
+msgstr "Потребно је потврђивање идентитета за приступ адресару а није дато."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+msgid "A secure connection is not available."
+msgstr "Безбедна веза није доступна."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+msgid "A CORBA error occurred whilst accessing the address book."
+msgstr "Дошло је до грешке КОРБА-е приликом приступања адресару."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+msgid "The address book source does not exist."
+msgstr "Не постоји извор адресара."
+
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
+msgid "An unknown error occurred."
+msgstr "Дошло је до непознате грешке."
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
+#, c-format
+msgid "GConf error: %s"
+msgstr "ГКонф грешка: %s"
+
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
+msgid "All further errors shown only on terminal."
+msgstr "Све наредне грешке се приказују само на терминалу."
+
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr "Користи овај уређај са управником телефона"
+
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:124
+#, c-format
+msgid "Connected to device on %s"
+msgstr "Повезани сте са уређајем „%s“"
+
+#. the ERROR signal will have been emitted, so we don't
+#. bother changing the icon ourselves at this point
+#. translators: the '%s' will be substituted with '/dev/ttyS0'
+#. or similar
+#: ../src/connection.c:130
+#, c-format
+msgid "Failed connection to device on %s"
+msgstr "Није успело повезивање са уређајем „%s“"
+
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:50 ../src/menu.c:52
+msgid "Phone Manager"
+msgstr "Управник телефона"
+
+#: ../src/gnome-phone-manager.desktop.in.h:2
+msgid "Receive and send text messages from your mobile phone"
+msgstr "Примајте и шаљите текстуалне поруке са вашег мобилног телефона"
+
+#: ../src/icon.c:59
+msgid "Message arrived"
+msgstr "Порука је пристигла"
+
+#: ../src/icon.c:62
+msgid "Connected"
+msgstr "Повезани сте"
+
+#: ../src/icon.c:66
+msgid "Connecting to phone"
+msgstr "Повезујем се са телефоном"
+
+#: ../src/icon.c:70
+msgid "Not connected"
+msgstr "Нисте повезани"
+
+#: ../src/main.c:38
+msgid "Show model name of a specific device"
+msgstr "Приказује назив модела посебног уређаја"
+
+#: ../src/main.c:38 ../src/main.c:39
+msgid "PORT"
+msgstr "ВРАТА"
+
+#: ../src/main.c:39
+msgid "Write the configuration file for gnokii debugging"
+msgstr "Записује датотеку подешавања за гнокии исправљање грешака"
+
+#: ../src/main.c:40
+msgid "Enable debug"
+msgstr "Укључује исправљање грешака"
+
+#: ../src/main.c:41
+msgid "Show version information and exit"
+msgstr "Приказује податке о издању и излази"
+
+#: ../src/main.c:60
+msgid "- Manage your mobile phone"
+msgstr "— Управљајте вашим мобилним телефоном"
+
+#: ../src/main.c:74
+#, c-format
+msgid "gnome-phone-manager version %s\n"
+msgstr "гномов—управник—телефона издање %s\n"
+
+#: ../src/menu.c:43
+msgid "Send and receive messages from your mobile phone."
+msgstr "Шаљите и примајте поруке са вашег мобилног телефона."
+
+#: ../src/menu.c:55
+msgid "translator_credits"
+msgstr ""
+"Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"\n"
+"Prevod.org — превод на српски језик."
+
+#: ../src/menu.c:57
+msgid "Phone Manager website"
+msgstr "Веб страница управника телефона"
+
+#: ../src/menu.c:88
+msgid "_Send Message"
+msgstr "_Пошаљи поруку"
+
+#: ../src/ui.c:110
+msgid "New text message received"
+msgstr "Примљена је нова текстуална порука"
+
+#: ../src/ui.c:276
+msgid "Message too long!"
+msgstr "Порука је предуга!"
+
+#: ../data/phonemgr.ui.h:1
+msgid "Message Received"
+msgstr "Примљена је порука"
+
+#: ../data/phonemgr.ui.h:2
+msgid "You have received a message"
+msgstr "Примили сте поруку"
+
+#: ../data/phonemgr.ui.h:3
+msgid "Sender:"
+msgstr "Пошиљалац:"
+
+#: ../data/phonemgr.ui.h:4
+msgid "Date:"
+msgstr "Датум:"
+
+#: ../data/phonemgr.ui.h:5
+msgid "_Reply"
+msgstr "_Одговори"
+
+#: ../data/phonemgr.ui.h:6
+msgid "Send Message"
+msgstr "Пошаљи поруку"
+
+#: ../data/phonemgr.ui.h:7
+msgid "Enter your text message"
+msgstr "Унесите вашу текстуалну поруку"
+
+#: ../data/phonemgr.ui.h:8
+msgid "_Recipient:"
+msgstr "_Прималац:"
+
+#: ../data/phonemgr.ui.h:9
+msgid "_Message:"
+msgstr "_Порука:"
+
+#: ../data/phonemgr.ui.h:10
+msgid "Enter the text message you want to send."
+msgstr "Унесите текстуалну поруку коју желите да пошаљете."
+
+#: ../data/phonemgr.ui.h:11
+msgid "Characters left:"
+msgstr "Преосталих знакова:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.ui.h:13
+msgid "_Notify when message is delivered"
+msgstr "_Обавести када је порука отпремљена"
+
+#: ../data/phonemgr.ui.h:14
+msgid "_Send"
+msgstr "_Пошаљи"
+
+#: ../data/phonemgr.ui.h:15
+msgid "Phone Manager Preferences"
+msgstr "Поставке управника телефона"
+
+#: ../data/phonemgr.ui.h:16
+msgid "Alerting"
+msgstr "Упозорење"
+
+#: ../data/phonemgr.ui.h:17
+msgid "_Pop-up window for new messages"
+msgstr "_Прикажи прозор за нове поруке"
+
+#: ../data/phonemgr.ui.h:18
+msgid "Play _sound when messages arrive"
+msgstr "_Пусти звук када стигну поруке"
+
+#: ../data/phonemgr.ui.h:19
+msgid "Interface"
+msgstr "Сучеље"
+
+#: ../data/phonemgr.ui.h:20
+msgid "Phone Connection"
+msgstr "Телефонска веза"
+
+#: ../data/phonemgr.ui.h:21
+msgid "_Bluetooth"
+msgstr "_Блутут"
+
+#: ../data/phonemgr.ui.h:22
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "Користите Блутут бежично умрежавање да се повежете са вашим телефоном"
+
+#: ../data/phonemgr.ui.h:23
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "Серијски прикључак _1 (/dev/ttyS0)"
+
+#: ../data/phonemgr.ui.h:24
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+"Повежите се користећи серијски прикључак 1, познат као COM1 или /dev/ttyS0"
+
+#: ../data/phonemgr.ui.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "Серијски прикључак _2 (/dev/ttyS1))"
+
+#: ../data/phonemgr.ui.h:26
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+"Повежите се користећи серијски прикључак 2, познат као COM2 или /dev/ttyS1"
+
+#: ../data/phonemgr.ui.h:27
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "И_нфра црвено (/dev/ircomm0))"
+
+#: ../data/phonemgr.ui.h:28
+msgid "Connect using infrared communication"
+msgstr "Повежите се користећи инфрацрвену комуникацију"
+
+#: ../data/phonemgr.ui.h:29
+msgid "Other _port"
+msgstr "Други _прикључак"
+
+#: ../data/phonemgr.ui.h:30
+msgid "Connect using an alternative serial device"
+msgstr "Повежите се користећи неки други серијски уређај"
+
+#: ../data/phonemgr.ui.h:31
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "Назив датотеке резетвног уређаја, нпр. /dev/ttyS3"
+
+#: ../data/phonemgr.ui.h:32
+msgid "Automated Tasks"
+msgstr "Самостални задаци"
+
+#: ../data/phonemgr.ui.h:33
+msgid "Automatically _retry connections"
+msgstr "Самостално _понови повезивање"
+
+#: ../data/phonemgr.ui.h:34
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+"Увек пробајте и поново се повежите чак и када веза није одмах доступна. "
+"Користите ово са блутутом да осигурате повезивање вашег телефона када год "
+"буде у домету."
+
+#: ../data/phonemgr.ui.h:35
+msgid "Synchronise phone's _time and date"
+msgstr "Усагласи _време и датум телефона"
+
+#: ../data/phonemgr.ui.h:36
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "Усагласите време и датум телефона са сатом рачунара"
+
+#: ../data/phonemgr.ui.h:37
+msgid "Connection"
+msgstr "Веза"
+
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Врста везе коју користи гномов управник телефона"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+"Врста везе коју користи гномов управник телефона: 0 — Блутут, 1 — Серијски "
+"1, 2 — Серијски 2, 3 — ИрДа, 4 — друге врсте везе"
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "Bluetooth address of the device to connect to"
+msgstr "Блутут адреса уређаја за повезивање"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+"Блутут адреса уређаја за повезивање. Захтева да врста везе (connection_type) "
+"буде 1 да би било коришћено."
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Чвор уређаја серијског уређаја за повезивање"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr ""
+"Чвор уређаја серијског уређаја за повезивање. Захтева да врста везе "
+"(connection_type) буде 1 да би било коришћено."
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Да ли да покуша повезивање са мобилним телефоном"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr ""
+"Да ли да покуша повезивање са мобилним телефоном ако се веза прекине у неком "
+"тренутку."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "Да ли да усагласи сат телефона са рачунаром"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "Да ли да усагласи сат телефона са оним на рачунару."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to popup new messages on the desktop"
+msgstr "Да ли да прикаже нове поруке на радној површи"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"Да ли да прикаже нове поруке на радној површи одмах по њиховом пријему, као "
+"супротност њиховом приказивању кликом на иконицу фиоке."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Да ли да пусти звук упозорења када пристигне нова порука"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Да ли да пусти звук упозорења када пристигне нова порука."
