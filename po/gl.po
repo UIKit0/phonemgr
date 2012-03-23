@@ -3,126 +3,134 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Fran Diéguez <frandieguez@ubuntu.com>, 2010.
+# Fran Dieguez <frandieguez@gnome.org>, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-09 19:57+0200\n"
-"PO-Revision-Date: 2010-03-07 22:31+0100\n"
-"Last-Translator: \n"
-"Language-Team: Galician <gnome@g11n.net>\n"
+"POT-Creation-Date: 2012-03-24 00:16+0100\n"
+"PO-Revision-Date: 2012-03-24 00:16+0100\n"
+"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Poedit-Language: Galician\n"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:152
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:153
 #, c-format
 msgid "Cannot get contact: %s"
 msgstr "Non é posíbel contactar: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:185
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:186
 #, c-format
 msgid "Could not find contact: %s"
 msgstr "Non foi posíbel encontrar o contacto: %s"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:411
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:414
 msgid "Cannot create searchable view."
 msgstr "Non é posíbel crear unha visualización de búsqueda."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:883
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "Success"
 msgstr "Correcto"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:885
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "An argument was invalid."
 msgstr "Un argumento non é correcto."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:887
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is busy."
 msgstr "A axenda de enderezos está ocupada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:889
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book is offline."
 msgstr "A axenda de enderezos está fóra de liña."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:891
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The address book does not exist."
 msgstr "A axenda de enderezos non existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:893
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The \"Me\" contact does not exist."
 msgstr "O contacto \"Eu\" non existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:895
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is not loaded."
 msgstr "A axenda de enderezos non está cargada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:897
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "The address book is already loaded."
 msgstr "A axenda de enderezos xa está cargada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:899
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "Permission was denied when accessing the address book."
 msgstr "Denegouse o permiso no momento do acceso á axenda de enderezos"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:901
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "The contact was not found."
 msgstr "Non foi posíbel encontrar o contacto."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:903
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "This contact ID already exists."
 msgstr "Este identificador de contacto xa existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:905
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The protocol is not supported."
 msgstr "O protocolo non está soportado."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:907
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation was cancelled."
 msgstr "A operación foi cancelada."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:909
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The operation could not be cancelled."
 msgstr "Non foi posíbel cancelar a operación."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:911
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "The address book authentication failed."
 msgstr "Produciuse un fallo na autenticación da axenda de enderezos."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:913
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr ""
 "A autenticación é necesaria para acceder á axenda de enderezos, pero non foi "
 "fornecida."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:915
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A secure connection is not available."
 msgstr "Non hai ningunha conexión segura dispoñíbel."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:917
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Produciuse un erro CORBA durante o acceso á axenda de enderezos."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:919
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
 msgid "The address book source does not exist."
 msgstr "A fonte da axenda de enderezos non existe."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:921
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
 msgid "An unknown error occurred."
 msgstr "Produciuse un erro descoñecido."
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1221
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1233
 #, c-format
 msgid "GConf error: %s"
 msgstr "Erro do GConf: %s"
 
-#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1231
+#: ../cut-n-paste/gconf-bridge/gconf-bridge.c:1238
 msgid "All further errors shown only on terminal."
 msgstr "Calquera erro posterior mostrarase unicamente no terminal."
+
+#. Translators: "device" is a phone or a modem
+#: ../gnome-bluetooth/phonemgr.c:133
+msgid "Use this device with Phone Manager"
+msgstr "Usar este dispositivo co Xestor de teléfonos"
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
@@ -140,7 +148,7 @@ msgstr "Conectado co dispositivo en %s"
 msgid "Failed connection to device on %s"
 msgstr "Produciuse un fallo na conexión co dispositivo en %s"
 
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:50 ../src/menu.c:52
 msgid "Phone Manager"
 msgstr "Phone Manager"
 
@@ -168,6 +176,10 @@ msgstr "Desconectado"
 msgid "Show model name of a specific device"
 msgstr "Mostrar o nome do modelo dun dispositivo específico"
 
+#: ../src/main.c:38 ../src/main.c:39
+msgid "PORT"
+msgstr ""
+
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
 msgstr "Escribir o ficheiro de configuración para a depuración de gnokii"
@@ -184,46 +196,169 @@ msgstr "Mostrar a información da versión e saír"
 msgid "- Manage your mobile phone"
 msgstr "- Xestione o seu teléfono móbil"
 
-#: ../src/main.c:72
+#: ../src/main.c:74
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "versión %s do gnome-phone-manager\n"
 
-#: ../src/menu.c:40
+#: ../src/menu.c:43
+msgid "Send and receive messages from your mobile phone."
+msgstr "Enviar e recibir mensaxes desde o teléfono móbil."
+
+#: ../src/menu.c:55
 msgid "translator_credits"
 msgstr ""
 "Marcos Lans <marcoslansgarza@gmail.com>, 2010;\n"
 "Fran Diéguez <frandieguez@ubuntu.com>, 201';"
 
-#: ../src/menu.c:44
-msgid "Send and receive messages from your mobile phone."
-msgstr "Enviar e recibir mensaxes desde o teléfono móbil."
-
-#: ../src/menu.c:56
+#: ../src/menu.c:57
 msgid "Phone Manager website"
 msgstr "Sitio web de Phone Manager"
 
-#: ../src/menu.c:87
+#: ../src/menu.c:88
 msgid "_Send Message"
 msgstr "Enviar a men_saxe"
 
-#: ../src/ui.c:166
+#: ../src/ui.c:110
 msgid "New text message received"
 msgstr "Recibiuse unha nova mensaxe de texto"
 
-#: ../src/ui.c:331
+#: ../src/ui.c:276
 msgid "Message too long!"
 msgstr "A mensaxe é demasiado longa"
 
-#: ../data/phonemgr.glade.h:1
+#: ../data/phonemgr.ui.h:1
+msgid "Message Received"
+msgstr "Recibiuse unha mensaxe"
+
+#: ../data/phonemgr.ui.h:2
+msgid "You have received a message"
+msgstr "Recibiu unha mensaxe"
+
+#: ../data/phonemgr.ui.h:3
+msgid "Sender:"
+msgstr "Remitente:"
+
+#: ../data/phonemgr.ui.h:4
+msgid "Date:"
+msgstr "Data:"
+
+#: ../data/phonemgr.ui.h:5
+msgid "_Reply"
+msgstr "_Responder"
+
+#: ../data/phonemgr.ui.h:6
+msgid "Send Message"
+msgstr "Enviar a mensaxe"
+
+#: ../data/phonemgr.ui.h:7
+msgid "Enter your text message"
+msgstr "Escriba a súa mensaxe de texto"
+
+#: ../data/phonemgr.ui.h:8
+msgid "_Recipient:"
+msgstr "Destinata_rio:"
+
+#: ../data/phonemgr.ui.h:9
+msgid "_Message:"
+msgstr "_Mensaxe:"
+
+#: ../data/phonemgr.ui.h:10
+msgid "Enter the text message you want to send."
+msgstr "Escriba a seguinte mensaxe de texto que desexa enviar."
+
+#: ../data/phonemgr.ui.h:11
+msgid "Characters left:"
+msgstr "Caracteres restantes:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.ui.h:13
+msgid "_Notify when message is delivered"
+msgstr "_Notificar a entrega da mensaxe"
+
+#: ../data/phonemgr.ui.h:14
+msgid "_Send"
+msgstr "_Enviar"
+
+#: ../data/phonemgr.ui.h:15
+msgid "Phone Manager Preferences"
+msgstr "Preferencias do Xestor de teléfono"
+
+#: ../data/phonemgr.ui.h:16
 msgid "Alerting"
 msgstr "Aviso"
 
-#: ../data/phonemgr.glade.h:2
+#: ../data/phonemgr.ui.h:17
+msgid "_Pop-up window for new messages"
+msgstr "Mostrar as novas mensaxes nun_ha xanela emerxente"
+
+#: ../data/phonemgr.ui.h:18
+msgid "Play _sound when messages arrive"
+msgstr "Reproducir un _son cando chegue unha mensaxe"
+
+#: ../data/phonemgr.ui.h:19
+msgid "Interface"
+msgstr "Interface"
+
+#: ../data/phonemgr.ui.h:20
+msgid "Phone Connection"
+msgstr "Conexión co teléfono"
+
+#: ../data/phonemgr.ui.h:21
+msgid "_Bluetooth"
+msgstr "_Bluetooth"
+
+#: ../data/phonemgr.ui.h:22
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "Usar a rede sen fíos bluetooth para conectar co teléfono"
+
+#: ../data/phonemgr.ui.h:23
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "Porto serie _1 (/dev/ttyS0)"
+
+#: ../data/phonemgr.ui.h:24
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+"Conectar usando o porto serie 1, tamén coñecido como COM1 ou /dev/ttyS0 "
+
+#: ../data/phonemgr.ui.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "Porto serie _2  (/dev/ttyS1)"
+
+#: ../data/phonemgr.ui.h:26
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+"Conectar usando o porto serie 2, tamén coñecido como COM2 or /dev/ttyS1"
+
+#: ../data/phonemgr.ui.h:27
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfravermello (/dev/ircomm0)"
+
+#: ../data/phonemgr.ui.h:28
+msgid "Connect using infrared communication"
+msgstr "Conectar usando unha comunicación infravermella"
+
+#: ../data/phonemgr.ui.h:29
+msgid "Other _port"
+msgstr "Outro _porto"
+
+#: ../data/phonemgr.ui.h:30
+msgid "Connect using an alternative serial device"
+msgstr "Conectar usando un dispositivo serie alternativo"
+
+#: ../data/phonemgr.ui.h:31
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Nome do ficheiro de dispositivo alternativo, p.ex. /dev/ttyS3"
 
-#: ../data/phonemgr.glade.h:3
+#: ../data/phonemgr.ui.h:32
+msgid "Automated Tasks"
+msgstr "Tarefas automatizadas"
+
+#: ../data/phonemgr.ui.h:33
+msgid "Automatically _retry connections"
+msgstr "_Reintentar as conexións automaticamente"
+
+#: ../data/phonemgr.ui.h:34
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -233,158 +368,23 @@ msgstr ""
 "inmediatamente. Use isto con Bluetooth para asegurarse de que o seu teléfono "
 "móbil  conecta se se acerca ao rango."
 
-#: ../data/phonemgr.glade.h:4
-msgid "Automated Tasks"
-msgstr "Tarefas automatizadas"
-
-#: ../data/phonemgr.glade.h:5
-msgid "Automatically _retry connections"
-msgstr "_Reintentar as conexións automaticamente"
-
-#: ../data/phonemgr.glade.h:6
-msgid "Characters left:"
-msgstr "Caracteres restantes:"
-
-#: ../data/phonemgr.glade.h:7
-msgid "Connect using an alternative serial device"
-msgstr "Conectar usando un dispositivo serie alternativo"
-
-#: ../data/phonemgr.glade.h:8
-msgid "Connect using infrared communication"
-msgstr "Conectar usando unha comunicación infravermella"
-
-#: ../data/phonemgr.glade.h:9
-msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
-"Conectar usando o porto serie 1, tamén coñecido como COM1 ou /dev/ttyS0 "
-
-#: ../data/phonemgr.glade.h:10
-msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
-"Conectar usando o porto serie 2, tamén coñecido como COM2 or /dev/ttyS1"
-
-#: ../data/phonemgr.glade.h:11
-msgid "Connection"
-msgstr "Conexión"
-
-#: ../data/phonemgr.glade.h:12
-msgid "Date:"
-msgstr "Data:"
-
-#: ../data/phonemgr.glade.h:13
-msgid "Enter the text message you want to send."
-msgstr "Escriba a seguinte mensaxe de texto que desexa enviar."
-
-#: ../data/phonemgr.glade.h:14
-msgid "Enter your text message"
-msgstr "Escriba a súa mensaxe de texto"
-
-#: ../data/phonemgr.glade.h:15
-msgid "I_nfra red (/dev/ircomm0)"
-msgstr "I_nfravermello (/dev/ircomm0)"
-
-#: ../data/phonemgr.glade.h:16
-msgid "Interface"
-msgstr "Interface"
-
-#: ../data/phonemgr.glade.h:17
-msgid "Message Received"
-msgstr "Recibiuse unha mensaxe"
-
-#: ../data/phonemgr.glade.h:18
-msgid "Other _port"
-msgstr "Outro _porto"
-
-#: ../data/phonemgr.glade.h:19
-msgid "Phone Connection"
-msgstr "Conexión co teléfono"
-
-#: ../data/phonemgr.glade.h:20
-msgid "Phone Manager Preferences"
-msgstr "Preferencias do Xestor de teléfono"
-
-#: ../data/phonemgr.glade.h:21
-msgid "Play _sound when messages arrive"
-msgstr "Reproducir un _son cando chegue unha mensaxe"
-
-#: ../data/phonemgr.glade.h:22
-msgid "Send Message"
-msgstr "Enviar a mensaxe"
-
-#: ../data/phonemgr.glade.h:23
-msgid "Sender:"
-msgstr "Remitente:"
-
-#: ../data/phonemgr.glade.h:24
-msgid "Serial port _1 (/dev/ttyS0)"
-msgstr "Porto serie _1 (/dev/ttyS0)"
-
-#: ../data/phonemgr.glade.h:25
-msgid "Serial port _2 (/dev/ttyS1)"
-msgstr "Porto serie _2  (/dev/ttyS1)"
-
-#: ../data/phonemgr.glade.h:26
+#: ../data/phonemgr.ui.h:35
 msgid "Synchronise phone's _time and date"
 msgstr "Sincronizar a da_ta e a hora"
 
-#: ../data/phonemgr.glade.h:27
+#: ../data/phonemgr.ui.h:36
 msgid "Synchronise phone's time and date with the computer's clock"
 msgstr "Sincronizar a da_ta e a hora do teléfono co reloxo do computador"
 
-#: ../data/phonemgr.glade.h:28
-msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr "Usar a rede sen fíos bluetooth para conectar co teléfono"
-
-#: ../data/phonemgr.glade.h:29
-msgid "You have received a message"
-msgstr "Recibiu unha mensaxe"
-
-#: ../data/phonemgr.glade.h:30
-msgid "_Bluetooth"
-msgstr "_Bluetooth"
-
-#: ../data/phonemgr.glade.h:31
-msgid "_Message:"
-msgstr "_Mensaxe:"
-
-#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.glade.h:33
-msgid "_Notify when message is delivered"
-msgstr "_Notificar a entrega da mensaxe"
-
-#: ../data/phonemgr.glade.h:34
-msgid "_Pop-up window for new messages"
-msgstr "Mostrar as novas mensaxes nun_ha xanela emerxente"
-
-#: ../data/phonemgr.glade.h:35
-msgid "_Recipient:"
-msgstr "Destinata_rio:"
-
-#: ../data/phonemgr.glade.h:36
-msgid "_Reply"
-msgstr "_Responder"
-
-#: ../data/phonemgr.glade.h:37
-msgid "_Send"
-msgstr "_Enviar"
+#: ../data/phonemgr.ui.h:37
+msgid "Connection"
+msgstr "Conexión"
 
 #: ../data/gnome-phone-manager.schemas.in.h:1
-msgid "Bluetooth address of the device to connect to"
-msgstr "Enderezo bluetooth do dispositivos co que conectar"
-
-#: ../data/gnome-phone-manager.schemas.in.h:2
-msgid ""
-"Bluetooth address of the device to connect to. Requires connection_type to "
-"be 1 to be used."
-msgstr ""
-"Enderezo bluetooth do dispositivos co que conectar. Require que o _tipo de "
-"conexión sexa 1."
-
-#: ../data/gnome-phone-manager.schemas.in.h:3
 msgid "The connection type used by gnome-phone-manager"
 msgstr "O tipo de conexión usado por gnome-phone-manager"
 
-#: ../data/gnome-phone-manager.schemas.in.h:4
+#: ../data/gnome-phone-manager.schemas.in.h:2
 msgid ""
 "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
 "1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
@@ -393,6 +393,18 @@ msgstr ""
 "1 corresponde ao porto serie 1, 2 corresponde ao porto serie 2, 3 "
 "corresponde á comunicación infravermella (irDa), 4 son outros tipos de "
 "conexión."
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "Bluetooth address of the device to connect to"
+msgstr "Enderezo bluetooth do dispositivos co que conectar"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+"Enderezo bluetooth do dispositivos co que conectar. Require que o _tipo de "
+"conexión sexa 1."
 
 #: ../data/gnome-phone-manager.schemas.in.h:5
 msgid "The device node for the serial device to connect to"
@@ -407,24 +419,33 @@ msgstr ""
 "o_tipo de conexión sexa 4."
 
 #: ../data/gnome-phone-manager.schemas.in.h:7
-msgid "Whether to play a sound alert when a new message comes in"
-msgstr ""
-"Indica se se debe reproducir un son de aviso cando se reciba unha mensaxe "
-"nova"
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Indica se se debe reintentar a conexión co teléfono móbil"
 
 #: ../data/gnome-phone-manager.schemas.in.h:8
-msgid "Whether to play a sound alert when a new message comes in."
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
 msgstr ""
-"Indica se se debe reproducir un son de aviso cando se reciba unha mensaxe "
-"nova."
+"Indica se se debe reintentar a conexión co teléfono móbil se esta falla."
 
 #: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr ""
+"Indica se se deba sincronizar o reloxo do teléfono co reloxo do computador."
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr ""
+"Indica se se deba sincronizar o reloxo do teléfono co reloxo do computador."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
 msgid "Whether to popup new messages on the desktop"
 msgstr ""
 "Indica se se deben mostrar as novas mensaxes nunha xanela emerxente sobre o "
 "escritorio"
 
-#: ../data/gnome-phone-manager.schemas.in.h:10
+#: ../data/gnome-phone-manager.schemas.in.h:12
 msgid ""
 "Whether to popup new messages on the desktop as soon as they're received, as "
 "opposed to showing them when clicking on the tray icon."
@@ -433,23 +454,14 @@ msgstr ""
 "escritorio tan pronto como se reciban. É diferente a mostralas cando se "
 "prema na icona da bandexa."
 
-#: ../data/gnome-phone-manager.schemas.in.h:11
-msgid "Whether to retry connecting to the mobile phone"
-msgstr "Indica se se debe reintentar a conexión co teléfono móbil"
-
-#: ../data/gnome-phone-manager.schemas.in.h:12
-msgid ""
-"Whether to retry connecting to the mobile phone if the connection fails at "
-"some point."
-msgstr ""
-"Indica se se debe reintentar a conexión co teléfono móbil se esta falla."
-
 #: ../data/gnome-phone-manager.schemas.in.h:13
-msgid "Whether to synchronise the phone clock with the computer's"
+msgid "Whether to play a sound alert when a new message comes in"
 msgstr ""
-"Indica se se deba sincronizar o reloxo do teléfono co reloxo do computador."
+"Indica se se debe reproducir un son de aviso cando se reciba unha mensaxe "
+"nova"
 
 #: ../data/gnome-phone-manager.schemas.in.h:14
-msgid "Whether to synchronise the phone clock with the computer's."
+msgid "Whether to play a sound alert when a new message comes in."
 msgstr ""
-"Indica se se deba sincronizar o reloxo do teléfono co reloxo do computador."
+"Indica se se debe reproducir un son de aviso cando se reciba unha mensaxe "
+"nova."
