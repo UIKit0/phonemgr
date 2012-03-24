@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-24 00:16+0100\n"
-"PO-Revision-Date: 2012-03-24 00:16+0100\n"
+"POT-Creation-Date: 2012-03-24 22:49+0100\n"
+"PO-Revision-Date: 2012-03-24 22:49+0100\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -178,7 +178,7 @@ msgstr "Mostrar o nome do modelo dun dispositivo específico"
 
 #: ../src/main.c:38 ../src/main.c:39
 msgid "PORT"
-msgstr ""
+msgstr "PORTO"
 
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
