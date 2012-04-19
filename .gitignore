@@ -29,6 +29,8 @@ missing
 mkinstalldirs
 stamp-h1
 
+ChangeLog
+
 cut-n-paste/e-contact-entry/econtactentry-marshal.c
 cut-n-paste/e-contact-entry/econtactentry-marshal.h
 
