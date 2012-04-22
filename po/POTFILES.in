@@ -9,5 +9,6 @@ src/icon.c
 src/main.c
 src/menu.c
 src/ui.c
+telepathy/main.c
 [type: gettext/glade] data/phonemgr.ui
 data/gnome-phone-manager.schemas.in

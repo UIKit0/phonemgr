@@ -41,7 +41,7 @@
 static gboolean g_fatal_warnings = FALSE;
 
 static const GOptionEntry entries[] = {
-	{"g-fatal-warnings", 0, 0, G_OPTION_ARG_NONE, &g_fatal_warnings, "Make all warnings fatal", NULL},
+	{"g-fatal-warnings", 0, 0, G_OPTION_ARG_NONE, &g_fatal_warnings, N_("Make all warnings fatal"), NULL},
 	{NULL}
 };
 
