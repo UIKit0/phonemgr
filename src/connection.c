@@ -174,7 +174,6 @@ idle_connect_phone (MyApp *app)
 static void
 on_status (PhonemgrListener *listener, int status, MyApp *app)
 {
-	g_message ("Status %d", status);
 	gdk_threads_enter ();
 
 	app->status = status;
@@ -205,6 +204,7 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 			g_message ("Connection error occurred.");
 			break;
 		default:
+			g_message ("Status %d", status);
 			break;
 	}
 
