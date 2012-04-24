@@ -111,6 +111,11 @@ construct_menu (MyApp *app)
 	gtk_widget_show (item);
 	gtk_menu_shell_append (GTK_MENU_SHELL(app->menu), item);
 
+	item = gtk_separator_menu_item_new ();
+
+	gtk_widget_show (item);
+	gtk_menu_shell_append (GTK_MENU_SHELL(app->menu), item);
+
 	item = gtk_image_menu_item_new_from_stock (GTK_STOCK_QUIT, NULL);
 	g_signal_connect (G_OBJECT(item), "activate",
 			  G_CALLBACK (quit_activated), (gpointer) app);
