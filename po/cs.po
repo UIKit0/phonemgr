@@ -4,15 +4,15 @@
 # This file is distributed under the same license as the phonemgr package.
 #
 # Miloslav Trmac <mitr@volny.cz>, 2004.
-# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011.
+# Marek Černocký <marek@manet.cz>, 2009, 2010, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"phone-manager&component=general\n"
-"POT-Creation-Date: 2011-02-15 20:00+0000\n"
-"PO-Revision-Date: 2011-02-16 20:03+0100\n"
+"phone-manager&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-04-22 08:49+0000\n"
+"PO-Revision-Date: 2012-04-24 18:40+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,85 +34,85 @@ msgstr "Nelze najít kontakt: %s"
 msgid "Cannot create searchable view."
 msgstr "Nelze vytvořit prohledávatelné zobrazení."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:884
 msgid "Success"
 msgstr "V pořádku"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "An argument was invalid."
 msgstr "Některý z přepínačů je neplatný."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "The address book is busy."
 msgstr "Adresář je zaneprázdněn."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is offline."
 msgstr "Adresář je off-line."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book does not exist."
 msgstr "Adresář neexistuje."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The \"Me\" contact does not exist."
 msgstr "Kontakt „Já“ neexistuje."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The address book is not loaded."
 msgstr "Adresář není načtený."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is already loaded."
 msgstr "Adresář je již načtený."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "Permission was denied when accessing the address book."
 msgstr "Nedostatečná oprávnění při přístupu k adresáři."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "The contact was not found."
 msgstr "Kontakt nebyl nalezen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "This contact ID already exists."
 msgstr "ID kontaktu již existuje."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "The protocol is not supported."
 msgstr "Protokol není podporován."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The operation was cancelled."
 msgstr "Operace byla zrušena."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation could not be cancelled."
 msgstr "Operaci nelze zrušit."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The address book authentication failed."
 msgstr "Ověření přístupu k adresáři selhalo."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr "Pro přístup k adresáři je vyžadováno ověření, ale nebylo použito."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid "A secure connection is not available."
 msgstr "Bezpečné připojení není k dispozici."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Během přístupu k adresáři se vyskytla chyba architektury CORBA."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "The address book source does not exist."
 msgstr "Neexistuje zdroj adresáře."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:925
 msgid "An unknown error occurred."
 msgstr "Vyskytla se neznámá chyba."
 
@@ -146,7 +146,7 @@ msgstr "Připojeno k zařízení na %s"
 msgid "Failed connection to device on %s"
 msgstr "Nelze se připojit k zařízení na %s"
 
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:50 ../src/menu.c:52
 msgid "Phone Manager"
 msgstr "Správce telefonu"
 
@@ -190,50 +190,178 @@ msgstr "Zapnout ladění"
 msgid "Show version information and exit"
 msgstr "Zobrazit informace o verzi a skončit"
 
-#: ../src/main.c:60
+#: ../src/main.c:58
 msgid "- Manage your mobile phone"
 msgstr "- Spravovat svůj mobilní telefon"
 
-#: ../src/main.c:74
+#: ../src/main.c:72
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnome-phone-manager verze %s\n"
 
-#: ../src/menu.c:40
+#: ../src/menu.c:43
+msgid "Send and receive messages from your mobile phone."
+msgstr "Odesílání a příjem zpráv z vašeho mobilního telefonu."
+
+#: ../src/menu.c:55
 msgid "translator_credits"
 msgstr ""
 "Miloslav Trmač <mitr@volny.cz>\n"
 "Marek Černocký <marek@manet.cz>"
 
-#: ../src/menu.c:44
-msgid "Send and receive messages from your mobile phone."
-msgstr "Odesílání a příjem zpráv z vašeho mobilního telefonu."
-
-#: ../src/menu.c:56
+#: ../src/menu.c:57
 msgid "Phone Manager website"
 msgstr "Webové stránky Správce telefonu"
 
-#: ../src/menu.c:87
+#: ../src/menu.c:88
 msgid "_Send Message"
 msgstr "_Odeslat zprávu"
 
-#: ../src/ui.c:111
+#: ../src/ui.c:110
 msgid "New text message received"
 msgstr "Přijata nová textová zpráva"
 
-#: ../src/ui.c:277
+#: ../src/ui.c:276
 msgid "Message too long!"
 msgstr "Zpráva je příliš dlouhá!"
 
+#: ../telepathy/main.c:44
+msgid "Make all warnings fatal"
+msgstr "Nechť jsou všechna varování kritická"
+
 #: ../data/phonemgr.ui.h:1
+msgid "Message Received"
+msgstr "Zpráva přijata"
+
+#: ../data/phonemgr.ui.h:2
+msgid "You have received a message"
+msgstr "Máte přijatou zprávu"
+
+#: ../data/phonemgr.ui.h:3
+msgid "Sender:"
+msgstr "Odesílatel:"
+
+#: ../data/phonemgr.ui.h:4
+msgid "Date:"
+msgstr "Datum:"
+
+#: ../data/phonemgr.ui.h:5
+msgid "_Reply"
+msgstr "_Odpovědět"
+
+#: ../data/phonemgr.ui.h:6
+msgid "Send Message"
+msgstr "Odeslat zprávu"
+
+#: ../data/phonemgr.ui.h:7
+msgid "Enter your text message"
+msgstr "Zadejte svoji textovou zprávu"
+
+#: ../data/phonemgr.ui.h:8
+msgid "_Recipient:"
+msgstr "_Příjemce:"
+
+#: ../data/phonemgr.ui.h:9
+msgid "_Message:"
+msgstr "_Zpráva:"
+
+#: ../data/phonemgr.ui.h:10
+msgid "Enter the text message you want to send."
+msgstr "Zadejte textovou zprávu, kterou chcete odeslat."
+
+#: ../data/phonemgr.ui.h:11
+msgid "Characters left:"
+msgstr "Zbývající znaky:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.ui.h:13
+msgid "_Notify when message is delivered"
+msgstr "Upozor_nit, když je zpráva doručena"
+
+#: ../data/phonemgr.ui.h:14
+msgid "_Send"
+msgstr "_Odeslat"
+
+#: ../data/phonemgr.ui.h:15
+msgid "Phone Manager Preferences"
+msgstr "Předvolby správce telefonu"
+
+#: ../data/phonemgr.ui.h:16
 msgid "Alerting"
 msgstr "Upozorňování"
 
-#: ../data/phonemgr.ui.h:2
+#: ../data/phonemgr.ui.h:17
+msgid "_Pop-up window for new messages"
+msgstr "Zobrazit _okno s novými zprávami"
+
+#: ../data/phonemgr.ui.h:18
+msgid "Play _sound when messages arrive"
+msgstr "Přehrát _zvuk, když přijde zpráva"
+
+#: ../data/phonemgr.ui.h:19
+msgid "Interface"
+msgstr "Rozhraní"
+
+#: ../data/phonemgr.ui.h:20
+msgid "Phone Connection"
+msgstr "Připojení telefonu"
+
+#: ../data/phonemgr.ui.h:21
+msgid "_Bluetooth"
+msgstr "_Bluetooth"
+
+#: ../data/phonemgr.ui.h:22
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr ""
+"Pro připojení k vašemu mobilnímu telefonu používat bezdrátovou síť Bluetooth"
+
+#: ../data/phonemgr.ui.h:23
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "Sériový port _1 (/dev/ttyS0)"
+
+#: ../data/phonemgr.ui.h:24
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr ""
+"Připojit se pomocí sériového portu 1, známého také jako COM1 nebo /dev/ttyS0"
+
+#: ../data/phonemgr.ui.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "Sériový port _2 (/dev/ttyS1)"
+
+#: ../data/phonemgr.ui.h:26
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr ""
+"Připojit se pomocí sériového portu 2, známého také jako COM2 nebo /dev/ttyS1"
+
+#: ../data/phonemgr.ui.h:27
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "_Infračervené (/dev/ircomm0)"
+
+#: ../data/phonemgr.ui.h:28
+msgid "Connect using infrared communication"
+msgstr "Připojit se pomocí infračervené komunikace"
+
+#: ../data/phonemgr.ui.h:29
+msgid "Other _port"
+msgstr "Jiný _port"
+
+#: ../data/phonemgr.ui.h:30
+msgid "Connect using an alternative serial device"
+msgstr "Připojit se pomocí jiného sériového zařízení"
+
+#: ../data/phonemgr.ui.h:31
 msgid "Alternative device filename, e.g. /dev/ttyS3"
 msgstr "Alternativní název souboru zařízení, např. /dev/ttyS3"
 
-#: ../data/phonemgr.ui.h:3
+#: ../data/phonemgr.ui.h:32
+msgid "Automated Tasks"
+msgstr "Automatizované úlohy"
+
+#: ../data/phonemgr.ui.h:33
+msgid "Automatically _retry connections"
+msgstr "_Automaticky se znovu zkoušet připojit"
+
+#: ../data/phonemgr.ui.h:34
 msgid ""
 "Always try and reconnect whenever a connection is not immediately available. "
 "Use this with Bluetooth to ensure your phone connects whenever it comes in "
@@ -243,165 +371,41 @@ msgstr ""
 "použijte s Bluetooth, abyste zajistili, že se váš telefon připojí, kdykoli "
 "je v dosahu."
 
-#: ../data/phonemgr.ui.h:4
-msgid "Automated Tasks"
-msgstr "Automatizované úlohy"
-
-#: ../data/phonemgr.ui.h:5
-msgid "Automatically _retry connections"
-msgstr "_Automaticky se znovu zkoušet připojit"
-
-#: ../data/phonemgr.ui.h:6
-msgid "Characters left:"
-msgstr "Zbývající znaky:"
-
-#: ../data/phonemgr.ui.h:7
-msgid "Connect using an alternative serial device"
-msgstr "Připojit se pomocí jiného sériového zařízení"
-
-#: ../data/phonemgr.ui.h:8
-msgid "Connect using infrared communication"
-msgstr "Připojit se pomocí infračervené komunikace"
-
-#: ../data/phonemgr.ui.h:9
-msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr ""
-"Připojit se pomocí sériového portu 1, známého také jako COM1 nebo /dev/ttyS0"
-
-#: ../data/phonemgr.ui.h:10
-msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr ""
-"Připojit se pomocí sériového portu 2, známého také jako COM2 nebo /dev/ttyS1"
-
-#: ../data/phonemgr.ui.h:11
-msgid "Connection"
-msgstr "Připojení"
-
-#: ../data/phonemgr.ui.h:12
-msgid "Date:"
-msgstr "Datum:"
-
-#: ../data/phonemgr.ui.h:13
-msgid "Enter the text message you want to send."
-msgstr "Zadejte textovou zprávu, kterou chcete odeslat."
-
-#: ../data/phonemgr.ui.h:14
-msgid "Enter your text message"
-msgstr "Zadejte svoji textovou zprávu"
-
-#: ../data/phonemgr.ui.h:15
-msgid "I_nfra red (/dev/ircomm0)"
-msgstr "_Infračervené (/dev/ircomm0)"
-
-#: ../data/phonemgr.ui.h:16
-msgid "Interface"
-msgstr "Rozhraní"
-
-#: ../data/phonemgr.ui.h:17
-msgid "Message Received"
-msgstr "Zpráva přijata"
-
-#: ../data/phonemgr.ui.h:18
-msgid "Other _port"
-msgstr "Jiný _port"
-
-#: ../data/phonemgr.ui.h:19
-msgid "Phone Connection"
-msgstr "Připojení telefonu"
-
-#: ../data/phonemgr.ui.h:20
-msgid "Phone Manager Preferences"
-msgstr "Předvolby správce telefonu"
-
-#: ../data/phonemgr.ui.h:21
-msgid "Play _sound when messages arrive"
-msgstr "Přehrát _zvuk, když přijde zpráva"
-
-#: ../data/phonemgr.ui.h:22
-msgid "Send Message"
-msgstr "Odeslat zprávu"
-
-#: ../data/phonemgr.ui.h:23
-msgid "Sender:"
-msgstr "Odesílatel:"
-
-#: ../data/phonemgr.ui.h:24
-msgid "Serial port _1 (/dev/ttyS0)"
-msgstr "Sériový port _1 (/dev/ttyS0)"
-
-#: ../data/phonemgr.ui.h:25
-msgid "Serial port _2 (/dev/ttyS1)"
-msgstr "Sériový port _2 (/dev/ttyS1)"
-
-#: ../data/phonemgr.ui.h:26
+#: ../data/phonemgr.ui.h:35
 msgid "Synchronise phone's _time and date"
 msgstr "Synchronizovat čas a da_tum telefonu"
 
-#: ../data/phonemgr.ui.h:27
+#: ../data/phonemgr.ui.h:36
 msgid "Synchronise phone's time and date with the computer's clock"
 msgstr "Synchronizovat čas a datum telefonu s hodinami v počítači"
 
-#: ../data/phonemgr.ui.h:28
-msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr ""
-"Pro připojení k vašemu mobilnímu telefonu používat bezdrátovou síť Bluetooth"
-
-#: ../data/phonemgr.ui.h:29
-msgid "You have received a message"
-msgstr "Máte přijatou zprávu"
-
-#: ../data/phonemgr.ui.h:30
-msgid "_Bluetooth"
-msgstr "_Bluetooth"
-
-#: ../data/phonemgr.ui.h:31
-msgid "_Message:"
-msgstr "_Zpráva:"
-
-#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.ui.h:33
-msgid "_Notify when message is delivered"
-msgstr "Upozor_nit, když je zpráva doručena"
-
-#: ../data/phonemgr.ui.h:34
-msgid "_Pop-up window for new messages"
-msgstr "Zobrazit _okno s novými zprávami"
-
-#: ../data/phonemgr.ui.h:35
-msgid "_Recipient:"
-msgstr "_Příjemce:"
-
-#: ../data/phonemgr.ui.h:36
-msgid "_Reply"
-msgstr "_Odpovědět"
-
 #: ../data/phonemgr.ui.h:37
-msgid "_Send"
-msgstr "_Odeslat"
+msgid "Connection"
+msgstr "Připojení"
 
 #: ../data/gnome-phone-manager.schemas.in.h:1
-msgid "Bluetooth address of the device to connect to"
-msgstr "Adresa Bluetooth připojeného zařízení"
-
-#: ../data/gnome-phone-manager.schemas.in.h:2
-msgid ""
-"Bluetooth address of the device to connect to. Requires connection_type to "
-"be 1 to be used."
-msgstr ""
-"Adresa Bluetooth připojeného zařízení. Aby byla použita, musí být "
-"connection_type nastaveno na 1."
-
-#: ../data/gnome-phone-manager.schemas.in.h:3
 msgid "The connection type used by gnome-phone-manager"
 msgstr "Typ připojení použitý aplikací gnome-phone-manager"
 
-#: ../data/gnome-phone-manager.schemas.in.h:4
+#: ../data/gnome-phone-manager.schemas.in.h:2
 msgid ""
 "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
 "1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
 msgstr ""
 "Typ připojení použitý aplikací gnome-phone-manager: Bluetooth je 0, sériový "
 "port 1 je 1, sériový port 2 je 2 a IrDa je 3. Jiný typ připojení je 4."
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "Bluetooth address of the device to connect to"
+msgstr "Adresa Bluetooth připojeného zařízení"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr ""
+"Adresa Bluetooth připojeného zařízení. Aby byla použita, musí být "
+"connection_type nastaveno na 1."
 
 #: ../data/gnome-phone-manager.schemas.in.h:5
 msgid "The device node for the serial device to connect to"
@@ -416,30 +420,10 @@ msgstr ""
 "použita, musí být connection_type nastaveno na 4."
 
 #: ../data/gnome-phone-manager.schemas.in.h:7
-msgid "Whether to play a sound alert when a new message comes in"
-msgstr "Zda přehrát zvukové upozornění, když přijde nová zpráva"
-
-#: ../data/gnome-phone-manager.schemas.in.h:8
-msgid "Whether to play a sound alert when a new message comes in."
-msgstr "Zda přehrát zvukové upozornění, když přijde nová zpráva."
-
-#: ../data/gnome-phone-manager.schemas.in.h:9
-msgid "Whether to popup new messages on the desktop"
-msgstr "Zda zobrazit novou zprávu v pracovním prostředí"
-
-#: ../data/gnome-phone-manager.schemas.in.h:10
-msgid ""
-"Whether to popup new messages on the desktop as soon as they're received, as "
-"opposed to showing them when clicking on the tray icon."
-msgstr ""
-"Zda zobrazit novou zprávu v pracovním prostředí bezprostředně po jejím "
-"přijetí. Opakem je její zobrazení až po kliknutí na ikonu na panelu."
-
-#: ../data/gnome-phone-manager.schemas.in.h:11
 msgid "Whether to retry connecting to the mobile phone"
 msgstr "Zda se znovu zkoušet připojit k mobilnímu telefonu"
 
-#: ../data/gnome-phone-manager.schemas.in.h:12
+#: ../data/gnome-phone-manager.schemas.in.h:8
 msgid ""
 "Whether to retry connecting to the mobile phone if the connection fails at "
 "some point."
@@ -447,10 +431,30 @@ msgstr ""
 "Zda se znovu zkoušet připojit k mobilnímu telefonu v případě, že připojení z "
 "nějakého důvodu selže."
 
-#: ../data/gnome-phone-manager.schemas.in.h:13
+#: ../data/gnome-phone-manager.schemas.in.h:9
 msgid "Whether to synchronise the phone clock with the computer's"
 msgstr "Zda synchronizovat hodiny telefonu s počítačem."
 
-#: ../data/gnome-phone-manager.schemas.in.h:14
+#: ../data/gnome-phone-manager.schemas.in.h:10
 msgid "Whether to synchronise the phone clock with the computer's."
 msgstr "Zda synchronizovat hodiny telefonu s počítačem."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to popup new messages on the desktop"
+msgstr "Zda zobrazit novou zprávu v pracovním prostředí"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"Zda zobrazit novou zprávu v pracovním prostředí bezprostředně po jejím "
+"přijetí. Opakem je její zobrazení až po kliknutí na ikonu na panelu."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Zda přehrát zvukové upozornění, když přijde nová zpráva"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Zda přehrát zvukové upozornění, když přijde nová zpráva."
