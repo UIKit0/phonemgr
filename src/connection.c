@@ -201,10 +201,10 @@ on_status (PhonemgrListener *listener, int status, MyApp *app)
 			break;
 		case PHONEMGR_LISTENER_ERROR:
 			set_icon_state (app);
-			g_message ("Connection error occurred.");
+			g_message ("Connection error occurred");
 			break;
 		default:
-			g_message ("Status %d", status);
+			g_message ("Unhandled status %d", status);
 			break;
 	}
 
