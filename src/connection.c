@@ -69,8 +69,7 @@ set_connection_device (MyApp *app)
 	else if (dev != NULL && app->devname != NULL && strcmp (dev, app->devname) != 0)
 		changed = TRUE;
 
-	if (app->devname)
-		g_free (app->devname);
+	g_free (app->devname);
 	app->devname = dev;
 
 	g_message ("New connection device is %s (%s)",

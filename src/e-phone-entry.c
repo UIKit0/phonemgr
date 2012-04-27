@@ -89,8 +89,7 @@ text_changed (GtkEditable *entry, gpointer user_data)
 		return;
 	}
 
-	if (pentry->text != NULL)
-		g_free (pentry->text);
+	g_free (pentry->text);
 	pentry->text = current;
 
 	if (pentry->phone_number != NULL) {
