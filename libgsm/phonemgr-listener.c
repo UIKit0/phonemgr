@@ -1114,6 +1114,7 @@ phonemgr_listener_queue_message (PhonemgrListener *l,
 	} else if (error == GN_ERR_NOTREADY) {
 		g_message ("Can't send message, phone disconnected");
 		g_mutex_unlock (l->mutex);
+		g_free (mstr);
 		return;
 	}
 

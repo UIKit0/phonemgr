@@ -53,8 +53,6 @@ main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	app = g_new0 (MyApp, 1);
-
 	context = g_option_context_new (N_("- Manage your mobile phone"));
 	g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
@@ -83,6 +81,8 @@ main (int argc, char **argv)
 	}
 
 	gconf_init (argc, argv, NULL);
+
+	app = g_new0 (MyApp, 1);
 
 	/* Setup the D-Bus object */
 	app->object = g_object_new (phonemgr_object_get_type (), NULL);
