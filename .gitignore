@@ -54,3 +54,5 @@ src/gnome-phone-manager.desktop
 src/phone-manager-interface.h
 src/test-entry
 
+telepathy/org.freedesktop.Telepathy.ConnectionManager.phoney.service
+telepathy/telepathy-phoney
