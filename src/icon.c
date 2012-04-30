@@ -79,6 +79,7 @@ tray_icon_init (MyApp *app)
 					   DATA_DIR G_DIR_SEPARATOR_S "icons");
 
 	app->tray_icon = gtk_status_icon_new ();
+	gtk_status_icon_set_title (app->tray_icon, _("Phone Manager"));
 	gtk_window_set_default_icon_name ("phone");
 	set_icon_state (app);
 
