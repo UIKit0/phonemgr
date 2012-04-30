@@ -396,8 +396,6 @@ ui_init (MyApp *app)
 	GtkWidget *ep = e_phone_entry_new ();
 
 	app->ui = get_ui (app, NULL);
-	bridge = gconf_bridge_get ();
-
 	if (!app->ui)
 		g_error ("Couldn't load user interface.");
 
@@ -426,6 +424,8 @@ ui_init (MyApp *app)
 	S_CONNECT("otherport", CONNECTION_OTHER);
 
 	/* Connect a few toggle buttons */
+	bridge = gconf_bridge_get ();
+
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/auto_retry",
 				    G_OBJECT (gtk_builder_get_object (app->ui, "auto_retry")),
