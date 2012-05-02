@@ -120,23 +120,22 @@ play_alert (MyApp *app)
 }
 
 static void
-set_dependent_widget (MyApp *app, int conn_type, gboolean active)
+set_dependent_widget (GtkWidget *widget, int conn_type, gboolean active)
 {
-	GtkWidget *w = NULL;
+	GtkWidget *dependent;
+
+	dependent = GTK_WIDGET (g_object_get_data (G_OBJECT (widget), "dependent"));
+	if (dependent == NULL)
+		return;
 	switch (conn_type) {
 		case CONNECTION_BLUETOOTH:
 			/* only set sensitive if bluetooth available */
-			w = GTK_WIDGET (gtk_builder_get_object (app->ui, "btchooser"));
-			if (bluetooth_chooser_button_available (BLUETOOTH_CHOOSER_BUTTON (w)) == FALSE
+			if (bluetooth_chooser_button_available (BLUETOOTH_CHOOSER_BUTTON (dependent)) == FALSE
 			    || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
 				active = FALSE;
-			gtk_widget_set_sensitive (w, active);
-			break;
-		case CONNECTION_OTHER:
-			w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
-			gtk_widget_set_sensitive (w, active);
 			break;
 	}
+	gtk_widget_set_sensitive (dependent, active);
 }
 
 static void
@@ -148,7 +147,7 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 	
 	port = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "port"));
 
-	set_dependent_widget (app, port, active);
+	set_dependent_widget (widget, port, active);
 	if (active) {
 		gconf_client_set_int (app->client,
 				      CONFBASE"/connection_type",
@@ -174,12 +173,16 @@ message_dialog_reply (GtkBuilder *ui)
 }
 
 static gulong
-s_connect (MyApp *app, const gchar *name, gint port)
+s_connect (MyApp *app, const gchar *wname, const gchar *dependentname, gint port)
 {
-	GtkWidget *w;
+	GtkWidget *w, *dependent;
 
-	w = GTK_WIDGET (gtk_builder_get_object (app->ui, name));
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, wname));
 	g_object_set_data (G_OBJECT (w), "port", GINT_TO_POINTER (port));
+	if (dependentname) {
+		dependent = GTK_WIDGET (gtk_builder_get_object (app->ui, dependentname));
+		g_object_set_data (G_OBJECT (w), "dependent", dependent);
+	}
 	return g_signal_connect (G_OBJECT (w), "toggled",
 				 G_CALLBACK (on_conn_port_change),
 				 (gpointer)app);
@@ -199,12 +202,11 @@ populate_prefs (MyApp *app)
 	ctype = gconf_client_get_int (app->client,
 				      CONFBASE"/connection_type", NULL);
 
-	set_dependent_widget (app, CONNECTION_BLUETOOTH,
-			ctype == CONNECTION_BLUETOOTH);
-	set_dependent_widget (app, CONNECTION_OTHER,
-			ctype == CONNECTION_OTHER);
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "btdevice"));
+	set_dependent_widget (w, CONNECTION_BLUETOOTH, ctype == CONNECTION_BLUETOOTH);
 
 	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
+	set_dependent_widget (w, CONNECTION_OTHER, ctype == CONNECTION_OTHER);
 	c  = gconf_client_get_string (app->client,
 				      CONFBASE"/other_serial", NULL);
 	if (c != NULL) {
@@ -422,11 +424,11 @@ ui_init (MyApp *app)
 			  NULL);
 
 	/* connect signal handlers for radio buttons */
-	s_connect (app, "btdevice", CONNECTION_BLUETOOTH);
-	s_connect (app, "serialport1", CONNECTION_SERIAL1);
-	s_connect (app, "serialport2", CONNECTION_SERIAL2);
-	s_connect (app, "irdaport", CONNECTION_IRCOMM);
-	s_connect (app, "otherport", CONNECTION_OTHER);
+	s_connect (app, "btdevice", "btchooser", CONNECTION_BLUETOOTH);
+	s_connect (app, "serialport1", NULL, CONNECTION_SERIAL1);
+	s_connect (app, "serialport2", NULL, CONNECTION_SERIAL2);
+	s_connect (app, "irdaport", NULL, CONNECTION_IRCOMM);
+	s_connect (app, "otherport", "otherportentry", CONNECTION_OTHER);
 
 	/* Connect a few toggle buttons */
 	bridge = gconf_bridge_get ();
