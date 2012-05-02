@@ -133,7 +133,7 @@ is_available_changed (BluetoothChooserButton *button, BluetoothChooser *chooser,
 }
 
 static void
-set_dependent_widget (GtkWidget *widget, int conn_type, gboolean active)
+widget_set_dependent_sensitive (GtkWidget *widget, int conn_type, gboolean active)
 {
 	GtkWidget *dependent;
 
@@ -160,7 +160,7 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 	
 	port = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "port"));
 
-	set_dependent_widget (widget, port, active);
+	widget_set_dependent_sensitive (widget, port, active);
 	if (active) {
 		gconf_client_set_int (app->client,
 				      CONFBASE"/connection_type",
