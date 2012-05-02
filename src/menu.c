@@ -46,11 +46,7 @@ about_activated(GtkMenuItem *item, gpointer data)
 			                    "Copyright \xc2\xa9 2011 Daniele Forsi",
 			       "documenters", documenters,
 			       "logo-icon-name", "phone",
-#if GTK_CHECK_VERSION (2, 11, 0)
 			       "program-name", _("Phone Manager"),
-#else
-			       "name", _("Phone Manager"),
-#endif /* GTK+ 2.11.0 */
 			       "version", VERSION,
 			       "translator-credits", _("translator_credits"),
 			       "website", "http://live.gnome.org/PhoneManager",
