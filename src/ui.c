@@ -215,11 +215,7 @@ populate_prefs (MyApp *app)
 	ctype = gconf_client_get_int (app->client,
 				      CONFBASE"/connection_type", NULL);
 
-	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "btdevice"));
-	set_dependent_widget (w, CONNECTION_BLUETOOTH, ctype == CONNECTION_BLUETOOTH);
-
 	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
-	set_dependent_widget (w, CONNECTION_OTHER, ctype == CONNECTION_OTHER);
 	c  = gconf_client_get_string (app->client,
 				      CONFBASE"/other_serial", NULL);
 	if (c != NULL) {
