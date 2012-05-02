@@ -209,21 +209,10 @@ static void
 populate_prefs (MyApp *app)
 {
 	GtkWidget *w;
-	char *c;
 	int ctype;
 
 	ctype = gconf_client_get_int (app->client,
 				      CONFBASE"/connection_type", NULL);
-
-	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
-	c  = gconf_client_get_string (app->client,
-				      CONFBASE"/other_serial", NULL);
-	if (c != NULL) {
-		gtk_entry_set_text (GTK_ENTRY (w), c);
-		g_free (c);
-	} else {
-		gtk_entry_set_text (GTK_ENTRY (w), "");
-	}
 
 	S_ACTIVE("btdevice",  CONNECTION_BLUETOOTH);
 
@@ -236,13 +225,6 @@ populate_prefs (MyApp *app)
 static void
 apply_prefs (MyApp *app)
 {
-	GtkWidget *w;
-
-	w = GTK_WIDGET (gtk_builder_get_object (app->ui, "otherportentry"));
-	gconf_client_set_string (app->client,
-				 CONFBASE"/other_serial",
-				 gtk_entry_get_text (GTK_ENTRY (w)), NULL);
-
 	reconnect_phone (app);
 }
 
@@ -465,6 +447,12 @@ ui_init (MyApp *app)
 				    CONFBASE"/sound_alert",
 				    G_OBJECT (gtk_builder_get_object (app->ui, "prefs_sound")),
 				    "active");
+
+	/* The other port address */
+	gconf_bridge_bind_property_delayed (bridge,
+				    CONFBASE"/other_serial",
+				    G_OBJECT (gtk_builder_get_object (app->ui, "otherportentry")),
+				    "text");
 
 	/* And the address chooser */
 	gconf_bridge_bind_property (bridge,
