@@ -120,6 +120,19 @@ play_alert (MyApp *app)
 }
 
 static void
+is_available_changed (BluetoothChooserButton *button, BluetoothChooser *chooser, gpointer data)
+{
+	gboolean is_sensitive;
+	GtkWidget *btdevice = GTK_WIDGET (data);
+
+	/* Make it sensitive only if the corresponding radio button is selected */
+	is_sensitive = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (btdevice)) &&
+	               phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) &&
+	               bluetooth_chooser_button_available (button);
+	gtk_widget_set_sensitive (GTK_WIDGET (button), is_sensitive);
+}
+
+static void
 set_dependent_widget (GtkWidget *widget, int conn_type, gboolean active)
 {
 	GtkWidget *dependent;
@@ -127,15 +140,15 @@ set_dependent_widget (GtkWidget *widget, int conn_type, gboolean active)
 	dependent = GTK_WIDGET (g_object_get_data (G_OBJECT (widget), "dependent"));
 	if (dependent == NULL)
 		return;
+
 	switch (conn_type) {
 		case CONNECTION_BLUETOOTH:
-			/* only set sensitive if bluetooth available */
-			if (bluetooth_chooser_button_available (BLUETOOTH_CHOOSER_BUTTON (dependent)) == FALSE
-			    || phonemgr_utils_connection_is_supported (PHONEMGR_CONNECTION_BLUETOOTH) == FALSE)
-				active = FALSE;
-			break;
+			is_available_changed (BLUETOOTH_CHOOSER_BUTTON (dependent), NULL, widget);
+			return;
+		default:
+			gtk_widget_set_sensitive (dependent, active);
+			return;
 	}
-	gtk_widget_set_sensitive (dependent, active);
 }
 
 static void
@@ -399,6 +412,7 @@ initialise_dequeuer (GConfClient *client, guint cnxn_id,
 void
 ui_init (MyApp *app)
 {
+	GtkWidget *btchooser, *btdevice;
 	GConfBridge *bridge;
 	GtkWidget *ep = e_phone_entry_new ();
 
@@ -418,10 +432,16 @@ ui_init (MyApp *app)
 			  app);
 
 	/* Set Bluetooth options */
-	g_signal_connect (gtk_builder_get_object (app->ui, "btchooser"),
+	btchooser = GTK_WIDGET (gtk_builder_get_object (app->ui, "btchooser"));
+	btdevice = GTK_WIDGET (gtk_builder_get_object (app->ui, "btdevice"));
+	g_signal_connect (btchooser,
 			  "chooser-created",
 			  G_CALLBACK (chooser_created),
 			  NULL);
+	g_signal_connect (btchooser,
+			  "notify::is-available",
+			  G_CALLBACK (is_available_changed),
+			  btdevice);
 
 	/* connect signal handlers for radio buttons */
 	s_connect (app, "btdevice", "btchooser", CONNECTION_BLUETOOTH);
@@ -453,7 +473,7 @@ ui_init (MyApp *app)
 	/* And the address chooser */
 	gconf_bridge_bind_property (bridge,
 				    CONFBASE"/bluetooth_addr",
-				    G_OBJECT (gtk_builder_get_object (app->ui, "btchooser")),
+				    G_OBJECT (btchooser),
 				    "device");
 
 	/* set up popup on message */
