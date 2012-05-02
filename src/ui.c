@@ -68,8 +68,8 @@ chooser_created (BluetoothChooserButton *button, BluetoothChooser *chooser, gpoi
 		     NULL);
 }
 
-static
-GtkBuilder *get_ui (MyApp *app, char *widget)
+static GtkBuilder *
+get_ui (MyApp *app, char *widget)
 {
 	char *fname;
 	GError* error = NULL;
@@ -157,7 +157,7 @@ on_conn_port_change (GtkWidget *widget, MyApp *app)
 	gboolean active = gtk_toggle_button_get_active (
 				GTK_TOGGLE_BUTTON (widget));
 	int port;
-	
+
 	port = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (widget), "port"));
 
 	widget_set_dependent_sensitive (widget, port, active);
@@ -175,7 +175,7 @@ message_dialog_reply (GtkBuilder *ui)
 	GtkWidget *dialog = GTK_WIDGET (gtk_builder_get_object (ui, "sms_dialog"));
 	GtkLabel *sender = GTK_LABEL (
 			gtk_builder_get_object (ui, "senderlabel"));
-	
+
 	app = (MyApp *) g_object_get_data (G_OBJECT (dialog),
 			"app");
 
@@ -214,8 +214,7 @@ populate_prefs (MyApp *app)
 	ctype = gconf_client_get_int (app->client,
 				      CONFBASE"/connection_type", NULL);
 
-	S_ACTIVE("btdevice",  CONNECTION_BLUETOOTH);
-
+	S_ACTIVE("btdevice", CONNECTION_BLUETOOTH);
 	S_ACTIVE("serialport1", CONNECTION_SERIAL1);
 	S_ACTIVE("serialport2", CONNECTION_SERIAL2);
 	S_ACTIVE("irdaport", CONNECTION_IRCOMM);
@@ -566,7 +565,7 @@ dequeue_message (MyApp *app)
 	g_list_free_1 (ptr);
 
 	set_icon_state (app);
-	
+
 	return TRUE;
 }
 
