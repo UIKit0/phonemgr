@@ -173,12 +173,18 @@ message_dialog_reply (GtkBuilder *ui)
 	return TRUE;
 }
 
-#define S_CONNECT(x, y) 	\
-	w = GTK_WIDGET (gtk_builder_get_object (app->ui, (x))); \
-	g_object_set_data (G_OBJECT (w), "port", GINT_TO_POINTER (y)); \
-	g_signal_connect (G_OBJECT (w), "toggled", \
-			G_CALLBACK (on_conn_port_change), (gpointer)app)
-					
+static gulong
+s_connect (MyApp *app, const gchar *name, gint port)
+{
+	GtkWidget *w;
+
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, name));
+	g_object_set_data (G_OBJECT (w), "port", GINT_TO_POINTER (port));
+	return g_signal_connect (G_OBJECT (w), "toggled",
+				 G_CALLBACK (on_conn_port_change),
+				 (gpointer)app);
+}
+
 #define S_ACTIVE(x, y) \
 	w = GTK_WIDGET (gtk_builder_get_object (app->ui, (x))); \
 	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w), ctype==y);
@@ -392,7 +398,6 @@ void
 ui_init (MyApp *app)
 {
 	GConfBridge *bridge;
-	GtkWidget *w;
 	GtkWidget *ep = e_phone_entry_new ();
 
 	app->ui = get_ui (app, NULL);
@@ -417,11 +422,11 @@ ui_init (MyApp *app)
 			  NULL);
 
 	/* connect signal handlers for radio buttons */
-	S_CONNECT("btdevice",  CONNECTION_BLUETOOTH);
-	S_CONNECT("serialport1", CONNECTION_SERIAL1);
-	S_CONNECT("serialport2", CONNECTION_SERIAL2);
-	S_CONNECT("irdaport", CONNECTION_IRCOMM);
-	S_CONNECT("otherport", CONNECTION_OTHER);
+	s_connect (app, "btdevice", CONNECTION_BLUETOOTH);
+	s_connect (app, "serialport1", CONNECTION_SERIAL1);
+	s_connect (app, "serialport2", CONNECTION_SERIAL2);
+	s_connect (app, "irdaport", CONNECTION_IRCOMM);
+	s_connect (app, "otherport", CONNECTION_OTHER);
 
 	/* Connect a few toggle buttons */
 	bridge = gconf_bridge_get ();
