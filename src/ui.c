@@ -201,24 +201,36 @@ s_connect (MyApp *app, const gchar *wname, const gchar *dependentname, gint port
 				 (gpointer)app);
 }
 
-#define S_ACTIVE(x, y) \
-	w = GTK_WIDGET (gtk_builder_get_object (app->ui, (x))); \
-	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w), ctype==y);
-
 static void
 populate_prefs (MyApp *app)
 {
 	GtkWidget *w;
+	char *widgetname;
 	int ctype;
 
 	ctype = gconf_client_get_int (app->client,
 				      CONFBASE"/connection_type", NULL);
-
-	S_ACTIVE("btdevice", CONNECTION_BLUETOOTH);
-	S_ACTIVE("serialport1", CONNECTION_SERIAL1);
-	S_ACTIVE("serialport2", CONNECTION_SERIAL2);
-	S_ACTIVE("irdaport", CONNECTION_IRCOMM);
-	S_ACTIVE("otherport", CONNECTION_OTHER);
+	switch (ctype) {
+	case CONNECTION_BLUETOOTH:
+		widgetname = "btdevice";
+		break;
+	case CONNECTION_SERIAL1:
+		widgetname = "serialport1";
+		break;
+	case CONNECTION_SERIAL2:
+		widgetname = "serialport2";
+		break;
+	case CONNECTION_IRCOMM:
+		widgetname = "irdaport";
+		break;
+	case CONNECTION_OTHER:
+		/* fall through */
+	default:
+		widgetname = "otherport";
+		break;
+	}
+	w = GTK_WIDGET (gtk_builder_get_object (app->ui, widgetname));
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (w), TRUE);
 }
 
 static void
