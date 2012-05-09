@@ -2,7 +2,10 @@
 # Please keep this file sorted alphabetically.
 cut-n-paste/e-contact-entry/e-contact-entry.c
 cut-n-paste/gconf-bridge/gconf-bridge.c
+data/gnome-phone-manager.schemas.in
+[type: gettext/glade]data/phonemgr.ui
 gnome-bluetooth/phonemgr.c
+libgsm/glibgsmtest.c
 src/connection.c
 src/gnome-phone-manager.desktop.in
 src/icon.c
@@ -10,5 +13,3 @@ src/main.c
 src/menu.c
 src/ui.c
 telepathy/main.c
-[type: gettext/glade] data/phonemgr.ui
-data/gnome-phone-manager.schemas.in
