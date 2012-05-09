@@ -160,7 +160,7 @@ main (int argc, char **argv)
 			  G_CALLBACK (network_status), (gpointer) listener);
 
 	if (bdaddr == NULL) {
-		g_print ("Please pass a device address to connect to\n");
+		g_print ("Please use --address to pass a device address to connect to\n");
 		return 1;
 	}
 
