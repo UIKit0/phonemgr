@@ -105,6 +105,7 @@ static const char *get_uuid = NULL;
 static const char *delete_uuid = NULL;
 static const char *put_card = NULL;
 static gboolean send_test_msg = FALSE;
+static gboolean enter_main_loop = FALSE;
 static const char *bdaddr = NULL;
 static const char *data_type = NULL;
 
@@ -117,6 +118,7 @@ static const GOptionEntry entries[] = {
 	{ "put-data", 'p', 0, G_OPTION_ARG_FILENAME, &put_card, "Upload the given vCard file", NULL },
 	{ "type", 't', 0, G_OPTION_ARG_STRING, &data_type, "Data type for the above functions. One of \"contact\", \"calendar\" and \"todo\"", NULL },
 	{ "send-msg", 's', 0, G_OPTION_ARG_NONE, &send_test_msg, "Send a test message", NULL },
+	{ "main-loop", 0, 0, G_OPTION_ARG_NONE, &enter_main_loop, "Wait for signals", NULL },
 	{ NULL }
 };
 
@@ -233,6 +235,12 @@ main (int argc, char **argv)
 			if (phonemgr_listener_delete_data (listener, type, delete_uuid) == FALSE) {
 				g_print ("Failed to delete data at location '%s'\n", delete_uuid);
 			}
+		} else if (enter_main_loop != FALSE) {
+			GMainLoop *loop;
+
+			loop = g_main_loop_new (NULL, FALSE);
+			g_main_loop_run (loop);
+			g_main_loop_unref (loop);
 		} else {
 			g_message ("Nothing to do!");
 		}
