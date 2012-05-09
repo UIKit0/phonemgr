@@ -136,7 +136,6 @@ main (int argc, char **argv)
 	context = g_option_context_new ("Manage mobile phone");
 	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
 
-	g_thread_init (NULL);
 	g_type_init ();
 
 	if (g_option_context_parse (context, &argc, &argv, &err) == FALSE) {
