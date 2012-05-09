@@ -133,7 +133,7 @@ main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	context = g_option_context_new ("Manage mobile phone");
+	context = g_option_context_new (_("- Manage your mobile phone"));
 	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
 
 	g_type_init ();
