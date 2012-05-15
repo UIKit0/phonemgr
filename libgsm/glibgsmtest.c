@@ -141,7 +141,7 @@ main (int argc, char **argv)
 	g_type_init ();
 
 	if (g_option_context_parse (context, &argc, &argv, &err) == FALSE) {
-		g_print ("couldn't parse command-line options: %s\n", err->message);
+		g_printerr ("Couldn't parse command-line options: %s\n", err->message);
 		g_error_free (err);
 		return 1;
 	}
@@ -162,14 +162,14 @@ main (int argc, char **argv)
 			  G_CALLBACK (network_status), (gpointer) listener);
 
 	if (bdaddr == NULL) {
-		g_print ("Please use --address to pass a device address to connect to\n");
+		g_printerr ("Please use --address to pass a device address to connect to\n");
 		return 1;
 	}
 
 	/* An action? Get the data type */
 	if (list_all != FALSE || get_uuid != NULL || put_card != NULL || delete_uuid != NULL) {
 		if (data_type == NULL) {
-			g_print ("Please use --type to pass a type of data to manipulate\n");
+			g_printerr ("Please use --type to pass a type of data to manipulate\n");
 			return 1;
 		}
 		if (g_str_equal (data_type, "contact") != FALSE) {
@@ -179,7 +179,7 @@ main (int argc, char **argv)
 		} else if (g_str_equal (data_type, "todo") != FALSE) {
 			type = PHONEMGR_LISTENER_DATA_TODO;
 		} else {
-			g_print ("Invalid data type passed. It must be one of \"contact\", \"calendar\" and \"todo\"\n");
+			g_printerr ("Invalid data type passed. It must be one of \"contact\", \"calendar\" and \"todo\"\n");
 			return 1;
 		}
 	}
@@ -197,7 +197,7 @@ main (int argc, char **argv)
 
 			array = phonemgr_listener_list_all_data (listener, type);
 			if (array == NULL) {
-				g_message ("BLEEEEEEH");
+				g_printerr ("Failed to list all data of type '%s'\n", data_type);
 				return 1;
 			}
 			for (i = 0; array[i] != NULL; i++)
@@ -212,14 +212,14 @@ main (int argc, char **argv)
 				g_print ("%s\n", vcard);
 				g_free (vcard);
 			} else {
-				g_message ("Failed to get data at location %s", get_uuid);
+				g_printerr ("Failed to get data at location %s\n", get_uuid);
 			}
 		} else if (put_card != NULL) {
 			char *contents;
 			char *uuid;
 
 			if (g_file_get_contents (put_card, &contents, NULL, &err) == FALSE) {
-				g_message ("Getting the data from '%s' failed: %s", put_card, err->message);
+				g_printerr ("Getting the data from '%s' failed: %s\n", put_card, err->message);
 				g_error_free (err);
 				return 1;
 			}
@@ -229,11 +229,11 @@ main (int argc, char **argv)
 				g_print ("Added data at location '%s'\n", uuid);
 				g_free (uuid);
 			} else {
-				g_message ("Failed to add data from '%s' to the device", put_card);
+				g_printerr ("Failed to add data from '%s' to the device\n", put_card);
 			}
 		} else if (delete_uuid != NULL) {
 			if (phonemgr_listener_delete_data (listener, type, delete_uuid) == FALSE) {
-				g_print ("Failed to delete data at location '%s'\n", delete_uuid);
+				g_printerr ("Failed to delete data at location '%s'\n", delete_uuid);
 			}
 		} else if (enter_main_loop != FALSE) {
 			GMainLoop *loop;
@@ -247,7 +247,7 @@ main (int argc, char **argv)
 
 		phonemgr_listener_disconnect (listener);
 	} else {
-		g_error ("Couldn't connect to the phone: %s\n", err ? err->message : "No reason");
+		g_printerr ("Couldn't connect to the phone: %s\n", err ? err->message : "No reason");
 		if (err)
 			g_error_free (err);
 	}
