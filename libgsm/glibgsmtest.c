@@ -110,13 +110,13 @@ static const char *bdaddr = NULL;
 static const char *data_type = NULL;
 
 static const GOptionEntry entries[] = {
-	{ "address", 'a', 0, G_OPTION_ARG_STRING, &bdaddr, "Address of the device to connect to", NULL },
-	{ "verbose", 'v', 0, G_OPTION_ARG_NONE, &debug, "Whether to enable verbose output from gnokii", NULL },
+	{ "address", 'a', 0, G_OPTION_ARG_STRING, &bdaddr, "Address of the device to connect to", "PORT" },
+	{ "verbose", 'v', 0, G_OPTION_ARG_NONE, &debug, "Whether to enable verbose output from libgnokii", NULL },
 	{ "list-all-data", 'l',  0, G_OPTION_ARG_NONE, &list_all, "List all the PIM data", NULL },
-	{ "get-data", 'g', 0, G_OPTION_ARG_STRING, &get_uuid, "Retrieve the PIM data with the given UUID", NULL },
-	{ "delete-data", 'd', 0, G_OPTION_ARG_STRING, &delete_uuid, "Delete the PIM data with the given UUID", NULL },
-	{ "put-data", 'p', 0, G_OPTION_ARG_FILENAME, &put_card, "Upload the given vCard file", NULL },
-	{ "type", 't', 0, G_OPTION_ARG_STRING, &data_type, "Data type for the above functions. One of \"contact\", \"calendar\" and \"todo\"", NULL },
+	{ "get-data", 'g', 0, G_OPTION_ARG_STRING, &get_uuid, "Retrieve the PIM data with the given UUID", "UUID" },
+	{ "delete-data", 'd', 0, G_OPTION_ARG_STRING, &delete_uuid, "Delete the PIM data with the given UUID", "UUID" },
+	{ "put-data", 'p', 0, G_OPTION_ARG_FILENAME, &put_card, "Upload the given vCard file", "FILENAME" },
+	{ "type", 't', 0, G_OPTION_ARG_STRING, &data_type, "Data type for the above functions. One of \"contact\", \"calendar\" and \"todo\"", "TYPE" },
 	{ "send-msg", 's', 0, G_OPTION_ARG_NONE, &send_test_msg, "Send a test message", NULL },
 	{ "main-loop", 0, 0, G_OPTION_ARG_NONE, &enter_main_loop, "Wait for signals", NULL },
 	{ NULL }
