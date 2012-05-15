@@ -191,6 +191,7 @@ main (int argc, char **argv)
 			g_timeout_add_seconds (1, (GSourceFunc) send_message, listener);
 			loop = g_main_loop_new (NULL, FALSE);
 			g_main_loop_run (loop);
+			g_main_loop_unref (loop);
 		} else if (list_all != FALSE) {
 			char **array;
 			guint i;
