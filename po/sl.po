@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-phone-manager&component=general\n"
-"POT-Creation-Date: 2011-02-16 19:06+0000\n"
-"PO-Revision-Date: 2011-02-18 13:29+0100\n"
-"Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-phone-manager&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-05-15 17:32+0000\n"
+"PO-Revision-Date: 2012-05-19 13:15+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -35,84 +35,84 @@ msgstr "Ni mogoče najti stika: %s"
 msgid "Cannot create searchable view."
 msgstr "Ni mogoče ustvariti iskalnega pogleda."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:884
 msgid "Success"
 msgstr "Uspešno"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "An argument was invalid."
 msgstr "Argument je neveljaven."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "The address book is busy."
 msgstr "Imenik je zaposlen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is offline."
 msgstr "Imenik ni povezan."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book does not exist."
 msgstr "Imenik ne obstaja."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The \"Me\" contact does not exist."
 msgstr "Stik \"Jaz\" ne obstaja."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The address book is not loaded."
 msgstr "Imenik še ni naložen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is already loaded."
 msgstr "Imenik je že naložen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "Permission was denied when accessing the address book."
 msgstr "Med dostopom do imenika je bilo dovoljenje zavrnjeno."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "The contact was not found."
 msgstr "Stika ni mogoče najti."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "This contact ID already exists."
 msgstr "ID stika že obstaja."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "The protocol is not supported."
 msgstr "Protokol ni podprt."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The operation was cancelled."
 msgstr "Opravilo je bilo preklicano."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation could not be cancelled."
 msgstr "Opravila ni mogoče preklicati."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The address book authentication failed."
 msgstr "Overitev dostopa do imenika je spodletela."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid "Authentication is required to access the address book and was not given."
 msgstr "Zahtevana overitev za dostop do imenika ni bila podana."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid "A secure connection is not available."
 msgstr "Varna povezava ni na voljo."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Prišlo je do napake CORBA med dostopom do imenika."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "The address book source does not exist."
 msgstr "Vir imenika ne obstaja."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:925
 msgid "An unknown error occurred."
 msgstr "Prišlo je do neznane napake."
 
@@ -125,14 +125,221 @@ msgstr "GConf napaka: %s"
 msgid "All further errors shown only on terminal."
 msgstr "Vse nadaljnje napake bodo prikazane le v terminalu."
 
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "The connection type used by gnome-phone-manager"
+msgstr "Vrsta povezava, ki jo uporablja gnome-phone-manager"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr "Vrsta povezave, ki jo uporablja gnome-phone-manager: Bluetooth je 0, zaporedna 1 je 1, zaporedna 2 je 2, IrDa je 3, ostale vrste povezav so 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "Bluetooth address of the device to connect to"
+msgstr "Bluetooth naslov naprave za povezavo"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
+msgstr "Bluetooth naslov naprave za povezovanje. Zahteva vrsto povezave 1."
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "Vozlišče naprave za povezavo zaporedne naprave"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
+msgstr "Vozlišče naprave za povezavo zaporedne naprave. Zahteva vrsto povezave 4."
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "Ali naj se ponovni poskus povezave z mobilnim telefonom"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
+msgstr "Ali naj se ponovi poskus povezave z mobilnim telefonom, kadar se povezava prekine."
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "Ali naj se ura telefona uskladi z uro računalnika"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "Ali naj bo ura telefona usklajena z uro računalnika."
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to popup new messages on the desktop"
+msgstr "Ali naj bodo pojavna okna novih sporočil prikazana na namizju"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
+msgstr "Ali naj bodo pojavna okna novih sporočil prikazana na namizju, takoj ko so prejeta ali naj bodo prikazana ob kliku na ikono vrstice."
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "Ali naj bo predvajano zvočno opozorilo, ko prispe novo sporočilo"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "Ali naj bo predvajano zvočno opozorilo, ko prispe novo sporočilo."
+
+#: ../data/phonemgr.ui.h:1
+msgid "Message Received"
+msgstr "Prejeto je sporočilo"
+
+#: ../data/phonemgr.ui.h:2
+msgid "You have received a message"
+msgstr "Prejeli ste sporočilo"
+
+#: ../data/phonemgr.ui.h:3
+msgid "Sender:"
+msgstr "Pošiljatelj:"
+
+#: ../data/phonemgr.ui.h:4
+msgid "Date:"
+msgstr "Datum:"
+
+#: ../data/phonemgr.ui.h:5
+msgid "_Reply"
+msgstr "_Odgovori"
+
+#: ../data/phonemgr.ui.h:6
+msgid "Send Message"
+msgstr "Pošlji sporočilo"
+
+#: ../data/phonemgr.ui.h:7
+msgid "Enter your text message"
+msgstr "Vnesite svoje kratko sporočilo"
+
+#: ../data/phonemgr.ui.h:8
+msgid "_Recipient:"
+msgstr "P_rejemnik:"
+
+#: ../data/phonemgr.ui.h:9
+msgid "_Message:"
+msgstr "_Sporočilo:"
+
+#: ../data/phonemgr.ui.h:10
+msgid "Enter the text message you want to send."
+msgstr "Vnesite kratko sporočilo, ki ga želite poslati."
+
+#: ../data/phonemgr.ui.h:11
+msgid "Characters left:"
+msgstr "Preostalih znakov:"
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.ui.h:13
+msgid "_Notify when message is delivered"
+msgstr "_Obvesti, ko je sporočilo dostavljeno"
+
+#: ../data/phonemgr.ui.h:14
+msgid "_Send"
+msgstr "_Pošlji"
+
+#: ../data/phonemgr.ui.h:15
+msgid "Phone Manager Preferences"
+msgstr "Lastnosti upravljalnika telefona"
+
+#: ../data/phonemgr.ui.h:16
+msgid "Alerting"
+msgstr "Dodatno"
+
+#: ../data/phonemgr.ui.h:17
+msgid "_Pop-up window for new messages"
+msgstr "_Pojavna okna ob novih sporočilih"
+
+#: ../data/phonemgr.ui.h:18
+msgid "Play _sound when messages arrive"
+msgstr "Ob prejemu novih sporočil predvajaj _zvok"
+
+#: ../data/phonemgr.ui.h:19
+msgid "Interface"
+msgstr "Vmesnik"
+
+#: ../data/phonemgr.ui.h:20
+msgid "Phone Connection"
+msgstr "Povezava s telefonom"
+
+#: ../data/phonemgr.ui.h:21
+msgid "_Bluetooth"
+msgstr "_Bluetooth"
+
+#: ../data/phonemgr.ui.h:22
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "Uporaba brezžičnega omrežja Bluetooth za povezavo na vaš telefon"
+
+#: ../data/phonemgr.ui.h:23
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "Zaporedna vrata _1 (/dev/ttyS0)"
+
+#: ../data/phonemgr.ui.h:24
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr "Povezava preko zaporednih vrat 1, poimenovanih tudi COM1 ali /dev/ttyS0"
+
+#: ../data/phonemgr.ui.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "Zaporedna vrata _2 (/dev/ttyS1)"
+
+#: ../data/phonemgr.ui.h:26
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr "Povezava preko zaporednih vrat 2, poimenovanih tudi COM2 ali /dev/ttyS1"
+
+#: ../data/phonemgr.ui.h:27
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "I_nfra rdeče (/dev/ircomm0)"
+
+#: ../data/phonemgr.ui.h:28
+msgid "Connect using infrared communication"
+msgstr "Povezava preko infrardečega vmesnika"
+
+#: ../data/phonemgr.ui.h:29
+msgid "Other _port"
+msgstr "Druga _vrata"
+
+#: ../data/phonemgr.ui.h:30
+msgid "Connect using an alternative serial device"
+msgstr "Povezava preko dodatne zaporedne naprave"
+
+#: ../data/phonemgr.ui.h:31
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "Ime dodatne naprave, na primer /dev/ttyS3"
+
+#: ../data/phonemgr.ui.h:32
+msgid "Automated Tasks"
+msgstr "Samodejna opravila"
+
+#: ../data/phonemgr.ui.h:33
+msgid "Automatically _retry connections"
+msgstr "Samodejno se poskusi _ponovno povezati"
+
+# Samodejen se tukaj sliši boljše kot vedno.
+#: ../data/phonemgr.ui.h:34
+msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
+msgstr "Ko povezava ni takoj dostopna, samodejno ponovi postopek povezave. Možnost se uporablja z napravo Bluetooth za zagotavljanje telefonske povezave, kadarkoli je ta v dosegu."
+
+#: ../data/phonemgr.ui.h:35
+msgid "Synchronise phone's _time and date"
+msgstr "Uskladi _čas in datum telefona"
+
+#: ../data/phonemgr.ui.h:36
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "Usklajevanje časa in datuma telefona z uro računalnika"
+
+#: ../data/phonemgr.ui.h:37
+msgid "Connection"
+msgstr "Povezava"
+
 #. Translators: "device" is a phone or a modem
 #: ../gnome-bluetooth/phonemgr.c:133
 msgid "Use this device with Phone Manager"
 msgstr "Uporabi to napravo z upravljalnikom telefonov"
 
+#: ../libgsm/glibgsmtest.c:138
+#: ../src/main.c:56
+msgid "- Manage your mobile phone"
+msgstr "- Upravljanje z mobilnim telefonom"
+
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:124
+#: ../src/connection.c:123
 #, c-format
 msgid "Connected to device on %s"
 msgstr "Naprava na %s je povezana"
@@ -141,14 +348,14 @@ msgstr "Naprava na %s je povezana"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:130
+#: ../src/connection.c:129
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "Povezava z napravo na %s je spodletela"
 
 #: ../src/gnome-phone-manager.desktop.in.h:1
+#: ../src/icon.c:82
 #: ../src/menu.c:49
-#: ../src/menu.c:51
 msgid "Phone Manager"
 msgstr "Upravljalnik telefonov"
 
@@ -194,238 +401,36 @@ msgstr "Omogoči razhroščevanje"
 msgid "Show version information and exit"
 msgstr "Pokaži podrobnosti različice in končaj"
 
-#: ../src/main.c:60
-msgid "- Manage your mobile phone"
-msgstr "- Upravljanje z mobilnim telefonom"
-
-#: ../src/main.c:74
+#: ../src/main.c:70
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnome-phone-manager različica %s\n"
 
-#: ../src/menu.c:40
-msgid "translator_credits"
-msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>"
-
-#: ../src/menu.c:44
+#: ../src/menu.c:43
 msgid "Send and receive messages from your mobile phone."
 msgstr "Pošljite in prejmite sporočila z vašega mobilnega telefona."
 
-#: ../src/menu.c:56
+#: ../src/menu.c:51
+msgid "translator_credits"
+msgstr "Andrej Žnidaršič <andrej.znidarsic@gmail.com>"
+
+#: ../src/menu.c:53
 msgid "Phone Manager website"
 msgstr "Spletišče upravljalnika telefona"
 
-#: ../src/menu.c:87
+#: ../src/menu.c:84
 msgid "_Send Message"
 msgstr "_Pošlji sporočilo"
 
-#: ../src/ui.c:111
+#: ../src/ui.c:110
 msgid "New text message received"
 msgstr "Novo prejeto kratko sporočilo"
 
-#: ../src/ui.c:277
+#: ../src/ui.c:286
 msgid "Message too long!"
 msgstr "Sporočilo je predolgo!"
 
-#: ../data/phonemgr.ui.h:1
-msgid "Alerting"
-msgstr "Dodatno"
-
-#: ../data/phonemgr.ui.h:2
-msgid "Alternative device filename, e.g. /dev/ttyS3"
-msgstr "Ime dodatne naprave, na primer /dev/ttyS3"
-
-# Samodejen se tukaj sliši boljše kot vedno.
-#: ../data/phonemgr.ui.h:3
-msgid "Always try and reconnect whenever a connection is not immediately available. Use this with Bluetooth to ensure your phone connects whenever it comes in range."
-msgstr "Ko povezava ni takoj dostopna, samodejno ponovi postopek povezave. Možnost se uporablja z napravo Bluetooth za zagotavljanje telefonske povezave, kadarkoli je ta v dosegu."
-
-#: ../data/phonemgr.ui.h:4
-msgid "Automated Tasks"
-msgstr "Samodejna opravila"
-
-#: ../data/phonemgr.ui.h:5
-msgid "Automatically _retry connections"
-msgstr "Samodejno se poskusi _ponovno povezati"
-
-#: ../data/phonemgr.ui.h:6
-msgid "Characters left:"
-msgstr "Preostalih znakov:"
-
-#: ../data/phonemgr.ui.h:7
-msgid "Connect using an alternative serial device"
-msgstr "Povezava preko dodatne zaporedne naprave"
-
-#: ../data/phonemgr.ui.h:8
-msgid "Connect using infrared communication"
-msgstr "Povezava preko infrardečega vmesnika"
-
-#: ../data/phonemgr.ui.h:9
-msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr "Povezava preko zaporednih vrat 1, poimenovanih tudi COM1 ali /dev/ttyS0"
-
-#: ../data/phonemgr.ui.h:10
-msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr "Povezava preko zaporednih vrat 2, poimenovanih tudi COM2 ali /dev/ttyS1"
-
-#: ../data/phonemgr.ui.h:11
-msgid "Connection"
-msgstr "Povezava"
-
-#: ../data/phonemgr.ui.h:12
-msgid "Date:"
-msgstr "Datum:"
-
-#: ../data/phonemgr.ui.h:13
-msgid "Enter the text message you want to send."
-msgstr "Vnesite kratko sporočilo, ki ga želite poslati."
-
-#: ../data/phonemgr.ui.h:14
-msgid "Enter your text message"
-msgstr "Vnesite svoje kratko sporočilo"
-
-#: ../data/phonemgr.ui.h:15
-msgid "I_nfra red (/dev/ircomm0)"
-msgstr "I_nfra rdeče (/dev/ircomm0)"
-
-#: ../data/phonemgr.ui.h:16
-msgid "Interface"
-msgstr "Vmesnik"
-
-#: ../data/phonemgr.ui.h:17
-msgid "Message Received"
-msgstr "Prejeto je sporočilo"
-
-#: ../data/phonemgr.ui.h:18
-msgid "Other _port"
-msgstr "Druga _vrata"
-
-#: ../data/phonemgr.ui.h:19
-msgid "Phone Connection"
-msgstr "Povezava s telefonom"
-
-#: ../data/phonemgr.ui.h:20
-msgid "Phone Manager Preferences"
-msgstr "Lastnosti upravljalnika telefona"
-
-#: ../data/phonemgr.ui.h:21
-msgid "Play _sound when messages arrive"
-msgstr "Ob prejemu novih sporočil predvajaj _zvok"
-
-#: ../data/phonemgr.ui.h:22
-msgid "Send Message"
-msgstr "Pošlji sporočilo"
-
-#: ../data/phonemgr.ui.h:23
-msgid "Sender:"
-msgstr "Pošiljatelj:"
-
-#: ../data/phonemgr.ui.h:24
-msgid "Serial port _1 (/dev/ttyS0)"
-msgstr "Zaporedna vrata _1 (/dev/ttyS0)"
-
-#: ../data/phonemgr.ui.h:25
-msgid "Serial port _2 (/dev/ttyS1)"
-msgstr "Zaporedna vrata _2 (/dev/ttyS1)"
-
-#: ../data/phonemgr.ui.h:26
-msgid "Synchronise phone's _time and date"
-msgstr "Uskladi _čas in datum telefona"
-
-#: ../data/phonemgr.ui.h:27
-msgid "Synchronise phone's time and date with the computer's clock"
-msgstr "Usklajevanje časa in datuma telefona z uro računalnika"
-
-#: ../data/phonemgr.ui.h:28
-msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr "Uporaba brezžičnega omrežja Bluetooth za povezavo na vaš telefon"
-
-#: ../data/phonemgr.ui.h:29
-msgid "You have received a message"
-msgstr "Prejeli ste sporočilo"
-
-#: ../data/phonemgr.ui.h:30
-msgid "_Bluetooth"
-msgstr "_Bluetooth"
-
-#: ../data/phonemgr.ui.h:31
-msgid "_Message:"
-msgstr "_Sporočilo:"
-
-#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.ui.h:33
-msgid "_Notify when message is delivered"
-msgstr "_Obvesti, ko je sporočilo dostavljeno"
-
-#: ../data/phonemgr.ui.h:34
-msgid "_Pop-up window for new messages"
-msgstr "_Pojavna okna ob novih sporočilih"
-
-#: ../data/phonemgr.ui.h:35
-msgid "_Recipient:"
-msgstr "P_rejemnik:"
-
-#: ../data/phonemgr.ui.h:36
-msgid "_Reply"
-msgstr "_Odgovori"
-
-#: ../data/phonemgr.ui.h:37
-msgid "_Send"
-msgstr "_Pošlji"
-
-#: ../data/gnome-phone-manager.schemas.in.h:1
-msgid "Bluetooth address of the device to connect to"
-msgstr "Bluetooth naslov naprave za povezavo"
-
-#: ../data/gnome-phone-manager.schemas.in.h:2
-msgid "Bluetooth address of the device to connect to. Requires connection_type to be 1 to be used."
-msgstr "Bluetooth naslov naprave za povezovanje. Zahteva vrsto povezave 1."
-
-#: ../data/gnome-phone-manager.schemas.in.h:3
-msgid "The connection type used by gnome-phone-manager"
-msgstr "Vrsta povezava, ki jo uporablja gnome-phone-manager"
-
-#: ../data/gnome-phone-manager.schemas.in.h:4
-msgid "The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is 1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
-msgstr "Vrsta povezave, ki jo uporablja gnome-phone-manager: Bluetooth je 0, zaporedna 1 je 1, zaporedna 2 je 2, IrDa je 3, ostale vrste povezav so 4"
-
-#: ../data/gnome-phone-manager.schemas.in.h:5
-msgid "The device node for the serial device to connect to"
-msgstr "Vozlišče naprave za povezavo zaporedne naprave"
-
-#: ../data/gnome-phone-manager.schemas.in.h:6
-msgid "The device node for the serial device to connect to. Requires connection_type to be 4 to be used."
-msgstr "Vozlišče naprave za povezavo zaporedne naprave. Zahteva vrsto povezave 4."
-
-#: ../data/gnome-phone-manager.schemas.in.h:7
-msgid "Whether to play a sound alert when a new message comes in"
-msgstr "Ali naj bo predvajano zvočno opozorilo, ko prispe novo sporočilo"
-
-#: ../data/gnome-phone-manager.schemas.in.h:8
-msgid "Whether to play a sound alert when a new message comes in."
-msgstr "Ali naj bo predvajano zvočno opozorilo, ko prispe novo sporočilo."
-
-#: ../data/gnome-phone-manager.schemas.in.h:9
-msgid "Whether to popup new messages on the desktop"
-msgstr "Ali naj bodo pojavna okna novih sporočil prikazana na namizju"
-
-#: ../data/gnome-phone-manager.schemas.in.h:10
-msgid "Whether to popup new messages on the desktop as soon as they're received, as opposed to showing them when clicking on the tray icon."
-msgstr "Ali naj bodo pojavna okna novih sporočil prikazana na namizju, takoj ko so prejeta ali naj bodo prikazana ob kliku na ikono vrstice."
-
-#: ../data/gnome-phone-manager.schemas.in.h:11
-msgid "Whether to retry connecting to the mobile phone"
-msgstr "Ali naj se ponovni poskus povezave z mobilnim telefonom"
-
-#: ../data/gnome-phone-manager.schemas.in.h:12
-msgid "Whether to retry connecting to the mobile phone if the connection fails at some point."
-msgstr "Ali naj se ponovi poskus povezave z mobilnim telefonom, kadar se povezava prekine."
-
-#: ../data/gnome-phone-manager.schemas.in.h:13
-msgid "Whether to synchronise the phone clock with the computer's"
-msgstr "Ali naj se ura telefona uskladi z uro računalnika"
-
-#: ../data/gnome-phone-manager.schemas.in.h:14
-msgid "Whether to synchronise the phone clock with the computer's."
-msgstr "Ali naj bo ura telefona usklajena z uro računalnika."
+#: ../telepathy/main.c:44
+msgid "Make all warnings fatal"
+msgstr "Vsa opozorila naj bodo usodna"
 
