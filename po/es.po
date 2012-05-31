@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: phonemgr.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "phone-manager&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-04-22 08:49+0000\n"
+"POT-Creation-Date: 2012-04-22 09:15+0000\n"
 "PO-Revision-Date: 2012-04-22 11:12+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
@@ -42,7 +42,7 @@ msgstr "Éxito"
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "An argument was invalid."
-msgstr "Un argumento era inválido."
+msgstr "Un argumento no era válido."
 
 #: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "The address book is busy."
