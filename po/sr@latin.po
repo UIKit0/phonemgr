@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phonemgr\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "phone-manager&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-03-10 15:43+0000\n"
-"PO-Revision-Date: 2012-03-18 17:26+0200\n"
+"POT-Creation-Date: 2012-04-22 08:49+0000\n"
+"PO-Revision-Date: 2012-06-01 20:34+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -33,85 +33,85 @@ msgstr "Ne mogu da nađem kontakt: %s"
 msgid "Cannot create searchable view."
 msgstr "Ne mogu da prikažem pretragu."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:884
 msgid "Success"
 msgstr "Uspešno"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "An argument was invalid."
 msgstr "Nije ispravan argument."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "The address book is busy."
 msgstr "Adresar je zauzet."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is offline."
 msgstr "Adresar je van mreže."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book does not exist."
 msgstr "Adresar ne postoji."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The \"Me\" contact does not exist."
 msgstr "Ne postoji kontakt sa podacima o vama."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The address book is not loaded."
 msgstr "Adresar nije učitan."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is already loaded."
 msgstr "Adresar je već učitan."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "Permission was denied when accessing the address book."
 msgstr "Nemate ovlašćenja za pristup adresaru."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "The contact was not found."
 msgstr "Kontakt nije pronađen."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "This contact ID already exists."
 msgstr "Već postoji ovaj IB kontakta."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "The protocol is not supported."
 msgstr "Protokol nije podržan."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The operation was cancelled."
 msgstr "Radnja je prekinuta."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation could not be cancelled."
 msgstr "Ne možete da prekinete ovu radnju."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The address book authentication failed."
 msgstr "Ne mogu da se prijavim u adresar."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr "Potrebno je potvrđivanje identiteta za pristup adresaru a nije dato."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid "A secure connection is not available."
 msgstr "Bezbedna veza nije dostupna."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "Došlo je do greške KORBA-e prilikom pristupanja adresaru."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "The address book source does not exist."
 msgstr "Ne postoji izvor adresara."
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:925
 msgid "An unknown error occurred."
 msgstr "Došlo je do nepoznate greške."
 
@@ -189,11 +189,11 @@ msgstr "Uključuje ispravljanje grešaka"
 msgid "Show version information and exit"
 msgstr "Prikazuje podatke o izdanju i izlazi"
 
-#: ../src/main.c:60
+#: ../src/main.c:58
 msgid "- Manage your mobile phone"
 msgstr "— Upravljajte vašim mobilnim telefonom"
 
-#: ../src/main.c:74
+#: ../src/main.c:72
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnomov—upravnik—telefona izdanje %s\n"
@@ -224,6 +224,10 @@ msgstr "Primljena je nova tekstualna poruka"
 #: ../src/ui.c:276
 msgid "Message too long!"
 msgstr "Poruka je preduga!"
+
+#: ../telepathy/main.c:44
+msgid "Make all warnings fatal"
+msgstr "Čini sva upozorenja kobnim"
 
 #: ../data/phonemgr.ui.h:1
 msgid "Message Received"
