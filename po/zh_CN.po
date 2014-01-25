@@ -2,17 +2,18 @@
 # Copyright (C) 2004, 2010 Free Software Foundation, Inc,
 # This file is distributed under the same license as the phonemgr package.
 # Funda Wang <fundawang@linux.net.cn>, 2004.
-# YunQiang Su <wzssyqa@gmail.com>, 2010.
+# YunQiang Su <wzssyqa@gmail.com>, 2010, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: phonemgr master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"phone-manager&component=general\n"
-"POT-Creation-Date: 2011-02-15 20:00+0000\n"
-"PO-Revision-Date: 2010-02-24 16:31+0800\n"
+"phone-manager&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-12-19 16:09+0000\n"
+"PO-Revision-Date: 2014-01-25 15:35+0800\n"
 "Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,85 +32,85 @@ msgstr "无法找到联系人：%s"
 msgid "Cannot create searchable view."
 msgstr "无法创建可搜索视图。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:884
 msgid "Success"
 msgstr "成功"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:886
 msgid "An argument was invalid."
 msgstr "一个参数无效。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:888
 msgid "The address book is busy."
 msgstr "地址簿忙。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:890
 msgid "The address book is offline."
 msgstr "地址簿离线"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:892
 msgid "The address book does not exist."
 msgstr "地址簿不存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:894
 msgid "The \"Me\" contact does not exist."
 msgstr "“Me”联系人不存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:896
 msgid "The address book is not loaded."
 msgstr "地址簿未加载。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:898
 msgid "The address book is already loaded."
 msgstr "地址簿已经加载。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:900
 msgid "Permission was denied when accessing the address book."
 msgstr "访问地址簿时许可被拒绝。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:902
 msgid "The contact was not found."
 msgstr "联系人未找到。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:904
 msgid "This contact ID already exists."
 msgstr "联系人 ID 已经存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:906
 msgid "The protocol is not supported."
 msgstr "协议不受支持。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:908
 msgid "The operation was cancelled."
 msgstr "操作被取消。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:910
 msgid "The operation could not be cancelled."
 msgstr "操作无法取消。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:912
 msgid "The address book authentication failed."
 msgstr "地址簿认证失败。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:914
 msgid ""
 "Authentication is required to access the address book and was not given."
 msgstr "访问地址簿需要认证但是没有给出。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:916
 msgid "A secure connection is not available."
 msgstr "安全连接不可用。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:918
 msgid "A CORBA error occurred whilst accessing the address book."
 msgstr "访问地址簿时发生 CORBA 错误。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:920
 msgid "The address book source does not exist."
 msgstr "地址簿源不存在。"
 
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:924
-#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:927
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:922
+#: ../cut-n-paste/e-contact-entry/e-contact-entry.c:925
 msgid "An unknown error occurred."
 msgstr "发生了一个未知错误。"
 
@@ -122,14 +123,237 @@ msgstr "GConf 错误：%s"
 msgid "All further errors shown only on terminal."
 msgstr "进一步的错误只在终端中显示。"
 
+#: ../data/gnome-phone-manager.schemas.in.h:1
+msgid "The connection type used by gnome-phone-manager"
+msgstr "gnome-phone-manager 使用的连接类型"
+
+#: ../data/gnome-phone-manager.schemas.in.h:2
+msgid ""
+"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
+"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
+msgstr ""
+"gnome-phone-manager 使用的连接类型：蓝牙是 0，串口 1 是 1，串口 2 是 2，红外"
+"是 3，其它是 4"
+
+#: ../data/gnome-phone-manager.schemas.in.h:3
+msgid "Bluetooth address of the device to connect to"
+msgstr "要连接到设备的蓝牙地址"
+
+#: ../data/gnome-phone-manager.schemas.in.h:4
+msgid ""
+"Bluetooth address of the device to connect to. Requires connection_type to "
+"be 1 to be used."
+msgstr "要连接到设备的蓝牙地址。要使用，要求 connection_type 为 1。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:5
+msgid "The device node for the serial device to connect to"
+msgstr "要连接到的串口设备的设备节点"
+
+#: ../data/gnome-phone-manager.schemas.in.h:6
+msgid ""
+"The device node for the serial device to connect to. Requires "
+"connection_type to be 4 to be used."
+msgstr "要连接到的串口设备的设备节点。要使用，要求 connection_type 为 4。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:7
+msgid "Whether to retry connecting to the mobile phone"
+msgstr "是否重新尝试连接到移动电话"
+
+#: ../data/gnome-phone-manager.schemas.in.h:8
+msgid ""
+"Whether to retry connecting to the mobile phone if the connection fails at "
+"some point."
+msgstr "如果连接在某些点失败，是否重新尝试连接到移动电话。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:9
+msgid "Whether to synchronise the phone clock with the computer's"
+msgstr "是否使用计算机时钟同步手机"
+
+#: ../data/gnome-phone-manager.schemas.in.h:10
+msgid "Whether to synchronise the phone clock with the computer's."
+msgstr "是否使用计算机时钟同步手机。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:11
+msgid "Whether to popup new messages on the desktop"
+msgstr "是否在桌面上弹出新消息"
+
+#: ../data/gnome-phone-manager.schemas.in.h:12
+msgid ""
+"Whether to popup new messages on the desktop as soon as they're received, as "
+"opposed to showing them when clicking on the tray icon."
+msgstr ""
+"消息到达时，是否在桌面上立即弹出新消息，与之相对的是点击托盘图标时显示。"
+
+#: ../data/gnome-phone-manager.schemas.in.h:13
+msgid "Whether to play a sound alert when a new message comes in"
+msgstr "新消息到达时是否播放声音提示"
+
+#: ../data/gnome-phone-manager.schemas.in.h:14
+msgid "Whether to play a sound alert when a new message comes in."
+msgstr "新消息到达时是否播放声音提示。"
+
+#: ../data/phonemgr.ui.h:1
+msgid "Message Received"
+msgstr "收到了消息"
+
+#: ../data/phonemgr.ui.h:2
+msgid "You have received a message"
+msgstr "您收到了一条消息"
+
+#: ../data/phonemgr.ui.h:3
+msgid "Sender:"
+msgstr "发送人："
+
+#: ../data/phonemgr.ui.h:4
+msgid "Date:"
+msgstr "日期："
+
+#: ../data/phonemgr.ui.h:5
+msgid "_Reply"
+msgstr "回复(_R)"
+
+#: ../data/phonemgr.ui.h:6
+msgid "Send Message"
+msgstr "发送消息"
+
+#: ../data/phonemgr.ui.h:7
+msgid "Enter your text message"
+msgstr "输入您的文本消息。"
+
+#: ../data/phonemgr.ui.h:8
+msgid "_Recipient:"
+msgstr "收件人(_R)："
+
+#: ../data/phonemgr.ui.h:9
+msgid "_Message:"
+msgstr "消息(_M)："
+
+#: ../data/phonemgr.ui.h:10
+msgid "Enter the text message you want to send."
+msgstr "输入您想要发送的文字消息。"
+
+#: ../data/phonemgr.ui.h:11
+msgid "Characters left:"
+msgstr "所剩字符数："
+
+#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
+#: ../data/phonemgr.ui.h:13
+msgid "_Notify when message is delivered"
+msgstr "消息成功传送时通知(_N)"
+
+#: ../data/phonemgr.ui.h:14
+msgid "_Send"
+msgstr "发送(_S)"
+
+#: ../data/phonemgr.ui.h:15
+msgid "Phone Manager Preferences"
+msgstr "电话管理器首选项"
+
+#: ../data/phonemgr.ui.h:16
+msgid "Alerting"
+msgstr "提醒"
+
+#: ../data/phonemgr.ui.h:17
+msgid "_Pop-up window for new messages"
+msgstr "新消息弹出窗口(_P)"
+
+#: ../data/phonemgr.ui.h:18
+msgid "Play _sound when messages arrive"
+msgstr "收到消息时播放声音(_S)"
+
+#: ../data/phonemgr.ui.h:19
+msgid "Interface"
+msgstr "界面"
+
+#: ../data/phonemgr.ui.h:20
+msgid "Phone Connection"
+msgstr "电话连接"
+
+#: ../data/phonemgr.ui.h:21
+msgid "_Bluetooth"
+msgstr "蓝牙(_B)"
+
+#: ../data/phonemgr.ui.h:22
+msgid "Use Bluetooth wireless networking to connect to your phone"
+msgstr "使用蓝牙无线网络连接到您的电话"
+
+#: ../data/phonemgr.ui.h:23
+msgid "Serial port _1 (/dev/ttyS0)"
+msgstr "串口1(/dev/ttyS0)(_1)"
+
+#: ../data/phonemgr.ui.h:24
+msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
+msgstr "使用串口 1 连接，也就是 COM1 或 /dev/ttyS0"
+
+#: ../data/phonemgr.ui.h:25
+msgid "Serial port _2 (/dev/ttyS1)"
+msgstr "串口2(/dev/ttyS1)(_2)"
+
+#: ../data/phonemgr.ui.h:26
+msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
+msgstr "使用串口 2 连接，也就是 COM2 或 /dev/ttyS1"
+
+#: ../data/phonemgr.ui.h:27
+msgid "I_nfra red (/dev/ircomm0)"
+msgstr "红外(/dev/ircomm0)(_N)"
+
+#: ../data/phonemgr.ui.h:28
+msgid "Connect using infrared communication"
+msgstr "使用红外连接"
+
+#: ../data/phonemgr.ui.h:29
+msgid "Other _port"
+msgstr "其它端口(_P)"
+
+#: ../data/phonemgr.ui.h:30
+msgid "Connect using an alternative serial device"
+msgstr "使用另外的串行设备连接"
+
+#: ../data/phonemgr.ui.h:31
+msgid "Alternative device filename, e.g. /dev/ttyS3"
+msgstr "其它设备文件名，例如 /dev/ttyS3"
+
+#: ../data/phonemgr.ui.h:32
+msgid "Automated Tasks"
+msgstr "自动任务"
+
+#: ../data/phonemgr.ui.h:33
+msgid "Automatically _retry connections"
+msgstr "自动重试连接(_R)"
+
+#: ../data/phonemgr.ui.h:34
+msgid ""
+"Always try and reconnect whenever a connection is not immediately available. "
+"Use this with Bluetooth to ensure your phone connects whenever it comes in "
+"range."
+msgstr ""
+"每当连接不立即可用时，总使尝试重新连接。对蓝牙使用此选项可以确保，每当手机进"
+"入可用区域，自动连接。"
+
+#: ../data/phonemgr.ui.h:35
+msgid "Synchronise phone's _time and date"
+msgstr "同步电话的时间和日期(_T)"
+
+#: ../data/phonemgr.ui.h:36
+msgid "Synchronise phone's time and date with the computer's clock"
+msgstr "使用计算机时钟同步电话时间和日期"
+
+#: ../data/phonemgr.ui.h:37
+msgid "Connection"
+msgstr "连接"
+
 #. Translators: "device" is a phone or a modem
 #: ../gnome-bluetooth/phonemgr.c:133
 msgid "Use this device with Phone Manager"
-msgstr ""
+msgstr "使用电话管理器操作此设备"
+
+#: ../libgsm/glibgsmtest.c:138 ../src/main.c:56
+msgid "- Manage your mobile phone"
+msgstr " - 管理您的移动电话"
 
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:124
+#: ../src/connection.c:123
 #, c-format
 msgid "Connected to device on %s"
 msgstr "已连接到 %s 上的设备"
@@ -138,12 +362,12 @@ msgstr "已连接到 %s 上的设备"
 #. bother changing the icon ourselves at this point
 #. translators: the '%s' will be substituted with '/dev/ttyS0'
 #. or similar
-#: ../src/connection.c:130
+#: ../src/connection.c:129
 #, c-format
 msgid "Failed connection to device on %s"
 msgstr "连接到 %s 上的设备失败"
 
-#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/menu.c:49 ../src/menu.c:51
+#: ../src/gnome-phone-manager.desktop.in.h:1 ../src/icon.c:82 ../src/menu.c:49
 msgid "Phone Manager"
 msgstr "电话管理器"
 
@@ -173,7 +397,7 @@ msgstr "显示指定设备的型号名"
 
 #: ../src/main.c:38 ../src/main.c:39
 msgid "PORT"
-msgstr ""
+msgstr "端口"
 
 #: ../src/main.c:39
 msgid "Write the configuration file for gnokii debugging"
@@ -187,257 +411,38 @@ msgstr "启用调试"
 msgid "Show version information and exit"
 msgstr "显示版本信息然后退出"
 
-#: ../src/main.c:60
-msgid "- Manage your mobile phone"
-msgstr " - 管理您的移动电话"
-
-#: ../src/main.c:74
+#: ../src/main.c:70
 #, c-format
 msgid "gnome-phone-manager version %s\n"
 msgstr "gnome-phone-manager 版本 %s\n"
 
-#: ../src/menu.c:40
-msgid "translator_credits"
-msgstr "YunQiang Su <wzssyqa@gmail.com>"
-
-#: ../src/menu.c:44
+#: ../src/menu.c:43
 msgid "Send and receive messages from your mobile phone."
 msgstr "从您的移动电话收发短消息。"
 
-#: ../src/menu.c:56
+#: ../src/menu.c:51
+msgid "translator_credits"
+msgstr "YunQiang Su <wzssyqa@gmail.com>"
+
+#: ../src/menu.c:53
 msgid "Phone Manager website"
 msgstr "电话管理器网站"
 
-#: ../src/menu.c:87
+#: ../src/menu.c:84
 msgid "_Send Message"
 msgstr "发送消息(_S)"
 
-#: ../src/ui.c:111
+#: ../src/ui.c:110
 msgid "New text message received"
 msgstr "收到了新文本消息"
 
-#: ../src/ui.c:277
+#: ../src/ui.c:286
 msgid "Message too long!"
 msgstr "消息太长！"
 
-#: ../data/phonemgr.ui.h:1
-msgid "Alerting"
-msgstr "提醒"
-
-#: ../data/phonemgr.ui.h:2
-msgid "Alternative device filename, e.g. /dev/ttyS3"
-msgstr "其它设备文件名，例如 /dev/ttyS3"
-
-#: ../data/phonemgr.ui.h:3
-msgid ""
-"Always try and reconnect whenever a connection is not immediately available. "
-"Use this with Bluetooth to ensure your phone connects whenever it comes in "
-"range."
-msgstr ""
-"每当连接不立即可用时，总使尝试重新连接。对蓝牙使用此选项可以确保，每当手机进"
-"入可用区域，自动连接。"
-
-#: ../data/phonemgr.ui.h:4
-msgid "Automated Tasks"
-msgstr "自动任务"
-
-#: ../data/phonemgr.ui.h:5
-msgid "Automatically _retry connections"
-msgstr "自动重试连接(_R)"
-
-#: ../data/phonemgr.ui.h:6
-msgid "Characters left:"
-msgstr "所剩字符数："
-
-#: ../data/phonemgr.ui.h:7
-msgid "Connect using an alternative serial device"
-msgstr "使用另外的串行设备连接"
-
-#: ../data/phonemgr.ui.h:8
-msgid "Connect using infrared communication"
-msgstr "使用红外连接"
-
-#: ../data/phonemgr.ui.h:9
-msgid "Connect using serial port 1, also known as COM1 or /dev/ttyS0"
-msgstr "使用串口 1 连接，也就是 COM1 或 /dev/ttyS0"
-
-#: ../data/phonemgr.ui.h:10
-msgid "Connect using serial port 2, also known as COM2 or /dev/ttyS1"
-msgstr "使用串口 2 连接，也就是 COM2 或 /dev/ttyS1"
-
-#: ../data/phonemgr.ui.h:11
-msgid "Connection"
-msgstr "连接"
-
-#: ../data/phonemgr.ui.h:12
-msgid "Date:"
-msgstr "日期："
-
-#: ../data/phonemgr.ui.h:13
-msgid "Enter the text message you want to send."
-msgstr "输入您想要发送的文字消息。"
-
-#: ../data/phonemgr.ui.h:14
-msgid "Enter your text message"
-msgstr "输入您的文本消息。"
-
-#: ../data/phonemgr.ui.h:15
-msgid "I_nfra red (/dev/ircomm0)"
-msgstr "红外(/dev/ircomm0)(_N)"
-
-#: ../data/phonemgr.ui.h:16
-msgid "Interface"
-msgstr "界面"
-
-#: ../data/phonemgr.ui.h:17
-msgid "Message Received"
-msgstr "收到了消息"
-
-#: ../data/phonemgr.ui.h:18
-msgid "Other _port"
-msgstr "其它端口(_P)"
-
-#: ../data/phonemgr.ui.h:19
-msgid "Phone Connection"
-msgstr "电话连接"
-
-#: ../data/phonemgr.ui.h:20
-msgid "Phone Manager Preferences"
-msgstr "电话管理器首选项"
-
-#: ../data/phonemgr.ui.h:21
-msgid "Play _sound when messages arrive"
-msgstr "收到消息时播放声音(_S)"
-
-#: ../data/phonemgr.ui.h:22
-msgid "Send Message"
-msgstr "发送消息"
-
-#: ../data/phonemgr.ui.h:23
-msgid "Sender:"
-msgstr "发送人："
-
-#: ../data/phonemgr.ui.h:24
-msgid "Serial port _1 (/dev/ttyS0)"
-msgstr "串口1(/dev/ttyS0)(_1)"
-
-#: ../data/phonemgr.ui.h:25
-msgid "Serial port _2 (/dev/ttyS1)"
-msgstr "串口2(/dev/ttyS1)(_2)"
-
-#: ../data/phonemgr.ui.h:26
-msgid "Synchronise phone's _time and date"
-msgstr "同步电话的时间和日期(_T)"
-
-#: ../data/phonemgr.ui.h:27
-msgid "Synchronise phone's time and date with the computer's clock"
-msgstr "使用计算机时钟同步电话时间和日期"
-
-#: ../data/phonemgr.ui.h:28
-msgid "Use Bluetooth wireless networking to connect to your phone"
-msgstr "使用蓝牙无线网络连接到您的电话"
-
-#: ../data/phonemgr.ui.h:29
-msgid "You have received a message"
-msgstr "您收到了一条消息"
-
-#: ../data/phonemgr.ui.h:30
-msgid "_Bluetooth"
-msgstr "蓝牙(_B)"
-
-#: ../data/phonemgr.ui.h:31
-msgid "_Message:"
-msgstr "消息(_M)："
-
-#. This is a receipt from the SMS server saying the message has been delivered to the recipient's phone
-#: ../data/phonemgr.ui.h:33
-msgid "_Notify when message is delivered"
-msgstr "消息成功传送时通知(_N)"
-
-#: ../data/phonemgr.ui.h:34
-msgid "_Pop-up window for new messages"
-msgstr "新消息弹出窗口(_P)"
-
-#: ../data/phonemgr.ui.h:35
-msgid "_Recipient:"
-msgstr "收件人(_R)："
-
-#: ../data/phonemgr.ui.h:36
-msgid "_Reply"
-msgstr "回复(_R)"
-
-#: ../data/phonemgr.ui.h:37
-msgid "_Send"
-msgstr "发送(_S)"
-
-#: ../data/gnome-phone-manager.schemas.in.h:1
-msgid "Bluetooth address of the device to connect to"
-msgstr "要连接到设备的蓝牙地址"
-
-#: ../data/gnome-phone-manager.schemas.in.h:2
-msgid ""
-"Bluetooth address of the device to connect to. Requires connection_type to "
-"be 1 to be used."
-msgstr "要连接到设备的蓝牙地址。要使用，要求 connection_type 为 1。"
-
-#: ../data/gnome-phone-manager.schemas.in.h:3
-msgid "The connection type used by gnome-phone-manager"
-msgstr "gnome-phone-manager 使用的连接类型"
-
-#: ../data/gnome-phone-manager.schemas.in.h:4
-msgid ""
-"The connection type used by gnome-phone-manager: Bluetooth is 0 Serial 1 is "
-"1 Serial 2 is 2 IrDa is 3 Other connection types are 4"
-msgstr ""
-"gnome-phone-manager 使用的连接类型：蓝牙是 0，串口 1 是 1，串口 2 是 2，红外"
-"是 3，其它是 4"
-
-#: ../data/gnome-phone-manager.schemas.in.h:5
-msgid "The device node for the serial device to connect to"
-msgstr "要连接到的串口设备的设备节点"
-
-#: ../data/gnome-phone-manager.schemas.in.h:6
-msgid ""
-"The device node for the serial device to connect to. Requires "
-"connection_type to be 4 to be used."
-msgstr "要连接到的串口设备的设备节点。要使用，要求 connection_type 为 4。"
-
-#: ../data/gnome-phone-manager.schemas.in.h:7
-msgid "Whether to play a sound alert when a new message comes in"
-msgstr "新消息到达时是否播放声音提示"
-
-#: ../data/gnome-phone-manager.schemas.in.h:8
-msgid "Whether to play a sound alert when a new message comes in."
-msgstr "新消息到达时是否播放声音提示。"
-
-#: ../data/gnome-phone-manager.schemas.in.h:9
-msgid "Whether to popup new messages on the desktop"
-msgstr "是否在桌面上弹出新消息"
-
-#: ../data/gnome-phone-manager.schemas.in.h:10
-msgid ""
-"Whether to popup new messages on the desktop as soon as they're received, as "
-"opposed to showing them when clicking on the tray icon."
-msgstr ""
-"消息到达时，是否在桌面上立即弹出新消息，与之相对的是点击托盘图标时显示。"
-
-#: ../data/gnome-phone-manager.schemas.in.h:11
-msgid "Whether to retry connecting to the mobile phone"
-msgstr "是否重新尝试连接到移动电话"
-
-#: ../data/gnome-phone-manager.schemas.in.h:12
-msgid ""
-"Whether to retry connecting to the mobile phone if the connection fails at "
-"some point."
-msgstr "如果连接在某些点失败，是否重新尝试连接到移动电话。"
-
-#: ../data/gnome-phone-manager.schemas.in.h:13
-msgid "Whether to synchronise the phone clock with the computer's"
-msgstr "是否使用计算机时钟同步手机"
-
-#: ../data/gnome-phone-manager.schemas.in.h:14
-msgid "Whether to synchronise the phone clock with the computer's."
-msgstr "是否使用计算机时钟同步手机。"
+#: ../telepathy/main.c:44
+msgid "Make all warnings fatal"
+msgstr "将所有警告视作致命错误"
 
 #~ msgid "Blinking"
 #~ msgstr "闪烁"
